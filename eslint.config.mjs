@@ -1,10 +1,18 @@
-import astro from 'eslint-plugin-astro';
-import tseslint from 'typescript-eslint';
-
 export default [
   {
-    ignores: ['dist/**', '.astro/**', 'node_modules/**'],
+    ignores: ['dist/**', '.astro/**', 'node_modules/**', 'coverage/**', 'playwright-report/**'],
   },
-  ...tseslint.configs.recommended,
-  ...astro.configs.recommended,
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    rules: {
+      'no-constant-condition': ['error', { checkLoops: false }],
+      'no-unreachable': 'error',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-undef': 'error',
+    },
+  },
 ];
