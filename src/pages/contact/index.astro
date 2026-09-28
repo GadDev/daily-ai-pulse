@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — The Daily AI Pulse"
+  description="Send a correction, project question, or security report."
+>
+  <article class="information-page">
+    <p class="eyebrow">CONTACT</p>
+    <h1>Send a note.</h1>
+    <p class="lead">
+      The publication uses its public GitHub repository for corrections, questions, and project
+      feedback.
+    </p>
+    <section>
+      <h2>Corrections and feedback</h2>
+      <p>
+        <a href="https://github.com/GadDev/daily-ai-pulse/issues/new/choose">Open an issue</a> and
+        include the story link, the point to correct, and a supporting source. A GitHub account is
+        required to file an issue.
+      </p>
+    </section>
+    <section>
+      <h2>Security or private concerns</h2>
+      <p>
+        Do not post a security vulnerability in a public issue. Follow the repository’s{' '}
+        <a href="https://github.com/GadDev/daily-ai-pulse/blob/main/SECURITY.md">
+          security reporting instructions
+        </a>
+        .
+      </p>
+    </section>
+  </article>
+</BaseLayout>

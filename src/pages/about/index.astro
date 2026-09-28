@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="About — The Daily AI Pulse"
+  description="An independent AI engineering publication by Alexandre Gadaix."
+>
+  <article class="information-page">
+    <p class="eyebrow">ABOUT THE PUBLICATION</p>
+    <h1>
+      Less noise.
+      <br />
+      Better questions.
+    </h1>
+    <p class="lead">
+      The Daily AI Pulse is an independent publication for software engineers who want to understand
+      what changed in AI, how strong the evidence is, and what to do with it.
+    </p>
+    <section>
+      <h2>What you will find here</h2>
+      <p>
+        Daily editions curate standalone stories across research, model releases, engineering,
+        developer tools, practical workflows, real deployments, and the occasional genuinely curious
+        result. A quiet day can mean a shorter edition.
+      </p>
+      <p>
+        Each story aims to distinguish a technical result from a launch claim, a primary source from
+        independent verification, and the facts from the editor’s take.
+      </p>
+    </section>
+    <section>
+      <h2>Who makes Pulse</h2>
+      <p>
+        Pulse is independently maintained by Alexandre Gadaix. Its editorial source and publication
+        code are available in the{' '}
+        <a href="https://github.com/GadDev/daily-ai-pulse">project repository</a>.
+      </p>
+      <p>
+        Research and drafting may use AI tools. Published claims still need source review and
+        editorial judgment; an AI summary is not treated as evidence on its own.
+      </p>
+    </section>
+    <section>
+      <h2>How it works</h2>
+      <p>
+        Read the <a href={`${base}methodology/`}>editorial methodology</a> for selection, evidence
+        labels, and corrections. <a href={`${base}categories/`}>Explore the desks</a> or{' '}
+        <a href={`${base}subscribe/`}>follow new editions</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  h1 {
+    max-width: 12ch;
+  }
+</style>

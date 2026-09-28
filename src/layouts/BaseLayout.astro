@@ -104,12 +104,19 @@ const structuredData =
           <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
             Pulse
           </a>
-          <a href={`${base}#categories`}>Categories</a>
-          <a href="#about">About</a>
+          <a class:list={{ active: isActive(`${base}categories`) }} href={`${base}categories/`}>
+            Categories
+          </a>
+          <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
+            About
+          </a>
         </nav>
 
         <div class="site-actions">
           <SearchButton />
+          <a class="subscribe-button" href={`${base}subscribe/`}>
+            Subscribe
+          </a>
         </div>
       </div>
     </header>
@@ -118,12 +125,7 @@ const structuredData =
       <slot />
     </main>
 
-    <footer class="site-footer" id="about">
-      <div class="site-footer__topline">
-        <span>THE DAILY AI PULSE</span>
-        <span>SIGNAL OVER NOISE IN AI</span>
-      </div>
-
+    <footer class="site-footer">
       <div class="site-footer__grid">
         <section class="footer-publication">
           <a class="brand brand--footer" href={base}>
@@ -131,56 +133,56 @@ const structuredData =
           </a>
           <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
           <p class="footer-copy">
-            A daily publication for engineers following the AI developments that actually change how
-            software is built.
+            A daily briefing on the AI developments that matter to engineers, from research and
+            tools to real-world impact.
           </p>
           <div class="footer-links-inline" aria-label="Publication links">
             <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">
               GitHub ↗
             </a>
-            <a href={`${base}rss.xml`}>RSS</a>
+            <a href={`${base}rss.xml`}>RSS feed</a>
           </div>
         </section>
 
         <section>
           <h2>Explore</h2>
           <a href={base}>Home</a>
-          <a href={`${base}pulse/`}>Pulse Archive</a>
-          <a href={`${base}search/`}>Search</a>
-          <a href={`${base}research/`}>Research</a>
-          <a href={`${base}tools/`}>Dev Tools</a>
+          <a href={`${base}pulse/`}>Latest Pulse</a>
+          <a href={`${base}categories/`}>Categories</a>
+          <a href={`${base}about/`}>About</a>
+          <a href={`${base}methodology/`}>Methodology</a>
+          <a href={`${base}rss.xml`}>RSS feed</a>
         </section>
 
         <section>
           <h2>Categories</h2>
+          <a href={`${base}research/`}>Research</a>
           <a href={`${base}models/`}>Models & Releases</a>
           <a href={`${base}engineering/`}>AI Engineering</a>
+          <a href={`${base}tools/`}>Dev Tools</a>
           <a href={`${base}practice/`}>AI in Practice</a>
           <a href={`${base}workflows/`}>Workflows</a>
           <a href={`${base}business/`}>Business & Industry</a>
           <a href={`${base}curious/`}>Curious AI</a>
         </section>
 
-        <section>
-          <h2>About</h2>
-          <p class="footer-copy">
-            Evidence-first AI engineering coverage with primary sources, explicit confidence, and a
-            clearly separated editorial point of view.
-          </p>
-          <a
-            href="https://github.com/GadDev/daily-ai-pulse/blob/main/docs/EDITORIAL.md"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Editorial standard ↗
+        <section class="footer-subscribe">
+          <h2>Subscribe</h2>
+          <p class="footer-copy">Get each edition in your feed reader.</p>
+          <a class="footer-rss-button" href={`${base}rss.xml`}>
+            Subscribe with RSS →
           </a>
-          <a href={`${base}rss.xml`}>Follow via RSS</a>
+          <p class="footer-fineprint">Email delivery is being planned.</p>
         </section>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© 2026 The Daily AI Pulse</span>
-        <span>Independent AI engineering publication</span>
+        <span>© 2026 Alexandre Gadaix. All rights reserved for editorial content.</span>
+        <span class="footer-legal">
+          <a href={`${base}privacy/`}>Privacy</a>
+          <a href={`${base}terms/`}>Terms</a>
+          <a href={`${base}contact/`}>Contact</a>
+        </span>
       </div>
     </footer>
   </body>
