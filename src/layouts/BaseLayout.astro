@@ -1,7 +1,13 @@
 ---
 import '../styles/global.css';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import SearchButton from '../components/SearchButton.astro';
+import SubscribeButton from '../components/SubscribeButton.astro';
+
 const { title = 'The Daily AI Pulse', description = 'Signal over noise in AI.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => currentPath === path || currentPath.startsWith(`${path}/`);
 ---
 <!doctype html>
 <html lang="en">
@@ -9,67 +15,76 @@ const base = import.meta.env.BASE_URL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3ebdd" />
     <title>{title}</title>
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href={base}>The Daily AI Pulse</a>
+        <a class="brand" href={base} aria-label="The Daily AI Pulse home">The Daily AI Pulse</a>
+
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href={base}>Home</a>
-          <a href={`${base}pulse/`}>Pulse</a>
-          <a href={`${base}research/`}>Research</a>
-          <a href={`${base}tools/`}>Dev Tools</a>
-          <a href={`${base}practice/`}>AI in Practice</a>
+          <a class:list={{ active: currentPath === base }} href={base}>Home</a>
+          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>Pulse</a>
+          <a class:list={{ active: isActive(`${base}research`) }} href={`${base}research/`}>Research</a>
+          <a class:list={{ active: isActive(`${base}tools`) }} href={`${base}tools/`}>Dev Tools</a>
+          <a class:list={{ active: isActive(`${base}practice`) }} href={`${base}practice/`}>AI in Practice</a>
         </nav>
-        <a class="subscribe-button" href="#subscribe">Subscribe</a>
+
+        <div class="site-actions">
+          <SearchButton />
+          <SubscribeButton />
+        </div>
       </div>
     </header>
 
     <main><slot /></main>
 
     <footer class="site-footer">
+      <div class="site-footer__topline">
+        <span>THE DAILY AI PULSE</span>
+        <span>SIGNAL OVER NOISE IN AI</span>
+      </div>
+
       <div class="site-footer__grid">
-        <section>
+        <section class="footer-publication">
           <a class="brand brand--footer" href={base}>The Daily AI Pulse</a>
-          <p class="footer-copy">Clear. Curated. Consequential.</p>
-          <p class="footer-copy">A daily briefing on the AI developments that matter, from research and tools to real-world impact.</p>
+          <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
+          <p class="footer-copy">A daily publication for engineers following the AI developments that actually change how software is built.</p>
+          <div class="footer-links-inline" aria-label="Publication links">
+            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href={`${base}rss.xml`}>RSS</a>
+          </div>
         </section>
 
         <section>
           <h2>Explore</h2>
           <a href={base}>Home</a>
-          <a href={`${base}pulse/`}>Latest Pulse</a>
+          <a href={`${base}pulse/`}>Pulse Archive</a>
           <a href={`${base}research/`}>Research</a>
           <a href={`${base}tools/`}>Dev Tools</a>
+          <a href={`${base}practice/`}>AI in Practice</a>
         </section>
 
         <section>
           <h2>Categories</h2>
-          <a href={`${base}models/`}>Models</a>
+          <a href={`${base}models/`}>Models & Releases</a>
           <a href={`${base}engineering/`}>AI Engineering</a>
-          <a href={`${base}practice/`}>AI in Practice</a>
+          <a href={`${base}workflows/`}>Workflows</a>
+          <a href={`${base}business/`}>Business & Industry</a>
           <a href={`${base}curious/`}>Curious AI</a>
         </section>
 
-        <section id="subscribe">
-          <h2>Subscribe</h2>
-          <p class="footer-copy">Get the daily AI Pulse in your inbox.</p>
-          <form class="subscribe-form" action="#" method="post">
-            <label class="sr-only" for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" />
-            <button type="submit">Subscribe</button>
-          </form>
+        <section id="subscribe" class="footer-subscribe">
+          <h2>Stay on the signal</h2>
+          <NewsletterForm />
+          <p class="footer-fineprint">One concise briefing. No hype-shaped inbox clutter.</p>
         </section>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© 2026 The Daily AI Pulse.</span>
-        <div>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </div>
+        <span>© 2026 The Daily AI Pulse</span>
+        <span>Independent AI engineering publication</span>
       </div>
     </footer>
   </body>
