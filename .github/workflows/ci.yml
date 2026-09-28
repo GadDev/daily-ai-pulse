@@ -28,5 +28,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint, format-check, type-check, and build
+      - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
+
+  browser:
+    name: Browser smoke and accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright suite
+        run: npm run test:e2e
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
