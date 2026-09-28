@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const stories = (await getCollection('stories'))
+  .filter((story) => story.data.category === 'tools')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Dev Tools — Pulse" description="IDEs, coding agents, MCP, frameworks, SDKs, and repositories.">
+  <section class="issue-head">
+    <p class="eyebrow">CATEGORY ARCHIVE</p>
+    <h1>Dev Tools</h1>
+    <p>IDEs, coding agents, MCP, frameworks, SDKs, and repositories.</p>
+  </section>
+  <section class="grid">
+    {stories.map((story) => (
+      <article class="card">
+        <p class="label">{story.data.type} · {story.data.difficulty}</p>
+        <h2><a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a></h2>
+        <p>{story.data.description}</p>
+        <div class="meta">{story.data.date.toISOString().slice(0,10)} · evidence/{story.data.evidence} · signal/{story.data.signal}</div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
