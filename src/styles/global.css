@@ -255,11 +255,11 @@ main {
 .footer-subscribe {
   min-width: 0;
 }
-.site-footer .footer-rss-button {
+.site-footer a.footer-rss-button {
   color: var(--surface);
   margin-top: 0.3rem;
 }
-.site-footer .footer-rss-button:hover {
+.site-footer a.footer-rss-button:hover {
   color: var(--ink);
 }
 .footer-fineprint {
