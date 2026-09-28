@@ -1,0 +1,63 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const editions = await getCollection('pulse');
+  const stories = await getCollection('stories');
+  const storiesById = new Map(stories.map((story) => [story.id, story]));
+
+  return editions.map((edition) => ({
+    params: { date: edition.id },
+    props: {
+      edition,
+      sections: edition.data.sections
+        .map((section) => ({
+          ...section,
+          stories: section.stories
+            .map((storyId) => storiesById.get(storyId))
+            .filter((story): story is CollectionEntry<'stories'> => Boolean(story)),
+        }))
+        .filter((section) => section.stories.length > 0),
+    },
+  }));
+}
+
+interface Props {
+  edition: CollectionEntry<'pulse'>;
+  sections: Array<{
+    key: string;
+    label: string;
+    stories: CollectionEntry<'stories'>[];
+  }>;
+}
+
+const { edition, sections } = Astro.props;
+---
+
+<BaseLayout title={`${edition.data.title} | Pulse`} description={edition.data.summary}>
+  <header class="issue-head">
+    <p class="eyebrow">Daily transmission</p>
+    <h1>{edition.data.title}</h1>
+    <p class="dek">{edition.data.summary}</p>
+  </header>
+
+  {sections.map((section) => (
+    <section class="big-story" aria-labelledby={`section-${section.key}`}>
+      <p class="label">{section.label}</p>
+      <div class="grid">
+        {section.stories.map((story) => (
+          <article class="card">
+            <p class="meta">
+              {story.data.type} · {story.data.evidence} · signal/{story.data.signal}
+            </p>
+            <h2 id={`section-${section.key}`}>
+              <a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a>
+            </h2>
+            <p>{story.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</BaseLayout>
