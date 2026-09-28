@@ -1,0 +1,31 @@
+---
+interface Props {
+  index: number;
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+  meta?: string;
+}
+
+const { index, label, title, description, href, meta } = Astro.props;
+---
+
+<article class="issue-row">
+  <span class="index">{String(index).padStart(2, '0')}</span>
+  <div class="content">
+    <p class="label">{label}</p>
+    <h2><a href={href}>{title}</a></h2>
+    <p>{description}</p>
+  </div>
+  {meta && <p class="meta">{meta}</p>}
+</article>
+
+<style>
+  .issue-row{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.4rem;padding:1.5rem 0;border-top:1px solid var(--line);align-items:start}
+  .index{font:600 .72rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-muted)}
+  h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.45rem,3vw,2rem);line-height:1.05;margin:.35rem 0 .55rem}
+  h2 a{text-decoration:none}
+  .content>p:not(.label){margin:.25rem 0;color:var(--ink-muted);line-height:1.5;max-width:60ch}
+  @media(max-width:680px){.issue-row{grid-template-columns:2.25rem 1fr}.meta{grid-column:2}}
+</style>
