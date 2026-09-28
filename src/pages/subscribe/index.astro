@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Subscribe — The Daily AI Pulse"
+  description="Follow new Daily AI Pulse editions by RSS."
+>
+  <article class="information-page">
+    <p class="eyebrow">FOLLOW THE PULSE</p>
+    <h1>The next issue, in your feed.</h1>
+    <p class="lead">
+      Add the RSS feed to your reader to get new editions and stories as they are published.
+    </p>
+    <p>
+      <a class="primary-link" href={`${base}rss.xml`}>
+        Open the RSS feed →
+      </a>
+    </p>
+    <section>
+      <h2>Email editions</h2>
+      <p>
+        Email delivery is planned but is not available yet. No address is collected on this site
+        today.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
