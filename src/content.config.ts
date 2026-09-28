@@ -19,4 +19,21 @@ const stories = defineCollection({
   }),
 });
 
-export const collections = { stories };
+const pulse = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pulse' }),
+  schema: z.object({
+    date: z.coerce.date(),
+    title: z.string(),
+    summary: z.string(),
+    featured: z.string(),
+    sections: z.array(
+      z.object({
+        key: z.string(),
+        label: z.string(),
+        stories: z.array(z.string()),
+      }),
+    ),
+  }),
+});
+
+export const collections = { stories, pulse };
