@@ -10,6 +10,11 @@ signal: high
 evidence: primary
 featured: true
 companies: []
+image: "/images/editorial/hero.svg"
+imageAlt: "Abstract editorial illustration representing the Pulse publication"
+sources:
+  - label: "Pulse product documentation"
+    url: "https://github.com/GadDev/daily-ai-pulse/blob/main/docs/PRODUCT.md"
 ---
 
 ## What changed?
