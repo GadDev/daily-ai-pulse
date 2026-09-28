@@ -16,6 +16,8 @@ const stories = defineCollection({
     evidence: z.enum(['strong', 'primary', 'preliminary', 'anecdotal', 'unverified']),
     featured: z.boolean().default(false),
     companies: z.array(z.string()).default([]),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
     sources: z.array(
       z.object({
         label: z.string(),
