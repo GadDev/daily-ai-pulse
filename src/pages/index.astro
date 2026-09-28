@@ -10,8 +10,6 @@ type StoryCategory = Story['data']['category'];
 type Section = {
   label: string;
   category: StoryCategory;
-  image: string;
-  alt: string;
 };
 
 const base = import.meta.env.BASE_URL;
@@ -25,32 +23,14 @@ const editions = (await getCollection('pulse')).sort(
 const bigStory = stories.find((story) => story.data.featured) ?? stories[0];
 const latestFor = (category: StoryCategory): Story | undefined =>
   stories.find((story) => story.data.category === category);
+const imageFor = (story: Story) =>
+  story.data.image.startsWith('/') ? `${base}${story.data.image.slice(1)}` : story.data.image;
 
 const sections: Section[] = [
-  {
-    label: 'Research',
-    category: 'research',
-    image: `${base}images/editorial/research.svg`,
-    alt: 'Layered mountain landscape',
-  },
-  {
-    label: 'Tools',
-    category: 'tools',
-    image: `${base}images/editorial/tools.svg`,
-    alt: 'Abstract geometric planes',
-  },
-  {
-    label: 'AI in Practice',
-    category: 'practice',
-    image: `${base}images/editorial/practice.svg`,
-    alt: 'Warm minimal workspace',
-  },
-  {
-    label: 'Curious',
-    category: 'curious',
-    image: `${base}images/editorial/curious.svg`,
-    alt: 'Abstract desert dunes',
-  },
+  { label: 'Research', category: 'research' },
+  { label: 'Tools', category: 'tools' },
+  { label: 'AI in Practice', category: 'practice' },
+  { label: 'Curious', category: 'curious' },
 ];
 
 const readingTime = (story: Story) =>
@@ -80,13 +60,13 @@ const latestPulseItems = editions.slice(0, 5).map((edition) => ({
       title={bigStory.data.title}
       description={bigStory.data.description}
       href={`${base}stories/${bigStory.id}/`}
-      image={`${base}images/editorial/hero.svg`}
-      imageAlt="Monumental geometric architecture in warm evening light"
+      image={imageFor(bigStory)}
+      imageAlt={bigStory.data.imageAlt}
     />
   )}
 
   <section id="categories" class="editorial-grid" aria-label="Latest stories by desk">
-    {sections.map(({ label, category, image, alt }) => {
+    {sections.map(({ label, category }) => {
       const story = latestFor(category);
       return (
         story && (
@@ -94,8 +74,8 @@ const latestPulseItems = editions.slice(0, 5).map((edition) => ({
             label={label}
             title={story.data.title}
             href={`${base}stories/${story.id}/`}
-            image={image}
-            imageAlt={alt}
+            image={imageFor(story)}
+            imageAlt={story.data.imageAlt}
             meta={readingTime(story)}
           />
         )

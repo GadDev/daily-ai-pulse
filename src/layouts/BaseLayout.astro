@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
-import NewsletterForm from '../components/NewsletterForm.astro';
 import SearchButton from '../components/SearchButton.astro';
-import SubscribeButton from '../components/SubscribeButton.astro';
 
 interface Props {
   title?: string;
@@ -112,7 +110,6 @@ const structuredData =
 
         <div class="site-actions">
           <SearchButton />
-          <SubscribeButton />
         </div>
       </div>
     </header>
@@ -149,24 +146,35 @@ const structuredData =
           <h2>Explore</h2>
           <a href={base}>Home</a>
           <a href={`${base}pulse/`}>Pulse Archive</a>
+          <a href={`${base}search/`}>Search</a>
           <a href={`${base}research/`}>Research</a>
           <a href={`${base}tools/`}>Dev Tools</a>
-          <a href={`${base}practice/`}>AI in Practice</a>
         </section>
 
         <section>
           <h2>Categories</h2>
           <a href={`${base}models/`}>Models & Releases</a>
           <a href={`${base}engineering/`}>AI Engineering</a>
+          <a href={`${base}practice/`}>AI in Practice</a>
           <a href={`${base}workflows/`}>Workflows</a>
           <a href={`${base}business/`}>Business & Industry</a>
           <a href={`${base}curious/`}>Curious AI</a>
         </section>
 
-        <section id="subscribe" class="footer-subscribe">
-          <h2>Stay on the signal</h2>
-          <NewsletterForm />
-          <p class="footer-fineprint">One concise briefing. No hype-shaped inbox clutter.</p>
+        <section>
+          <h2>About</h2>
+          <p class="footer-copy">
+            Evidence-first AI engineering coverage with primary sources, explicit confidence, and a
+            clearly separated editorial point of view.
+          </p>
+          <a
+            href="https://github.com/GadDev/daily-ai-pulse/blob/main/docs/EDITORIAL.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Editorial standard ↗
+          </a>
+          <a href={`${base}rss.xml`}>Follow via RSS</a>
         </section>
       </div>
 
