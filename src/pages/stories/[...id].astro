@@ -2,11 +2,15 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
+import PulseTake from '../../components/editorial/PulseTake.astro';
+import Evidence from '../../components/editorial/Evidence.astro';
+import TryThis from '../../components/editorial/TryThis.astro';
+import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 
 export async function getStaticPaths() {
-  const stories = (await getCollection('stories')).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-  );
+  const stories = (await getCollection('stories'))
+    .filter((story) => !story.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return stories.map((story, index) => {
     const related = stories
@@ -55,11 +59,9 @@ const publishedDate = story.data.date.toLocaleDateString('en-GB', {
   month: 'long',
   year: 'numeric',
 });
-const imageSrc = story.data.image
-  ? story.data.image.startsWith('/')
-    ? `${base}${story.data.image.slice(1)}`
-    : story.data.image
-  : undefined;
+const imageSrc = story.data.image.startsWith('/')
+  ? `${base}${story.data.image.slice(1)}`
+  : story.data.image;
 ---
 
 <BaseLayout
@@ -89,16 +91,14 @@ const imageSrc = story.data.image
       </div>
     </header>
 
-    {imageSrc && (
-      <figure class="article-hero">
-        <img src={imageSrc} alt={story.data.imageAlt ?? ''} loading="eager" />
-      </figure>
-    )}
+    <figure class="article-hero">
+      <img src={imageSrc} alt={story.data.imageAlt} loading="eager" />
+    </figure>
 
     <div class="article-layout">
       <div class="article-main">
         <div class="prose">
-          <Content />
+          <Content components={{ PulseTake, Evidence, TryThis, EditorialQuote }} />
         </div>
 
         {story.data.sources.length > 0 && (
@@ -201,11 +201,7 @@ const imageSrc = story.data.image
     margin-top: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--line);
-    font:
-      600 0.7rem/1.2 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
+    font: 600 0.7rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--muted);
@@ -263,24 +259,11 @@ const imageSrc = story.data.image
   }
   :global(.prose blockquote) {
     margin: 2.5rem 0;
-    padding: 1.4rem 1.5rem 1.5rem;
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--line);
-    font-size: 1.2rem;
-    line-height: 1.55;
-    background: rgba(255, 255, 255, 0.16);
-  }
-  :global(.prose blockquote::before) {
-    content: 'PULSE TAKE';
-    display: block;
-    margin-bottom: 0.7rem;
-    font:
-      700 0.68rem/1 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
-    letter-spacing: 0.09em;
-    color: var(--muted);
+    padding-left: 1.4rem;
+    border-left: 3px solid var(--line);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-style: italic;
   }
   :global(.prose pre) {
     overflow: auto;
@@ -357,11 +340,7 @@ const imageSrc = story.data.image
     text-decoration: none;
   }
   .article-pager span {
-    font:
-      600 0.68rem/1 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
+    font: 600 0.68rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
