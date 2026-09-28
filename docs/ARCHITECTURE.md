@@ -1,215 +1,131 @@
-# Technical Architecture
+# Architecture
 
-## 1. Overview
+## Overview
 
-The Daily AI Pulse is a **static-first editorial publication** built with Astro and TypeScript. Markdown/MDX content is validated at build time, transformed into static pages, and deployed to GitHub Pages.
+The Daily AI Pulse is a static-first technical publication built with Astro. The repository separates editorial content from presentation so stories can be authored as Markdown/MDX, validated through Astro content collections, and rendered into static pages for GitHub Pages.
 
-The architecture intentionally favors a small operational surface:
-
-```text
-Markdown / MDX
-      │
-      ▼
-Astro Content Collections
-      │
-      ├── schema validation
-      ├── sorting / filtering
-      └── static route generation
-      │
-      ▼
-Astro pages + components
-      │
-      ▼
-Static HTML / CSS / assets
-      │
-      ▼
-GitHub Pages
+```mermaid
+flowchart LR
+  A[Story Markdown / MDX] --> C[Astro Content Collections]
+  B[Daily Pulse manifests] --> C
+  C --> D[Pages + Components]
+  D --> E[Astro static build]
+  E --> F[GitHub Pages]
+  G[GitHub Actions] --> E
 ```
 
-There is no application database and no required server runtime for the publication itself.
+There is no application server in the production path. The deployed artifact is static HTML, CSS, assets, and any deliberately added client-side JavaScript.
 
-## 2. Architectural principles
-
-### Static by default
-
-Publication pages should work as generated HTML. Client-side JavaScript is justified only for interactions that need runtime state.
-
-### Content is structured data
-
-Articles are not arbitrary files discovered ad hoc. `src/content.config.ts` defines the accepted metadata shape and Astro validates it during the build.
-
-### Editorial and presentation concerns stay separate
-
-Story Markdown owns reporting and analysis. Astro components own layout and presentation. Daily-edition manifests compose existing stories rather than duplicating their prose.
-
-### Evidence is part of the data model
-
-Evidence quality, signal, difficulty, sources, categories, tags, and companies are explicit metadata. This lets the UI and future tooling reason about publication quality rather than burying it in prose.
-
-### Git is the publishing control plane
-
-Content changes move through branches and pull requests. Git history provides reviewability, attribution, rollback, and a clear publication trail.
-
-## 3. Repository structure
+## Repository boundaries
 
 ```text
-.
-├── .github/
-│   ├── workflows/          # CI and GitHub Pages deployment
-│   ├── ISSUE_TEMPLATE/     # structured contribution intake
-│   └── PULL_REQUEST_TEMPLATE.md
-├── docs/                   # product, editorial, design, architecture docs
-├── public/
-│   └── images/             # publication and editorial assets
-├── src/
-│   ├── components/         # reusable Astro UI components
-│   ├── content/
-│   │   ├── stories/        # canonical standalone stories
-│   │   └── pulse/          # dated daily-edition manifests
-│   ├── layouts/            # shared page chrome and metadata
-│   ├── pages/              # file-based routes
-│   ├── styles/             # global styles/tokens
-│   └── content.config.ts   # typed content schemas
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+src/
+├── components/          Reusable presentation and interaction components
+├── content/
+│   ├── stories/         Canonical standalone articles
+│   └── pulse/           Daily edition manifests that reference stories
+├── layouts/             Shared document/page shells
+├── pages/               File-based routes and category/archive pages
+├── styles/              Global styles and design tokens
+└── content.config.ts    Content schemas and validation
+
+public/
+└── images/              Publication and story imagery copied as static assets
+
+docs/                    Product, editorial, design, architecture, and publishing docs
+.github/workflows/        CI/CD and GitHub Pages deployment
 ```
 
-## 4. Content model
+## Content model
 
 ### Stories
 
-A story is the canonical unit of editorial content. Story frontmatter includes fields such as:
+A story is the canonical unit of editorial content. Story frontmatter is validated by `src/content.config.ts` and includes:
 
 - title and description;
 - publication date;
 - category and tags;
-- format (`pulse`, `briefing`, `deep-dive`);
+- story format (`pulse`, `briefing`, `deep-dive`);
 - difficulty and signal level;
-- evidence classification;
-- featured state;
-- companies;
-- editorial image and alt text;
-- source links.
+- evidence level;
+- companies, sources, and optional editorial image metadata.
 
-The schema is defined in `src/content.config.ts`. Full editorial semantics are documented in [`CONTENT_MODEL.md`](CONTENT_MODEL.md).
+This metadata supports category views, article pages, related-story logic, evidence labelling, feeds, and future search/filtering.
 
-### Daily Pulse editions
+### Daily editions
 
-A daily edition is an index over stories. It contains:
+A daily Pulse file is a curated manifest rather than a second copy of article text. It contains a date, title, summary, featured story ID, and ordered sections containing story IDs.
 
-- date;
-- title and summary;
-- featured story identifier;
-- named sections containing story identifiers.
+That separation prevents duplicated editorial content and allows one article to appear in daily, category, archive, and related-content surfaces.
 
-This avoids copying the same article body into multiple daily pages and makes stories independently discoverable.
+## Routing and rendering
 
-## 5. Routing
+Astro's file-based pages build the publication into static routes. Dynamic-looking routes such as individual story pages are generated at build time from the content collection.
 
-Astro's file-based routes provide:
+All internal asset and navigation paths must respect the configured GitHub Pages base path (`/daily-ai-pulse/`). Prefer `import.meta.env.BASE_URL` and `Astro.site` over hard-coded root-relative assumptions.
 
-- `/` — curated front page;
-- `/pulse/` — edition archive;
-- `/pulse/:date/` — one daily edition;
-- `/stories/:id/` — canonical story page;
-- category desks such as `/research/`, `/tools/`, and `/practice/`.
+## Design architecture
 
-The site is hosted from the `/daily-ai-pulse/` GitHub Pages base path. Internal links and asset URLs therefore need to remain base-aware.
+The project intentionally uses a small component system rather than a general-purpose application framework. Components such as story cards, the big-story treatment, navigation, article table of contents, and daily-issue rows consume validated content data and focus on presentation.
 
-## 6. Rendering and component boundaries
+The design system and page composition documents under `docs/` are the visual source of truth.
 
-Components should remain small and publication-oriented. Typical responsibilities include:
+## Build and deployment
 
-- hero / big-story presentation;
-- story cards and list rows;
-- category navigation;
-- article table of contents;
-- newsletter/search controls;
-- shared page layout.
-
-Do not move content querying into many components without a clear reason. Page-level modules should normally obtain collections, derive the required view model, and pass simple props into presentational components.
-
-## 7. Build and validation
-
-The production build is the primary correctness gate:
-
-```bash
-npm ci
-npm run build
-```
-
-`npm run build` runs Astro checking before static generation. This catches TypeScript errors and invalid content frontmatter before deployment.
-
-Pull requests should run the same command in CI so failures are found before merge.
-
-## 8. Deployment
-
-GitHub Actions deploys `main` to GitHub Pages:
+The production path is:
 
 ```text
-merge to main
-    │
-    ▼
+push to main
+    ↓
+GitHub Actions
+    ↓
 npm ci
-    │
-    ▼
+    ↓
 npm run build
-    │
-    ▼
-upload ./dist
-    │
-    ▼
+    ↓
+astro check + astro build
+    ↓
+upload static dist artifact
+    ↓
 GitHub Pages deployment
 ```
 
-The deployment job requires only the permissions needed for Pages publication. Source checkout remains read-only.
+The workflow uses Node.js 22 and GitHub's Pages deployment actions. The build should remain reproducible from `package-lock.json`.
 
-## 9. Security model
+## Architectural principles
 
-The current site has a deliberately small runtime attack surface because it is static. The main trust boundaries are therefore the **supply chain and publishing pipeline**:
+### Static by default
 
-- npm dependencies;
-- GitHub Actions;
-- contributor-provided Markdown/MDX;
-- external links and embeds;
-- uploaded assets;
-- repository permissions.
+Prefer build-time rendering and plain HTML/CSS. Add browser JavaScript only when a feature requires interaction.
 
-Future server-side or third-party integrations—newsletter providers, analytics, forms, search, CMS APIs—must be treated as new trust boundaries rather than invisible implementation details.
+### Content is data
 
-## 10. Performance model
+Editorial structure belongs in typed frontmatter and Markdown, not hard-coded page markup.
 
-The default performance budget is simple: ship static HTML and CSS, keep client JavaScript exceptional, optimize editorial images, and avoid large dependencies for small UI behavior.
+### One canonical story
 
-Before introducing a framework island or client library, ask:
+Daily editions and category surfaces should reference a story rather than duplicate its body.
 
-1. Can Astro/static HTML solve this?
-2. Does the feature need persistent client state?
-3. Is the dependency cost justified across every page that loads it?
+### Evidence is part of the schema
 
-## 11. Testing strategy
+Evidence quality, sources, and editorial metadata are product features, not informal conventions.
 
-The current baseline is build-time validation. As interactivity grows, testing should expand in layers:
+### Deployment paths are environment-aware
 
-1. **content/schema checks** — Astro content validation;
-2. **type/build checks** — `astro check` and production build;
-3. **unit tests** — only when non-trivial data transformation or application logic appears;
-4. **browser tests** — for navigation/search/subscription flows when they become functional;
-5. **accessibility checks** — automated checks plus manual keyboard review for significant UI changes.
+The project is hosted below a GitHub Pages base path, so links and assets must be generated with the configured base/site values.
 
-Do not add a test framework merely to satisfy a coverage number when the project has no meaningful runtime logic to exercise.
+### Small, reviewable changes
 
-## 12. Evolution boundaries
+Content editions, platform features, and design changes should generally be independent pull requests so failures and regressions are easier to isolate.
 
-The current architecture is appropriate while Pulse remains primarily a publication. Revisit it if the product develops requirements such as:
+## Current technical constraints
 
-- authenticated accounts;
-- personalized feeds;
-- server-side search;
-- comments or community features;
-- paid subscriptions;
-- editorial workflow requiring a database/CMS;
-- high-volume automated ingestion that cannot be managed safely through Git PRs.
+The architecture is intentionally simple, but several quality layers are not yet present:
 
-Those capabilities would justify a backend or managed data service. They should not be introduced preemptively.
+- there is no dedicated lint or formatting configuration;
+- there is no automated browser/accessibility regression suite;
+- deployment CI also acts as the primary build validation instead of a separate PR quality workflow;
+- dependencies are currently declared using `latest`, reducing version reproducibility despite the lockfile;
+- content-link and source-link integrity are not checked automatically.
+
+These are good candidates for the next engineering-hardening phase rather than reasons to add application complexity prematurely.

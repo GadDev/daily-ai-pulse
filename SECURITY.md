@@ -2,40 +2,37 @@
 
 ## Supported version
 
-Pulse is a continuously deployed static publication. Security fixes target the current `main` branch and the latest deployed GitHub Pages version. Historical commits and abandoned feature branches are not supported releases.
+The project is a continuously deployed static publication. Security fixes target the current `main` branch and the production deployment generated from it.
 
 ## Reporting a vulnerability
 
-Please **do not open a public GitHub issue** for a vulnerability that could expose users, maintainers, credentials, deployment infrastructure, unpublished content, or third-party systems.
+Please **do not open a public GitHub issue** for a vulnerability that could expose users, contributors, credentials, publishing infrastructure, or repository integrity.
 
-Preferred reporting path:
-
-1. Use GitHub's private vulnerability reporting / security-advisory flow for this repository if it is available to you.
-2. If that is unavailable, contact the repository owner through a private contact method listed on their GitHub profile.
+Use GitHub's private vulnerability-reporting mechanism for this repository when available. If private reporting is unavailable, contact the maintainer privately using the contact information on the maintainer's GitHub profile.
 
 Include, when possible:
 
-- affected URL, file, component, workflow, or commit;
-- impact and realistic attack scenario;
-- reproduction steps or proof of concept;
-- whether the issue is already public;
-- suggested mitigation if you have one.
+- the affected page, component, workflow, dependency, or configuration;
+- reproduction steps or a minimal proof of concept;
+- expected and observed impact;
+- whether credentials, private data, supply-chain integrity, or deployment permissions are involved;
+- suggested mitigations if you have them.
 
-Please avoid accessing data that is not yours, disrupting the live site, or testing against third-party systems without authorization.
+Please allow a reasonable period for validation and remediation before public disclosure. The project aims to acknowledge credible reports within five business days, but this is a best-effort target for a small independently maintained project.
 
-## Response process
+## Security scope
 
-The maintainer will aim to acknowledge a credible report within five business days, assess severity and scope, prepare a fix, and coordinate disclosure where appropriate.
-
-For a static publication, the highest-risk areas are likely to include:
+Useful reports include vulnerabilities involving:
 
 - GitHub Actions and deployment permissions;
-- compromised dependencies or build tooling;
-- unsafe external links or injected content;
-- secrets accidentally committed to source control;
-- future interactive/newsletter integrations;
-- supply-chain risks in contributor-provided assets or scripts.
+- dependency or build-chain compromise;
+- unsafe handling of secrets or credentials;
+- cross-site scripting or unsafe HTML/content rendering;
+- forms, third-party integrations, or future interactive features;
+- mechanisms that could allow an attacker to publish or alter content without authorization.
 
-## Public disclosure
+Editorial disagreements, factual corrections, broken links, and ordinary content issues should be reported through normal GitHub issues instead.
 
-Please allow a reasonable remediation period before publishing vulnerability details. After remediation, a concise security note may be added to the changelog when disclosure is useful to downstream users or contributors.
+## Secret handling
+
+This static site should not require production secrets in source control. Never commit API keys, tokens, passwords, private keys, or personal credentials to the repository. If a secret is exposed, rotate or revoke it first; removing it from Git history is not sufficient on its own.

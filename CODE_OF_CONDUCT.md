@@ -2,31 +2,29 @@
 
 ## Our standard
 
-Pulse is intended to be a technically serious, welcoming project. Contributors, reviewers, readers, and maintainers are expected to interact with professionalism, curiosity, and respect.
+The Daily AI Pulse project should be a professional, constructive place to collaborate. Contributors, maintainers, reviewers, and participants are expected to:
 
-Good participation includes:
-
-- discussing ideas and code without attacking people;
-- giving specific, actionable review feedback;
-- being open about uncertainty and correcting mistakes quickly;
-- respecting differences in experience, background, identity, and communication style;
-- distinguishing evidence from opinion, especially in editorial contributions;
-- assuming good intent while still holding changes to a high technical and editorial standard.
-
-Unacceptable behavior includes harassment, discrimination, threats, sustained personal attacks, sexualized conduct, doxxing, deliberate misinformation, spam, or disruption intended to make collaboration unsafe or unproductive.
+- communicate respectfully and assume good intent while still giving direct technical feedback;
+- critique ideas, code, evidence, and decisions rather than people;
+- welcome contributors with different backgrounds and levels of experience;
+- avoid harassment, discrimination, intimidation, personal attacks, and sexualized or otherwise inappropriate conduct;
+- respect privacy, confidentiality, intellectual property, and attribution requirements;
+- correct factual mistakes transparently when they are discovered.
 
 ## Editorial discussions
 
-Disagreement is expected in a publication that evaluates fast-moving AI research and engineering claims. Critique the evidence, methodology, implementation, or argument. Do not turn technical disagreement into personal hostility.
-
-Claims about companies, researchers, projects, vulnerabilities, or incidents should be sourced and phrased proportionally to the available evidence.
+Because this project publishes technical claims, disagreement about evidence is expected. Strong criticism is welcome when it is specific, sourced, and focused on the work. Deliberately fabricated citations, misleading attribution, coordinated harassment, or bad-faith manipulation of editorial content is not acceptable.
 
 ## Enforcement
 
-Maintainers may edit, hide, remove, or reject comments, issues, contributions, or other participation that violates this policy. Repeated or serious violations may result in temporary or permanent exclusion from project spaces.
+Project maintainers may edit or remove comments, commits, issues, pull requests, or other contributions that violate this policy. Repeated or severe violations may result in temporary or permanent exclusion from project spaces.
 
-For conduct concerns that should not be discussed publicly, contact the maintainer through the private contact methods available on the repository owner's GitHub profile. Do not open a public issue containing sensitive personal information.
+For sensitive conduct concerns, contact the maintainer privately using the contact information available on the maintainer's GitHub profile rather than opening a public issue.
 
 ## Scope
 
-This policy applies to repository issues, pull requests, review threads, discussions related to the project, and other project spaces where someone is representing Pulse.
+This policy applies in repository issues, pull requests, reviews, project discussions, and other spaces where someone is representing this project.
+
+## Attribution
+
+This policy is inspired by the principles of the Contributor Covenant and adapted for this project's engineering and editorial workflow.

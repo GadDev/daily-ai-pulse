@@ -1,125 +1,90 @@
 # Contributing to The Daily AI Pulse
 
-Thanks for considering a contribution. Pulse combines software engineering with an evidence-first technical publication, so contributions are reviewed for both implementation quality and editorial integrity.
+Thanks for helping improve the project. Contributions can include code, documentation, accessibility fixes, editorial corrections, developer tooling, or well-sourced story proposals.
 
 ## Before you start
 
-For substantial changes, open an issue first so the approach can be discussed before significant work is invested.
+1. Search existing issues and pull requests to avoid duplicate work.
+2. For significant product, architecture, or editorial changes, open an issue first so the direction can be discussed before implementation.
+3. Read the relevant project documentation under [`docs/`](./docs/), especially `EDITORIAL.md`, `CONTENT_MODEL.md`, `DESIGN_SYSTEM.md`, and `ARCHITECTURE.md`.
 
-For security vulnerabilities, **do not open a public issue**. Follow [`SECURITY.md`](SECURITY.md).
-
-For editorial corrections, include the source that supports the correction and identify the affected article or edition precisely.
-
-## Development environment
+## Local development
 
 Requirements:
 
-- Node.js 22.12 or newer in the Node 22 release line;
-- npm;
-- Git.
-
-Set up the project:
+- Node.js 22
+- npm
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Before opening a pull request:
+Before opening a pull request, run:
 
 ```bash
 npm run build
 ```
 
-The production build runs Astro's type/content checks before generating the static site.
+The build performs Astro type/content checks before producing the static site.
 
-## Project conventions
+## Branches and commits
 
-### Branches
+Use short, scoped branch names such as:
 
-Use short, descriptive branches, for example:
-
-```text
-feat/article-search
-fix/story-image-path
-content/pulse-2026-09-29
-chore/dependency-maintenance
-```
-
-### Commits
+- `feat/search`
+- `fix/mobile-navigation`
+- `content/pulse-2026-09-29`
+- `docs/editorial-policy`
 
 Use Conventional Commit-style messages where practical:
 
-```text
-feat(search): add story filtering
-fix(content): correct source metadata
-content(pulse): publish 2026-09-29 edition
-chore(ci): update Node setup
-```
-
-Keep commits focused enough that reviewers can understand why each change exists.
-
-### Pull requests
-
-A pull request should:
-
-- explain the problem or goal;
-- describe the chosen approach;
-- call out trade-offs or follow-up work;
-- include screenshots for visible UI changes;
-- pass CI;
-- avoid unrelated cleanup.
-
-## Editorial contributions
-
-Read these before proposing publication content:
-
-- [`docs/EDITORIAL.md`](docs/EDITORIAL.md)
-- [`docs/CONTENT_MODEL.md`](docs/CONTENT_MODEL.md)
-- [`docs/DAILY_ISSUE.md`](docs/DAILY_ISSUE.md)
-
-Editorial changes should follow these principles:
-
-1. Prefer primary sources.
-2. Preserve a clear line between reported facts and interpretation.
-3. Match the evidence badge to the actual source quality.
-4. Do not promote unverified claims into definitive headlines.
-5. Use original wording; do not reproduce substantial copyrighted source text.
-6. Include image alt text when adding editorial imagery.
-7. Reuse an existing canonical story instead of duplicating the same event across dates when possible.
+- `feat(search): add keyboard navigation`
+- `fix(content): correct source metadata`
+- `docs(project): clarify contribution policy`
+- `content(pulse): publish 2026-09-29 edition`
 
 ## Code contributions
 
-Keep the site static-first. Add client-side JavaScript only when interaction genuinely requires it.
+Keep changes focused and avoid unrelated refactors in the same pull request. Prefer static Astro output and progressive enhancement; add client-side JavaScript only when interaction genuinely requires it.
 
-Prefer:
+When changing UI behavior:
 
-- Astro content collections for publication data;
-- typed schemas rather than unchecked frontmatter;
-- small presentational components;
-- accessible HTML semantics;
-- relative/base-aware URLs that work under GitHub Pages;
-- simple solutions over framework-heavy abstractions.
+- preserve keyboard accessibility and semantic HTML;
+- check narrow and wide layouts;
+- avoid hard-coded GitHub Pages URLs when `import.meta.env.BASE_URL` or `Astro.site` should be used;
+- keep content rendering separate from presentation components where possible.
 
-Avoid adding a dependency for functionality that can be implemented clearly with the existing platform unless the dependency provides meaningful maintenance or correctness benefits.
+## Editorial contributions
 
-## Accessibility
+Editorial changes have a higher verification bar than ordinary copy edits.
 
-Visible changes should preserve:
+- Prefer primary sources, papers, release notes, official engineering blogs, and credible independent reporting.
+- Never invent or approximate a citation.
+- Separate vendor claims from independently verified evidence.
+- Use the evidence levels defined by the content model consistently.
+- Keep factual statements and editorial interpretation distinguishable.
+- Preserve the original publication date when correcting an existing article; document meaningful corrections in the pull request.
+- Only add images that the project has the right to publish.
 
-- keyboard navigation;
-- visible focus states;
-- meaningful alt text;
-- semantic heading order;
-- readable contrast;
-- responsive layouts without horizontal traps.
+AI-assisted research or drafting is allowed, but the contributor remains responsible for verifying every factual claim, source, quotation, license, and code change before submission.
 
-## Documentation
+## Pull requests
 
-Update documentation in the same pull request when a change affects architecture, content structure, contributor workflow, or publication policy.
+A good pull request should explain:
 
-## Licensing
+- the problem or goal;
+- what changed;
+- how it was verified;
+- any design, accessibility, editorial, deployment, or compatibility risks;
+- screenshots for visible UI changes when useful.
 
-By contributing software code, you agree that your contribution may be distributed under the software license in [`LICENSE`](LICENSE).
+Keep one primary concern per pull request whenever possible.
 
-Editorial content and original artwork are handled separately as described in [`NOTICE.md`](NOTICE.md). If you contribute authored editorial material or artwork, explicitly confirm in the pull request that you have the right to contribute it and permit Pulse to publish it.
+## Security issues
+
+Do not report vulnerabilities in a public issue. Follow [`SECURITY.md`](./SECURITY.md).
+
+## Conduct
+
+Participation in this project is governed by [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md).

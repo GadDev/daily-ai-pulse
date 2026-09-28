@@ -87,7 +87,7 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the technical design and 
 - GitHub Actions — validation and deployment
 - GitHub Pages — hosting
 
-React or other client-side islands should only be introduced when an interaction cannot be expressed cleanly with static HTML and browser primitives.
+Client-side frameworks should only be introduced when an interaction cannot be expressed cleanly with static HTML and browser primitives.
 
 ## Getting started
 
@@ -161,7 +161,8 @@ Before editing publication content, read:
 .
 ├── .github/
 │   ├── workflows/              # CI and GitHub Pages deployment
-│   ├── ISSUE_TEMPLATE/         # bug/correction intake
+│   ├── ISSUE_TEMPLATE/         # bug, feature and correction intake
+│   ├── CODEOWNERS
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── docs/                       # product, editorial, design, architecture
 ├── public/images/              # editorial and publication assets
@@ -223,13 +224,13 @@ Contributions are welcome, including code improvements, accessibility fixes, doc
 
 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request and follow [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) when participating in the project.
 
-For vulnerabilities, follow [`SECURITY.md`](SECURITY.md) rather than opening a public issue.
+For general help, see [`SUPPORT.md`](SUPPORT.md). For vulnerabilities, follow [`SECURITY.md`](SECURITY.md) rather than opening a public issue.
 
 ## Licensing
 
-The **software source code** is licensed under the [MIT License](LICENSE).
+The **software source code and technical project documentation** are licensed under the [MIT License](LICENSE).
 
-The publication's editorial content, original copy, brand assets, and original artwork are **not automatically MIT-licensed** and remain all rights reserved unless explicitly stated otherwise. See [`NOTICE.md`](NOTICE.md).
+The publication's editorial content, original copy, brand assets, and original artwork are **not automatically MIT-licensed** and remain all rights reserved unless explicitly stated otherwise. See [`CONTENT_LICENSE.md`](CONTENT_LICENSE.md) for the licensing boundary and third-party-material notes.
 
 ---
 
