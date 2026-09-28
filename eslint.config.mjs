@@ -24,4 +24,22 @@ export default [
       },
     },
   },
+  {
+    files: ['docs/reference-layouts/app.js'],
+    languageOptions: {
+      globals: {
+        document: 'readonly',
+      },
+    },
+  },
+  {
+    files: ['docs/reference-layouts/validate.mjs'],
+    languageOptions: {
+      globals: {
+        URL: 'readonly',
+        console: 'readonly',
+        process: 'readonly',
+      },
+    },
+  },
 ];
