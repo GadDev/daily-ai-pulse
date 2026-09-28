@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [OpenAI]
-image: "/images/stories/2026-09-13-openai-agents-api.svg"
+image: "/images/stories/2026-09-13-openai-agents-api.webp"
 imageAlt: "An agent runtime coordinating tools, subagents, context, and a sandbox"
 sources:
   - label: "Introducing the Agents API"

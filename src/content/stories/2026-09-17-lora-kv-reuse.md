@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-17-lora-kv-reuse.svg"
+image: "/images/stories/2026-09-17-lora-kv-reuse.webp"
 imageAlt: "Several adapter paths sharing one common cache prefix"
 sources:
   - label: "Shared-Prefix KV Reuse Across Standard LoRA Adapters"

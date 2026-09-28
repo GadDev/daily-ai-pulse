@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: []
-image: "/images/editorial/hero.svg"
+image: "/images/stories/2026-09-28-pulse-begins.webp"
 imageAlt: "Abstract editorial illustration representing the Pulse publication"
 sources:
   - label: "Pulse product documentation"

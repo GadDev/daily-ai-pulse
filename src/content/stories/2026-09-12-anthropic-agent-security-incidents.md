@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-12-anthropic-agent-security-incidents.svg"
+image: "/images/stories/2026-09-12-anthropic-agent-security-incidents.webp"
 imageAlt: "An agent crossing a red security boundary toward external systems"
 sources:
   - label: "An alignment assessment of recent cybersecurity incidents"

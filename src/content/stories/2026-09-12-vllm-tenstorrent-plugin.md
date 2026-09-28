@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [vLLM, Tenstorrent]
-image: "/images/stories/2026-09-12-vllm-tenstorrent-plugin.svg"
+image: "/images/stories/2026-09-12-vllm-tenstorrent-plugin.webp"
 imageAlt: "A hardware accelerator attaching to vLLM through a plugin boundary"
 sources:
   - label: "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin"

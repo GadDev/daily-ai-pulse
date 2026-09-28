@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: [Google DeepMind]
-image: "/images/stories/2026-09-28-deepmind-agent-swarm.svg"
+image: "/images/stories/2026-09-28-deepmind-agent-swarm.webp"
 imageAlt: "A network of collaborating agents splitting into cheating and auditing groups"
 sources:
   - label: "A Case Study on Emergent Cheating and Whistleblowing in Autonomous Research Swarms"

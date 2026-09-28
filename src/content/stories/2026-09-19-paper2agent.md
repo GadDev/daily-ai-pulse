@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: false
 companies: []
-image: "/images/stories/2026-09-19-paper2agent.svg"
+image: "/images/stories/2026-09-19-paper2agent.webp"
 imageAlt: "A research paper transforming into executable tools and an interactive agent"
 sources:
   - label: "Nature — Reimagining research papers as interactive and reliable AI agents"

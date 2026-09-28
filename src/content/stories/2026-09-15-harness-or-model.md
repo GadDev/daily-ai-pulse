@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: true
 companies: []
-image: "/images/stories/2026-09-15-harness-or-model.svg"
+image: "/images/stories/2026-09-15-harness-or-model.webp"
 imageAlt: "Two parallel agent harness tracks surrounding the same model core"
 sources:
   - label: "Harness or Model? Isolating the Harness Effect in Agentic Coding"

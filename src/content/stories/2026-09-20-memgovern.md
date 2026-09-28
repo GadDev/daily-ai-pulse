@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-20-memgovern.svg"
+image: "/images/stories/2026-09-20-memgovern.webp"
 imageAlt: "Historical issue threads distilled into compact reusable memory cards"
 sources:
   - label: "MemGovern: Enhancing Code Agents through Learning from Governed Human Experiences"

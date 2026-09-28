@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [AWS]
-image: "/images/stories/2026-09-20-aws-agent-registry.svg"
+image: "/images/stories/2026-09-20-aws-agent-registry.webp"
 imageAlt: "A governed catalog of agents, tools, and MCP servers"
 sources:
   - label: "AWS — Agent Registry is now generally available"

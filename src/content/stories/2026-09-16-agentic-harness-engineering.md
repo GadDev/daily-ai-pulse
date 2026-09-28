@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-16-agentic-harness-engineering.svg"
+image: "/images/stories/2026-09-16-agentic-harness-engineering.webp"
 imageAlt: "Agent traces feeding a harness that iteratively improves"
 sources:
   - label: "Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses"

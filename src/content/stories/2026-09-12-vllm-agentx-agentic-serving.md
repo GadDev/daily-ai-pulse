@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [vLLM, Inferact]
-image: "/images/stories/2026-09-12-vllm-agentx-agentic-serving.svg"
+image: "/images/stories/2026-09-12-vllm-agentx-agentic-serving.webp"
 imageAlt: "Layered cache tiers feeding a long-running agent session"
 sources:
   - label: "vLLM x AgentX: Optimizing for Real-World Agentic Serving"

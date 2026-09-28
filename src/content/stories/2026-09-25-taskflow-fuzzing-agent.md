@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-25-taskflow-fuzzing-agent.svg"
+image: "/images/stories/2026-09-25-taskflow-fuzzing-agent.webp"
 imageAlt: "An autonomous security loop moving from coverage to harnesses to crashes"
 sources:
   - label: "GitHub Security Lab — AI-powered fuzzing with the Taskflow Agent"

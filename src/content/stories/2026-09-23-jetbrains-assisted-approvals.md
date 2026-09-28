@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-23-jetbrains-assisted-approvals.svg"
+image: "/images/stories/2026-09-23-jetbrains-assisted-approvals.webp"
 imageAlt: "Low-risk agent actions passing automatically while high-risk actions stop at a gate"
 sources:
   - label: "GitHub — New features and improvements in Copilot for JetBrains"

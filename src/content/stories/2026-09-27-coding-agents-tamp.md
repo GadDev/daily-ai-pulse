@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-27-coding-agents-tamp.svg"
+image: "/images/stories/2026-09-27-coding-agents-tamp.webp"
 imageAlt: "A coding agent generating a reusable motion-planning program for a robot"
 sources:
   - label: "Coding Agents for Generalized Task and Motion Planning Problems"

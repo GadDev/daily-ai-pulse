@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [Uber]
-image: "/images/stories/2026-09-21-uber-software-factory.svg"
+image: "/images/stories/2026-09-21-uber-software-factory.webp"
 imageAlt: "A software factory assembly line with many agent stations"
 sources:
   - label: "Uber — Running a Software Factory Efficiently at Uber Scale"

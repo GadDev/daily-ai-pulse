@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [Anthropic]
-image: "/images/stories/2026-09-14-anthropic-threat-report.svg"
+image: "/images/stories/2026-09-14-anthropic-threat-report.webp"
 imageAlt: "Abstract security radar over layered technical panels"
 sources:
   - label: "Anthropic — Detecting and countering misuse of AI: September 2026"

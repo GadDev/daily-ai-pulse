@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: true
 companies: [Anthropic, OpenAI, GitHub, Google]
-image: "/images/stories/2026-09-20-plugin4shell.svg"
+image: "/images/stories/2026-09-20-plugin4shell.webp"
 imageAlt: "A trusted plugin package being swapped behind a pinned security check"
 sources:
   - label: "Netics Labs — Plugin4Shell: When a Trusted Plugin Is Not the Code"

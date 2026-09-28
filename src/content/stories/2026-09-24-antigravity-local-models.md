@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Google]
-image: "/images/stories/2026-09-24-antigravity-local-models.svg"
+image: "/images/stories/2026-09-24-antigravity-local-models.webp"
 imageAlt: "A local workstation and a cloud planner connected in a hybrid agent workflow"
 sources:
   - label: "Google Developers — Local AI models in the Antigravity SDK"

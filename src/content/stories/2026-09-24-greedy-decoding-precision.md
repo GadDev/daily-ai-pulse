@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-24-greedy-decoding-precision.svg"
+image: "/images/stories/2026-09-24-greedy-decoding-precision.webp"
 imageAlt: "Two numerically different inference paths diverging from the same prompt"
 sources:
   - label: "Greedy Decoding Is Not Precision-Invariant"

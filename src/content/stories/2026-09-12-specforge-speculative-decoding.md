@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: [SGLang]
-image: "/images/stories/2026-09-12-specforge-speculative-decoding.svg"
+image: "/images/stories/2026-09-12-specforge-speculative-decoding.webp"
 imageAlt: "A small draft model proposing tokens to a larger verifier"
 sources:
   - label: "SpecForge: A Flexible and Efficient Open-Source Training Framework for Speculative Decoding"

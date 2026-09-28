@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [Google]
-image: "/images/stories/2026-09-18-android-bench-2.svg"
+image: "/images/stories/2026-09-18-android-bench-2.webp"
 imageAlt: "A long engineering path crossing several Android development checkpoints"
 sources:
   - label: "Android Developers — Android Bench 2.0"

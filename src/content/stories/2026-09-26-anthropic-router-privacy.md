@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-26-anthropic-router-privacy.svg"
+image: "/images/stories/2026-09-26-anthropic-router-privacy.webp"
 imageAlt: "User data passing through an intermediary model router toward several downstream systems"
 sources:
   - label: "Anthropic — Countering misuse of AI: September 2026"

@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [OpenAI, 1Password]
-image: "/images/stories/2026-09-16-1password-codex.svg"
+image: "/images/stories/2026-09-16-1password-codex.webp"
 imageAlt: "A secure software delivery pipeline with agent checkpoints"
 sources:
   - label: "OpenAI — 1Password increases engineering productivity 21% with Codex"

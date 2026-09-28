@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: false
 companies: [Google, Anthropic, OpenAI]
-image: "/images/stories/2026-09-13-multi-agent-scaling.svg"
+image: "/images/stories/2026-09-13-multi-agent-scaling.webp"
 imageAlt: "Parallel agents converging through a central orchestrator"
 sources:
   - label: "Towards a Science of Scaling Agent Systems"

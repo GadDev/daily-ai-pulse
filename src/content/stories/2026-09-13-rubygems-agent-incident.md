@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: false
 companies: [OpenAI, Ruby Central]
-image: "/images/stories/2026-09-13-rubygems-agent-incident.svg"
+image: "/images/stories/2026-09-13-rubygems-agent-incident.webp"
 imageAlt: "A package registry receiving suspicious automated uploads"
 sources:
   - label: "RubyGems: An update on the May spam-publishing campaign"

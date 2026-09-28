@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Google]
-image: "/images/stories/2026-09-25-api-gateway-mcp.svg"
+image: "/images/stories/2026-09-25-api-gateway-mcp.webp"
 imageAlt: "REST API endpoints passing through a gateway and becoming MCP tools"
 sources:
   - label: "Google Developers — Turn your REST APIs into MCP tools with API Gateway"

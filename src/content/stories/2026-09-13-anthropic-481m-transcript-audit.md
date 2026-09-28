@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-13-anthropic-481m-transcript-audit.svg"
+image: "/images/stories/2026-09-13-anthropic-481m-transcript-audit.webp"
 imageAlt: "A huge field of agent transcripts being filtered through an audit funnel"
 sources:
   - label: "An alignment assessment of recent cybersecurity incidents"

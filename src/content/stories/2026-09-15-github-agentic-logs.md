@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-15-github-agentic-logs.svg"
+image: "/images/stories/2026-09-15-github-agentic-logs.webp"
 imageAlt: "Structured agent logs flowing through labeled MCP tool calls"
 sources:
   - label: "GitHub Agentic Workflows — Weekly Update, September 14"

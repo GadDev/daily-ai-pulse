@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [Google, Speakeasy]
-image: "/images/stories/2026-09-18-openapi-sdk-generation.svg"
+image: "/images/stories/2026-09-18-openapi-sdk-generation.webp"
 imageAlt: "One API contract fanning out into several generated SDK packages"
 sources:
   - label: "Google Developers — Why client SDK generation belongs in the open"

@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-28-claude-plugin-ecosystem.svg"
+image: "/images/stories/2026-09-28-claude-plugin-ecosystem.webp"
 imageAlt: "Plugin packages moving through review into a shared Claude directory"
 sources:
   - label: "Claude — Build plugins for Claude"

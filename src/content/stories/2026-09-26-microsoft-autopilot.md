@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [Microsoft]
-image: "/images/stories/2026-09-26-microsoft-autopilot.svg"
+image: "/images/stories/2026-09-26-microsoft-autopilot.webp"
 imageAlt: "A persistent enterprise agent continuing work across multiple days"
 sources:
   - label: "Microsoft — Introducing the new Copilot with Home, Code and Autopilot"

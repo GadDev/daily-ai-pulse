@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Uber]
-image: "/images/stories/2026-09-21-uber-agentic-search-loop.svg"
+image: "/images/stories/2026-09-21-uber-agentic-search-loop.webp"
 imageAlt: "A circular measure identify fix validate performance loop"
 sources:
   - label: "Uber — Halving the Time: How Uber Eats Rebuilt Its Search Pipeline"

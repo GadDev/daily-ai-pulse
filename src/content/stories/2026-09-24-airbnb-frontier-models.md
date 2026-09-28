@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [Airbnb, OpenAI]
-image: "/images/stories/2026-09-24-airbnb-frontier-models.svg"
+image: "/images/stories/2026-09-24-airbnb-frontier-models.webp"
 imageAlt: "An internal developer platform routing work to several frontier models"
 sources:
   - label: "Airbnb — Expanding access to OpenAI frontier models"

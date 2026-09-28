@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-21-agentserve.svg"
+image: "/images/stories/2026-09-21-agentserve.webp"
 imageAlt: "Prefill and decode workloads separated into parallel GPU lanes"
 sources:
   - label: "AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving"
