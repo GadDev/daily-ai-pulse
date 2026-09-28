@@ -1,0 +1,31 @@
+name: Editorial correction
+description: Report a factual, sourcing, attribution, or clarity problem in a published story
+title: "content: correction for "
+labels: ["content"]
+body:
+  - type: input
+    id: article
+    attributes:
+      label: Article or edition
+      description: Paste the Pulse URL or repository path.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What should be corrected?
+      description: Quote or identify the specific claim, source, attribution, date, or wording that needs review.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Supporting evidence
+      description: Link the primary source or strongest available evidence supporting the correction.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Suggested correction
+      description: Optional wording or a concise description of the desired change.
