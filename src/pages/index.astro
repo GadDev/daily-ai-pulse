@@ -2,108 +2,179 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BigStory from '../components/BigStory.astro';
-import LatestPulseList from '../components/LatestPulseList.astro';
 import StoryCard from '../components/StoryCard.astro';
+import LatestPulseList from '../components/LatestPulseList.astro';
+import {
+  categoryLabel,
+  evidenceLabel,
+  formatDate,
+  readingTime,
+  storyCount,
+  storyImage,
+  storyUrl,
+} from '../lib/editorial';
 
 type Story = CollectionEntry<'stories'>;
-type StoryCategory = Story['data']['category'];
-type Section = {
-  label: string;
-  category: StoryCategory;
-};
-
 const base = import.meta.env.BASE_URL;
-const stories = (await getCollection('stories')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const stories = (await getCollection('stories')).filter((story) => !story.data.draft);
 const editions = (await getCollection('pulse')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-
-const bigStory = stories.find((story) => story.data.featured) ?? stories[0];
-const latestFor = (category: StoryCategory): Story | undefined =>
-  stories.find((story) => story.data.category === category);
-const imageFor = (story: Story) =>
-  story.data.image.startsWith('/') ? `${base}${story.data.image.slice(1)}` : story.data.image;
-
-const sections: Section[] = [
-  { label: 'Research', category: 'research' },
-  { label: 'Tools', category: 'tools' },
-  { label: 'AI in Practice', category: 'practice' },
-  { label: 'Curious', category: 'curious' },
-];
-
-const readingTime = (story: Story) =>
-  story.data.type === 'deep-dive'
-    ? '8 min read'
-    : story.data.type === 'briefing'
-      ? '4 min read'
-      : '3 min read';
-
-const latestPulseItems = editions.slice(0, 5).map((edition) => ({
-  date: edition.data.date
-    .toLocaleDateString('en-US', {
-      month: 'short',
-      day: '2-digit',
-      year: 'numeric',
-    })
-    .toUpperCase(),
-  title: edition.data.title.replace(/^The Daily AI Pulse\s*[—-]\s*/i, ''),
-  href: `${base}pulse/${edition.id}/`,
+const edition = editions[0];
+const storyById = new Map(stories.map((story) => [story.id, story]));
+const selected = edition
+  ? [...new Set(edition.data.sections.flatMap((section) => section.stories))]
+      .map((id) => storyById.get(id))
+      .filter((story): story is Story => Boolean(story))
+  : [];
+const featured = edition ? storyById.get(edition.data.featured) : undefined;
+const lead = featured ?? selected[0];
+const supporting = selected
+  .filter((story) => story.id !== lead?.id)
+  .sort((a, b) => Number(b.data.category === 'research') - Number(a.data.category === 'research'));
+const recent = editions.slice(0, 3).map((item) => ({
+  date: item.data.date,
+  title: item.data.summary,
+  href: `${base}pulse/${item.id}/`,
+  count: storyCount(item),
 }));
 ---
 
 <BaseLayout title="The Daily AI Pulse — Signal over noise in AI">
-  {bigStory && (
+  {edition && (
+    <div class="edition-rail">
+      <time datetime={edition.data.date.toISOString()}>
+        {formatDate(edition.data.date, {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })}
+      </time>
+      <a href={`${base}pulse/${edition.id}/`}>Today's edition ↗</a>
+      <span>{storyCount(edition)} selected stories</span>
+    </div>
+  )}
+
+  {lead && (
     <BigStory
-      label="BIG STORY"
-      title={bigStory.data.title}
-      description={bigStory.data.description}
-      href={`${base}stories/${bigStory.id}/`}
-      image={imageFor(bigStory)}
-      imageAlt={bigStory.data.imageAlt}
+      title={lead.data.title}
+      description={lead.data.description}
+      href={storyUrl(lead)}
+      image={storyImage(lead)}
+      imageAlt={lead.data.imageAlt}
+      category={categoryLabel(lead)}
+      evidence={evidenceLabel(lead)}
+      readingTime={readingTime(lead)}
     />
   )}
 
-  <section id="categories" class="editorial-grid" aria-label="Latest stories by desk">
-    {sections.map(({ label, category }) => {
-      const story = latestFor(category);
-      return (
-        story && (
+  {supporting.length > 0 && (
+    <section class="home-section" aria-labelledby="signal-title">
+      <div class="section-intro">
+        <p class="eyebrow">SELECTED FROM THE EDITION</p>
+        <h2 id="signal-title">Today's signal</h2>
+      </div>
+      <div class="signal-grid">
+        {supporting.map((story, index) => (
           <StoryCard
-            label={label}
+            label={categoryLabel(story)}
             title={story.data.title}
-            href={`${base}stories/${story.id}/`}
-            image={imageFor(story)}
+            description={story.data.description}
+            href={storyUrl(story)}
+            image={index === 0 ? storyImage(story) : undefined}
             imageAlt={story.data.imageAlt}
-            meta={readingTime(story)}
+            meta={`${evidenceLabel(story)} · ${readingTime(story)}`}
           />
-        )
-      );
-    })}
-  </section>
+        ))}
+      </div>
+      <a class="section-link" href={`${base}pulse/${edition?.id}/`}>
+        Read the full edition →
+      </a>
+    </section>
+  )}
 
-  {latestPulseItems.length > 0 && <LatestPulseList items={latestPulseItems} />}
+  {recent.length > 0 && <LatestPulseList items={recent} />}
+
+  <aside class="home-follow">
+    <div>
+      <p class="eyebrow">STAY IN THE LOOP</p>
+      <h2>One useful briefing at a time.</h2>
+      <p>Follow the feed now; email delivery is planned.</p>
+    </div>
+    <a class="subscribe-button" href={`${base}subscribe/`}>
+      Follow with RSS →
+    </a>
+  </aside>
 </BaseLayout>
 
 <style>
-  .editorial-grid {
+  .edition-rail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+  .edition-rail a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .home-section {
+    padding: 2.7rem 0 4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-intro {
+    margin-bottom: 1.4rem;
+  }
+  .section-intro h2,
+  .home-follow h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin: 0.35rem 0;
+  }
+  .signal-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.35rem;
-    padding: 3rem 0 4.5rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
   }
-
-  @media (max-width: 900px) {
-    .editorial-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .signal-grid :global(.story-card + .story-card) {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
   }
-
-  @media (max-width: 560px) {
-    .editorial-grid {
+  .section-link {
+    display: inline-block;
+    margin-top: 1rem;
+    text-underline-offset: 0.25em;
+    font-size: 0.9rem;
+  }
+  .home-follow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0 1rem;
+    padding: 2rem;
+    background: var(--surface);
+  }
+  .home-follow p:last-child {
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 700px) {
+    .signal-grid {
       grid-template-columns: 1fr;
-      gap: 1.75rem;
+    }
+    .home-follow {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

@@ -2,29 +2,34 @@
 interface Props {
   label: string;
   title: string;
+  description?: string;
   href: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   meta?: string;
 }
 
-const { label, title, href, image, imageAlt, meta } = Astro.props;
+const { label, title, description, href, image, imageAlt, meta } = Astro.props;
 ---
 
 <article class="story-card">
   <p class="label">{label}</p>
-  <a class="story-image" href={href} aria-label={`Read ${title}`}>
-    <img src={image} alt={imageAlt} loading="lazy" />
-  </a>
-  <h2>
+  {image && (
+    <a class="story-image" href={href} aria-label={`Read ${title}`}>
+      <img src={image} alt={imageAlt ?? ''} loading="lazy" />
+    </a>
+  )}
+  <h3>
     <a href={href}>{title}</a>
-  </h2>
+  </h3>
+  {description && <p class="description">{description}</p>}
   {meta && <p class="meta">{meta}</p>}
 </article>
 
 <style>
   .story-card {
     min-width: 0;
+    padding: 0 0 1.4rem;
   }
   .label {
     margin: 0 0 0.85rem;
@@ -34,7 +39,6 @@ const { label, title, href, image, imageAlt, meta } = Astro.props;
   .story-image {
     display: block;
     aspect-ratio: 1.95/1;
-    border-radius: 5px;
     overflow: hidden;
     background: var(--surface-alt);
   }
@@ -48,15 +52,20 @@ const { label, title, href, image, imageAlt, meta } = Astro.props;
   .story-image:hover img {
     transform: scale(1.02);
   }
-  h2 {
+  h3 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    font-size: clamp(1.45rem, 2vw, 2rem);
     line-height: 1.07;
     letter-spacing: -0.025em;
     margin: 0.8rem 0 0.45rem;
   }
-  h2 a {
+  h3 a {
     text-decoration: none;
+  }
+  .description {
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0 0 0.8rem;
   }
   .meta {
     margin: 0;

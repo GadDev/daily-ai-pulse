@@ -5,6 +5,14 @@ import CategoryNav from './CategoryNav.astro';
 import SectionHeading from './SectionHeading.astro';
 import StoryListRow from './StoryListRow.astro';
 import type { CategoryConfig } from '../lib/categories';
+import {
+  categoryLabel,
+  evidenceLabel,
+  formatDate,
+  readingTime,
+  storyImage,
+  storyUrl,
+} from '../lib/editorial';
 
 interface Props {
   config: CategoryConfig;
@@ -18,30 +26,89 @@ const stories = (await getCollection('stories'))
 ---
 
 <BaseLayout title={`${config.title} — Pulse`} description={config.description}>
-  <section class="issue-head">
-    <p class="eyebrow">{config.eyebrow}</p>
-    <h1>{config.title}</h1>
-    <p>{config.dek}</p>
-  </section>
+  <header class="category-intro">
+    <div>
+      <p class="eyebrow">CATEGORY / {config.title.toUpperCase()}</p>
+      <h1>{config.title}</h1>
+      <p class="lead">{config.dek}</p>
+      <p class="story-count">
+        {stories.length} {stories.length === 1 ? 'story' : 'stories'} · Newest first
+      </p>
+    </div>
+    {stories[0] && (
+      <img src={storyImage(stories[0])} alt={stories[0].data.imageAlt} loading="eager" />
+    )}
+  </header>
 
   <CategoryNav active={config.key} />
 
   <section class="archive-list">
-    <SectionHeading title={config.sectionTitle} />
-    {stories.map((story) => (
+    <SectionHeading
+      title={config.sectionTitle}
+      href={`${base}methodology/`}
+      linkLabel="Evidence guide ↗"
+    />
+    {stories.map((story, index) => (
       <StoryListRow
         title={story.data.title}
         description={story.data.description}
-        href={`${base}stories/${story.id}/`}
-        date={story.data.date.toLocaleDateString('en-GB')}
-        meta={`${story.data.type} · ${story.data.difficulty} · evidence/${story.data.evidence} · signal/${story.data.signal}`}
+        href={storyUrl(story)}
+        date={formatDate(story.data.date, { day: '2-digit', month: 'short', year: 'numeric' })}
+        dateTime={story.data.date.toISOString()}
+        category={categoryLabel(story)}
+        evidence={evidenceLabel(story)}
+        readingTime={readingTime(story)}
+        image={index < 3 ? storyImage(story) : undefined}
+        imageAlt={story.data.imageAlt}
       />
     ))}
   </section>
 </BaseLayout>
 
 <style>
+  .category-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.45fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding: 3.5rem 0 2.5rem;
+  }
+  .category-intro h1 {
+    font:
+      700 clamp(3.4rem, 7vw, 6rem)/0.95 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.055em;
+    margin: 0.5rem 0;
+  }
+  .lead {
+    max-width: 35rem;
+    color: var(--muted);
+    font:
+      1.25rem/1.4 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .story-count {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+  .category-intro img {
+    width: 100%;
+    aspect-ratio: 1.5;
+    object-fit: cover;
+    background: var(--surface);
+  }
   .archive-list {
-    padding: 3rem 0 1rem;
+    padding: 2.2rem 0 1rem;
+  }
+  @media (max-width: 700px) {
+    .category-intro {
+      grid-template-columns: 1fr;
+      padding-top: 2.5rem;
+    }
+    .category-intro img {
+      max-height: 16rem;
+    }
   }
 </style>

@@ -6,27 +6,34 @@ interface Props {
   description: string;
   href: string;
   meta?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
-const { index, label, title, description, href, meta } = Astro.props;
+const { index, label, title, description, href, meta, image, imageAlt } = Astro.props;
 ---
 
 <article class="issue-row">
   <span class="index">{String(index).padStart(2, '0')}</span>
+  {image && (
+    <a class="issue-image" href={href} aria-label={`Read ${title}`}>
+      <img src={image} alt={imageAlt ?? ''} loading="lazy" />
+    </a>
+  )}
   <div class="content">
     <p class="label">{label}</p>
-    <h2>
+    <h3>
       <a href={href}>{title}</a>
-    </h2>
+    </h3>
     <p>{description}</p>
+    {meta && <p class="meta">{meta}</p>}
   </div>
-  {meta && <p class="meta">{meta}</p>}
 </article>
 
 <style>
   .issue-row {
     display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    grid-template-columns: 2.5rem minmax(9rem, 0.27fr) minmax(0, 1fr);
     gap: 1.4rem;
     padding: 1.5rem 0;
     border-top: 1px solid var(--line);
@@ -40,13 +47,23 @@ const { index, label, title, description, href, meta } = Astro.props;
       monospace;
     color: var(--ink-muted);
   }
-  h2 {
+  .issue-image {
+    display: block;
+    background: var(--surface);
+  }
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.4;
+    object-fit: cover;
+  }
+  h3 {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: clamp(1.45rem, 3vw, 2rem);
     line-height: 1.05;
     margin: 0.35rem 0 0.55rem;
   }
-  h2 a {
+  h3 a {
     text-decoration: none;
   }
   .content > p:not(.label) {
@@ -55,11 +72,15 @@ const { index, label, title, description, href, meta } = Astro.props;
     line-height: 1.5;
     max-width: 60ch;
   }
+  .content .meta {
+    margin-top: 0.9rem !important;
+    font-size: 0.76rem;
+  }
   @media (max-width: 680px) {
     .issue-row {
       grid-template-columns: 2.25rem 1fr;
     }
-    .meta {
+    .issue-image {
       grid-column: 2;
     }
   }

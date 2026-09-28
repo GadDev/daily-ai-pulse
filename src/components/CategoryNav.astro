@@ -49,7 +49,8 @@ const { active } = Astro.props;
     border-bottom: 1px solid transparent;
   }
   a:hover,
-  a.active {
+  a.active,
+  a:focus-visible {
     color: var(--ink);
     border-bottom-color: var(--ink);
   }

@@ -9,28 +9,30 @@ const base = import.meta.env.BASE_URL;
   description="Search Pulse stories and daily editions."
 >
   <section class="search-page">
-    <p class="eyebrow">ARCHIVE SEARCH</p>
-    <h1>Search Pulse</h1>
+    <p class="eyebrow">SEARCH THE PUBLICATION</p>
+    <h1>Find the signal.</h1>
     <p class="search-dek">
-      Find stories across research, models, engineering, tools, workflows, and practice.
+      Search stories and editions by topic, tool, company, or engineering problem.
     </p>
 
     <form id="search-form" class="search-form" role="search">
-      <label for="search-input" class="sr-only">
-        Search Pulse
-      </label>
+      <label for="search-input">Search the publication</label>
       <input
         id="search-input"
         name="q"
         type="search"
         autocomplete="off"
-        placeholder="Search the publication…"
+        placeholder="Try “agent security”"
       />
-      <button type="submit">Search</button>
+      <button type="submit">Search →</button>
     </form>
 
     <p id="search-status" class="search-status" aria-live="polite"></p>
     <div id="search-results" class="search-results"></div>
+    <p class="search-hint">
+      Explore desks: <a href={`${base}research/`}>Research</a> ·
+      <a href={`${base}tools/`}>Dev Tools</a> ·<a href={`${base}engineering/`}>AI Engineering</a>
+    </p>
   </section>
 
   <script define:vars={{ base }}>
@@ -61,6 +63,12 @@ const base = import.meta.env.BASE_URL;
         const items = await Promise.all(search.results.slice(0, 30).map((result) => result.data()));
 
         status.textContent = `${search.results.length} result${search.results.length === 1 ? '' : 's'} for “${trimmed}”.`;
+        if (search.results.length === 0) {
+          const empty = document.createElement('p');
+          empty.className = 'search-empty';
+          empty.textContent = 'No matches yet. Try a broader topic or browse a desk below.';
+          resultsRoot.append(empty);
+        }
 
         for (const item of items) {
           const article = document.createElement('article');
@@ -68,7 +76,7 @@ const base = import.meta.env.BASE_URL;
 
           const meta = document.createElement('p');
           meta.className = 'eyebrow';
-          meta.textContent = item.meta?.title?.includes('Pulse') ? 'PULSE' : 'STORY';
+          meta.textContent = item.url.includes('/stories/') ? 'STORY' : 'PULSE';
 
           const title = document.createElement('h2');
           const link = document.createElement('a');
@@ -109,14 +117,14 @@ const base = import.meta.env.BASE_URL;
   .search-page {
     max-width: 860px;
     margin: 0 auto;
-    padding: 5rem 0 2rem;
+    padding: 4rem 0 2rem;
   }
   h1 {
     margin: 0.35rem 0 1rem;
     max-width: 10ch;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    line-height: 0.9;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    line-height: 0.98;
     letter-spacing: -0.05em;
   }
   .search-dek {
@@ -133,6 +141,24 @@ const base = import.meta.env.BASE_URL;
     gap: 0.75rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--ink);
+  }
+  .search-form label {
+    grid-column: 1/-1;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .search-hint {
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: 0.87rem;
+  }
+  .search-hint a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+  }
+  :global(.search-empty) {
+    padding: 2rem 0;
+    color: var(--muted);
   }
   .search-form input {
     width: 100%;
