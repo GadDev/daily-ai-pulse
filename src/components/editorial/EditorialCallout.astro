@@ -9,7 +9,9 @@ const { label, kind } = Astro.props;
 
 <aside class:list={['editorial-callout', `editorial-callout--${kind}`]}>
   <p class="editorial-callout__label">{label}</p>
-  <div class="editorial-callout__body"><slot /></div>
+  <div class="editorial-callout__body">
+    <slot />
+  </div>
 </aside>
 
 <style>
@@ -30,7 +32,11 @@ const { label, kind } = Astro.props;
   .editorial-callout__label {
     margin: 0 0 0.75rem;
     color: var(--muted);
-    font: 700 0.68rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    font:
+      700 0.68rem/1 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
     letter-spacing: 0.09em;
     text-transform: uppercase;
   }
