@@ -1,0 +1,25 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+  meta?: string;
+}
+
+const { label, title, description, href, meta } = Astro.props;
+---
+
+<article class="story-card">
+  <p class="label">{label}</p>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{description}</p>
+  {meta && <p class="meta">{meta}</p>}
+</article>
+
+<style>
+  .story-card{padding:1.5rem 0;border-top:1px solid var(--line)}
+  h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.02;margin:.45rem 0 .7rem;max-width:18ch}
+  h3 a{text-decoration:none}
+  .story-card>p:not(.label):not(.meta){max-width:48ch;line-height:1.55;color:var(--ink-muted)}
+</style>
