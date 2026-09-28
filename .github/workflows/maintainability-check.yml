@@ -1,0 +1,26 @@
+name: Validate maintainability refactor
+
+on:
+  push:
+    branches: [refactor/content-maintainability-v2]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-maintainability-v2
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
