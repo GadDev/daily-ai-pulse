@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-12-retrothinker-speech-reasoning.svg"
+image: "/images/stories/2026-09-12-retrothinker-speech-reasoning.webp"
 imageAlt: "A speech waveform looping back through a reasoning correction path"
 sources:
   - label: "RetroThinker: Enabling Retrospective Thinking in Speech LLMs"

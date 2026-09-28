@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-17-mimic-code-reasoning.svg"
+image: "/images/stories/2026-09-17-mimic-code-reasoning.webp"
 imageAlt: "Natural language transforming into structured program blocks"
 sources:
   - label: "The Imitation Game: When LLMs Learn to Reason Like Programs via Code-Centric Reasoning Data Synthesis"

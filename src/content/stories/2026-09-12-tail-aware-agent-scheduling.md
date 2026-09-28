@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-12-tail-aware-agent-scheduling.svg"
+image: "/images/stories/2026-09-12-tail-aware-agent-scheduling.webp"
 imageAlt: "Queued agent turns released selectively through a scheduler"
 sources:
   - label: "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows"

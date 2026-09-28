@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [AWS]
-image: "/images/stories/2026-09-20-agentcore-runtime-v2.svg"
+image: "/images/stories/2026-09-20-agentcore-runtime-v2.webp"
 imageAlt: "Isolated microVM sessions expanding and reclaiming memory dynamically"
 sources:
   - label: "AWS — The new AgentCore Runtime is now available"

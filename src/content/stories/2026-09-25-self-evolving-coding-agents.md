@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-25-self-evolving-coding-agents.svg"
+image: "/images/stories/2026-09-25-self-evolving-coding-agents.webp"
 imageAlt: "A coding agent growing new memory tools and skills across repeated iterations"
 sources:
   - label: "Self-Evolving Coding Agents"

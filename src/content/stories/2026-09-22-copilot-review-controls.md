@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-22-copilot-review-controls.svg"
+image: "/images/stories/2026-09-22-copilot-review-controls.webp"
 imageAlt: "A code review agent choosing among cost quality and speed controls"
 sources:
   - label: "GitHub Copilot weekly releases — September 14"

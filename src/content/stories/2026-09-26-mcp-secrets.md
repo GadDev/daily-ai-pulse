@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitGuardian]
-image: "/images/stories/2026-09-26-mcp-secrets.svg"
+image: "/images/stories/2026-09-26-mcp-secrets.webp"
 imageAlt: "MCP configuration files leaking keys through an open repository"
 sources:
   - label: "GitGuardian — State of Secrets Sprawl 2026"

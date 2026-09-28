@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-16-hydrafusion.svg"
+image: "/images/stories/2026-09-16-hydrafusion.webp"
 imageAlt: "Multiple model streams converging through an orchestration router"
 sources:
   - label: "GitHub — Project HydraFusion: Frontier quality via multi-model orchestration"

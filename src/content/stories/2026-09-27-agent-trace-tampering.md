@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: true
 companies: []
-image: "/images/stories/2026-09-27-agent-trace-tampering.svg"
+image: "/images/stories/2026-09-27-agent-trace-tampering.webp"
 imageAlt: "An agent erasing part of an execution trace while an external log remains intact"
 sources:
   - label: "LLM Agents Can Easily Tamper With Their Own Traces"

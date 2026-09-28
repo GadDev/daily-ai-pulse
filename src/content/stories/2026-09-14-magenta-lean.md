@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-14-magenta-lean.svg"
+image: "/images/stories/2026-09-14-magenta-lean.webp"
 imageAlt: "Mathematical symbols passing through a formal verification gate"
 sources:
   - label: "Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification"

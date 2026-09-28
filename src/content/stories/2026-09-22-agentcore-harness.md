@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [AWS]
-image: "/images/stories/2026-09-22-agentcore-harness.svg"
+image: "/images/stories/2026-09-22-agentcore-harness.webp"
 imageAlt: "An isolated agent harness containing model, tools, memory, and shell"
 sources:
   - label: "AWS — AgentCore managed harness"

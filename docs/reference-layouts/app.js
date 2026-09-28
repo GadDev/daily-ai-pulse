@@ -1,7 +1,7 @@
 /* Static design references. Content is representative of the 28 September 2026 publication. */
 const root = document.getElementById('app');
 const page = document.body.dataset.page || 'home';
-const asset = (name) => `../../public/images/stories/${name}.svg`;
+const asset = (name) => `../../public/images/stories/${name}.webp`;
 const route = (name) => (name === 'home' ? 'index.html' : `${name}.html`);
 
 const story = {

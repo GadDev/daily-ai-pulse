@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitLab]
-image: "/images/stories/2026-09-19-gitlab-agentic-automation.svg"
+image: "/images/stories/2026-09-19-gitlab-agentic-automation.webp"
 imageAlt: "A governed agent workflow connecting code, CI, security, and merge requests"
 sources:
   - label: "GitLab 19.4 Brings New Agentic Automation at a Lower Cost"

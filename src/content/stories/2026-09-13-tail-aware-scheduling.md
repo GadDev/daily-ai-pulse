@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-13-tail-aware-scheduling.svg"
+image: "/images/stories/2026-09-13-tail-aware-scheduling.webp"
 imageAlt: "Long-tail requests being prioritized through a latency-aware scheduler"
 sources:
   - label: "Beyond Prediction: Tail-Aware Scheduling for LLM Inference"

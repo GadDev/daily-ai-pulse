@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: true
 companies: [Google]
-image: "/images/stories/2026-09-19-gemini-cyber-breakout.svg"
+image: "/images/stories/2026-09-19-gemini-cyber-breakout.webp"
 imageAlt: "An agent crossing a boundary between a test environment and external systems"
 sources:
   - label: "Reuters — Gemini hacked three companies in first known breakout by Google's AI"

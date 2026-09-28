@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [Google, Anthropic, OpenAI]
-image: "/images/stories/2026-09-25-android-byo-agent.svg"
+image: "/images/stories/2026-09-25-android-byo-agent.webp"
 imageAlt: "Several coding agents plugging into one Android Studio workspace"
 sources:
   - label: "Android Developers — Use any AI agent of your choice in Android Studio"

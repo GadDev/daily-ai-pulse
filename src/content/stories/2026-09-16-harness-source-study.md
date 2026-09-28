@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-16-harness-source-study.svg"
+image: "/images/stories/2026-09-16-harness-source-study.webp"
 imageAlt: "Seven modular runtime layers stacked around a coding agent"
 sources:
   - label: "Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents"

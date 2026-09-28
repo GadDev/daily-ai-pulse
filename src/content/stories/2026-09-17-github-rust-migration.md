@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [GitHub]
-image: "/images/stories/2026-09-17-github-rust-migration.svg"
+image: "/images/stories/2026-09-17-github-rust-migration.webp"
 imageAlt: "Large code blocks moving through an incremental migration pipeline"
 sources:
   - label: "GitHub — Migrating the GitHub Copilot runtime to Rust, using Copilot"

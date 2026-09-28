@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-14-amodei-slowdown.svg"
+image: "/images/stories/2026-09-14-amodei-slowdown.webp"
 imageAlt: "A narrowing road approaching a bright horizon"
 sources:
   - label: "Reuters — Anthropic CEO urges AI companies to slow model development"

@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [Google]
-image: "/images/stories/2026-09-14-adk-kotlin.svg"
+image: "/images/stories/2026-09-14-adk-kotlin.webp"
 imageAlt: "Mobile and cloud agent components connected through a compact runtime"
 sources:
   - label: "Google Developers Blog — Announcing ADK for Kotlin 1.0"

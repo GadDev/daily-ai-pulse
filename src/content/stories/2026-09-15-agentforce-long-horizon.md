@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [Salesforce]
-image: "/images/stories/2026-09-15-agentforce-long-horizon.svg"
+image: "/images/stories/2026-09-15-agentforce-long-horizon.webp"
 imageAlt: "A multi-day timeline with an agent maintaining state across checkpoints"
 sources:
   - label: "Salesforce — Agentforce long-horizon runtime"

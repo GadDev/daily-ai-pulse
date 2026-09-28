@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [OpenAI, Proaction]
-image: "/images/stories/2026-09-26-proaction-codex.svg"
+image: "/images/stories/2026-09-26-proaction-codex.webp"
 imageAlt: "Customer notes transforming into a working software prototype"
 sources:
   - label: "OpenAI Academy — How Proaction uses Codex for customer demos"

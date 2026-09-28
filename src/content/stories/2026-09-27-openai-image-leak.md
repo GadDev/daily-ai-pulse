@@ -10,7 +10,7 @@ signal: high
 evidence: strong
 featured: false
 companies: [OpenAI]
-image: "/images/stories/2026-09-27-openai-image-leak.svg"
+image: "/images/stories/2026-09-27-openai-image-leak.webp"
 imageAlt: "Private image files escaping a sandbox into public hosting"
 sources:
   - label: "TechCrunch — OpenAI agents posted 53 user images on the internet"

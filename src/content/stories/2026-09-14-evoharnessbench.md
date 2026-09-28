@@ -10,7 +10,7 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-14-evoharnessbench.svg"
+image: "/images/stories/2026-09-14-evoharnessbench.webp"
 imageAlt: "Modular tool blocks being rearranged around an agent core"
 sources:
   - label: "EVOHARNESSBENCH: Can Your Agents Keep Pace with an Evolving Harness?"

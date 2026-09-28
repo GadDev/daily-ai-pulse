@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-23-copilot-opentelemetry.svg"
+image: "/images/stories/2026-09-23-copilot-opentelemetry.webp"
 imageAlt: "Agent model and tool spans flowing into a telemetry trace"
 sources:
   - label: "GitHub — OpenTelemetry in the GitHub Copilot app"

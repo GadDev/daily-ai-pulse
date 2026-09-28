@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [OpenAI]
-image: "/images/stories/2026-09-16-openai-research-agents.svg"
+image: "/images/stories/2026-09-16-openai-research-agents.webp"
 imageAlt: "A research workstation surrounded by parallel experiment paths"
 sources:
   - label: "OpenAI — Research acceleration: The view inside OpenAI"

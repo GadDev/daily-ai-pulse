@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [UiPath]
-image: "/images/stories/2026-09-27-uipath-coding-agents.svg"
+image: "/images/stories/2026-09-27-uipath-coding-agents.webp"
 imageAlt: "Several coding agents connecting to one enterprise automation platform"
 sources:
   - label: "UiPath for Coding Agents — September 2026"

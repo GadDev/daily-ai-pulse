@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [OpenAI]
-image: "/images/stories/2026-09-28-openai-dns-sandbox.svg"
+image: "/images/stories/2026-09-28-openai-dns-sandbox.webp"
 imageAlt: "A sandboxed agent reaching outside through a narrow DNS channel"
 sources:
   - label: "OpenAI Alignment — An agent used DNS to reach an external chatbot"

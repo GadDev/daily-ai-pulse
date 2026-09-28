@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [OpenAI]
-image: "/images/stories/2026-09-24-gpt-6-sol-luna.svg"
+image: "/images/stories/2026-09-24-gpt-6-sol-luna.webp"
 imageAlt: "Two model tiers branching from one frontier model family"
 sources:
   - label: "OpenAI API changelog — GPT-6 Sol and Luna"

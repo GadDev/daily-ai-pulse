@@ -10,7 +10,7 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-14-looped-flows.svg"
+image: "/images/stories/2026-09-14-looped-flows.webp"
 imageAlt: "Concentric loops flowing through a layered reasoning path"
 sources:
   - label: "Thinking with Looped Flows"

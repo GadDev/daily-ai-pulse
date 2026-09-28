@@ -10,7 +10,7 @@ signal: medium
 evidence: primary
 featured: false
 companies: [Benchling]
-image: "/images/stories/2026-09-22-benchling-agent-approvals.svg"
+image: "/images/stories/2026-09-22-benchling-agent-approvals.webp"
 imageAlt: "A two-lane agent interface separating default and full-action permissions"
 sources:
   - label: "Benchling — Agent Modes and Approvals"
