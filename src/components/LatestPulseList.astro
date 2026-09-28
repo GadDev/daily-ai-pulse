@@ -15,7 +15,9 @@ const { items } = Astro.props;
 <section class="latest-pulse" aria-labelledby="latest-pulse-title">
   <div class="section-heading">
     <h2 id="latest-pulse-title">Latest from The Pulse</h2>
-    <a href={`${import.meta.env.BASE_URL}pulse/`}>View all <span aria-hidden="true">→</span></a>
+    <a href={`${import.meta.env.BASE_URL}pulse/`}>
+      View all <span aria-hidden="true">→</span>
+    </a>
   </div>
   <ol>
     {items.map((item) => (
@@ -28,13 +30,62 @@ const { items } = Astro.props;
 </section>
 
 <style>
-  .latest-pulse{padding:0 0 5.5rem}
-  .section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
-  h2{font-family:Georgia,'Times New Roman',serif;font-size:1.65rem;letter-spacing:-.025em;margin:0}
-  .section-heading>a{font-size:.78rem;text-decoration:none;color:var(--ink-muted)}
-  ol{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
-  li{display:grid;grid-template-columns:9rem 1fr;gap:1.25rem;padding:1rem 0;border-bottom:1px solid var(--line);align-items:center}
-  time{font:500 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.035em;color:var(--ink-muted)}
-  li>a{text-decoration:none;font-size:.94rem;font-weight:500}
-  @media(max-width:620px){li{grid-template-columns:1fr;gap:.35rem}.section-heading{align-items:center}}
+  .latest-pulse {
+    padding: 0 0 5.5rem;
+  }
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.65rem;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .section-heading > a {
+    font-size: 0.78rem;
+    text-decoration: none;
+    color: var(--ink-muted);
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  li {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  time {
+    font:
+      500 0.72rem/1.2 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
+    letter-spacing: 0.035em;
+    color: var(--ink-muted);
+  }
+  li > a {
+    text-decoration: none;
+    font-size: 0.94rem;
+    font-weight: 500;
+  }
+  @media (max-width: 620px) {
+    li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+    .section-heading {
+      align-items: center;
+    }
+  }
 </style>

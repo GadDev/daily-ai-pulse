@@ -33,31 +33,33 @@ const absoluteImage = image
   ? new URL(image.startsWith('/') ? `${base}${image.slice(1)}` : image, site).toString()
   : undefined;
 const socialImage = absoluteImage ?? new URL(`${base}images/editorial/hero.svg`, site).toString();
-const structuredData = type === 'article'
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: title,
-      description,
-      mainEntityOfPage: canonicalUrl,
-      datePublished: publishedTime,
-      articleSection: section,
-      keywords: tags.join(', '),
-      image: socialImage,
-      publisher: {
-        '@type': 'Organization',
+const structuredData =
+  type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description,
+        mainEntityOfPage: canonicalUrl,
+        datePublished: publishedTime,
+        articleSection: section,
+        keywords: tags.join(', '),
+        image: socialImage,
+        publisher: {
+          '@type': 'Organization',
+          name: 'The Daily AI Pulse',
+          url: new URL(base, site).toString(),
+        },
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
         name: 'The Daily AI Pulse',
         url: new URL(base, site).toString(),
-      },
-    }
-  : {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'The Daily AI Pulse',
-      url: new URL(base, site).toString(),
-      description: 'Signal over noise in AI.',
-    };
+        description: 'Signal over noise in AI.',
+      };
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -81,7 +83,9 @@ const structuredData = type === 'article'
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
 
-    {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {type === 'article' && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
     {type === 'article' && section && <meta property="article:section" content={section} />}
     {type === 'article' && tags.map((tag) => <meta property="article:tag" content={tag} />)}
 
@@ -91,11 +95,17 @@ const structuredData = type === 'article'
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href={base} aria-label="The Daily AI Pulse home">The Daily AI Pulse</a>
+        <a class="brand" href={base} aria-label="The Daily AI Pulse home">
+          The Daily AI Pulse
+        </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
-          <a class:list={{ active: currentPath === base }} href={base}>Home</a>
-          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>Pulse</a>
+          <a class:list={{ active: currentPath === base }} href={base}>
+            Home
+          </a>
+          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
+            Pulse
+          </a>
           <a href={`${base}#categories`}>Categories</a>
           <a href="#about">About</a>
         </nav>
@@ -107,7 +117,9 @@ const structuredData = type === 'article'
       </div>
     </header>
 
-    <main><slot /></main>
+    <main>
+      <slot />
+    </main>
 
     <footer class="site-footer" id="about">
       <div class="site-footer__topline">
@@ -117,11 +129,18 @@ const structuredData = type === 'article'
 
       <div class="site-footer__grid">
         <section class="footer-publication">
-          <a class="brand brand--footer" href={base}>The Daily AI Pulse</a>
+          <a class="brand brand--footer" href={base}>
+            The Daily AI Pulse
+          </a>
           <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
-          <p class="footer-copy">A daily publication for engineers following the AI developments that actually change how software is built.</p>
+          <p class="footer-copy">
+            A daily publication for engineers following the AI developments that actually change how
+            software is built.
+          </p>
           <div class="footer-links-inline" aria-label="Publication links">
-            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">
+              GitHub ↗
+            </a>
             <a href={`${base}rss.xml`}>RSS</a>
           </div>
         </section>
@@ -160,8 +179,20 @@ const structuredData = type === 'article'
 </html>
 
 <style>
-  .site-header{position:static;background:transparent;border-bottom:0;backdrop-filter:none}
-  .site-header__inner{min-height:78px}
-  .site-nav{gap:1.7rem;font-size:.8rem}
-  .brand{font-size:1.45rem}
+  .site-header {
+    position: static;
+    background: transparent;
+    border-bottom: 0;
+    backdrop-filter: none;
+  }
+  .site-header__inner {
+    min-height: 78px;
+  }
+  .site-nav {
+    gap: 1.7rem;
+    font-size: 0.8rem;
+  }
+  .brand {
+    font-size: 1.45rem;
+  }
 </style>

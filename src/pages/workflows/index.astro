@@ -10,7 +10,11 @@ const stories = (await getCollection('stories'))
   .filter((story) => story.data.category === 'workflows')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<BaseLayout title="Workflows — Pulse" description="Coding-agent practices, settings, configurations, and engineering workflows.">
+
+<BaseLayout
+  title="Workflows — Pulse"
+  description="Coding-agent practices, settings, configurations, and engineering workflows."
+>
   <section class="issue-head">
     <p class="eyebrow">CATEGORY ARCHIVE</p>
     <h1>Workflows</h1>
@@ -34,5 +38,7 @@ const stories = (await getCollection('stories'))
 </BaseLayout>
 
 <style>
-  .archive-list{padding:3rem 0 1rem}
+  .archive-list {
+    padding: 3rem 0 1rem;
+  }
 </style>

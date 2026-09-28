@@ -39,8 +39,12 @@ export async function GET({ site }: { site?: URL }) {
       <guid isPermaLink="true">${escapeXml(storyUrl)}</guid>
       <pubDate>${story.data.date.toUTCString()}</pubDate>
       <description>${escapeXml(story.data.description)}</description>
-      <category>${escapeXml(story.data.category)}</category>${imageUrl ? `
-      <media:content url="${escapeXml(imageUrl)}" medium="image" />` : ''}
+      <category>${escapeXml(story.data.category)}</category>${
+        imageUrl
+          ? `
+      <media:content url="${escapeXml(imageUrl)}" medium="image" />`
+          : ''
+      }
     </item>`;
     })
     .join('');
