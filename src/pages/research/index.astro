@@ -10,6 +10,7 @@ const stories = (await getCollection('stories'))
   .filter((story) => story.data.category === 'research')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
+
 <BaseLayout title="Research — Pulse" description="AI research worth paying attention to.">
   <section class="issue-head">
     <p class="eyebrow">ARCHIVE / RESEARCH</p>
@@ -34,5 +35,7 @@ const stories = (await getCollection('stories'))
 </BaseLayout>
 
 <style>
-  .archive-list{padding:3rem 0 1rem}
+  .archive-list {
+    padding: 3rem 0 1rem;
+  }
 </style>

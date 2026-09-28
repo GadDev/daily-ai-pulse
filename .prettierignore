@@ -1,0 +1,10 @@
+dist/
+.astro/
+node_modules/
+coverage/
+playwright-report/
+test-results/
+docs/
+src/content/
+*.md
+.github/ISSUE_TEMPLATE/

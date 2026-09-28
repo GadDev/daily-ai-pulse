@@ -15,14 +15,30 @@ const { items } = Astro.props;
   <p class="label">IN THIS ARTICLE</p>
   <ol>
     {items.map((item) => (
-      <li><a href={`#${item.id}`}>{item.label}</a></li>
+      <li>
+        <a href={`#${item.id}`}>{item.label}</a>
+      </li>
     ))}
   </ol>
 </nav>
 
 <style>
-  .article-toc{padding:1rem 0 1rem 1rem;border-left:1px solid var(--line)}
-  ol{margin:.75rem 0 0;padding-left:1.25rem;display:grid;gap:.6rem}
-  a{text-decoration:none;color:var(--ink-muted);font-size:.9rem}
-  a:hover{color:var(--ink)}
+  .article-toc {
+    padding: 1rem 0 1rem 1rem;
+    border-left: 1px solid var(--line);
+  }
+  ol {
+    margin: 0.75rem 0 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+  }
+  a:hover {
+    color: var(--ink);
+  }
 </style>

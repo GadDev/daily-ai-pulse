@@ -102,23 +102,111 @@ const totalStories = sections.reduce((total, section) => total + section.stories
 </BaseLayout>
 
 <style>
-  .issue-hero{padding:3.25rem 0 2.25rem;border-bottom:1px solid var(--line)}
-  .issue-kicker{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);font:600 .72rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .issue-title-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(16rem,.7fr);gap:clamp(2rem,7vw,7rem);align-items:end;padding:2.6rem 0 2rem}
-  .issue-title-grid h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.7rem,9vw,7.8rem);line-height:.86;letter-spacing:-.055em;margin:.55rem 0 0;max-width:10ch}
-  .issue-title-grid .dek{margin:0 0 .35rem;font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.2rem,2.2vw,1.65rem);line-height:1.35;color:var(--muted)}
-  .issue-stats{display:flex;flex-wrap:wrap;gap:.65rem 1.6rem;padding-top:1rem;border-top:1px solid var(--line);font:600 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-  .issue-sections{padding-top:2.5rem}
-  .issue-section{padding:1rem 0 0}
-  .issue-list{margin-top:.2rem}
-  .section-rule{height:1px;background:var(--ink);opacity:.75;margin:2.75rem 0 1.25rem}
-  .issue-note{display:grid;grid-template-columns:12rem minmax(0,42rem);gap:2rem;margin:4rem 0 1rem;padding:1.4rem 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
-  .issue-note p{margin:0;line-height:1.6;color:var(--muted)}
-  .issue-note .eyebrow{color:var(--ink)}
-  @media(max-width:760px){
-    .issue-title-grid{grid-template-columns:1fr;gap:1.5rem;padding-top:2rem}
-    .issue-title-grid h1{max-width:none}
-    .issue-kicker{align-items:flex-start;flex-direction:column}
-    .issue-note{grid-template-columns:1fr;gap:.65rem}
+  .issue-hero {
+    padding: 3.25rem 0 2.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .issue-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    font:
+      600 0.72rem/1 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .issue-title-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(16rem, 0.7fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+    padding: 2.6rem 0 2rem;
+  }
+  .issue-title-grid h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 9vw, 7.8rem);
+    line-height: 0.86;
+    letter-spacing: -0.055em;
+    margin: 0.55rem 0 0;
+    max-width: 10ch;
+  }
+  .issue-title-grid .dek {
+    margin: 0 0 0.35rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+    line-height: 1.35;
+    color: var(--muted);
+  }
+  .issue-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font:
+      600 0.7rem/1.2 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .issue-sections {
+    padding-top: 2.5rem;
+  }
+  .issue-section {
+    padding: 1rem 0 0;
+  }
+  .issue-list {
+    margin-top: 0.2rem;
+  }
+  .section-rule {
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.75;
+    margin: 2.75rem 0 1.25rem;
+  }
+  .issue-note {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 42rem);
+    gap: 2rem;
+    margin: 4rem 0 1rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .issue-note p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .issue-note .eyebrow {
+    color: var(--ink);
+  }
+  @media (max-width: 760px) {
+    .issue-title-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-top: 2rem;
+    }
+    .issue-title-grid h1 {
+      max-width: none;
+    }
+    .issue-kicker {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .issue-note {
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
   }
 </style>

@@ -10,7 +10,10 @@ const editions = (await getCollection('pulse')).sort(
 );
 ---
 
-<BaseLayout title="The Pulse — Daily AI editions" description="Browse every Daily AI Pulse edition.">
+<BaseLayout
+  title="The Pulse — Daily AI editions"
+  description="Browse every Daily AI Pulse edition."
+>
   <section class="issue-head">
     <p class="eyebrow">DAILY ARCHIVE</p>
     <h1>The Pulse</h1>
@@ -45,7 +48,14 @@ const editions = (await getCollection('pulse')).sort(
 </BaseLayout>
 
 <style>
-  .pulse-archive{padding:3rem 0 1rem}
-  .issue-list{margin-top:.25rem}
-  .empty-state{margin:2rem 0;color:var(--muted)}
+  .pulse-archive {
+    padding: 3rem 0 1rem;
+  }
+  .issue-list {
+    margin-top: 0.25rem;
+  }
+  .empty-state {
+    margin: 2rem 0;
+    color: var(--muted);
+  }
 </style>
