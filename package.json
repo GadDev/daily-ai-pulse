@@ -16,6 +16,8 @@
     "format:check": "prettier --check .",
     "build": "npm run check && astro build && pagefind --site dist",
     "verify": "npm run lint && npm run format:check && npm run content:check && npm run build",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -26,6 +28,8 @@
     "typescript": "6.0.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
     "eslint": "10.10.0",
     "pagefind": "1.5.2",
     "prettier": "3.9.9",
