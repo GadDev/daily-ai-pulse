@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { categories } from '../../lib/categories';
+
+const base = import.meta.env.BASE_URL;
+const desks = Object.values(categories);
+---
+
+<BaseLayout
+  title="Categories — The Daily AI Pulse"
+  description="Explore the eight editorial desks of The Daily AI Pulse."
+>
+  <header class="issue-head">
+    <p class="eyebrow">EXPLORE THE PUBLICATION</p>
+    <h1>Categories</h1>
+    <p>Follow the part of AI engineering that matters to your work.</p>
+  </header>
+  <div class="desk-index">
+    {desks.map((desk, index) => (
+      <article class="desk">
+        <span class="eyebrow">{String(index + 1).padStart(2, '0')} / DESK</span>
+        <h2>
+          <a href={`${base}${desk.key}/`}>{desk.title} →</a>
+        </h2>
+        <p>{desk.dek}</p>
+      </article>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .issue-head p:last-child {
+    max-width: 42rem;
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+  .desk-index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 2rem 0;
+  }
+  .desk {
+    padding: 2rem 2rem 2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .desk:nth-child(even) {
+    padding-left: 2rem;
+    border-left: 1px solid var(--line);
+  }
+  .desk h2 {
+    font:
+      700 clamp(1.6rem, 3vw, 2.35rem)/1.05 Georgia,
+      serif;
+    margin: 0.8rem 0;
+  }
+  .desk a {
+    text-decoration: none;
+  }
+  .desk a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+  .desk p {
+    max-width: 40ch;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .desk-index {
+      grid-template-columns: 1fr;
+    }
+    .desk,
+    .desk:nth-child(even) {
+      padding: 1.5rem 0;
+      border-left: 0;
+    }
+  }
+</style>

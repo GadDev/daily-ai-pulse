@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const levels = [
+  ['Strong', 'Independently reproduced or supported by multiple strong sources.'],
+  [
+    'Primary',
+    'A first-party paper, repository, release note, lab, or vendor source. A primary source can still make an unverified claim.',
+  ],
+  ['Preliminary', 'Early research or a preprint without strong independent validation.'],
+  ['Anecdotal', 'A practitioner report or limited case study that may not generalize.'],
+  ['Unverified', 'A notable claim without enough support to treat it as established.'],
+];
+---
+
+<BaseLayout
+  title="Editorial methodology — The Daily AI Pulse"
+  description="How Pulse selects stories, labels evidence, and handles corrections."
+>
+  <article class="information-page">
+    <p class="eyebrow">EDITORIAL STANDARD</p>
+    <h1>How we choose the signal.</h1>
+    <p class="lead">
+      The question behind each story: what changed, how do we know, and what should an engineer do
+      with it?
+    </p>
+    <section>
+      <h2>Selection</h2>
+      <p>
+        We prioritize significance, evidence, novelty, relevance to engineering, and lasting
+        usefulness. The score informs a human editorial choice. We prefer a short issue to a padded
+        one, and avoid repeating a recent story unless there is a meaningful new development.
+      </p>
+      <p>
+        We favor original papers, technical reports, specifications, repositories, release notes,
+        and incident reports. Vendor claims are attributed to their source; a benchmark headline is
+        examined for what it actually measures.
+      </p>
+    </section>
+    <section>
+      <h2>Evidence labels</h2>
+      <dl class="evidence-list">
+        {levels.map(([term, definition]) => (
+          <div>
+            <dt>{term}</dt>
+            <dd>{definition}</dd>
+          </div>
+        ))}
+      </dl>
+      <p>
+        Evidence describes support for a claim. Signal describes editorial importance. A high-signal
+        story can still have preliminary evidence, and those ideas should not be confused.
+      </p>
+    </section>
+    <section>
+      <h2>Reporting and corrections</h2>
+      <p>
+        Stories link their sources and separate factual reporting from editorial interpretation,
+        including a labeled Pulse Take where useful. Research coverage should identify preprints and
+        meaningful limits.
+      </p>
+      <p>
+        If something is wrong,{' '}
+        <a href="https://github.com/GadDev/daily-ai-pulse/issues/new/choose">
+          request a correction
+        </a>{' '}
+        with a source and the affected story. Corrections are recorded on the story when published.
+        For more detail, read the{' '}
+        <a href="https://github.com/GadDev/daily-ai-pulse/blob/main/docs/EDITORIAL.md">
+          full editorial guide
+        </a>
+        .
+      </p>
+    </section>
+    <p class="return-link">
+      <a href={`${base}about/`}>← About Pulse</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .evidence-list {
+    border-top: 1px solid var(--line);
+  }
+  .evidence-list div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  dt {
+    font-weight: 700;
+  }
+  dd {
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .evidence-list div {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+  }
+</style>
