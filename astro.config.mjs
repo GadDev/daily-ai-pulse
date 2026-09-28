@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://gaddev.github.io',
-  base: '/daily-ai-pulse',
+  base: '/daily-ai-pulse/',
   integrations: [mdx(), sitemap()],
 });
