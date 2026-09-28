@@ -2,73 +2,194 @@
 
 ## Purpose
 
-Pulse should feel like a technical publication rather than a SaaS dashboard: editorially disciplined, visually distinctive, and optimized for reading, scanning, and trust.
+Pulse should feel like a premium technical publication rather than a SaaS dashboard: editorially disciplined, visually distinctive, warm, and optimized for reading, scanning, and trust.
 
-The visual direction is roughly **70% research magazine / technical manual** and **30% Y2K broadcast energy**.
+The approved baseline direction is **Warm Editorial**: a soft beige paper-like canvas, near-black typography, elegant serif headlines, restrained sans-serif interface text, generous whitespace, minimal borders, and subtle imagery.
 
-Think in principles rather than imitation: strong editorial typography, technical diagrams, signal-processing motifs, restrained but memorable motion, and a homepage that feels more like a front page than an application shell.
+The visual balance is roughly **80% contemporary editorial magazine / 20% technical publication**. Broadcast and signal motifs may still appear, but only as light accents rather than the dominant aesthetic.
 
 ## Design principles
 
 1. **Signal over noise** — hierarchy should make the important thing obvious.
 2. **Editorial before decorative** — visual treatments should reinforce meaning, not compete with it.
-3. **Calm article reading** — long-form pages should be significantly quieter than the homepage.
-4. **Evidence is visible** — source quality, signal level, difficulty, and content type should be legible at a glance.
-5. **Personality without gimmicks** — Y2K references should appear as texture, not as constant visual noise.
+3. **Warm, calm reading** — pages should feel tactile and human without becoming nostalgic or ornamental.
+4. **Evidence is visible** — source quality, signal level, difficulty, and content type should remain legible at a glance.
+5. **Whitespace is structural** — spacing should create rhythm, hierarchy, and confidence.
 6. **Accessibility is part of the visual system** — contrast, focus states, typography, and reduced-motion behavior are first-class requirements.
 
-## Visual language
+## Approved visual direction: Warm Editorial
 
-Core vocabulary:
+The default visual identity should use:
 
-- waveform
-- signal strength
-- frequency
-- transmission
-- radar
-- timestamps
-- broadcast labels
-- field notes
-- technical annotations
+- warm beige / off-white page backgrounds
+- slightly lighter paper surfaces for contained modules
+- near-black text rather than pure black
+- large high-contrast serif headlines
+- restrained sans-serif navigation and UI copy
+- mono only for small technical metadata where useful
+- thin neutral dividers instead of boxed cards
+- low-radius or medium-radius imagery and containers
+- little to no drop shadow
+- muted editorial imagery with architectural, scientific, natural, or abstract subject matter
 
-Suggested labels:
+The overall feeling should be **clear, cultured, technical, and quiet**.
 
-- HIGH SIGNAL
-- NEW FREQUENCY
-- ON THE RADAR
-- BACKGROUND NOISE
-- FIELD REPORT
-- TRANSMISSION
+### Reference mood
 
-These labels are editorial accents. They should not replace the canonical content taxonomy.
+Think:
+
+- independent technology magazine
+- premium Sunday supplement
+- modern research journal
+- architectural editorial
+- calm AI briefing
+
+Avoid visual cues that make the product feel like a dashboard, crypto site, generic developer blog, or AI-generated landing page.
+
+## Color
+
+### Core palette
+
+Use a restrained warm neutral system.
+
+Suggested tokens:
+
+```text
+canvas        #F3EBDD
+surface       #F8F3EA
+surface-alt   #EEE4D5
+ink           #171715
+ink-muted     #67625B
+line          #D9CFC0
+accent        #1D2528
+accent-soft   #D8E0DD
+```
+
+These values are starting points, not immutable constants. Final implementation must pass accessibility contrast checks.
+
+### Semantic evidence colors
+
+Evidence levels remain semantically distinct:
+
+- Strong — green family
+- Primary — blue family
+- Preliminary — ochre/yellow family
+- Anecdotal — orange family
+- Unverified — red family
+
+Semantic colors should be muted enough to belong inside the warm editorial palette. Color must never be the only indicator; always pair it with text or an icon/label.
+
+## Typography
+
+Use a three-layer hierarchy:
+
+1. **Display serif** — masthead, Big Story headlines, article titles, major page titles.
+2. **Editorial sans-serif** — navigation, decks, body copy, buttons, lists, forms.
+3. **Mono or compact sans** — dates, evidence labels, issue numbers, technical metadata.
+
+### Typography behavior
+
+- Headlines should be confident and compact, with high contrast against surrounding whitespace.
+- Body copy should prioritize readability over personality.
+- UI text should remain crisp and quiet.
+- All-caps should be limited to small editorial labels such as `BIG STORY`, `RESEARCH`, or `HIGH SIGNAL`.
+
+### Reading constraints
+
+- Body width: approximately 65–75 characters per line.
+- Body line-height: generous enough for long technical reading.
+- Headings should use scale and spacing rather than decorative effects.
+- Article pages should be significantly quieter than landing pages.
+
+## Global layout
+
+### Page frame
+
+- warm beige viewport background
+- centered content area with generous horizontal breathing room
+- maximum desktop width around 1200–1320px
+- consistent outer gutters
+- clear vertical rhythm between major sections
+
+### Header
+
+The header should feel like a publication masthead rather than an app toolbar.
+
+Recommended structure:
+
+- publication wordmark on the left
+- compact navigation in the center/right
+- search icon
+- dark pill-shaped `Subscribe` action
+
+Navigation should remain visually secondary to editorial content.
+
+### Footer
+
+Every public page should have a complete footer.
+
+Recommended columns:
+
+1. **Publication** — wordmark, short mission statement, social links.
+2. **Explore** — Home, Latest Pulse, Categories, About, RSS.
+3. **Categories** — Research, Models, AI Engineering, Dev Tools, AI in Practice, Business & Industry, Curious AI.
+4. **Subscribe** — short email prompt and compact subscription form.
+
+Bottom row:
+
+- copyright
+- Privacy
+- Terms
+- Contact
+
+The footer should use the same warm paper language as the rest of the site and should not look like a separate dark SaaS footer.
 
 ## Page personality
 
 ### Homepage
 
-The homepage is the loudest page in the system.
+The homepage behaves like a curated front page.
 
 Use:
 
-- stronger display typography
-- more aggressive hierarchy
-- modular editorial blocks
-- signal/broadcast accents
-- timestamps and issue/date context
-- a visually dominant Big Story only when editorially justified
+- one dominant Big Story module with large serif headline
+- supporting image aligned beside or within the Big Story
+- four compact editorial cards for Research, Tools, AI in Practice, and Curious
+- a chronological `Latest from The Pulse` list below
+- strong spacing between modules instead of heavy card chrome
 
-Avoid turning it into a dense dashboard.
+The Big Story should feel intentionally selected, not algorithmically enlarged.
 
-### Category and archive pages
+### Daily issue page
+
+The daily issue page should read like a morning briefing.
+
+Use:
+
+- date and issue context above the title
+- short summary/deck
+- reading-time or story-count metadata
+- optional share actions
+- numbered story list
+- image thumbnails for scanability
+- clear editorial section labels
+
+The daily issue is an index into canonical story pages, not a duplicate long-form article.
+
+### Category/archive pages
 
 Category pages should feel like clean editorial indexes.
 
 Use:
 
-- clear heading and category description
-- compact story metadata
-- predictable chronological scanning
-- optional signal/difficulty filters later
+- clear category title and one-sentence description
+- optional quiet hero image or illustration
+- horizontal category navigation/filter row
+- chronological story list
+- thumbnail, title, description, date, and reading time
+- subtle dividers between rows
+
+Avoid dashboard-style filter panels or dense card grids.
 
 ### Story pages
 
@@ -76,80 +197,21 @@ Story pages should be calm and highly readable.
 
 Use:
 
-- narrow reading measure
+- breadcrumb/back link
+- editorial label
+- large serif headline
+- concise deck
+- author/date/read-time metadata
+- hero image where meaningful
+- narrow article measure
 - generous vertical rhythm
-- restrained metadata
-- clearly separated evidence and opinion
-- readable code blocks, tables, diagrams, and citations
+- restrained metadata and evidence treatment
 
-The story body should not carry heavy glitch, scanline, or animation effects.
+Optional desktop enhancement:
 
-## Typography
+- quiet `In this article` table of contents beside the body
 
-Use a three-layer hierarchy:
-
-1. **Display** — homepage masthead, Big Story, major section heads.
-2. **Editorial sans/serif** — article titles and body copy.
-3. **Mono** — timestamps, metadata, technical labels, evidence levels, and small system text.
-
-Typography should feel editorial first and developer-oriented second.
-
-### Reading constraints
-
-- Body width: approximately 65–75 characters per line.
-- Body line-height: generous enough for long technical reading.
-- Headings should use strong scale contrast rather than excessive decoration.
-- All-caps should be limited to labels and metadata.
-
-## Color
-
-The palette should be restrained.
-
-Recommended structure:
-
-- neutral paper/background tone
-- near-black text
-- one primary signal accent
-- one secondary technical accent
-- semantic colors for evidence states
-
-Do not create a rainbow taxonomy where every category has an unrelated color.
-
-### Evidence colors
-
-Evidence levels should remain semantically distinct:
-
-- Strong — green family
-- Primary — blue family
-- Preliminary — yellow family
-- Anecdotal — orange family
-- Unverified — red family
-
-Color must never be the only indicator; always pair it with text or an icon/label.
-
-## Layout
-
-### Global shell
-
-- centered content frame
-- strong masthead/header
-- compact navigation
-- generous whitespace
-- clear footer with publication and archive links
-
-### Homepage grid
-
-Desktop:
-
-- dominant Big Story region
-- modular 2-column or asymmetric editorial grid beneath
-- Research, Tools, In Practice, Curious blocks
-
-Mobile:
-
-- single-column flow
-- preserve editorial ordering
-- remove purely decorative elements before reducing readability
+The story body should never use heavy glitch, scanline, or animated effects.
 
 ## Components
 
@@ -166,11 +228,40 @@ Required fields:
 
 Optional:
 
+- image
 - signal level
 - difficulty
 - tags
+- reading time
 
-Cards should not look like generic SaaS cards with floating shadows everywhere.
+Cards should rely on typography, alignment, and whitespace. Avoid floating shadows and excessive borders.
+
+### Story list row
+
+Preferred for archives and latest-content lists.
+
+Structure:
+
+- optional thumbnail
+- title + description
+- metadata aligned consistently
+- thin divider between entries
+
+Rows should make chronological scanning effortless.
+
+### Buttons
+
+Primary buttons:
+
+- near-black background
+- warm light text
+- compact pill or softly rounded shape
+
+Secondary actions:
+
+- text links or lightly outlined controls
+
+Avoid bright gradients, glassmorphism, or oversized CTA treatments.
 
 ### Evidence badge
 
@@ -192,15 +283,50 @@ Typical order:
 
 `DATE · TYPE · DIFFICULTY · EVIDENCE · SIGNAL`
 
-Use monospaced or technical styling, with lower visual weight than the headline.
+Use compact typography with lower visual weight than the headline.
 
-### Editorial callout
+### Newsletter form
 
-For sections such as "Pulse Take" or "Try This":
+Use a compact inline form:
 
-- clear boundary from factual reporting
-- visually consistent label
-- no ambiguity between sourced fact and editorial interpretation
+- short explanatory sentence
+- single email input
+- dark subscribe button
+- clear focus state
+- no oversized marketing panel
+
+## Imagery
+
+Prefer imagery that feels editorial rather than promotional.
+
+Good directions:
+
+- architectural forms
+- landscapes
+- scientific photography
+- abstract geometry
+- hardware / lab environments
+- quiet workplace photography
+- diagrams and annotated screenshots
+
+Use muted tones that harmonize with the beige canvas.
+
+Avoid:
+
+- glowing humanoid robots
+- neon cyberpunk imagery
+- generic blue AI brains
+- excessive stock photography
+- images containing important text
+
+## Borders, radius, and elevation
+
+- use thin neutral dividers frequently
+- use container borders sparingly
+- prefer 8–16px radius for images and larger modules
+- small controls may use pill shapes
+- shadows should be extremely subtle or absent
+- hierarchy should come primarily from scale, spacing, typography, and imagery
 
 ## Motion
 
@@ -208,18 +334,41 @@ Motion should be sparse.
 
 Good uses:
 
-- subtle waveform movement
-- brief scan/reveal transitions on homepage modules
-- restrained hover/focus feedback
+- subtle hover movement on images or links
+- restrained fade/reveal transitions
+- gentle focus and navigation feedback
 
 Avoid:
 
 - constant glitch animation
-- looping scanlines across article text
+- looping scanlines
 - parallax that impairs reading
 - motion required to understand content
 
 Respect `prefers-reduced-motion`.
+
+## Responsive behavior
+
+### Desktop
+
+- use asymmetric editorial compositions where useful
+- allow large headlines to breathe
+- use side-by-side image/text modules selectively
+
+### Tablet
+
+- reduce horizontal density
+- keep the editorial hierarchy intact
+- collapse secondary columns before shrinking typography aggressively
+
+### Mobile
+
+- single-column flow
+- preserve editorial ordering
+- full-width story rows/cards
+- simplify secondary metadata
+- keep tap targets comfortable
+- retain strong headline hierarchy
 
 ## Accessibility
 
@@ -233,17 +382,7 @@ Minimum requirements:
 - reduced-motion support
 - responsive text sizing
 - touch targets large enough for mobile
-
-## Imagery and diagrams
-
-Prefer:
-
-- diagrams
-- annotated screenshots where genuinely useful
-- technical illustrations
-- charts that explain rather than decorate
-
-Avoid generic AI stock imagery.
+- form controls with explicit labels
 
 ## Code and technical content
 
@@ -254,7 +393,22 @@ Code blocks should:
 - avoid excessive chrome
 - clearly distinguish code from prose
 
-Technical diagrams should share the site's visual vocabulary: restrained lines, labels, annotations, and signal-style accents.
+Technical diagrams should share the same restrained editorial language: thin lines, concise labels, neutral backgrounds, and minimal decoration.
+
+## Design reference assets
+
+Visual exploration files should live under:
+
+`docs/design/mockups/`
+
+These assets are references for implementation and review; they are not production UI assets unless explicitly promoted into the application.
+
+Recommended naming:
+
+- `warm-editorial-overview.png`
+- `warm-editorial-variation-a.png`
+- `warm-editorial-variation-b.png`
+- `warm-editorial-variation-c.png`
 
 ## Design non-goals
 
@@ -263,7 +417,8 @@ Pulse should not look like:
 - a SaaS admin panel
 - a generic developer blog theme
 - a crypto landing page
-- a full-time glitch-art experiment
+- a cyberpunk AI product
 - a newspaper replica
+- a template marketplace theme
 
-The system should remain distinctive while staying highly readable and maintainable.
+The system should remain distinctive while staying highly readable, maintainable, and calm.
