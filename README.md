@@ -2,40 +2,28 @@
 
 **Signal over noise in AI.**
 
-Pulse is an English-language AI research magazine for engineers, combining rigorous research coverage, practical engineering, model and tooling releases, real-world AI case studies, and the curious side of AI.
-
-## Editorial identity
-
-- Research-magazine structure
-- Personal but evidence-first voice
-- Y2K experimental science/editorial visual language
-- Primary sources first
-- Explicit separation between evidence and editorial take
-- Curated daily front page plus standalone stories
+Pulse is an English-language AI publication for engineers: rigorous research, model and tooling releases, practical engineering, real-world AI case studies, and the curious side of AI.
 
 ## Stack
 
-- React 19
-- Vite
+- Astro
 - TypeScript
-- React Router
-- Markdown as the publishing source
-- Tailwind CSS
+- Markdown / MDX content collections
 - GitHub Pages
 - GitHub Actions
+- React islands only when interaction genuinely needs them
 
-## Local development
+## Editorial identity
 
-```bash
-npm install
-npm run dev
-```
+- Research-magazine structure with Y2K experimental science energy
+- Personal but evidence-first voice
+- Primary sources first
+- Facts and editorial take clearly separated
+- Daily front page plus standalone stories
 
-The content build converts Markdown in `src/content/stories/` into generated story data before Vite starts or builds.
+## Front page
 
-## Publication model
-
-The homepage is a curated front page, not a feed dump:
+The homepage is curated rather than a chronological dump:
 
 - Big Story — only when warranted
 - Research
@@ -43,6 +31,13 @@ The homepage is a curated front page, not a feed dump:
 - In Practice
 - Curious
 
-The broader archive also supports Models & Releases, AI Engineering, Workflows, and Business & Industry.
+Broader archive desks include Models & Releases, AI Engineering, Workflows, and Business & Industry.
 
-> Pulse is designed around one rule: **signal over noise**.
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+> Pulse is built around one rule: **signal over noise**.
