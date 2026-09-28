@@ -45,8 +45,10 @@ for (const name of files(pulseDir)) {
   );
 
   if (date !== id) errors.push(`${name}: frontmatter date must match filename (${id})`);
-  if (!featured || !storyIds.has(featured)) errors.push(`${name}: featured story is missing: ${featured}`);
-  if (featured && !refs.includes(featured)) errors.push(`${name}: featured story must appear in a section`);
+  if (!featured || !storyIds.has(featured))
+    errors.push(`${name}: featured story is missing: ${featured}`);
+  if (featured && !refs.includes(featured))
+    errors.push(`${name}: featured story must appear in a section`);
 
   const seen = new Set();
   for (const ref of refs) {
