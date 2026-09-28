@@ -35,16 +35,16 @@ A major event may appear both as a short item in the daily edition and as a link
 
 Pulse uses eight top-level categories:
 
-| Category | Slug | Purpose |
-| --- | --- | --- |
-| Models & Releases | `models` | Model launches, architecture changes, capability and platform releases |
-| Research | `research` | Papers, training, inference, memory, evals, safety |
-| AI Engineering | `engineering` | Agents, RAG, context engineering, observability, infrastructure |
-| Dev Tools | `tools` | IDEs, coding agents, ADEs, MCP, frameworks, SDKs, repos |
-| AI in Practice | `practice` | Real engineering and business case studies |
-| Workflows | `workflows` | Coding-agent practices, settings, configurations, team workflows |
-| Business & Industry | `business` | Strategic company and market changes relevant to engineers |
-| Curious AI | `curious` | Weird, surprising, delightful, or counterintuitive AI stories |
+| Category            | Slug          | Purpose                                                                |
+| ------------------- | ------------- | ---------------------------------------------------------------------- |
+| Models & Releases   | `models`      | Model launches, architecture changes, capability and platform releases |
+| Research            | `research`    | Papers, training, inference, memory, evals, safety                     |
+| AI Engineering      | `engineering` | Agents, RAG, context engineering, observability, infrastructure        |
+| Dev Tools           | `tools`       | IDEs, coding agents, ADEs, MCP, frameworks, SDKs, repos                |
+| AI in Practice      | `practice`    | Real engineering and business case studies                             |
+| Workflows           | `workflows`   | Coding-agent practices, settings, configurations, team workflows       |
+| Business & Industry | `business`    | Strategic company and market changes relevant to engineers             |
+| Curious AI          | `curious`     | Weird, surprising, delightful, or counterintuitive AI stories          |
 
 Category is singular and required. Tags are many-to-many and flexible.
 
@@ -54,8 +54,8 @@ Every story should provide structured frontmatter matching the Astro content col
 
 ```yaml
 ---
-title: "Prompt caching is becoming an architecture problem"
-description: "Why cache design is moving from optimization detail to system-level concern."
+title: 'Prompt caching is becoming an architecture problem'
+description: 'Why cache design is moving from optimization detail to system-level concern.'
 date: 2026-09-28
 category: engineering
 tags:

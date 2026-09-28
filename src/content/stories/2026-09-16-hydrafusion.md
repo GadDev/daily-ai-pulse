@@ -1,6 +1,6 @@
 ---
-title: "GitHub HydraFusion routes coding work across multiple models"
-description: "HydraFusion plans, drafts, critiques, revises, and selectively escalates tasks across models instead of binding a workflow to one checkpoint."
+title: 'GitHub HydraFusion routes coding work across multiple models'
+description: 'HydraFusion plans, drafts, critiques, revises, and selectively escalates tasks across models instead of binding a workflow to one checkpoint.'
 date: 2026-09-16
 category: tools
 tags: [github-copilot, multi-model, routing, coding-agents]
@@ -10,11 +10,11 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-16-hydrafusion.svg"
-imageAlt: "Multiple model streams converging through an orchestration router"
+image: '/images/stories/2026-09-16-hydrafusion.svg'
+imageAlt: 'Multiple model streams converging through an orchestration router'
 sources:
-  - label: "GitHub — Project HydraFusion: Frontier quality via multi-model orchestration"
-    url: "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/"
+  - label: 'GitHub — Project HydraFusion: Frontier quality via multi-model orchestration'
+    url: 'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/'
 ---
 
 HydraFusion is GitHub's research preview for runtime model orchestration inside Copilot.

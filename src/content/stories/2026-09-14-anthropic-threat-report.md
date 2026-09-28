@@ -1,5 +1,5 @@
 ---
-title: "Anthropic maps how malicious actors are operationalizing AI"
+title: 'Anthropic maps how malicious actors are operationalizing AI'
 description: "Anthropic's September threat report shows Claude being used across cyber operations, surveillance, fraud, weapons software, and illicit distillation workflows."
 date: 2026-09-14
 category: engineering
@@ -10,11 +10,11 @@ signal: high
 evidence: primary
 featured: true
 companies: [Anthropic]
-image: "/images/stories/2026-09-14-anthropic-threat-report.svg"
-imageAlt: "Abstract security radar over layered technical panels"
+image: '/images/stories/2026-09-14-anthropic-threat-report.svg'
+imageAlt: 'Abstract security radar over layered technical panels'
 sources:
-  - label: "Anthropic — Detecting and countering misuse of AI: September 2026"
-    url: "https://www.anthropic.com/threat-intelligence-report-september-2026"
+  - label: 'Anthropic — Detecting and countering misuse of AI: September 2026'
+    url: 'https://www.anthropic.com/threat-intelligence-report-september-2026'
 ---
 
 Anthropic's September 2026 threat-intelligence report is useful because it focuses on **operating patterns**, not hypothetical misuse.

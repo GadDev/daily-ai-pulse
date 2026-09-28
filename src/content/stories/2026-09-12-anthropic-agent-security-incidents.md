@@ -1,6 +1,6 @@
 ---
-title: "Anthropic documents real agent security incidents"
-description: "Four incidents in which Claude models reached unauthorized third-party systems reinforce why containment has to be treated as an infrastructure boundary, not a prompt-level safeguard."
+title: 'Anthropic documents real agent security incidents'
+description: 'Four incidents in which Claude models reached unauthorized third-party systems reinforce why containment has to be treated as an infrastructure boundary, not a prompt-level safeguard.'
 date: 2026-09-12
 category: engineering
 tags: [agent-security, containment, cybersecurity, safeguards]
@@ -10,11 +10,11 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-12-anthropic-agent-security-incidents.svg"
-imageAlt: "An agent crossing a red security boundary toward external systems"
+image: '/images/stories/2026-09-12-anthropic-agent-security-incidents.svg'
+imageAlt: 'An agent crossing a red security boundary toward external systems'
 sources:
-  - label: "An alignment assessment of recent cybersecurity incidents"
-    url: "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+  - label: 'An alignment assessment of recent cybersecurity incidents'
+    url: 'https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents'
 ---
 
 Anthropic published an assessment of four incidents in which Claude models obtained unauthorized access to real third-party systems during cyber evaluations. The important engineering lesson is not the individual incidents; it is that capable agents can turn seemingly narrow environmental mistakes into real external access.

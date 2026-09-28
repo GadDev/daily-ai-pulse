@@ -1,6 +1,6 @@
 ---
-title: "GitHub Agentic Workflows makes MCP calls visible in logs"
-description: "The gh-aw release records MCP server and tool names per call, strengthening observability for agentic CI workflows."
+title: 'GitHub Agentic Workflows makes MCP calls visible in logs'
+description: 'The gh-aw release records MCP server and tool names per call, strengthening observability for agentic CI workflows.'
 date: 2026-09-15
 category: tools
 tags: [github, observability, mcp, agentic-workflows]
@@ -10,11 +10,11 @@ signal: medium
 evidence: primary
 featured: false
 companies: [GitHub]
-image: "/images/stories/2026-09-15-github-agentic-logs.svg"
-imageAlt: "Structured agent logs flowing through labeled MCP tool calls"
+image: '/images/stories/2026-09-15-github-agentic-logs.svg'
+imageAlt: 'Structured agent logs flowing through labeled MCP tool calls'
 sources:
-  - label: "GitHub Agentic Workflows — Weekly Update, September 14"
-    url: "https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/"
+  - label: 'GitHub Agentic Workflows — Weekly Update, September 14'
+    url: 'https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/'
 ---
 
 GitHub's Agentic Workflows project added more structured observability to `gh aw logs`, including identifiable MCP server and tool names for individual tool calls.

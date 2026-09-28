@@ -1,6 +1,6 @@
 ---
-title: "Google ships ADK for Kotlin 1.0"
-description: "The production release brings agent orchestration to Kotlin and Android with on-device models, Firebase AI, state persistence, context compaction, and type-safe tools."
+title: 'Google ships ADK for Kotlin 1.0'
+description: 'The production release brings agent orchestration to Kotlin and Android with on-device models, Firebase AI, state persistence, context compaction, and type-safe tools.'
 date: 2026-09-14
 category: tools
 tags: [google-adk, kotlin, android, agents]
@@ -10,11 +10,11 @@ signal: medium
 evidence: primary
 featured: false
 companies: [Google]
-image: "/images/stories/2026-09-14-adk-kotlin.svg"
-imageAlt: "Mobile and cloud agent components connected through a compact runtime"
+image: '/images/stories/2026-09-14-adk-kotlin.svg'
+imageAlt: 'Mobile and cloud agent components connected through a compact runtime'
 sources:
-  - label: "Google Developers Blog — Announcing ADK for Kotlin 1.0"
-    url: "https://developers.googleblog.com/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/"
+  - label: 'Google Developers Blog — Announcing ADK for Kotlin 1.0'
+    url: 'https://developers.googleblog.com/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/'
 ---
 
 Google's Agent Development Kit for Kotlin reached 1.0 with parity across the core ADK surface and additional Android-first features.

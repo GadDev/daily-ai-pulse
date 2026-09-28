@@ -8,7 +8,16 @@ const stories = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
-    category: z.enum(['models', 'research', 'engineering', 'tools', 'practice', 'workflows', 'business', 'curious']),
+    category: z.enum([
+      'models',
+      'research',
+      'engineering',
+      'tools',
+      'practice',
+      'workflows',
+      'business',
+      'curious',
+    ]),
     tags: z.array(z.string()).default([]),
     type: z.enum(['pulse', 'briefing', 'deep-dive']),
     difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('intermediate'),
@@ -18,12 +27,14 @@ const stories = defineCollection({
     companies: z.array(z.string()).default([]),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
-    sources: z.array(
-      z.object({
-        label: z.string(),
-        url: z.string(),
-      }),
-    ).default([]),
+    sources: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string(),
+        }),
+      )
+      .default([]),
   }),
 });
 

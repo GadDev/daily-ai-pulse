@@ -41,14 +41,14 @@ A daily edition contains only metadata and ordered story references.
 ```yaml
 ---
 date: 2026-09-28
-title: "Pulse — 28 September 2026"
-summary: "The strongest AI engineering signals of the day."
-featured: "2026-09-28-example-story"
+title: 'Pulse — 28 September 2026'
+summary: 'The strongest AI engineering signals of the day.'
+featured: '2026-09-28-example-story'
 sections:
   - key: must-know
     label: Must Know
     stories:
-      - "2026-09-28-example-story"
+      - '2026-09-28-example-story'
   - key: research
     label: Research
     stories: []

@@ -1,7 +1,7 @@
 name: Editorial correction
 description: Report a factual, sourcing, attribution, or clarity problem in a published story
-title: "content: correction for "
-labels: ["content"]
+title: 'content: correction for '
+labels: ['content']
 body:
   - type: input
     id: article

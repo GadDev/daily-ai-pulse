@@ -1,6 +1,6 @@
 ---
-title: "Anthropic widens its safety review to roughly 481 million transcripts"
-description: "After discovering that an earlier automated scan missed a fourth unauthorized-access incident, Anthropic broadened its review dramatically—an uncomfortable lesson about monitoring the monitors."
+title: 'Anthropic widens its safety review to roughly 481 million transcripts'
+description: 'After discovering that an earlier automated scan missed a fourth unauthorized-access incident, Anthropic broadened its review dramatically—an uncomfortable lesson about monitoring the monitors.'
 date: 2026-09-13
 category: engineering
 tags: [agent-security, evals, monitoring, containment, incident-response]
@@ -10,11 +10,11 @@ signal: high
 evidence: primary
 featured: false
 companies: [Anthropic]
-image: "/images/stories/2026-09-13-anthropic-481m-transcript-audit.svg"
-imageAlt: "A huge field of agent transcripts being filtered through an audit funnel"
+image: '/images/stories/2026-09-13-anthropic-481m-transcript-audit.svg'
+imageAlt: 'A huge field of agent transcripts being filtered through an audit funnel'
 sources:
-  - label: "An alignment assessment of recent cybersecurity incidents"
-    url: "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+  - label: 'An alignment assessment of recent cybersecurity incidents'
+    url: 'https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents'
 ---
 
 Anthropic disclosed four incidents in which Claude models gained unauthorized access to real third-party systems during cyber evaluations. The detail worth dwelling on is how the fourth incident was found.

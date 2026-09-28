@@ -124,11 +124,11 @@ The build runs `astro check` first, so invalid TypeScript or content frontmatter
 
 ### Available scripts
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the local Astro development server |
-| `npm run check` | Run Astro/TypeScript content and type checks |
-| `npm run build` | Validate and create the production build |
+| Command           | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| `npm run dev`     | Start the local Astro development server      |
+| `npm run check`   | Run Astro/TypeScript content and type checks  |
+| `npm run build`   | Validate and create the production build      |
 | `npm run preview` | Preview the generated production site locally |
 
 ## Content workflow
@@ -206,17 +206,17 @@ The configured production base path is `/daily-ai-pulse/`, so internal URLs and 
 
 ## Documentation
 
-| Document | Purpose |
-| --- | --- |
-| [`docs/PRODUCT.md`](docs/PRODUCT.md) | Product direction |
-| [`docs/PRD.md`](docs/PRD.md) | Product requirements |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Technical architecture and evolution boundaries |
-| [`docs/EDITORIAL.md`](docs/EDITORIAL.md) | Editorial standards |
-| [`docs/CONTENT_MODEL.md`](docs/CONTENT_MODEL.md) | Structured content model |
-| [`docs/DAILY_ISSUE.md`](docs/DAILY_ISSUE.md) | Daily issue format |
-| [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) | Visual system |
-| [`docs/PAGE_COMPOSITIONS.md`](docs/PAGE_COMPOSITIONS.md) | Page composition specifications |
-| [`CHANGELOG.md`](CHANGELOG.md) | Platform/repository changes |
+| Document                                                 | Purpose                                         |
+| -------------------------------------------------------- | ----------------------------------------------- |
+| [`docs/PRODUCT.md`](docs/PRODUCT.md)                     | Product direction                               |
+| [`docs/PRD.md`](docs/PRD.md)                             | Product requirements                            |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)           | Technical architecture and evolution boundaries |
+| [`docs/EDITORIAL.md`](docs/EDITORIAL.md)                 | Editorial standards                             |
+| [`docs/CONTENT_MODEL.md`](docs/CONTENT_MODEL.md)         | Structured content model                        |
+| [`docs/DAILY_ISSUE.md`](docs/DAILY_ISSUE.md)             | Daily issue format                              |
+| [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md)         | Visual system                                   |
+| [`docs/PAGE_COMPOSITIONS.md`](docs/PAGE_COMPOSITIONS.md) | Page composition specifications                 |
+| [`CHANGELOG.md`](CHANGELOG.md)                           | Platform/repository changes                     |
 
 ## Contributing
 

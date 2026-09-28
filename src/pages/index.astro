@@ -27,20 +27,47 @@ const latestFor = (category: StoryCategory): Story | undefined =>
   stories.find((story) => story.data.category === category);
 
 const sections: Section[] = [
-  { label: 'Research', category: 'research', image: `${base}images/editorial/research.svg`, alt: 'Layered mountain landscape' },
-  { label: 'Tools', category: 'tools', image: `${base}images/editorial/tools.svg`, alt: 'Abstract geometric planes' },
-  { label: 'AI in Practice', category: 'practice', image: `${base}images/editorial/practice.svg`, alt: 'Warm minimal workspace' },
-  { label: 'Curious', category: 'curious', image: `${base}images/editorial/curious.svg`, alt: 'Abstract desert dunes' },
+  {
+    label: 'Research',
+    category: 'research',
+    image: `${base}images/editorial/research.svg`,
+    alt: 'Layered mountain landscape',
+  },
+  {
+    label: 'Tools',
+    category: 'tools',
+    image: `${base}images/editorial/tools.svg`,
+    alt: 'Abstract geometric planes',
+  },
+  {
+    label: 'AI in Practice',
+    category: 'practice',
+    image: `${base}images/editorial/practice.svg`,
+    alt: 'Warm minimal workspace',
+  },
+  {
+    label: 'Curious',
+    category: 'curious',
+    image: `${base}images/editorial/curious.svg`,
+    alt: 'Abstract desert dunes',
+  },
 ];
 
-const readingTime = (story: Story) => story.data.type === 'deep-dive' ? '8 min read' : story.data.type === 'briefing' ? '4 min read' : '3 min read';
+const readingTime = (story: Story) =>
+  story.data.type === 'deep-dive'
+    ? '8 min read'
+    : story.data.type === 'briefing'
+      ? '4 min read'
+      : '3 min read';
 
 const latestPulseItems = editions.slice(0, 5).map((edition) => ({
-  date: edition.data.date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: '2-digit',
-    year: 'numeric',
-  }).toUpperCase(),
+  date: edition.data.date
+    .toLocaleDateString('en-US', {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric',
+    })
+    .toUpperCase(),
   title: edition.data.title.replace(/^The Daily AI Pulse\s*[—-]\s*/i, ''),
   href: `${base}pulse/${edition.id}/`,
 }));
@@ -61,15 +88,17 @@ const latestPulseItems = editions.slice(0, 5).map((edition) => ({
   <section id="categories" class="editorial-grid" aria-label="Latest stories by desk">
     {sections.map(({ label, category, image, alt }) => {
       const story = latestFor(category);
-      return story && (
-        <StoryCard
-          label={label}
-          title={story.data.title}
-          href={`${base}stories/${story.id}/`}
-          image={image}
-          imageAlt={alt}
-          meta={readingTime(story)}
-        />
+      return (
+        story && (
+          <StoryCard
+            label={label}
+            title={story.data.title}
+            href={`${base}stories/${story.id}/`}
+            image={image}
+            imageAlt={alt}
+            meta={readingTime(story)}
+          />
+        )
       );
     })}
   </section>
@@ -86,10 +115,15 @@ const latestPulseItems = editions.slice(0, 5).map((edition) => ({
   }
 
   @media (max-width: 900px) {
-    .editorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .editorial-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 560px) {
-    .editorial-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
   }
 </style>

@@ -1,6 +1,6 @@
 ---
-title: "Tail-aware scheduling targets the latency users actually feel"
-description: "A scheduling paper replaces decode-length prediction with distribution-aware priority boosts and cache-aware preemption, cutting reported P99 completion latency by up to 35–50%."
+title: 'Tail-aware scheduling targets the latency users actually feel'
+description: 'A scheduling paper replaces decode-length prediction with distribution-aware priority boosts and cache-aware preemption, cutting reported P99 completion latency by up to 35–50%.'
 date: 2026-09-13
 category: research
 tags: [inference, scheduling, tail-latency, kv-cache, serving]
@@ -10,11 +10,11 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-13-tail-aware-scheduling.svg"
-imageAlt: "Long-tail requests being prioritized through a latency-aware scheduler"
+image: '/images/stories/2026-09-13-tail-aware-scheduling.svg'
+imageAlt: 'Long-tail requests being prioritized through a latency-aware scheduler'
 sources:
-  - label: "Beyond Prediction: Tail-Aware Scheduling for LLM Inference"
-    url: "https://arxiv.org/abs/2606.18431"
+  - label: 'Beyond Prediction: Tail-Aware Scheduling for LLM Inference'
+    url: 'https://arxiv.org/abs/2606.18431'
 ---
 
 Mean latency can hide the failures users actually notice. In LLM serving, a small fraction of very slow requests often dominates perceived reliability, especially when decode lengths vary wildly and GPU memory pressure forces preemption.

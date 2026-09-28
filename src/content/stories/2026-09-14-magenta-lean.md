@@ -1,6 +1,6 @@
 ---
-title: "Magenta closes the loop between informal math and Lean verification"
-description: "A training-free pipeline converts natural-language solutions into Lean statements, checks formalization fidelity, and routes failures back to math reasoning or proof repair."
+title: 'Magenta closes the loop between informal math and Lean verification'
+description: 'A training-free pipeline converts natural-language solutions into Lean statements, checks formalization fidelity, and routes failures back to math reasoning or proof repair.'
 date: 2026-09-14
 category: research
 tags: [formal-verification, lean, math, agents]
@@ -10,11 +10,11 @@ signal: medium
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-14-magenta-lean.svg"
-imageAlt: "Mathematical symbols passing through a formal verification gate"
+image: '/images/stories/2026-09-14-magenta-lean.svg'
+imageAlt: 'Mathematical symbols passing through a formal verification gate'
 sources:
-  - label: "Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification"
-    url: "https://arxiv.org/abs/2609.11319"
+  - label: 'Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification'
+    url: 'https://arxiv.org/abs/2609.11319'
 ---
 
 Magenta connects informal mathematical reasoning to machine-checkable Lean proofs without requiring a separately trained theorem-proving model.

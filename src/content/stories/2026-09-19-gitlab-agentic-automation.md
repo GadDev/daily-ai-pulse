@@ -1,6 +1,6 @@
 ---
-title: "GitLab 19.4 makes governed agentic automation a platform feature"
-description: "GitLab adds `/goal` for locally executed builder-verifier loops and MCP tools that can operate across pipelines, merge requests, work items, vulnerabilities, and projects."
+title: 'GitLab 19.4 makes governed agentic automation a platform feature'
+description: 'GitLab adds `/goal` for locally executed builder-verifier loops and MCP tools that can operate across pipelines, merge requests, work items, vulnerabilities, and projects.'
 date: 2026-09-19
 category: tools
 tags: [gitlab, mcp, coding-agents, governance]
@@ -10,11 +10,11 @@ signal: high
 evidence: primary
 featured: false
 companies: [GitLab]
-image: "/images/stories/2026-09-19-gitlab-agentic-automation.svg"
-imageAlt: "A governed agent workflow connecting code, CI, security, and merge requests"
+image: '/images/stories/2026-09-19-gitlab-agentic-automation.svg'
+imageAlt: 'A governed agent workflow connecting code, CI, security, and merge requests'
 sources:
-  - label: "GitLab 19.4 Brings New Agentic Automation at a Lower Cost"
-    url: "https://about.gitlab.com/press/releases/2026-09-17-gitlab-19-4-brings-new-agentic-automation-at-a-lower-cost/"
+  - label: 'GitLab 19.4 Brings New Agentic Automation at a Lower Cost'
+    url: 'https://about.gitlab.com/press/releases/2026-09-17-gitlab-19-4-brings-new-agentic-automation-at-a-lower-cost/'
 ---
 
 GitLab 19.4 extends its agent platform in two useful directions.

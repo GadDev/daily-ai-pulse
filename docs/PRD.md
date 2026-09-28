@@ -148,7 +148,7 @@ Stories should support structured frontmatter such as:
 
 ```yaml
 ---
-title: "Prompt caching is becoming an architecture problem"
+title: 'Prompt caching is becoming an architecture problem'
 date: 2026-09-28
 category: ai-engineering
 tags:

@@ -1,6 +1,6 @@
 ---
-title: "Harness or model? A private benchmark separates the two"
-description: "A contamination-controlled study finds no clear average winner between native and neutral coding-agent harnesses, while showing large task-specific and cost differences."
+title: 'Harness or model? A private benchmark separates the two'
+description: 'A contamination-controlled study finds no clear average winner between native and neutral coding-agent harnesses, while showing large task-specific and cost differences.'
 date: 2026-09-15
 category: research
 tags: [coding-agents, harness, evals, software-engineering]
@@ -10,11 +10,11 @@ signal: high
 evidence: preliminary
 featured: true
 companies: []
-image: "/images/stories/2026-09-15-harness-or-model.svg"
-imageAlt: "Two parallel agent harness tracks surrounding the same model core"
+image: '/images/stories/2026-09-15-harness-or-model.svg'
+imageAlt: 'Two parallel agent harness tracks surrounding the same model core'
 sources:
-  - label: "Harness or Model? Isolating the Harness Effect in Agentic Coding"
-    url: "https://arxiv.org/abs/2609.11987"
+  - label: 'Harness or Model? Isolating the Harness Effect in Agentic Coding'
+    url: 'https://arxiv.org/abs/2609.11987'
 ---
 
 This study asks a question coding-agent benchmarks often blur: how much performance comes from the model, and how much from the harness around it?

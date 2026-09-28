@@ -10,7 +10,11 @@ const stories = (await getCollection('stories'))
   .filter((story) => story.data.category === 'tools')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<BaseLayout title="Dev Tools — Pulse" description="IDEs, coding agents, MCP, frameworks, SDKs, and repositories.">
+
+<BaseLayout
+  title="Dev Tools — Pulse"
+  description="IDEs, coding agents, MCP, frameworks, SDKs, and repositories."
+>
   <section class="issue-head">
     <p class="eyebrow">CATEGORY ARCHIVE</p>
     <h1>Dev Tools</h1>
@@ -34,5 +38,7 @@ const stories = (await getCollection('stories'))
 </BaseLayout>
 
 <style>
-  .archive-list{padding:3rem 0 1rem}
+  .archive-list {
+    padding: 3rem 0 1rem;
+  }
 </style>

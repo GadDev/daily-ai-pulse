@@ -1,6 +1,6 @@
 ---
-title: "Pulse begins: signal over noise"
-description: "The first editorial note for the new publication structure."
+title: 'Pulse begins: signal over noise'
+description: 'The first editorial note for the new publication structure.'
 date: 2026-09-28
 category: engineering
 tags: [publication, editorial]

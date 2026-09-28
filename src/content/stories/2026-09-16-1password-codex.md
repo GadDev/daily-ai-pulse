@@ -1,6 +1,6 @@
 ---
-title: "1Password reports 21% productivity lift from Codex"
-description: "The company integrated Codex across implementation, PR review, testing, incidents, and internal tooling while keeping security controls in the workflow."
+title: '1Password reports 21% productivity lift from Codex'
+description: 'The company integrated Codex across implementation, PR review, testing, incidents, and internal tooling while keeping security controls in the workflow.'
 date: 2026-09-16
 category: practice
 tags: [codex, enterprise, case-study, software-engineering]
@@ -10,11 +10,11 @@ signal: medium
 evidence: primary
 featured: false
 companies: [OpenAI, 1Password]
-image: "/images/stories/2026-09-16-1password-codex.svg"
-imageAlt: "A secure software delivery pipeline with agent checkpoints"
+image: '/images/stories/2026-09-16-1password-codex.svg'
+imageAlt: 'A secure software delivery pipeline with agent checkpoints'
 sources:
-  - label: "OpenAI — 1Password increases engineering productivity 21% with Codex"
-    url: "https://openai.com/index/1password/"
+  - label: 'OpenAI — 1Password increases engineering productivity 21% with Codex'
+    url: 'https://openai.com/index/1password/'
 ---
 
 1Password says its core Codex cohort improved engineering productivity by about 21% and reduced median pull-request cycle time by nearly 11%.

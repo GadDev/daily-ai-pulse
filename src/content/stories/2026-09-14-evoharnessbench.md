@@ -1,6 +1,6 @@
 ---
-title: "EVOHARNESSBENCH shows agents can forget when their harness improves"
-description: "The benchmark changes tools, skills, and subagents over time and finds that harness expansion can degrade previously solved tasks."
+title: 'EVOHARNESSBENCH shows agents can forget when their harness improves'
+description: 'The benchmark changes tools, skills, and subagents over time and finds that harness expansion can degrade previously solved tasks.'
 date: 2026-09-14
 category: research
 tags: [agents, harness, evals, continual-learning]
@@ -10,11 +10,11 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-14-evoharnessbench.svg"
-imageAlt: "Modular tool blocks being rearranged around an agent core"
+image: '/images/stories/2026-09-14-evoharnessbench.svg'
+imageAlt: 'Modular tool blocks being rearranged around an agent core'
 sources:
-  - label: "EVOHARNESSBENCH: Can Your Agents Keep Pace with an Evolving Harness?"
-    url: "https://arxiv.org/abs/2609.04280"
+  - label: 'EVOHARNESSBENCH: Can Your Agents Keep Pace with an Evolving Harness?'
+    url: 'https://arxiv.org/abs/2609.04280'
 ---
 
 EVOHARNESSBENCH evaluates agents while their external harness evolves: tools are added, skills change, and specialist agents appear over time.

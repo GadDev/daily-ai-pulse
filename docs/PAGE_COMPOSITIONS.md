@@ -509,19 +509,19 @@ This contrast is central to the publication identity.
 
 Existing components should become the canonical building blocks rather than allowing pages to recreate markup independently.
 
-| Component | Primary role |
-| --- | --- |
-| `BigStory` | homepage and Daily Pulse lead story |
-| `StoryCard` | medium-emphasis editorial card |
-| `StoryListRow` | archive/category list item |
-| `DailyIssueRow` | Pulse archive / issue story row |
-| `LatestPulseList` | recent editions block |
-| `SectionHeading` | editorial section title and optional action |
-| `CategoryNav` | category discovery/navigation |
-| `ArticleToc` | long-form article navigation |
-| `SearchButton` | global header action |
-| `SubscribeButton` | global header CTA |
-| `NewsletterForm` | homepage/article/archive conversion block |
+| Component         | Primary role                                |
+| ----------------- | ------------------------------------------- |
+| `BigStory`        | homepage and Daily Pulse lead story         |
+| `StoryCard`       | medium-emphasis editorial card              |
+| `StoryListRow`    | archive/category list item                  |
+| `DailyIssueRow`   | Pulse archive / issue story row             |
+| `LatestPulseList` | recent editions block                       |
+| `SectionHeading`  | editorial section title and optional action |
+| `CategoryNav`     | category discovery/navigation               |
+| `ArticleToc`      | long-form article navigation                |
+| `SearchButton`    | global header action                        |
+| `SubscribeButton` | global header CTA                           |
+| `NewsletterForm`  | homepage/article/archive conversion block   |
 
 If a page requires a variant, prefer adding a documented component variant over copying markup into the page.
 

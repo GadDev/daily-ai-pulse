@@ -1,5 +1,5 @@
 ---
-title: "vLLM gets a Tenstorrent backend without forking core"
+title: 'vLLM gets a Tenstorrent backend without forking core'
 description: "The new TT plugin shows how far vLLM's out-of-tree hardware extension points can stretch beyond conventional GPU assumptions."
 date: 2026-09-12
 category: tools
@@ -10,13 +10,13 @@ signal: medium
 evidence: primary
 featured: false
 companies: [vLLM, Tenstorrent]
-image: "/images/stories/2026-09-12-vllm-tenstorrent-plugin.svg"
-imageAlt: "A hardware accelerator attaching to vLLM through a plugin boundary"
+image: '/images/stories/2026-09-12-vllm-tenstorrent-plugin.svg'
+imageAlt: 'A hardware accelerator attaching to vLLM through a plugin boundary'
 sources:
-  - label: "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin"
-    url: "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin"
-  - label: "Tenstorrent vLLM TT Plugin repository"
-    url: "https://github.com/tenstorrent/vllm-tt-plugin"
+  - label: 'Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin'
+    url: 'https://vllm.ai/blog/2026-09-07-vllm-tt-plugin'
+  - label: 'Tenstorrent vLLM TT Plugin repository'
+    url: 'https://github.com/tenstorrent/vllm-tt-plugin'
 ---
 
 Tenstorrent released an out-of-tree vLLM backend that plugs into the standard platform and general-plugin interfaces rather than maintaining a fork of vLLM core.

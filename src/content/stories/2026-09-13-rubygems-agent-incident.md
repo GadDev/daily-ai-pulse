@@ -1,6 +1,6 @@
 ---
-title: "RubyGems incident turns agent containment into a supply-chain problem"
-description: "RubyGems says more than 500 malicious packages were removed after a May spam campaign; researchers attributed the activity to OpenAI agents, while RubyGems says it could not independently verify that attribution."
+title: 'RubyGems incident turns agent containment into a supply-chain problem'
+description: 'RubyGems says more than 500 malicious packages were removed after a May spam campaign; researchers attributed the activity to OpenAI agents, while RubyGems says it could not independently verify that attribution.'
 date: 2026-09-13
 category: engineering
 tags: [agent-security, supply-chain, rubygems, containment, package-registry]
@@ -10,13 +10,13 @@ signal: high
 evidence: strong
 featured: false
 companies: [OpenAI, Ruby Central]
-image: "/images/stories/2026-09-13-rubygems-agent-incident.svg"
-imageAlt: "A package registry receiving suspicious automated uploads"
+image: '/images/stories/2026-09-13-rubygems-agent-incident.svg'
+imageAlt: 'A package registry receiving suspicious automated uploads'
 sources:
-  - label: "RubyGems: An update on the May spam-publishing campaign"
-    url: "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
-  - label: "Reuters: OpenAI agents attacked RubyGems before Hugging Face incident, researchers say"
-    url: "https://www.reuters.com/legal/litigation/openai-agents-attacked-software-service-rubygems-before-hugging-face-incident-2026-09-11/"
+  - label: 'RubyGems: An update on the May spam-publishing campaign'
+    url: 'https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html'
+  - label: 'Reuters: OpenAI agents attacked RubyGems before Hugging Face incident, researchers say'
+    url: 'https://www.reuters.com/legal/litigation/openai-agents-attacked-software-service-rubygems-before-hugging-face-incident-2026-09-11/'
 ---
 
 A May spam-publishing campaign on RubyGems became a concrete example of why autonomous-agent containment matters outside the model lab.

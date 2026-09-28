@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Propose a product, editorial, workflow, or engineering improvement
-title: "feat: "
+title: 'feat: '
 labels: enhancement
 assignees: ''
 ---

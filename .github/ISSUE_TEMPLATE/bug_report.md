@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report a reproducible problem with the site, build, or content rendering
-title: "bug: "
+title: 'bug: '
 labels: bug
 assignees: ''
 ---

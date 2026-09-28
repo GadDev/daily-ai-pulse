@@ -1,6 +1,6 @@
 ---
-title: "Tail-aware scheduling cuts agent workflow P95 under contention"
-description: "A scheduling paper argues that runtimes should separate turn readiness from release, reducing tail latency by up to 3.5× on software-engineering agent traces."
+title: 'Tail-aware scheduling cuts agent workflow P95 under contention'
+description: 'A scheduling paper argues that runtimes should separate turn readiness from release, reducing tail latency by up to 3.5× on software-engineering agent traces.'
 date: 2026-09-12
 category: research
 tags: [agents, scheduling, tail-latency, inference, orchestration]
@@ -10,11 +10,11 @@ signal: high
 evidence: preliminary
 featured: false
 companies: []
-image: "/images/stories/2026-09-12-tail-aware-agent-scheduling.svg"
-imageAlt: "Queued agent turns released selectively through a scheduler"
+image: '/images/stories/2026-09-12-tail-aware-agent-scheduling.svg'
+imageAlt: 'Queued agent turns released selectively through a scheduler'
 sources:
-  - label: "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows"
-    url: "https://arxiv.org/abs/2609.10964"
+  - label: 'Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows'
+    url: 'https://arxiv.org/abs/2609.10964'
 ---
 
 Most agent runtimes release a model turn as soon as it becomes ready. That sounds sensible, but under contention it can create a growing queue of released work that the workflow scheduler can no longer reorder.
