@@ -1,12 +1,26 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BigStory from '../components/BigStory.astro';
+import CategoryNav from '../components/CategoryNav.astro';
+import LatestPulseList from '../components/LatestPulseList.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import StoryCard from '../components/StoryCard.astro';
 
 type Story = CollectionEntry<'stories'>;
 type StoryCategory = Story['data']['category'];
-type Section = readonly [label: string, story: Story | undefined];
+type Section = {
+  label: string;
+  category: StoryCategory;
+  href: string;
+  story: Story | undefined;
+};
 
+const base = import.meta.env.BASE_URL;
 const stories = (await getCollection('stories')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const editions = (await getCollection('pulse')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
@@ -15,12 +29,23 @@ const latestFor = (category: StoryCategory): Story | undefined =>
   stories.find((story) => story.data.category === category);
 
 const sections: Section[] = [
-  ['Research', latestFor('research')],
-  ['Tools', latestFor('tools')],
-  ['In Practice', latestFor('practice')],
-  ['Curious', latestFor('curious')],
+  { label: 'Research', category: 'research', href: `${base}research/`, story: latestFor('research') },
+  { label: 'Dev Tools', category: 'tools', href: `${base}tools/`, story: latestFor('tools') },
+  { label: 'AI in Practice', category: 'practice', href: `${base}practice/`, story: latestFor('practice') },
+  { label: 'Curious AI', category: 'curious', href: `${base}curious/`, story: latestFor('curious') },
 ];
+
+const latestPulseItems = editions.slice(0, 5).map((edition) => ({
+  date: edition.data.date.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }),
+  title: edition.data.title,
+  href: `${base}pulse/${edition.id}/`,
+}));
 ---
+
 <BaseLayout title="Pulse — Signal over noise in AI">
   <section class="issue-head">
     <p class="eyebrow">DAILY TRANSMISSION</p>
@@ -28,23 +53,52 @@ const sections: Section[] = [
     <p>Research. Tools. Field reports. Strange signals.</p>
   </section>
 
+  <CategoryNav />
+
   {bigStory && (
-    <article class="big-story">
-      <p class="label">THE BIG SIGNAL</p>
-      <h2><a href={`${import.meta.env.BASE_URL}stories/${bigStory.id}/`}>{bigStory.data.title}</a></h2>
-      <p>{bigStory.data.description}</p>
-      <div class="meta">{bigStory.data.type} · evidence/{bigStory.data.evidence} · signal/{bigStory.data.signal}</div>
-    </article>
+    <BigStory
+      label="THE BIG SIGNAL"
+      title={bigStory.data.title}
+      description={bigStory.data.description}
+      href={`${base}stories/${bigStory.id}/`}
+      meta={`${bigStory.data.type} · evidence/${bigStory.data.evidence} · signal/${bigStory.data.signal}`}
+    />
   )}
 
-  <section class="grid">
-    {sections.map(([label, story]) => story && (
-      <article class="card">
-        <p class="label">{label}</p>
-        <h2><a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a></h2>
-        <p>{story.data.description}</p>
-        <div class="meta">evidence/{story.data.evidence}</div>
-      </article>
+  <section class="editorial-grid" aria-label="Latest stories by desk">
+    {sections.map(({ label, href, story }) => story && (
+      <section class="editorial-desk">
+        <SectionHeading title={label} href={href} />
+        <StoryCard
+          label={`${story.data.type} · ${story.data.difficulty}`}
+          title={story.data.title}
+          description={story.data.description}
+          href={`${base}stories/${story.id}/`}
+          meta={`${story.data.date.toLocaleDateString('en-GB')} · evidence/${story.data.evidence} · signal/${story.data.signal}`}
+        />
+      </section>
     ))}
   </section>
+
+  {latestPulseItems.length > 0 && <LatestPulseList items={latestPulseItems} />}
 </BaseLayout>
+
+<style>
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 3rem;
+    padding: 3rem 0;
+  }
+
+  .editorial-desk {
+    min-width: 0;
+  }
+
+  @media (max-width: 760px) {
+    .editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
