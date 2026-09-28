@@ -3,9 +3,9 @@ import { expect, test } from '@playwright/test';
 test('homepage internal links resolve without HTTP errors', async ({ page, request, baseURL }) => {
   await page.goto('');
 
-  const hrefs = await page.locator('a[href]').evaluateAll((anchors) =>
-    anchors.map((anchor) => (anchor as HTMLAnchorElement).href),
-  );
+  const hrefs = await page
+    .locator('a[href]')
+    .evaluateAll((anchors) => anchors.map((anchor) => (anchor as HTMLAnchorElement).href));
 
   const base = new URL(baseURL ?? 'http://127.0.0.1:4321/daily-ai-pulse/');
   const internal = [...new Set(hrefs)]
