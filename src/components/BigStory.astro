@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  label?: string;
+  meta?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  label = 'BIG STORY',
+  meta,
+} = Astro.props;
+---
+
+<article class="big-story-card">
+  <div class="big-story-copy">
+    <p class="label">{label}</p>
+    <h2><a href={href}>{title}</a></h2>
+    <p class="description">{description}</p>
+    {meta && <p class="meta">{meta}</p>}
+    <a class="read-link" href={href}>Read the story →</a>
+  </div>
+</article>
+
+<style>
+  .big-story-card{padding:clamp(2rem,5vw,4rem) 0;border-bottom:1px solid var(--line)}
+  .big-story-copy{max-width:760px}
+  h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.8rem,7vw,5.75rem);line-height:.92;letter-spacing:-.045em;margin:.55rem 0 1rem;max-width:12ch}
+  h2 a{text-decoration:none}
+  .description{max-width:58ch;font-size:1.08rem;line-height:1.6;color:var(--ink-muted)}
+  .read-link{display:inline-block;margin-top:1rem;padding:.72rem 1rem;border-radius:999px;background:var(--accent);color:var(--surface);text-decoration:none;font-size:.88rem;font-weight:700}
+</style>
