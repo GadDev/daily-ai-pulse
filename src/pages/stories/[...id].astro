@@ -59,7 +59,15 @@ const imageSrc = story.data.image
   : undefined;
 ---
 
-<BaseLayout title={`${story.data.title} — Pulse`} description={story.data.description}>
+<BaseLayout
+  title={`${story.data.title} — Pulse`}
+  description={story.data.description}
+  image={story.data.image}
+  type="article"
+  publishedTime={story.data.date.toISOString()}
+  section={story.data.category}
+  tags={story.data.tags}
+>
   <article class="article-shell">
     <header class="article-header">
       <p class="eyebrow">{story.data.category} / {story.data.type}</p>
