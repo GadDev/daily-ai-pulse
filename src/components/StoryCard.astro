@@ -2,24 +2,31 @@
 interface Props {
   label: string;
   title: string;
-  description: string;
   href: string;
+  image: string;
+  imageAlt: string;
   meta?: string;
 }
 
-const { label, title, description, href, meta } = Astro.props;
+const { label, title, href, image, imageAlt, meta } = Astro.props;
 ---
 
 <article class="story-card">
   <p class="label">{label}</p>
-  <h3><a href={href}>{title}</a></h3>
-  <p>{description}</p>
+  <a class="story-image" href={href} aria-label={`Read ${title}`}>
+    <img src={image} alt={imageAlt} loading="lazy" />
+  </a>
+  <h2><a href={href}>{title}</a></h2>
   {meta && <p class="meta">{meta}</p>}
 </article>
 
 <style>
-  .story-card{padding:1.5rem 0;border-top:1px solid var(--line)}
-  h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.02;margin:.45rem 0 .7rem;max-width:18ch}
-  h3 a{text-decoration:none}
-  .story-card>p:not(.label):not(.meta){max-width:48ch;line-height:1.55;color:var(--ink-muted)}
+  .story-card{min-width:0}
+  .label{margin:0 0 .85rem;font-weight:700;color:var(--ink)}
+  .story-image{display:block;aspect-ratio:1.95/1;border-radius:5px;overflow:hidden;background:var(--surface-alt)}
+  img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .story-image:hover img{transform:scale(1.02)}
+  h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.07;letter-spacing:-.025em;margin:.8rem 0 .45rem}
+  h2 a{text-decoration:none}
+  .meta{margin:0;color:var(--ink-muted);font:500 .72rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:none;letter-spacing:0}
 </style>

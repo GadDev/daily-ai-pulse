@@ -26,9 +26,8 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
         <nav class="site-nav" aria-label="Primary navigation">
           <a class:list={{ active: currentPath === base }} href={base}>Home</a>
           <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>Pulse</a>
-          <a class:list={{ active: isActive(`${base}research`) }} href={`${base}research/`}>Research</a>
-          <a class:list={{ active: isActive(`${base}tools`) }} href={`${base}tools/`}>Dev Tools</a>
-          <a class:list={{ active: isActive(`${base}practice`) }} href={`${base}practice/`}>AI in Practice</a>
+          <a href={`${base}#categories`}>Categories</a>
+          <a href="#about">About</a>
         </nav>
 
         <div class="site-actions">
@@ -40,7 +39,7 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
 
     <main><slot /></main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="about">
       <div class="site-footer__topline">
         <span>THE DAILY AI PULSE</span>
         <span>SIGNAL OVER NOISE IN AI</span>
@@ -89,3 +88,10 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
     </footer>
   </body>
 </html>
+
+<style>
+  .site-header{position:static;background:transparent;border-bottom:0;backdrop-filter:none}
+  .site-header__inner{min-height:78px}
+  .site-nav{gap:1.7rem;font-size:.8rem}
+  .brand{font-size:1.45rem}
+</style>
