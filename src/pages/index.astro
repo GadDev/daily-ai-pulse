@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stories = (await getCollection('stories')).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
+const bigStory = stories.find((story) => story.data.featured);
+const latestFor = (category) => stories.find((story) => story.data.category === category);
+const sections = [
+  ['Research', latestFor('research')],
+  ['Tools', latestFor('tools')],
+  ['In Practice', latestFor('practice')],
+  ['Curious', latestFor('curious')],
+];
+---
+<BaseLayout title="Pulse — Signal over noise in AI">
+  <section class="issue-head">
+    <p class="eyebrow">DAILY TRANSMISSION</p>
+    <h1>PULSE</h1>
+    <p>Research. Tools. Field reports. Strange signals.</p>
+  </section>
+
+  {bigStory && (
+    <article class="big-story">
+      <p class="label">THE BIG SIGNAL</p>
+      <h2><a href={`${import.meta.env.BASE_URL}stories/${bigStory.id}/`}>{bigStory.data.title}</a></h2>
+      <p>{bigStory.data.description}</p>
+      <div class="meta">{bigStory.data.type} · evidence/{bigStory.data.evidence} · signal/{bigStory.data.signal}</div>
+    </article>
+  )}
+
+  <section class="grid">
+    {sections.map(([label, story]) => story && (
+      <article class="card">
+        <p class="label">{label}</p>
+        <h2><a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a></h2>
+        <p>{story.data.description}</p>
+        <div class="meta">evidence/{story.data.evidence}</div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

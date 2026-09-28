@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  return stories.map((story) => ({ params: { id: story.id }, props: { story } }));
+}
+
+const { story } = Astro.props;
+const { Content } = await render(story);
+---
+<BaseLayout title={`${story.data.title} — Pulse`} description={story.data.description}>
+  <article class="story">
+    <p class="eyebrow">{story.data.category} / {story.data.type}</p>
+    <h1>{story.data.title}</h1>
+    <p class="dek">{story.data.description}</p>
+    <div class="meta">evidence/{story.data.evidence} · signal/{story.data.signal} · {story.data.difficulty}</div>
+    <div class="prose"><Content /></div>
+  </article>
+</BaseLayout>
