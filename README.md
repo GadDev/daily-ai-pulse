@@ -56,7 +56,7 @@ For the detailed technical model, see [`docs/ARCHITECTURE.md`](./docs/ARCHITECTU
 - static HTML/CSS with progressive enhancement
 - GitHub Pages
 - GitHub Actions
-- React islands only when an interaction genuinely requires them
+- client-side JavaScript only when an interaction genuinely requires it
 
 ## Local development
 
