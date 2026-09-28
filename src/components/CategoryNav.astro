@@ -1,0 +1,32 @@
+---
+const categories = [
+  ['Research', 'research'],
+  ['Models', 'models'],
+  ['AI Engineering', 'engineering'],
+  ['Dev Tools', 'tools'],
+  ['AI in Practice', 'practice'],
+  ['Workflows', 'workflows'],
+  ['Business & Industry', 'business'],
+  ['Curious AI', 'curious'],
+] as const;
+
+interface Props {
+  active?: string;
+}
+
+const { active } = Astro.props;
+---
+
+<nav class="category-nav" aria-label="Categories">
+  <a class:list={{ active: !active }} href={import.meta.env.BASE_URL}>All</a>
+  {categories.map(([label, slug]) => (
+    <a class:list={{ active: active === slug }} href={`${import.meta.env.BASE_URL}${slug}/`}>{label}</a>
+  ))}
+</nav>
+
+<style>
+  .category-nav{display:flex;gap:1.1rem;overflow-x:auto;padding:.85rem 0;border-bottom:1px solid var(--line);scrollbar-width:none}
+  .category-nav::-webkit-scrollbar{display:none}
+  a{white-space:nowrap;text-decoration:none;font-size:.86rem;color:var(--ink-muted);padding-bottom:.45rem;border-bottom:1px solid transparent}
+  a:hover,a.active{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
