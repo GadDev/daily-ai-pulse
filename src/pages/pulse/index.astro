@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DailyIssueRow from '../../components/DailyIssueRow.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+const base = import.meta.env.BASE_URL;
+const editions = (await getCollection('pulse')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout title="The Pulse — Daily AI editions" description="Browse every Daily AI Pulse edition.">
+  <section class="issue-head">
+    <p class="eyebrow">DAILY ARCHIVE</p>
+    <h1>The Pulse</h1>
+    <p>Daily AI editions, curated for signal over noise.</p>
+  </section>
+
+  <section class="pulse-archive" aria-labelledby="pulse-archive-title">
+    <SectionHeading title="All editions" />
+
+    {editions.length > 0 ? (
+      <div class="issue-list">
+        {editions.map((edition, index) => (
+          <DailyIssueRow
+            index={index + 1}
+            label={edition.data.date.toLocaleDateString('en-GB', {
+              weekday: 'short',
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+            })}
+            title={edition.data.title}
+            description={edition.data.summary}
+            href={`${base}pulse/${edition.id}/`}
+            meta={`${edition.data.sections.length} sections`}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="empty-state">No Pulse editions have been published yet.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .pulse-archive{padding:3rem 0 1rem}
+  .issue-list{margin-top:.25rem}
+  .empty-state{margin:2rem 0;color:var(--muted)}
+</style>
