@@ -1,0 +1,53 @@
+---
+interface Props {
+  label: string;
+  kind: 'take' | 'evidence' | 'try';
+}
+
+const { label, kind } = Astro.props;
+---
+
+<aside class:list={['editorial-callout', `editorial-callout--${kind}`]}>
+  <p class="editorial-callout__label">{label}</p>
+  <div class="editorial-callout__body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .editorial-callout {
+    margin: 2.5rem 0;
+    padding: 1.3rem 1.4rem 1.45rem;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .editorial-callout--evidence {
+    border-top-color: var(--muted);
+    background: var(--surface-alt);
+  }
+  .editorial-callout--try {
+    border-top-width: 2px;
+  }
+  .editorial-callout__label {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font:
+      700 0.68rem/1 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .editorial-callout__body {
+    font-size: 1.08rem;
+    line-height: 1.6;
+  }
+  .editorial-callout__body :global(> :first-child) {
+    margin-top: 0;
+  }
+  .editorial-callout__body :global(> :last-child) {
+    margin-bottom: 0;
+  }
+</style>

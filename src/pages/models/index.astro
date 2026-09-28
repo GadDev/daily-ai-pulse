@@ -1,44 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CategoryNav from '../../components/CategoryNav.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import StoryListRow from '../../components/StoryListRow.astro';
-
-const base = import.meta.env.BASE_URL;
-const stories = (await getCollection('stories'))
-  .filter((story) => story.data.category === 'models')
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+import CategoryArchive from '../../components/CategoryArchive.astro';
+import { categories } from '../../lib/categories';
 ---
 
-<BaseLayout
-  title="Models & Releases — Pulse"
-  description="Model releases, architecture changes, and platform updates."
->
-  <section class="issue-head">
-    <p class="eyebrow">CATEGORY ARCHIVE</p>
-    <h1>Models & Releases</h1>
-    <p>Model launches, architecture updates, and release analysis.</p>
-  </section>
-
-  <CategoryNav active="models" />
-
-  <section class="archive-list">
-    <SectionHeading title="Latest models & releases" />
-    {stories.map((story) => (
-      <StoryListRow
-        title={story.data.title}
-        description={story.data.description}
-        href={`${base}stories/${story.id}/`}
-        date={story.data.date.toLocaleDateString('en-GB')}
-        meta={`${story.data.type} · ${story.data.difficulty} · evidence/${story.data.evidence} · signal/${story.data.signal}`}
-      />
-    ))}
-  </section>
-</BaseLayout>
-
-<style>
-  .archive-list {
-    padding: 3rem 0 1rem;
-  }
-</style>
+<CategoryArchive config={categories.models} />
