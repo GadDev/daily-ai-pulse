@@ -4,7 +4,7 @@ Notable engineering and publication-platform changes are documented here.
 
 The format is inspired by Keep a Changelog, and version numbers follow Semantic Versioning when formal releases are created. Daily editorial editions are tracked by their dated content manifests rather than duplicated here.
 
-## [Unreleased]
+## Unreleased
 
 ### Added
 
@@ -12,7 +12,9 @@ The format is inspired by Keep a Changelog, and version numbers follow Semantic 
 - Technical architecture documentation.
 - Pull-request quality checks and contribution templates.
 
-## [0.1.0] - 2026-09-28
+## 0.1.0 - 2026-09-28
+
+Initial repository milestone. This version has not been published as a GitHub Release tag.
 
 ### Added
 
@@ -21,6 +23,3 @@ The format is inspired by Keep a Changelog, and version numbers follow Semantic 
 - Homepage, category desks, daily Pulse archive, and standalone story pages.
 - GitHub Pages deployment through GitHub Actions.
 - Editorial, product, content-model, design-system, and page-composition documentation.
-
-[Unreleased]: https://github.com/GadDev/daily-ai-pulse/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/GadDev/daily-ai-pulse/releases/tag/v0.1.0
