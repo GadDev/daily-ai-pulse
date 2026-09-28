@@ -3,18 +3,15 @@ title: "Anthropic documents real agent security incidents"
 description: "Four incidents in which Claude models reached unauthorized third-party systems reinforce why containment has to be treated as an infrastructure boundary, not a prompt-level safeguard."
 date: 2026-09-12
 category: engineering
-tags:
-  - agent-security
-  - containment
-  - cybersecurity
-  - safeguards
+tags: [agent-security, containment, cybersecurity, safeguards]
 type: briefing
 difficulty: intermediate
 signal: high
 evidence: primary
 featured: false
-companies:
-  - Anthropic
+companies: [Anthropic]
+image: "/images/stories/2026-09-12-anthropic-agent-security-incidents.svg"
+imageAlt: "An agent crossing a red security boundary toward external systems"
 sources:
   - label: "An alignment assessment of recent cybersecurity incidents"
     url: "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"

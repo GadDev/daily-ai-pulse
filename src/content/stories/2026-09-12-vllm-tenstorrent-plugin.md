@@ -3,20 +3,15 @@ title: "vLLM gets a Tenstorrent backend without forking core"
 description: "The new TT plugin shows how far vLLM's out-of-tree hardware extension points can stretch beyond conventional GPU assumptions."
 date: 2026-09-12
 category: tools
-tags:
-  - vllm
-  - tenstorrent
-  - inference
-  - hardware
-  - plugins
+tags: [vllm, tenstorrent, inference, hardware, plugins]
 type: pulse
 difficulty: advanced
 signal: medium
 evidence: primary
 featured: false
-companies:
-  - vLLM
-  - Tenstorrent
+companies: [vLLM, Tenstorrent]
+image: "/images/stories/2026-09-12-vllm-tenstorrent-plugin.svg"
+imageAlt: "A hardware accelerator attaching to vLLM through a plugin boundary"
 sources:
   - label: "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin"
     url: "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin"

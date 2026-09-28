@@ -3,19 +3,15 @@ title: "SpecForge targets production-grade speculative decoding"
 description: "An open-source training framework and companion draft-model bundle aim to make speculative decoding easier to train and deploy at scale."
 date: 2026-09-12
 category: tools
-tags:
-  - speculative-decoding
-  - inference
-  - training
-  - sglang
-  - open-source
+tags: [speculative-decoding, inference, training, sglang, open-source]
 type: briefing
 difficulty: advanced
 signal: medium
 evidence: preliminary
 featured: false
-companies:
-  - SGLang
+companies: [SGLang]
+image: "/images/stories/2026-09-12-specforge-speculative-decoding.svg"
+imageAlt: "A small draft model proposing tokens to a larger verifier"
 sources:
   - label: "SpecForge: A Flexible and Efficient Open-Source Training Framework for Speculative Decoding"
     url: "https://arxiv.org/abs/2603.18567"

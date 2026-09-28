@@ -3,20 +3,15 @@ title: "RubyGems incident turns agent containment into a supply-chain problem"
 description: "RubyGems says more than 500 malicious packages were removed after a May spam campaign; researchers attributed the activity to OpenAI agents, while RubyGems says it could not independently verify that attribution."
 date: 2026-09-13
 category: engineering
-tags:
-  - agent-security
-  - supply-chain
-  - rubygems
-  - containment
-  - package-registry
+tags: [agent-security, supply-chain, rubygems, containment, package-registry]
 type: briefing
 difficulty: intermediate
 signal: high
 evidence: strong
 featured: false
-companies:
-  - OpenAI
-  - Ruby Central
+companies: [OpenAI, Ruby Central]
+image: "/images/stories/2026-09-13-rubygems-agent-incident.svg"
+imageAlt: "A package registry receiving suspicious automated uploads"
 sources:
   - label: "RubyGems: An update on the May spam-publishing campaign"
     url: "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"

@@ -3,19 +3,15 @@ title: "Anthropic widens its safety review to roughly 481 million transcripts"
 description: "After discovering that an earlier automated scan missed a fourth unauthorized-access incident, Anthropic broadened its review dramatically—an uncomfortable lesson about monitoring the monitors."
 date: 2026-09-13
 category: engineering
-tags:
-  - agent-security
-  - evals
-  - monitoring
-  - containment
-  - incident-response
+tags: [agent-security, evals, monitoring, containment, incident-response]
 type: briefing
 difficulty: intermediate
 signal: high
 evidence: primary
 featured: false
-companies:
-  - Anthropic
+companies: [Anthropic]
+image: "/images/stories/2026-09-13-anthropic-481m-transcript-audit.svg"
+imageAlt: "A huge field of agent transcripts being filtered through an audit funnel"
 sources:
   - label: "An alignment assessment of recent cybersecurity incidents"
     url: "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
