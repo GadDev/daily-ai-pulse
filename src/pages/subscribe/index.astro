@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InformationNav from '../../components/InformationNav.astro';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,17 +15,26 @@ const base = import.meta.env.BASE_URL;
     <p class="lead">
       Add the RSS feed to your reader to get new editions and stories as they are published.
     </p>
-    <p>
-      <a class="primary-link" href={`${base}rss.xml`}>
-        Open the RSS feed →
-      </a>
-    </p>
-    <section>
-      <h2>Email editions</h2>
-      <p>
-        Email delivery is planned but is not available yet. No address is collected on this site
-        today.
-      </p>
-    </section>
+    <div class="information-grid">
+      <InformationNav active="subscribe" />
+      <div class="information-content">
+        <section>
+          <h2>RSS</h2>
+          <p>Add the feed to your preferred reader. It requires no email address.</p>
+          <p>
+            <a class="primary-link" href={`${base}rss.xml`}>
+              Open the RSS feed →
+            </a>
+          </p>
+        </section>
+        <section>
+          <h2>Email editions</h2>
+          <p>
+            Email delivery is planned but is not available yet. No address is collected on this site
+            today.
+          </p>
+        </section>
+      </div>
+    </div>
   </article>
 </BaseLayout>

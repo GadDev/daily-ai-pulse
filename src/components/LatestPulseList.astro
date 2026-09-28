@@ -1,8 +1,9 @@
 ---
 interface Item {
-  date: string;
+  date: Date;
   title: string;
   href: string;
+  count: number;
 }
 
 interface Props {
@@ -10,20 +11,34 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const formatter = new Intl.DateTimeFormat('en-GB', {
+  weekday: 'short',
+  month: 'short',
+  timeZone: 'UTC',
+});
 ---
 
 <section class="latest-pulse" aria-labelledby="latest-pulse-title">
   <div class="section-heading">
-    <h2 id="latest-pulse-title">Latest from The Pulse</h2>
+    <h2 id="latest-pulse-title">Recent editions</h2>
     <a href={`${import.meta.env.BASE_URL}pulse/`}>
-      View all <span aria-hidden="true">→</span>
+      Browse all editions <span aria-hidden="true">→</span>
     </a>
   </div>
   <ol>
     {items.map((item) => (
       <li>
-        <time>{item.date}</time>
-        <a href={item.href}>{item.title}</a>
+        <time datetime={item.date.toISOString()}>
+          <strong>{item.date.getUTCDate()}</strong>
+          <small>{formatter.format(item.date)}</small>
+        </time>
+        <a href={item.href}>
+          <span>{item.title}</span>
+          <small>
+            {item.count} {item.count === 1 ? 'story' : 'stories'}
+          </small>
+        </a>
+        <span aria-hidden="true">↗</span>
       </li>
     ))}
   </ol>
@@ -31,7 +46,7 @@ const { items } = Astro.props;
 
 <style>
   .latest-pulse {
-    padding: 0 0 5.5rem;
+    padding: 3rem 0 4.5rem;
   }
   .section-heading {
     display: flex;
@@ -42,7 +57,7 @@ const { items } = Astro.props;
   }
   h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.65rem;
+    font-size: clamp(2rem, 3.5vw, 3rem);
     letter-spacing: -0.025em;
     margin: 0;
   }
@@ -59,30 +74,49 @@ const { items } = Astro.props;
   }
   li {
     display: grid;
-    grid-template-columns: 9rem 1fr;
+    grid-template-columns: 7rem 1fr auto;
     gap: 1.25rem;
-    padding: 1rem 0;
+    padding: 1.25rem 0;
     border-bottom: 1px solid var(--line);
     align-items: center;
   }
   time {
-    font:
-      500 0.72rem/1.2 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
-    letter-spacing: 0.035em;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     color: var(--ink-muted);
+  }
+  time strong {
+    font:
+      2.4rem/1 Georgia,
+      'Times New Roman',
+      serif;
+    color: var(--ink);
+  }
+  small {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--muted);
   }
   li > a {
     text-decoration: none;
-    font-size: 0.94rem;
-    font-weight: 500;
+    display: grid;
+    gap: 0.45rem;
+    max-width: 68ch;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+    line-height: 1.2;
+  }
+  li > a small {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   }
   @media (max-width: 620px) {
     li {
-      grid-template-columns: 1fr;
-      gap: 0.35rem;
+      grid-template-columns: 5rem 1fr;
+      gap: 0.7rem;
+    }
+    li > span {
+      display: none;
     }
     .section-heading {
       align-items: center;

@@ -18,16 +18,15 @@ const { label, kind } = Astro.props;
   .editorial-callout {
     margin: 2.5rem 0;
     padding: 1.3rem 1.4rem 1.45rem;
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.18);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
   }
   .editorial-callout--evidence {
-    border-top-color: var(--muted);
+    border-left-color: var(--line);
     background: var(--surface-alt);
   }
   .editorial-callout--try {
-    border-top-width: 2px;
+    border-left-color: var(--ink);
   }
   .editorial-callout__label {
     margin: 0 0 0.75rem;

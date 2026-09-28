@@ -1,61 +1,159 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import DailyIssueRow from '../../components/DailyIssueRow.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import { formatDate, storyCount } from '../../lib/editorial';
 
 const base = import.meta.env.BASE_URL;
 const editions = (await getCollection('pulse')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+const byMonth = Map.groupBy(editions, (edition) =>
+  formatDate(edition.data.date, { month: 'long', year: 'numeric' }),
+);
 ---
 
 <BaseLayout
-  title="The Pulse — Daily AI editions"
-  description="Browse every Daily AI Pulse edition."
+  title="The Pulse archive — The Daily AI Pulse"
+  description="Browse every curated edition."
 >
-  <section class="issue-head">
-    <p class="eyebrow">DAILY ARCHIVE</p>
-    <h1>The Pulse</h1>
-    <p>Daily AI editions, curated for signal over noise.</p>
-  </section>
+  <header class="archive-intro">
+    <p class="eyebrow">THE BACK ISSUES</p>
+    <h1>The Pulse archive</h1>
+    <p>Every curated edition, newest first. A quiet day can be a short edition.</p>
+  </header>
 
-  <section class="pulse-archive" aria-labelledby="pulse-archive-title">
-    <SectionHeading title="All editions" />
-
-    {editions.length > 0 ? (
-      <div class="issue-list">
-        {editions.map((edition, index) => (
-          <DailyIssueRow
-            index={index + 1}
-            label={edition.data.date.toLocaleDateString('en-GB', {
-              weekday: 'short',
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            })}
-            title={edition.data.title}
-            description={edition.data.summary}
-            href={`${base}pulse/${edition.id}/`}
-            meta={`${edition.data.sections.length} sections`}
-          />
-        ))}
-      </div>
-    ) : (
-      <p class="empty-state">No Pulse editions have been published yet.</p>
-    )}
-  </section>
+  {editions.length > 0 ? (
+    [...byMonth].map(([month, items]) => (
+      <section class="archive-month" aria-label={month}>
+        <div class="archive-month-title">
+          <h2>{month}</h2>
+          <span>
+            {items.length} {items.length === 1 ? 'edition' : 'editions'}
+          </span>
+        </div>
+        <div class="edition-list">
+          {items.map((edition) => (
+            <a class="edition-row" href={`${base}pulse/${edition.id}/`}>
+              <time datetime={edition.data.date.toISOString()}>
+                <strong>{edition.data.date.getUTCDate()}</strong>
+                <small>{formatDate(edition.data.date, { weekday: 'short', month: 'short' })}</small>
+              </time>
+              <span class="edition-copy">
+                <strong>{edition.data.summary}</strong>
+                <small>
+                  {storyCount(edition)} {storyCount(edition) === 1 ? 'story' : 'stories'} ·
+                  {edition.data.sections.map((section) => section.label).join(', ')}
+                </small>
+              </span>
+              <span class="edition-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
+  ) : (
+    <p class="empty-state">No Pulse editions have been published yet.</p>
+  )}
 </BaseLayout>
 
 <style>
-  .pulse-archive {
-    padding: 3rem 0 1rem;
+  .archive-intro {
+    padding: 4rem 0 2.5rem;
   }
-  .issue-list {
-    margin-top: 0.25rem;
+  h1 {
+    font:
+      700 clamp(3.2rem, 6vw, 5.5rem)/0.98 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.05em;
+    margin: 0.6rem 0;
+  }
+  .archive-intro p:last-child {
+    color: var(--muted);
+    font:
+      1.25rem/1.45 Georgia,
+      'Times New Roman',
+      serif;
+    max-width: 42rem;
+  }
+  .archive-month {
+    margin-bottom: 3rem;
+  }
+  .archive-month-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-top: 1px solid var(--ink);
+    color: var(--muted);
+  }
+  .archive-month-title h2 {
+    color: var(--ink);
+    font:
+      700 1.4rem/1.2 Georgia,
+      'Times New Roman',
+      serif;
+    margin: 0;
+  }
+  .edition-row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .edition-row:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  time {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+  }
+  time strong {
+    font:
+      3rem/1 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.05em;
+  }
+  time small,
+  .edition-copy small {
+    color: var(--muted);
+    font-size: 0.74rem;
+  }
+  .edition-copy {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .edition-copy strong {
+    max-width: 65ch;
+    font:
+      600 clamp(1.15rem, 2vw, 1.55rem)/1.2 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .edition-arrow {
+    color: var(--accent);
   }
   .empty-state {
-    margin: 2rem 0;
-    color: var(--muted);
+    padding: 2rem 0;
+  }
+  @media (max-width: 640px) {
+    .edition-row {
+      grid-template-columns: 5rem minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .edition-arrow {
+      display: none;
+    }
+    time {
+      display: grid;
+      gap: 0.15rem;
+    }
   }
 </style>

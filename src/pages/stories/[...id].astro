@@ -6,6 +6,7 @@ import PulseTake from '../../components/editorial/PulseTake.astro';
 import Evidence from '../../components/editorial/Evidence.astro';
 import TryThis from '../../components/editorial/TryThis.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
+import { categoryLabel, evidenceLabel, readingTime } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const stories = (await getCollection('stories'))
@@ -74,20 +75,22 @@ const imageSrc = story.data.image.startsWith('/')
   tags={story.data.tags}
 >
   <article class="article-shell">
+    <a class="back-link" href={`${base}pulse/`}>
+      ← Pulse archive
+    </a>
     <header class="article-header">
       <p class="eyebrow">
-        {story.data.category} / {story.data.type}
+        {categoryLabel(story)} / {story.data.type === 'deep-dive' ? 'Deep dive' : 'Analysis'}
       </p>
       <h1>{story.data.title}</h1>
       <p class="dek">{story.data.description}</p>
 
       <div class="article-meta" aria-label="Article metadata">
         <time datetime={story.data.date.toISOString()}>{publishedDate}</time>
-        <span class={`evidence-badge evidence-${story.data.evidence}`}>
-          evidence / {story.data.evidence}
-        </span>
-        <span>signal / {story.data.signal}</span>
-        <span>{story.data.difficulty}</span>
+        <span>The Daily AI Pulse</span>
+        <span>{readingTime(story)}</span>
+        <a href={`${base}methodology/`}>{evidenceLabel(story)} ↗</a>
+        {story.data.signal === 'high' && <span class="high-signal">High signal</span>}
       </div>
     </header>
 
@@ -95,7 +98,12 @@ const imageSrc = story.data.image.startsWith('/')
       <img src={imageSrc} alt={story.data.imageAlt} loading="eager" />
     </figure>
 
-    <div class="article-layout">
+    <div class:list={['article-layout', { 'has-toc': tocItems.length > 0 }]}>
+      {tocItems.length > 0 && (
+        <aside class="article-aside">
+          <ArticleToc items={tocItems} />
+        </aside>
+      )}
       <div class="article-main">
         <div class="prose">
           <Content components={{ PulseTake, Evidence, TryThis, EditorialQuote }} />
@@ -117,12 +125,6 @@ const imageSrc = story.data.image.startsWith('/')
           </section>
         )}
       </div>
-
-      {tocItems.length > 0 && (
-        <aside class="article-aside">
-          <ArticleToc items={tocItems} />
-        </aside>
-      )}
     </div>
 
     {related.length > 0 && (
@@ -173,16 +175,23 @@ const imageSrc = story.data.image.startsWith('/')
     max-width: 1100px;
     margin: 0 auto;
   }
+  .back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
   .article-header {
-    padding: 4rem 0 2.2rem;
+    padding: 2rem 0 1.8rem;
     border-bottom: 1px solid var(--line);
   }
   .article-header h1 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(3.2rem, 8vw, 7rem);
-    line-height: 0.9;
+    font-size: clamp(3rem, 6vw, 5.2rem);
+    line-height: 0.98;
     letter-spacing: -0.05em;
-    max-width: 13ch;
+    max-width: 23ch;
     margin: 0.65rem 0 1.1rem;
   }
   .article-header .dek {
@@ -210,15 +219,14 @@ const imageSrc = story.data.image.startsWith('/')
     text-transform: uppercase;
     color: var(--muted);
   }
-  .evidence-badge {
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 0.35rem 0.55rem;
-    color: var(--ink);
+  .article-meta a {
+    text-underline-offset: 0.2em;
+  }
+  .high-signal {
+    color: var(--accent);
   }
   .article-hero {
-    margin: 2rem 0 0;
-    border-radius: 8px;
+    margin: 1.5rem 0 0;
     overflow: hidden;
     background: var(--surface-alt);
   }
@@ -230,14 +238,26 @@ const imageSrc = story.data.image.startsWith('/')
   }
   .article-layout {
     display: grid;
-    grid-template-columns: minmax(0, 46rem) minmax(12rem, 16rem);
-    gap: clamp(3rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 46rem);
+    gap: clamp(2rem, 5vw, 5rem);
     align-items: start;
     padding: 3rem 0 1rem;
   }
+  .article-layout.has-toc {
+    grid-template-columns: minmax(10rem, 13rem) minmax(0, 46rem);
+  }
   .article-aside {
+    grid-column: 1;
+    grid-row: 1;
     position: sticky;
-    top: 7rem;
+    top: 2rem;
+  }
+  .article-main {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .has-toc .article-main {
+    grid-column: 2;
   }
   .prose {
     font-family: Georgia, 'Times New Roman', serif;
@@ -363,13 +383,20 @@ const imageSrc = story.data.image.startsWith('/')
     text-align: right;
   }
   @media (max-width: 860px) {
-    .article-layout {
+    .article-layout,
+    .article-layout.has-toc {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
     .article-aside {
       position: static;
-      order: -1;
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .article-main,
+    .has-toc .article-main {
+      grid-column: 1;
+      grid-row: 2;
     }
     .related-grid {
       grid-template-columns: 1fr;

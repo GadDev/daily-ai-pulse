@@ -2,211 +2,255 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DailyIssueRow from '../../components/DailyIssueRow.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import {
+  categoryLabel,
+  deskCount,
+  evidenceLabel,
+  formatDate,
+  readingTime,
+  storyCount,
+  storyImage,
+  storyUrl,
+} from '../../lib/editorial';
 
+type Story = CollectionEntry<'stories'>;
 export async function getStaticPaths() {
   const editions = await getCollection('pulse');
   const stories = await getCollection('stories');
-  const storiesById = new Map(stories.map((story) => [story.id, story]));
-
+  const byId = new Map(stories.map((story) => [story.id, story]));
   return editions.map((edition) => ({
     params: { date: edition.id },
     props: {
       edition,
-      sections: edition.data.sections
-        .map((section) => ({
-          ...section,
-          stories: section.stories
-            .map((storyId) => storiesById.get(storyId))
-            .filter((story): story is CollectionEntry<'stories'> => Boolean(story)),
-        }))
-        .filter((section) => section.stories.length > 0),
+      selected: [...new Set(edition.data.sections.flatMap((section) => section.stories))]
+        .map((id) => byId.get(id))
+        .filter((story): story is Story => story !== undefined && !story.data.draft),
     },
   }));
 }
 
 interface Props {
   edition: CollectionEntry<'pulse'>;
-  sections: Array<{
-    key: string;
-    label: string;
-    stories: CollectionEntry<'stories'>[];
-  }>;
+  selected: Story[];
 }
-
-const { edition, sections } = Astro.props;
+const { edition, selected } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const issueDate = edition.data.date.toLocaleDateString('en-GB', {
+const lead = selected.find((story) => story.id === edition.data.featured) ?? selected[0];
+const supporting = selected.filter((story) => story.id !== lead?.id);
+const leadDesk = lead
+  ? (edition.data.sections.find((section) => section.stories.includes(lead.id))?.label ??
+    categoryLabel(lead))
+  : '';
+const date = formatDate(edition.data.date, {
   weekday: 'long',
-  day: '2-digit',
+  day: 'numeric',
   month: 'long',
   year: 'numeric',
 });
-const totalStories = sections.reduce((total, section) => total + section.stories.length, 0);
 ---
 
 <BaseLayout title={`${edition.data.title} | Pulse`} description={edition.data.summary}>
-  <header class="issue-hero">
-    <div class="issue-kicker">
-      <span>The Daily AI Pulse</span>
-      <time datetime={edition.data.date.toISOString()}>{issueDate}</time>
-    </div>
-
-    <div class="issue-title-grid">
+  <a class="back-link" href={`${base}pulse/`}>
+    ← All editions
+  </a>
+  <header class="issue-intro">
+    <p class="eyebrow">
+      <time datetime={edition.data.date.toISOString()}>{date}</time>
+    </p>
+    <div class="issue-intro-grid">
       <div>
-        <p class="eyebrow">DAILY BRIEFING / SIGNAL OVER NOISE</p>
-        <h1>{edition.data.title}</h1>
+        <h1>The Daily AI Pulse</h1>
+        <p class="issue-dek">{edition.data.summary}</p>
       </div>
-      <p class="dek">{edition.data.summary}</p>
-    </div>
-
-    <div class="issue-stats" aria-label="Issue metadata">
-      <span>{sections.length} desks</span>
-      <span>{totalStories} stories</span>
-      <span>Evidence-first reporting</span>
+      <aside class="issue-facts">
+        <strong>This briefing</strong>
+        <span>
+          {storyCount(edition)} stories across {deskCount(edition)} desks
+        </span>
+        <span>{edition.data.sections.map((section) => section.label).join(' · ')}</span>
+        <a href={`${base}methodology/`}>How we select stories ↗</a>
+      </aside>
     </div>
   </header>
 
-  <div class="issue-sections">
-    {sections.map((section, sectionIndex) => (
-      <section class="issue-section" aria-labelledby={`section-${section.key}`}>
-        <div id={`section-${section.key}`}>
-          <SectionHeading title={section.label} />
+  {lead && (
+    <section class="issue-feature" aria-labelledby="feature-title">
+      <div>
+        <p class="eyebrow">01 / MUST KNOW · {leadDesk}</p>
+        <h2 id="feature-title">
+          <a href={storyUrl(lead)}>{lead.data.title}</a>
+        </h2>
+        <p>{lead.data.description}</p>
+        <div class="story-facts">
+          <a href={`${base}methodology/`}>{evidenceLabel(lead)}</a>
+          <span>{readingTime(lead)}</span>
+          {lead.data.signal === 'high' && <strong>High signal</strong>}
         </div>
+        <a class="feature-link" href={storyUrl(lead)}>
+          Read the analysis ↗
+        </a>
+      </div>
+      <a class="feature-image" href={storyUrl(lead)} aria-label={`Read ${lead.data.title}`}>
+        <img src={storyImage(lead)} alt={lead.data.imageAlt} loading="eager" />
+      </a>
+    </section>
+  )}
 
-        <div class="issue-list">
-          {section.stories.map((story, storyIndex) => (
-            <DailyIssueRow
-              index={storyIndex + 1}
-              label={`${story.data.category} / ${story.data.type}`}
-              title={story.data.title}
-              description={story.data.description}
-              href={`${base}stories/${story.id}/`}
-              meta={`evidence/${story.data.evidence} · signal/${story.data.signal} · ${story.data.difficulty}`}
-            />
-          ))}
-        </div>
+  {supporting.length > 0 && (
+    <section class="issue-more" aria-labelledby="issue-more-title">
+      <div class="issue-more-heading">
+        <h2 id="issue-more-title">Also in this edition</h2>
+        <span>02—{String(supporting.length + 1).padStart(2, '0')}</span>
+      </div>
+      {supporting.map((story, index) => (
+        <DailyIssueRow
+          index={index + 2}
+          label={categoryLabel(story)}
+          title={story.data.title}
+          description={story.data.description}
+          href={storyUrl(story)}
+          image={storyImage(story)}
+          imageAlt={story.data.imageAlt}
+          meta={`${evidenceLabel(story)} · ${readingTime(story)}`}
+        />
+      ))}
+    </section>
+  )}
 
-        {sectionIndex < sections.length - 1 && <div class="section-rule" aria-hidden="true"></div>}
-      </section>
-    ))}
-  </div>
-
-  <aside class="issue-note" aria-label="Editorial note">
-    <p class="eyebrow">ABOUT THIS EDITION</p>
-    <p>
-      Pulse favors consequential developments over volume. Evidence labels describe source quality;
-      signal levels describe editorial importance.
-    </p>
-  </aside>
+  <nav class="issue-end" aria-label="Edition navigation">
+    <a href={`${base}pulse/`}>Browse the archive →</a>
+  </nav>
 </BaseLayout>
 
 <style>
-  .issue-hero {
-    padding: 3.25rem 0 2.25rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .issue-kicker {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--line);
-    font:
-      600 0.72rem/1 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .back-link {
+    display: inline-block;
+    margin: 1.6rem 0;
     color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
   }
-  .issue-title-grid {
+  .issue-intro {
+    padding: 0.5rem 0 2.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .issue-intro-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(16rem, 0.7fr);
-    gap: clamp(2rem, 7vw, 7rem);
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.35fr);
+    gap: clamp(2rem, 6vw, 6rem);
     align-items: end;
-    padding: 2.6rem 0 2rem;
   }
-  .issue-title-grid h1 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(3.7rem, 9vw, 7.8rem);
-    line-height: 0.86;
-    letter-spacing: -0.055em;
-    margin: 0.55rem 0 0;
-    max-width: 10ch;
-  }
-  .issue-title-grid .dek {
-    margin: 0 0 0.35rem;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.2rem, 2.2vw, 1.65rem);
-    line-height: 1.35;
-    color: var(--muted);
-  }
-  .issue-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem 1.6rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
+  h1 {
     font:
-      600 0.7rem/1.2 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+      700 clamp(3.4rem, 6vw, 5.4rem)/0.96 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.052em;
+    margin: 0.6rem 0 1rem;
+  }
+  .issue-dek {
+    max-width: 42rem;
     color: var(--muted);
-  }
-  .issue-sections {
-    padding-top: 2.5rem;
-  }
-  .issue-section {
-    padding: 1rem 0 0;
-  }
-  .issue-list {
-    margin-top: 0.2rem;
-  }
-  .section-rule {
-    height: 1px;
-    background: var(--ink);
-    opacity: 0.75;
-    margin: 2.75rem 0 1.25rem;
-  }
-  .issue-note {
-    display: grid;
-    grid-template-columns: 12rem minmax(0, 42rem);
-    gap: 2rem;
-    margin: 4rem 0 1rem;
-    padding: 1.4rem 0;
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--line);
-  }
-  .issue-note p {
+    font:
+      1.25rem/1.45 Georgia,
+      'Times New Roman',
+      serif;
     margin: 0;
-    line-height: 1.6;
+  }
+  .issue-facts {
+    display: grid;
+    gap: 0.55rem;
+    border-left: 1px solid var(--line);
+    padding-left: 1.3rem;
+    font-size: 0.82rem;
     color: var(--muted);
   }
-  .issue-note .eyebrow {
+  .issue-facts strong {
     color: var(--ink);
   }
+  .issue-facts a {
+    text-underline-offset: 0.2em;
+  }
+  .issue-feature {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .issue-feature h2 {
+    font:
+      700 clamp(2.3rem, 4vw, 4.1rem)/1 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.04em;
+    margin: 0.7rem 0 1rem;
+  }
+  .issue-feature h2 a {
+    text-decoration: none;
+  }
+  .issue-feature p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .story-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .story-facts strong {
+    color: var(--accent);
+  }
+  .feature-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    text-underline-offset: 0.22em;
+  }
+  .feature-image {
+    display: block;
+    background: var(--surface);
+  }
+  .feature-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.45;
+    object-fit: cover;
+  }
+  .issue-more {
+    padding-top: 2rem;
+  }
+  .issue-more-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    color: var(--muted);
+  }
+  .issue-more-heading h2 {
+    color: var(--ink);
+    font:
+      700 clamp(1.8rem, 3vw, 2.5rem)/1 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .issue-end {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
   @media (max-width: 760px) {
-    .issue-title-grid {
+    .issue-intro-grid,
+    .issue-feature {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding-top: 2rem;
     }
-    .issue-title-grid h1 {
-      max-width: none;
-    }
-    .issue-kicker {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    .issue-note {
-      grid-template-columns: 1fr;
-      gap: 0.65rem;
+    .issue-facts {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 1rem 0 0;
     }
   }
 </style>
