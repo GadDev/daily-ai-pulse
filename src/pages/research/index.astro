@@ -1,7 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import StoryListRow from '../../components/StoryListRow.astro';
 
+const base = import.meta.env.BASE_URL;
 const stories = (await getCollection('stories'))
   .filter((story) => story.data.category === 'research')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -13,16 +17,22 @@ const stories = (await getCollection('stories'))
     <p>Papers, training, inference, memory, evals, and safety — filtered for signal.</p>
   </section>
 
-  <section class="grid">
+  <CategoryNav active="research" />
+
+  <section class="archive-list">
+    <SectionHeading title="Latest research" />
     {stories.map((story) => (
-      <article class="card">
-        <p class="label">{story.data.type} · {story.data.difficulty}</p>
-        <h2><a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a></h2>
-        <p>{story.data.description}</p>
-        <div class="meta">
-          {story.data.date.toLocaleDateString('en-GB')} · evidence/{story.data.evidence} · signal/{story.data.signal}
-        </div>
-      </article>
+      <StoryListRow
+        title={story.data.title}
+        description={story.data.description}
+        href={`${base}stories/${story.id}/`}
+        date={story.data.date.toLocaleDateString('en-GB')}
+        meta={`${story.data.type} · ${story.data.difficulty} · evidence/${story.data.evidence} · signal/${story.data.signal}`}
+      />
     ))}
   </section>
 </BaseLayout>
+
+<style>
+  .archive-list{padding:3rem 0 1rem}
+</style>
