@@ -14,7 +14,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "build": "npm run check && astro build",
+    "build": "npm run check && astro build && pagefind --site dist",
     "verify": "npm run lint && npm run format:check && npm run content:check && npm run build",
     "preview": "astro preview"
   },
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "10.10.0",
+    "pagefind": "1.5.2",
     "prettier": "3.9.9",
     "prettier-plugin-astro": "1.1.0"
   }

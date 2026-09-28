@@ -1,9 +1,13 @@
-<button class="search-button" type="button" aria-label="Search">
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<a class="search-button" href={`${base}search/`} aria-label="Search Pulse">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <circle cx="11" cy="11" r="6.5"></circle>
     <path d="m16 16 4 4"></path>
   </svg>
-</button>
+</a>
 
 <style>
   .search-button {
@@ -16,6 +20,7 @@
     color: var(--ink);
     border-radius: 999px;
     cursor: pointer;
+    text-decoration: none;
   }
   svg {
     width: 1rem;
@@ -24,7 +29,8 @@
     stroke: currentColor;
     stroke-width: 1.7;
   }
-  .search-button:hover {
+  .search-button:hover,
+  .search-button:focus-visible {
     background: var(--surface-alt);
   }
 </style>
