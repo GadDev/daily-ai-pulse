@@ -1,6 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DailyIssueRow from '../../components/DailyIssueRow.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
 
 export async function getStaticPaths() {
   const editions = await getCollection('pulse');
@@ -33,31 +35,90 @@ interface Props {
 }
 
 const { edition, sections } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const issueDate = edition.data.date.toLocaleDateString('en-GB', {
+  weekday: 'long',
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+const totalStories = sections.reduce((total, section) => total + section.stories.length, 0);
 ---
 
 <BaseLayout title={`${edition.data.title} | Pulse`} description={edition.data.summary}>
-  <header class="issue-head">
-    <p class="eyebrow">Daily transmission</p>
-    <h1>{edition.data.title}</h1>
-    <p class="dek">{edition.data.summary}</p>
+  <header class="issue-hero">
+    <div class="issue-kicker">
+      <span>The Daily AI Pulse</span>
+      <time datetime={edition.data.date.toISOString()}>{issueDate}</time>
+    </div>
+
+    <div class="issue-title-grid">
+      <div>
+        <p class="eyebrow">DAILY BRIEFING / SIGNAL OVER NOISE</p>
+        <h1>{edition.data.title}</h1>
+      </div>
+      <p class="dek">{edition.data.summary}</p>
+    </div>
+
+    <div class="issue-stats" aria-label="Issue metadata">
+      <span>{sections.length} desks</span>
+      <span>{totalStories} stories</span>
+      <span>Evidence-first reporting</span>
+    </div>
   </header>
 
-  {sections.map((section) => (
-    <section class="big-story" aria-labelledby={`section-${section.key}`}>
-      <p class="label">{section.label}</p>
-      <div class="grid">
-        {section.stories.map((story) => (
-          <article class="card">
-            <p class="meta">
-              {story.data.type} · {story.data.evidence} · signal/{story.data.signal}
-            </p>
-            <h2 id={`section-${section.key}`}>
-              <a href={`${import.meta.env.BASE_URL}stories/${story.id}/`}>{story.data.title}</a>
-            </h2>
-            <p>{story.data.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
+  <div class="issue-sections">
+    {sections.map((section, sectionIndex) => (
+      <section class="issue-section" aria-labelledby={`section-${section.key}`}>
+        <div id={`section-${section.key}`}>
+          <SectionHeading title={section.label} />
+        </div>
+
+        <div class="issue-list">
+          {section.stories.map((story, storyIndex) => (
+            <DailyIssueRow
+              index={storyIndex + 1}
+              label={`${story.data.category} / ${story.data.type}`}
+              title={story.data.title}
+              description={story.data.description}
+              href={`${base}stories/${story.id}/`}
+              meta={`evidence/${story.data.evidence} · signal/${story.data.signal} · ${story.data.difficulty}`}
+            />
+          ))}
+        </div>
+
+        {sectionIndex < sections.length - 1 && <div class="section-rule" aria-hidden="true"></div>}
+      </section>
+    ))}
+  </div>
+
+  <aside class="issue-note" aria-label="Editorial note">
+    <p class="eyebrow">ABOUT THIS EDITION</p>
+    <p>
+      Pulse favors consequential developments over volume. Evidence labels describe source quality;
+      signal levels describe editorial importance.
+    </p>
+  </aside>
 </BaseLayout>
+
+<style>
+  .issue-hero{padding:3.25rem 0 2.25rem;border-bottom:1px solid var(--line)}
+  .issue-kicker{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);font:600 .72rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .issue-title-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(16rem,.7fr);gap:clamp(2rem,7vw,7rem);align-items:end;padding:2.6rem 0 2rem}
+  .issue-title-grid h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.7rem,9vw,7.8rem);line-height:.86;letter-spacing:-.055em;margin:.55rem 0 0;max-width:10ch}
+  .issue-title-grid .dek{margin:0 0 .35rem;font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.2rem,2.2vw,1.65rem);line-height:1.35;color:var(--muted)}
+  .issue-stats{display:flex;flex-wrap:wrap;gap:.65rem 1.6rem;padding-top:1rem;border-top:1px solid var(--line);font:600 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .issue-sections{padding-top:2.5rem}
+  .issue-section{padding:1rem 0 0}
+  .issue-list{margin-top:.2rem}
+  .section-rule{height:1px;background:var(--ink);opacity:.75;margin:2.75rem 0 1.25rem}
+  .issue-note{display:grid;grid-template-columns:12rem minmax(0,42rem);gap:2rem;margin:4rem 0 1rem;padding:1.4rem 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+  .issue-note p{margin:0;line-height:1.6;color:var(--muted)}
+  .issue-note .eyebrow{color:var(--ink)}
+  @media(max-width:760px){
+    .issue-title-grid{grid-template-columns:1fr;gap:1.5rem;padding-top:2rem}
+    .issue-title-grid h1{max-width:none}
+    .issue-kicker{align-items:flex-start;flex-direction:column}
+    .issue-note{grid-template-columns:1fr;gap:.65rem}
+  }
+</style>
