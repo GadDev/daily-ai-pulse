@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-const { title = 'Pulse', description = 'Signal over noise in AI.' } = Astro.props;
+const { title = 'The Daily AI Pulse', description = 'Signal over noise in AI.' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="en">
@@ -11,10 +12,65 @@ const { title = 'Pulse', description = 'Signal over noise in AI.' } = Astro.prop
     <title>{title}</title>
   </head>
   <body>
-    <header class="masthead">
-      <a class="brand" href={import.meta.env.BASE_URL}>PULSE</a>
-      <span>Signal over noise in AI</span>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href={base}>The Daily AI Pulse</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href={base}>Home</a>
+          <a href={`${base}pulse/`}>Pulse</a>
+          <a href={`${base}research/`}>Research</a>
+          <a href={`${base}tools/`}>Dev Tools</a>
+          <a href={`${base}practice/`}>AI in Practice</a>
+        </nav>
+        <a class="subscribe-button" href="#subscribe">Subscribe</a>
+      </div>
     </header>
+
     <main><slot /></main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <section>
+          <a class="brand brand--footer" href={base}>The Daily AI Pulse</a>
+          <p class="footer-copy">Clear. Curated. Consequential.</p>
+          <p class="footer-copy">A daily briefing on the AI developments that matter, from research and tools to real-world impact.</p>
+        </section>
+
+        <section>
+          <h2>Explore</h2>
+          <a href={base}>Home</a>
+          <a href={`${base}pulse/`}>Latest Pulse</a>
+          <a href={`${base}research/`}>Research</a>
+          <a href={`${base}tools/`}>Dev Tools</a>
+        </section>
+
+        <section>
+          <h2>Categories</h2>
+          <a href={`${base}models/`}>Models</a>
+          <a href={`${base}engineering/`}>AI Engineering</a>
+          <a href={`${base}practice/`}>AI in Practice</a>
+          <a href={`${base}curious/`}>Curious AI</a>
+        </section>
+
+        <section id="subscribe">
+          <h2>Subscribe</h2>
+          <p class="footer-copy">Get the daily AI Pulse in your inbox.</p>
+          <form class="subscribe-form" action="#" method="post">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© 2026 The Daily AI Pulse.</span>
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
