@@ -3,19 +3,15 @@ title: "OpenAI turns the Codex harness into a managed Agents API"
 description: "The new Agents API packages long-running sessions, context compaction, tool search, MCP, subagents, and sandbox choices into a managed agent runtime."
 date: 2026-09-13
 category: tools
-tags:
-  - agents-api
-  - codex
-  - context-management
-  - mcp
-  - subagents
+tags: [agents-api, codex, context-management, mcp, subagents]
 type: briefing
 difficulty: intermediate
 signal: high
 evidence: primary
 featured: true
-companies:
-  - OpenAI
+companies: [OpenAI]
+image: "/images/stories/2026-09-13-openai-agents-api.svg"
+imageAlt: "An agent runtime coordinating tools, subagents, context, and a sandbox"
 sources:
   - label: "Introducing the Agents API"
     url: "https://openai.com/index/introducing-the-agents-api/"

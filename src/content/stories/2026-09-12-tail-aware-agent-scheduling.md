@@ -3,18 +3,15 @@ title: "Tail-aware scheduling cuts agent workflow P95 under contention"
 description: "A scheduling paper argues that runtimes should separate turn readiness from release, reducing tail latency by up to 3.5× on software-engineering agent traces."
 date: 2026-09-12
 category: research
-tags:
-  - agents
-  - scheduling
-  - tail-latency
-  - inference
-  - orchestration
+tags: [agents, scheduling, tail-latency, inference, orchestration]
 type: briefing
 difficulty: advanced
 signal: high
 evidence: preliminary
 featured: false
 companies: []
+image: "/images/stories/2026-09-12-tail-aware-agent-scheduling.svg"
+imageAlt: "Queued agent turns released selectively through a scheduler"
 sources:
   - label: "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows"
     url: "https://arxiv.org/abs/2609.10964"

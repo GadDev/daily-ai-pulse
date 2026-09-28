@@ -3,20 +3,15 @@ title: "vLLM reshapes serving for agentic workloads"
 description: "Agentic sessions stress serving infrastructure differently: long contexts, repeated prefixes, and cache pressure push KV management and scheduling to the foreground."
 date: 2026-09-12
 category: engineering
-tags:
-  - vllm
-  - agentic-serving
-  - kv-cache
-  - inference
-  - agents
+tags: [vllm, agentic-serving, kv-cache, inference, agents]
 type: briefing
 difficulty: advanced
 signal: high
 evidence: primary
 featured: true
-companies:
-  - vLLM
-  - Inferact
+companies: [vLLM, Inferact]
+image: "/images/stories/2026-09-12-vllm-agentx-agentic-serving.svg"
+imageAlt: "Layered cache tiers feeding a long-running agent session"
 sources:
   - label: "vLLM x AgentX: Optimizing for Real-World Agentic Serving"
     url: "https://vllm.ai/blog/2026-09-08-vllm-agentx"

@@ -3,17 +3,15 @@ title: "RetroThinker lets a streaming speech model revise its reasoning"
 description: "A new post-training approach teaches a speech LLM to self-verify and forward-correct reasoning while preserving low-latency interaction."
 date: 2026-09-12
 category: research
-tags:
-  - speech-llm
-  - reasoning
-  - post-training
-  - latency
+tags: [speech-llm, reasoning, post-training, latency]
 type: pulse
 difficulty: advanced
 signal: medium
 evidence: preliminary
 featured: false
 companies: []
+image: "/images/stories/2026-09-12-retrothinker-speech-reasoning.svg"
+imageAlt: "A speech waveform looping back through a reasoning correction path"
 sources:
   - label: "RetroThinker: Enabling Retrospective Thinking in Speech LLMs"
     url: "https://arxiv.org/abs/2609.11864"
