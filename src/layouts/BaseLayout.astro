@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
-import NewsletterForm from '../components/NewsletterForm.astro';
 import SearchButton from '../components/SearchButton.astro';
-import SubscribeButton from '../components/SubscribeButton.astro';
 
 interface Props {
   title?: string;
@@ -95,31 +93,22 @@ const structuredData =
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href={base} aria-label="The Daily AI Pulse home">
-          The Daily AI Pulse
-        </a>
+        <a class="brand" href={base} aria-label="The Daily AI Pulse home">The Daily AI Pulse</a>
 
         <nav class="site-nav" aria-label="Primary navigation">
-          <a class:list={{ active: currentPath === base }} href={base}>
-            Home
-          </a>
-          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
-            Pulse
-          </a>
+          <a class:list={{ active: currentPath === base }} href={base}>Home</a>
+          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>Pulse</a>
           <a href={`${base}#categories`}>Categories</a>
           <a href="#about">About</a>
         </nav>
 
         <div class="site-actions">
           <SearchButton />
-          <SubscribeButton />
         </div>
       </div>
     </header>
 
-    <main>
-      <slot />
-    </main>
+    <main><slot /></main>
 
     <footer class="site-footer" id="about">
       <div class="site-footer__topline">
@@ -129,18 +118,11 @@ const structuredData =
 
       <div class="site-footer__grid">
         <section class="footer-publication">
-          <a class="brand brand--footer" href={base}>
-            The Daily AI Pulse
-          </a>
+          <a class="brand brand--footer" href={base}>The Daily AI Pulse</a>
           <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
-          <p class="footer-copy">
-            A daily publication for engineers following the AI developments that actually change how
-            software is built.
-          </p>
+          <p class="footer-copy">A daily publication for engineers following the AI developments that actually change how software is built.</p>
           <div class="footer-links-inline" aria-label="Publication links">
-            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">
-              GitHub ↗
-            </a>
+            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href={`${base}rss.xml`}>RSS</a>
           </div>
         </section>
@@ -149,24 +131,26 @@ const structuredData =
           <h2>Explore</h2>
           <a href={base}>Home</a>
           <a href={`${base}pulse/`}>Pulse Archive</a>
+          <a href={`${base}search/`}>Search</a>
           <a href={`${base}research/`}>Research</a>
           <a href={`${base}tools/`}>Dev Tools</a>
-          <a href={`${base}practice/`}>AI in Practice</a>
         </section>
 
         <section>
           <h2>Categories</h2>
           <a href={`${base}models/`}>Models & Releases</a>
           <a href={`${base}engineering/`}>AI Engineering</a>
+          <a href={`${base}practice/`}>AI in Practice</a>
           <a href={`${base}workflows/`}>Workflows</a>
           <a href={`${base}business/`}>Business & Industry</a>
           <a href={`${base}curious/`}>Curious AI</a>
         </section>
 
-        <section id="subscribe" class="footer-subscribe">
-          <h2>Stay on the signal</h2>
-          <NewsletterForm />
-          <p class="footer-fineprint">One concise briefing. No hype-shaped inbox clutter.</p>
+        <section>
+          <h2>About</h2>
+          <p class="footer-copy">Evidence-first AI engineering coverage with primary sources, explicit confidence, and a clearly separated editorial point of view.</p>
+          <a href="https://github.com/GadDev/daily-ai-pulse/blob/main/docs/EDITORIAL.md" target="_blank" rel="noreferrer">Editorial standard ↗</a>
+          <a href={`${base}rss.xml`}>Follow via RSS</a>
         </section>
       </div>
 
