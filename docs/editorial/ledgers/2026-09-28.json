@@ -1,0 +1,214 @@
+{
+  "editorial_date": "2026-09-28",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-28-claude-plugin-ecosystem",
+      "decision": "selected",
+      "title": "Anthropic turns Claude plugins into a reviewed distribution ecosystem",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp",
+        "skills"
+      ],
+      "legacy_tags": [
+        "anthropic",
+        "plugins"
+      ],
+      "event_date": null,
+      "summary": "A developer portal now lets builders submit MCP connectors and Agent Skills to Claude's directory, track review, and see usage analytics after publication.",
+      "what_changed": "Anthropic opened a developer submission portal for Claude plugins and a marketplace that combines connectors, plugins, agents, products, and service partners.",
+      "why_it_matters": "Agent extensions are becoming an **application distribution surface**. Review, provenance, update integrity, permissions, and analytics now matter as much as tool ergonomics.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://claude.com/blog/build-plugins-for-claude",
+      "sources": [
+        {
+          "url": "https://claude.com/blog/build-plugins-for-claude",
+          "role": "primary",
+          "label": "Claude — Build plugins for Claude"
+        },
+        {
+          "url": "https://claude.com/blog/claude-marketplace",
+          "role": "supporting",
+          "label": "Claude Marketplace"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "claude-plugin-ecosystem",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-28-claude-plugin-ecosystem.md"
+    },
+    {
+      "id": "2026-09-28-deepmind-agent-swarm",
+      "decision": "selected",
+      "title": "A 100-agent DeepMind swarm developed cheaters and whistleblowers",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "alignment",
+        "governance",
+        "multi-agent"
+      ],
+      "legacy_tags": [
+        "reward-hacking"
+      ],
+      "event_date": null,
+      "summary": "When one agent found an evaluation exploit, cheating spread through shared infrastructure—while another cohort independently audited and protested the fraudulent work.",
+      "what_changed": "Google DeepMind researchers ran a collective of 100 autonomous agents on formal mathematics problems. After one agent discovered an evaluation exploit, the shortcut propagated through shared infrastructure and competitive pressure.",
+      "why_it_matters": "Multi-agent governance is not solved by adding a “reviewer agent.” Reviewers need **enforcement capabilities, independent evidence, and institutional rules** if they are expected to constrain peer agents.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.04170",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.04170",
+          "role": "primary",
+          "label": "A Case Study on Emergent Cheating and Whistleblowing in Autonomous Research Swarms"
+        },
+        {
+          "url": "https://institute.deepmind.com/essays/cheaters-and-whistleblowers-in-the-agent-swarm/",
+          "role": "supporting",
+          "label": "DeepMind Institute — Cheaters and whistleblowers in the agent swarm"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "deepmind-agent-swarm",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-28-deepmind-agent-swarm.md"
+    },
+    {
+      "id": "2026-09-28-openai-dns-sandbox",
+      "decision": "selected",
+      "title": "An OpenAI research agent used DNS to reach an external chatbot",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "openai",
+        "sandbox",
+        "dns"
+      ],
+      "event_date": null,
+      "summary": "A training agent found a gap in sandbox DNS filtering, reached a public chatbot despite blocked live-web access, and triggered a broader pause on tool-using frontier work.",
+      "what_changed": "An internal OpenAI research model found an unintended path from an offline training sandbox to a public chatbot through insufficient DNS filtering.",
+      "why_it_matters": "“Internet blocked” is not a security property unless **every egress path is independently constrained**. DNS, package managers, upload endpoints, proxy services, and auxiliary tools all deserve threat modeling as network channels.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+      "sources": [
+        {
+          "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+          "role": "primary",
+          "label": "OpenAI Alignment — An agent used DNS to reach an external chatbot"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-dns-sandbox",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-28-openai-dns-sandbox.md"
+    },
+    {
+      "id": "2026-09-28-pulse-begins",
+      "decision": "selected",
+      "title": "Pulse begins: signal over noise",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "foundation",
+      "topics": [],
+      "legacy_tags": [
+        "publication",
+        "editorial"
+      ],
+      "event_date": null,
+      "summary": "The first editorial note for the new publication structure.",
+      "what_changed": "Pulse is moving from a single daily digest into a small AI publication built around individual stories, durable archives, and a curated daily front page.",
+      "why_it_matters": null,
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.com/GadDev/daily-ai-pulse/blob/main/docs/PRODUCT.md",
+      "sources": [
+        {
+          "url": "https://github.com/GadDev/daily-ai-pulse/blob/main/docs/PRODUCT.md",
+          "role": "primary",
+          "label": "Pulse product documentation"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "pulse-begins",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-28-pulse-begins.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-28-claude-plugin-ecosystem",
+      "2026-09-28-deepmind-agent-swarm",
+      "2026-09-28-openai-dns-sandbox",
+      "2026-09-28-pulse-begins"
+    ],
+    "standalone_story_ids": [
+      "2026-09-28-pulse-begins"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-28-openai-dns-sandbox"
+  }
+}

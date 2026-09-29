@@ -11,7 +11,7 @@ evidence: primary
 featured: false
 companies: [Anthropic, GitHub]
 image: "/images/stories/2026-09-29-claude-sonnet-5-5.webp"
-imageAlt: "A compact machine turns scattered work into a clean stack while a larger, more complex machine fades into the background"
+imageAlt: "A winding charcoal route and a shorter terracotta route converge on the same ivory sphere"
 sources:
   - label: "Anthropic — Introducing Claude Sonnet 5.5"
     url: "https://www.anthropic.com/claude-sonnet-5-5"
@@ -33,23 +33,7 @@ For a chat model, comparing input and output token prices is often a reasonable 
 
 For an agent, it is increasingly incomplete.
 
-A repository task may involve:
-
-```text
-reasoning
-  ↓
-searching files
-  ↓
-calling tools
-  ↓
-running commands
-  ↓
-reading failures
-  ↓
-trying again
-  ↓
-reviewing the result
-```
+A repository task may involve reasoning, searching files, calling tools, running commands, reading failures, trying again, and reviewing the result. Each part contributes to the cost of reaching an accepted change.
 
 Two models with identical token prices can therefore have very different task economics. One might consume fewer tokens but take more tool calls, retries, or wall-clock time. Another might be more expensive per token but finish in fewer steps.
 

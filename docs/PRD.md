@@ -19,7 +19,7 @@ Pulse is not a generic AI-news aggregator. Its core promise is **signal over noi
 - **Language:** English
 - **Voice:** personal, technically credible, evidence-first, occasionally playful
 - **Editorial ratio:** roughly 75% evidence/explanation, 25% authored take
-- **Visual direction:** research magazine + Y2K experimental science/editorial energy
+- **Visual direction:** Warm Editorial, as defined in `DESIGN_SYSTEM.md`; the reference layouts propose its next page composition
 - **Technology:** Astro + TypeScript + Markdown/MDX + GitHub Pages
 
 ## 3. Audience
@@ -136,36 +136,23 @@ A candidate story is evaluated on:
 - relevance to the audience — 15%
 - durability — 10%
 
-The editorial pipeline should:
+The current editorial pipeline is:
 
-research → verify → score → deduplicate against recent coverage → select → edit → balance-check → publish
+ChatGPT scheduler → repository contracts → research → candidate ledger →
+publication re-verification and deduplication → draft stories and illustrations
+→ one draft PR → human review → merge and deploy.
+
+The decision rules and publication handoff live in `editorial/DECISION_ENGINE_V1.md`
+and `editorial/PR_PREPARATION_V1.md`.
 
 Do not force a category into a daily issue when there is no worthwhile story. Three excellent items are better than ten mediocre ones.
 
 ## 10. Story metadata
 
-Stories should support structured frontmatter such as:
-
-```yaml
----
-title: "Prompt caching is becoming an architecture problem"
-date: 2026-09-28
-category: ai-engineering
-tags:
-  - context-engineering
-  - inference
-  - agents
-type: briefing
-difficulty: intermediate
-signal: high
-evidence:
-  level: primary
-  sources: 4
-companies:
-  - OpenAI
-  - GitHub
----
-```
+Current story frontmatter is defined by `src/content.config.ts`, with a
+buildable published example in `CONTENT_MODEL.md`. Candidate classifications
+are defined separately in `editorial/EDITORIAL_SCHEMA_V1.md`. This PRD does not
+duplicate either schema.
 
 This should enable future topic archives, company pages, model pages, difficulty views, weekly summaries, monthly reports, and trend analysis without redesigning the site.
 
@@ -231,29 +218,12 @@ The site should favor minimal JavaScript, fast static pages, strong SEO, accessi
 
 ## 14. Visual design principles
 
-Pulse should feel like a **research magazine with early-2000s experimental science/media energy**, not like a SaaS dashboard and not like a generic developer blog.
-
-Design influences should be interpreted rather than copied literally:
-
-- academic journals for credibility and hierarchy
-- independent design magazines for layout personality
-- Y2K broadcast graphics for energy and metadata
-- scientific manuals for labels, figures, annotations, and diagrams
-
-Working concept: **academic editorial discipline with broadcast energy**.
-
-Use Pulse as a visual language: signal, noise, frequency, transmission, waveform, radar, timestamps, signal strength.
-
-Possible labels include:
-
-- HIGH SIGNAL
-- ON THE RADAR
-- FIELD REPORT
-- TRANSMISSION
-- WATCH
-- VERIFIED
-
-Long-form reading pages should remain calmer than the homepage. Accessibility, readable typography, contrast, and reduced-motion support take priority over visual effects.
+The approved direction is **Warm Editorial**: warm paper surfaces, near-black
+type, serif headlines, restrained interface typography, and clear evidence
+metadata. The site should remain readable, accessible, and calm, particularly
+on long-form pages. `DESIGN_SYSTEM.md` owns the design tokens and principles;
+`reference-layouts/README.md` describes proposed page changes that have not
+all been implemented yet.
 
 ## 15. MVP requirements
 
@@ -293,7 +263,11 @@ Import previous Daily AI Pulse editions, normalize stories into the new taxonomy
 
 ### Phase 3 — Publishing automation
 
-Research and editorial pipeline produces reviewable GitHub PRs automatically.
+The candidate-ledger, illustration, and PR-preparation contracts and validators
+exist. The ChatGPT scheduled task is the research trigger outside this
+repository. Historical editions have retrospective ledgers with explicit provenance;
+the end-to-end scheduled research to draft PR handoff still needs a reviewed
+live batch.
 
 ### Phase 4 — Knowledge layer
 

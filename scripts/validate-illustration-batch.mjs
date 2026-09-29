@@ -52,6 +52,7 @@ const prohibitedElements = [
   'robots',
   'glowing_ai_brains',
   'screenshot_imitation',
+  'bare_schematic_or_diagram',
   'border',
   'frame',
   'unsupported_visual_claim',
@@ -90,6 +91,20 @@ function webpDimensions(path) {
     buffer.toString('ascii', 8, 12) !== 'WEBP'
   ) {
     throw new Error('not a valid WebP RIFF container');
+  }
+
+  const declaredLength = buffer.readUInt32LE(4) + 8;
+  if (declaredLength !== buffer.length) {
+    throw new Error(
+      `incomplete WebP RIFF container: expected ${declaredLength} bytes, got ${buffer.length}`,
+    );
+  }
+  for (let offset = 12; offset < buffer.length;) {
+    if (offset + 8 > buffer.length) throw new Error('incomplete WebP chunk header');
+    const chunkLength = buffer.readUInt32LE(offset + 4);
+    const nextOffset = offset + 8 + chunkLength + (chunkLength % 2);
+    if (nextOffset > buffer.length) throw new Error('incomplete WebP chunk payload');
+    offset = nextOffset;
   }
 
   const chunk = buffer.toString('ascii', 12, 16);
@@ -184,6 +199,15 @@ if (!existsSync(ledgerPath)) {
 const ledger = readJson(ledgerPath);
 if (!ledger) process.exit(1);
 
+// These articles predate the illustration review workflow. Their images remain
+// checked by the content validator, but candidate review records cannot be reconstructed.
+if (ledger.provenance?.kind === 'retrospective-backfill' && ledger.editorial_date <= '2026-09-28') {
+  console.log(
+    `Illustration review check skipped for historical backfill: ${ledger.editorial_date}.`,
+  );
+  process.exit(0);
+}
+
 const storyIds = ledger.publication?.story_ids;
 if (!Array.isArray(storyIds)) {
   fail('ledger.publication.story_ids must be an array');
@@ -199,8 +223,8 @@ for (const storyId of storyIds ?? []) {
   const review = readJson(reviewPath);
   if (!review) continue;
 
-  if (review.system_version !== '1.1') fail(`${storyId}: unsupported illustration system version`);
-  if (review.constitution_version !== '1.0') {
+  if (review.system_version !== '1.2') fail(`${storyId}: unsupported illustration system version`);
+  if (review.constitution_version !== '1.1') {
     fail(`${storyId}: unsupported or missing visual constitution version`);
   }
   if (review.story_id !== storyId) fail(`${storyId}: review story_id does not match filename`);
@@ -251,6 +275,23 @@ for (const storyId of storyIds ?? []) {
     }
   }
 
+  if (!Array.isArray(brief.golden_references) || brief.golden_references.length < 2) {
+    fail(`${storyId}: at least two golden_references are required`);
+  } else {
+    if (new Set(brief.golden_references).size < 2) {
+      fail(`${storyId}: at least two distinct golden_references are required`);
+    }
+    for (const reference of brief.golden_references) {
+      if (typeof reference !== 'string' || !reference.startsWith('public/images/stories/')) {
+        fail(`${storyId}: invalid golden reference path: ${reference}`);
+        continue;
+      }
+      if (!existsSync(join(root, reference))) {
+        fail(`${storyId}: golden reference does not exist: ${reference}`);
+      }
+    }
+  }
+
   const constitutionCheck = review.constitution_check;
   if (constitutionCheck?.passed !== true) {
     fail(`${storyId}: visual constitution check did not pass`);
@@ -282,6 +323,7 @@ for (const storyId of storyIds ?? []) {
     'crop_quality',
     'technical_meaning',
     'cleanliness',
+    'golden_reference_fit',
   ];
 
   for (const key of requiredScores) {
@@ -291,18 +333,23 @@ for (const storyId of storyIds ?? []) {
     }
   }
 
+  if (typeof scores.golden_reference_fit !== 'number' || scores.golden_reference_fit < 80) {
+    fail(`${storyId}: golden-reference fit must be >= 80`);
+  }
+
   if (typeof scores.weighted_total !== 'number' || scores.weighted_total < 85) {
     fail(`${storyId}: weighted illustration score must be >= 85`);
   }
 
   if (requiredScores.every((key) => typeof scores[key] === 'number')) {
     const expected =
-      scores.story_specific * 0.25 +
-      scores.brand_fit * 0.25 +
-      scores.composition * 0.2 +
+      scores.story_specific * 0.2 +
+      scores.brand_fit * 0.15 +
+      scores.composition * 0.15 +
       scores.crop_quality * 0.15 +
       scores.technical_meaning * 0.1 +
-      scores.cleanliness * 0.05;
+      scores.cleanliness * 0.05 +
+      scores.golden_reference_fit * 0.2;
     if (Math.abs(expected - scores.weighted_total) > 0.15) {
       fail(`${storyId}: weighted_total does not match rubric calculation (${expected.toFixed(2)})`);
     }

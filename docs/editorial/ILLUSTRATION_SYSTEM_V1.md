@@ -1,6 +1,6 @@
 # Daily AI Pulse — Illustration System v1
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Status:** Canonical visual-production workflow  
 **Constitution:** `docs/editorial/VISUAL_CONSTITUTION_V1.md`  
 **Skill:** `.agents/skills/daily-ai-pulse-illustration/SKILL.md`
@@ -9,7 +9,7 @@
 
 Daily AI Pulse illustrations are editorial assets, not generic AI-generated decoration.
 
-This system makes illustration production repeatable while preserving the stricter original visual contract.
+This system makes illustration production repeatable while preserving the stricter original visual contract and the visual continuity established by the production archive.
 
 The system optimizes for:
 
@@ -18,6 +18,7 @@ The system optimizes for:
 - placement-aware composition
 - verified-context discipline
 - strong responsive crops
+- direct comparison with golden production references
 - visual continuity with the established production archive
 - reproducible candidate review rather than single-shot generation
 
@@ -45,8 +46,9 @@ The constitution defines the baseline:
 - restrained contemporary editorial illustration
 - quiet scientific or architectural sensibility
 - deliberate geometry
-- fine lines
+- fine lines that support larger illustrated forms
 - subtle paper texture
+- physical or spatial presence rather than bare schematic language
 - one clear focal idea
 - spacious composition
 - strong contrast
@@ -65,6 +67,8 @@ terracotta      #8A4B35
 The target feeling remains roughly:
 
 > **80% contemporary editorial magazine / 20% technical publication**
+
+A candidate that reads as a flowchart, wireframe, icon layout, slide diagram, or minimal architecture schematic fails before scoring even when its palette is correct.
 
 ## Placement-aware production
 
@@ -115,15 +119,17 @@ Before generation, inspect at least two existing production images with a relate
 
 Golden references communicate visual grammar, not content to copy.
 
-Reuse:
+Compare:
 
 - palette
 - density
 - abstraction level
 - line weight
-- texture
+- texture/materiality
 - negative-space behavior
+- foreground/background hierarchy
 - compositional confidence
+- silhouette at thumbnail size
 
 Do not copy exact arrangements or story symbols.
 
@@ -133,70 +139,37 @@ Choose one primary archetype before prompting.
 
 ### Architectural cutaway
 
-Best for:
+Best for infrastructure, security boundaries, serving, runtimes, isolation, permissions, and systems architecture.
 
-- infrastructure
-- security boundaries
-- serving
-- runtimes
-- isolation
-- permissions
-- systems architecture
+Use a few large spatial forms, visible physical depth, one dominant boundary relationship, and restrained section/cutaway logic.
 
-Use 2–4 large components, a clear spatial boundary, and one dominant enforcement relationship.
+**Do not make a literal cloud architecture diagram or bare nested-box schematic.**
 
-Do not make a literal cloud architecture diagram.
+### Mechanical / physical metaphor
 
-### Mechanical metaphor
+Best for efficiency, cost, routing, performance, optimization, and workflow trade-offs.
 
-Best for:
+Use one physical or spatial mechanism. Two contrasting paths or states are allowed when the comparison itself is the story.
 
-- efficiency
-- cost
-- routing
-- performance
-- optimization
-- workflow trade-offs
-
-Use one physical or abstract mechanism. Two contrasting paths or states are allowed when the comparison itself is the story.
+Avoid generic gears, cogs, conveyor belts, and factory iconography unless the physical form is unusually story-specific and editorial.
 
 ### Editorial network
 
-Best for:
+Best for agents, multi-agent behavior, ecosystems, coordination, communication, and orchestration.
 
-- agents
-- multi-agent behavior
-- ecosystems
-- coordination
-- communication
-- orchestration
-
-Use a controlled node count, obvious hierarchy, and one unusual relationship carrying the idea.
+Use a controlled node count, physical/spatial hierarchy, and one unusual relationship carrying the idea.
 
 Avoid generic node-and-arrow diagrams.
 
 ### Scientific specimen
 
-Best for:
-
-- research
-- model behavior
-- emergent phenomena
-- evals
-- measurement
+Best for research, model behavior, emergent phenomena, evals, and measurement.
 
 Use a central object or phenomenon with a restrained scientific-observation feeling. Do not use readable labels, letters, numbers, or invented data.
 
 ### Tool / artifact study
 
-Best for:
-
-- IDEs
-- CLIs
-- SDKs
-- frameworks
-- repositories
-- developer tools
+Best for IDEs, CLIs, SDKs, frameworks, repositories, and developer tools.
 
 Use one central constructed artifact with a few meaningful supporting forms. Never imitate a software screenshot.
 
@@ -237,66 +210,29 @@ must_not_show:
   - robots
   - glowing-ai-brains
   - screenshot-imitation
+  - bare-schematic-or-diagram
   - border
   - frame
 golden_references: []
 cover_crop_safe: true
 ```
 
-### Placement
+The `verified_context` must be 2–3 factual sentences from the publication-ready story.
 
-Placement must be one of:
+If the mechanism or data is uncertain, choose an abstract metaphor rather than a purported technical diagram.
 
-```text
-home-hero
-article-hero
-issue-feature
-category-image
-story-thumbnail
-```
+The `editorial_idea` explains the relationship that matters.
 
-### Layout reference
+The `visual_metaphor` reduces that relationship to one strong image.
 
-The visual brief must identify the corresponding file under `docs/reference-layouts/`.
-
-Do not claim the role/crop has been reviewed without reading it.
-
-### Verified context
-
-Include 2–3 factual sentences from the publication-ready story.
-
-If the visual mechanism is not established by those facts, use an abstract metaphor rather than a technical diagram.
-
-### Editorial idea
-
-One sentence explaining the relationship the image should communicate.
-
-Bad:
-
-> Claude Sonnet 5.5 release.
-
-Good:
-
-> The important shift is from token price to total work required to finish the same coding task.
-
-### Visual metaphor
-
-Translate the editorial idea into one image, not a feature inventory.
-
-Bad:
-
-> Show tokens, tools, code, GitHub, Claude, benchmarks, pricing and a speedometer.
-
-Good:
-
-> Two abstract mechanical systems perform the same job; one requires many loops while the other reaches the finished artifact through a shorter mechanism.
+If `must_show` contains more than roughly five elements, simplify.
 
 ## Step 2 — Generate three candidates
 
 Generate **three real composition candidates** by default.
 
 - **A — Canonical:** safest interpretation of the established Pulse visual language.
-- **B — Editorial:** stronger metaphor or abstraction.
+- **B — Editorial:** stronger metaphor, physicality, or abstraction.
 - **C — Alternate:** genuinely different composition while preserving the same story idea.
 
 Do not treat palette tweaks as separate candidates.
@@ -308,8 +244,9 @@ Each candidate prompt must include, in this order:
 3. visual idea / metaphor
 4. composition
 5. Pulse art direction and palette
-6. cover-crop requirement
-7. the constitution's full prohibition list
+6. editorial-presence requirement — not a bare schematic/diagram
+7. cover-crop requirement
+8. the constitution's full prohibition list
 
 ## Step 3 — Constitutional hard-failure gate
 
@@ -350,6 +287,8 @@ Hard failures include:
 - generic glowing AI brain
 - generic SaaS/corporate stock-art composition
 - presentation-slide icon rows
+- bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram
+- technical linework carrying the whole image without editorial physical/spatial presence
 - border
 - frame
 
@@ -364,14 +303,22 @@ If every candidate fails, regenerate three new candidates.
 
 **Do not score candidates that fail the constitution.**
 
-## Step 4 — Build the contact sheet
+## Step 4 — Build the golden-reference comparison sheet
 
-Place all constitution-compliant candidates into one contact sheet with:
+The contact sheet must show the references **before** the new candidates.
 
-- identical display dimensions
-- candidate IDs A/B/C added by the review sheet, not generated inside the artwork
-- no preference encoded by size
-- enough whitespace to compare silhouette and density
+Required layout:
+
+```text
+DAILY AI PULSE — VISUAL REVIEW
+
+GOLDEN REFERENCES
+[ reference 1 ] [ reference 2 ]
+
+NEW CANDIDATES
+[ A ] [ B ]
+[ C ]
+```
 
 Use:
 
@@ -379,10 +326,18 @@ Use:
 node scripts/build-illustration-contact-sheet.mjs \
   --story <story-id> \
   --out /tmp/<story-id>-contact-sheet.png \
+  --reference <golden-reference-1> \
+  --reference <golden-reference-2> \
   <candidate-a> <candidate-b> <candidate-c>
 ```
 
-The contact sheet is a temporary review artifact.
+The A/B/C and reference labels belong to the review sheet only, never inside generated artwork.
+
+The sheet is a temporary review artifact.
+
+The reviewer must answer:
+
+> **Would the selected candidate look intentionally commissioned for the same publication if the headline, company name, and metadata were removed?**
 
 ## Step 5 — Quality scoring
 
@@ -390,29 +345,49 @@ Score each constitution-compliant candidate.
 
 | Criterion | Weight |
 | --- | ---: |
-| Story-specific visual idea | 25% |
-| Daily AI Pulse brand/style fit | 25% |
-| Editorial composition | 20% |
+| Story-specific visual idea | 20% |
+| Daily AI Pulse brand/style fit | 15% |
+| Editorial composition | 15% |
 | Placement + crop quality | 15% |
 | Technical meaning | 10% |
 | Artifact cleanliness | 5% |
+| **Golden Reference Fit** | **20%** |
 
-Each criterion is 0–100.
+`Golden Reference Fit` specifically compares the candidate against the references visible on the contact sheet for:
+
+- abstraction level
+- visual density
+- line language
+- paper/print texture
+- materiality
+- negative space
+- compositional confidence
+- thumbnail silhouette
+
+Scores are 0–100.
 
 Weighted score:
 
 ```text
-story_specific × 0.25
-+ brand_fit × 0.25
-+ composition × 0.20
+story_specific × 0.20
++ brand_fit × 0.15
++ composition × 0.15
 + crop_quality × 0.15
 + technical_meaning × 0.10
 + cleanliness × 0.05
++ golden_reference_fit × 0.20
 ```
 
-A candidate must score **85 or higher** to be eligible for automatic selection.
+A candidate must satisfy **both**:
 
-If no constitution-compliant candidate reaches 85, regenerate the batch.
+```text
+weighted_total >= 85
+golden_reference_fit >= 80
+```
+
+A candidate below 80 on Golden Reference Fit is blocked even if its weighted total is otherwise high.
+
+If no constitution-compliant candidate satisfies both thresholds, regenerate the batch.
 
 ## Step 6 — Placement and crop review
 
@@ -447,8 +422,6 @@ Normalize according to placement and layout role.
 
 The review record must contain the actual final dimensions and declared output crop.
 
-Recommended production targets may evolve with the site layout. The placement-specific reference page remains authoritative.
-
 For the current article-hero implementation, a wide **1600 × 900 WebP** is acceptable when the layout reference confirms that crop.
 
 Never stretch artwork to fit. Crop intentionally.
@@ -465,34 +438,63 @@ Minimum shape:
 
 ```json
 {
-  "system_version": "1.1",
-  "constitution_version": "1.0",
+  "system_version": "1.2",
+  "constitution_version": "1.1",
   "story_id": "2026-09-29-example",
   "candidate_count": 3,
   "selected_candidate": "B",
   "visual_brief": {
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "...",
-    "verified_context": ["...", "..."],
+    "subject": "Example story's verified technical change",
+    "verified_context": [
+      "The approved story identifies the technical boundary that changed.",
+      "The source documents how the change affects the system's behavior."
+    ],
     "output_crop": "wide",
-    "archetype": "mechanical-metaphor",
+    "archetype": "architectural-cutaway",
     "editorial_idea": "...",
     "visual_metaphor": "...",
-    "golden_references": ["...", "..."]
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-28-deepmind-agent-swarm.webp"
+    ]
   },
   "constitution_check": {
     "passed": true,
     "violations": []
   },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
   "scores": {
     "story_specific": 92,
-    "brand_fit": 94,
+    "brand_fit": 90,
     "composition": 90,
     "crop_quality": 91,
     "technical_meaning": 86,
     "cleanliness": 96,
-    "weighted_total": 91.4
+    "golden_reference_fit": 88,
+    "weighted_total": 90.05
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -504,6 +506,10 @@ Minimum shape:
   }
 }
 ```
+
+This is a shape example, not an approved image review. A real record must use
+observed scores, verified sentences from its story, the actual WebP dimensions,
+and an existing asset before `illustration:check` can pass.
 
 Candidate images and contact sheets remain temporary unless a reviewer requests them.
 
@@ -517,22 +523,25 @@ npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json
 
 The validator confirms at minimum:
 
-- constitution version is declared
+- illustration system version is `1.2`
+- constitution version is `1.1`
 - placement is declared
 - layout reference is declared and points under `docs/reference-layouts/`
 - verified context contains 2–3 sentences
 - output crop is declared
 - at least three candidates were reviewed
+- at least two distinct golden production references are recorded
 - constitutional check passed with zero violations
-- weighted score is >= 85
+- prohibited schematic/diagram language is explicitly audited
+- Golden Reference Fit is present and >= 80
+- weighted score is >= 85 under the v1.2 rubric
 - zero unresolved hard failures
 - crop/thumbnail approval exists
-- final asset exists and is WebP
+- final asset exists and has a complete WebP container
 - actual dimensions match the review record
 - final dimensions are large enough for the declared role
-- article-hero assets currently satisfy the wide production target
 
-The validator cannot prove taste. It proves that the constitutional and aesthetic review actually occurred.
+The validator cannot prove taste. It proves that direct reference comparison and the required editorial review actually occurred.
 
 ## Relationship to PR preparation
 
@@ -556,10 +565,12 @@ Publication-ready illustration means:
 ```text
 constitution-compliant brief
 + placement-aware reference review
++ at least 2 golden references
 + 3 candidates
 + constitutional hard-failure gate
-+ contact sheet
-+ >=85 score
++ golden-reference comparison sheet
++ weighted score >= 85
++ Golden Reference Fit >= 80
 + cover / thumbnail review
 + correct output crop
 + committed review record
@@ -570,7 +581,7 @@ constitution-compliant brief
 
 Visual scoring is an editorial aid, not a substitute for taste.
 
-A human reviewer may reject an image that passes 85.
+A human reviewer may reject an image that passes the thresholds.
 
 A constitutional prohibition is stricter: do not override it casually. Change the constitution deliberately if the publication's art direction changes.
 

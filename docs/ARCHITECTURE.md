@@ -118,14 +118,16 @@ The project is hosted below a GitHub Pages base path, so links and assets must b
 
 Content editions, platform features, and design changes should generally be independent pull requests so failures and regressions are easier to isolate.
 
-## Current technical constraints
+## Current validation and limits
 
-The architecture is intentionally simple, but several quality layers are not yet present:
+PR CI runs `npm run verify` (lint, formatting, content integrity, editorial and
+illustration checks when a ledger exists, Astro checks, build, and Pagefind)
+plus a Playwright browser smoke/accessibility job. Dependencies are pinned in
+`package.json` and locked by `package-lock.json`.
 
-- there is no dedicated lint or formatting configuration;
-- there is no automated browser/accessibility regression suite;
-- deployment CI also acts as the primary build validation instead of a separate PR quality workflow;
-- dependencies are currently declared using `latest`, reducing version reproducibility despite the lockfile;
-- content-link and source-link integrity are not checked automatically.
-
-These are good candidates for the next engineering-hardening phase rather than reasons to add application complexity prematurely.
+The browser link check covers homepage internal links, not every route or
+external source. Editorial source claims and external URLs still require human
+verification. The editorial and illustration validators skip when no dated
+ledger has been committed; a publishing batch must pass them with its explicit
+ledger path before opening a draft PR. The reference layouts under `docs/`
+remain design proposals until implemented in the Astro pages.

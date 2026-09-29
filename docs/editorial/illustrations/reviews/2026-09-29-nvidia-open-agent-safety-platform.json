@@ -1,32 +1,33 @@
 {
-  "system_version": "1.1",
-  "constitution_version": "1.0",
+  "system_version": "1.2",
+  "constitution_version": "1.1",
   "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
   "story_id": "2026-09-29-nvidia-open-agent-safety-platform",
-  "candidate_count": 3,
-  "selected_candidate": "B",
+  "candidate_count": 4,
+  "selected_candidate": "C",
   "visual_brief": {
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
     "subject": "NVIDIA Open Agent Safety Platform",
     "verified_context": [
-      "OpenShell runs agent workloads inside isolated sandboxes with externally enforced filesystem, process, network, credential, and policy controls.",
-      "NVIDIA Sentry adds an optional out-of-band monitoring and enforcement layer on BlueField-4 DPUs outside the host where the agent runs.",
-      "The architectural lesson is to place critical enforcement somewhere the agent workload cannot rewrite or bypass."
+      "OpenShell runs agent workloads inside isolated sandboxes and evaluates outbound activity through a supervisor outside the workload.",
+      "Real credentials stay outside the sandbox and are substituted only for requests authorized by the external policy.",
+      "NVIDIA Sentry is an optional monitoring and enforcement reference design on BlueField-4 DPUs outside the agent host."
     ],
     "output_crop": "wide",
     "archetype": "architectural-cutaway",
-    "editorial_idea": "The important security boundary sits outside the agent workload, so the workload can act without being able to rewrite the rules that contain it.",
-    "visual_metaphor": "A small abstract working chamber sits inside multiple external containment layers, with one controlled passage crossing those boundaries and a physically separate observation structure outside the protected core.",
+    "editorial_idea": "A workload and its independent enforcement authority occupy separate physical spaces.",
+    "visual_metaphor": "An ivory working sphere sits inside a thick charcoal cutaway chamber; a separate terracotta sentinel rises behind it, with both forms held in a compact central group.",
     "golden_references": [
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
       "public/images/stories/2026-09-26-mcp-secrets.webp"
     ]
   },
   "candidate_notes": {
-    "A": "Constitution-compliant flat containment study, but the observer structure felt too diagrammatic and the nested rectangles were less distinctive at thumbnail size.",
-    "B": "Selected. Arched architectural containment layers create a single strong focal structure; one terracotta controlled passage crosses the boundary while a separate observation post stays outside it. No robot, text, logo, UI, icon row, or fake data is present.",
-    "C": "Constitution-compliant and clean, but the offset monitoring-node cluster weakened the single-focal-idea rule and felt more like a network diagram."
+    "A": "Constitution-compliant graphite chamber and separate observer on a distant plinth. Strong wide illustration, but the lateral separation loses the observer in the tall homepage crop.",
+    "B": "Constitution-compliant curved stone enclosure with a terracotta external monolith. Clear depth and materiality, but the observer again sits too far right for the featured homepage placement.",
+    "C": "Selected. A compact central charcoal chamber and separate terracotta sentinel preserve the boundary relationship in article, mobile, thumbnail, and tall homepage crops. Tactile graphite surfaces and warm paper match the golden references without copying their objects. The sentinel is an editorial metaphor, not a product schematic.",
+    "D": "Constitution-compliant stone escarpment cutaway with elevated sentinel. The expansive wall is persuasive in the wide view, but the two important forms are too far apart in the tall homepage crop."
   },
   "constitution_check": {
     "passed": true,
@@ -51,16 +52,18 @@
     "screenshot_imitation": false,
     "border": false,
     "frame": false,
-    "unsupported_visual_claim": false
+    "unsupported_visual_claim": false,
+    "bare_schematic_or_diagram": false
   },
   "scores": {
-    "story_specific": 94,
-    "brand_fit": 96,
-    "composition": 94,
-    "crop_quality": 96,
-    "technical_meaning": 90,
-    "cleanliness": 99,
-    "weighted_total": 94.65
+    "story_specific": 90,
+    "brand_fit": 91,
+    "composition": 90,
+    "crop_quality": 88,
+    "technical_meaning": 87,
+    "cleanliness": 96,
+    "golden_reference_fit": 90,
+    "weighted_total": 89.85
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -69,5 +72,56 @@
   "final_dimensions": {
     "width": 1600,
     "height": 900
-  }
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 91,
+      "brand_fit": 92,
+      "composition": 89,
+      "crop_quality": 66,
+      "technical_meaning": 90,
+      "cleanliness": 95,
+      "golden_reference_fit": 92,
+      "weighted_total": 87.4
+    },
+    "B": {
+      "story_specific": 89,
+      "brand_fit": 91,
+      "composition": 90,
+      "crop_quality": 65,
+      "technical_meaning": 88,
+      "cleanliness": 96,
+      "golden_reference_fit": 91,
+      "weighted_total": 86.5
+    },
+    "C": {
+      "story_specific": 90,
+      "brand_fit": 91,
+      "composition": 90,
+      "crop_quality": 88,
+      "technical_meaning": 87,
+      "cleanliness": 96,
+      "golden_reference_fit": 90,
+      "weighted_total": 89.85
+    },
+    "D": {
+      "story_specific": 90,
+      "brand_fit": 91,
+      "composition": 88,
+      "crop_quality": 68,
+      "technical_meaning": 89,
+      "cleanliness": 95,
+      "golden_reference_fit": 90,
+      "weighted_total": 86.7
+    }
+  },
+  "crop_review": {
+    "article_desktop": "Chromium at 1440px viewport: 1100 \u00d7 591px cover box; both focal forms survive.",
+    "article_mobile": "Chromium at 390px viewport: 359 \u00d7 193px cover box; both focal forms survive without page overflow.",
+    "homepage_desktop": "589 \u00d7 821px center cover crop retains the working sphere, chamber, and independent sentinel; the outer left wall is cropped.",
+    "homepage_mobile": "357 \u00d7 260px center cover crop retains both focal forms.",
+    "reference_layout": "1200 \u00d7 430px cover study partially clips the sentinel disc at the top while retaining the chamber, sphere, and separate sentinel structure.",
+    "thumbnail": "320 \u00d7 164px listing crop retains a readable chamber/sentinel silhouette."
+  },
+  "golden_reference_comparison": "Two distinct production references were rendered above all candidates on a Chromium contact sheet. Compared palette, density, abstraction, line weight, graphite and paper texture, physical depth, negative space, focal hierarchy, and thumbnail silhouette."
 }
