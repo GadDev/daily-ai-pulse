@@ -168,6 +168,9 @@ For every selected candidate classify the publication check as:
 - `duplicate-conflict`
 - `dedup-unverified`
 
+Record this result in `deduplication.publication_status` in the persisted
+ledger. Preserve the research `deduplication.status` and its original reasoning.
+
 If `duplicate-conflict`, withhold the candidate and report it in the PR body.
 
 If `dedup-unverified`, do not claim the candidate is novel. Prefer withholding when novelty is central to publication value.

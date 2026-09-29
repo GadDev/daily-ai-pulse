@@ -6,232 +6,96 @@
 [![Deploy](https://github.com/GadDev/daily-ai-pulse/actions/workflows/deploy.yml/badge.svg)](https://github.com/GadDev/daily-ai-pulse/actions/workflows/deploy.yml)
 [![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
 
-The Daily AI Pulse is an independent, English-language AI engineering publication for people who want to stay current without turning every product announcement into a crisis.
+The Daily AI Pulse is an independent, English-language AI engineering
+publication. It covers models, research, agents, tools, engineering practice,
+real-world adoption, and the occasional curious development. Stories make the
+strength and limits of their evidence visible.
 
-It covers frontier models, research, agent systems, developer tooling, engineering practice, real-world adoption, and the occasional genuinely strange corner of AI—with evidence quality made explicit.
+**Read the publication:** https://gaddev.github.io/daily-ai-pulse/
 
-**Live publication:** https://gaddev.github.io/daily-ai-pulse/
+## How a daily edition reaches the site
 
-## What makes Pulse different
+| Stage | Trigger / owner | Output and authority |
+| --- | --- | --- |
+| 1. Discover | The **ChatGPT scheduler** triggers the Daily AI Pulse research task at its configured cadence. | Before research, the task reads the current repository [editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [controlled topics](docs/editorial/TOPICS_V1.yml). It then searches for developments. |
+| 2. Decide | The scheduled task applies the decision engine and checks recent editions and canonical stories for repeats or material updates. | A structured **candidate ledger** records selected, watch, and rejected items, sources, evidence, signal, and deduplication reasoning. This is the authoritative handoff; see the [ledger contract](docs/editorial/ledgers/README.md). PR preparation also checks merged ledgers before drafting. |
+| 3. Prepare | An editor invokes the [PR preparation skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) with that ledger. | It re-verifies selected claims and novelty, drafts canonical stories, calls the [illustration skill](.agents/skills/daily-ai-pulse-illustration/SKILL.md), writes the daily manifest and persisted ledger, and opens **one draft PR** when checks pass. See the [PR contract](docs/editorial/PR_PREPARATION_V1.md). |
+| 4. Review and publish | A human reviews the draft PR. GitHub Actions checks the PR; a merge to `main` triggers deployment. | A static Astro site on GitHub Pages. Watch and rejected items stay in the ledger, not in the published edition. |
 
-Pulse is designed around a few editorial constraints:
+The scheduled task is external to this repository. Its current configuration
+names those three contracts; repository CI cannot enforce what it reads.
+GitHub Actions does not search for news, select stories, or start PR
+preparation. PR preparation does not silently change the
+ledger's decisions: if later verification conflicts with a selected item, it
+withholds that story and reports the reason. If a required editorial contract
+cannot be read, the research task reports the gap instead of claiming verified
+classification or deduplication.
 
-- **Signal over volume** — a short edition is better than padded coverage.
-- **Primary sources first** — papers, technical reports, changelogs, engineering blogs, and direct documentation are preferred.
-- **Evidence is visible** — stories carry evidence and signal metadata rather than presenting every claim with equal confidence.
-- **Facts and interpretation are separate** — the publication can have a point of view without hiding where the evidence ends.
-- **Stories stay canonical** — daily editions curate standalone stories instead of duplicating article bodies.
-- **Static by default** — the site ships HTML and CSS first and adds client JavaScript only when interaction genuinely needs it.
+**Current status:** the contracts, skills, and validators are in the repository.
+The end-to-end scheduled research → ledger → draft PR handoff still needs a
+reviewed live batch. Historical editions have retrospective ledgers with
+explicit provenance. Without a dated ledger, the editorial and illustration
+validators report a skip; a new publishing batch must run them against its
+explicit ledger path.
 
-## Publication structure
+## Find the source of truth
 
-The homepage is curated rather than a chronological feed:
+| Question | Read |
+| --- | --- |
+| What is the publication building toward? | [Product requirements](docs/PRD.md) and [architecture](docs/ARCHITECTURE.md) |
+| What is publishable and how should it sound? | [Editorial guide](docs/EDITORIAL.md) |
+| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
+| What is the durable research handoff? | [Candidate ledger contract and example](docs/editorial/ledgers/README.md) |
+| What can the current site render? | [Astro schema](src/content.config.ts), [content model](docs/CONTENT_MODEL.md), [daily issue contract](docs/DAILY_ISSUE.md), and [editorial MDX components](docs/EDITORIAL_COMPONENTS.md) |
+| How is a publication PR prepared? | [PR preparation contract](docs/editorial/PR_PREPARATION_V1.md) and [skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) |
+| How are illustrations reviewed? | [Visual constitution](docs/editorial/VISUAL_CONSTITUTION_V1.md), [illustration system](docs/editorial/ILLUSTRATION_SYSTEM_V1.md), and [skill](.agents/skills/daily-ai-pulse-illustration/SKILL.md) |
+| What should a page or asset look like? | [Design system](docs/DESIGN_SYSTEM.md), [earlier page compositions](docs/PAGE_COMPOSITIONS.md), and [responsive layout references](docs/reference-layouts/README.md). The references propose changes separate from deployed Astro pages. |
 
-```text
-BIG STORY
-Research · Tools · AI in Practice · Curious
-Latest from The Pulse
-```
+The editorial schema describes the richer candidate model. The Astro schema
+controls what builds today; its [compatibility mapping](docs/editorial/EDITORIAL_SCHEMA_V1.md#18-current-site-compatibility)
+translates selected candidates into story frontmatter. A daily edition links
+canonical stories rather than duplicating their bodies.
 
-The broader desks include:
+## Run the site locally
 
-- Models & Releases
-- Research
-- AI Engineering
-- Dev Tools
-- AI in Practice
-- Workflows
-- Business & Industry
-- Curious AI
-
-Stories use three depth levels:
-
-- **Pulse** — fast, high-signal updates;
-- **Briefing** — enough context to understand the engineering consequence;
-- **Deep Dive** — substantial treatment for stories that genuinely warrant it.
-
-## Architecture
-
-Pulse is a static-first Astro publication:
-
-```text
-Markdown / MDX stories
-        │
-        ▼
-Astro content collections
-        │
-        ├── schema validation
-        ├── evidence metadata
-        └── daily-edition composition
-        │
-        ▼
-Astro pages + components
-        │
-        ▼
-Static HTML / CSS / assets
-        │
-        ▼
-GitHub Pages
-```
-
-There is no application database or required server runtime. Git and pull requests are the publishing control plane.
-
-See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the technical design and evolution boundaries.
-
-## Technology
-
-- [Astro](https://astro.build/) — static rendering and file-based routing
-- TypeScript — strict project configuration
-- Markdown / MDX — editorial source format
-- Astro Content Collections — typed story and edition metadata
-- GitHub Actions — validation and deployment
-- GitHub Pages — hosting
-
-Client-side frameworks should only be introduced when an interaction cannot be expressed cleanly with static HTML and browser primitives.
-
-## Getting started
-
-### Requirements
-
-- Node.js **22.12+** on the Node 22 release line
-- npm
-- Git
-
-The repository includes `.nvmrc`, so with `nvm` you can run:
-
-```bash
-nvm use
-```
-
-### Install and run
+Requirements: Node.js **22.22.3** (see `.nvmrc` and `package.json`), npm, and Git.
 
 ```bash
 git clone https://github.com/GadDev/daily-ai-pulse.git
 cd daily-ai-pulse
+nvm use # if using nvm
 npm ci
 npm run dev
 ```
 
-Astro will print the local development URL.
+Astro prints the local development URL. The site is static-first: Markdown/MDX
+stories in `src/content/stories/` and dated manifests in `src/content/pulse/`
+become HTML, CSS, and assets served from GitHub Pages. There is no production
+database or required application server.
 
-### Validate a production build
+### Checks
 
-```bash
-npm run build
-```
-
-The build runs `astro check` first, so invalid TypeScript or content frontmatter fails before static generation.
-
-### Available scripts
-
-| Command | Purpose |
+| Command | Use |
 | --- | --- |
-| `npm run dev` | Start the local Astro development server |
-| `npm run check` | Run Astro/TypeScript content and type checks |
-| `npm run build` | Validate and create the production build |
-| `npm run preview` | Preview the generated production site locally |
+| `npm run build` | Astro/TypeScript check, production build, and Pagefind index |
+| `npm run verify` | Lint, formatting, content integrity, editorial and illustration gates, and build |
+| `npm run test:e2e` | Playwright browser smoke, homepage link, and accessibility checks |
+| `npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json` | Check a specific editorial batch against its ledger |
+| `npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json` | Check review records and WebP assets for that batch |
+| `npm run preview` | Preview the built site locally |
 
-## Content workflow
+PR CI runs `npm run verify` and the Playwright suite. External source claims and
+URLs still require editorial review; the automated link test covers homepage
+internal links, not every route or external citation. For a new daily batch,
+run both dated ledger commands and `npm run verify` before opening the draft PR.
 
-Canonical stories live in:
+## Contributing and licensing
 
-```text
-src/content/stories/
-```
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. For help see
+[SUPPORT.md](SUPPORT.md); for vulnerabilities use [SECURITY.md](SECURITY.md)
+rather than a public issue. Participation follows the
+[Code of Conduct](CODE_OF_CONDUCT.md).
 
-Daily editions live in:
-
-```text
-src/content/pulse/
-```
-
-A daily edition references canonical story IDs; it does not duplicate story bodies. Content schemas live in `src/content.config.ts` and are validated during the build.
-
-Before editing publication content, read:
-
-- [`docs/EDITORIAL.md`](docs/EDITORIAL.md) — editorial standards and evidence discipline
-- [`docs/CONTENT_MODEL.md`](docs/CONTENT_MODEL.md) — story metadata and taxonomy
-- [`docs/DAILY_ISSUE.md`](docs/DAILY_ISSUE.md) — daily-edition composition
-- [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) — visual language
-- [`docs/PAGE_COMPOSITIONS.md`](docs/PAGE_COMPOSITIONS.md) — page-level layouts
-
-## Repository structure
-
-```text
-.
-├── .github/
-│   ├── workflows/              # CI and GitHub Pages deployment
-│   ├── ISSUE_TEMPLATE/         # bug, feature and correction intake
-│   ├── CODEOWNERS
-│   └── PULL_REQUEST_TEMPLATE.md
-├── docs/                       # product, editorial, design, architecture
-├── public/images/              # editorial and publication assets
-├── src/
-│   ├── components/             # reusable Astro components
-│   ├── content/
-│   │   ├── stories/            # canonical standalone articles
-│   │   └── pulse/              # dated edition manifests
-│   ├── layouts/                # shared document layout
-│   ├── pages/                  # Astro routes
-│   ├── styles/                 # global styles and design tokens
-│   └── content.config.ts       # typed content schemas
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
-## Quality gates
-
-Pull requests run a clean install and production build through GitHub Actions.
-
-The current engineering baseline intentionally favors high-value checks over ceremony:
-
-1. deterministic install with `npm ci`;
-2. Astro/TypeScript validation;
-3. static production build;
-4. manual responsive/accessibility review for visible UI changes;
-5. source/evidence review for editorial changes.
-
-Automated browser or unit-test suites should be added when the project develops enough interactive or transformation logic to justify them.
-
-## Deployment
-
-Merges to `main` trigger the GitHub Pages workflow:
-
-```text
-main → npm ci → npm run build → upload dist → GitHub Pages
-```
-
-The configured production base path is `/daily-ai-pulse/`, so internal URLs and assets must remain base-aware.
-
-## Documentation
-
-| Document | Purpose |
-| --- | --- |
-| [`docs/PRODUCT.md`](docs/PRODUCT.md) | Product direction |
-| [`docs/PRD.md`](docs/PRD.md) | Product requirements |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Technical architecture and evolution boundaries |
-| [`docs/EDITORIAL.md`](docs/EDITORIAL.md) | Editorial standards |
-| [`docs/CONTENT_MODEL.md`](docs/CONTENT_MODEL.md) | Structured content model |
-| [`docs/DAILY_ISSUE.md`](docs/DAILY_ISSUE.md) | Daily issue format |
-| [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) | Visual system |
-| [`docs/PAGE_COMPOSITIONS.md`](docs/PAGE_COMPOSITIONS.md) | Page composition specifications |
-| [`CHANGELOG.md`](CHANGELOG.md) | Platform/repository changes |
-
-## Contributing
-
-Contributions are welcome, including code improvements, accessibility fixes, documentation, and well-sourced editorial corrections.
-
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request and follow [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) when participating in the project.
-
-For general help, see [`SUPPORT.md`](SUPPORT.md). For vulnerabilities, follow [`SECURITY.md`](SECURITY.md) rather than opening a public issue.
-
-## Licensing
-
-The **software source code and technical project documentation** are licensed under the [MIT License](LICENSE).
-
-The publication's editorial content, original copy, brand assets, and original artwork are **not automatically MIT-licensed** and remain all rights reserved unless explicitly stated otherwise. See [`CONTENT_LICENSE.md`](CONTENT_LICENSE.md) for the licensing boundary and third-party-material notes.
-
----
-
-> **The Daily AI Pulse:** clear, curated, consequential AI engineering coverage.
+Software source and technical project documentation use the [MIT License](LICENSE).
+Editorial copy, brand assets, and original artwork are not automatically MIT
+licensed; see [CONTENT_LICENSE.md](CONTENT_LICENSE.md).

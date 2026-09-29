@@ -298,46 +298,11 @@ Commit:
 docs/editorial/illustrations/reviews/<story-id>.json
 ```
 
-Required minimum fields:
-
-```json
-{
-  "system_version": "1.1",
-  "constitution_version": "1.0",
-  "story_id": "...",
-  "candidate_count": 3,
-  "selected_candidate": "A|B|C",
-  "visual_brief": {
-    "placement": "article-hero",
-    "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "...",
-    "verified_context": ["...", "..."],
-    "output_crop": "wide",
-    "archetype": "...",
-    "editorial_idea": "...",
-    "visual_metaphor": "...",
-    "golden_references": []
-  },
-  "constitution_check": {
-    "passed": true,
-    "violations": []
-  },
-  "scores": {
-    "story_specific": 0,
-    "brand_fit": 0,
-    "composition": 0,
-    "crop_quality": 0,
-    "technical_meaning": 0,
-    "cleanliness": 0,
-    "weighted_total": 0
-  },
-  "hard_failures": [],
-  "cover_crop_approved": true,
-  "thumbnail_approved": true,
-  "final_asset": "/images/stories/<story-id>.webp",
-  "final_dimensions": { "width": 0, "height": 0 }
-}
-```
+Use the complete review-record example in
+`docs/editorial/ILLUSTRATION_SYSTEM_V1.md#step-8--persist-the-review-record`.
+It includes the required `prohibited_elements` audit, weighted rubric, and
+actual image dimensions. Replace illustrative values with observed results;
+the validator checks the record against the WebP file.
 
 Use honest scores. The review record is an audit trail, not a certificate to game.
 

@@ -36,31 +36,30 @@ src/content/
 
 ## Edition frontmatter
 
-A daily edition contains only metadata and ordered story references.
+A daily edition's frontmatter contains metadata and ordered story references.
+It may also include brief edition-level commentary in the Markdown body, but
+never duplicates a standalone story body. This example is the published
+28 September edition, whose referenced story files exist.
 
 ```yaml
 ---
 date: 2026-09-28
-title: "Pulse — 28 September 2026"
-summary: "The strongest AI engineering signals of the day."
-featured: "2026-09-28-example-story"
+title: "The Daily AI Pulse — 28 September 2026"
+summary: "The week closes on agent control: an OpenAI sandbox escape, a rapidly professionalizing plugin ecosystem, and a DeepMind swarm that spontaneously produced both cheating and oversight."
+featured: "2026-09-28-openai-dns-sandbox"
 sections:
-  - key: must-know
-    label: Must Know
+  - key: "security"
+    label: "Security"
     stories:
-      - "2026-09-28-example-story"
-  - key: research
-    label: Research
-    stories: []
-  - key: tools
-    label: Dev Tools
-    stories: []
-  - key: practice
-    label: AI in Practice
-    stories: []
-  - key: curious
-    label: Curious AI
-    stories: []
+      - "2026-09-28-openai-dns-sandbox"
+  - key: "tools"
+    label: "Ecosystem"
+    stories:
+      - "2026-09-28-claude-plugin-ecosystem"
+  - key: "research"
+    label: "Research"
+    stories:
+      - "2026-09-28-deepmind-agent-swarm"
 ---
 ```
 
@@ -98,38 +97,41 @@ A story keeps exactly one canonical `category` in its own frontmatter. The editi
 
 ## Empty sections
 
-Empty sections are valid and should not render on the published edition page.
-
-This allows the daily format to stay stable without forcing filler content into every category.
+Omit sections without stories. The current Astro schema requires each listed
+section to contain at least one story, so an empty `stories: []` fails the
+build. The format does not require every editorial section each day.
 
 ## Required validation
 
-A future generator must reject an edition when:
+The current content-integrity script and Astro build reject an edition when:
 
 - the date is missing or invalid
 - a referenced story does not exist
 - the featured story does not exist
-- a story reference is duplicated within the same section
-- a section key is duplicated
+- a story reference is duplicated within or across sections
 
-Cross-section duplication may be allowed later only if there is a deliberate editorial reason; by default the generator should warn about it.
+The current schema also requires non-empty sections. The content-integrity
+script checks referenced story IDs and featured placement; it does not yet
+enforce unique section keys. Keep those keys unique during editorial review.
 
 ## Publishing flow
 
-The intended flow is:
+The current editorial handoff is:
 
 ```text
-research
+ChatGPT scheduled research task reads repository editorial contracts
   ↓
-story candidates
+candidate ledger (selected / watch / rejected)
   ↓
-evidence + scoring
+PR preparation re-verifies selected candidates and checks duplicates
   ↓
 individual story Markdown files
   ↓
+illustrations and review records
+  ↓
 daily issue manifest
   ↓
-GitHub PR
+one draft GitHub PR with the persisted ledger
   ↓
 human review
   ↓
@@ -142,14 +144,8 @@ live site
 
 ## Scope boundary
 
-This document defines the content contract only.
-
-It does not implement:
-
-- the `/pulse/[date]` Astro route
-- generator scripts
-- scheduled automation
-- historical content migration
-- homepage changes
-
-Those are separate PRs so each concern remains independently reviewable.
+This document defines the edition content contract. The `/pulse/[date]` route,
+content validator, and publication workflow exist in this repository. The
+ChatGPT scheduled research task runs outside the repository; its candidate
+ledger is persisted here by PR preparation. Research scheduling and editorial
+selection are not performed by GitHub Actions.
