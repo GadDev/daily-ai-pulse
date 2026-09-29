@@ -17,16 +17,16 @@
     "output_crop": "wide",
     "archetype": "architectural-cutaway",
     "editorial_idea": "The important security boundary sits outside the agent workload, so the workload can act without being able to rewrite the rules that contain it.",
-    "visual_metaphor": "A small abstract working chamber sits inside multiple external containment layers, with controlled passages crossing those boundaries and a physically separate observation structure outside the protected core.",
+    "visual_metaphor": "A small abstract working chamber sits inside multiple external containment layers, with one controlled passage crossing those boundaries and a physically separate observation structure outside the protected core.",
     "golden_references": [
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
       "public/images/stories/2026-09-26-mcp-secrets.webp"
     ]
   },
   "candidate_notes": {
-    "A": "Constitution-compliant but overly segmented; the triptych weakened the single-focal-idea rule and reduced thumbnail clarity.",
-    "B": "Selected. Strong containment metaphor with no robot, text, labels, logos, UI, or decorative security iconography. The isolated chamber and external layers remain legible at card size.",
-    "C": "Constitution-compliant but less story-specific; the split composition and mechanical secondary scene made the architecture feel less focused."
+    "A": "Constitution-compliant flat containment study, but the observer structure felt too diagrammatic and the nested rectangles were less distinctive at thumbnail size.",
+    "B": "Selected. Arched architectural containment layers create a single strong focal structure; one terracotta controlled passage crosses the boundary while a separate observation post stays outside it. No robot, text, logo, UI, icon row, or fake data is present.",
+    "C": "Constitution-compliant and clean, but the offset monitoring-node cluster weakened the single-focal-idea rule and felt more like a network diagram."
   },
   "constitution_check": {
     "passed": true,
@@ -54,20 +54,20 @@
     "unsupported_visual_claim": false
   },
   "scores": {
-    "story_specific": 96,
-    "brand_fit": 97,
-    "composition": 95,
+    "story_specific": 94,
+    "brand_fit": 96,
+    "composition": 94,
     "crop_quality": 96,
-    "technical_meaning": 92,
-    "cleanliness": 98,
-    "weighted_total": 95.75
+    "technical_meaning": 90,
+    "cleanliness": 99,
+    "weighted_total": 94.65
   },
   "hard_failures": [],
   "cover_crop_approved": true,
   "thumbnail_approved": true,
   "final_asset": "/images/stories/2026-09-29-nvidia-open-agent-safety-platform.webp",
   "final_dimensions": {
-    "width": 1400,
-    "height": 788
+    "width": 1600,
+    "height": 900
   }
 }
