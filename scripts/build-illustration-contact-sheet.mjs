@@ -1,6 +1,5 @@
-import { existsSync } from 'node:fs';
-import { basename, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { existsSync, readFileSync } from 'node:fs';
+import { basename, extname, resolve } from 'node:path';
 import { chromium } from '@playwright/test';
 
 const args = process.argv.slice(2);
@@ -45,11 +44,18 @@ function imageRecord(input, label) {
     console.error(`Image does not exist: ${path}`);
     process.exit(1);
   }
+  const mimeType = {
+    '.webp': 'image/webp',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+  }[extname(path).toLowerCase()];
+  if (!mimeType) throw new Error(`Unsupported image format: ${path}`);
   return {
     label,
     path,
     name: basename(path),
-    url: pathToFileURL(path).href,
+    url: `data:${mimeType};base64,${readFileSync(path).toString('base64')}`,
   };
 }
 
@@ -67,10 +73,18 @@ function cards(records, type) {
       <figure class="candidate ${type}">
         <div class="label">${record.label}</div>
         <div class="frame"><img src="${record.url}" alt="${type} ${record.label}" /></div>
-        <figcaption>${record.name}</figcaption>
+        <figcaption>${escapeHtml(record.name)}</figcaption>
       </figure>`,
     )
     .join('');
+}
+
+function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
 }
 
 const html = `<!doctype html>
@@ -153,7 +167,7 @@ const html = `<!doctype html>
 </head>
 <body>
 <header>
-  <h1>${storyId}</h1>
+  <h1>${escapeHtml(storyId)}</h1>
   <p>Daily AI Pulse visual review — compare the new work directly against production references for abstraction, density, line language, texture, materiality, negative space, compositional confidence and thumbnail silhouette.</p>
 </header>
 <section>
@@ -175,6 +189,10 @@ try {
     deviceScaleFactor: 1,
   });
   await page.setContent(html, { waitUntil: 'load' });
+  const imagesLoaded = await page
+    .locator('img')
+    .evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0));
+  if (!imagesLoaded) throw new Error('Contact sheet contains an image that could not be decoded');
   await page.screenshot({ path: resolve(output), fullPage: true });
   console.log(`Contact sheet written to ${resolve(output)}`);
 } finally {

@@ -1,0 +1,158 @@
+{
+  "editorial_date": "2026-09-21",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-21-agentserve",
+      "decision": "selected",
+      "title": "AgentServe isolates prefills from decodes for local multi-agent workloads",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "gpu",
+        "inference",
+        "serving"
+      ],
+      "legacy_tags": [],
+      "event_date": null,
+      "summary": "The research system targets the distinctive mix of cold prefills, resume prefills, and short latency-critical decodes created by agent loops on one consumer GPU.",
+      "what_changed": "AgentServe separates cold prefills, resumed prefills after tool calls, and short decodes so they do not block one another on a single consumer GPU.",
+      "why_it_matters": "Agent inference has a different traffic shape from chat. Systems designed around that shape can matter as much as raw model speed.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2603.10342",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2603.10342",
+          "role": "primary",
+          "label": "AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agentserve",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-21-agentserve.md"
+    },
+    {
+      "id": "2026-09-21-uber-agentic-search-loop",
+      "decision": "selected",
+      "title": "Uber used an agentic loop to hunt production search latency",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "performance",
+        "verification"
+      ],
+      "legacy_tags": [
+        "uber"
+      ],
+      "event_date": null,
+      "summary": "A coding agent repeatedly pulled live profiles, chose bottlenecks, proposed fixes, opened PRs, and benchmarked the result against a latency target.",
+      "what_changed": "Uber built an agentic optimization loop around production search latency: measure live profiles, identify a bottleneck, draft a code change, open a pull request, benchmark it, then repeat until gains flattened out.",
+      "why_it_matters": "This is a strong agent pattern because the loop has an **objective external verifier**. The agent is not asked whether its fix is good; benchmarks and quality checks decide.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.uber.com/gb/en/blog/uber-eats-search-pipeline/",
+      "sources": [
+        {
+          "url": "https://www.uber.com/gb/en/blog/uber-eats-search-pipeline/",
+          "role": "primary",
+          "label": "Uber — Halving the Time: How Uber Eats Rebuilt Its Search Pipeline"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "uber-agentic-search-loop",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-21-uber-agentic-search-loop.md"
+    },
+    {
+      "id": "2026-09-21-uber-software-factory",
+      "decision": "selected",
+      "title": "Uber says agents now touch more than 70% of pull requests",
+      "desk": "practice",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "uber",
+        "software-factory",
+        "enterprise"
+      ],
+      "event_date": null,
+      "summary": "Uber's software factory has grown to 3,600+ agent skills and more than 30,000 daily skill executions across review, CI repair, E2E work, on-call triage, and maintenance.",
+      "what_changed": "Uber says more than 70% of pull requests are attributed to local or cloud agents, with more than 3,600 internal agent skills and over 30,000 skill executions per day.",
+      "why_it_matters": "At this scale, agent adoption becomes a platform discipline: reusable skills, policy, cost control, attribution, and escalation matter more than individual prompting tricks.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.uber.com/gb/en/blog/efficient-software-factory/",
+      "sources": [
+        {
+          "url": "https://www.uber.com/gb/en/blog/efficient-software-factory/",
+          "role": "primary",
+          "label": "Uber — Running a Software Factory Efficiently at Uber Scale"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "uber-software-factory",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-21-uber-software-factory.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-21-agentserve",
+      "2026-09-21-uber-agentic-search-loop",
+      "2026-09-21-uber-software-factory"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-21-uber-software-factory"
+  }
+}

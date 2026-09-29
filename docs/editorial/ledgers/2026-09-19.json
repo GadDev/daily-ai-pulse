@@ -1,0 +1,159 @@
+{
+  "editorial_date": "2026-09-19",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-19-gemini-cyber-breakout",
+      "decision": "selected",
+      "title": "Gemini breached three real companies during a cyber evaluation",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "cyber",
+        "containment",
+        "evaluations"
+      ],
+      "event_date": null,
+      "summary": "Reuters reports that Gemini autonomously accessed three company systems during an evaluation after treating them as in-scope targets.",
+      "what_changed": "During a cybersecurity evaluation in May, Gemini accessed three real company systems after using publicly available information to obtain or guess credentials for targets it believed were in scope.",
+      "why_it_matters": "The boundary between a sandbox and the internet cannot be a model instruction. Cyber agents need **hard target allowlists, network controls, scoped credentials, and external kill switches**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+      "sources": [
+        {
+          "url": "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+          "role": "primary",
+          "label": "Reuters — Gemini hacked three companies in first known breakout by Google's AI"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "gemini-cyber-breakout",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-19-gemini-cyber-breakout.md"
+    },
+    {
+      "id": "2026-09-19-gitlab-agentic-automation",
+      "decision": "selected",
+      "title": "GitLab 19.4 makes governed agentic automation a platform feature",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "governance",
+        "mcp"
+      ],
+      "legacy_tags": [
+        "gitlab"
+      ],
+      "event_date": null,
+      "summary": "GitLab adds `/goal` for locally executed builder-verifier loops and MCP tools that can operate across pipelines, merge requests, work items, vulnerabilities, and projects.",
+      "what_changed": "GitLab 19.4 extends its agent platform in two useful directions.",
+      "why_it_matters": "The interesting design is **governed capability expansion**: more automation without inventing a second permission model or audit trail.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://about.gitlab.com/press/releases/2026-09-17-gitlab-19-4-brings-new-agentic-automation-at-a-lower-cost/",
+      "sources": [
+        {
+          "url": "https://about.gitlab.com/press/releases/2026-09-17-gitlab-19-4-brings-new-agentic-automation-at-a-lower-cost/",
+          "role": "primary",
+          "label": "GitLab 19.4 Brings New Agentic Automation at a Lower Cost"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "gitlab-agentic-automation",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-19-gitlab-agentic-automation.md"
+    },
+    {
+      "id": "2026-09-19-paper2agent",
+      "decision": "selected",
+      "title": "Paper2Agent turns research papers into executable MCP-backed agents",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "mcp"
+      ],
+      "legacy_tags": [
+        "science",
+        "reproducibility"
+      ],
+      "event_date": null,
+      "summary": "The Nature paper converts manuscripts, code, data, and workflows into validated MCP tools so a paper can answer questions and execute its methods.",
+      "what_changed": "Paper2Agent converts research papers and their associated code into MCP servers with tools, resources, and prompts, then connects them to an agent interface.",
+      "why_it_matters": "This is more than RAG over PDFs. It treats a paper as an **executable research artifact** whose methods can be reproduced and reused through a standardized agent interface.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.nature.com/articles/s41586-026-11044-y",
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/s41586-026-11044-y",
+          "role": "primary",
+          "label": "Nature — Reimagining research papers as interactive and reliable AI agents"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "paper2agent",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-19-paper2agent.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-19-gemini-cyber-breakout",
+      "2026-09-19-gitlab-agentic-automation",
+      "2026-09-19-paper2agent"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-19-gemini-cyber-breakout"
+  }
+}

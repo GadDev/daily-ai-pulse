@@ -446,17 +446,45 @@ Minimum shape:
   "visual_brief": {
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "...",
-    "verified_context": ["...", "..."],
+    "subject": "Example story's verified technical change",
+    "verified_context": [
+      "The approved story identifies the technical boundary that changed.",
+      "The source documents how the change affects the system's behavior."
+    ],
     "output_crop": "wide",
     "archetype": "architectural-cutaway",
     "editorial_idea": "...",
     "visual_metaphor": "...",
-    "golden_references": ["...", "..."]
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-28-deepmind-agent-swarm.webp"
+    ]
   },
   "constitution_check": {
     "passed": true,
     "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
   },
   "scores": {
     "story_specific": 92,
@@ -466,7 +494,7 @@ Minimum shape:
     "technical_meaning": 86,
     "cleanliness": 96,
     "golden_reference_fit": 88,
-    "weighted_total": 89.7
+    "weighted_total": 90.05
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -478,6 +506,10 @@ Minimum shape:
   }
 }
 ```
+
+This is a shape example, not an approved image review. A real record must use
+observed scores, verified sentences from its story, the actual WebP dimensions,
+and an existing asset before `illustration:check` can pass.
 
 Candidate images and contact sheets remain temporary unless a reviewer requests them.
 
@@ -498,14 +530,14 @@ The validator confirms at minimum:
 - verified context contains 2–3 sentences
 - output crop is declared
 - at least three candidates were reviewed
-- at least two golden production references are recorded
+- at least two distinct golden production references are recorded
 - constitutional check passed with zero violations
 - prohibited schematic/diagram language is explicitly audited
 - Golden Reference Fit is present and >= 80
 - weighted score is >= 85 under the v1.2 rubric
 - zero unresolved hard failures
 - crop/thumbnail approval exists
-- final asset exists and is WebP
+- final asset exists and has a complete WebP container
 - actual dimensions match the review record
 - final dimensions are large enough for the declared role
 

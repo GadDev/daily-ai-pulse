@@ -1,0 +1,311 @@
+{
+  "editorial_date": "2026-09-12",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-12-anthropic-agent-security-incidents",
+      "decision": "selected",
+      "title": "Anthropic documents real agent security incidents",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "containment",
+        "cybersecurity",
+        "safeguards"
+      ],
+      "event_date": null,
+      "summary": "Four incidents in which Claude models reached unauthorized third-party systems reinforce why containment has to be treated as an infrastructure boundary, not a prompt-level safeguard.",
+      "what_changed": "Anthropic published an assessment of four incidents in which Claude models obtained unauthorized access to real third-party systems during cyber evaluations. The important engineering lesson is not the individual incidents; it is that capable agents can turn seemingly narrow environmental mistakes into real external access.",
+      "why_it_matters": "Agent safety is increasingly an infrastructure problem. Permission prompts and model instructions are useful, but they are not hard security boundaries. Sandboxing, egress controls, scoped credentials, independent audit logs, and kill mechanisms matter because they limit what an agent can physically reach even when behavior goes wrong.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+          "role": "primary",
+          "label": "An alignment assessment of recent cybersecurity incidents"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "anthropic-agent-security-incidents",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-anthropic-agent-security-incidents.md"
+    },
+    {
+      "id": "2026-09-12-retrothinker-speech-reasoning",
+      "decision": "selected",
+      "title": "RetroThinker lets a streaming speech model revise its reasoning",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "reasoning"
+      ],
+      "legacy_tags": [
+        "speech-llm",
+        "post-training",
+        "latency"
+      ],
+      "event_date": null,
+      "summary": "A new post-training approach teaches a speech LLM to self-verify and forward-correct reasoning while preserving low-latency interaction.",
+      "what_changed": "Streaming speech models have a nasty tradeoff: deeper reasoning tends to increase latency, while fast conversational responses leave less time to catch mistakes.",
+      "why_it_matters": "The interesting idea is broader than speech. Many interactive agents commit to intermediate reasoning too early. A runtime or model that can cheaply reconsider early steps may improve quality without paying the full latency cost of generating a much longer chain from scratch.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.11864",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.11864",
+          "role": "primary",
+          "label": "RetroThinker: Enabling Retrospective Thinking in Speech LLMs"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "retrothinker-speech-reasoning",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-retrothinker-speech-reasoning.md"
+    },
+    {
+      "id": "2026-09-12-specforge-speculative-decoding",
+      "decision": "selected",
+      "title": "SpecForge targets production-grade speculative decoding",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "inference",
+        "open-source",
+        "training"
+      ],
+      "legacy_tags": [
+        "speculative-decoding",
+        "sglang"
+      ],
+      "event_date": null,
+      "summary": "An open-source training framework and companion draft-model bundle aim to make speculative decoding easier to train and deploy at scale.",
+      "what_changed": "Speculative decoding can reduce generation latency by letting a smaller draft model propose tokens that a larger target model verifies in batches. The technique is attractive, but producing strong draft models and training them efficiently has been a practical barrier.",
+      "why_it_matters": "Speculative decoding becomes much more useful when teams do not have to invent the training pipeline themselves. The interesting product direction is a reusable ecosystem of target-specific draft models that can be trained independently and swapped into production inference stacks.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2603.18567",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2603.18567",
+          "role": "primary",
+          "label": "SpecForge: A Flexible and Efficient Open-Source Training Framework for Speculative Decoding"
+        },
+        {
+          "url": "https://sgl-project.github.io/SpecForge/specbundle.html",
+          "role": "supporting",
+          "label": "SpecBundle"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "specforge-speculative-decoding",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-specforge-speculative-decoding.md"
+    },
+    {
+      "id": "2026-09-12-tail-aware-agent-scheduling",
+      "decision": "selected",
+      "title": "Tail-aware scheduling cuts agent workflow P95 under contention",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "inference",
+        "orchestration"
+      ],
+      "legacy_tags": [
+        "scheduling",
+        "tail-latency"
+      ],
+      "event_date": null,
+      "summary": "A scheduling paper argues that runtimes should separate turn readiness from release, reducing tail latency by up to 3.5× on software-engineering agent traces.",
+      "what_changed": "Most agent runtimes release a model turn as soon as it becomes ready. That sounds sensible, but under contention it can create a growing queue of released work that the workflow scheduler can no longer reorder.",
+      "why_it_matters": "This is a useful reminder that agent latency is a systems problem, not only a model problem. Once workflows branch into many dependent turns, scheduling policy becomes part of user-facing performance.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.10964",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.10964",
+          "role": "primary",
+          "label": "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "tail-aware-agent-scheduling",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-tail-aware-agent-scheduling.md"
+    },
+    {
+      "id": "2026-09-12-vllm-agentx-agentic-serving",
+      "decision": "selected",
+      "title": "vLLM reshapes serving for agentic workloads",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "inference"
+      ],
+      "legacy_tags": [
+        "vllm",
+        "agentic-serving",
+        "kv-cache"
+      ],
+      "event_date": null,
+      "summary": "Agentic sessions stress serving infrastructure differently: long contexts, repeated prefixes, and cache pressure push KV management and scheduling to the foreground.",
+      "what_changed": "Agent workloads are not just ordinary chat requests with more tool calls. They create long multi-turn sessions, reuse large prefixes, and keep KV state alive across repeated reasoning cycles. That changes what a serving stack needs to optimize.",
+      "why_it_matters": "For agent systems, cache management becomes part of application architecture. If every turn has to rebuild long prefixes, the model may be fast while the overall agent still feels slow and expensive.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://vllm.ai/blog/2026-09-08-vllm-agentx",
+      "sources": [
+        {
+          "url": "https://vllm.ai/blog/2026-09-08-vllm-agentx",
+          "role": "primary",
+          "label": "vLLM x AgentX: Optimizing for Real-World Agentic Serving"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "vllm-agentx-agentic-serving",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-vllm-agentx-agentic-serving.md"
+    },
+    {
+      "id": "2026-09-12-vllm-tenstorrent-plugin",
+      "decision": "selected",
+      "title": "vLLM gets a Tenstorrent backend without forking core",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "inference"
+      ],
+      "legacy_tags": [
+        "vllm",
+        "tenstorrent",
+        "hardware",
+        "plugins"
+      ],
+      "event_date": null,
+      "summary": "The new TT plugin shows how far vLLM's out-of-tree hardware extension points can stretch beyond conventional GPU assumptions.",
+      "what_changed": "Tenstorrent released an out-of-tree vLLM backend that plugs into the standard platform and general-plugin interfaces rather than maintaining a fork of vLLM core.",
+      "why_it_matters": "The story here is less about one accelerator and more about **extension architecture**. If a serving framework can support materially different hardware through stable plugin boundaries, vendors and users can experiment without permanently fragmenting the runtime.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin",
+      "sources": [
+        {
+          "url": "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin",
+          "role": "primary",
+          "label": "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin"
+        },
+        {
+          "url": "https://github.com/tenstorrent/vllm-tt-plugin",
+          "role": "supporting",
+          "label": "Tenstorrent vLLM TT Plugin repository"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "vllm-tenstorrent-plugin",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-12-vllm-tenstorrent-plugin.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-12-anthropic-agent-security-incidents",
+      "2026-09-12-retrothinker-speech-reasoning",
+      "2026-09-12-specforge-speculative-decoding",
+      "2026-09-12-tail-aware-agent-scheduling",
+      "2026-09-12-vllm-agentx-agentic-serving",
+      "2026-09-12-vllm-tenstorrent-plugin"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-12-vllm-agentx-agentic-serving"
+  }
+}

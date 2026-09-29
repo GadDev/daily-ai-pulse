@@ -16,7 +16,7 @@
 
 <!-- Commands run, pages checked, source verification performed, screenshots, etc. -->
 
-- [ ] `npm run build` passes locally
+- [ ] `npm run verify` passes locally
 - [ ] Relevant routes were checked manually
 - [ ] Mobile/narrow layout was checked for visible UI changes
 - [ ] Keyboard/semantic accessibility was considered for interactive changes

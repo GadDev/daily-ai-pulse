@@ -41,96 +41,92 @@ Story
 
 These dimensions must not be collapsed into one another. A story can be `high` signal and `preliminary` evidence, or `advanced` depth and only `medium` signal.
 
-## 3. Canonical candidate schema
+## 3. Canonical candidate ledger schema
+
+The persisted ledger is one JSON document at `docs/editorial/ledgers/YYYY-MM-DD.json`.
+`schema_version` and `decision_engine_version` belong at the ledger root. Each record
+has one immutable research `decision`: `selected`, `watch`, or `rejected`.
+
+Store selected records in `candidates`, watch records in `watchlist`, and rejected
+records in `exclusions`. These arrays contain **disjoint records**, not copies of
+the same candidate. An `id` may appear in only one array. The publication outcome
+is separate: `publication.story_ids` lists drafted stories and
+`publication.withheld_selected` lists selected candidates stopped downstream.
+
+The following is a field guide for one selected record (not a standalone ledger):
 
 ```yaml
-schema_version: "1.0"
-decision_engine_version: "1.0"
-
-id:
-slug:
-status: candidate # candidate | selected | watch | rejected | published | updated
-
-title:
-dek:
-
+id: 2026-09-29-example
+decision: selected
+title: Example development
 desk: engineering
 format: briefing
 depth: practitioner
-
-topics: []
+topics: [agents, agent-security]
 entities: []
-
-event_date:
-source_publication_date:
-published_at:
-updated_at:
-
-summary:
-what_changed:
-why_it_matters:
-engineer_takeaway:
-
+event_date: 2026-09-29
+source_publication_date: 2026-09-29
+summary: What the source reports.
+what_changed: The specific technical delta.
+why_it_matters: The engineering consequence.
+engineer_takeaway: What to inspect or try.
 prerequisites: []
-
+primary_source_url: https://example.com/canonical-source
 evidence:
   level: primary # strong | primary | preliminary | anecdotal | unverified
-  rationale:
-  independent_validation:
-  claim_scope:
-
+  rationale: First-party technical disclosure.
+  independent_validation: none yet
+  claim_scope: Vendor-reported capability.
 signal:
   level: high # high | medium | watch
-  rationale:
-
+  rationale: Changes an engineering assumption.
 sources:
-  - url:
-    canonical_url:
-    publisher:
+  - url: https://example.com/canonical-source
+    canonical_url: https://example.com/canonical-source
+    publisher: Example publisher
     source_type: official # official | paper | documentation | repository | benchmark | engineering-blog | independent-analysis | reporting | social
     role: primary # primary | supporting | independent | context
-    publication_date:
-
+    publication_date: 2026-09-29
 editorial_score:
-  significance: 1
-  evidence: 1
-  novelty: 1
-  relevance: 1
-  durability: 1
-  weighted_total: 0
-
+  significance: 5
+  evidence: 4
+  novelty: 5
+  relevance: 5
+  durability: 4
+  weighted_total: 93
 learning_gap:
   exists: false
   concepts: []
-  existing_explainer:
-  suggested_explainer:
-  reason:
-
 related_content:
   previous_story_ids: []
-  explainer_ids: []
-  deep_dive_ids: []
-  playbook_ids: []
-  case_study_ids: []
-
 deduplication:
-  candidate_key:
-  canonical_event:
-  previous_coverage:
-  material_delta:
-
-editorial_notes:
+  status: new # new | material-update | repeat
+  publication_status: new-confirmed # added by PR preparation after recheck
+  candidate_key: example-project-plus-technical-change
+  canonical_event: The new disclosure.
+  previous_coverage: null
+  material_delta: New technical disclosure.
+publication_verification:
+  status: verified # verified | verified-with-claim-scope | conflict | source-unavailable
 ```
+
+`publication_verification` is added during PR preparation; it does not change
+`decision`. The publication duplicate recheck is recorded separately as
+`deduplication.publication_status`: `new-confirmed`,
+`material-update-confirmed`, `duplicate-conflict`, or `dedup-unverified`.
+A watch record needs a reason and promotion condition; a rejected
+record needs a reason and, for a repeat, a previous story ID when known. See the
+[complete ledger example](ledgers/README.md#minimum-shape).
 
 ## 4. Required fields by stage
 
-### Candidate
+### Research decision
 
-Required before editorial scoring:
+Required when recording a scored research decision:
 
-- `schema_version`
+- ledger-level `schema_version` and `decision_engine_version`
 - `id`
-- `status`
+- `decision`, consistent with its ledger array
 - `title`
 - `desk`
 - `event_date`
@@ -154,15 +150,18 @@ Additionally requires:
 - `evidence.rationale`
 - `signal.rationale`
 
-### Published
+### Publication preparation
 
-Additionally requires:
+For a selected story that is drafted, additionally record:
 
-- `slug`
-- `dek`
-- `published_at`
-- canonical source URLs
-- validated controlled metadata
+- `publication_verification.status` and deduplication outcome
+- its story ID in `publication.story_ids`
+- canonical source URLs and validated current-site frontmatter in the story file
+
+A selected record that fails publication verification keeps `decision: selected`
+and is recorded in `publication.withheld_selected` with a reason. Publication is
+an outcome, not another value of `decision`. The current Astro schema remains
+the authority for the story file's fields.
 
 ## 5. Desks
 

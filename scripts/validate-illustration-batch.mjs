@@ -93,6 +93,20 @@ function webpDimensions(path) {
     throw new Error('not a valid WebP RIFF container');
   }
 
+  const declaredLength = buffer.readUInt32LE(4) + 8;
+  if (declaredLength !== buffer.length) {
+    throw new Error(
+      `incomplete WebP RIFF container: expected ${declaredLength} bytes, got ${buffer.length}`,
+    );
+  }
+  for (let offset = 12; offset < buffer.length;) {
+    if (offset + 8 > buffer.length) throw new Error('incomplete WebP chunk header');
+    const chunkLength = buffer.readUInt32LE(offset + 4);
+    const nextOffset = offset + 8 + chunkLength + (chunkLength % 2);
+    if (nextOffset > buffer.length) throw new Error('incomplete WebP chunk payload');
+    offset = nextOffset;
+  }
+
   const chunk = buffer.toString('ascii', 12, 16);
   if (chunk === 'VP8X') {
     return {
@@ -185,6 +199,15 @@ if (!existsSync(ledgerPath)) {
 const ledger = readJson(ledgerPath);
 if (!ledger) process.exit(1);
 
+// These articles predate the illustration review workflow. Their images remain
+// checked by the content validator, but candidate review records cannot be reconstructed.
+if (ledger.provenance?.kind === 'retrospective-backfill' && ledger.editorial_date <= '2026-09-28') {
+  console.log(
+    `Illustration review check skipped for historical backfill: ${ledger.editorial_date}.`,
+  );
+  process.exit(0);
+}
+
 const storyIds = ledger.publication?.story_ids;
 if (!Array.isArray(storyIds)) {
   fail('ledger.publication.story_ids must be an array');
@@ -255,6 +278,9 @@ for (const storyId of storyIds ?? []) {
   if (!Array.isArray(brief.golden_references) || brief.golden_references.length < 2) {
     fail(`${storyId}: at least two golden_references are required`);
   } else {
+    if (new Set(brief.golden_references).size < 2) {
+      fail(`${storyId}: at least two distinct golden_references are required`);
+    }
     for (const reference of brief.golden_references) {
       if (typeof reference !== 'string' || !reference.startsWith('public/images/stories/')) {
         fail(`${storyId}: invalid golden reference path: ${reference}`);

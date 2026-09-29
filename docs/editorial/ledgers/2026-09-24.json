@@ -1,0 +1,206 @@
+{
+  "editorial_date": "2026-09-24",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-24-airbnb-frontier-models",
+      "decision": "selected",
+      "title": "Airbnb expands its internal AI platform to GPT-6 Astra and other frontier models",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "model-routing"
+      ],
+      "legacy_tags": [
+        "airbnb",
+        "enterprise"
+      ],
+      "event_date": null,
+      "summary": "Airbnb says engineers already use an internal AI tooling platform and remote agents powered by multiple OpenAI models, with broader frontier access now added.",
+      "what_changed": "Airbnb says its engineers use an internal AI tooling platform to write software and create remote agents across several OpenAI model tiers, and has expanded access to GPT‑6 Astra.",
+      "why_it_matters": "Large organizations increasingly treat models as **replaceable backends behind an internal agent platform**, rather than asking every developer to choose vendors and integrations independently.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://news.airbnb.com/expanding-access-to-openai-frontier-models-including-gpt-6-astra",
+      "sources": [
+        {
+          "url": "https://news.airbnb.com/expanding-access-to-openai-frontier-models-including-gpt-6-astra",
+          "role": "primary",
+          "label": "Airbnb — Expanding access to OpenAI frontier models"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "airbnb-frontier-models",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-24-airbnb-frontier-models.md"
+    },
+    {
+      "id": "2026-09-24-antigravity-local-models",
+      "decision": "selected",
+      "title": "Antigravity SDK can now run agent workflows locally and offline",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "open-models"
+      ],
+      "legacy_tags": [
+        "google",
+        "antigravity",
+        "local-models",
+        "hybrid-agents"
+      ],
+      "event_date": null,
+      "summary": "Google adds local-model execution through LiteRT, plus hybrid patterns where cloud models plan while local models handle privacy-sensitive or token-heavy work.",
+      "what_changed": "The Antigravity SDK now supports local agentic workflows using models such as Gemma 4 through LiteRT, including fully offline execution and OpenAI-compatible local servers.",
+      "why_it_matters": "Hybrid orchestration gives teams a new lever for **privacy, cost, and resilience** without forcing every task into the same inference environment.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://developers.googleblog.com/introducing-support-for-local-ai-models-in-the-antigravity-sdk/",
+      "sources": [
+        {
+          "url": "https://developers.googleblog.com/introducing-support-for-local-ai-models-in-the-antigravity-sdk/",
+          "role": "primary",
+          "label": "Google Developers — Local AI models in the Antigravity SDK"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "antigravity-local-models",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-24-antigravity-local-models.md"
+    },
+    {
+      "id": "2026-09-24-gpt-6-sol-luna",
+      "decision": "selected",
+      "title": "OpenAI releases GPT-6 Sol and Luna with a sharper cost ladder",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "inference",
+        "pricing"
+      ],
+      "legacy_tags": [
+        "openai",
+        "gpt-6"
+      ],
+      "event_date": null,
+      "summary": "The two GPT-6 models bring Astra-era capabilities into faster and cheaper tiers, with materially lower API prices and cached-input costs.",
+      "what_changed": "OpenAI released GPT‑6 Sol and GPT‑6 Luna in the API, Codex, and ChatGPT, positioning them as different capability/cost points below Astra.",
+      "why_it_matters": "Model choice is becoming an architectural routing decision. The cost spread is large enough that teams should evaluate **which tasks genuinely need Sol-class reasoning and which can move to Luna**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://developers.openai.com/api/docs/changelog",
+      "sources": [
+        {
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "role": "primary",
+          "label": "OpenAI API changelog — GPT-6 Sol and Luna"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "gpt-6-sol-luna",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-24-gpt-6-sol-luna.md"
+    },
+    {
+      "id": "2026-09-24-greedy-decoding-precision",
+      "decision": "selected",
+      "title": "Greedy decoding is not deterministic across numeric precision",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "inference"
+      ],
+      "legacy_tags": [
+        "determinism",
+        "precision",
+        "reproducibility"
+      ],
+      "event_date": null,
+      "summary": "A study finds identical prompts and models can diverge between BF16 and FP16, challenging assumptions that greedy decoding guarantees reproducible outputs.",
+      "what_changed": "This paper shows that the same model, prompt, and greedy decoding algorithm can produce different outputs under BF16 versus FP16 on identical hardware.",
+      "why_it_matters": "“Temperature zero” is not a reproducibility guarantee. Evals and production debugging should record **precision, kernels, batch conditions, and serving configuration** alongside model and prompt versions.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.26621",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.26621",
+          "role": "primary",
+          "label": "Greedy Decoding Is Not Precision-Invariant"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "greedy-decoding-precision",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-24-greedy-decoding-precision.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-24-airbnb-frontier-models",
+      "2026-09-24-antigravity-local-models",
+      "2026-09-24-gpt-6-sol-luna",
+      "2026-09-24-greedy-decoding-precision"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-24-gpt-6-sol-luna"
+  }
+}
