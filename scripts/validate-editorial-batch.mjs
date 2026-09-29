@@ -138,12 +138,13 @@ function topicVocabulary() {
   return topics;
 }
 
-function priorSourceIndex(currentStoryIds) {
+function priorSourceIndex(currentStoryIds, editorialDate) {
   const index = new Map();
   if (!existsSync(storiesDir)) return index;
   for (const name of readdirSync(storiesDir).filter((entry) => /\.mdx?$/.test(entry))) {
     const id = name.replace(/\.mdx?$/, '');
     if (currentStoryIds.has(id)) continue;
+    if (id.slice(0, 10) >= editorialDate) continue;
     const fm = frontmatter(readFileSync(join(storiesDir, name), 'utf8'));
     for (const url of sourceUrls(fm)) {
       const canonical = canonicalUrl(url);
@@ -176,6 +177,8 @@ if (!ledger) {
 }
 
 const filenameDate = basename(ledgerPath, '.json');
+const retrospective =
+  ledger.provenance?.kind === 'retrospective-backfill' && ledger.editorial_date <= '2026-09-28';
 if (!/^\d{4}-\d{2}-\d{2}$/.test(ledger.editorial_date ?? '')) {
   fail('ledger.editorial_date must be YYYY-MM-DD');
 }
@@ -214,12 +217,17 @@ if (!ledger.publication || typeof ledger.publication !== 'object') {
 }
 
 const publishedStoryIds = new Set(ledger.publication?.story_ids ?? []);
+const standaloneStoryIds = new Set(ledger.publication?.standalone_story_ids ?? []);
 const withheld = ledger.publication?.withheld_selected ?? [];
 const withheldIds = new Set(withheld.map((item) => (typeof item === 'string' ? item : item.id)));
 
 for (const id of publishedStoryIds) {
   if (!selectedById.has(id)) fail(`published story is not a selected ledger candidate: ${id}`);
   if (withheldIds.has(id)) fail(`story cannot be both published and withheld: ${id}`);
+}
+
+for (const id of standaloneStoryIds) {
+  if (!publishedStoryIds.has(id)) fail(`standalone story is not published: ${id}`);
 }
 
 for (const id of withheldIds) {
@@ -252,7 +260,7 @@ const difficultyValues = new Set(['beginner', 'intermediate', 'advanced']);
 const signalValues = new Set(['low', 'medium', 'high']);
 const evidenceValues = new Set(['strong', 'primary', 'preliminary', 'anecdotal', 'unverified']);
 
-const priorSources = priorSourceIndex(publishedStoryIds);
+const priorSources = priorSourceIndex(publishedStoryIds, ledger.editorial_date);
 
 for (const id of publishedStoryIds) {
   const candidate = selectedById.get(id);
@@ -285,7 +293,7 @@ for (const id of publishedStoryIds) {
   if (urls.length === 0) fail(`${id}: no source URLs in frontmatter`);
 
   for (const tag of tags) {
-    if (!topics.has(tag)) fail(`${id}: uncontrolled topic tag: ${tag}`);
+    if (!topics.has(tag) && !retrospective) fail(`${id}: uncontrolled topic tag: ${tag}`);
   }
 
   if (image?.startsWith('/')) {
@@ -351,9 +359,12 @@ if (publishedStoryIds.size > 0 && !existingPulsePath) {
 } else if (existingPulsePath) {
   const pulseText = readFileSync(existingPulsePath, 'utf8');
   for (const id of publishedStoryIds) {
-    if (!pulseText.includes(id)) {
+    if (!standaloneStoryIds.has(id) && !pulseText.includes(id)) {
       fail(`daily issue manifest does not reference published story: ${id}`);
     }
+  }
+  for (const id of standaloneStoryIds) {
+    if (pulseText.includes(id)) fail(`standalone story is already in the daily issue: ${id}`);
   }
 }
 

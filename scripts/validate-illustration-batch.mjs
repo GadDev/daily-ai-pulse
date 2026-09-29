@@ -184,6 +184,15 @@ if (!existsSync(ledgerPath)) {
 const ledger = readJson(ledgerPath);
 if (!ledger) process.exit(1);
 
+// These articles predate the illustration review workflow. Their images remain
+// checked by the content validator, but candidate review records cannot be reconstructed.
+if (ledger.provenance?.kind === 'retrospective-backfill' && ledger.editorial_date <= '2026-09-28') {
+  console.log(
+    `Illustration review check skipped for historical backfill: ${ledger.editorial_date}.`,
+  );
+  process.exit(0);
+}
+
 const storyIds = ledger.publication?.story_ids;
 if (!Array.isArray(storyIds)) {
   fail('ledger.publication.story_ids must be an array');

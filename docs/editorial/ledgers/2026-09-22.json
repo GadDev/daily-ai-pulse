@@ -1,0 +1,164 @@
+{
+  "editorial_date": "2026-09-22",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-22-agentcore-harness",
+      "decision": "selected",
+      "title": "AgentCore Harness packages the agent loop into an isolated runtime",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-runtime"
+      ],
+      "legacy_tags": [
+        "aws",
+        "harness",
+        "sandbox"
+      ],
+      "event_date": null,
+      "summary": "AWS's managed harness runs model reasoning, tool selection, shell access, memory, and streaming inside per-session microVMs and can be exported to editable Strands code.",
+      "what_changed": "AgentCore Harness lets developers define a model, instructions, and tools while AWS owns the execution loop inside an isolated microVM. The harness can carry memory, skills, filesystem mounts, shell access, execution limits, and authorization configuration.",
+      "why_it_matters": "This is a useful product pattern: **prototype with a managed harness, then graduate to owned orchestration without throwing the design away**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://aws.amazon.com/about-aws/whats-new/2026/04/agentcore-new-features-to-build-agents-faster/",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/04/agentcore-new-features-to-build-agents-faster/",
+          "role": "primary",
+          "label": "AWS — AgentCore managed harness"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-export.html",
+          "role": "supporting",
+          "label": "AWS — Export harness to code"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agentcore-harness",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-22-agentcore-harness.md"
+    },
+    {
+      "id": "2026-09-22-benchling-agent-approvals",
+      "decision": "selected",
+      "title": "Benchling separates agent research from full-action mode",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "foundation",
+      "topics": [
+        "permissions"
+      ],
+      "legacy_tags": [
+        "benchling",
+        "approvals",
+        "enterprise-agents"
+      ],
+      "event_date": null,
+      "summary": "Benchling's agent modes keep research and draft creation separate from direct object mutations, with approvals and admin controls around higher-impact actions.",
+      "what_changed": "Benchling starts AI chats in a default mode that can research and create drafts but cannot directly mutate Benchling objects. A separate full-actions mode allows the agent to act within the user's permissions, with approvals and admin controls around the workflow.",
+      "why_it_matters": "This is a clean **negative-capability** design: the default agent intentionally cannot do everything the user can. More enterprise agent products should make capability escalation explicit.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://help.benchling.com/hc/en-us/articles/48328875643533-Agent-Modes-and-Approvals",
+      "sources": [
+        {
+          "url": "https://help.benchling.com/hc/en-us/articles/48328875643533-Agent-Modes-and-Approvals",
+          "role": "primary",
+          "label": "Benchling — Agent Modes and Approvals"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "benchling-agent-approvals",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-22-benchling-agent-approvals.md"
+    },
+    {
+      "id": "2026-09-22-copilot-review-controls",
+      "decision": "selected",
+      "title": "GitHub gives Copilot reviews shell tools and explicit cost-quality tiers",
+      "desk": "workflows",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "model-routing",
+        "verification"
+      ],
+      "legacy_tags": [
+        "github-copilot",
+        "code-review"
+      ],
+      "event_date": null,
+      "summary": "Copilot code review can now use shell tools to validate changes, while auto model selection exposes efficiency, balance, and intelligence tiers.",
+      "what_changed": "GitHub added shell-tool validation to Copilot code review and introduced three auto-selection modes—efficiency, balance, and intelligence—that explicitly trade cost, response time, and quality.",
+      "why_it_matters": "Two design principles are converging: agents should be able to **verify** their conclusions with tools, and routing policy should expose economic tradeoffs rather than hide them behind one opaque “auto” mode.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14/",
+          "role": "primary",
+          "label": "GitHub Copilot weekly releases — September 14"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "copilot-review-controls",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-22-copilot-review-controls.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-22-agentcore-harness",
+      "2026-09-22-benchling-agent-approvals",
+      "2026-09-22-copilot-review-controls"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-22-agentcore-harness"
+  }
+}

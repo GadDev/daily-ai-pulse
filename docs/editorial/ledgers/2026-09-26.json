@@ -1,0 +1,209 @@
+{
+  "editorial_date": "2026-09-26",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-26-anthropic-router-privacy",
+      "decision": "selected",
+      "title": "Anthropic warns that third-party model routers can become a data supply chain",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "security"
+      ],
+      "legacy_tags": [
+        "privacy",
+        "model-routers",
+        "distillation"
+      ],
+      "event_date": null,
+      "summary": "Anthropic says proxy and routing services were used to relay Claude access and, in some cases, save and resell user exchanges containing sensitive information.",
+      "what_changed": "Anthropic's threat report describes proxy services used to circumvent model-access restrictions and says some intermediaries saved or sold user exchanges to third parties for model-distillation pipelines.",
+      "why_it_matters": "A model router is not just a performance abstraction. It is a **data processor in the trust chain**. Enterprise architecture reviews should treat routing providers like any other party that can see prompts and responses.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "role": "primary",
+          "label": "Anthropic — Countering misuse of AI: September 2026"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "material-update",
+        "candidate_key": "anthropic-router-privacy",
+        "previous_coverage": [
+          "2026-09-14-anthropic-threat-report"
+        ],
+        "material_delta": "Anthropic's threat report describes proxy services used to circumvent model-access restrictions and says some intermediaries saved or sold user exchanges to third parties for model-distillation pipelines."
+      },
+      "story_path": "src/content/stories/2026-09-26-anthropic-router-privacy.md"
+    },
+    {
+      "id": "2026-09-26-mcp-secrets",
+      "decision": "selected",
+      "title": "GitGuardian finds 24,008 secrets exposed in public MCP configurations",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp"
+      ],
+      "legacy_tags": [
+        "secrets",
+        "devsecops",
+        "credentials"
+      ],
+      "event_date": null,
+      "summary": "The 2026 secrets-sprawl report found 2,117 still-valid credentials among MCP-related findings, showing how agent setup instructions can normalize unsafe credential placement.",
+      "what_changed": "GitGuardian reports 24,008 unique secrets exposed in MCP-related configuration files on public GitHub, including 2,117 unique credentials that were still valid.",
+      "why_it_matters": "Agent tooling often needs API keys, database credentials, and search-service tokens. Documentation that encourages inline secrets turns convenience into a durable supply-chain risk. Use short-lived credentials, secret stores, scoped identities, and automated scanning instead.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.gitguardian.com/state-of-secrets-sprawl-report-2026",
+      "sources": [
+        {
+          "url": "https://www.gitguardian.com/state-of-secrets-sprawl-report-2026",
+          "role": "primary",
+          "label": "GitGuardian — State of Secrets Sprawl 2026"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "mcp-secrets",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-26-mcp-secrets.md"
+    },
+    {
+      "id": "2026-09-26-microsoft-autopilot",
+      "decision": "selected",
+      "title": "Microsoft turns Copilot into a persistent cloud teammate",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agents"
+      ],
+      "legacy_tags": [
+        "microsoft",
+        "autopilot",
+        "persistent-agents",
+        "enterprise"
+      ],
+      "event_date": null,
+      "summary": "Autopilot can keep working across days with its own identity, memory, computer, and workspace, while Copilot Managed Runtime provides the execution layer.",
+      "what_changed": "Microsoft's new Autopilot is designed as a persistent agent that can watch channels, follow up, run recurring work, and resume projects days later without waiting for a fresh prompt.",
+      "why_it_matters": "Persistent agents force enterprise platforms to answer identity, memory, permissions, audit, and cost questions that short-lived chat assistants could defer.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+      "sources": [
+        {
+          "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+          "role": "primary",
+          "label": "Microsoft — Introducing the new Copilot with Home, Code and Autopilot"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "microsoft-autopilot",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-26-microsoft-autopilot.md"
+    },
+    {
+      "id": "2026-09-26-proaction-codex",
+      "decision": "selected",
+      "title": "A five-person startup uses Codex to turn customer conversations into demos",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "foundation",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "codex",
+        "startup",
+        "prototyping",
+        "customer-development"
+      ],
+      "event_date": null,
+      "summary": "Proaction's cofounder uses Codex to prototype customer-specific workflows, demos, sales material, and product specs without diverting engineers from production systems.",
+      "what_changed": "Proaction, a five-person fleet-software startup, uses Codex to turn customer conversations into working demos and product artifacts without pulling core engineers away from secure production work.",
+      "why_it_matters": "One of the most valuable coding-agent use cases is not replacing product engineering. It is **compressing the distance between customer discovery and a testable prototype**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://academy.openai.com/public/blogs/colin-knudsen-proaction-codex-customer-demos",
+      "sources": [
+        {
+          "url": "https://academy.openai.com/public/blogs/colin-knudsen-proaction-codex-customer-demos",
+          "role": "primary",
+          "label": "OpenAI Academy — How Proaction uses Codex for customer demos"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "proaction-codex",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-26-proaction-codex.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-26-anthropic-router-privacy",
+      "2026-09-26-mcp-secrets",
+      "2026-09-26-microsoft-autopilot",
+      "2026-09-26-proaction-codex"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-26-microsoft-autopilot"
+  }
+}

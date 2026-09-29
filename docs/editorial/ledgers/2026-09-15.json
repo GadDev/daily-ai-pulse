@@ -1,0 +1,205 @@
+{
+  "editorial_date": "2026-09-15",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-15-agentforce-long-horizon",
+      "decision": "selected",
+      "title": "Salesforce gives Agentforce a long-horizon runtime",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "memory"
+      ],
+      "legacy_tags": [
+        "enterprise-agents",
+        "durable-execution",
+        "salesforce"
+      ],
+      "event_date": null,
+      "summary": "The runtime keeps goals running across days and weeks with persistent memory, durable execution, and dynamic steering.",
+      "what_changed": "Salesforce introduced a long-horizon runtime for Agentforce so an agent can pursue a business goal over days or weeks instead of a single chat session.",
+      "why_it_matters": "Long-running agents need explicit lifecycle semantics. Persistence, resumability, approvals, and course correction become product requirements once the unit of work lasts longer than one interaction.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.salesforce.com/ap/news/press-releases/2026/09/14/ph-salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/",
+      "sources": [
+        {
+          "url": "https://www.salesforce.com/ap/news/press-releases/2026/09/14/ph-salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/",
+          "role": "primary",
+          "label": "Salesforce — Agentforce long-horizon runtime"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agentforce-long-horizon",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-15-agentforce-long-horizon.md"
+    },
+    {
+      "id": "2026-09-15-github-agentic-logs",
+      "decision": "selected",
+      "title": "GitHub Agentic Workflows makes MCP calls visible in logs",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp",
+        "observability"
+      ],
+      "legacy_tags": [
+        "github",
+        "agentic-workflows"
+      ],
+      "event_date": null,
+      "summary": "The gh-aw release records MCP server and tool names per call, strengthening observability for agentic CI workflows.",
+      "what_changed": "GitHub's Agentic Workflows project added more structured observability to `gh aw logs`, including identifiable MCP server and tool names for individual tool calls.",
+      "why_it_matters": "Agent observability should preserve tool identity and execution provenance by default. Logs are part of the control plane, not a debugging afterthought.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/",
+      "sources": [
+        {
+          "url": "https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/",
+          "role": "primary",
+          "label": "GitHub Agentic Workflows — Weekly Update, September 14"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "github-agentic-logs",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-15-github-agentic-logs.md"
+    },
+    {
+      "id": "2026-09-15-harness-or-model",
+      "decision": "selected",
+      "title": "Harness or model? A private benchmark separates the two",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "evals"
+      ],
+      "legacy_tags": [
+        "harness",
+        "software-engineering"
+      ],
+      "event_date": null,
+      "summary": "A contamination-controlled study finds no clear average winner between native and neutral coding-agent harnesses, while showing large task-specific and cost differences.",
+      "what_changed": "This study asks a question coding-agent benchmarks often blur: how much performance comes from the model, and how much from the harness around it?",
+      "why_it_matters": "A coding-agent evaluation that names only the model is incomplete. Tool design, prompts, control flow, recovery, and context handling can shift results enough to change practical conclusions.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.11987",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.11987",
+          "role": "primary",
+          "label": "Harness or Model? Isolating the Harness Effect in Agentic Coding"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "harness-or-model",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-15-harness-or-model.md"
+    },
+    {
+      "id": "2026-09-15-k-bench",
+      "decision": "selected",
+      "title": "K-Bench shows model unlearning can fail once the model becomes an agent",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "evals"
+      ],
+      "legacy_tags": [
+        "unlearning",
+        "privacy"
+      ],
+      "event_date": null,
+      "summary": "The benchmark checks chain-of-thought, tools, observations, and summaries—not just final answers—and finds secrets can still leak through agent channels.",
+      "what_changed": "K-Bench challenges a convenient assumption in machine unlearning: if the final answer no longer reveals a fact, the system has forgotten it.",
+      "why_it_matters": "Privacy and deletion guarantees need to be evaluated at the **agent-system level**. Retrieval stores, prompts, traces, and tool outputs can preserve knowledge that the base-model evaluation misses.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.12808",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.12808",
+          "role": "primary",
+          "label": "K-Bench: A Benchmark for LLM Unlearning in Agentic Deployments"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "k-bench",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-15-k-bench.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-15-agentforce-long-horizon",
+      "2026-09-15-github-agentic-logs",
+      "2026-09-15-harness-or-model",
+      "2026-09-15-k-bench"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-15-harness-or-model"
+  }
+}

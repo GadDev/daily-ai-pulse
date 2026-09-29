@@ -1,0 +1,164 @@
+{
+  "editorial_date": "2026-09-23",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-23-claude-opus-5-5",
+      "decision": "selected",
+      "title": "Claude Opus 5.5 trades frontier capability for lower operating cost",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "safety"
+      ],
+      "legacy_tags": [
+        "anthropic",
+        "claude",
+        "models"
+      ],
+      "event_date": null,
+      "summary": "Anthropic's new Opus release targets high-end coding and agent work while cutting operating cost and adding stronger safeguards after recent containment incidents.",
+      "what_changed": "Anthropic launched Claude Opus 5.5 as the first model in its 5.5 family, positioning it near its highest-capability tier while reducing operating cost relative to Opus 5.",
+      "why_it_matters": "Frontier releases are increasingly competing on **price-performance and operational safety**, not benchmark scores alone.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.anthropic.com/claude/opus",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude/opus",
+          "role": "primary",
+          "label": "Anthropic — Claude Opus"
+        },
+        {
+          "url": "https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/",
+          "role": "supporting",
+          "label": "Reuters — Anthropic unveils Claude Opus 5.5"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "claude-opus-5-5",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-23-claude-opus-5-5.md"
+    },
+    {
+      "id": "2026-09-23-copilot-opentelemetry",
+      "decision": "selected",
+      "title": "GitHub Copilot exports agent traces through OpenTelemetry",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agents",
+        "observability"
+      ],
+      "legacy_tags": [
+        "github-copilot",
+        "opentelemetry"
+      ],
+      "event_date": null,
+      "summary": "Enterprise admins can send model and tool spans from Copilot agent sessions into existing observability systems through managed settings.",
+      "what_changed": "GitHub Copilot now supports OpenTelemetry export configured through enterprise-managed settings. Teams can trace agent sessions, model requests, and tool interactions inside their existing monitoring stack.",
+      "why_it_matters": "Agent observability is converging on standard infrastructure instead of bespoke dashboards. That makes traces easier to correlate with application, security, and cost telemetry.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/",
+          "role": "primary",
+          "label": "GitHub — OpenTelemetry in the GitHub Copilot app"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "copilot-opentelemetry",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-23-copilot-opentelemetry.md"
+    },
+    {
+      "id": "2026-09-23-jetbrains-assisted-approvals",
+      "decision": "selected",
+      "title": "Copilot for JetBrains starts auto-approving low-risk tool calls",
+      "desk": "workflows",
+      "format": "briefing",
+      "depth": "foundation",
+      "topics": [
+        "permissions"
+      ],
+      "legacy_tags": [
+        "github-copilot",
+        "jetbrains",
+        "approvals"
+      ],
+      "event_date": null,
+      "summary": "GitHub's assisted approvals preview lets the agent clear low-risk tools automatically while preserving explicit prompts for higher-risk actions.",
+      "what_changed": "Copilot for JetBrains 1.18 introduces assisted approvals: low-risk tool calls can be approved automatically, while higher-risk operations still require a human decision.",
+      "why_it_matters": "This is a practical version of **risk-tiered autonomy**. Permission systems for coding agents are getting more granular than a binary “ask for everything” versus “full access.”",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains/",
+          "role": "primary",
+          "label": "GitHub — New features and improvements in Copilot for JetBrains"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "jetbrains-assisted-approvals",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-23-jetbrains-assisted-approvals.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-23-claude-opus-5-5",
+      "2026-09-23-copilot-opentelemetry",
+      "2026-09-23-jetbrains-assisted-approvals"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-23-claude-opus-5-5"
+  }
+}
