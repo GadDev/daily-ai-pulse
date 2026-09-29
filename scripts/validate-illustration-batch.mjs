@@ -34,7 +34,11 @@ function uint24le(buffer, offset) {
 
 function webpDimensions(path) {
   const buffer = readFileSync(path);
-  if (buffer.length < 30 || buffer.toString('ascii', 0, 4) !== 'RIFF' || buffer.toString('ascii', 8, 12) !== 'WEBP') {
+  if (
+    buffer.length < 30 ||
+    buffer.toString('ascii', 0, 4) !== 'RIFF' ||
+    buffer.toString('ascii', 8, 12) !== 'WEBP'
+  ) {
     throw new Error('not a valid WebP RIFF container');
   }
 
@@ -152,7 +156,11 @@ for (const storyId of storyIds ?? []) {
   if (review.card_crop_approved !== true) fail(`${storyId}: card crop has not been approved`);
 
   const asset = review.final_asset;
-  if (typeof asset !== 'string' || !asset.startsWith('/images/stories/') || !asset.endsWith('.webp')) {
+  if (
+    typeof asset !== 'string' ||
+    !asset.startsWith('/images/stories/') ||
+    !asset.endsWith('.webp')
+  ) {
     fail(`${storyId}: final_asset must be a root-relative story WebP path`);
     continue;
   }
@@ -171,7 +179,10 @@ for (const storyId of storyIds ?? []) {
     continue;
   }
 
-  if (review.final_dimensions?.width !== dimensions.width || review.final_dimensions?.height !== dimensions.height) {
+  if (
+    review.final_dimensions?.width !== dimensions.width ||
+    review.final_dimensions?.height !== dimensions.height
+  ) {
     fail(
       `${storyId}: review dimensions ${review.final_dimensions?.width}x${review.final_dimensions?.height} do not match actual ${dimensions.width}x${dimensions.height}`,
     );
@@ -183,7 +194,9 @@ for (const storyId of storyIds ?? []) {
     fail(`${storyId}: final asset must be 16:9 (actual ${dimensions.width}x${dimensions.height})`);
   }
   if (dimensions.width < 1400 || dimensions.height < 788) {
-    fail(`${storyId}: final asset is below minimum production size (${dimensions.width}x${dimensions.height})`);
+    fail(
+      `${storyId}: final asset is below minimum production size (${dimensions.width}x${dimensions.height})`,
+    );
   }
 }
 
@@ -193,4 +206,6 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Illustration batch OK: ${basename(ledgerPath)}; ${(storyIds ?? []).length} published illustration(s).`);
+console.log(
+  `Illustration batch OK: ${basename(ledgerPath)}; ${(storyIds ?? []).length} published illustration(s).`,
+);
