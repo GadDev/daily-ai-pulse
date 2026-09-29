@@ -121,7 +121,10 @@ const html = `<!doctype html>
 
 const browser = await chromium.launch({ headless: true });
 try {
-  const page = await browser.newPage({ viewport: { width: 1600, height: 1200 }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({
+    viewport: { width: 1600, height: 1200 },
+    deviceScaleFactor: 1,
+  });
   await page.setContent(html, { waitUntil: 'load' });
   await page.screenshot({ path: resolve(output), fullPage: true });
   console.log(`Contact sheet written to ${resolve(output)}`);
