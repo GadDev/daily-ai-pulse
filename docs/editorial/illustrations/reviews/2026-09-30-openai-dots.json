@@ -3,8 +3,8 @@
   "constitution_version": "1.1",
   "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
   "story_id": "2026-09-30-openai-dots",
-  "candidate_count": 3,
-  "selected_candidate": "C",
+  "candidate_count": 4,
+  "selected_candidate": "D",
   "visual_brief": {
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
@@ -26,7 +26,8 @@
   "candidate_notes": {
     "A": "Rejected before scoring: robotic work arms make the scene too literal and violate the constitution's robot prohibition.",
     "B": "Constitution-compliant layered workrooms and thresholds. Strong physical presence, but the botanical and desk detail competes with the persistence metaphor at thumbnail size.",
-    "C": "Selected. Several bounded rooms orbit a warm central workspace, with continuous paths and clear thresholds. The scene remains editorial and spatial rather than diagrammatic, while the persistent multi-project idea survives a small crop."
+    "C": "Strong bounded-room composition, but the generated file later exposed a truncated WebP during CI and was removed from consideration.",
+    "D": "Selected after CI caught the truncated prior asset. A central illuminated chamber anchors several distinct bounded work areas through warm terracotta paths and visible thresholds. The composition is physical, asymmetrical, text-free, non-robotic, and clearly illustrative rather than schematic."
   },
   "constitution_check": {"passed": true, "violations": []},
   "prohibited_elements": {
@@ -52,14 +53,14 @@
     "bare_schematic_or_diagram": false
   },
   "scores": {
-    "story_specific": 94,
-    "brand_fit": 93,
-    "composition": 92,
+    "story_specific": 96,
+    "brand_fit": 94,
+    "composition": 94,
     "crop_quality": 95,
-    "technical_meaning": 93,
+    "technical_meaning": 95,
     "cleanliness": 96,
-    "golden_reference_fit": 92,
-    "weighted_total": 93.3
+    "golden_reference_fit": 94,
+    "weighted_total": 94.75
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -68,13 +69,14 @@
   "final_dimensions": {"width": 1600, "height": 900},
   "candidate_scores": {
     "B": {"story_specific": 89, "brand_fit": 91, "composition": 89, "crop_quality": 90, "technical_meaning": 87, "cleanliness": 94, "golden_reference_fit": 90, "weighted_total": 89.9},
-    "C": {"story_specific": 94, "brand_fit": 93, "composition": 92, "crop_quality": 95, "technical_meaning": 93, "cleanliness": 96, "golden_reference_fit": 92, "weighted_total": 93.3}
+    "C": {"story_specific": 94, "brand_fit": 93, "composition": 92, "crop_quality": 95, "technical_meaning": 93, "cleanliness": 96, "golden_reference_fit": 92, "weighted_total": 93.3},
+    "D": {"story_specific": 96, "brand_fit": 94, "composition": 94, "crop_quality": 95, "technical_meaning": 95, "cleanliness": 96, "golden_reference_fit": 94, "weighted_total": 94.75}
   },
   "crop_review": {
-    "article_desktop": "The 1600 × 900 hero crop retains the central chamber, surrounding workrooms, and the principal connecting path without clipping the metaphor.",
-    "article_mobile": "A centered narrow crop continues to preserve the central chamber and enough surrounding thresholds to read as ongoing bounded work.",
-    "reference_layout": "Wide cover inspection keeps the central workspace dominant and prevents the peripheral rooms from reading as a schematic grid.",
-    "thumbnail": "At small scale the warm central chamber and multiple bounded rooms remain a distinct silhouette."
+    "article_desktop": "The 1600 × 900 hero crop retains the luminous central chamber, four bounded surrounding work areas, and the terracotta connecting path without clipping the metaphor.",
+    "article_mobile": "A centered narrow crop preserves the central chamber and enough side thresholds to read as persistent governed work rather than a generic landscape.",
+    "reference_layout": "The wide composition keeps architectural mass and depth while avoiding a bare schematic or split-panel comparison.",
+    "thumbnail": "At small scale the bright central chamber, bounded outer areas, and terracotta path remain a distinct silhouette."
   },
   "golden_reference_comparison": "Compared palette, warm paper-like materiality, architectural depth, restrained terracotta emphasis, negative space, focal hierarchy, and non-diagrammatic physical presence against the current production reference set."
 }
