@@ -53,7 +53,9 @@ function imageRecord(input, label) {
   };
 }
 
-const references = referenceInputs.map((reference, index) => imageRecord(reference, `R${index + 1}`));
+const references = referenceInputs.map((reference, index) =>
+  imageRecord(reference, `R${index + 1}`),
+);
 const candidates = positional.map((candidate, index) =>
   imageRecord(candidate, String.fromCharCode(65 + index)),
 );
