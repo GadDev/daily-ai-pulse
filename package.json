@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format:check": "prettier --write scripts/validate-editorial-batch.mjs && git diff -- scripts/validate-editorial-batch.mjs && exit 1",
     "build": "npm run check && astro build && pagefind --site dist",
     "verify": "npm run lint && npm run format:check && npm run content:check && npm run editorial:check && npm run build",
     "test:e2e": "playwright test",
