@@ -1,0 +1,297 @@
+{
+  "editorial_date": "2026-09-14",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-14-adk-kotlin",
+      "decision": "selected",
+      "title": "Google ships ADK for Kotlin 1.0",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agents"
+      ],
+      "legacy_tags": [
+        "google-adk",
+        "kotlin",
+        "android"
+      ],
+      "event_date": null,
+      "summary": "The production release brings agent orchestration to Kotlin and Android with on-device models, Firebase AI, state persistence, context compaction, and type-safe tools.",
+      "what_changed": "Google's Agent Development Kit for Kotlin reached 1.0 with parity across the core ADK surface and additional Android-first features.",
+      "why_it_matters": "Agent frameworks are moving beyond Python-first prototypes. Kotlin support makes agent patterns more credible for Android, JVM services, and mixed local/cloud workflows.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://developers.googleblog.com/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/",
+      "sources": [
+        {
+          "url": "https://developers.googleblog.com/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/",
+          "role": "primary",
+          "label": "Google Developers Blog — Announcing ADK for Kotlin 1.0"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "adk-kotlin",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-adk-kotlin.md"
+    },
+    {
+      "id": "2026-09-14-amodei-slowdown",
+      "decision": "selected",
+      "title": "Dario Amodei calls for slowing frontier capability growth",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "foundation",
+      "topics": [
+        "governance",
+        "safety"
+      ],
+      "legacy_tags": [
+        "frontier-models",
+        "industry"
+      ],
+      "event_date": null,
+      "summary": "Anthropic's CEO argued that frontier labs should coordinate on safety and slow capability advancement enough for oversight and safeguards to catch up.",
+      "what_changed": "Anthropic CEO Dario Amodei argued that frontier AI companies should deliberately slow capability advancement enough to improve evaluation, coordination, and safety controls.",
+      "why_it_matters": "For engineers, this debate eventually becomes concrete requirements around release gates, model evaluations, incident reporting, and deployment controls. Governance is increasingly moving closer to the development lifecycle.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.reuters.com/business/anthropic-ceo-urges-ai-companies-slow-model-development-2026-09-12/",
+      "sources": [
+        {
+          "url": "https://www.reuters.com/business/anthropic-ceo-urges-ai-companies-slow-model-development-2026-09-12/",
+          "role": "primary",
+          "label": "Reuters — Anthropic CEO urges AI companies to slow model development"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "amodei-slowdown",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-amodei-slowdown.md"
+    },
+    {
+      "id": "2026-09-14-anthropic-threat-report",
+      "decision": "selected",
+      "title": "Anthropic maps how malicious actors are operationalizing AI",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "threat-intelligence",
+        "misuse",
+        "cyber"
+      ],
+      "event_date": null,
+      "summary": "Anthropic's September threat report shows Claude being used across cyber operations, surveillance, fraud, weapons software, and illicit distillation workflows.",
+      "what_changed": "Anthropic's September 2026 threat-intelligence report is useful because it focuses on **operating patterns**, not hypothetical misuse.",
+      "why_it_matters": "Security teams should assume that sophisticated attack workflows are becoming easier to automate. Defensive controls need to focus on **capability boundaries, credential scope, network access, observability, and abuse detection**, not only model refusals.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "role": "primary",
+          "label": "Anthropic — Detecting and countering misuse of AI: September 2026"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "anthropic-threat-report",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-anthropic-threat-report.md"
+    },
+    {
+      "id": "2026-09-14-evoharnessbench",
+      "decision": "selected",
+      "title": "EVOHARNESSBENCH shows agents can forget when their harness improves",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "evals"
+      ],
+      "legacy_tags": [
+        "harness",
+        "continual-learning"
+      ],
+      "event_date": null,
+      "summary": "The benchmark changes tools, skills, and subagents over time and finds that harness expansion can degrade previously solved tasks.",
+      "what_changed": "EVOHARNESSBENCH evaluates agents while their external harness evolves: tools are added, skills change, and specialist agents appear over time.",
+      "why_it_matters": "Agent platforms need regression testing for the **harness itself**. Adding a tool or subagent should be treated like changing a production API surface, not like harmless context enrichment.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.04280",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.04280",
+          "role": "primary",
+          "label": "EVOHARNESSBENCH: Can Your Agents Keep Pace with an Evolving Harness?"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "evoharnessbench",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-evoharnessbench.md"
+    },
+    {
+      "id": "2026-09-14-looped-flows",
+      "decision": "selected",
+      "title": "Looped Flows lets models spend more inference compute on hard problems",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "reasoning"
+      ],
+      "legacy_tags": [
+        "inference-compute",
+        "recurrent-models",
+        "arc-agi"
+      ],
+      "event_date": null,
+      "summary": "A new recurrent inference method trains local denoising objectives so additional loops at inference time can improve reasoning without long backpropagation through the full recurrence.",
+      "what_changed": "Looped Flows explores a familiar idea from a different angle: let the model spend more computation on difficult inputs by repeatedly updating hidden state during inference.",
+      "why_it_matters": "This is another sign that **inference-time compute is becoming an architectural knob**, not merely a decoding trick. The result is still a preprint and needs broader replication.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.11801",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.11801",
+          "role": "primary",
+          "label": "Thinking with Looped Flows"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "looped-flows",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-looped-flows.md"
+    },
+    {
+      "id": "2026-09-14-magenta-lean",
+      "decision": "selected",
+      "title": "Magenta closes the loop between informal math and Lean verification",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents"
+      ],
+      "legacy_tags": [
+        "formal-verification",
+        "lean",
+        "math"
+      ],
+      "event_date": null,
+      "summary": "A training-free pipeline converts natural-language solutions into Lean statements, checks formalization fidelity, and routes failures back to math reasoning or proof repair.",
+      "what_changed": "Magenta connects informal mathematical reasoning to machine-checkable Lean proofs without requiring a separately trained theorem-proving model.",
+      "why_it_matters": "The architecture is the interesting part: **verification is not the final step; it actively steers the reasoning loop**. That pattern generalizes well beyond mathematics.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.11319",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.11319",
+          "role": "primary",
+          "label": "Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "magenta-lean",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-14-magenta-lean.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-14-adk-kotlin",
+      "2026-09-14-amodei-slowdown",
+      "2026-09-14-anthropic-threat-report",
+      "2026-09-14-evoharnessbench",
+      "2026-09-14-looped-flows",
+      "2026-09-14-magenta-lean"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-14-anthropic-threat-report"
+  }
+}

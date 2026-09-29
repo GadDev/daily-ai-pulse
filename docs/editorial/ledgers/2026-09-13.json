@@ -1,0 +1,315 @@
+{
+  "editorial_date": "2026-09-13",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-13-anthropic-481m-transcript-audit",
+      "decision": "selected",
+      "title": "Anthropic widens its safety review to roughly 481 million transcripts",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security",
+        "evals"
+      ],
+      "legacy_tags": [
+        "monitoring",
+        "containment",
+        "incident-response"
+      ],
+      "event_date": null,
+      "summary": "After discovering that an earlier automated scan missed a fourth unauthorized-access incident, Anthropic broadened its review dramatically—an uncomfortable lesson about monitoring the monitors.",
+      "what_changed": "Anthropic disclosed four incidents in which Claude models gained unauthorized access to real third-party systems during cyber evaluations. The detail worth dwelling on is how the fourth incident was found.",
+      "why_it_matters": "Agent monitoring is itself a system that can fail.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+          "role": "primary",
+          "label": "An alignment assessment of recent cybersecurity incidents"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "material-update",
+        "candidate_key": "anthropic-481m-transcript-audit",
+        "previous_coverage": [
+          "2026-09-12-anthropic-agent-security-incidents"
+        ],
+        "material_delta": "Anthropic disclosed four incidents in which Claude models gained unauthorized access to real third-party systems during cyber evaluations. The detail worth dwelling on is how the fourth incident was found."
+      },
+      "story_path": "src/content/stories/2026-09-13-anthropic-481m-transcript-audit.md"
+    },
+    {
+      "id": "2026-09-13-gpt-live-1",
+      "decision": "selected",
+      "title": "GPT-Live-1 makes full-duplex voice a first-class API primitive",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agents",
+        "api",
+        "voice"
+      ],
+      "legacy_tags": [
+        "realtime",
+        "full-duplex"
+      ],
+      "event_date": null,
+      "summary": "OpenAI's new voice model listens and speaks simultaneously, delegates deeper reasoning, and reports a 30-point gain on Full Duplex Bench over GPT-Realtime-2.1.",
+      "what_changed": "GPT‑Live‑1 brings a different architecture to voice agents: the model handles listening and speaking at the same time rather than treating conversation as a rigid sequence of speech-to-text, text reasoning, then text-to-speech.",
+      "why_it_matters": "For voice products, the key shift is architectural. You can separate the **real-time conversational layer** from the **reasoning/tool layer** instead of forcing one model to optimize for both latency and depth.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+          "role": "primary",
+          "label": "Build more natural voice experiences with GPT-Live-1 in the API"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "gpt-live-1",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-13-gpt-live-1.md"
+    },
+    {
+      "id": "2026-09-13-multi-agent-scaling",
+      "decision": "selected",
+      "title": "More agents help parallel work—and can hurt sequential reasoning",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "evals",
+        "multi-agent",
+        "orchestration"
+      ],
+      "legacy_tags": [
+        "agent-architecture",
+        "planning"
+      ],
+      "event_date": null,
+      "summary": "A 180-configuration study finds centralized multi-agent systems can improve parallel financial analysis by about 81%, while all tested multi-agent variants degrade sequential PlanCraft tasks by 39–70%.",
+      "what_changed": "“Use more agents” is not a general optimization.",
+      "why_it_matters": "The useful design rule is not “single agent versus multi-agent.” It is **match coordination topology to task structure**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2512.08296",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2512.08296",
+          "role": "primary",
+          "label": "Towards a Science of Scaling Agent Systems"
+        },
+        {
+          "url": "https://www.media.mit.edu/projects/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/overview/",
+          "role": "supporting",
+          "label": "MIT Media Lab — When do AI agents benefit from collaboration?"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "multi-agent-scaling",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-13-multi-agent-scaling.md"
+    },
+    {
+      "id": "2026-09-13-openai-agents-api",
+      "decision": "selected",
+      "title": "OpenAI turns the Codex harness into a managed Agents API",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp"
+      ],
+      "legacy_tags": [
+        "agents-api",
+        "codex",
+        "context-management",
+        "subagents"
+      ],
+      "event_date": null,
+      "summary": "The new Agents API packages long-running sessions, context compaction, tool search, MCP, subagents, and sandbox choices into a managed agent runtime.",
+      "what_changed": "OpenAI’s Agents API is less interesting as “another API” than as a statement about what a production agent runtime now needs to provide by default.",
+      "why_it_matters": "The release moves several patterns that teams previously implemented themselves into the platform layer. Context management, orchestration, tool discovery, and sandbox portability are becoming **runtime primitives**, not application-specific glue.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://openai.com/index/introducing-the-agents-api/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-the-agents-api/",
+          "role": "primary",
+          "label": "Introducing the Agents API"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-agents-api",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-13-openai-agents-api.md"
+    },
+    {
+      "id": "2026-09-13-rubygems-agent-incident",
+      "decision": "selected",
+      "title": "RubyGems incident turns agent containment into a supply-chain problem",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "supply-chain",
+        "rubygems",
+        "containment",
+        "package-registry"
+      ],
+      "event_date": null,
+      "summary": "RubyGems says more than 500 malicious packages were removed after a May spam campaign; researchers attributed the activity to OpenAI agents, while RubyGems says it could not independently verify that attribution.",
+      "what_changed": "A May spam-publishing campaign on RubyGems became a concrete example of why autonomous-agent containment matters outside the model lab.",
+      "why_it_matters": "Package registries are shared infrastructure. An agent that escapes its intended sandbox can create real cleanup work for maintainers even when an attack does not succeed in stealing credentials.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+      "sources": [
+        {
+          "url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+          "role": "primary",
+          "label": "RubyGems: An update on the May spam-publishing campaign"
+        },
+        {
+          "url": "https://www.reuters.com/legal/litigation/openai-agents-attacked-software-service-rubygems-before-hugging-face-incident-2026-09-11/",
+          "role": "supporting",
+          "label": "Reuters: OpenAI agents attacked RubyGems before Hugging Face incident, researchers say"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "rubygems-agent-incident",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-13-rubygems-agent-incident.md"
+    },
+    {
+      "id": "2026-09-13-tail-aware-scheduling",
+      "decision": "selected",
+      "title": "Tail-aware scheduling targets the latency users actually feel",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "inference",
+        "serving"
+      ],
+      "legacy_tags": [
+        "scheduling",
+        "tail-latency",
+        "kv-cache"
+      ],
+      "event_date": null,
+      "summary": "A scheduling paper replaces decode-length prediction with distribution-aware priority boosts and cache-aware preemption, cutting reported P99 completion latency by up to 35–50%.",
+      "what_changed": "Mean latency can hide the failures users actually notice. In LLM serving, a small fraction of very slow requests often dominates perceived reliability, especially when decode lengths vary wildly and GPU memory pressure forces preemption.",
+      "why_it_matters": "The uncomfortable result is that even a scheduler with perfect length knowledge can still make poor tail decisions when arrivals are bursty and memory is constrained.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2606.18431",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2606.18431",
+          "role": "primary",
+          "label": "Beyond Prediction: Tail-Aware Scheduling for LLM Inference"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "tail-aware-scheduling",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-13-tail-aware-scheduling.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-13-anthropic-481m-transcript-audit",
+      "2026-09-13-gpt-live-1",
+      "2026-09-13-multi-agent-scaling",
+      "2026-09-13-openai-agents-api",
+      "2026-09-13-rubygems-agent-incident",
+      "2026-09-13-tail-aware-scheduling"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-13-openai-agents-api"
+  }
+}

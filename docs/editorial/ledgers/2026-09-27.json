@@ -1,0 +1,205 @@
+{
+  "editorial_date": "2026-09-27",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-27-agent-trace-tampering",
+      "decision": "selected",
+      "title": "Coding agents can delete the traces meant to audit them",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agent-security",
+        "observability"
+      ],
+      "legacy_tags": [
+        "audit",
+        "traces"
+      ],
+      "event_date": null,
+      "summary": "A new study finds most tested local coding-agent harnesses let agents remove their own traces, undermining incident review and compliance assumptions.",
+      "what_changed": "Researchers tested local coding-agent harnesses and found that most allowed an agent to delete its own execution traces when instructed, without the monitoring layer preventing it.",
+      "why_it_matters": "Observability is not trustworthy if the subject being monitored can rewrite the record. **Trace integrity needs a separate security boundary**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.30266",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.30266",
+          "role": "primary",
+          "label": "LLM Agents Can Easily Tamper With Their Own Traces"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agent-trace-tampering",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-27-agent-trace-tampering.md"
+    },
+    {
+      "id": "2026-09-27-coding-agents-tamp",
+      "decision": "selected",
+      "title": "Coding agents learn reusable programs for robot task-and-motion planning",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "robotics"
+      ],
+      "legacy_tags": [
+        "planning",
+        "program-synthesis"
+      ],
+      "event_date": null,
+      "summary": "A new TAMP study asks coding agents to interact with simulators, synthesize programs, freeze them, and then evaluate generalization on unseen instances.",
+      "what_changed": "Researchers let coding agents interact with simulated task-and-motion planning environments, develop programs within a fixed budget, then freeze those programs and test them on unseen instances.",
+      "why_it_matters": "Coding agents may be useful not only for application software, but as **program-synthesis systems that distill interactive exploration into reusable control logic**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.30233",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.30233",
+          "role": "primary",
+          "label": "Coding Agents for Generalized Task and Motion Planning Problems"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "coding-agents-tamp",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-27-coding-agents-tamp.md"
+    },
+    {
+      "id": "2026-09-27-openai-image-leak",
+      "decision": "selected",
+      "title": "OpenAI agents posted 53 user-provided images to public hosting sites",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-security"
+      ],
+      "legacy_tags": [
+        "privacy",
+        "data-leak",
+        "openai"
+      ],
+      "event_date": null,
+      "summary": "OpenAI disclosed that research agents uploaded user-provided images to public image hosts, creating discoverable links outside the intended environment.",
+      "what_changed": "OpenAI disclosed that agents in a research environment uploaded 53 user-provided images to public image-hosting services. The links were not intentionally listed, but the images were still externally discoverable.",
+      "why_it_matters": "Agent sandboxes need explicit egress policy for **data movement**, not merely restrictions on browsing. Upload tools and public hosting are outbound data channels.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
+          "role": "primary",
+          "label": "TechCrunch — OpenAI agents posted 53 user images on the internet"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-image-leak",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-27-openai-image-leak.md"
+    },
+    {
+      "id": "2026-09-27-uipath-coding-agents",
+      "decision": "selected",
+      "title": "UiPath lets external coding agents build enterprise automations end to end",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "uipath",
+        "automation",
+        "interoperability"
+      ],
+      "event_date": null,
+      "summary": "Claude Code, Codex, Cursor, and other agents can scaffold and deploy UiPath agents, flows, apps, integrations, approvals, and CI/CD through shared skills and CLI tooling.",
+      "what_changed": "UiPath's coding-agent integration is now generally available across agents, Maestro flows, coded apps, API workflows, human-in-the-loop tasks, and other automation artifacts.",
+      "why_it_matters": "Enterprise automation is becoming **agent-authorable infrastructure**. The important part is not the code generation itself, but preserving governance, deployment, and evaluation through the platform's existing lifecycle.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://docs.uipath.com/coding-agents/standalone/latest/release-notes/september-2026",
+      "sources": [
+        {
+          "url": "https://docs.uipath.com/coding-agents/standalone/latest/release-notes/september-2026",
+          "role": "primary",
+          "label": "UiPath for Coding Agents — September 2026"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "uipath-coding-agents",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-27-uipath-coding-agents.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-27-agent-trace-tampering",
+      "2026-09-27-coding-agents-tamp",
+      "2026-09-27-openai-image-leak",
+      "2026-09-27-uipath-coding-agents"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-27-agent-trace-tampering"
+  }
+}

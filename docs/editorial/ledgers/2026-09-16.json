@@ -1,0 +1,252 @@
+{
+  "editorial_date": "2026-09-16",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-16-1password-codex",
+      "decision": "selected",
+      "title": "1Password reports 21% productivity lift from Codex",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "codex",
+        "enterprise",
+        "case-study",
+        "software-engineering"
+      ],
+      "event_date": null,
+      "summary": "The company integrated Codex across implementation, PR review, testing, incidents, and internal tooling while keeping security controls in the workflow.",
+      "what_changed": "1Password says its core Codex cohort improved engineering productivity by about 21% and reduced median pull-request cycle time by nearly 11%.",
+      "why_it_matters": "The case study reinforces a practical pattern: agent adoption works best when it is integrated into an existing delivery and security system rather than bolted on as a separate chat tool.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://openai.com/index/1password/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/1password/",
+          "role": "primary",
+          "label": "OpenAI — 1Password increases engineering productivity 21% with Codex"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "1password-codex",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-16-1password-codex.md"
+    },
+    {
+      "id": "2026-09-16-agentic-harness-engineering",
+      "decision": "selected",
+      "title": "Agentic Harness Engineering turns traces into harness improvements",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "evals",
+        "observability"
+      ],
+      "legacy_tags": [
+        "harness-engineering"
+      ],
+      "event_date": null,
+      "summary": "The paper frames coding-agent reliability as an observability and runtime-design problem, then proposes automatically evolving harness components from trajectory evidence.",
+      "what_changed": "This work argues that the next optimization target for coding agents is not only the model, but the **harness around the model**.",
+      "why_it_matters": "It suggests a future in which agent runtimes are evaluated and iterated like production systems: instrumented, compared, regressed, and improved from trace evidence rather than intuition.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2604.25850",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2604.25850",
+          "role": "primary",
+          "label": "Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agentic-harness-engineering",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-16-agentic-harness-engineering.md"
+    },
+    {
+      "id": "2026-09-16-harness-source-study",
+      "decision": "selected",
+      "title": "A source-code study finds coding agents converging on seven harness subsystems",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "agent-runtime",
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "harness-engineering",
+        "architecture"
+      ],
+      "event_date": null,
+      "summary": "An audit of eleven production coding agents identifies recurring runtime patterns across loops, tools, context, safety, orchestration, and extensibility.",
+      "what_changed": "A source-code study of eleven production coding agents maps the runtime around the model into seven recurring subsystems: the loop, model integration, tools, context and memory, permissions, orchestration, and extension surfaces.",
+      "why_it_matters": "This is useful architecture evidence for teams building internal agents. The model is one replaceable component; the durable engineering value increasingly sits in the runtime that controls how the model acts.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.00006",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.00006",
+          "role": "primary",
+          "label": "Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "harness-source-study",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-16-harness-source-study.md"
+    },
+    {
+      "id": "2026-09-16-hydrafusion",
+      "decision": "selected",
+      "title": "GitHub HydraFusion routes coding work across multiple models",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "github-copilot",
+        "multi-model",
+        "routing"
+      ],
+      "event_date": null,
+      "summary": "HydraFusion plans, drafts, critiques, revises, and selectively escalates tasks across models instead of binding a workflow to one checkpoint.",
+      "what_changed": "HydraFusion is GitHub's research preview for runtime model orchestration inside Copilot.",
+      "why_it_matters": "Model selection is becoming a **runtime scheduling problem**. For engineering teams, that opens a new optimization surface: quality, latency, and cost can be traded at the subtask level instead of the session level.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/",
+      "sources": [
+        {
+          "url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/",
+          "role": "primary",
+          "label": "GitHub — Project HydraFusion: Frontier quality via multi-model orchestration"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "hydrafusion",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-16-hydrafusion.md"
+    },
+    {
+      "id": "2026-09-16-openai-research-agents",
+      "decision": "selected",
+      "title": "Inside OpenAI, coding agents are becoming research infrastructure",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "productivity"
+      ],
+      "legacy_tags": [
+        "research",
+        "software-engineering"
+      ],
+      "event_date": null,
+      "summary": "OpenAI's internal study shows coding agents changing how researchers write code, run experiments, and pace model-development work.",
+      "what_changed": "OpenAI published a rare look at how its own researchers are using coding agents in day-to-day work.",
+      "why_it_matters": "Coding agents are moving from “developer assistant” to **research infrastructure**. Teams adopting them seriously should measure experiment throughput, verified task completion, and review load—not just autocomplete acceptance.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+          "role": "primary",
+          "label": "OpenAI — Research acceleration: The view inside OpenAI"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-research-agents",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-16-openai-research-agents.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-16-1password-codex",
+      "2026-09-16-agentic-harness-engineering",
+      "2026-09-16-harness-source-study",
+      "2026-09-16-hydrafusion",
+      "2026-09-16-openai-research-agents"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-16-openai-research-agents"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "editorial_date": "2026-09-18",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-18-android-bench-2",
+      "decision": "selected",
+      "title": "Android Bench 2.0 raises the bar with multi-day coding tasks",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "benchmarks",
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "android",
+        "long-horizon"
+      ],
+      "event_date": null,
+      "summary": "Google's updated benchmark adds long-horizon Android tasks, agentic evaluation, continuous scoring, and cost visibility because simple pass/fail no longer captures partial engineering progress.",
+      "what_changed": "Android Bench 2.0 adds long-horizon tasks that can take a human engineer days or a week, including migrations, dependency upgrades, and app-building work.",
+      "why_it_matters": "Agent benchmarks are starting to look more like **real project evaluation**: partial completion, regressions, visual fidelity, cost, and harness choice all matter. That is much closer to how engineering teams should evaluate coding agents internally.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://android-developers.googleblog.com/2026/09/android-bench-2-long-horizon-tasks.html",
+      "sources": [
+        {
+          "url": "https://android-developers.googleblog.com/2026/09/android-bench-2-long-horizon-tasks.html",
+          "role": "primary",
+          "label": "Android Developers — Android Bench 2.0"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "android-bench-2",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-18-android-bench-2.md"
+    },
+    {
+      "id": "2026-09-18-openapi-sdk-generation",
+      "decision": "selected",
+      "title": "Google and Speakeasy push SDK generation toward an open toolchain",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "sdk"
+      ],
+      "legacy_tags": [
+        "openapi",
+        "developer-tools",
+        "automation"
+      ],
+      "event_date": null,
+      "summary": "A new collaboration argues that client SDK generation should be driven from OpenAPI contracts with reproducible, inspectable tooling rather than hand-maintained wrappers.",
+      "what_changed": "Google and Speakeasy make the case for treating OpenAPI descriptions as executable product infrastructure: one contract can drive consistent SDK generation across languages instead of leaving teams to maintain wrappers by hand.",
+      "why_it_matters": "As agents increasingly consume APIs directly, **machine-readable contracts and reproducible client generation** become more valuable. Better SDK automation helps both human developers and tool-using agents work against the same canonical interface.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://developers.googleblog.com/why-client-sdk-generation-belongs-in-the-open/",
+      "sources": [
+        {
+          "url": "https://developers.googleblog.com/why-client-sdk-generation-belongs-in-the-open/",
+          "role": "primary",
+          "label": "Google Developers — Why client SDK generation belongs in the open"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openapi-sdk-generation",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-18-openapi-sdk-generation.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-18-android-bench-2",
+      "2026-09-18-openapi-sdk-generation"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-18-android-bench-2"
+  }
+}
