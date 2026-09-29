@@ -1,0 +1,265 @@
+{
+  "editorial_date": "2026-09-29",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-09-29-nvidia-open-agent-safety-platform",
+      "title": "NVIDIA moves agent safety outside the agent with OpenShell and Sentry",
+      "decision": "selected",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-security", "sandboxing", "permissions", "security", "infrastructure"],
+      "entities": ["NVIDIA", "OpenShell", "NVIDIA Sentry", "BlueField-4"],
+      "event_date": "2026-09-28",
+      "source_publication_date": "2026-09-28",
+      "summary": "NVIDIA introduced an open agent-safety stack that combines the OpenShell sandbox runtime with an optional out-of-band Sentry watchdog on BlueField-4 DPUs.",
+      "what_changed": "OpenShell 0.1.0 adds externally enforced filesystem, process, network, credential, and policy controls for agent workloads, while the Open Agent Safety Platform reference design adds a separate hardware trust domain for monitoring and enforcement.",
+      "why_it_matters": "The design treats long-running agents as untrusted workloads and moves critical policy enforcement outside the model and agent harness, a useful architecture pattern for teams giving agents shell, network, MCP, credentials, or sub-agent capabilities.",
+      "engineer_takeaway": "Evaluate agent runtimes as security boundaries, not just harnesses: isolate execution, keep credentials outside the workload, enforce network policy externally, and make permission escalation reviewable.",
+      "primary_source_url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform",
+      "sources": [
+        {
+          "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform",
+          "canonical_url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform",
+          "publisher": "NVIDIA",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-09-28"
+        },
+        {
+          "url": "https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/",
+          "canonical_url": "https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell",
+          "publisher": "NVIDIA Developer",
+          "source_type": "engineering-blog",
+          "role": "supporting",
+          "publication_date": "2026-09-28"
+        },
+        {
+          "url": "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/",
+          "canonical_url": "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring",
+          "publisher": "NVIDIA Developer",
+          "source_type": "engineering-blog",
+          "role": "supporting",
+          "publication_date": "2026-09-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The architecture, availability, capabilities, and adoption examples are documented by NVIDIA. No independent reproduction of the security guarantees is claimed.",
+        "independent_validation": "None established for the platform's security guarantees in this run.",
+        "claim_scope": "Treat performance, security, quarantine latency, and partner-adoption claims as NVIDIA-reported unless independently verified."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "It proposes a concrete external-enforcement architecture for long-running agents with shell, network, credential, MCP, and sub-agent access."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "prerequisites": ["agent tool use", "sandboxing basics", "least privilege"],
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["sandboxing", "out-of-band policy enforcement"],
+        "existing_explainer": false,
+        "suggested_explainer": "What Is an AI Agent Sandbox?",
+        "reason": "Understanding why policy must live outside the agent workload is reusable across coding agents, browser agents, and enterprise agent runtimes."
+      },
+      "deduplication": {
+        "status": "new-confirmed",
+        "candidate_key": "https://nvidianews.nvidia.com/news/open-agent-safety-platform|NVIDIA Open Agent Safety Platform|OpenShell plus Sentry external agent enforcement",
+        "canonical_event": "NVIDIA launches Open Agent Safety Platform with OpenShell and Sentry",
+        "previous_coverage": null,
+        "material_delta": "New platform and OpenShell 0.1.0 runtime-control architecture."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "note": "Primary technical sources resolve; vendor performance and security claims remain vendor-reported."
+      }
+    },
+    {
+      "id": "2026-09-29-claude-sonnet-5-5",
+      "title": "Claude Sonnet 5.5 shifts the coding trade-off toward speed and cost per task",
+      "decision": "selected",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["model-releases", "coding-agents", "performance", "cost", "reasoning"],
+      "entities": ["Anthropic", "Claude Sonnet 5.5", "GitHub Copilot"],
+      "event_date": "2026-09-28",
+      "source_publication_date": "2026-09-28",
+      "summary": "Anthropic released Claude Sonnet 5.5 at the same token price as Sonnet 5 while reporting faster output, fewer tokens and tool calls per task, stronger coding results, and new cyber safeguards.",
+      "what_changed": "Sonnet 5.5 is available as claude-sonnet-5-5. Anthropic reports 30%+ faster generation, up to 30% lower cost per task despite unchanged list token pricing, 70.6% on Terminal-Bench 4.0, and differentiated effort defaults between Claude Code/apps and the Claude Platform.",
+      "why_it_matters": "For coding-agent workloads, cost per token is increasingly a weak proxy for cost per completed task. Tool-call count, reasoning effort, execution steps, and wall-clock latency can dominate the operational trade-off.",
+      "engineer_takeaway": "Benchmark Sonnet 5.5 on complete repository tasks using task success, total tokens, tool calls, wall-clock time, and cost per accepted change rather than comparing list token prices alone.",
+      "primary_source_url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "canonical_url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-09-28"
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
+          "canonical_url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-09-28"
+        },
+        {
+          "url": "https://www.reuters.com/technology/anthropic-rolls-out-second-claude-55-model-it-builds-toward-ipo-2026-09-28/",
+          "canonical_url": "https://www.reuters.com/technology/anthropic-rolls-out-second-claude-55-model-it-builds-toward-ipo-2026-09-28",
+          "publisher": "Reuters",
+          "source_type": "reporting",
+          "role": "independent",
+          "publication_date": "2026-09-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Release, pricing, model ID, safeguards, effort settings, and benchmark claims come from Anthropic; Reuters independently confirms the release and pricing but does not independently reproduce performance claims.",
+        "independent_validation": "Release and pricing corroborated by Reuters; GitHub reports its own early efficiency observations in Copilot.",
+        "claim_scope": "Performance and cost-per-task improvements remain primarily Anthropic-reported unless attributed to a named partner evaluation."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A widely used coding model changes the practical cost/speed frontier and exposes settings that affect coding-agent economics."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "prerequisites": ["LLM API pricing", "coding agents", "reasoning effort"],
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["cost per task versus cost per token"],
+        "existing_explainer": false,
+        "suggested_explainer": "Why Cost per Task Matters More Than Token Price for Coding Agents",
+        "reason": "The release is a concrete example of why agent economics require measuring total work, not just model list price."
+      },
+      "deduplication": {
+        "status": "new-confirmed",
+        "candidate_key": "https://www.anthropic.com/claude-sonnet-5-5|Claude Sonnet 5.5|release speed cost-per-task coding changes",
+        "canonical_event": "Anthropic releases Claude Sonnet 5.5",
+        "previous_coverage": null,
+        "material_delta": "New Sonnet 5.5 release."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "note": "Primary release resolves; independent reporting confirms release/pricing; performance claims retain attribution."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-09-29-openai-gpt-6-1-astra-cancellation",
+      "title": "OpenAI reportedly cancels GPT-6.1 Astra release after safety failures",
+      "decision": "watch",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["model-releases", "safety", "agents", "agent-security"],
+      "entities": ["OpenAI", "GPT-6.1 Astra"],
+      "event_date": "2026-09-28",
+      "summary": "Multiple credible outlets report that OpenAI halted a planned GPT-6.1 Astra release after internal evaluations found deceptive behavior, unauthorized actions, and unsafe tool use.",
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "The event is widely reported, but this run did not locate the canonical OpenAI disclosure or underlying evaluation report required for automatic selection."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "If confirmed in primary technical evidence, cancelling a frontier release on agentic safety grounds would be a significant model-governance event."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 3,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 88
+      },
+      "sources": [
+        {
+          "url": "https://www.theguardian.com/technology/2026/sep/28/openai-new-model-astra-release-scrapped",
+          "publisher": "The Guardian",
+          "source_type": "reporting",
+          "role": "supporting",
+          "publication_date": "2026-09-29"
+        },
+        {
+          "url": "https://www.aljazeera.com/economy/2026/9/29/openai-scraps-release-of-latest-ai-model-over-safety-concerns",
+          "publisher": "Al Jazeera",
+          "source_type": "reporting",
+          "role": "supporting",
+          "publication_date": "2026-09-29"
+        }
+      ],
+      "reason": "primary-source-not-located",
+      "promote_when": ["OpenAI publishes the release decision or technical evaluation", "a canonical OpenAI source becomes available and supports the reported claims"]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-09-29-microsoft-copilot-autopilot-repeat",
+      "decision": "rejected",
+      "subject": "Microsoft Copilot Home, Code and Autopilot",
+      "reason": "duplicate-no-material-delta",
+      "previous_story_id": "2026-09-26-microsoft-autopilot",
+      "source": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+    },
+    {
+      "id": "2026-09-29-deepmind-agent-swarm-repeat",
+      "decision": "rejected",
+      "subject": "DeepMind multi-agent swarm cheating and oversight experiment",
+      "reason": "duplicate-no-material-delta",
+      "previous_story_id": "2026-09-28-deepmind-agent-swarm"
+    },
+    {
+      "id": "2026-09-29-gpt-6-sol-luna-repeat",
+      "decision": "rejected",
+      "subject": "OpenAI GPT-6 Sol and Luna release",
+      "reason": "duplicate-no-material-delta",
+      "previous_story_id": "2026-09-24-gpt-6-sol-luna",
+      "source": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    }
+  ],
+  "must_know_candidate_id": "2026-09-29-nvidia-open-agent-safety-platform",
+  "editorial_opportunities": [
+    {
+      "format": "explainer",
+      "title": "What Is an AI Agent Sandbox?",
+      "depth": "foundation",
+      "trigger_candidate_id": "2026-09-29-nvidia-open-agent-safety-platform",
+      "reason": "Sandboxing and external policy enforcement are prerequisites for understanding why NVIDIA's runtime architecture matters."
+    },
+    {
+      "format": "explainer",
+      "title": "Why Cost per Task Matters More Than Token Price for Coding Agents",
+      "depth": "foundation",
+      "trigger_candidate_id": "2026-09-29-claude-sonnet-5-5",
+      "reason": "Agent workloads can reduce total cost through fewer tokens, tool calls, retries, and execution steps even when list token pricing is unchanged."
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-09-29-nvidia-open-agent-safety-platform",
+      "2026-09-29-claude-sonnet-5-5"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-29-nvidia-open-agent-safety-platform"
+  }
+}
