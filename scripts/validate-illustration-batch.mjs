@@ -127,10 +127,14 @@ function validateCrop(storyId, placement, outputCrop, dimensions) {
 
   if (outputCrop === 'square') {
     if (Math.abs(ratio - 1) > 0.04) {
-      fail(`${storyId}: square placement requires approximately 1:1, got ${dimensions.width}x${dimensions.height}`);
+      fail(
+        `${storyId}: square placement requires approximately 1:1, got ${dimensions.width}x${dimensions.height}`,
+      );
     }
     if (dimensions.width < 1000 || dimensions.height < 1000) {
-      fail(`${storyId}: square asset is below minimum production size (${dimensions.width}x${dimensions.height})`);
+      fail(
+        `${storyId}: square asset is below minimum production size (${dimensions.width}x${dimensions.height})`,
+      );
     }
     return;
   }
@@ -140,17 +144,23 @@ function validateCrop(storyId, placement, outputCrop, dimensions) {
       fail(`${storyId}: wide placement requires aspect ratio 1.6–2.0, got ${ratio.toFixed(3)}`);
     }
     if (dimensions.width < 1400 || dimensions.height < 700) {
-      fail(`${storyId}: wide asset is below minimum production size (${dimensions.width}x${dimensions.height})`);
+      fail(
+        `${storyId}: wide asset is below minimum production size (${dimensions.width}x${dimensions.height})`,
+      );
     }
     return;
   }
 
   if (outputCrop === 'landscape') {
     if (ratio < 1.35 || ratio > 2.0) {
-      fail(`${storyId}: landscape placement requires aspect ratio 1.35–2.0, got ${ratio.toFixed(3)}`);
+      fail(
+        `${storyId}: landscape placement requires aspect ratio 1.35–2.0, got ${ratio.toFixed(3)}`,
+      );
     }
     if (dimensions.width < 1200 || dimensions.height < 650) {
-      fail(`${storyId}: landscape asset is below minimum production size (${dimensions.width}x${dimensions.height})`);
+      fail(
+        `${storyId}: landscape asset is below minimum production size (${dimensions.width}x${dimensions.height})`,
+      );
     }
     return;
   }
@@ -227,7 +237,11 @@ for (const storyId of storyIds ?? []) {
     fail(`${storyId}: visual_brief.subject is required`);
   }
 
-  if (!Array.isArray(brief.verified_context) || brief.verified_context.length < 2 || brief.verified_context.length > 3) {
+  if (
+    !Array.isArray(brief.verified_context) ||
+    brief.verified_context.length < 2 ||
+    brief.verified_context.length > 3
+  ) {
     fail(`${storyId}: visual_brief.verified_context must contain 2–3 factual sentences`);
   } else {
     for (const sentence of brief.verified_context) {
@@ -244,7 +258,9 @@ for (const storyId of storyIds ?? []) {
   if (!Array.isArray(constitutionCheck?.violations)) {
     fail(`${storyId}: constitution_check.violations must be an array`);
   } else if (constitutionCheck.violations.length > 0) {
-    fail(`${storyId}: constitutional violations are not overridable: ${constitutionCheck.violations.join(', ')}`);
+    fail(
+      `${storyId}: constitutional violations are not overridable: ${constitutionCheck.violations.join(', ')}`,
+    );
   }
 
   const prohibited = review.prohibited_elements;
@@ -299,7 +315,8 @@ for (const storyId of storyIds ?? []) {
   }
 
   if (review.cover_crop_approved !== true) fail(`${storyId}: cover crop has not been approved`);
-  if (review.thumbnail_approved !== true) fail(`${storyId}: thumbnail/small-size review has not passed`);
+  if (review.thumbnail_approved !== true)
+    fail(`${storyId}: thumbnail/small-size review has not passed`);
 
   const asset = review.final_asset;
   if (
