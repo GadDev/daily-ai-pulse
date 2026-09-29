@@ -17,16 +17,16 @@
     "output_crop": "wide",
     "archetype": "mechanical-metaphor",
     "editorial_idea": "The useful economic shift is not cheaper tokens but less total machinery and work required to reach the same accepted coding result.",
-    "visual_metaphor": "A faded, sprawling mechanical process recedes into the paper while a compact foreground mechanism converts the same abstract raw pieces into a clean finished stack through a shorter path.",
+    "visual_metaphor": "A faded, sprawling mechanical process recedes into the paper while a compact foreground mechanism reaches the same clean finished stack through a much shorter path.",
     "golden_references": [
       "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
       "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
     ]
   },
   "candidate_notes": {
-    "A": "Constitution-compliant and readable, but the inefficient machine dominates the frame and remains visually busy at thumbnail size.",
-    "B": "Replacement constitution-compliant candidate after the original B was rejected before scoring for code-like characters. The replacement preserved the mechanical comparison but mixed too many spatial ideas and scored below the selected composition.",
-    "C": "Selected. The inefficient process recedes into the paper while the efficient machine becomes the clear focal object. No generated text, letters, numbers, labels, logos, UI, robots, or screenshot language are present."
+    "A": "Constitution-compliant and direct, but the upper gear sequence carried too much visual weight and competed with the efficient foreground path.",
+    "B": "Constitution-compliant and readable, but the enclosing machine body made the metaphor feel slightly too literal and less editorial.",
+    "C": "Selected. The long faded process remains secondary while a compact two-gear foreground mechanism becomes the clear focal object; the same abstract inputs and finished stack make the cost-per-task idea legible without text, labels, logos, UI, or fake metrics."
   },
   "constitution_check": {
     "passed": true,
@@ -54,13 +54,13 @@
     "unsupported_visual_claim": false
   },
   "scores": {
-    "story_specific": 93,
-    "brand_fit": 95,
+    "story_specific": 94,
+    "brand_fit": 96,
     "composition": 94,
-    "crop_quality": 95,
-    "technical_meaning": 88,
-    "cleanliness": 98,
-    "weighted_total": 93.75
+    "crop_quality": 96,
+    "technical_meaning": 89,
+    "cleanliness": 99,
+    "weighted_total": 94.55
   },
   "hard_failures": [],
   "cover_crop_approved": true,
