@@ -1,0 +1,73 @@
+{
+  "system_version": "1.1",
+  "constitution_version": "1.0",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-29-nvidia-open-agent-safety-platform",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "NVIDIA Open Agent Safety Platform",
+    "verified_context": [
+      "OpenShell runs agent workloads inside isolated sandboxes with externally enforced filesystem, process, network, credential, and policy controls.",
+      "NVIDIA Sentry adds an optional out-of-band monitoring and enforcement layer on BlueField-4 DPUs outside the host where the agent runs.",
+      "The architectural lesson is to place critical enforcement somewhere the agent workload cannot rewrite or bypass."
+    ],
+    "output_crop": "wide",
+    "archetype": "architectural-cutaway",
+    "editorial_idea": "The important security boundary sits outside the agent workload, so the workload can act without being able to rewrite the rules that contain it.",
+    "visual_metaphor": "A small abstract working chamber sits inside multiple external containment layers, with controlled passages crossing those boundaries and a physically separate observation structure outside the protected core.",
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant but overly segmented; the triptych weakened the single-focal-idea rule and reduced thumbnail clarity.",
+    "B": "Selected. Strong containment metaphor with no robot, text, labels, logos, UI, or decorative security iconography. The isolated chamber and external layers remain legible at card size.",
+    "C": "Constitution-compliant but less story-specific; the split composition and mechanical secondary scene made the architecture feel less focused."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 96,
+    "brand_fit": 97,
+    "composition": 95,
+    "crop_quality": 96,
+    "technical_meaning": 92,
+    "cleanliness": 98,
+    "weighted_total": 95.75
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-29-nvidia-open-agent-safety-platform.webp",
+  "final_dimensions": {
+    "width": 1400,
+    "height": 788
+  }
+}

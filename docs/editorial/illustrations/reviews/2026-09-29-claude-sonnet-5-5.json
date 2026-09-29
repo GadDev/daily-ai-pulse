@@ -1,0 +1,73 @@
+{
+  "system_version": "1.1",
+  "constitution_version": "1.0",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-29-claude-sonnet-5-5",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Sonnet 5.5 coding-agent efficiency",
+    "verified_context": [
+      "Anthropic kept Sonnet 5.5 list token pricing unchanged while reporting lower cost per completed task through fewer tokens, tool calls, and execution steps.",
+      "For coding-agent workloads, total task economics depend on successful completion, tool use, retries, latency, and human intervention rather than token price alone.",
+      "The practical comparison is therefore the amount of work required to reach the same accepted coding result."
+    ],
+    "output_crop": "wide",
+    "archetype": "mechanical-metaphor",
+    "editorial_idea": "The useful economic shift is not cheaper tokens but less total machinery and work required to reach the same accepted coding result.",
+    "visual_metaphor": "A faded, sprawling mechanical process recedes into the paper while a compact foreground mechanism converts the same abstract raw pieces into a clean finished stack through a shorter path.",
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant and readable, but the inefficient machine dominates the frame and remains visually busy at thumbnail size.",
+    "B": "Replacement constitution-compliant candidate after the original B was rejected before scoring for code-like characters. The replacement preserved the mechanical comparison but mixed too many spatial ideas and scored below the selected composition.",
+    "C": "Selected. The inefficient process recedes into the paper while the efficient machine becomes the clear focal object. No generated text, letters, numbers, labels, logos, UI, robots, or screenshot language are present."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 95,
+    "composition": 94,
+    "crop_quality": 95,
+    "technical_meaning": 88,
+    "cleanliness": 98,
+    "weighted_total": 93.75
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-29-claude-sonnet-5-5.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  }
+}
