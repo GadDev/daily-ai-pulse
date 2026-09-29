@@ -215,9 +215,7 @@ if (!ledger.publication || typeof ledger.publication !== 'object') {
 
 const publishedStoryIds = new Set(ledger.publication?.story_ids ?? []);
 const withheld = ledger.publication?.withheld_selected ?? [];
-const withheldIds = new Set(
-  withheld.map((item) => (typeof item === 'string' ? item : item.id)),
-);
+const withheldIds = new Set(withheld.map((item) => (typeof item === 'string' ? item : item.id)));
 
 for (const id of publishedStoryIds) {
   if (!selectedById.has(id)) fail(`published story is not a selected ledger candidate: ${id}`);
@@ -252,13 +250,7 @@ const categoryValues = new Set([
 const typeValues = new Set(['pulse', 'briefing', 'deep-dive']);
 const difficultyValues = new Set(['beginner', 'intermediate', 'advanced']);
 const signalValues = new Set(['low', 'medium', 'high']);
-const evidenceValues = new Set([
-  'strong',
-  'primary',
-  'preliminary',
-  'anecdotal',
-  'unverified',
-]);
+const evidenceValues = new Set(['strong', 'primary', 'preliminary', 'anecdotal', 'unverified']);
 
 const priorSources = priorSourceIndex(publishedStoryIds);
 
