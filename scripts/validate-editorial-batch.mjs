@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
+import { URL } from 'node:url';
 
 const root = process.cwd();
 const storiesDir = join(root, 'src/content/stories');
