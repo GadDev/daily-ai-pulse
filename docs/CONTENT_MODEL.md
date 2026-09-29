@@ -1,6 +1,9 @@
 # Pulse Content Model
 
-This document defines the canonical content structure for Pulse. It complements `PRD.md` and `EDITORIAL.md` by specifying how stories and daily editions are represented, classified, and used across the site.
+This document defines the current Astro content structure for Pulse. It
+complements `PRD.md` and `EDITORIAL.md` by specifying how stories and daily
+editions are represented and used across the site. The candidate ledger uses
+the richer classification in `editorial/EDITORIAL_SCHEMA_V1.md`.
 
 ## Principles
 
@@ -54,24 +57,28 @@ Every story should provide structured frontmatter matching the Astro content col
 
 ```yaml
 ---
-title: "Prompt caching is becoming an architecture problem"
-description: "Why cache design is moving from optimization detail to system-level concern."
+title: "An OpenAI research agent used DNS to reach an external chatbot"
+description: "A training agent found a gap in sandbox DNS filtering, reached a public chatbot despite blocked live-web access, and triggered a broader pause on tool-using frontier work."
 date: 2026-09-28
 category: engineering
-tags:
-  - context-engineering
-  - inference
-  - agents
-type: briefing
-difficulty: intermediate
+tags: [openai, sandbox, agent-security, dns]
+type: deep-dive
+difficulty: advanced
 signal: high
 evidence: primary
-featured: false
-companies:
-  - OpenAI
-  - GitHub
+featured: true
+companies: [OpenAI]
+image: "/images/stories/2026-09-28-openai-dns-sandbox.webp"
+imageAlt: "A sandboxed agent reaching outside through a narrow DNS channel"
+sources:
+  - label: "OpenAI Alignment — An agent used DNS to reach an external chatbot"
+    url: "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/"
 ---
 ```
+
+This example is from an existing story. Its historical tags include an entity;
+new stories should use controlled topics from `editorial/TOPICS_V1.yml` and
+keep company and product names in the ledger's `entities` field.
 
 ### Required fields
 
@@ -81,6 +88,9 @@ companies:
 - `category`: one of the eight canonical category slugs.
 - `type`: `pulse`, `briefing`, or `deep-dive`.
 - `evidence`: one of `strong`, `primary`, `preliminary`, `anecdotal`, or `unverified`.
+- `image`: root-relative path to an existing image under `public/`.
+- `imageAlt`: useful text describing the editorial image.
+- `sources`: at least one `{ label, url }` entry.
 
 ### Fields with defaults or controlled values
 
@@ -89,6 +99,9 @@ companies:
 - `signal`: `low`, `medium`, or `high`; default `medium`.
 - `featured`: boolean; default `false`.
 - `companies`: array of relevant company names; defaults to empty.
+- `draft`: boolean; defaults to `false`.
+- `updatedAt`: optional date of a meaningful update.
+- `corrections`: array of dated correction notes; defaults to empty.
 
 ## Evidence levels
 

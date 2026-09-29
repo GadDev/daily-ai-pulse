@@ -1,6 +1,13 @@
-# Pulse — Final Page Compositions
+# Pulse — Page Compositions (Earlier Baseline)
 
-This document freezes the page hierarchy before the next round of UI implementation.
+This document records the earlier implementation baseline for the five core
+pages. The newer standalone [responsive layout references](reference-layouts/README.md)
+propose the next visual changes; those references are separate from the
+deployed Astro pages. Use `DESIGN_SYSTEM.md` for shared visual rules and check
+the actual `src/pages/` implementation before treating either design document
+as shipped behavior.
+
+It recorded the page hierarchy for an earlier round of UI implementation.
 
 It translates the existing Pulse product, editorial, content, and visual direction into five concrete screen compositions:
 

@@ -30,11 +30,17 @@ flowchart TD
 
 Required:
 
-- structured candidate ledger from the scheduled Daily AI Pulse research task
+- structured candidate ledger from the ChatGPT scheduled Daily AI Pulse research task
 - `EDITORIAL_SCHEMA_V1.md`
 - `DECISION_ENGINE_V1.md`
 - `TOPICS_V1.yml`
 - current site content schema and publishing contract
+
+The ChatGPT scheduler starts the task at its configured cadence; the task
+discovers news, reads the repository's editorial contracts, and produces the
+selected/watch/rejected ledger. It does not itself publish the site. An editor
+starts PR preparation by handing the ledger to the PR preparation skill; the repository's GitHub Actions
+run checks on the PR and deploy only after merge to `main`.
 
 Illustration dependency:
 

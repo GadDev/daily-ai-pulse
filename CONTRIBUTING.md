@@ -23,10 +23,12 @@ npm run dev
 Before opening a pull request, run:
 
 ```bash
-npm run build
+npm run verify
 ```
 
-The build performs Astro type/content checks before producing the static site.
+PR CI also runs the Playwright suite. For a daily editorial batch, run the
+dated `editorial:check` and `illustration:check` commands described in the
+[README](README.md#checks) so a missing ledger cannot be mistaken for a pass.
 
 ## Branches and commits
 
@@ -66,6 +68,11 @@ Editorial changes have a higher verification bar than ordinary copy edits.
 - Keep factual statements and editorial interpretation distinguishable.
 - Preserve the original publication date when correcting an existing article; document meaningful corrections in the pull request.
 - Only add images that the project has the right to publish.
+
+For a new daily edition, begin with the selected/watch/rejected candidate
+ledger produced by the ChatGPT scheduled research task. Read the
+[editorial decision engine](docs/editorial/DECISION_ENGINE_V1.md) and
+[PR preparation contract](docs/editorial/PR_PREPARATION_V1.md) before drafting.
 
 AI-assisted research or drafting is allowed, but the contributor remains responsible for verifying every factual claim, source, quotation, license, and code change before submission.
 

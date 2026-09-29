@@ -33,6 +33,14 @@ If a downstream step discovers conflicting evidence, it must report the conflict
 
 Purpose: discover potentially important developments.
 
+Trigger: the ChatGPT scheduler runs the research task at its configured cadence.
+Before classifying news, the task reads the current repository versions of
+`docs/EDITORIAL.md`, `EDITORIAL_SCHEMA_V1.md`, this decision engine, and
+`TOPICS_V1.yml`. These
+Markdown/YAML files supply the policy and vocabulary; the task supplies the
+research. If a contract cannot be read, the task reports that limitation and
+does not claim verified classification or deduplication.
+
 Responsibilities:
 
 - search broadly enough to avoid vendor-only coverage;
@@ -42,7 +50,8 @@ Responsibilities:
 - detect candidate developments, not just headlines;
 - avoid drafting polished stories at this stage.
 
-Output: raw candidate set.
+Output: a raw candidate set, then the structured ledger from Stage B. The
+scheduled task does not write directly to the live publication.
 
 ### Stage B — Structured candidate ledger
 
@@ -377,62 +386,15 @@ Expansion requires independent editorial justification:
 
 ## 13. Candidate ledger contract
 
-The scheduled research task should ultimately emit a machine-readable ledger containing selected, watch, and rejected candidates.
+The scheduled research task should emit a machine-readable ledger containing
+selected, watch, and rejected candidates. `decision` is the research choice;
+publication adds a separate outcome without rewriting it.
 
-Example:
-
-```yaml
-editorial_date: 2026-09-29
-schema_version: "1.0"
-decision_engine_version: "1.0"
-
-candidates:
-  - id: 2026-09-29-example
-    title: "Example development"
-    decision: selected
-    desk: engineering
-    format: briefing
-    depth: practitioner
-    topics:
-      - agents
-      - agent-security
-    evidence:
-      level: primary
-      rationale: "Official technical disclosure."
-    signal:
-      level: high
-      rationale: "Changes assumptions about agent isolation."
-    editorial_score:
-      significance: 5
-      evidence: 4
-      novelty: 5
-      relevance: 5
-      durability: 4
-      weighted_total: 93
-    deduplication:
-      candidate_key: "..."
-      canonical_event: "..."
-      previous_coverage: null
-      material_delta: "new disclosure"
-    learning_gap:
-      exists: true
-      concepts:
-        - sandboxing
-      suggested_explainer: "What Is an AI Agent Sandbox?"
-
-exclusions:
-  - id: 2026-09-29-repeat-example
-    decision: rejected
-    reason: duplicate-no-material-delta
-    previous_story_id: 2026-09-28-example
-
-watchlist:
-  - id: 2026-09-29-watch-example
-    decision: watch
-    reason: benchmark-not-independently-verified
-    promote_when:
-      - independent results become available
-```
+The three arrays are disjoint: selected records go in `candidates`, watch records
+in `watchlist`, and rejected records in `exclusions`. Do not repeat a candidate
+ID across arrays. The complete JSON shape and example live in
+[`ledgers/README.md`](ledgers/README.md#minimum-shape); field meanings live in
+[`EDITORIAL_SCHEMA_V1.md`](EDITORIAL_SCHEMA_V1.md#3-canonical-candidate-ledger-schema).
 
 ## 14. Downstream handoff rules
 

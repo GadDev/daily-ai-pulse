@@ -473,8 +473,11 @@ Minimum shape:
   "visual_brief": {
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "...",
-    "verified_context": ["...", "..."],
+    "subject": "Example story's verified technical change",
+    "verified_context": [
+      "The approved story identifies the technical boundary that changed.",
+      "The source documents how the change affects the system's behavior."
+    ],
     "output_crop": "wide",
     "archetype": "mechanical-metaphor",
     "editorial_idea": "...",
@@ -485,6 +488,27 @@ Minimum shape:
     "passed": true,
     "violations": []
   },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
   "scores": {
     "story_specific": 92,
     "brand_fit": 94,
@@ -492,7 +516,7 @@ Minimum shape:
     "crop_quality": 91,
     "technical_meaning": 86,
     "cleanliness": 96,
-    "weighted_total": 91.4
+    "weighted_total": 91.55
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -504,6 +528,10 @@ Minimum shape:
   }
 }
 ```
+
+This is a shape example, not an approved image review. A real record must use
+observed scores, verified sentences from its story, the actual WebP dimensions,
+and an existing asset before `illustration:check` can pass.
 
 Candidate images and contact sheets remain temporary unless a reviewer requests them.
 
