@@ -1,6 +1,6 @@
 # Daily AI Pulse — Visual Constitution v1
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Status:** Canonical and non-negotiable  
 **Applies to:** all generated editorial artwork for The Daily AI Pulse
 
@@ -25,6 +25,8 @@ A candidate that violates this constitution is rejected **before scoring**. A hi
 > Use the corresponding page in `docs/reference-layouts/` as the source of truth for the image’s role, crop, scale, and surrounding whitespace. Use `IMAGE_GALLERY.md` only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.
 >
 > **Art direction:** a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas `#F3EBDD`, paper `#FAF6EE`, near-black ink `#171B1A`, muted gray `#575D5B`, and sparing terracotta `#8A4B35`. Keep the composition spacious and the contrast strong. Allow the subject to survive an `object-fit: cover` crop on desktop and mobile.
+>
+> **Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The result must remain an editorial illustration: give the central metaphor physical or spatial presence, subtle depth, visual hierarchy, and enough material detail to feel illustrated rather than diagrammed. Fine technical lines may support the composition but must not be the composition itself.**
 >
 > Depict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.
 >
@@ -100,8 +102,12 @@ When mechanism or data is uncertain, use an abstract editorial metaphor.
 - generic glowing AI brain
 - generic corporate/SaaS stock-art composition
 - presentation-slide icon rows
+- **bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram**
+- **technical linework carrying the whole image without physical/spatial presence, depth, materiality, or editorial hierarchy**
 - border
 - frame
+
+A technical subject may still use architectural or scientific structure. The hard failure is **diagram-first visual language** rather than illustration-first visual language.
 
 ### Crop / role violations
 
@@ -146,11 +152,37 @@ over:
 
 > agent + shell + key + MCP + network + policy file + chip + alert + benchmark + company logo
 
+## Editorial-presence rule
+
+Passing the prohibition list is not enough. The image must still feel **commissioned editorial artwork** rather than a cleaned-up engineering diagram.
+
+Require at least several of these qualities:
+
+- a physical or spatial metaphor with visible presence
+- overlapping planes, cutaway depth, or controlled perspective
+- restrained materiality or print-like texture
+- intentional asymmetry or compositional tension
+- a clear foreground/background hierarchy
+- linework supporting larger illustrated forms
+- one memorable silhouette that survives thumbnail size
+
+Do not add detail for decoration. Add only enough material and spatial information to keep the piece illustrative rather than schematic.
+
 ## Verified-context rule
 
 Every generation brief must include **2–3 factual sentences** drawn from the publication-ready story.
 
 The image may simplify those facts into a metaphor, but it may not add an unsupported mechanism or outcome.
+
+## Golden-reference rule
+
+Golden production references are not optional mood decoration. They are the publication's strongest visual evidence.
+
+Before approving a candidate, compare it directly beside at least two relevant production references and ask:
+
+> **Would this image look intentionally commissioned for the same publication if the headline and metadata were removed?**
+
+A candidate that merely matches the palette but not the production archive's abstraction, density, line language, materiality, negative space, and compositional confidence is not a strong brand fit.
 
 ## Relationship to other visual documents
 
@@ -178,5 +210,7 @@ Its identity comes from:
 - line and texture language
 - composition
 - whitespace
+- physical/spatial editorial presence
 - one story-specific visual idea
 - disciplined cropping
+- visible continuity with the golden-reference production set
