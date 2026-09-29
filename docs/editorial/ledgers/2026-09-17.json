@@ -1,0 +1,159 @@
+{
+  "editorial_date": "2026-09-17",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-17-github-rust-migration",
+      "decision": "selected",
+      "title": "GitHub rewrites the Copilot agent runtime into 800,000+ lines of Rust",
+      "desk": "practice",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "github-copilot",
+        "rust",
+        "migration"
+      ],
+      "event_date": null,
+      "summary": "GitHub used Copilot to migrate a production agent runtime from TypeScript to Rust over roughly fourteen weeks while shipping incrementally and tracking dozens of regressions.",
+      "what_changed": "GitHub rewrote the Copilot agent runtime from TypeScript into more than 800,000 lines of production Rust, using Copilot itself throughout the migration.",
+      "why_it_matters": "This is a concrete example of agents making a migration economically feasible without making correctness free. The winning pattern is **agent throughput plus aggressive verification**, not autonomous bulk rewriting with blind trust.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
+      "sources": [
+        {
+          "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
+          "role": "primary",
+          "label": "GitHub — Migrating the GitHub Copilot runtime to Rust, using Copilot"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "github-rust-migration",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-17-github-rust-migration.md"
+    },
+    {
+      "id": "2026-09-17-lora-kv-reuse",
+      "decision": "selected",
+      "title": "LoRA serving research reuses shared-prefix KV caches across adapters",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "inference",
+        "serving"
+      ],
+      "legacy_tags": [
+        "lora",
+        "kv-cache"
+      ],
+      "event_date": null,
+      "summary": "A new study asks when multiple LoRA adapters can safely share prefix KV state instead of recomputing it for every adapter.",
+      "what_changed": "LoRA serving usually treats each adapter as if its KV cache were entirely separate. This paper studies whether common prompt prefixes can reuse cache state across standard LoRA adapters and what quality tradeoffs appear.",
+      "why_it_matters": "If the technique holds up broadly, multi-tenant adapter serving could reduce repeated prefill work. It is still preliminary research, but it targets a very real production cost center: **duplicate context computation**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.17109",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.17109",
+          "role": "primary",
+          "label": "Shared-Prefix KV Reuse Across Standard LoRA Adapters"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "lora-kv-reuse",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-17-lora-kv-reuse.md"
+    },
+    {
+      "id": "2026-09-17-mimic-code-reasoning",
+      "decision": "selected",
+      "title": "MIMIC synthesizes code-shaped reasoning data for language models",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "reasoning",
+        "synthetic-data",
+        "training"
+      ],
+      "legacy_tags": [
+        "code"
+      ],
+      "event_date": null,
+      "summary": "The Imitation Game explores whether program-like reasoning traces can teach models more structured problem solving without relying on a single fixed solver.",
+      "what_changed": "MIMIC generates code-centric reasoning examples so models can learn more explicit, program-like intermediate structure.",
+      "why_it_matters": "For training teams, the interesting variable is becoming **the structure of synthetic reasoning supervision**, not only its volume. This is a preprint, so the reported gains should be treated as preliminary.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2609.16076",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.16076",
+          "role": "primary",
+          "label": "The Imitation Game: When LLMs Learn to Reason Like Programs via Code-Centric Reasoning Data Synthesis"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "mimic-code-reasoning",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-17-mimic-code-reasoning.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-17-github-rust-migration",
+      "2026-09-17-lora-kv-reuse",
+      "2026-09-17-mimic-code-reasoning"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-17-github-rust-migration"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "editorial_date": "2026-09-20",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-20-agentcore-runtime-v2",
+      "decision": "selected",
+      "title": "AWS AgentCore Runtime V2 makes session isolation cheaper to operate",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "agent-runtime"
+      ],
+      "legacy_tags": [
+        "aws",
+        "isolation",
+        "serverless"
+      ],
+      "event_date": null,
+      "summary": "The next-generation runtime adds elastic memory reclamation and snapshot-based starts while retaining hardware-enforced session isolation and scale-to-zero behavior.",
+      "what_changed": "AgentCore Runtime V2 allocates memory on demand and reclaims unused memory during a session rather than holding the peak allocation until the end. AWS also snapshots prepared environments to keep cold starts consistent across container sizes.",
+      "why_it_matters": "Long-lived agents need isolation without forcing teams to permanently reserve peak resources. Runtime economics are becoming part of agent architecture.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/",
+          "role": "primary",
+          "label": "AWS — The new AgentCore Runtime is now available"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "agentcore-runtime-v2",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-20-agentcore-runtime-v2.md"
+    },
+    {
+      "id": "2026-09-20-aws-agent-registry",
+      "decision": "selected",
+      "title": "AWS Agent Registry gives enterprises a catalog for agents, tools, skills, and MCP servers",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "governance",
+        "mcp"
+      ],
+      "legacy_tags": [
+        "aws",
+        "registry"
+      ],
+      "event_date": null,
+      "summary": "The generally available registry adds organization-wide discovery, governance, audit trails, infrastructure-as-code support, and automatic resource detection.",
+      "what_changed": "AWS Agent Registry provides a private catalog for agents, tools, skills, MCP servers, and custom resources, with semantic search, approvals, CloudTrail audit trails, cross-account sharing, and automatic discovery of AgentCore resources.",
+      "why_it_matters": "Once an organization has hundreds of agent capabilities, discovery and ownership become platform problems. A governed registry reduces duplicate tooling and gives security teams a place to reason about what exists.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-agent-registry-generally-available/",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-agent-registry-generally-available/",
+          "role": "primary",
+          "label": "AWS — Agent Registry is now generally available"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "aws-agent-registry",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-20-aws-agent-registry.md"
+    },
+    {
+      "id": "2026-09-20-memgovern",
+      "decision": "selected",
+      "title": "MemGovern turns historical GitHub experience into reusable agent memory",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "memory"
+      ],
+      "legacy_tags": [
+        "github",
+        "retrieval"
+      ],
+      "event_date": null,
+      "summary": "The framework converts noisy issue-tracking history into governed experience cards and retrieves them for coding agents instead of forcing every bug fix to start from scratch.",
+      "what_changed": "MemGovern transforms raw GitHub issue history into structured experience cards that coding agents can retrieve and reuse.",
+      "why_it_matters": "A mature coding agent should not rediscover every debugging lesson from zero. The hard part is governing memory quality so historical experience helps rather than pollutes future reasoning.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2601.06789",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2601.06789",
+          "role": "primary",
+          "label": "MemGovern: Enhancing Code Agents through Learning from Governed Human Experiences"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "memgovern",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-20-memgovern.md"
+    },
+    {
+      "id": "2026-09-20-plugin4shell",
+      "decision": "selected",
+      "title": "Plugin4Shell exposes a supply-chain gap across major coding agents",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "security"
+      ],
+      "legacy_tags": [
+        "supply-chain",
+        "plugins"
+      ],
+      "event_date": null,
+      "summary": "A plugin SHA-pinning bypass reportedly allowed malicious repository content to replace reviewed plugin code and execute through background updates.",
+      "what_changed": "Plugin4Shell targets the distribution layer underneath coding agents rather than the model itself. The reported flaw lets an attacker controlling a plugin repository defeat the meaning of a pinned commit so updated code can differ from the reviewed code.",
+      "why_it_matters": "Agent plugin ecosystems need **content verification after checkout**, not merely a trusted-looking reference. Auto-update plus developer-level privileges turns a package-integrity mistake into a serious local execution boundary.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://blog.neticslabs.com/plugin4shell-zero-click-coding-agent-supply-chain/",
+      "sources": [
+        {
+          "url": "https://blog.neticslabs.com/plugin4shell-zero-click-coding-agent-supply-chain/",
+          "role": "primary",
+          "label": "Netics Labs — Plugin4Shell: When a Trusted Plugin Is Not the Code"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "plugin4shell",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-20-plugin4shell.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-20-agentcore-runtime-v2",
+      "2026-09-20-aws-agent-registry",
+      "2026-09-20-memgovern",
+      "2026-09-20-plugin4shell"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-20-plugin4shell"
+  }
+}

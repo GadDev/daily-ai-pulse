@@ -1,0 +1,205 @@
+{
+  "editorial_date": "2026-09-25",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "basis": "published story files and daily issue manifests",
+    "limits": "Selection is inferred from publication. Original candidate scores, event dates, research decisions for unpublished items, and publication-time verification records were not retained."
+  },
+  "candidates": [
+    {
+      "id": "2026-09-25-android-byo-agent",
+      "decision": "selected",
+      "title": "Android Studio opens its tooling to external coding agents",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents"
+      ],
+      "legacy_tags": [
+        "android-studio",
+        "interoperability",
+        "developer-tools"
+      ],
+      "event_date": null,
+      "summary": "Google's Bring Your Own Agent feature lets Claude Agent, Codex, Antigravity, and custom enterprise harnesses use Android Studio's optimized tools and context.",
+      "what_changed": "Android Studio's Bring Your Own Agent feature allows external coding agents—including Claude Agent, Codex, and Antigravity—to operate through Android Studio's optimized infrastructure and tools.",
+      "why_it_matters": "IDE vendors are moving from bundling one assistant toward becoming **agent execution platforms**. That reduces lock-in and lets teams keep their preferred harness while reusing IDE-native Android context and tooling.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://android-developers.googleblog.com/2026/09/build-your-way-use-any-ai-agent-in-android-studio.html",
+      "sources": [
+        {
+          "url": "https://android-developers.googleblog.com/2026/09/build-your-way-use-any-ai-agent-in-android-studio.html",
+          "role": "primary",
+          "label": "Android Developers — Use any AI agent of your choice in Android Studio"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "android-byo-agent",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-25-android-byo-agent.md"
+    },
+    {
+      "id": "2026-09-25-api-gateway-mcp",
+      "decision": "selected",
+      "title": "Google Cloud API Gateway can expose existing REST APIs as MCP tools",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp"
+      ],
+      "legacy_tags": [
+        "api-gateway",
+        "openapi",
+        "google-cloud"
+      ],
+      "event_date": null,
+      "summary": "Teams can annotate an OpenAPI spec and let API Gateway act as a remote MCP server without standing up a separate agent-facing service.",
+      "what_changed": "Google Cloud API Gateway can now act as a remote MCP server. Existing REST operations become agent-callable tools by annotating the OpenAPI definition instead of recreating routing, authentication, and quota logic in a new MCP service.",
+      "why_it_matters": "MCP adoption gets much easier when **existing API governance becomes the agent boundary**. Enterprises can expose capabilities without duplicating infrastructure and security policy.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://developers.googleblog.com/en/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway/",
+      "sources": [
+        {
+          "url": "https://developers.googleblog.com/en/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway/",
+          "role": "primary",
+          "label": "Google Developers — Turn your REST APIs into MCP tools with API Gateway"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "api-gateway-mcp",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-25-api-gateway-mcp.md"
+    },
+    {
+      "id": "2026-09-25-self-evolving-coding-agents",
+      "decision": "selected",
+      "title": "A survey maps how coding agents can evolve from their own execution history",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "memory"
+      ],
+      "legacy_tags": [
+        "self-evolving",
+        "survey"
+      ],
+      "event_date": null,
+      "summary": "The literature now spans agents that update memory, skills, tools, framework logic, models, or collaboration structures using executable feedback from prior coding work.",
+      "what_changed": "A new survey organizes work on coding agents that change themselves from prior interactions: updating memory, skills, tools, framework behavior, models, or collaboration structures.",
+      "why_it_matters": "Self-improvement needs the same disciplines as deployment: **reversibility, evaluation, provenance, and controlled promotion of learned behavior**.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://arxiv.org/abs/2608.03392",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2608.03392",
+          "role": "primary",
+          "label": "Self-Evolving Coding Agents"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "self-evolving-coding-agents",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-25-self-evolving-coding-agents.md"
+    },
+    {
+      "id": "2026-09-25-taskflow-fuzzing-agent",
+      "decision": "selected",
+      "title": "GitHub Security Lab builds an autonomous fuzzing Taskflow Agent",
+      "desk": "practice",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agents",
+        "security"
+      ],
+      "legacy_tags": [
+        "fuzzing",
+        "github"
+      ],
+      "event_date": null,
+      "summary": "The fuzzing taskflow lets an agent inspect coverage, write harnesses, execute fuzzers, triage crashes, and iterate instead of stopping at one generated test.",
+      "what_changed": "GitHub Security Lab's fuzzing Taskflow uses an agent to handle work that normally keeps continuous fuzzing human-intensive: inspect coverage gaps, build new harnesses, run fuzzers, analyze crashes, and iterate.",
+      "why_it_matters": "Security automation becomes much more valuable when the agent owns a **verified loop**, not just code generation. Fuzzer coverage and crashes provide concrete external signals the agent cannot talk its way around.",
+      "engineer_takeaway": null,
+      "primary_source_url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+      "sources": [
+        {
+          "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+          "role": "primary",
+          "label": "GitHub Security Lab — AI-powered fuzzing with the Taskflow Agent"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Copied from the published story metadata; original research rationale was not retained."
+      },
+      "editorial_score": null,
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "taskflow-fuzzing-agent",
+        "previous_coverage": null,
+        "material_delta": null
+      },
+      "story_path": "src/content/stories/2026-09-25-taskflow-fuzzing-agent.md"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [
+      "2026-09-25-android-byo-agent",
+      "2026-09-25-api-gateway-mcp",
+      "2026-09-25-self-evolving-coding-agents",
+      "2026-09-25-taskflow-fuzzing-agent"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-09-25-android-byo-agent"
+  }
+}
