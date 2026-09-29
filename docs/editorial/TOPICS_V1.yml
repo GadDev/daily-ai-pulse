@@ -1,0 +1,285 @@
+version: "1.0"
+status: canonical
+
+# Daily AI Pulse controlled topic vocabulary.
+#
+# Rules:
+# - story topics MUST use one of these slugs unless the vocabulary is intentionally updated;
+# - products, companies, labs, and organizations belong in `entities`, not `topics`;
+# - avoid aliases that create duplicate concepts;
+# - prefer stable engineering concepts over temporary product marketing terms.
+
+topics:
+  agents:
+    label: Agents
+    description: General agent systems, architectures, and behavior.
+
+  coding-agents:
+    label: Coding Agents
+    parent: agents
+    description: Agents that plan, edit, test, review, or operate on software repositories.
+
+  agent-runtime:
+    label: Agent Runtime
+    parent: agents
+    description: Runtime architecture, execution environments, lifecycle, and long-running agent systems.
+
+  agent-security:
+    label: Agent Security
+    parent: agents
+    description: Threat models, trust boundaries, injection, containment, and safety controls for agents.
+
+  multi-agent:
+    label: Multi-Agent Systems
+    parent: agents
+    description: Coordination, communication, competition, and orchestration across multiple agents.
+
+  tool-calling:
+    label: Tool Calling
+    parent: agents
+    description: Model or agent invocation of external functions, APIs, and tools.
+
+  mcp:
+    label: MCP
+    description: Model Context Protocol clients, servers, tooling, security, and ecosystem changes.
+
+  a2a:
+    label: A2A
+    description: Agent-to-agent protocols, interoperability, and communication patterns.
+
+  context-engineering:
+    label: Context Engineering
+    description: Construction, selection, compression, retrieval, and management of model context.
+
+  context-windows:
+    label: Context Windows
+    parent: context-engineering
+    description: Context-length limits, scaling, long-context behavior, and related architecture.
+
+  memory:
+    label: Memory
+    description: Persistent, episodic, semantic, or working-memory mechanisms for AI systems.
+
+  rag:
+    label: RAG
+    description: Retrieval-augmented generation architectures, retrieval quality, indexing, and grounding.
+
+  reasoning:
+    label: Reasoning
+    description: Reasoning models, test-time compute, planning, deliberation, and reasoning behavior.
+
+  evals:
+    label: Evals
+    description: Evaluation methodology, task success, trajectory evaluation, safety evals, and quality measurement.
+
+  benchmarks:
+    label: Benchmarks
+    parent: evals
+    description: Benchmark design, results, limitations, contamination, and interpretation.
+
+  observability:
+    label: Observability
+    description: Tracing, monitoring, telemetry, debugging, and inspection of AI systems.
+
+  verification:
+    label: Verification
+    description: Review, tests, validators, cross-checking, and correctness loops for AI-generated work.
+
+  orchestration:
+    label: Orchestration
+    description: Coordination of models, agents, tools, workflows, queues, and execution steps.
+
+  inference:
+    label: Inference
+    description: Model execution, decoding, latency, throughput, caching, and inference optimization.
+
+  serving:
+    label: Serving
+    parent: inference
+    description: Production model serving stacks, routing, batching, scheduling, and deployment patterns.
+
+  training:
+    label: Training
+    description: Pretraining, post-training, optimization, datasets, and training-system changes.
+
+  fine-tuning:
+    label: Fine-Tuning
+    parent: training
+    description: Supervised fine-tuning, preference tuning, adapters, and domain adaptation.
+
+  synthetic-data:
+    label: Synthetic Data
+    parent: training
+    description: AI-generated training/evaluation data, distillation data, and synthetic dataset pipelines.
+
+  reinforcement-learning:
+    label: Reinforcement Learning
+    parent: training
+    description: RL methods, reward design, RLHF/RLAIF-style techniques, and agent learning.
+
+  interpretability:
+    label: Interpretability
+    description: Mechanistic interpretability, feature analysis, model internals, and behavior explanation.
+
+  alignment:
+    label: Alignment
+    description: Alignment methods, preference optimization, behavioral constraints, and value specification.
+
+  safety:
+    label: AI Safety
+    description: Safety research, misuse resistance, robustness, dangerous capability evaluation, and safeguards.
+
+  security:
+    label: Security
+    description: General AI application security, vulnerabilities, abuse paths, and defensive engineering.
+
+  sandboxing:
+    label: Sandboxing
+    parent: security
+    description: Isolation of agent/model execution from filesystem, network, host, or external resources.
+
+  permissions:
+    label: Permissions
+    parent: security
+    description: Capability controls, approvals, scopes, credentials, and least-privilege policy.
+
+  prompt-injection:
+    label: Prompt Injection
+    parent: security
+    description: Direct and indirect prompt injection, instruction conflicts, and injection defenses.
+
+  open-models:
+    label: Open Models
+    description: Open-weight/open-source model releases, ecosystems, licensing, and deployment implications.
+
+  multimodal:
+    label: Multimodal
+    description: Models and systems combining text, image, audio, video, or other modalities.
+
+  computer-use:
+    label: Computer Use
+    parent: agents
+    description: Agents that perceive and interact with graphical computer interfaces.
+
+  voice:
+    label: Voice
+    parent: multimodal
+    description: Speech generation, speech understanding, real-time voice systems, and voice agents.
+
+  video:
+    label: Video
+    parent: multimodal
+    description: Video generation, understanding, editing, and multimodal video systems.
+
+  robotics:
+    label: Robotics
+    description: Embodied AI, robot learning, control, world models, and agentic robotics.
+
+  ide:
+    label: IDE
+    description: AI-assisted integrated development environments and editor-native tooling.
+
+  cli:
+    label: CLI
+    description: Command-line AI tools, coding agents, and terminal-native workflows.
+
+  sdk:
+    label: SDK
+    description: Software development kits for models, agents, inference, tools, or AI platforms.
+
+  frameworks:
+    label: Frameworks
+    description: Libraries and frameworks for building AI applications, agents, serving, or evaluation systems.
+
+  developer-experience:
+    label: Developer Experience
+    description: AI tooling usability, setup, ergonomics, iteration speed, and developer workflow quality.
+
+  repo-instructions:
+    label: Repository Instructions
+    parent: coding-agents
+    description: AGENTS.md, CLAUDE.md, repository policies, system instructions, and coding-agent guidance.
+
+  hooks:
+    label: Hooks
+    parent: coding-agents
+    description: Lifecycle hooks, callbacks, automation triggers, and guardrails around coding agents.
+
+  skills:
+    label: Skills
+    parent: agents
+    description: Reusable agent capabilities, packaged instructions, tools, and skill systems.
+
+  ci:
+    label: CI
+    description: Continuous integration, automated checks, testing, and agent integration into CI pipelines.
+
+  infrastructure:
+    label: Infrastructure
+    description: Compute, networking, storage, schedulers, accelerators, clusters, and platform infrastructure.
+
+  gpu:
+    label: GPU
+    parent: infrastructure
+    description: GPU hardware, scheduling, utilization, availability, and AI workload economics.
+
+  accelerators:
+    label: Accelerators
+    parent: infrastructure
+    description: TPUs, NPUs, custom inference/training chips, and non-GPU AI accelerators.
+
+  performance:
+    label: Performance
+    description: Latency, throughput, efficiency, quality/performance trade-offs, and optimization.
+
+  cost:
+    label: Cost
+    description: Token economics, infrastructure cost, inference/training expense, and cost controls.
+
+  pricing:
+    label: Pricing
+    description: API, platform, model, seat, compute, or usage pricing changes that affect engineering decisions.
+
+  api:
+    label: APIs
+    description: Model and platform API changes, contracts, limits, compatibility, and developer-facing interfaces.
+
+  model-routing:
+    label: Model Routing
+    description: Selection and routing among models by cost, capability, latency, task, or policy.
+
+  model-releases:
+    label: Model Releases
+    description: Major new model availability and material model-version changes.
+
+  embeddings:
+    label: Embeddings
+    description: Embedding models, vector representations, retrieval embeddings, and related infrastructure.
+
+  data:
+    label: Data
+    description: Datasets, data quality, governance, labeling, pipelines, and data-centric AI engineering.
+
+  governance:
+    label: Governance
+    description: Organizational controls, policy, compliance, risk management, and responsible AI operations.
+
+  regulation:
+    label: Regulation
+    description: Laws, regulation, standards, and regulatory changes with concrete engineering consequences.
+
+  enterprise-adoption:
+    label: Enterprise Adoption
+    description: Organization-scale rollout, operating models, procurement, usage, and adoption patterns.
+
+  productivity:
+    label: Productivity
+    description: Measured or claimed impact of AI on developer/team output, cycle time, quality, or throughput.
+
+  collaboration:
+    label: Collaboration
+    description: Human-AI or team-level collaboration patterns, review, handoff, and coordination.
+
+  open-source:
+    label: Open Source
+    description: Open-source AI projects, ecosystems, governance, maintainers, and community-driven engineering.
