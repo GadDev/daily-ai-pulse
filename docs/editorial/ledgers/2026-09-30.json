@@ -14,62 +14,22 @@
       "entities": ["OpenAI", "GPT-6.1 Sol", "GPT-6 Sol", "GPT-6 Astra"],
       "event_date": "2026-09-29",
       "source_publication_date": "2026-09-29",
-      "summary": "OpenAI released GPT-6.1 Sol as an upgrade to GPT-6 Sol, reporting materially better agentic coding, computer-use, professional-work, scientific-workflow, and factuality results without increasing standard Sol token prices.",
-      "what_changed": "The new gpt-6.1-sol model keeps standard API pricing at $2 per million input tokens and $10 per million output tokens while cutting cached input to $0.10 per million. OpenAI reports that it approaches GPT-6 Astra on several agentic evaluations at materially lower cost per task.",
-      "why_it_matters": "For long-running agents, list token price alone is becoming an increasingly poor model-selection metric. Cache reuse, reasoning effort, task success, tool execution, and total cost per accepted task can change the practical ranking between models.",
-      "engineer_takeaway": "Benchmark GPT-6.1 Sol against your current model on complete tasks, recording success rate, wall-clock time, reasoning effort, cached versus uncached tokens, tool calls, retries, and cost per accepted result.",
+      "summary": "OpenAI released GPT-6.1 Sol as an upgrade to GPT-6 Sol, reporting materially better agentic results without increasing standard Sol token prices.",
+      "what_changed": "The gpt-6.1-sol model keeps standard API pricing at $2 per million input tokens and $10 per million output tokens while cutting cached input to $0.10 per million. OpenAI reports materially better coding, computer-use, professional-work, and factuality results.",
+      "why_it_matters": "For long-running agents, list token price alone is an increasingly poor model-selection metric. Cache reuse, reasoning effort, task success, tool execution, retries, and total cost per accepted task can change the practical ranking between models.",
+      "engineer_takeaway": "Benchmark GPT-6.1 Sol against the incumbent model on complete tasks and record success, latency, reasoning effort, cached versus uncached tokens, tool calls, retries, human correction, and cost per accepted result.",
       "prerequisites": ["LLM API pricing", "coding agents", "reasoning effort", "prompt caching"],
       "primary_source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
       "sources": [
-        {
-          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
-          "canonical_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
-          "publisher": "OpenAI",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-09-29"
-        },
-        {
-          "url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
-          "canonical_url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
-          "publisher": "TechCrunch",
-          "source_type": "reporting",
-          "role": "independent",
-          "publication_date": "2026-09-29"
-        }
+        {"url": "https://openai.com/index/introducing-gpt-6-1-sol/", "canonical_url": "https://openai.com/index/introducing-gpt-6-1-sol/", "publisher": "OpenAI", "source_type": "official", "role": "primary", "publication_date": "2026-09-29"},
+        {"url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/", "canonical_url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/", "publisher": "TechCrunch", "source_type": "reporting", "role": "independent", "publication_date": "2026-09-29"}
       ],
-      "evidence": {
-        "level": "primary",
-        "rationale": "Release, pricing, availability, benchmark settings, and alignment claims are documented by OpenAI. Independent reporting corroborates the release; benchmark improvements are not treated as independently reproduced.",
-        "independent_validation": "Release independently reported; performance claims remain vendor-reported.",
-        "claim_scope": "All benchmark, factuality, safety, and cost-per-task comparisons are OpenAI-reported unless explicitly attributed otherwise."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "The release materially changes the price/performance trade-off for coding, computer-use, and professional agent workloads."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 4,
-        "novelty": 4,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 89
-      },
-      "learning_gap": {
-        "exists": false,
-        "concepts": []
-      },
-      "related_content": {
-        "previous_story_ids": ["2026-09-24-gpt-6-sol-luna"]
-      },
-      "deduplication": {
-        "status": "material-update",
-        "candidate_key": "https://openai.com/index/introducing-gpt-6-1-sol/|GPT-6.1 Sol|new model price-performance and cached-input change",
-        "canonical_event": "OpenAI releases GPT-6.1 Sol",
-        "previous_coverage": "2026-09-24-gpt-6-sol-luna",
-        "material_delta": "A distinct 6.1 model release adds new benchmark results, a halved cached-input price versus GPT-6 Sol, new API/model availability, and updated safety evaluations."
-      }
+      "evidence": {"level": "primary", "rationale": "Release, pricing, availability, benchmark settings, and alignment claims are documented by OpenAI. Independent reporting corroborates the release; benchmark improvements are not treated as independently reproduced.", "independent_validation": "Release independently reported; performance claims remain vendor-reported.", "claim_scope": "All benchmark, factuality, safety, and cost-per-task comparisons are OpenAI-reported unless explicitly attributed otherwise."},
+      "signal": {"level": "high", "rationale": "The release materially changes the price/performance trade-off for coding, computer-use, and professional agent workloads."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 89},
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": ["2026-09-24-gpt-6-sol-luna"]},
+      "deduplication": {"status": "material-update", "publication_status": "material-update-confirmed", "candidate_key": "https://openai.com/index/introducing-gpt-6-1-sol/|GPT-6.1 Sol|new model price-performance and cached-input change", "canonical_event": "OpenAI releases GPT-6.1 Sol", "previous_coverage": "2026-09-24-gpt-6-sol-luna", "material_delta": "A distinct 6.1 release adds new benchmark results, halved cached-input price versus GPT-6 Sol, new API/model availability, and updated safety evaluations."}
     },
     {
       "id": "2026-09-30-openai-dots",
@@ -82,62 +42,22 @@
       "entities": ["OpenAI", "Dots", "GPT-6 Astra", "ChatGPT Work", "Codex"],
       "event_date": "2026-09-29",
       "source_publication_date": "2026-09-29",
-      "summary": "OpenAI launched Dots, persistent agents with their own cloud computers that can continue projects in the background, use connected apps, and escalate actions through approval and permission rules.",
-      "what_changed": "Instead of requiring a user to keep driving a chat or task session, a dot can maintain several ongoing projects, use a dedicated cloud computer and browser, perform read-only proactive research in connected apps, and request approval for governed actions.",
-      "why_it_matters": "The product shifts agent design from short-lived task execution toward persistent delegated work, making permissions, background monitoring, state continuity, interruption, and review surfaces core engineering concerns rather than optional UX details.",
-      "engineer_takeaway": "When evaluating persistent agents, inspect the control plane as closely as the model: default permissions, background-action limits, credential isolation, human approval rules, audit visibility, pause/stop behavior, and how persistent state is scoped across projects.",
+      "summary": "OpenAI launched Dots, persistent agents with their own cloud computers that can continue projects in the background, use connected apps, and escalate governed actions through approval and permission rules.",
+      "what_changed": "A dot can maintain several ongoing projects, use a dedicated cloud computer and browser, perform read-only proactive research in connected apps, and request approval for governed actions without requiring a continuously open user session.",
+      "why_it_matters": "Persistent delegated work makes permissions, background monitoring, state continuity, interruption, and review surfaces core engineering concerns rather than optional UX details.",
+      "engineer_takeaway": "Inspect default permissions, background-action limits, credential isolation, approval rules, audit visibility, pause/stop behavior, and how persistent state is scoped across projects.",
       "prerequisites": ["AI agents", "tool permissions", "computer use"],
       "primary_source_url": "https://openai.com/index/introducing-dots/",
       "sources": [
-        {
-          "url": "https://openai.com/index/introducing-dots/",
-          "canonical_url": "https://openai.com/index/introducing-dots/",
-          "publisher": "OpenAI",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-09-29"
-        },
-        {
-          "url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/",
-          "canonical_url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/",
-          "publisher": "Reuters",
-          "source_type": "reporting",
-          "role": "independent",
-          "publication_date": "2026-09-29"
-        }
+        {"url": "https://openai.com/index/introducing-dots/", "canonical_url": "https://openai.com/index/introducing-dots/", "publisher": "OpenAI", "source_type": "official", "role": "primary", "publication_date": "2026-09-29"},
+        {"url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/", "canonical_url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/", "publisher": "Reuters", "source_type": "reporting", "role": "independent", "publication_date": "2026-09-29"}
       ],
-      "evidence": {
-        "level": "primary",
-        "rationale": "OpenAI documents the product behavior, availability, permission model, cloud-computer boundary, and proactive-research restrictions; Reuters independently corroborates the launch and broad product positioning.",
-        "independent_validation": "Launch corroborated by Reuters; safety and control effectiveness have not been independently reproduced in this run.",
-        "claim_scope": "Treat safeguard effectiveness and autonomous reliability as OpenAI-reported design claims, not independently proven guarantees."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "Persistent background agents change the operational and permission model engineers must reason about when delegating multi-step work."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 4,
-        "novelty": 5,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 93
-      },
-      "learning_gap": {
-        "exists": false,
-        "concepts": []
-      },
-      "related_content": {
-        "previous_story_ids": []
-      },
-      "deduplication": {
-        "status": "new",
-        "candidate_key": "https://openai.com/index/introducing-dots/|OpenAI Dots|persistent always-on cloud-computer agents",
-        "canonical_event": "OpenAI launches Dots",
-        "previous_coverage": null,
-        "material_delta": "New persistent-agent product and control model."
-      }
+      "evidence": {"level": "primary", "rationale": "OpenAI documents product behavior, availability, permission model, cloud-computer boundary, and proactive-research restrictions; Reuters independently corroborates the launch and broad product model.", "independent_validation": "Launch corroborated by Reuters; safeguard effectiveness and long-horizon reliability were not independently reproduced in this run.", "claim_scope": "Treat safeguard effectiveness and autonomous reliability as OpenAI-reported design claims, not independently proven guarantees."},
+      "signal": {"level": "high", "rationale": "Persistent background agents change the operational and permission model engineers must reason about when delegating multi-step work."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 93},
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://openai.com/index/introducing-dots/|OpenAI Dots|persistent always-on cloud-computer agents", "canonical_event": "OpenAI launches Dots", "previous_coverage": null, "material_delta": "New persistent-agent product and control model."}
     },
     {
       "id": "2026-09-30-hcompany-holo4",
@@ -150,70 +70,22 @@
       "entities": ["H Company", "Holo4", "Holo4-27B", "Holo4-35B-A3B", "Hugging Face"],
       "event_date": "2026-09-28",
       "source_publication_date": "2026-09-29",
-      "summary": "H Company released Holo4, a family of computer-use vision-language models designed to act through GUIs, code, MCP, and APIs, with downloadable model weights and published evaluation trajectories.",
-      "what_changed": "The release includes a 27B dense model under CC BY-NC 4.0 and a 35B-A3B mixture-of-experts variant intended for commercial self-hosting under Apache 2.0. H Company also publishes an agent harness, trajectories, and vendor benchmark results across OSWorld and automation tasks.",
-      "why_it_matters": "Open-weight computer-use models are moving from screen-only automation toward a unified action model that can choose between visual interaction, code execution, and structured tools, giving engineers another option for hybrid local or self-hosted agent stacks.",
-      "engineer_takeaway": "Evaluate the model and harness together. Compare held-out task success, trajectory quality, action recovery, latency, hardware footprint, and license constraints; do not treat cross-vendor OSWorld scores as directly comparable when harnesses and effort settings differ.",
+      "summary": "H Company released Holo4, a family of computer-use vision-language models designed to act through GUIs, code, MCP, and APIs, with downloadable weights and evaluation trajectories.",
+      "what_changed": "The release includes a 27B dense model under CC BY-NC 4.0 and a 35B-A3B mixture-of-experts variant described as Apache 2.0, plus an agent harness, trajectories, and vendor benchmark results.",
+      "why_it_matters": "Open-weight computer-use models are moving toward a unified action policy that can choose between visual interaction, code execution, and structured tools.",
+      "engineer_takeaway": "Evaluate model and harness together, including held-out task success, trajectory quality, recovery, latency, hardware footprint, and license constraints; cross-vendor OSWorld scores are not directly interchangeable across harnesses and settings.",
       "prerequisites": ["vision-language models", "computer-use agents", "tool calling", "model licensing"],
       "primary_source_url": "https://huggingface.co/blog/Hcompany/holo4",
       "sources": [
-        {
-          "url": "https://huggingface.co/blog/Hcompany/holo4",
-          "canonical_url": "https://huggingface.co/blog/Hcompany/holo4",
-          "publisher": "H Company on Hugging Face",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-09-29"
-        },
-        {
-          "url": "https://huggingface.co/Hcompany/Holo4-27B",
-          "canonical_url": "https://huggingface.co/Hcompany/Holo4-27B",
-          "publisher": "H Company on Hugging Face",
-          "source_type": "repository",
-          "role": "supporting",
-          "publication_date": "2026-09-29"
-        },
-        {
-          "url": "https://www.marktechpost.com/2026/09/29/h-company-releases-holo4-open-weight-computer-use-models-that-click-code-and-call-tools-across-desktop-web-android-and-apis/",
-          "canonical_url": "https://www.marktechpost.com/2026/09/29/h-company-releases-holo4-open-weight-computer-use-models-that-click-code-and-call-tools-across-desktop-web-android-and-apis/",
-          "publisher": "MarkTechPost",
-          "source_type": "reporting",
-          "role": "independent",
-          "publication_date": "2026-09-29"
-        }
+        {"url": "https://huggingface.co/blog/Hcompany/holo4", "canonical_url": "https://huggingface.co/blog/Hcompany/holo4", "publisher": "H Company on Hugging Face", "source_type": "official", "role": "primary", "publication_date": "2026-09-29"},
+        {"url": "https://huggingface.co/Hcompany/Holo4-27B", "canonical_url": "https://huggingface.co/Hcompany/Holo4-27B", "publisher": "H Company on Hugging Face", "source_type": "repository", "role": "supporting", "publication_date": "2026-09-29"}
       ],
-      "evidence": {
-        "level": "primary",
-        "rationale": "Weights, model cards, licenses, harness behavior, and trajectories are publicly inspectable. Benchmark scores and cost comparisons remain primarily H Company-reported.",
-        "independent_validation": "Release and license details are externally inspectable; no independent benchmark reproduction was established in this run.",
-        "claim_scope": "Cross-vendor benchmark comparisons are directional because harnesses, subsets, and effort settings differ."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "A commercially self-hostable variant combines computer use, code, MCP, and API actions in one open-weight agent model family."
-      },
-      "editorial_score": {
-        "significance": 4,
-        "evidence": 4,
-        "novelty": 4,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 83
-      },
-      "learning_gap": {
-        "exists": false,
-        "concepts": []
-      },
-      "related_content": {
-        "previous_story_ids": []
-      },
-      "deduplication": {
-        "status": "new",
-        "candidate_key": "https://huggingface.co/blog/Hcompany/holo4|Holo4|open-weight unified GUI code MCP API agent model",
-        "canonical_event": "H Company releases Holo4",
-        "previous_coverage": null,
-        "material_delta": "New open-weight Holo4 family, harness, trajectories, and hybrid action interfaces."
-      }
+      "evidence": {"level": "primary", "rationale": "Weights, model cards, licenses, harness behavior, and trajectories are publicly inspectable. Benchmark scores and cost comparisons remain primarily H Company-reported.", "independent_validation": "Release and license details are externally inspectable; no independent benchmark reproduction was established in this run.", "claim_scope": "Cross-vendor benchmark comparisons are directional because harnesses, subsets, and effort settings differ."},
+      "signal": {"level": "high", "rationale": "A commercially self-hostable variant combines computer use, code, MCP, and API actions in one open-weight agent model family."},
+      "editorial_score": {"significance": 4, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 83},
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://huggingface.co/blog/Hcompany/holo4|Holo4|open-weight unified GUI code MCP API agent model", "canonical_event": "H Company releases Holo4", "previous_coverage": null, "material_delta": "New open-weight Holo4 family, harness, trajectories, and hybrid action interfaces."}
     }
   ],
   "watchlist": [
@@ -228,36 +100,12 @@
       "entities": ["OpenAI", "GPT-6.1 Astra"],
       "event_date": "2026-09-28",
       "summary": "Multiple major outlets report that OpenAI delayed or shelved a planned GPT-6.1 Astra release after internal safety concerns, but this run still did not locate a canonical OpenAI disclosure or technical evaluation supporting the reported details.",
-      "evidence": {
-        "level": "preliminary",
-        "rationale": "Independent reporting is substantial, but the primary technical evidence required by the current decision engine remains unavailable."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "A frontier-model release stopped on agentic safety grounds would materially affect model governance and deployment practice if confirmed."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 3,
-        "novelty": 5,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 88
-      },
-      "sources": [
-        {
-          "url": "https://apnews.com/article/77b6b8888145869206996d7509d24256",
-          "publisher": "Associated Press",
-          "source_type": "reporting",
-          "role": "independent",
-          "publication_date": "2026-09-29"
-        }
-      ],
+      "evidence": {"level": "preliminary", "rationale": "Independent reporting is substantial, but the primary technical evidence required by the current decision engine remains unavailable."},
+      "signal": {"level": "high", "rationale": "A frontier-model release stopped on agentic safety grounds would materially affect model governance and deployment practice if confirmed."},
+      "editorial_score": {"significance": 5, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 88},
+      "sources": [{"url": "https://apnews.com/article/77b6b8888145869206996d7509d24256", "publisher": "Associated Press", "source_type": "reporting", "role": "independent", "publication_date": "2026-09-29"}],
       "reason": "primary-source-not-located",
-      "promote_when": [
-        "OpenAI publishes a canonical disclosure of the release decision",
-        "the underlying safety evaluation or system-card evidence becomes available"
-      ]
+      "promote_when": ["OpenAI publishes a canonical disclosure of the release decision", "the underlying safety evaluation or system-card evidence becomes available"]
     },
     {
       "id": "2026-09-30-mongodb-atlas-agent-engine",
@@ -269,82 +117,31 @@
       "topics": ["agents", "agent-runtime", "memory", "governance", "orchestration", "mcp", "a2a", "observability", "security"],
       "entities": ["MongoDB", "Atlas Agent Engine", "Voyage AI"],
       "event_date": "2026-09-29",
-      "summary": "MongoDB announced Atlas Agent Engine, a public-preview execution, memory, retrieval, and governance layer for agents, while its general preview policy explicitly says preview features are for evaluation and are not production-ready or covered by standard support and SLAs.",
-      "evidence": {
-        "level": "primary",
-        "rationale": "The launch and feature claims are first-party, while MongoDB's own preview policy creates an important deployment caveat that makes a production-readiness framing premature."
-      },
-      "signal": {
-        "level": "medium",
-        "rationale": "The architecture is relevant, but current public-preview status limits what engineers should infer about production readiness today."
-      },
-      "editorial_score": {
-        "significance": 4,
-        "evidence": 3,
-        "novelty": 4,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 78
-      },
+      "summary": "MongoDB announced Atlas Agent Engine as a public-preview execution, memory, retrieval, and governance layer while its preview policy says preview features are for evaluation and are not production-ready or covered by standard support and SLAs.",
+      "evidence": {"level": "primary", "rationale": "The launch and feature claims are first-party, while MongoDB's own preview policy creates a deployment caveat that makes production-readiness framing premature."},
+      "signal": {"level": "medium", "rationale": "The architecture is relevant, but current public-preview status limits what engineers should infer about production readiness today."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 78},
       "sources": [
-        {
-          "url": "https://www.prnewswire.com/news-releases/mongodb-launches-atlas-agent-engine-to-put-ai-agents-in-production-without-a-new-stack-302892753.html",
-          "publisher": "MongoDB via PR Newswire",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-09-29"
-        },
-        {
-          "url": "https://www.mongodb.com/docs/preview-features/",
-          "publisher": "MongoDB Documentation",
-          "source_type": "documentation",
-          "role": "supporting",
-          "publication_date": "2026-09-30"
-        }
+        {"url": "https://www.prnewswire.com/news-releases/mongodb-launches-atlas-agent-engine-to-put-ai-agents-in-production-without-a-new-stack-302892753.html", "publisher": "MongoDB via PR Newswire", "source_type": "official", "role": "primary", "publication_date": "2026-09-29"},
+        {"url": "https://www.mongodb.com/docs/preview-features/", "publisher": "MongoDB Documentation", "source_type": "documentation", "role": "supporting", "publication_date": "2026-09-30"}
       ],
       "reason": "public-preview-production-readiness-conflict",
-      "promote_when": [
-        "Agent Engine receives production-ready or generally available status",
-        "product-specific technical documentation clarifies runtime, governance, support, and failure semantics sufficiently for a precise engineering assessment"
-      ]
+      "promote_when": ["Agent Engine receives production-ready or generally available status", "product-specific documentation clarifies runtime, governance, support, and failure semantics sufficiently for a precise engineering assessment"]
     }
   ],
   "exclusions": [
-    {
-      "id": "2026-09-30-openai-devday-umbrella",
-      "decision": "rejected",
-      "subject": "OpenAI DevDay 2026 recap as one umbrella story",
-      "reason": "bundle-not-underlying-event",
-      "source": "https://openai.com/index/devday-2026-recap/"
-    },
-    {
-      "id": "2026-09-30-openai-agents-api-repeat",
-      "decision": "rejected",
-      "subject": "OpenAI Agents API managed runtime",
-      "reason": "duplicate-no-material-delta-for-standalone-story",
-      "previous_story_id": "2026-09-13-openai-agents-api",
-      "source": "https://openai.com/index/devday-2026-recap/"
-    },
-    {
-      "id": "2026-09-30-nvidia-open-agent-safety-repeat",
-      "decision": "rejected",
-      "subject": "NVIDIA Open Agent Safety Platform",
-      "reason": "duplicate-no-material-delta",
-      "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform"
-    },
-    {
-      "id": "2026-09-30-claude-sonnet-5-5-repeat",
-      "decision": "rejected",
-      "subject": "Claude Sonnet 5.5 release",
-      "reason": "duplicate-no-material-delta",
-      "previous_story_id": "2026-09-29-claude-sonnet-5-5"
-    }
+    {"id": "2026-09-30-openai-devday-umbrella", "decision": "rejected", "subject": "OpenAI DevDay 2026 recap as one umbrella story", "reason": "bundle-not-underlying-event", "source": "https://openai.com/index/devday-2026-recap/"},
+    {"id": "2026-09-30-openai-agents-api-repeat", "decision": "rejected", "subject": "OpenAI Agents API managed runtime", "reason": "duplicate-no-material-delta-for-standalone-story", "previous_story_id": "2026-09-13-openai-agents-api", "source": "https://openai.com/index/devday-2026-recap/"},
+    {"id": "2026-09-30-nvidia-open-agent-safety-repeat", "decision": "rejected", "subject": "NVIDIA Open Agent Safety Platform", "reason": "duplicate-no-material-delta", "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform"},
+    {"id": "2026-09-30-claude-sonnet-5-5-repeat", "decision": "rejected", "subject": "Claude Sonnet 5.5 release", "reason": "duplicate-no-material-delta", "previous_story_id": "2026-09-29-claude-sonnet-5-5"}
   ],
   "must_know_candidate_id": "2026-09-30-openai-dots",
   "editorial_opportunities": [],
   "publication": {
-    "story_ids": [],
-    "withheld_selected": [],
-    "must_know_story_id": null
+    "story_ids": ["2026-09-30-openai-dots", "2026-09-30-openai-gpt-6-1-sol"],
+    "withheld_selected": [
+      {"id": "2026-09-30-hcompany-holo4", "reason": "Illustration hard gate: the strongest generated candidate remains too close to the Visual Constitution's robot/machine prohibition. Research decision remains selected; publication is withheld until a clearly compliant illustration is produced."}
+    ],
+    "must_know_story_id": "2026-09-30-openai-dots"
   }
 }
