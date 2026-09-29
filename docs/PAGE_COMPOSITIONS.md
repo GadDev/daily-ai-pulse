@@ -7,8 +7,6 @@ deployed Astro pages. Use `DESIGN_SYSTEM.md` for shared visual rules and check
 the actual `src/pages/` implementation before treating either design document
 as shipped behavior.
 
-It recorded the page hierarchy for an earlier round of UI implementation.
-
 It translates the existing Pulse product, editorial, content, and visual direction into five concrete screen compositions:
 
 1. Home

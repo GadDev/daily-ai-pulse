@@ -111,7 +111,10 @@ publication_verification:
 ```
 
 `publication_verification` is added during PR preparation; it does not change
-`decision`. A watch record needs a reason and promotion condition; a rejected
+`decision`. The publication duplicate recheck is recorded separately as
+`deduplication.publication_status`: `new-confirmed`,
+`material-update-confirmed`, `duplicate-conflict`, or `dedup-unverified`.
+A watch record needs a reason and promotion condition; a rejected
 record needs a reason and, for a repeat, a previous story ID when known. See the
 [complete ledger example](ledgers/README.md#minimum-shape).
 

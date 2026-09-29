@@ -46,8 +46,10 @@ Corrections require a deliberate correction PR that explains what changed and wh
 `exclusions` contains rejected records. A candidate ID occurs in exactly one
 array. Research `decision` remains unchanged when publication verification
 withholds a selected story. The example IDs and source URLs below are
-illustrative; a published story ID needs a matching story file, image, review
-record, and daily manifest before the repository validators can pass.
+illustrative; a newly prepared story ID needs a matching story file, image,
+review record, and daily manifest before the repository validators can pass.
+Retrospective backfills have their own documented provenance and illustration
+review exception.
 
 ```json
 {

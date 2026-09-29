@@ -34,9 +34,8 @@ If a downstream step discovers conflicting evidence, it must report the conflict
 Purpose: discover potentially important developments.
 
 Trigger: the ChatGPT scheduler runs the research task at its configured cadence.
-Before classifying news, the task reads the current repository versions of
-`docs/EDITORIAL.md`, `EDITORIAL_SCHEMA_V1.md`, this decision engine, and
-`TOPICS_V1.yml`. These
+Before research, the task reads the current repository versions of
+`EDITORIAL_SCHEMA_V1.md`, this decision engine, and `TOPICS_V1.yml`. These
 Markdown/YAML files supply the policy and vocabulary; the task supplies the
 research. If a contract cannot be read, the task reports that limitation and
 does not claim verified classification or deduplication.

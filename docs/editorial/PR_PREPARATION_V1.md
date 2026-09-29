@@ -111,6 +111,9 @@ Publication adds a separate outcome:
 - `withheld-validation-failure`
 
 A candidate can therefore remain `decision: selected` while not appearing in the final story set.
+Record the publication duplicate recheck in
+`deduplication.publication_status` without changing the research
+`deduplication.status`.
 
 ## Drafting gate
 

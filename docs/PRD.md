@@ -138,7 +138,7 @@ A candidate story is evaluated on:
 
 The current editorial pipeline is:
 
-ChatGPT scheduled research → repository contracts → candidate ledger →
+ChatGPT scheduler → repository contracts → research → candidate ledger →
 publication re-verification and deduplication → draft stories and illustrations
 → one draft PR → human review → merge and deploy.
 
@@ -265,7 +265,7 @@ Import previous Daily AI Pulse editions, normalize stories into the new taxonomy
 
 The candidate-ledger, illustration, and PR-preparation contracts and validators
 exist. The ChatGPT scheduled task is the research trigger outside this
-repository. Historical editions can be backfilled with explicit provenance;
+repository. Historical editions have retrospective ledgers with explicit provenance;
 the end-to-end scheduled research to draft PR handoff still needs a reviewed
 live batch.
 

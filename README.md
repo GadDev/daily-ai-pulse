@@ -17,13 +17,13 @@ strength and limits of their evidence visible.
 
 | Stage | Trigger / owner | Output and authority |
 | --- | --- | --- |
-| 1. Discover | The **ChatGPT scheduler** triggers the Daily AI Pulse research task at its configured cadence. | The task searches for developments, then reads the current repository [editorial guide](docs/EDITORIAL.md), [editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [controlled topics](docs/editorial/TOPICS_V1.yml) before classifying them. |
-| 2. Decide | The scheduled task applies the decision engine and checks earlier stories and merged ledgers for repeats or material updates. | A structured **candidate ledger** records selected, watch, and rejected items, sources, evidence, signal, and deduplication reasoning. This is the authoritative handoff; see the [ledger contract](docs/editorial/ledgers/README.md). |
+| 1. Discover | The **ChatGPT scheduler** triggers the Daily AI Pulse research task at its configured cadence. | Before research, the task reads the current repository [editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [controlled topics](docs/editorial/TOPICS_V1.yml). It then searches for developments. |
+| 2. Decide | The scheduled task applies the decision engine and checks recent editions and canonical stories for repeats or material updates. | A structured **candidate ledger** records selected, watch, and rejected items, sources, evidence, signal, and deduplication reasoning. This is the authoritative handoff; see the [ledger contract](docs/editorial/ledgers/README.md). PR preparation also checks merged ledgers before drafting. |
 | 3. Prepare | An editor invokes the [PR preparation skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) with that ledger. | It re-verifies selected claims and novelty, drafts canonical stories, calls the [illustration skill](.agents/skills/daily-ai-pulse-illustration/SKILL.md), writes the daily manifest and persisted ledger, and opens **one draft PR** when checks pass. See the [PR contract](docs/editorial/PR_PREPARATION_V1.md). |
 | 4. Review and publish | A human reviews the draft PR. GitHub Actions checks the PR; a merge to `main` triggers deployment. | A static Astro site on GitHub Pages. Watch and rejected items stay in the ledger, not in the published edition. |
 
-The scheduled task is external to this repository. Its task configuration must
-point to the current contracts; repository CI cannot enforce what it reads.
+The scheduled task is external to this repository. Its current configuration
+names those three contracts; repository CI cannot enforce what it reads.
 GitHub Actions does not search for news, select stories, or start PR
 preparation. PR preparation does not silently change the
 ledger's decisions: if later verification conflicts with a selected item, it
@@ -33,7 +33,7 @@ classification or deduplication.
 
 **Current status:** the contracts, skills, and validators are in the repository.
 The end-to-end scheduled research → ledger → draft PR handoff still needs a
-reviewed live batch. Historical editions may use retrospective ledgers with
+reviewed live batch. Historical editions have retrospective ledgers with
 explicit provenance. Without a dated ledger, the editorial and illustration
 validators report a skip; a new publishing batch must run them against its
 explicit ledger path.
