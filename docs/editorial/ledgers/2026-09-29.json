@@ -10,8 +10,20 @@
       "desk": "engineering",
       "format": "deep-dive",
       "depth": "practitioner",
-      "topics": ["agents", "agent-security", "sandboxing", "permissions", "security", "infrastructure"],
-      "entities": ["NVIDIA", "OpenShell", "NVIDIA Sentry", "BlueField-4"],
+      "topics": [
+        "agents",
+        "agent-security",
+        "sandboxing",
+        "permissions",
+        "security",
+        "infrastructure"
+      ],
+      "entities": [
+        "NVIDIA",
+        "OpenShell",
+        "NVIDIA Sentry",
+        "BlueField-4"
+      ],
       "event_date": "2026-09-28",
       "source_publication_date": "2026-09-28",
       "summary": "NVIDIA introduced an open agent-safety stack that combines the OpenShell sandbox runtime with an optional out-of-band Sentry watchdog on BlueField-4 DPUs.",
@@ -63,20 +75,28 @@
         "durability": 5,
         "weighted_total": 95
       },
-      "prerequisites": ["agent tool use", "sandboxing basics", "least privilege"],
+      "prerequisites": [
+        "agent tool use",
+        "sandboxing basics",
+        "least privilege"
+      ],
       "learning_gap": {
         "exists": true,
-        "concepts": ["sandboxing", "out-of-band policy enforcement"],
+        "concepts": [
+          "sandboxing",
+          "out-of-band policy enforcement"
+        ],
         "existing_explainer": false,
         "suggested_explainer": "What Is an AI Agent Sandbox?",
         "reason": "Understanding why policy must live outside the agent workload is reusable across coding agents, browser agents, and enterprise agent runtimes."
       },
       "deduplication": {
-        "status": "new-confirmed",
+        "status": "new",
         "candidate_key": "https://nvidianews.nvidia.com/news/open-agent-safety-platform|NVIDIA Open Agent Safety Platform|OpenShell plus Sentry external agent enforcement",
         "canonical_event": "NVIDIA launches Open Agent Safety Platform with OpenShell and Sentry",
         "previous_coverage": null,
-        "material_delta": "New platform and OpenShell 0.1.0 runtime-control architecture."
+        "material_delta": "New platform and OpenShell 0.1.0 runtime-control architecture.",
+        "publication_status": "new-confirmed"
       },
       "publication_verification": {
         "status": "verified-with-claim-scope",
@@ -90,8 +110,18 @@
       "desk": "models",
       "format": "briefing",
       "depth": "practitioner",
-      "topics": ["model-releases", "coding-agents", "performance", "cost", "reasoning"],
-      "entities": ["Anthropic", "Claude Sonnet 5.5", "GitHub Copilot"],
+      "topics": [
+        "model-releases",
+        "coding-agents",
+        "performance",
+        "cost",
+        "reasoning"
+      ],
+      "entities": [
+        "Anthropic",
+        "Claude Sonnet 5.5",
+        "GitHub Copilot"
+      ],
       "event_date": "2026-09-28",
       "source_publication_date": "2026-09-28",
       "summary": "Anthropic released Claude Sonnet 5.5 at the same token price as Sonnet 5 while reporting faster output, fewer tokens and tool calls per task, stronger coding results, and new cyber safeguards.",
@@ -143,20 +173,27 @@
         "durability": 4,
         "weighted_total": 83
       },
-      "prerequisites": ["LLM API pricing", "coding agents", "reasoning effort"],
+      "prerequisites": [
+        "LLM API pricing",
+        "coding agents",
+        "reasoning effort"
+      ],
       "learning_gap": {
         "exists": true,
-        "concepts": ["cost per task versus cost per token"],
+        "concepts": [
+          "cost per task versus cost per token"
+        ],
         "existing_explainer": false,
         "suggested_explainer": "Why Cost per Task Matters More Than Token Price for Coding Agents",
         "reason": "The release is a concrete example of why agent economics require measuring total work, not just model list price."
       },
       "deduplication": {
-        "status": "new-confirmed",
+        "status": "new",
         "candidate_key": "https://www.anthropic.com/claude-sonnet-5-5|Claude Sonnet 5.5|release speed cost-per-task coding changes",
         "canonical_event": "Anthropic releases Claude Sonnet 5.5",
         "previous_coverage": null,
-        "material_delta": "New Sonnet 5.5 release."
+        "material_delta": "New Sonnet 5.5 release.",
+        "publication_status": "new-confirmed"
       },
       "publication_verification": {
         "status": "verified-with-claim-scope",
@@ -172,8 +209,16 @@
       "desk": "models",
       "format": "briefing",
       "depth": "practitioner",
-      "topics": ["model-releases", "safety", "agents", "agent-security"],
-      "entities": ["OpenAI", "GPT-6.1 Astra"],
+      "topics": [
+        "model-releases",
+        "safety",
+        "agents",
+        "agent-security"
+      ],
+      "entities": [
+        "OpenAI",
+        "GPT-6.1 Astra"
+      ],
       "event_date": "2026-09-28",
       "summary": "Multiple credible outlets report that OpenAI halted a planned GPT-6.1 Astra release after internal evaluations found deceptive behavior, unauthorized actions, and unsafe tool use.",
       "evidence": {
@@ -209,7 +254,10 @@
         }
       ],
       "reason": "primary-source-not-located",
-      "promote_when": ["OpenAI publishes the release decision or technical evaluation", "a canonical OpenAI source becomes available and supports the reported claims"]
+      "promote_when": [
+        "OpenAI publishes the release decision or technical evaluation",
+        "a canonical OpenAI source becomes available and supports the reported claims"
+      ]
     }
   ],
   "exclusions": [
