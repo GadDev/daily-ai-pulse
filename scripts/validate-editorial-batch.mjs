@@ -202,7 +202,9 @@ const watchOrRejected = new Set(
   records
     .filter(
       (record) =>
-        record.decision === 'watch' || record.decision === 'rejected' || record.__bucket !== 'candidates',
+        record.decision === 'watch' ||
+        record.decision === 'rejected' ||
+        record.__bucket !== 'candidates',
     )
     .map((record) => record.id),
 );
@@ -213,7 +215,9 @@ if (!ledger.publication || typeof ledger.publication !== 'object') {
 
 const publishedStoryIds = new Set(ledger.publication?.story_ids ?? []);
 const withheld = ledger.publication?.withheld_selected ?? [];
-const withheldIds = new Set(withheld.map((item) => (typeof item === 'string' ? item : item.id)));
+const withheldIds = new Set(
+  withheld.map((item) => (typeof item === 'string' ? item : item.id)),
+);
 
 for (const id of publishedStoryIds) {
   if (!selectedById.has(id)) fail(`published story is not a selected ledger candidate: ${id}`);
@@ -225,7 +229,9 @@ for (const id of withheldIds) {
 }
 
 for (const id of watchOrRejected) {
-  if (publishedStoryIds.has(id)) fail(`watch/rejected candidate leaked into publication.story_ids: ${id}`);
+  if (publishedStoryIds.has(id)) {
+    fail(`watch/rejected candidate leaked into publication.story_ids: ${id}`);
+  }
   const path = storyPath(id);
   if (path && id.startsWith(`${ledger.editorial_date}-`)) {
     fail(`watch/rejected candidate has a story file in this batch: ${id}`);
@@ -246,7 +252,13 @@ const categoryValues = new Set([
 const typeValues = new Set(['pulse', 'briefing', 'deep-dive']);
 const difficultyValues = new Set(['beginner', 'intermediate', 'advanced']);
 const signalValues = new Set(['low', 'medium', 'high']);
-const evidenceValues = new Set(['strong', 'primary', 'preliminary', 'anecdotal', 'unverified']);
+const evidenceValues = new Set([
+  'strong',
+  'primary',
+  'preliminary',
+  'anecdotal',
+  'unverified',
+]);
 
 const priorSources = priorSourceIndex(publishedStoryIds);
 
@@ -298,7 +310,9 @@ for (const id of publishedStoryIds) {
 
   const storyTagSet = new Set(tags);
   for (const topic of ledgerTopics) {
-    if (!storyTagSet.has(topic)) warn(`${id}: ledger topic not present in story tags: ${topic}`);
+    if (!storyTagSet.has(topic)) {
+      warn(`${id}: ledger topic not present in story tags: ${topic}`);
+    }
   }
 
   const primary = candidate?.primary_source_url ?? candidate?.sources?.[0]?.url ?? null;
@@ -313,7 +327,8 @@ for (const id of publishedStoryIds) {
     const duplicates = priorSources.get(canonical) ?? [];
     if (duplicates.length === 0) continue;
 
-    const dedupStatus = candidate?.deduplication?.status ?? candidate?.deduplication?.result ?? null;
+    const dedupStatus =
+      candidate?.deduplication?.status ?? candidate?.deduplication?.result ?? null;
     const hasPreviousCoverage = Boolean(candidate?.deduplication?.previous_coverage);
     const hasMaterialDelta = Boolean(candidate?.deduplication?.material_delta);
     const allowedMaterialUpdate =
@@ -322,7 +337,9 @@ for (const id of publishedStoryIds) {
       hasMaterialDelta;
 
     if (allowedMaterialUpdate) {
-      warn(`${id}: canonical source URL also appears in ${duplicates.join(', ')}; material update recorded`);
+      warn(
+        `${id}: canonical source URL also appears in ${duplicates.join(', ')}; material update recorded`,
+      );
     } else {
       fail(`${id}: canonical source URL duplicates prior story/stories ${duplicates.join(', ')}`);
     }
@@ -331,14 +348,20 @@ for (const id of publishedStoryIds) {
 
 const pulsePath = join(pulseDir, `${ledger.editorial_date}.md`);
 const pulseMdxPath = join(pulseDir, `${ledger.editorial_date}.mdx`);
-const existingPulsePath = existsSync(pulsePath) ? pulsePath : existsSync(pulseMdxPath) ? pulseMdxPath : null;
+const existingPulsePath = existsSync(pulsePath)
+  ? pulsePath
+  : existsSync(pulseMdxPath)
+    ? pulseMdxPath
+    : null;
 
 if (publishedStoryIds.size > 0 && !existingPulsePath) {
   fail(`daily issue manifest is missing for ${ledger.editorial_date}`);
 } else if (existingPulsePath) {
   const pulseText = readFileSync(existingPulsePath, 'utf8');
   for (const id of publishedStoryIds) {
-    if (!pulseText.includes(id)) fail(`daily issue manifest does not reference published story: ${id}`);
+    if (!pulseText.includes(id)) {
+      fail(`daily issue manifest does not reference published story: ${id}`);
+    }
   }
 }
 
