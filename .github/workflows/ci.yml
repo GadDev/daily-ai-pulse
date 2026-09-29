@@ -1,8 +1,6 @@
 name: CI
 
-on:
-  pull_request:
-    branches: [main]
+on: [pull_request]
 
 permissions:
   contents: read
@@ -31,6 +29,9 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
+      - name: Illustration validator regressions
+        run: node --test tests/illustration-validator.test.mjs
+
   browser:
     name: Browser smoke and accessibility
     runs-on: ubuntu-latest
@@ -49,6 +50,9 @@ jobs:
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+
+      - name: Illustration contact sheet regression
+        run: node --test tests/illustration-contact-sheet.test.mjs
 
       - name: Run Playwright suite
         run: npm run test:e2e

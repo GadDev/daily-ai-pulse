@@ -1,6 +1,6 @@
 ---
 name: daily-ai-pulse-illustration
-description: Create and review Daily AI Pulse editorial illustrations under the repository's Visual Constitution, using placement-aware layout references, verified story context, three-candidate generation, constitutional hard-failure checks, contact-sheet review, scoring, crop validation, normalization, and persisted review metadata.
+description: Create and review Daily AI Pulse editorial illustrations under the repository's Visual Constitution, using placement-aware layout references, verified story context, three-candidate generation, constitutional hard-failure checks, golden-reference comparison, contact-sheet review, scoring, crop validation, normalization, and persisted review metadata.
 ---
 
 # Daily AI Pulse Illustration
@@ -105,6 +105,7 @@ must_not_show:
   - robots
   - glowing-ai-brains
   - screenshot-imitation
+  - bare-schematic-or-diagram
   - border
   - frame
 golden_references: []
@@ -133,6 +134,8 @@ Use one of:
 
 Do not mix multiple archetypes merely to visualize more facts.
 
+For efficiency/cost stories, avoid generic gears, cogs, conveyor belts, and factory iconography unless the physical form is unusually story-specific.
+
 ## 3. Construct the generation prompt from the constitution
 
 Every candidate prompt must include, in order:
@@ -143,12 +146,13 @@ Every candidate prompt must include, in order:
 4. one visual idea / metaphor
 5. composition
 6. canonical art direction and palette
-7. object-fit: cover requirement
-8. **full constitutional prohibition list**
+7. **editorial-presence requirement: not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram**
+8. object-fit: cover requirement
+9. **full constitutional prohibition list**
 
 Canonical prohibition text:
 
-> No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame.
+> No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.
 
 Do not weaken this to phrases such as “no important text” or “logos should not dominate.”
 
@@ -161,7 +165,7 @@ All three must follow the same verified context and constitutional rules.
 Candidate intent:
 
 - **A — Canonical:** safest fit with established Pulse artwork.
-- **B — Editorial:** stronger metaphor / abstraction.
+- **B — Editorial:** stronger metaphor, materiality, spatial presence, or abstraction.
 - **C — Alternate:** materially different composition while expressing the same editorial idea.
 
 Small palette or camera-angle changes do not count as separate candidates.
@@ -196,7 +200,7 @@ Reject immediately for any of:
 - unverified mechanism represented as factual architecture
 - visual claim unsupported by verified context
 
-### Forbidden motifs
+### Forbidden motifs / language
 
 - watermark
 - neon effect / cyberpunk glow
@@ -204,6 +208,12 @@ Reject immediately for any of:
 - generic glowing AI brain
 - generic SaaS/corporate stock-art composition
 - presentation-slide icon rows
+- bare schematic
+- flowchart
+- wireframe
+- icon composition
+- minimalist architecture diagram
+- technical linework carrying the whole image without physical/spatial editorial presence
 - border
 - frame
 
@@ -218,7 +228,9 @@ Reject immediately for any of:
 
 If fewer than three viable candidates remain, generate replacements until three constitution-compliant candidates are available for comparative scoring.
 
-## 6. Build and inspect the contact sheet
+## 6. Build the golden-reference comparison sheet
+
+The contact sheet must place **at least two golden references above the new candidates**.
 
 Run:
 
@@ -226,31 +238,47 @@ Run:
 node scripts/build-illustration-contact-sheet.mjs \
   --story <story-id> \
   --out /tmp/<story-id>-contact-sheet.png \
+  --reference <golden-reference-1> \
+  --reference <golden-reference-2> \
   <candidate-a> <candidate-b> <candidate-c>
 ```
 
-The A/B/C labels belong to the review sheet only, never inside the generated artwork.
+The reference and A/B/C labels belong to the review sheet only, never inside generated artwork.
 
-Compare candidates at equal size.
+Compare at equal visual scale where possible.
+
+Ask explicitly:
+
+> **Would this candidate look intentionally commissioned for the same publication if the headline, company name, and metadata were removed?**
 
 ## 7. Score only constitution-compliant candidates
 
 Rubric:
 
 ```text
-story-specific visual idea   25%
-brand/style fit              25%
-editorial composition        20%
+story-specific visual idea   20%
+brand/style fit              15%
+editorial composition        15%
 placement + crop             15%
 technical meaning            10%
 artifact cleanliness          5%
+golden-reference fit         20%
 ```
+
+`golden-reference fit` compares the candidate directly against the references shown on the contact sheet for abstraction level, density, line language, texture/materiality, negative space, compositional confidence, and thumbnail silhouette.
 
 Scores are 0–100.
 
-Weighted total must be >= 85.
+Selection requires **both**:
 
-Do not choose the numerical winner if a later inspection reveals a constitutional violation; reject and regenerate instead.
+```text
+weighted total >= 85
+golden-reference fit >= 80
+```
+
+Golden-reference fit below 80 is a blocking failure even when the overall weighted score is high.
+
+Do not choose the numerical winner if later inspection reveals a constitutional violation; reject and regenerate instead.
 
 ## 8. Placement-aware crop tests
 
@@ -280,11 +308,7 @@ Require:
 
 There is **no universal aspect ratio** for this skill.
 
-Normalize according to:
-
-- placement
-- layout reference
-- output crop
+Normalize according to placement, layout reference, and output crop.
 
 Never stretch the image.
 
@@ -320,16 +344,18 @@ Do not report illustration work complete unless this passes.
 
 Prefer:
 
-> Placement: article hero. Output crop: wide. Verified context: the agent runs inside an isolated environment; network and credential policy is enforced by components outside that workload. Visual idea: a small abstract working chamber contained inside a larger external boundary with one controlled passage and a physically separate observation mechanism. Restrained contemporary editorial illustration, warm paper #F3EBDD and #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35, deliberate geometry, fine lines, subtle paper texture, spacious composition, single focal idea, object-fit cover safe. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, screenshot imitation, border, or frame.
+> Placement: article hero. Output crop: wide. Verified context: the agent runs inside an isolated environment; network and credential policy is enforced by components outside that workload. Visual idea: an architectural sectional study with a protected working volume embedded inside larger external enforcement mass, a single controlled passage crossing the boundary, and a physically separate observation structure. Give the central metaphor physical presence with overlapping planes, section depth, restrained print shading, and clear foreground/background hierarchy. Restrained contemporary editorial illustration, warm paper #F3EBDD and #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35, subtle paper texture, spacious composition, single focal idea, object-fit cover safe. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, screenshot imitation, bare schematic/flowchart/wireframe/icon composition, border, or frame.
 
 Over:
 
-> Make an image about secure AI agents with a robot, shield, dashboard, labels and security icons.
+> Make an architecture diagram of secure AI agents.
 
 ## Quality principle
 
 If an image looks polished but violates the Visual Constitution, reject it.
 
-If it passes the constitution but looks like generic enterprise slideware, reject it on brand/editorial quality.
+If it passes the constitution but looks like generic enterprise slideware **or a bare technical schematic**, reject it before scoring.
 
-Pulse quality requires **constitutional discipline + story-specific idea + editorial restraint + placement-aware composition**.
+If it passes the constitution and scores well but does not visually belong beside its golden references, reject it on Golden Reference Fit.
+
+Pulse quality requires **constitutional discipline + story-specific idea + editorial presence + direct reference-set continuity + placement-aware composition**.
