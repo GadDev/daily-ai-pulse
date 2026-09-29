@@ -52,6 +52,7 @@ const prohibitedElements = [
   'robots',
   'glowing_ai_brains',
   'screenshot_imitation',
+  'bare_schematic_or_diagram',
   'border',
   'frame',
   'unsupported_visual_claim',
@@ -199,8 +200,8 @@ for (const storyId of storyIds ?? []) {
   const review = readJson(reviewPath);
   if (!review) continue;
 
-  if (review.system_version !== '1.1') fail(`${storyId}: unsupported illustration system version`);
-  if (review.constitution_version !== '1.0') {
+  if (review.system_version !== '1.2') fail(`${storyId}: unsupported illustration system version`);
+  if (review.constitution_version !== '1.1') {
     fail(`${storyId}: unsupported or missing visual constitution version`);
   }
   if (review.story_id !== storyId) fail(`${storyId}: review story_id does not match filename`);
@@ -251,6 +252,20 @@ for (const storyId of storyIds ?? []) {
     }
   }
 
+  if (!Array.isArray(brief.golden_references) || brief.golden_references.length < 2) {
+    fail(`${storyId}: at least two golden_references are required`);
+  } else {
+    for (const reference of brief.golden_references) {
+      if (typeof reference !== 'string' || !reference.startsWith('public/images/stories/')) {
+        fail(`${storyId}: invalid golden reference path: ${reference}`);
+        continue;
+      }
+      if (!existsSync(join(root, reference))) {
+        fail(`${storyId}: golden reference does not exist: ${reference}`);
+      }
+    }
+  }
+
   const constitutionCheck = review.constitution_check;
   if (constitutionCheck?.passed !== true) {
     fail(`${storyId}: visual constitution check did not pass`);
@@ -282,6 +297,7 @@ for (const storyId of storyIds ?? []) {
     'crop_quality',
     'technical_meaning',
     'cleanliness',
+    'golden_reference_fit',
   ];
 
   for (const key of requiredScores) {
@@ -291,18 +307,23 @@ for (const storyId of storyIds ?? []) {
     }
   }
 
+  if (typeof scores.golden_reference_fit !== 'number' || scores.golden_reference_fit < 80) {
+    fail(`${storyId}: golden-reference fit must be >= 80`);
+  }
+
   if (typeof scores.weighted_total !== 'number' || scores.weighted_total < 85) {
     fail(`${storyId}: weighted illustration score must be >= 85`);
   }
 
   if (requiredScores.every((key) => typeof scores[key] === 'number')) {
     const expected =
-      scores.story_specific * 0.25 +
-      scores.brand_fit * 0.25 +
-      scores.composition * 0.2 +
+      scores.story_specific * 0.2 +
+      scores.brand_fit * 0.15 +
+      scores.composition * 0.15 +
       scores.crop_quality * 0.15 +
       scores.technical_meaning * 0.1 +
-      scores.cleanliness * 0.05;
+      scores.cleanliness * 0.05 +
+      scores.golden_reference_fit * 0.2;
     if (Math.abs(expected - scores.weighted_total) > 0.15) {
       fail(`${storyId}: weighted_total does not match rubric calculation (${expected.toFixed(2)})`);
     }
