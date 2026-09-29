@@ -1,0 +1,114 @@
+{
+  "system_version": "1.2",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-29-claude-sonnet-5-5",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Sonnet 5.5 coding-agent efficiency",
+    "verified_context": [
+      "Anthropic kept Sonnet 5.5 list token pricing unchanged while reporting lower cost per completed task through fewer tokens, tool calls, and execution steps.",
+      "For coding-agent workloads, total task economics depend on successful completion, tool use, retries, latency, and human intervention rather than token price alone.",
+      "The practical comparison is therefore the amount of work required to reach the same accepted coding result."
+    ],
+    "output_crop": "wide",
+    "archetype": "mechanical-metaphor",
+    "editorial_idea": "Task efficiency concerns the amount of work needed to reach an accepted result.",
+    "visual_metaphor": "A winding charcoal route and a shorter terracotta route converge on the same ivory sphere in a tactile paper landscape; the paths are symbolic rather than measured performance data.",
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Selected. Two sculptural routes meet one centered sphere. The winding charcoal route and shorter terracotta route make the same-result comparison clear at thumbnail size. Paper grain, graphite shading, restrained color, and spatial depth fit both production references. No route length is presented as measured performance.",
+    "B": "Constitution-compliant folded physical ribbons meet a blank ivory block. Strong volume, but the shared endpoint sits near the upper-right edge and the heavier folds compete with the outcome.",
+    "C": "Constitution-compliant stepped graphite causeway and terracotta arch meet a central sphere. Good silhouette and crop behavior, but stairs introduce an additional effort/elevation metaphor that makes the comparison less direct than A."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false,
+    "bare_schematic_or_diagram": false
+  },
+  "scores": {
+    "story_specific": 89,
+    "brand_fit": 92,
+    "composition": 92,
+    "crop_quality": 94,
+    "technical_meaning": 87,
+    "cleanliness": 96,
+    "golden_reference_fit": 93,
+    "weighted_total": 91.6
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-29-claude-sonnet-5-5.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 89,
+      "brand_fit": 92,
+      "composition": 92,
+      "crop_quality": 94,
+      "technical_meaning": 87,
+      "cleanliness": 96,
+      "golden_reference_fit": 93,
+      "weighted_total": 91.6
+    },
+    "B": {
+      "story_specific": 87,
+      "brand_fit": 91,
+      "composition": 88,
+      "crop_quality": 80,
+      "technical_meaning": 85,
+      "cleanliness": 96,
+      "golden_reference_fit": 90,
+      "weighted_total": 87.55
+    },
+    "C": {
+      "story_specific": 88,
+      "brand_fit": 92,
+      "composition": 90,
+      "crop_quality": 91,
+      "technical_meaning": 84,
+      "cleanliness": 96,
+      "golden_reference_fit": 92,
+      "weighted_total": 90.15
+    }
+  },
+  "crop_review": {
+    "article_desktop": "Chromium at 1440px viewport: 1100 \u00d7 591px cover box retains both routes and their shared endpoint.",
+    "article_mobile": "Chromium at 390px viewport: 359 \u00d7 193px cover box retains both routes and shared endpoint without page overflow.",
+    "reference_layout": "1200 \u00d7 430px cover study retains the shared sphere and the route contrast.",
+    "thumbnail": "320 \u00d7 164px listing crop preserves the centered endpoint and two distinct route silhouettes."
+  },
+  "golden_reference_comparison": "Two distinct production references were rendered above all candidates on a Chromium contact sheet. Compared palette, density, abstraction, line weight, graphite and paper texture, physical depth, negative space, focal hierarchy, and thumbnail silhouette."
+}
