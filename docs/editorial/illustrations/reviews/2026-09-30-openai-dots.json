@@ -16,8 +16,8 @@
     ],
     "output_crop": "wide",
     "archetype": "architectural-metaphor",
-    "editorial_idea": "Persistent delegated work continues across several bounded projects while a central governed workspace remains the stable control point.",
-    "visual_metaphor": "A warm architectural complex holds several distinct work areas around one central governed hall, connected by terracotta paths and separated by visible thresholds.",
+    "editorial_idea": "Persistent delegated work continues inside bounded spaces while a governed central workspace remains the stable control point.",
+    "visual_metaphor": "A luminous central chamber is connected by one restrained terracotta causeway to a separate bounded workspace across a rocky landscape, making persistence and governed separation physical rather than diagrammatic.",
     "golden_references": [
       "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp"
@@ -26,7 +26,7 @@
   "candidate_notes": {
     "A": "Rejected before scoring: robotic work arms make the scene too literal and violate the constitution's robot prohibition.",
     "B": "Constitution-compliant layered workrooms and thresholds. Strong physical presence, but secondary detail competes with the persistence metaphor at thumbnail size.",
-    "C": "Selected final asset. A central governed hall is physically connected to several bounded work areas through terracotta paths and explicit thresholds. The lossless export keeps the composition text-free, non-robotic, asymmetrical, and readable at small sizes while remaining a physical architectural metaphor rather than a UI diagram."
+    "C": "Selected replacement after visual QA. A luminous governed hall is physically separated from a bounded secondary workspace by one terracotta causeway. The composition is asymmetrical, text-free, non-robotic, materially detailed, and readable at both article and thumbnail crops."
   },
   "constitution_check": {
     "passed": true,
@@ -55,14 +55,14 @@
     "bare_schematic_or_diagram": false
   },
   "scores": {
-    "story_specific": 92,
-    "brand_fit": 90,
-    "composition": 90,
-    "crop_quality": 92,
-    "technical_meaning": 91,
-    "cleanliness": 99,
-    "golden_reference_fit": 89,
-    "weighted_total": 91.05
+    "story_specific": 94,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 95,
+    "technical_meaning": 93,
+    "cleanliness": 94,
+    "golden_reference_fit": 93,
+    "weighted_total": 94
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -70,7 +70,7 @@
   "final_asset": "/images/stories/2026-09-30-openai-dots.webp",
   "final_dimensions": {
     "width": 1400,
-    "height": 700
+    "height": 788
   },
   "candidate_scores": {
     "B": {
@@ -84,21 +84,21 @@
       "weighted_total": 89.9
     },
     "C": {
-      "story_specific": 92,
-      "brand_fit": 90,
-      "composition": 90,
-      "crop_quality": 92,
-      "technical_meaning": 91,
-      "cleanliness": 99,
-      "golden_reference_fit": 89,
-      "weighted_total": 91.05
+      "story_specific": 94,
+      "brand_fit": 94,
+      "composition": 95,
+      "crop_quality": 95,
+      "technical_meaning": 93,
+      "cleanliness": 94,
+      "golden_reference_fit": 93,
+      "weighted_total": 94
     }
   },
   "crop_review": {
-    "article_desktop": "The 1400 × 700 wide hero keeps the central hall, all three bounded work areas, and the controlled terracotta paths visible without crowding the focal point.",
-    "article_mobile": "A centered narrow crop preserves the governed central hall and enough connected thresholds to retain the persistence metaphor.",
-    "reference_layout": "The physical building masses, side faces, ground plane, and controlled paths keep the composition architectural rather than schematic while fitting the article-hero whitespace contract.",
-    "thumbnail": "At small scale the large central hall, dark arches, and terracotta connections remain a distinct silhouette."
+    "article_desktop": "The 1400 × 788 wide hero keeps the luminous central chamber, the bounded side workspace, the terracotta causeway, and enough rocky context to preserve the architectural metaphor without crowding the focal point.",
+    "article_mobile": "A centered narrow crop preserves the glowing central chamber and the terracotta connection while retaining enough of the secondary workspace to communicate governed ongoing work.",
+    "reference_layout": "The physical building masses, cutaway depth, rocky foreground, negative space, and restrained terracotta path keep the composition editorial and architectural rather than schematic.",
+    "thumbnail": "At small scale the bright central chamber, dark rock mass, and horizontal terracotta causeway remain a distinct silhouette."
   },
-  "golden_reference_comparison": "Compared palette, warm paper field, restrained terracotta emphasis, architectural mass, negative space, focal hierarchy, thumbnail silhouette, and non-interface physical presence against the current production reference set."
+  "golden_reference_comparison": "Compared palette, warm paper field, graphite restraint, terracotta emphasis, architectural mass, negative space, physical depth, focal hierarchy, and thumbnail silhouette against the current production reference set."
 }
