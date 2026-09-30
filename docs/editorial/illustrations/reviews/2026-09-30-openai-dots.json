@@ -16,8 +16,8 @@
     ],
     "output_crop": "wide",
     "archetype": "architectural-metaphor",
-    "editorial_idea": "Persistent delegated work continues inside bounded spaces while a governed central workspace remains the stable control point.",
-    "visual_metaphor": "A luminous central chamber is connected by one restrained terracotta causeway to a separate bounded workspace across a rocky landscape, making persistence and governed separation physical rather than diagrammatic.",
+    "editorial_idea": "Persistent delegated work continues along different paths while a governed destination remains the stable control point.",
+    "visual_metaphor": "Two architectural paths cross a rugged landscape toward one stable gateway, turning ongoing delegated work and governed convergence into a physical editorial metaphor.",
     "golden_references": [
       "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp"
@@ -26,7 +26,7 @@
   "candidate_notes": {
     "A": "Rejected before scoring: robotic work arms make the scene too literal and violate the constitution's robot prohibition.",
     "B": "Constitution-compliant layered workrooms and thresholds. Strong physical presence, but secondary detail competes with the persistence metaphor at thumbnail size.",
-    "C": "Selected replacement after visual QA. A luminous governed hall is physically separated from a bounded secondary workspace by one terracotta causeway. The composition is asymmetrical, text-free, non-robotic, materially detailed, and readable at both article and thumbnail crops."
+    "C": "Selected and user-approved replacement generated from the canonical Visual Constitution and Illustration System. The final artwork uses architectural paths, a single governed destination, warm paper texture, restrained terracotta, and no text, logos, UI, or robots."
   },
   "constitution_check": {
     "passed": true,
@@ -69,8 +69,8 @@
   "thumbnail_approved": true,
   "final_asset": "/images/stories/2026-09-30-openai-dots.webp",
   "final_dimensions": {
-    "width": 1400,
-    "height": 788
+    "width": 1600,
+    "height": 900
   },
   "candidate_scores": {
     "B": {
@@ -95,10 +95,10 @@
     }
   },
   "crop_review": {
-    "article_desktop": "The 1400 × 788 wide hero keeps the luminous central chamber, the bounded side workspace, the terracotta causeway, and enough rocky context to preserve the architectural metaphor without crowding the focal point.",
-    "article_mobile": "A centered narrow crop preserves the glowing central chamber and the terracotta connection while retaining enough of the secondary workspace to communicate governed ongoing work.",
-    "reference_layout": "The physical building masses, cutaway depth, rocky foreground, negative space, and restrained terracotta path keep the composition editorial and architectural rather than schematic.",
-    "thumbnail": "At small scale the bright central chamber, dark rock mass, and horizontal terracotta causeway remain a distinct silhouette."
+    "article_desktop": "The 1600 × 900 wide hero preserves both architectural paths, the shared destination, the terracotta emphasis, and enough landscape context for the metaphor to remain spacious.",
+    "article_mobile": "A centered narrow crop retains the governed destination and meaningful portions of both paths without depending on fine detail.",
+    "reference_layout": "The physical architectural mass, paper texture, controlled perspective, warm negative space, and restrained terracotta keep the artwork editorial rather than schematic.",
+    "thumbnail": "At small scale the contrasting paths and shared destination remain a strong, recognizable silhouette."
   },
   "golden_reference_comparison": "Compared palette, warm paper field, graphite restraint, terracotta emphasis, architectural mass, negative space, physical depth, focal hierarchy, and thumbnail silhouette against the current production reference set."
 }
