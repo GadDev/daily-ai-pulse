@@ -17,7 +17,7 @@
     "output_crop": "wide",
     "archetype": "physical-process-metaphor",
     "editorial_idea": "Two workflows can reach the same accepted result with very different total work.",
-    "visual_metaphor": "Two tactile architectural routes begin with equivalent stone pieces: one winds through a long sequence of structures while the other takes a compact path toward the same final geometric outcome.",
+    "visual_metaphor": "A long winding terracotta route and a compact direct route cross the same architectural landscape toward one shared endpoint, expressing different total work for the same accepted result without literal metrics.",
     "golden_references": [
       "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
       "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
@@ -25,10 +25,13 @@
   },
   "candidate_notes": {
     "A": "Constitution-compliant bridge-and-labyrinth metaphor with strong editorial presence, but the shared-result relationship is less immediate because the routes do not converge as clearly.",
-    "B": "Selected. A long layered route and a compact route carry equivalent pieces toward the same terracotta result. The physical landscape keeps the idea illustrative rather than infographic-like and avoids gears, labels, and fake metrics.",
+    "B": "Selected and user-approved replacement generated from the canonical Visual Constitution and Illustration System. The final artwork uses one long winding route and one compact direct route toward the same endpoint, with restrained terracotta and no labels, logos, UI, robots, or fake metrics.",
     "C": "Constitution-compliant long architectural path versus short framed path. Very clear silhouette, but its stronger symmetry makes it read slightly closer to a designed comparison diagram than B."
   },
-  "constitution_check": {"passed": true, "violations": []},
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
   "prohibited_elements": {
     "words": false,
     "letters": false,
@@ -65,17 +68,47 @@
   "cover_crop_approved": true,
   "thumbnail_approved": true,
   "final_asset": "/images/stories/2026-09-30-openai-gpt-6-1-sol.webp",
-  "final_dimensions": {"width": 1400, "height": 788},
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
   "candidate_scores": {
-    "A": {"story_specific": 88, "brand_fit": 92, "composition": 92, "crop_quality": 91, "technical_meaning": 85, "cleanliness": 96, "golden_reference_fit": 91, "weighted_total": 90.15},
-    "B": {"story_specific": 92, "brand_fit": 93, "composition": 94, "crop_quality": 95, "technical_meaning": 91, "cleanliness": 96, "golden_reference_fit": 93, "weighted_total": 93.2},
-    "C": {"story_specific": 90, "brand_fit": 92, "composition": 92, "crop_quality": 94, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 92, "weighted_total": 91.9}
+    "A": {
+      "story_specific": 88,
+      "brand_fit": 92,
+      "composition": 92,
+      "crop_quality": 91,
+      "technical_meaning": 85,
+      "cleanliness": 96,
+      "golden_reference_fit": 91,
+      "weighted_total": 90.15
+    },
+    "B": {
+      "story_specific": 92,
+      "brand_fit": 93,
+      "composition": 94,
+      "crop_quality": 95,
+      "technical_meaning": 91,
+      "cleanliness": 96,
+      "golden_reference_fit": 93,
+      "weighted_total": 93.2
+    },
+    "C": {
+      "story_specific": 90,
+      "brand_fit": 92,
+      "composition": 92,
+      "crop_quality": 94,
+      "technical_meaning": 90,
+      "cleanliness": 96,
+      "golden_reference_fit": 92,
+      "weighted_total": 91.9
+    }
   },
   "crop_review": {
-    "article_desktop": "The 1400 × 788 hero crop retains the long winding route, the compact direct route, and their shared geometric endpoint with comfortable negative space.",
-    "article_mobile": "A centered narrow crop keeps the short route, enough of the winding route, and the shared endpoint visible without turning the image into a split-screen comparison.",
-    "reference_layout": "The physical stone landscape, overlapping planes, restrained terracotta accents, and one shared endpoint preserve editorial depth while avoiding chart or diagram language.",
-    "thumbnail": "At small scale the contrast between the long winding route and the direct route remains legible, with the final geometric endpoint acting as the anchor."
+    "article_desktop": "The 1600 × 900 hero crop retains the long winding route, the direct route, and their shared endpoint with comfortable negative space.",
+    "article_mobile": "A centered narrow crop keeps the direct route, enough of the winding route, and the shared endpoint visible without depending on small detail.",
+    "reference_layout": "The tactile architectural landscape, overlapping planes, paper texture, restrained terracotta, and one shared endpoint preserve editorial depth while avoiding chart or diagram language.",
+    "thumbnail": "At small scale the contrast between the winding and direct routes remains legible, with the shared endpoint acting as the anchor."
   },
   "golden_reference_comparison": "Compared palette, graphite/charcoal restraint, terracotta emphasis, tactile paper-like materiality, physical depth, negative space, focal hierarchy, and thumbnail silhouette against the current model/inference production references."
 }
