@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: true
 companies: [OpenAI]
-image: "/images/stories/2026-09-30-openai-dots.webp"
+image: "/images/stories/2026-09-30-openai-dots.png"
 imageAlt: "A persistent workroom with several ongoing paths orbiting one controlled central workspace"
 sources:
   - label: "OpenAI — Introducing dots"
