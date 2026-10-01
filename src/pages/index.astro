@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BigStory from '../components/BigStory.astro';
 import StoryCard from '../components/StoryCard.astro';
 import { categories } from '../lib/categories';
+import { readingTime } from '../lib/stories';
 
 type Story = CollectionEntry<'stories'>;
 
@@ -46,13 +47,6 @@ const storyCount = (count: number) => `${count} ${count === 1 ? 'story' : 'stori
 
 const imageFor = (story: Story) =>
   story.data.image.startsWith('/') ? `${base}${story.data.image.slice(1)}` : story.data.image;
-
-const readingTime = (story: Story) =>
-  story.data.type === 'deep-dive'
-    ? '8 min read'
-    : story.data.type === 'briefing'
-      ? '4 min read'
-      : '3 min read';
 
 const evidenceLabels: Record<Story['data']['evidence'], string> = {
   strong: 'Strong evidence',
