@@ -1,0 +1,94 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual target: docs/reference-layouts/images/category.webp (Research category
+example). Match its layout as closely as possible — this takes priority over
+any conflicting guidance elsewhere. The image shows:
+
+1. Category strip nav: "ALL" then one entry per category, uppercase,
+   small-caps tracking, active entry ("RESEARCH") in terracotta with a
+   terracotta underline, thin rule below the whole strip.
+2. Category head: small-caps terracotta eyebrow ("CATEGORY / RESEARCH"),
+   large serif H1 (category title), a muted sans-serif dek paragraph below
+   it, then a small-caps "N STORIES" count line. Right column: a flat
+   line-art/diagram illustration (nodes + dotted connectors, same style
+   family as the homepage lead illustration) with a small-caps label list
+   stacked bottom-right (e.g. "IDEAS / MODELS / PEOPLE / REAL-WORLD IMPACT").
+   Divider rule below the whole head block.
+3. List header row: serif "Latest {category}" heading on the left; on the
+   right, "SORT BY" label + three small-caps options (LATEST / MOST READ /
+   OLDEST), active option underlined in terracotta.
+4. Story list, mixed row variants:
+   - First rows (image variant): photo thumbnail on the left, then
+     terracotta desk label, serif headline, muted deck paragraph, and a
+     small-caps evidence-only meta line (e.g. "PRELIMINARY EVIDENCE") below
+     it; date in the top-right of the row.
+   - Later rows (text-only variant): same desk label / headline / deck
+     pattern but no image and no evidence meta line; date top-right.
+   Rows are separated by thin top rules, no card backgrounds.
+5. Palette/type: warm beige canvas, black display serif for H1/headlines,
+   muted gray sans for dek/body/meta, terracotta used only for the eyebrow,
+   active nav/sort state, desk labels, and illustration accent dots.
+
+Known mismatch to resolve: the image's category strip labels ("Business,
+Policy, Tools, People, Society, Infrastructure") do NOT match this site's
+real taxonomy in src/lib/categories.ts (research, models, engineering,
+tools, practice, workflows, business, curious). Keep the real taxonomy and
+real category metadata (title/dek/eyebrow/sectionTitle already defined per
+category) — only reuse the image's visual treatment (strip style, active
+underline) for CategoryNav.
+
+Do NOT copy the image's literal text (headlines, deck copy, dates, story
+counts, "22 STORIES") — IMAGE_GALLERY.md documents that this text is
+generated and may be fabricated. Pull real equivalents from the `stories`
+content collection already queried in src/components/CategoryArchive.astro,
+for the Research category specifically (config.key === 'research').
+
+Current implementation for reference:
+- src/pages/research/index.astro renders <CategoryArchive config={categories.research} />
+- src/components/CategoryArchive.astro queries stories filtered by category,
+  renders the head (eyebrow/h1/dek), <CategoryNav>, <SectionHeading>, and a
+  list of <StoryListRow> (all text-only, no image slot, no sort control, no
+  story count, no illustration).
+- src/components/StoryListRow.astro currently has no image prop and combines
+  type/difficulty/evidence/signal into a single meta string rather than a
+  selective evidence-only line.
+- src/components/CategoryNav.astro already renders the real 8-category strip
+  with active-state styling — only needs visual alignment, not relabeling.
+</context>
+
+<task>
+Update src/components/CategoryArchive.astro, src/components/StoryListRow.astro,
+and src/components/CategoryNav.astro (plus any new component needed, e.g. an
+illustration block or sort control) so the rendered Research category page
+matches category.webp section-by-section as described above, using
+src/pages/research/index.astro as the page under test.
+</task>
+
+<constraints>
+- Match column proportions, spacing, dividers, and type hierarchy as closely
+  as the image shows — treat it as the authoritative visual reference, except
+  for the category-label mismatch noted above (keep real taxonomy).
+- Keep all rendered headlines/deks/dates/counts/evidence labels sourced from
+  real content collection data, never the image's literal copy.
+- Story count line must reflect the actual filtered story count, not a fixed
+  number.
+- If adding a sort control (Latest / Most read / Oldest), make "Most read"
+  honest or omit it if no read-tracking data exists — do not fabricate a
+  ranking.
+- Reuse the existing warm palette and terracotta accent already defined in
+  the codebase design tokens/styles.
+- Preserve accessibility: semantic headings, descriptive alt text on the
+  illustration/images, visible keyboard focus, 44px touch targets, and
+  keyboard-focusable horizontal scroll on the category strip.
+- Do not modify files under docs/reference-layouts/.
+</constraints>
+
+<output_format>
+Provide the edits as changes to CategoryArchive.astro, StoryListRow.astro,
+CategoryNav.astro, and any new component files. After the edits, list which
+image section each change corresponds to, and call out the category-label
+discrepancy decision explicitly.
+</output_format>

@@ -1,0 +1,92 @@
+<div class="sort-control" role="group" aria-label="Sort stories" hidden data-sort-control>
+  <span class="sort-label" aria-hidden="true">
+    Sort by
+  </span>
+  <span class="sort-divider" aria-hidden="true"></span>
+  <button type="button" data-sort="latest" aria-pressed="true">
+    Latest
+  </button>
+  <button type="button" data-sort="oldest" aria-pressed="false">
+    Oldest
+  </button>
+  <p class="sr-only" role="status" data-sort-status></p>
+</div>
+
+<script>
+  const control = document.querySelector<HTMLElement>('[data-sort-control]');
+  const list = document.querySelector<HTMLElement>('[data-story-rows]');
+
+  if (control && list) {
+    control.hidden = false;
+    const buttons = [...control.querySelectorAll<HTMLButtonElement>('button[data-sort]')];
+    const status = control.querySelector<HTMLElement>('[data-sort-status]');
+    const rows = [...list.children] as HTMLElement[];
+    const stamp = (row: HTMLElement) => Number(row.dataset.timestamp);
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const order = button.dataset.sort;
+        const direction = order === 'oldest' ? 1 : -1;
+        const sorted = rows
+          .map((row, index) => ({ row, index }))
+          .sort((a, b) => direction * (stamp(a.row) - stamp(b.row)) || a.index - b.index)
+          .map(({ row }) => row);
+        list.replaceChildren(...sorted);
+        for (const other of buttons) {
+          other.setAttribute('aria-pressed', String(other === button));
+        }
+        if (status) status.textContent = `Sorted by ${order}`;
+      });
+    }
+  }
+</script>
+
+<style>
+  .sort-control {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.9rem, 2vw, 1.6rem);
+  }
+  .sort-control[hidden] {
+    display: none;
+  }
+  .sort-label {
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .sort-divider {
+    align-self: center;
+    width: 1px;
+    height: 1rem;
+    background: var(--ink-muted);
+    opacity: 0.6;
+  }
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 0.15rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    color: var(--ink-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  button:hover {
+    color: var(--ink);
+  }
+  button[aria-pressed='true'] {
+    color: var(--terracotta);
+    border-bottom-color: var(--terracotta);
+  }
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
