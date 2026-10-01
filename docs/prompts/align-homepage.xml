@@ -1,0 +1,64 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual target: docs/reference-layouts/images/home.webp. Match its layout as
+closely as possible — this takes priority over any conflicting guidance
+elsewhere. The image shows:
+
+1. Header: wordmark "The Daily AI Pulse" + small-caps tagline under it, left;
+   nav links (Today / Pulse / Categories with chevron / About) center-left,
+   underline on active "Today"; a divider, then a search icon + "Search"
+   label; a solid dark pill "Subscribe" button, far right.
+2. Edition rail: uppercase date, "·", story count (e.g. "3 SELECTED STORIES"),
+   left-aligned, thin rule below.
+3. Lead story (unboxed, ~55% width left column): small terracotta desk label
+   (e.g. "RESEARCH"), large serif headline (2–3 lines, no card/border), a
+   muted sans-serif deck paragraph below it, then a small-caps meta line
+   (evidence label · read time). Right column (~45% width): a flat line-art
+   /diagram-style illustration (not a photo) on a soft pink/terracotta
+   textured background, with labeled nodes and dotted connector lines.
+4. Divider rule, then "Today's signal" section: serif heading + one-line
+   sans intro on the far left (~20% width); two asymmetric story cards to
+   its right, each with a photographic image, small terracotta desk label,
+   serif sub-headline, deck text, and read-time meta.
+5. Divider rule, then "Recent editions" section: serif heading left with a
+   "View all editions →" link aligned right on the same row; below it three
+   evenly spaced columns, each with uppercase date, a serif title, and a
+   story count line.
+6. Palette/type: warm beige canvas, black display serif headlines, muted
+   gray sans body/meta text, terracotta (#8A4B35-ish) used only for desk
+   labels, the active nav underline, and small accent dots/connectors.
+
+Do NOT copy the image's literal text (headline, deck copy, dates, read
+times, story counts) — IMAGE_GALLERY.md documents that this text is
+generated and may be fabricated. Pull real equivalents from the existing
+`stories` and `pulse` content collections already wired into
+src/pages/index.astro.
+</context>
+
+<task>
+Rebuild src/pages/index.astro (and any new/updated components, e.g. a
+StoryCard for the "Today's signal" row) so the rendered page's structure,
+proportions, and visual rhythm match home.webp section-by-section as
+described above.
+</task>
+
+<constraints>
+- Match column proportions, spacing, dividers, and type hierarchy as closely
+  as the image shows — treat it as the authoritative visual reference.
+- Keep all rendered headlines/decks/dates/counts sourced from real content
+  collection data, never the image's literal copy.
+- Reuse the existing warm palette and terracotta accent already defined in
+  the codebase design tokens/styles.
+- Preserve accessibility: semantic headings, descriptive alt text on the
+  illustration/images, visible keyboard focus, 44px touch targets.
+- Do not modify files under docs/reference-layouts/.
+</constraints>
+
+<output_format>
+Provide the edits as changes to src/pages/index.astro and any
+new/updated .astro components. After the edits, list which image section
+each change corresponds to.
+</output_format>

@@ -2,15 +2,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BigStory from '../components/BigStory.astro';
-import LatestPulseList from '../components/LatestPulseList.astro';
 import StoryCard from '../components/StoryCard.astro';
+import { categories } from '../lib/categories';
 
 type Story = CollectionEntry<'stories'>;
-type StoryCategory = Story['data']['category'];
-type Section = {
-  label: string;
-  category: StoryCategory;
-};
 
 const base = import.meta.env.BASE_URL;
 const stories = (await getCollection('stories')).sort(
@@ -19,19 +14,38 @@ const stories = (await getCollection('stories')).sort(
 const editions = (await getCollection('pulse')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+const storiesById = new Map(stories.map((story) => [story.id, story]));
 
-const bigStory = stories.find((story) => story.data.featured) ?? stories[0];
-const latestFor = (category: StoryCategory): Story | undefined =>
-  stories.find((story) => story.data.category === category);
+const latestEdition = editions[0];
+const editionStories = latestEdition
+  ? latestEdition.data.sections
+      .flatMap((section) => section.stories)
+      .map((id) => storiesById.get(id))
+      .filter((story): story is Story => Boolean(story))
+  : [];
+
+const bigStory =
+  (latestEdition && storiesById.get(latestEdition.data.featured)) ??
+  stories.find((story) => story.data.featured) ??
+  stories[0];
+
+const signalStories = editionStories.filter((story) => story.id !== bigStory?.id).slice(0, 2);
+
+const recentEditions = editions.slice(1, 4);
+
+const weekdayOf = (date: Date) =>
+  new Intl.DateTimeFormat('en-GB', { weekday: 'long', timeZone: 'UTC' }).format(date);
+const fullDateOf = (date: Date) =>
+  new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+const storyCount = (count: number) => `${count} ${count === 1 ? 'story' : 'stories'}`;
+
 const imageFor = (story: Story) =>
   story.data.image.startsWith('/') ? `${base}${story.data.image.slice(1)}` : story.data.image;
-
-const sections: Section[] = [
-  { label: 'Research', category: 'research' },
-  { label: 'Tools', category: 'tools' },
-  { label: 'AI in Practice', category: 'practice' },
-  { label: 'Curious', category: 'curious' },
-];
 
 const readingTime = (story: Story) =>
   story.data.type === 'deep-dive'
@@ -40,70 +54,273 @@ const readingTime = (story: Story) =>
       ? '4 min read'
       : '3 min read';
 
-const latestPulseItems = editions.slice(0, 5).map((edition) => ({
-  date: edition.data.date
-    .toLocaleDateString('en-US', {
-      month: 'short',
-      day: '2-digit',
-      year: 'numeric',
-    })
-    .toUpperCase(),
-  title: edition.data.title.replace(/^The Daily AI Pulse\s*[—-]\s*/i, ''),
-  href: `${base}pulse/${edition.id}/`,
-}));
+const evidenceLabels: Record<Story['data']['evidence'], string> = {
+  strong: 'Strong evidence',
+  primary: 'Primary source',
+  preliminary: 'Preliminary evidence',
+  anecdotal: 'Anecdotal report',
+  unverified: 'Unverified claim',
+};
+const evidenceHref = `${base}methodology/`;
+
+const desk = (story: Story) => categories[story.data.category].title.toUpperCase();
 ---
 
 <BaseLayout title="The Daily AI Pulse — Signal over noise in AI">
+  {latestEdition && (
+    <p class="edition-rail">
+      <a href={`${base}pulse/${latestEdition.id}/`}>
+        <span>
+          {weekdayOf(latestEdition.data.date)} <span aria-hidden="true">·</span>{' '}
+          {fullDateOf(latestEdition.data.date)}
+        </span>
+      </a>
+      <span class="rail-divider" aria-hidden="true"></span>
+      <span>
+        {editionStories.length} selected {editionStories.length === 1 ? 'story' : 'stories'}
+      </span>
+    </p>
+  )}
+
   {bigStory && (
     <BigStory
-      label="BIG STORY"
       title={bigStory.data.title}
       description={bigStory.data.description}
       href={`${base}stories/${bigStory.id}/`}
       image={imageFor(bigStory)}
       imageAlt={bigStory.data.imageAlt}
+      desk={desk(bigStory)}
+      evidenceLabel={evidenceLabels[bigStory.data.evidence]}
+      evidenceHref={evidenceHref}
+      readingTime={readingTime(bigStory)}
     />
   )}
 
-  <section id="categories" class="editorial-grid" aria-label="Latest stories by desk">
-    {sections.map(({ label, category }) => {
-      const story = latestFor(category);
-      return (
-        story && (
+  {signalStories.length > 0 && (
+    <section class="home-section signal-section" aria-labelledby="signal-title">
+      <div class="section-intro">
+        <h2 id="signal-title">Today's signal</h2>
+        <p>More essential reading from today's edition.</p>
+      </div>
+      {signalStories.map((story, index) => (
+        <div class="signal-item">
           <StoryCard
-            label={label}
             title={story.data.title}
+            description={story.data.description}
             href={`${base}stories/${story.id}/`}
             image={imageFor(story)}
             imageAlt={story.data.imageAlt}
-            meta={readingTime(story)}
+            desk={desk(story)}
+            readingTime={readingTime(story)}
+            size={index === 0 ? 'wide' : 'narrow'}
           />
-        )
-      );
-    })}
-  </section>
+        </div>
+      ))}
+    </section>
+  )}
 
-  {latestPulseItems.length > 0 && <LatestPulseList items={latestPulseItems} />}
+  {recentEditions.length > 0 && (
+    <section class="home-section" aria-labelledby="editions-title">
+      <div class="editions-head">
+        <h2 id="editions-title">Recent editions</h2>
+        <a class="all-editions" href={`${base}pulse/`}>
+          View all editions <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <ul class="edition-list">
+        {recentEditions.map((edition) => {
+          const total = edition.data.sections.reduce((sum, s) => sum + s.stories.length, 0);
+          const featured = storiesById.get(edition.data.featured);
+          const title =
+            featured?.data.title ??
+            edition.data.title.replace(/^The Daily AI Pulse\s*[—-]\s*/i, '');
+          return (
+            <li class="edition">
+              <p class="edition-date">
+                {weekdayOf(edition.data.date)} <span aria-hidden="true">·</span>{' '}
+                {fullDateOf(edition.data.date)}
+              </p>
+              <h3>
+                <a href={`${base}pulse/${edition.id}/`}>{title}</a>
+              </h3>
+              <p class="edition-count">{storyCount(total)}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
-  .editorial-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.35rem;
-    padding: 3rem 0 4.5rem;
+  .edition-rail {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.1rem;
+    margin: 0;
+    padding-top: 0.6rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .edition-rail a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .edition-rail a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .rail-divider {
+    width: 1px;
+    height: 0.9rem;
+    background: var(--muted);
+    opacity: 0.6;
   }
 
-  @media (max-width: 900px) {
-    .editorial-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  .home-section {
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .home-section h2 {
+    margin: 0;
+    font:
+      400 clamp(1.9rem, 3vw, 2.6rem) / 1.05 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.03em;
+  }
+
+  .signal-section {
+    display: grid;
+    grid-template-columns: minmax(0, 24fr) minmax(0, 42fr) minmax(0, 34fr);
+    column-gap: 1.75rem;
+    align-items: start;
+  }
+  .section-intro {
+    padding-right: 1rem;
+  }
+  .section-intro p {
+    max-width: 22rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font: 1.15rem / 1.5 var(--font-deck);
+  }
+  .signal-item + .signal-item {
+    padding-left: 1.75rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .editions-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .all-editions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    color: var(--terracotta);
+    text-decoration: none;
+    font:
+      1rem / 1 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .all-editions:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .edition-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .edition {
+    position: relative;
+    padding-right: 2rem;
+  }
+  .edition + .edition {
+    padding-left: 2rem;
+    border-left: 1px solid var(--line);
+  }
+  .edition-date,
+  .edition-count {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .edition h3 {
+    margin: 0.75rem 0 1rem;
+    font:
+      400 clamp(1.25rem, 1.9vw, 1.6rem) / 1.2 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.015em;
+  }
+  .edition h3 a {
+    text-decoration: none;
+  }
+  .edition h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .edition h3 a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.14em;
+  }
+  .edition h3 a:focus-visible {
+    outline: none;
+  }
+  .edition h3 a:focus-visible::after {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  @media (max-width: 1000px) {
+    .signal-section {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      row-gap: 1.75rem;
+    }
+    .section-intro {
+      grid-column: 1 / -1;
     }
   }
-
-  @media (max-width: 560px) {
-    .editorial-grid {
+  @media (max-width: 760px) {
+    .signal-section {
       grid-template-columns: 1fr;
-      gap: 1.75rem;
+    }
+    .signal-item + .signal-item {
+      padding: 1.75rem 0 0;
+      border-left: 0;
+      border-top: 1px solid var(--line);
+    }
+    .edition-list {
+      grid-template-columns: 1fr;
+    }
+    .edition,
+    .edition + .edition {
+      padding: 1.25rem 0;
+      border-left: 0;
+      border-top: 1px solid var(--line);
+    }
+    .edition:first-child {
+      border-top: 0;
     }
   }
 </style>

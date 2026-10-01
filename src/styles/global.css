@@ -6,6 +6,8 @@
   --muted: #67625b;
   --ink-muted: var(--muted);
   --line: #d9cfc0;
+  --terracotta: #8a4b35;
+  --font-deck: Georgia, 'Times New Roman', serif;
   --accent: #1d2528;
   --accent-soft: #d8e0dd;
   font-family:
