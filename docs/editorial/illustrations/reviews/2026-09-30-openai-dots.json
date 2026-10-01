@@ -1,0 +1,104 @@
+{
+  "system_version": "1.2",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-30-openai-dots",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "persistent background agents and governed ongoing work",
+    "verified_context": [
+      "OpenAI describes Dots as persistent agents with their own cloud computers that can keep several projects moving in the background.",
+      "The engineering significance is the control plane around ongoing work: permissions, background-action limits, approval boundaries, auditability, and interruption.",
+      "The illustration must represent persistence and governed access without depicting literal software interfaces, robots, credentials, or security claims."
+    ],
+    "output_crop": "wide",
+    "archetype": "architectural-metaphor",
+    "editorial_idea": "Persistent delegated work continues along different paths while a governed destination remains the stable control point.",
+    "visual_metaphor": "Two architectural paths cross a rugged landscape toward one stable gateway, turning ongoing delegated work and governed convergence into a physical editorial metaphor.",
+    "golden_references": [
+      "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Rejected before scoring: robotic work arms make the scene too literal and violate the constitution's robot prohibition.",
+    "B": "Constitution-compliant layered workrooms and thresholds. Strong physical presence, but secondary detail competes with the persistence metaphor at thumbnail size.",
+    "C": "Selected and user-approved replacement generated from the canonical Visual Constitution and Illustration System. The final artwork uses architectural paths, a single governed destination, warm paper texture, restrained terracotta, and no text, logos, UI, or robots."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false,
+    "bare_schematic_or_diagram": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 95,
+    "technical_meaning": 93,
+    "cleanliness": 94,
+    "golden_reference_fit": 93,
+    "weighted_total": 94
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-30-openai-dots.png",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "candidate_scores": {
+    "B": {
+      "story_specific": 89,
+      "brand_fit": 91,
+      "composition": 89,
+      "crop_quality": 90,
+      "technical_meaning": 87,
+      "cleanliness": 94,
+      "golden_reference_fit": 90,
+      "weighted_total": 89.9
+    },
+    "C": {
+      "story_specific": 94,
+      "brand_fit": 94,
+      "composition": 95,
+      "crop_quality": 95,
+      "technical_meaning": 93,
+      "cleanliness": 94,
+      "golden_reference_fit": 93,
+      "weighted_total": 94
+    }
+  },
+  "crop_review": {
+    "article_desktop": "The 1600 × 900 wide hero preserves both architectural paths, the shared destination, the terracotta emphasis, and enough landscape context for the metaphor to remain spacious.",
+    "article_mobile": "A centered narrow crop retains the governed destination and meaningful portions of both paths without depending on fine detail.",
+    "reference_layout": "The physical architectural mass, paper texture, controlled perspective, warm negative space, and restrained terracotta keep the artwork editorial rather than schematic.",
+    "thumbnail": "At small scale the contrasting paths and shared destination remain a strong, recognizable silhouette."
+  },
+  "golden_reference_comparison": "Compared palette, warm paper field, graphite restraint, terracotta emphasis, architectural mass, negative space, physical depth, focal hierarchy, and thumbnail silhouette against the current production reference set."
+}

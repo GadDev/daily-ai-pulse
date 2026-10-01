@@ -1,0 +1,114 @@
+{
+  "system_version": "1.2",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-30-openai-gpt-6-1-sol",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "GPT-6.1 Sol cost per completed task",
+    "verified_context": [
+      "OpenAI kept GPT-6.1 Sol standard input and output pricing at Sol levels while lowering cached-input pricing and reporting stronger agentic task results.",
+      "The engineering comparison is total work required to reach an accepted result, not a literal measured path length or invented chart.",
+      "Benchmark and cost-per-task comparisons remain vendor-reported and must not be visualized as precise data."
+    ],
+    "output_crop": "wide",
+    "archetype": "physical-process-metaphor",
+    "editorial_idea": "Two workflows can reach the same accepted result with very different total work.",
+    "visual_metaphor": "A long winding terracotta route and a compact direct route cross the same architectural landscape toward one shared endpoint, expressing different total work for the same accepted result without literal metrics.",
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant bridge-and-labyrinth metaphor with strong editorial presence, but the shared-result relationship is less immediate because the routes do not converge as clearly.",
+    "B": "Selected and user-approved replacement generated from the canonical Visual Constitution and Illustration System. The final artwork uses one long winding route and one compact direct route toward the same endpoint, with restrained terracotta and no labels, logos, UI, robots, or fake metrics.",
+    "C": "Constitution-compliant long architectural path versus short framed path. Very clear silhouette, but its stronger symmetry makes it read slightly closer to a designed comparison diagram than B."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false,
+    "bare_schematic_or_diagram": false
+  },
+  "scores": {
+    "story_specific": 92,
+    "brand_fit": 93,
+    "composition": 94,
+    "crop_quality": 95,
+    "technical_meaning": 91,
+    "cleanliness": 96,
+    "golden_reference_fit": 93,
+    "weighted_total": 93.2
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-30-openai-gpt-6-1-sol.png",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 88,
+      "brand_fit": 92,
+      "composition": 92,
+      "crop_quality": 91,
+      "technical_meaning": 85,
+      "cleanliness": 96,
+      "golden_reference_fit": 91,
+      "weighted_total": 90.15
+    },
+    "B": {
+      "story_specific": 92,
+      "brand_fit": 93,
+      "composition": 94,
+      "crop_quality": 95,
+      "technical_meaning": 91,
+      "cleanliness": 96,
+      "golden_reference_fit": 93,
+      "weighted_total": 93.2
+    },
+    "C": {
+      "story_specific": 90,
+      "brand_fit": 92,
+      "composition": 92,
+      "crop_quality": 94,
+      "technical_meaning": 90,
+      "cleanliness": 96,
+      "golden_reference_fit": 92,
+      "weighted_total": 91.9
+    }
+  },
+  "crop_review": {
+    "article_desktop": "The 1600 × 900 hero crop retains the long winding route, the direct route, and their shared endpoint with comfortable negative space.",
+    "article_mobile": "A centered narrow crop keeps the direct route, enough of the winding route, and the shared endpoint visible without depending on small detail.",
+    "reference_layout": "The tactile architectural landscape, overlapping planes, paper texture, restrained terracotta, and one shared endpoint preserve editorial depth while avoiding chart or diagram language.",
+    "thumbnail": "At small scale the contrast between the winding and direct routes remains legible, with the shared endpoint acting as the anchor."
+  },
+  "golden_reference_comparison": "Compared palette, graphite/charcoal restraint, terracotta emphasis, tactile paper-like materiality, physical depth, negative space, focal hierarchy, and thumbnail silhouette against the current model/inference production references."
+}
