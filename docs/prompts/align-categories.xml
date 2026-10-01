@@ -1,0 +1,70 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual target: docs/reference-layouts/images/categories.webp. Match its
+layout as closely as possible — this takes priority over any conflicting
+guidance elsewhere. The image shows:
+
+1. Header: same site chrome as other pages, with "Categories" as the active
+   nav item (terracotta text + terracotta underline).
+2. Page head: small-caps terracotta eyebrow ("EXPLORE THE PUBLICATION"),
+   one large bold serif H1 as two short declarative fragments on one line
+   ("Eight desks. One filter: signal."), then a two-line muted sans dek
+   paragraph below it.
+3. Two-column grid of all 8 desks, 4 rows. Each entry: a small terracotta
+   two-digit index ("01", "02", ... "08", no "/ DESK" suffix), a large bold
+   serif desk title with a terracotta "→" aligned to the far right edge of
+   the row (not immediately after the text), and a single-line muted gray
+   description below the title. Thin horizontal rule above each row.
+4. Palette/type: warm beige canvas, black bold serif for H1 and desk titles,
+   muted gray sans for dek/descriptions, terracotta for eyebrow, index
+   numbers, and arrows only.
+
+Content check: the image's 8 desk names and one-line descriptions already
+match src/lib/categories.ts closely (e.g. "Research — Breakthrough papers,
+key findings and what they mean." is closer to each category's existing
+`description` field than to its longer `dek` field, which the current page
+renders). Do not invent new desk names or copy — if a short blurb is
+needed, prefer the existing `description` field per category, or write a
+new one-line `description`-style blurb that is reviewed as real editorial
+copy, not copied verbatim from the image.
+
+Current implementation for reference:
+- src/pages/categories/index.astro already renders a two-column grid of all
+  8 categories from categories.ts, using `desk.dek` (long, multi-clause) for
+  the blurb and a "0X / DESK" eyebrow format per entry, with the title and
+  arrow inline together rather than arrow right-aligned.
+</context>
+
+<task>
+Update src/pages/categories/index.astro (and its scoped styles) so the
+rendered Categories page matches categories.webp section-by-section as
+described above — primarily a typography scale, spacing, numbering format,
+and copy-source adjustment, not a structural rebuild.
+</task>
+
+<constraints>
+- Match the H1 scale/weight, per-entry title scale/weight, index number
+  format (plain "01"–"08", no suffix), and right-aligned arrow placement as
+  closely as the image shows.
+- Use the existing 8 categories from src/lib/categories.ts in their defined
+  order — do not reorder or rename them to match the image's exact wording
+  if it would diverge from the real `title` values already defined.
+- Prefer the existing `description` field for the one-line blurb instead of
+  `dek`; only introduce new copy if a field is clearly missing, and mark it
+  as a content decision for review rather than inventing it silently.
+- Reuse the existing warm palette and terracotta accent already defined in
+  the codebase design tokens/styles.
+- Preserve accessibility: semantic heading order (one H1, desk titles as
+  H2), visible keyboard focus, 44px touch targets on each desk link.
+- Do not modify files under docs/reference-layouts/.
+</constraints>
+
+<output_format>
+Provide the edits as changes to src/pages/categories/index.astro. After the
+edits, list which image section each change corresponds to, and note
+whether the description/dek copy-source change was applied or needs an
+editorial decision first.
+</output_format>

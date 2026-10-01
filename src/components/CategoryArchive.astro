@@ -1,10 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryIllustration from './CategoryIllustration.astro';
 import CategoryNav from './CategoryNav.astro';
-import SectionHeading from './SectionHeading.astro';
 import StoryListRow from './StoryListRow.astro';
+import StorySortControl from './StorySortControl.astro';
 import type { CategoryConfig } from '../lib/categories';
+
+type Story = CollectionEntry<'stories'>;
 
 interface Props {
   config: CategoryConfig;
@@ -15,33 +18,142 @@ const base = import.meta.env.BASE_URL;
 const stories = (await getCollection('stories'))
   .filter((story) => !story.data.draft && story.data.category === config.key)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const storyCount = `${stories.length} ${stories.length === 1 ? 'story' : 'stories'}`;
+const mediaRows = 2;
+
+const imageFor = (story: Story) =>
+  story.data.image.startsWith('/') ? `${base}${story.data.image.slice(1)}` : story.data.image;
+
+const evidenceLabels: Record<Story['data']['evidence'], string> = {
+  strong: 'Strong evidence',
+  primary: 'Primary source',
+  preliminary: 'Preliminary evidence',
+  anecdotal: 'Anecdotal report',
+  unverified: 'Unverified claim',
+};
+
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const tagCounts = new Map<string, number>();
+for (const story of stories) {
+  for (const tag of story.data.tags) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+}
+const topTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 4)
+  .map(([tag]) => tag.replaceAll('-', ' '));
 ---
 
 <BaseLayout title={`${config.title} — Pulse`} description={config.description}>
-  <section class="issue-head">
-    <p class="eyebrow">{config.eyebrow}</p>
-    <h1>{config.title}</h1>
-    <p>{config.dek}</p>
-  </section>
-
   <CategoryNav active={config.key} />
 
-  <section class="archive-list">
-    <SectionHeading title={config.sectionTitle} />
-    {stories.map((story) => (
-      <StoryListRow
-        title={story.data.title}
-        description={story.data.description}
-        href={`${base}stories/${story.id}/`}
-        date={story.data.date.toLocaleDateString('en-GB')}
-        meta={`${story.data.type} · ${story.data.difficulty} · evidence/${story.data.evidence} · signal/${story.data.signal}`}
-      />
-    ))}
+  <section class="category-head" aria-labelledby="category-title">
+    <div class="category-copy">
+      <p class="eyebrow">{config.eyebrow}</p>
+      <h1 id="category-title">{config.title}</h1>
+      <p class="dek">{config.dek}</p>
+      <p class="count">{storyCount}</p>
+    </div>
+    <CategoryIllustration
+      title={`Network diagram of connected nodes representing ${config.title.toLowerCase()} topics`}
+      labels={topTags}
+    />
+  </section>
+
+  <section class="archive-list" aria-labelledby="archive-title">
+    <div class="list-header">
+      <h2 id="archive-title">{config.sectionTitle}</h2>
+      <StorySortControl />
+    </div>
+    <div data-story-rows>
+      {stories.map((story, index) => (
+        <StoryListRow
+          title={story.data.title}
+          description={story.data.description}
+          href={`${base}stories/${story.id}/`}
+          date={dateFormat.format(story.data.date)}
+          dateTime={story.data.date.toISOString().slice(0, 10)}
+          desk={config.title}
+          image={index < mediaRows ? imageFor(story) : undefined}
+          imageAlt={index < mediaRows ? story.data.imageAlt : undefined}
+          evidenceLabel={evidenceLabels[story.data.evidence]}
+        />
+      ))}
+    </div>
   </section>
 </BaseLayout>
 
 <style>
+  .category-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: 1.6rem 0 1.4rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .eyebrow {
+    margin: 0;
+    font-family: inherit;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  h1 {
+    margin: 0.3rem 0 0.6rem;
+    font:
+      400 clamp(3.4rem, 8vw, 5.75rem) / 0.95 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.04em;
+  }
+  .dek {
+    margin: 0;
+    max-width: 34rem;
+    color: var(--ink-muted);
+    font-family: var(--font-deck);
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    line-height: 1.3;
+  }
+  .count {
+    margin: 0.9rem 0 0;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
   .archive-list {
-    padding: 3rem 0 1rem;
+    padding: 1.5rem 0 1rem;
+  }
+  .list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .list-header h2 {
+    margin: 0;
+    font:
+      400 clamp(1.7rem, 3vw, 2.2rem) / 1.1 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.02em;
+  }
+  @media (max-width: 720px) {
+    .category-head {
+      grid-template-columns: 1fr;
+      padding-top: 1.4rem;
+    }
   }
 </style>
