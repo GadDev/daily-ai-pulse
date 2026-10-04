@@ -93,19 +93,25 @@ const structuredData =
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href={base} aria-label="The Daily AI Pulse home">
-          The Daily AI Pulse
-        </a>
+        <div class="brand-block">
+          <a class="brand" href={base} aria-label="The Daily AI Pulse home">
+            The Daily AI Pulse<span class="brand-dot" aria-hidden="true"></span>
+          </a>
+          <p class="brand-tagline">Ideas Tools People Impact</p>
+        </div>
 
         <nav class="site-nav" aria-label="Primary navigation">
           <a class:list={{ active: currentPath === base }} href={base}>
-            Home
+            Today
           </a>
           <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
             Pulse
           </a>
           <a class:list={{ active: isActive(`${base}categories`) }} href={`${base}categories/`}>
             Categories
+            <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
+            </svg>
           </a>
           <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
             About
@@ -195,14 +201,101 @@ const structuredData =
     border-bottom: 0;
     backdrop-filter: none;
   }
-  .site-header__inner {
-    min-height: 78px;
+  .site-header .site-header__inner {
+    width: min(1180px, 92vw);
+    min-height: 88px;
+    border-bottom: 1px solid var(--line);
   }
-  .site-nav {
-    gap: 1.7rem;
-    font-size: 0.8rem;
+  .brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.9rem 0 0.8rem;
   }
-  .brand {
-    font-size: 1.45rem;
+  .site-header .brand {
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .brand-dot {
+    display: inline-block;
+    width: 0.3em;
+    height: 0.3em;
+    margin-left: 0.22em;
+    border-radius: 50%;
+    background: var(--terracotta);
+    position: relative;
+    top: -0.5em;
+  }
+  .brand-tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.6rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.28em;
+    word-spacing: 0.55em;
+    text-transform: uppercase;
+  }
+  .site-header .site-nav {
+    gap: 2.4rem;
+    font:
+      1rem/1.2 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .site-header .site-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    border-bottom: 0;
+    text-underline-offset: 0.6rem;
+    text-decoration-thickness: 2px;
+  }
+  .site-header .site-nav a:hover {
+    text-decoration-line: underline;
+    text-decoration-color: var(--line);
+  }
+  .site-header .site-nav a.active {
+    color: var(--ink);
+    text-decoration-line: underline;
+    text-decoration-color: var(--terracotta);
+  }
+  .nav-chevron {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-left: 0.45rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .site-header .site-actions {
+    gap: 2.4rem;
+  }
+  .site-header .subscribe-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.6rem;
+    font:
+      500 1rem/1 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  @media (max-width: 960px) {
+    .site-header .site-nav {
+      gap: 1.6rem;
+    }
+    .site-header .site-actions {
+      gap: 1rem;
+    }
+  }
+  @media (max-width: 640px) {
+    .site-header .subscribe-button {
+      padding: 0 1.1rem;
+    }
   }
 </style>

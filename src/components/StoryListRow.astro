@@ -4,62 +4,132 @@ interface Props {
   description: string;
   href: string;
   date: string;
-  meta?: string;
+  dateTime: string;
+  desk: string;
+  image?: string;
+  imageAlt?: string;
+  evidenceLabel?: string;
 }
 
-const { title, description, href, date, meta } = Astro.props;
+const { title, description, href, date, dateTime, desk, image, imageAlt, evidenceLabel } =
+  Astro.props;
 ---
 
-<article class="story-list-row">
-  <div>
-    <h2>
+<article
+  class:list={['story-list-row', { 'story-list-row--media': image }]}
+  data-timestamp={new Date(dateTime).valueOf()}
+>
+  {image && <img src={image} alt={imageAlt ?? ''} width="300" height="120" />}
+  <div class="body">
+    <p class="desk">{desk}</p>
+    <h3>
       <a href={href}>{title}</a>
-    </h2>
-    <p>{description}</p>
+    </h3>
+    <p class="deck">{description}</p>
+    {image && evidenceLabel && <p class="evidence">{evidenceLabel}</p>}
   </div>
-  <div class="details">
-    <time>{date}</time>
-    {meta && <span>{meta}</span>}
-  </div>
+  <time datetime={dateTime}>{date}</time>
 </article>
 
 <style>
   .story-list-row {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2rem;
-    padding: 1.5rem 0;
+    column-gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 1.05rem 0;
+  }
+  .story-list-row + .story-list-row {
     border-top: 1px solid var(--line);
   }
-  h2 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.65rem;
-    line-height: 1.05;
-    margin: 0 0 0.55rem;
+  .story-list-row--media {
+    grid-template-columns: clamp(220px, 21.5vw, 300px) minmax(0, 1fr) auto;
   }
-  h2 a {
+  img {
+    grid-row: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 2;
+    object-fit: cover;
+    background: var(--surface-alt);
+  }
+  .body {
+    min-width: 0;
+  }
+  .desk,
+  .evidence,
+  time {
+    margin: 0;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .desk {
+    color: var(--terracotta);
+  }
+  time {
+    grid-column: -2 / -1;
+    grid-row: 1;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+  h3 {
+    margin: 0.3rem 0 0.25rem;
+    font:
+      400 clamp(1.25rem, 1.9vw, 1.5rem) / 1.2 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.015em;
+  }
+  h3 a {
     text-decoration: none;
   }
-  p {
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  h3 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  h3 a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .deck {
     margin: 0;
-    max-width: 62ch;
+    max-width: 68ch;
     color: var(--ink-muted);
-    line-height: 1.5;
+    font-family: var(--font-deck);
+    font-size: 1rem;
+    line-height: 1.35;
   }
-  .details {
-    display: grid;
-    gap: 0.4rem;
-    align-content: start;
-    text-align: right;
-    font-size: 0.76rem;
+  .evidence {
+    margin-top: 0.7rem;
     color: var(--ink-muted);
+    font-weight: 500;
   }
-  @media (max-width: 640px) {
-    .story-list-row {
+  @media (max-width: 720px) {
+    .story-list-row,
+    .story-list-row--media {
       grid-template-columns: 1fr;
+      padding: 1.25rem 0;
     }
-    .details {
-      text-align: left;
+    img {
+      grid-row: auto;
+      margin-bottom: 0.9rem;
+    }
+    time {
+      grid-column: 1;
+      grid-row: auto;
+      order: -1;
+      margin-bottom: 0.4rem;
+    }
+    .story-list-row--media img {
+      order: -2;
     }
   }
 </style>
