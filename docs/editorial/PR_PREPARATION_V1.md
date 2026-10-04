@@ -47,16 +47,15 @@ flowchart TD
 
 Required:
 
-- structured candidate ledger produced by the research-and-decision phase of
-  the Daily AI Pulse orchestrator
+- structured candidate ledger produced by the research-and-decision phase
 - `EDITORIAL_SCHEMA_V1.md`
 - `DECISION_ENGINE_V1.md`
 - `TOPICS_V1.yml`
 - current site content schema and publishing contract
 
 The ChatGPT Daily AI Pulse orchestrator starts at its configured cadence. It
-discovers news, reads the repository's editorial contracts, applies the
-decision engine, performs research deduplication, and produces the
+researches developments, reads the repository contracts, applies the decision
+engine, performs research deduplication, and produces the
 selected/watch/rejected candidate ledger.
 
 When one or more candidates are selected, the same orchestrated run continues
@@ -111,7 +110,8 @@ A human editor owns:
 - the decision that the batch is acceptable
 - merge approval
 
-Automation must never merge, auto-merge, or bypass the human review boundary.
+Automation must never merge, auto-merge, mark the publication PR ready for
+review, or bypass the human review boundary.
 
 ## Outputs
 
@@ -182,8 +182,7 @@ PR preparation owns:
 - publication audit trail
 - draft PR preparation
 
-A downstream conflict does not silently rewrite the ledger's research
-decision.
+A downstream conflict does not silently rewrite the ledger's research decision.
 
 A candidate may remain:
 
@@ -236,14 +235,19 @@ Publication adds a separate outcome, for example:
 - `withheld-source-unavailable`
 - `withheld-validation-failure`
 
+A candidate can therefore remain `decision: selected` while not appearing in
+the final story set.
+
 ### Withheld selected candidate schema
 
-A selected candidate that does not proceed to publication MUST remain
-`decision: selected` in the research ledger and MUST be recorded in:
+A selected candidate that does not proceed to publication MUST remain:
 
 ```text
-publication.withheld_selected
+decision: selected
 ```
+
+in the research ledger and MUST be recorded separately in
+`publication.withheld_selected`.
 
 Each withheld record MUST use this shape:
 
@@ -255,13 +259,14 @@ Each withheld record MUST use this shape:
 ```
 
 Where:
-- id MUST equal the canonical candidate id from the ledger
-- reason MUST explain why the candidate did not proceed to publication
 
-The field name is id.
+- `id` MUST equal the canonical candidate `id` from the same ledger
+- `reason` MUST explain why the candidate did not proceed to publication
 
-Do not use `candidate_id`, `story_id`, or another alias in
-publication.withheld_selected.
+The canonical identifier field is `id`.
+
+Do not use `candidate_id`, `story_id`, or another alias inside
+`publication.withheld_selected`.
 
 Example:
 
@@ -280,8 +285,15 @@ Example:
 }
 ```
 
-A candidate can therefore remain `decision: selected` while not appearing in
-the final story set.
+Every `publication.withheld_selected[].id` MUST resolve to a candidate in the
+same ledger whose research decision is:
+
+```text
+selected
+```
+
+A withheld publication outcome MUST NOT silently rewrite the original research
+decision.
 
 Record the publication duplicate recheck in:
 
@@ -348,6 +360,9 @@ Before the story can be considered publication-ready:
 - the image does not introduce unsupported facts
 - the image does not invent product UI or technical evidence
 
+When binary artwork is committed through GitHub APIs, it MUST use binary-safe
+Git object/blob operations rather than UTF-8 text-file operations.
+
 ## Validation model
 
 Validation has two layers.
@@ -359,6 +374,7 @@ executing the full repository:
 
 - ledger structure
 - candidate ID uniqueness
+- every withheld selected ID resolves to a `selected` candidate
 - selected story ↔ ledger mapping
 - controlled topics
 - source presence
@@ -461,8 +477,6 @@ Automation must not:
 After the draft PR exists, inspect its pull-request-triggered GitHub Actions run
 when possible.
 
-Possible automation outcomes:
-
 ### CI green
 
 Report:
@@ -538,8 +552,8 @@ Never disguise an override as if it came from the original research ledger.
 
 ## Success condition
 
-A successful orchestrated run ends with one durable daily branch and at most
-one draft PR.
+A successful orchestrated run ends with one durable daily branch and at most one
+draft PR.
 
 A reviewer should be able to answer:
 
