@@ -144,7 +144,7 @@
     "story_ids": [],
     "withheld_selected": [
       {
-        "candidate_id": "2026-10-03-claude-code-2-1-288-permission-hardening",
+        "id": "2026-10-03-claude-code-2-1-288-permission-hardening",
         "reason": "withheld-validation-failure: the controlled scheduler environment can persist UTF-8 repository files but does not expose the required image-generation-to-binary-GitHub-blob path for producing and committing the constitution-reviewed WebP plus review record. The selected research decision is preserved; no text-only story is published."
       }
     ],
