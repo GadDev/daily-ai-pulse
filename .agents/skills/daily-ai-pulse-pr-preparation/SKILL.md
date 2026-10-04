@@ -373,6 +373,41 @@ Only the first two proceed automatically to story drafting.
 Candidates with `conflict` or `source-unavailable` remain selected in the
 research ledger but are added to `publication.withheld_selected`.
 
+### Withheld candidate record
+
+When withholding a selected candidate, append exactly this structure to
+`publication.withheld_selected`:
+
+```json
+{
+  "id": "<canonical candidate id>",
+  "reason": "<publication withholding reason>"
+}
+```
+
+id MUST reference the existing selected candidate's canonical ledger ID.
+Do not write:
+
+```json
+{
+  "candidate_id": "..."
+}
+```
+
+or any other alias.
+Valid example:
+```json
+{
+  "id": "2026-10-03-example",
+  "reason": "withheld-validation-failure"
+}
+```
+
+Before persisting the ledger, verify that every `publication.withheld_selected[].id` resolves to a candidate whose research
+decision is selected.
+
+
+
 ## Step 5 — Handle ledger-only batches
 
 A valid daily run may produce zero publishable stories.

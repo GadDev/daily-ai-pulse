@@ -236,6 +236,50 @@ Publication adds a separate outcome, for example:
 - `withheld-source-unavailable`
 - `withheld-validation-failure`
 
+### Withheld selected candidate schema
+
+A selected candidate that does not proceed to publication MUST remain
+`decision: selected` in the research ledger and MUST be recorded in:
+
+```text
+publication.withheld_selected
+```
+
+Each withheld record MUST use this shape:
+
+```json
+{
+  "id": "YYYY-MM-DD-candidate-slug",
+  "reason": "withheld-verification-conflict"
+}
+```
+
+Where:
+- id MUST equal the canonical candidate id from the ledger
+- reason MUST explain why the candidate did not proceed to publication
+
+The field name is id.
+
+Do not use `candidate_id`, `story_id`, or another alias in
+publication.withheld_selected.
+
+Example:
+
+```json
+{
+  "publication": {
+    "story_ids": [],
+    "withheld_selected": [
+      {
+        "id": "2026-10-03-example",
+        "reason": "withheld-source-unavailable"
+      }
+    ],
+    "must_know_story_id": null
+  }
+}
+```
+
 A candidate can therefore remain `decision: selected` while not appearing in
 the final story set.
 
