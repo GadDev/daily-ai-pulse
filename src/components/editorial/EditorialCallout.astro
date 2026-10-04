@@ -8,6 +8,12 @@ const { label, kind } = Astro.props;
 ---
 
 <aside class:list={['editorial-callout', `editorial-callout--${kind}`]}>
+  {kind === 'evidence' && (
+    <svg class="editorial-callout__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 3h7l4 4v14H7z"></path>
+      <path d="M14 3v4h4M10 12h5M10 16h5"></path>
+    </svg>
+  )}
   <p class="editorial-callout__label">{label}</p>
   <div class="editorial-callout__body">
     <slot />
@@ -23,8 +29,40 @@ const { label, kind } = Astro.props;
     background: rgba(255, 255, 255, 0.18);
   }
   .editorial-callout--evidence {
-    border-top-color: var(--muted);
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    gap: 0 1rem;
+    align-items: start;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 3px;
     background: var(--surface-alt);
+  }
+  .editorial-callout--evidence .editorial-callout__label {
+    margin: 0.2rem 0 0;
+    color: var(--terracotta);
+  }
+  .editorial-callout--evidence .editorial-callout__body {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .editorial-callout__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: none;
+    stroke: var(--terracotta);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  @media (max-width: 620px) {
+    .editorial-callout--evidence {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+    .editorial-callout--evidence .editorial-callout__body {
+      grid-column: 1 / -1;
+      margin-top: 0.6rem;
+    }
   }
   .editorial-callout--try {
     border-top-width: 2px;

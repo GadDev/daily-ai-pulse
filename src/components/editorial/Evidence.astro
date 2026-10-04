@@ -1,7 +1,33 @@
 ---
 import EditorialCallout from './EditorialCallout.astro';
+
+interface Props {
+  href?: string;
+}
+
+const { href } = Astro.props;
 ---
 
 <EditorialCallout label="Evidence" kind="evidence">
   <slot />
+  {href && (
+    <p class="evidence-link">
+      <a href={href}>
+        See the relevant section <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  )}
 </EditorialCallout>
+
+<style>
+  .evidence-link {
+    margin: 0.5rem 0 0;
+  }
+  .evidence-link a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+  }
+</style>
