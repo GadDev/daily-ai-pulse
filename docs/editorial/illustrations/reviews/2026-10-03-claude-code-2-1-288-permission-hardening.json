@@ -1,0 +1,118 @@
+{
+  "system_version": "1.2",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-10-03-claude-code-2-1-288-permission-hardening",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Code 2.1.288 permission hardening",
+    "verified_context": [
+      "Anthropic says the release now prompts before a dangerous rm command embedded inside bash -c or sh -c when bypassPermissions mode or a matching shell allow rule would otherwise let it execute without a prompt.",
+      "If hook matching fails or tool input cannot be serialized for the hook, the tool call is now blocked rather than continuing after the hook is skipped."
+    ],
+    "output_crop": "wide",
+    "archetype": "mechanical-metaphor",
+    "editorial_idea": "Authorization failures should stop execution instead of becoming implicit permission.",
+    "visual_metaphor": "A wrapped execution path is forced through a physical enforcement clamp that constrains the whole bundle rather than trusting its outer wrapper.",
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ]
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The monumental gateway has strong crop resilience and publication-compatible materiality, but the fortress metaphor is too generic for the specific wrapped-command and fail-closed permission story.",
+    "B": "Selected. A bundled execution path is physically constrained by a heavy terracotta-and-charcoal clamp. The relationship remains abstract rather than pretending to depict Claude Code internals, survives article and thumbnail crops, and maps directly to enforcement over a wrapped command path.",
+    "C": "Constitution-compliant but not selected. The clamp and cable are story-relevant, yet the visibly frayed side wire introduces an avoidable suggestion of active breakage or escape, weakening technical meaning relative to B."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 88,
+    "composition": 91,
+    "crop_quality": 92,
+    "technical_meaning": 91,
+    "cleanliness": 94,
+    "golden_reference_fit": 86,
+    "weighted_total": 90.45
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 80,
+      "brand_fit": 86,
+      "composition": 88,
+      "crop_quality": 90,
+      "technical_meaning": 79,
+      "cleanliness": 96,
+      "golden_reference_fit": 84,
+      "weighted_total": 85.1
+    },
+    "B": {
+      "story_specific": 94,
+      "brand_fit": 88,
+      "composition": 91,
+      "crop_quality": 92,
+      "technical_meaning": 91,
+      "cleanliness": 94,
+      "golden_reference_fit": 86,
+      "weighted_total": 90.45
+    },
+    "C": {
+      "story_specific": 86,
+      "brand_fit": 89,
+      "composition": 91,
+      "crop_quality": 93,
+      "technical_meaning": 79,
+      "cleanliness": 94,
+      "golden_reference_fit": 87,
+      "weighted_total": 88.15
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-03-claude-code-2-1-288-permission-hardening.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1100 x 591 center-cover review: the clamp, bundled path, and dark enforcement mass remain readable with intentional negative space.",
+    "article_mobile": "359 x 193 center-cover review: the central clamp remains dominant and the wrapped conduits visibly enter and leave the enforcement boundary.",
+    "thumbnail": "320 x 164 review: the charcoal tower and terracotta clamp retain a distinct silhouette; fine cable detail is not required to understand the composition."
+  },
+  "golden_reference_comparison": "Direct side-by-side review used the exact repository WebPs for the OpenAI DNS sandbox and MCP secrets production illustrations. Candidate B matches their warm paper ground, charcoal architectural masses, sparing terracotta emphasis, physical editorial metaphor, strong foreground/background hierarchy, and controlled negative space. It is more volumetric, textured, and visually dense than the especially airy DNS reference and slightly more cinematic than the drawing-like production set, so Golden Reference Fit is scored at 86 rather than treated as near-identical. The result still reads as intentionally commissioned for the same publication.",
+  "asset_integrity": {
+    "byte_length": 33138,
+    "sha256": "8c0e0c8eac1c1b87c7599baaae914936d88e96f0dfe5c30462182a098833cdb3",
+    "git_blob_sha": "c1a15943ba357234ed6fd58fe7ca79774fb2652b",
+    "riff_container_complete": true
+  }
+}
