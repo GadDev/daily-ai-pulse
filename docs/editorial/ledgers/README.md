@@ -141,6 +141,19 @@ and record the downstream result separately, for example:
 }
 ```
 
-The candidate should also appear in `publication.withheld_selected`.
+The candidate should also appear in `publication.withheld_selected` using
+its canonical candidate ID:
+
+```json
+"publication": {
+  "story_ids": [],
+  "withheld_selected": [
+    {
+      "id": "2026-10-03-example",
+      "reason": "withheld-verification-conflict"
+    }
+  ],
+  "must_know_story_id": null
+}
 
 This distinction preserves a truthful audit trail between research and publication.

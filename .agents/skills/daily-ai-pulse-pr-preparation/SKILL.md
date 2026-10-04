@@ -75,6 +75,8 @@ of:
 - `docs/DAILY_ISSUE.md`
 - `src/content.config.ts`
 - `scripts/validate-content.mjs`
+- `scripts/validate-editorial-batch.mjs`
+- `scripts/validate-illustrations.mjs`
 - `.github/workflows/ci.yml`
 
 For illustration work, invoke:
@@ -373,6 +375,44 @@ Only the first two proceed automatically to story drafting.
 Candidates with `conflict` or `source-unavailable` remain selected in the
 research ledger but are added to `publication.withheld_selected`.
 
+### Withheld selected candidate schema
+
+When withholding a selected candidate, append exactly this structure to
+`publication.withheld_selected`:
+
+```json
+{
+  "id": "<canonical candidate id>",
+  "reason": "<publication withholding reason>"
+}
+```
+
+Rules:
+
+- `id` MUST equal the existing selected candidate's canonical ledger `id`
+- `reason` MUST explain why publication was withheld
+- the canonical field name is `id`
+- do not use `candidate_id`, `story_id`, or another alias
+
+Valid example:
+
+```json
+{
+  "id": "2026-10-03-example",
+  "reason": "withheld-validation-failure"
+}
+```
+
+Before persisting the ledger, verify that every
+`publication.withheld_selected[].id` resolves to a candidate in the same ledger
+whose research decision is:
+
+```text
+selected
+```
+
+A withheld publication outcome MUST NOT rewrite the original research decision.
+
 ## Step 5 — Handle ledger-only batches
 
 A valid daily run may produce zero publishable stories.
@@ -631,6 +671,15 @@ publication.withheld_selected
 
 with a reason.
 
+If `withheld_selected` is non-empty, every entry MUST use:
+
+```json
+{
+  "id": "<canonical selected candidate id>",
+  "reason": "<withholding reason>"
+}
+```
+
 The ledger is required for both publication and ledger-only batches.
 
 ## Step 11 — Run editorial and structural preflight
@@ -641,6 +690,7 @@ available execution environment.
 At minimum verify:
 
 - candidate IDs are unique
+- every `publication.withheld_selected[].id` resolves to `decision: selected`
 - selected published stories map to ledger candidates
 - watch/rejected IDs were not accidentally drafted
 - story topics belong to `TOPICS_V1.yml`
@@ -930,312 +980,3 @@ The output is not merely a set of Markdown files.
 It is a reviewable, reproducible editorial batch.
 
 Human review remains the final publication boundary.
-
----
-
-# File: `docs/editorial/ledgers/README.md`
-
-# Daily AI Pulse Candidate Ledgers
-
-This directory stores the normalized candidate ledger for every Daily AI Pulse
-editorial date.
-
-## Path
-
-```text
-docs/editorial/ledgers/YYYY-MM-DD.json
-```
-
-The filename date must equal the ledger's `editorial_date`.
-
-The ChatGPT Daily AI Pulse orchestrator creates the candidate ledger during its
-research-and-decision phase and persists the normalized ledger on the canonical
-daily publication branch.
-
-The same orchestrated run continues into PR preparation when publishable
-candidates exist.
-
-The ledger is therefore both:
-
-- the authoritative handoff between editorial selection and publication
-  preparation
-- durable editorial memory committed for future deduplication
-
-A daily run with no selected candidate still persists its ledger.
-
-Zero-story days are part of the editorial record rather than discarded
-scheduler output.
-
-No repository workflow independently discovers or selects news. GitHub Actions
-validates the draft publication PR after the orchestrator creates or updates
-it.
-
-## Daily batch identity
-
-Each editorial date uses the canonical branch:
-
-```text
-content/daily-ai-pulse-YYYY-MM-DD
-```
-
-and at most one draft publication PR:
-
-```text
-content: prepare Daily AI Pulse for YYYY-MM-DD
-```
-
-Repeated runs for the same editorial date reuse the same batch.
-
-## Why these files exist
-
-Published stories alone do not capture the full editorial decision history.
-
-A ledger records:
-
-- selected candidates
-- watch items
-- rejected candidates
-- already-covered repeats
-- research-time deduplication reasoning
-- publication-time deduplication outcomes
-- publication-time verification outcomes
-- selected candidates withheld before publication
-- published story mappings
-- Must Know mapping where applicable
-
-Merged ledgers therefore act as durable editorial memory for future research
-and duplicate detection.
-
-They help prevent the research system from repeatedly rediscovering:
-
-- already-rejected announcements
-- low-evidence claims
-- unresolved watch items
-- already-covered developments with no material delta
-
-The September 12–28 historical files are
-[retrospective backfills](BACKFILL.md) from published articles.
-
-Their `provenance` and null fields state what could not be recovered.
-
-The complete research decision history starts with live orchestrated batches.
-
-## Publication and ledger-only batches
-
-A daily batch has one of two normal modes.
-
-### Publication batch
-
-One or more selected candidates survive publication verification.
-
-The PR normally contains:
-
-```text
-src/content/stories/<story-id>.md
-public/images/stories/<story-id>.webp
-src/content/pulse/YYYY-MM-DD.md
-docs/editorial/ledgers/YYYY-MM-DD.json
-```
-
-### Ledger-only batch
-
-No story is publishable for the day.
-
-This may happen because:
-
-- research selected no candidate
-- selected candidates failed verification
-- selected candidates were publication duplicates
-- evidence was insufficient to publish responsibly
-
-A ledger-only batch normally contains:
-
-```text
-docs/editorial/ledgers/YYYY-MM-DD.json
-```
-
-A zero-story day is an editorial outcome, not a failure.
-
-The system must not manufacture content merely to produce a daily issue.
-
-## Immutability
-
-A merged historical ledger should not be rewritten during an ordinary daily
-run.
-
-Corrections require a deliberate correction PR that explains:
-
-- what was wrong
-- what changed
-- why the historical record is being amended
-
-A retry before merge may update the current editorial date's existing canonical
-branch and draft PR.
-
-## Decision ownership
-
-Research decisions belong to the candidate ledger.
-
-Publication preparation must preserve:
-
-- candidate identity
-- `selected` / `watch` / `rejected` decision
-- desk
-- format
-- depth
-- evidence
-- signal
-- research deduplication
-
-Publication preparation may add:
-
-- publication verification
-- publication deduplication
-- story mapping
-- illustration mapping
-- withheld-selected state
-
-A selected candidate that later fails verification remains selected in the
-research record.
-
-It is withheld from publication rather than silently reclassified.
-
-## Minimum shape
-
-`candidates` contains selected records.
-
-`watchlist` contains watch records.
-
-`exclusions` contains rejected/already-covered records.
-
-A candidate ID occurs in exactly one research-decision array.
-
-Research `decision` remains unchanged when publication verification withholds a
-selected story.
-
-A newly prepared story ID needs a matching story file, image, review record,
-and daily manifest before the repository validators can pass, unless the batch
-is explicitly ledger-only.
-
-Retrospective backfills have their own documented provenance and illustration
-review exception.
-
-```json
-{
-  "editorial_date": "2026-09-29",
-  "schema_version": "1.0",
-  "decision_engine_version": "1.0",
-  "candidates": [
-    {
-      "id": "2026-09-29-example",
-      "decision": "selected",
-      "title": "Example development",
-      "desk": "engineering",
-      "format": "briefing",
-      "depth": "practitioner",
-      "topics": ["agents", "agent-security"],
-      "event_date": "2026-09-29",
-      "summary": "A technical disclosure describes a new capability.",
-      "what_changed": "The disclosed technical behavior changed.",
-      "why_it_matters": "Engineers should revisit an assumption.",
-      "engineer_takeaway": "Inspect the documented behavior before adopting it.",
-      "primary_source_url": "https://example.com/canonical-source",
-      "sources": [
-        {
-          "url": "https://example.com/canonical-source",
-          "role": "primary"
-        }
-      ],
-      "evidence": {
-        "level": "primary",
-        "rationale": "First-party technical source."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "An engineering assumption changed."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 4,
-        "novelty": 5,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 93
-      },
-      "deduplication": {
-        "status": "new",
-        "publication_status": "new-confirmed",
-        "candidate_key": "example-project-plus-technical-change",
-        "previous_coverage": null,
-        "material_delta": "New technical disclosure."
-      },
-      "publication_verification": {
-        "status": "verified"
-      }
-    }
-  ],
-  "watchlist": [
-    {
-      "id": "2026-09-29-watch-example",
-      "decision": "watch",
-      "reason": "Benchmark lacks independent validation.",
-      "promote_when": [
-        "Independent results become available."
-      ]
-    }
-  ],
-  "exclusions": [
-    {
-      "id": "2026-09-29-repeat-example",
-      "decision": "rejected",
-      "reason": "Duplicate with no material delta.",
-      "previous_story_id": "2026-09-28-example"
-    }
-  ],
-  "publication": {
-    "story_ids": [
-      "2026-09-29-example"
-    ],
-    "withheld_selected": [],
-    "must_know_story_id": "2026-09-29-example"
-  }
-}
-```
-
-## Ledger-only example
-
-A valid no-publication day can look like:
-
-```json
-{
-  "editorial_date": "2026-09-30",
-  "schema_version": "1.0",
-  "decision_engine_version": "1.0",
-  "candidates": [],
-  "watchlist": [
-    {
-      "id": "2026-09-30-watch-example",
-      "decision": "watch",
-      "reason": "The claim is currently first-party only.",
-      "promote_when": [
-        "Independent benchmark or implementation evidence becomes available."
-      ]
-    }
-  ],
-  "exclusions": [
-    {
-      "id": "2026-09-30-repeat-example",
-      "decision": "rejected",
-      "reason": "Previously covered with no material delta.",
-      "previous_story_id": "2026-09-28-example"
-    }
-  ],
-  "publication": {
-    "story_ids": [],
-    "withheld_selected": [],
-    "must_know_story_id": null
-  }
-}
-```
-
-This is a successful editorial record even though no story was published.
