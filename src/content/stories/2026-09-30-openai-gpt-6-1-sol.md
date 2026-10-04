@@ -10,7 +10,7 @@ signal: high
 evidence: primary
 featured: false
 companies: [OpenAI]
-image: "/images/stories/2026-09-30-openai-gpt-6-1-sol.png"
+image: "/images/stories/2026-09-30-openai-gpt-6-1-sol.webp"
 imageAlt: "Two unequal routes carry the same task through a compact work structure toward one finished result"
 sources:
   - label: "OpenAI — Introducing GPT-6.1 Sol"

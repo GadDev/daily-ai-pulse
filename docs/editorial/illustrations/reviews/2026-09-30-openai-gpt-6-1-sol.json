@@ -67,10 +67,10 @@
   "hard_failures": [],
   "cover_crop_approved": true,
   "thumbnail_approved": true,
-  "final_asset": "/images/stories/2026-09-30-openai-gpt-6-1-sol.png",
+  "final_asset": "/images/stories/2026-09-30-openai-gpt-6-1-sol.webp",
   "final_dimensions": {
-    "width": 1600,
-    "height": 900
+    "width": 1672,
+    "height": 941
   },
   "candidate_scores": {
     "A": {
