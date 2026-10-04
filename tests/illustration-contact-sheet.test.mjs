@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import process from 'node:process';
@@ -51,38 +51,4 @@ test('comparison sheet renders local references and rejects undecodable artwork'
   } finally {
     rmSync(fixture, { recursive: true, force: true });
   }
-});
-
-test('temporary: export exact security golden references for visual review', () => {
-  const outputDir = resolve('playwright-report');
-  const output = join(outputDir, 'golden-references.png');
-  const dnsSandbox = resolve('public/images/stories/2026-09-28-openai-dns-sandbox.webp');
-  const mcpSecrets = resolve('public/images/stories/2026-09-26-mcp-secrets.webp');
-
-  mkdirSync(outputDir, { recursive: true });
-
-  const render = spawnSync(
-    process.execPath,
-    [
-      script,
-      '--story',
-      'Golden security reference review',
-      '--out',
-      output,
-      '--reference',
-      dnsSandbox,
-      '--reference',
-      mcpSecrets,
-      dnsSandbox,
-      mcpSecrets,
-      dnsSandbox,
-    ],
-    { encoding: 'utf8' },
-  );
-
-  assert.ifError(render.error);
-  assert.equal(render.status, 0, render.stdout + render.stderr);
-  assert.ok(readFileSync(output).length > 100_000, 'golden review sheet should contain artwork');
-
-  assert.fail('temporary artifact extraction: upload playwright-report/golden-references.png');
 });
