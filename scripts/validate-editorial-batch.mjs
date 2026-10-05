@@ -111,8 +111,7 @@ function storyIdsForDate(editorialDate) {
   return readdirSync(storiesDir)
     .filter(
       (name) =>
-        name.startsWith(`${editorialDate}-`) &&
-        (name.endsWith('.md') || name.endsWith('.mdx')),
+        name.startsWith(`${editorialDate}-`) && (name.endsWith('.md') || name.endsWith('.mdx')),
     )
     .map((name) => name.replace(/\.mdx?$/, ''));
 }
