@@ -76,7 +76,7 @@ of:
 - `src/content.config.ts`
 - `scripts/validate-content.mjs`
 - `scripts/validate-editorial-batch.mjs`
-- `scripts/validate-illustrations.mjs`
+- `scripts/validate-illustration-batch.mjs`
 - `.github/workflows/ci.yml`
 
 For illustration work, invoke:
