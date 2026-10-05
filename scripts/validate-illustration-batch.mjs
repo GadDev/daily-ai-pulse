@@ -1,11 +1,20 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 
+import {
+  buildGenerationIdentityFromRepository,
+  sha256File,
+} from './lib/illustration-generation-identity.mjs';
+
 const root = process.cwd();
 const ledgersDir = join(root, 'docs/editorial/ledgers');
 const reviewsDir = join(root, 'docs/editorial/illustrations/reviews');
 const publicDir = join(root, 'public');
 const errors = [];
+
+const supportedSystemVersions = new Set(['1.2', '1.3']);
+
+const generationIdentitySystemVersion = '1.3';
 
 const placementContract = {
   'home-hero': {
@@ -77,6 +86,18 @@ function latestLedger() {
     .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
     .sort();
   return names.length ? join(ledgersDir, names.at(-1)) : null;
+}
+
+function storySourcePath(storyId) {
+  const candidates = [`src/content/stories/${storyId}.md`, `src/content/stories/${storyId}.mdx`];
+
+  for (const candidate of candidates) {
+    if (existsSync(join(root, candidate))) {
+      return candidate;
+    }
+  }
+
+  return null;
 }
 
 function uint24le(buffer, offset) {
@@ -201,6 +222,114 @@ function illustrationAssetIdsForDate(editorialDate) {
     .map((name) => name.replace(/\.webp$/, ''));
 }
 
+function validateGenerationIdentity(storyId, review) {
+  if (review.system_version !== generationIdentitySystemVersion) {
+    return;
+  }
+
+  const identity = review.generation_identity;
+
+  if (!identity || typeof identity !== 'object' || Array.isArray(identity)) {
+    fail(
+      `${storyId}: generation_identity is required for illustration system ${generationIdentitySystemVersion}`,
+    );
+
+    return;
+  }
+
+  if (!Object.hasOwn(identity, 'model_snapshot')) {
+    fail(`${storyId}: generation_identity.model_snapshot is required and may be null`);
+
+    return;
+  }
+
+  const storyPath = storySourcePath(storyId);
+
+  if (!storyPath) {
+    fail(`${storyId}: story source is missing for generation identity validation`);
+
+    return;
+  }
+
+  let expected;
+
+  try {
+    expected = buildGenerationIdentityFromRepository({
+      root,
+      storyId,
+      storyPath,
+
+      visualBrief: review.visual_brief,
+
+      illustrationSystemVersion: review.system_version,
+
+      visualConstitutionVersion: review.constitution_version,
+
+      candidateCount: review.candidate_count,
+
+      generatorSurface: identity.generator_surface,
+
+      modelSnapshot: identity.model_snapshot,
+    });
+  } catch (error) {
+    fail(`${storyId}: cannot recompute generation identity (${error.message})`);
+
+    return;
+  }
+
+  if (identity.identity_version !== expected.identity_version) {
+    fail(`${storyId}: generation identity version does not match the current identity contract`);
+  }
+
+  if (identity.story_id !== expected.story_id) {
+    fail(`${storyId}: generation identity story_id does not match the story`);
+  }
+
+  if (identity.story_source_sha256 !== expected.story_source_sha256) {
+    fail(`${storyId}: generation identity story_source_sha256 does not match current story`);
+  }
+
+  if (identity.visual_brief_sha256 !== expected.visual_brief_sha256) {
+    fail(`${storyId}: generation identity visual_brief_sha256 does not match current visual brief`);
+  }
+
+  if (identity.reference_inputs_sha256 !== expected.reference_inputs_sha256) {
+    fail(
+      `${storyId}: generation identity reference_inputs_sha256 does not match current referenced inputs`,
+    );
+  }
+
+  if (identity.illustration_system_version !== expected.illustration_system_version) {
+    fail(`${storyId}: generation identity illustration_system_version does not match review`);
+  }
+
+  if (identity.visual_constitution_version !== expected.visual_constitution_version) {
+    fail(`${storyId}: generation identity visual_constitution_version does not match review`);
+  }
+
+  if (identity.prompt_contract_version !== expected.prompt_contract_version) {
+    fail(
+      `${storyId}: generation identity prompt_contract_version does not match current prompt contract`,
+    );
+  }
+
+  if (identity.candidate_count !== expected.candidate_count) {
+    fail(`${storyId}: generation identity candidate_count does not match review`);
+  }
+
+  if (identity.generator_surface !== expected.generator_surface) {
+    fail(`${storyId}: generation identity generator_surface is inconsistent`);
+  }
+
+  if (identity.model_snapshot !== expected.model_snapshot) {
+    fail(`${storyId}: generation identity model_snapshot is inconsistent`);
+  }
+
+  if (identity.generation_key !== expected.generation_key) {
+    fail(`${storyId}: generation identity generation_key does not match current generation inputs`);
+  }
+}
+
 const requestedLedger = process.argv[2];
 const ledgerPath = requestedLedger ? resolve(root, requestedLedger) : latestLedger();
 
@@ -260,7 +389,9 @@ for (const storyId of storyIds ?? []) {
   const review = readJson(reviewPath);
   if (!review) continue;
 
-  if (review.system_version !== '1.2') fail(`${storyId}: unsupported illustration system version`);
+  if (!supportedSystemVersions.has(review.system_version)) {
+    fail(`${storyId}: unsupported illustration system version`);
+  }
   if (review.constitution_version !== '1.1') {
     fail(`${storyId}: unsupported or missing visual constitution version`);
   }
@@ -328,6 +459,8 @@ for (const storyId of storyIds ?? []) {
       }
     }
   }
+
+  validateGenerationIdentity(storyId, review);
 
   const constitutionCheck = review.constitution_check;
   if (constitutionCheck?.passed !== true) {
@@ -416,6 +549,20 @@ for (const storyId of storyIds ?? []) {
   if (!existsSync(assetPath)) {
     fail(`${storyId}: final illustration asset is missing: ${asset}`);
     continue;
+  }
+
+  if (review.system_version === generationIdentitySystemVersion) {
+    let actualAssetSha256;
+
+    try {
+      actualAssetSha256 = sha256File(assetPath);
+    } catch (error) {
+      fail(`${storyId}: cannot compute final illustration SHA-256 (${error.message})`);
+    }
+
+    if (actualAssetSha256 && review.asset_integrity?.sha256 !== actualAssetSha256) {
+      fail(`${storyId}: asset_integrity.sha256 does not match actual final asset`);
+    }
   }
 
   let dimensions;
