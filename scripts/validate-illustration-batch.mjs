@@ -183,6 +183,24 @@ function validateCrop(storyId, placement, outputCrop, dimensions) {
   fail(`${storyId}: unsupported output_crop for placement ${placement}: ${outputCrop}`);
 }
 
+function illustrationReviewIdsForDate(editorialDate) {
+  if (!existsSync(reviewsDir)) return [];
+
+  return readdirSync(reviewsDir)
+    .filter((name) => name.startsWith(`${editorialDate}-`) && name.endsWith('.json'))
+    .map((name) => name.replace(/\.json$/, ''));
+}
+
+function illustrationAssetIdsForDate(editorialDate) {
+  const storiesImageDir = join(publicDir, 'images/stories');
+
+  if (!existsSync(storiesImageDir)) return [];
+
+  return readdirSync(storiesImageDir)
+    .filter((name) => name.startsWith(`${editorialDate}-`) && name.endsWith('.webp'))
+    .map((name) => name.replace(/\.webp$/, ''));
+}
+
 const requestedLedger = process.argv[2];
 const ledgerPath = requestedLedger ? resolve(root, requestedLedger) : latestLedger();
 
@@ -209,8 +227,27 @@ if (ledger.provenance?.kind === 'retrospective-backfill' && ledger.editorial_dat
 }
 
 const storyIds = ledger.publication?.story_ids;
+
 if (!Array.isArray(storyIds)) {
   fail('ledger.publication.story_ids must be an array');
+}
+
+const publishedStoryIds = new Set(storyIds ?? []);
+
+const orphanReviewIds = illustrationReviewIdsForDate(ledger.editorial_date);
+
+for (const id of orphanReviewIds) {
+  if (!publishedStoryIds.has(id)) {
+    fail(`${id}: illustration review exists but story is not declared in publication.story_ids`);
+  }
+}
+
+const orphanAssetIds = illustrationAssetIdsForDate(ledger.editorial_date);
+
+for (const id of orphanAssetIds) {
+  if (!publishedStoryIds.has(id)) {
+    fail(`${id}: illustration asset exists but story is not declared in publication.story_ids`);
+  }
 }
 
 for (const storyId of storyIds ?? []) {

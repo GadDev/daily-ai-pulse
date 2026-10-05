@@ -1,153 +1,152 @@
 {
-  "editorial_date": "2026-10-03",
-  "schema_version": "1.0",
-  "decision_engine_version": "1.0",
-  "candidates": [
-    {
-      "id": "2026-10-03-claude-code-2-1-288-permission-hardening",
-      "decision": "selected",
-      "title": "Claude Code 2.1.288 closes fail-open permission gaps around shell deletion and hooks",
-      "desk": "tools",
-      "format": "briefing",
-      "depth": "practitioner",
-      "topics": ["coding-agents", "cli", "permissions", "security", "hooks"],
-      "entities": ["Anthropic", "Claude Code"],
-      "event_date": "2026-10-02",
-      "source_publication_date": "2026-10-02",
-      "summary": "Anthropic released Claude Code 2.1.288 with permission hardening for dangerous shell deletion and hook failures, alongside reliability fixes for long-running and resumed sessions.",
-      "what_changed": "The release now prompts before a dangerous rm embedded inside bash -c or sh -c when bypassPermissions mode or a shell allow rule would previously let it run without a prompt. It also blocks tool calls when PreToolUse or PermissionRequest hook matching fails or tool input cannot be serialized, rather than skipping those hooks.",
-      "why_it_matters": "Coding-agent safety depends on enforcement at execution boundaries, not just model intent. Wrapper commands and hook-processing failures are exactly the kinds of edge cases that can turn a nominal permission policy into a fail-open control.",
-      "engineer_takeaway": "If your team uses Claude Code with bypassPermissions, shell allow rules, or custom permission hooks, upgrade and test the enforcement path with adversarial wrapper commands and hook failures; keep bypass modes inside isolated environments rather than treating them as a normal workstation policy.",
-      "prerequisites": ["coding agents", "shell permissions", "Claude Code hooks"],
-      "primary_source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
-      "sources": [
-        {
-          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
-          "canonical_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
-          "publisher": "Anthropic",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-10-02"
-        },
-        {
-          "url": "https://mixed-news.com/en/claude-code-2-1-288-dangerous-rm-bash-c-wrapper-stable-channel/",
-          "canonical_url": "https://mixed-news.com/en/claude-code-2-1-288-dangerous-rm-bash-c-wrapper-stable-channel/",
-          "publisher": "MIXED",
-          "source_type": "reporting",
-          "role": "independent",
-          "publication_date": "2026-10-03"
-        }
-      ],
-      "evidence": {
-        "level": "primary",
-        "rationale": "Anthropic's immutable v2.1.288 release notes document the dangerous-rm and fail-closed hook fixes. Independent reporting describes the rm wrapper reproduction and affected permission modes; no independent reproduction was performed in this run.",
-        "independent_validation": "Independent reporting corroborates the rm wrapper failure and release fix; this orchestration run did not execute a live exploit or regression test.",
-        "claim_scope": "The story treats the fixed behavior and release timing as primary-source facts and does not claim broader permission-system safety beyond the documented fixes."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "The fixes affect the permission boundary of a widely used coding agent, including configurations explicitly used for unattended or low-friction execution."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 4,
-        "novelty": 4,
-        "relevance": 5,
-        "durability": 5,
-        "weighted_total": 91
-      },
-      "learning_gap": {
-        "exists": false,
-        "concepts": []
-      },
-      "related_content": {
-        "previous_story_ids": []
-      },
-      "deduplication": {
-        "status": "new",
-        "publication_status": "new-confirmed",
-        "candidate_key": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288|Claude Code 2.1.288|dangerous rm and hook permission hardening",
-        "canonical_event": "Anthropic releases Claude Code 2.1.288 with permission-boundary fixes",
-        "previous_coverage": null,
-        "material_delta": "New October 2 release closes documented permission-check gaps not covered by the existing Daily AI Pulse archive."
-      },
-      "publication_verification": {
-        "status": "verified-with-claim-scope"
-      }
-    }
-  ],
-  "watchlist": [
-    {
-      "id": "2026-10-03-claude-code-mods-security-surface",
-      "decision": "watch",
-      "title": "Claude Mods open a deeper, unsandboxed extension surface inside Claude Code",
-      "desk": "tools",
-      "format": "briefing",
-      "depth": "practitioner",
-      "topics": ["coding-agents", "skills", "hooks", "permissions", "security"],
-      "entities": ["Anthropic", "Claude Code", "Claude Mods"],
-      "event_date": "2026-10-01",
-      "summary": "Claude Code 2.1.287 introduced Claude Mods, allowing plugins to modify deeper behavior. The repository source and documentation expose a materially more powerful extension surface, but this controlled run prioritizes the following day's concrete permission-boundary fixes and avoids splitting one rapidly evolving Claude Code release sequence into multiple stories without a stronger independent deployment signal.",
-      "evidence": {
-        "level": "primary",
-        "rationale": "Anthropic's release feed and public Mods source document the feature; community reporting discusses the security implications."
-      },
-      "signal": {
-        "level": "high",
-        "rationale": "A deeper plugin execution surface changes the trust model for coding-agent extensions."
-      },
-      "editorial_score": {
-        "significance": 5,
-        "evidence": 4,
-        "novelty": 5,
-        "relevance": 5,
-        "durability": 4,
-        "weighted_total": 93
-      },
-      "sources": [
-        {
-          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.287",
-          "publisher": "Anthropic",
-          "source_type": "official",
-          "role": "primary",
-          "publication_date": "2026-10-01"
-        }
-      ],
-      "reason": "rapid-release-sequence-editorial-consolidation",
-      "promote_when": [
-        "independent deployment evidence demonstrates a concrete engineering or security consequence of the Mods execution model",
-        "Anthropic publishes a material follow-up changing the Mods trust or sandbox boundary"
-      ]
-    }
-  ],
-  "exclusions": [
-    {
-      "id": "2026-10-03-nvidia-open-agent-safety-followup",
-      "decision": "rejected",
-      "reason": "Already covered in the 2026-09-29 Daily AI Pulse ledger/story; October 2 reporting did not establish a separate material technical delta for this batch.",
-      "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform"
-    },
-    {
-      "id": "2026-10-03-openai-dots-followup",
-      "decision": "rejected",
-      "reason": "Already selected and prepared in the 2026-09-30 ledger; subsequent commentary did not establish a new product or engineering delta for October 3.",
-      "previous_story_id": "2026-09-30-openai-dots"
-    },
-    {
-      "id": "2026-10-03-openai-gpt-6-1-sol-followup",
-      "decision": "rejected",
-      "reason": "Already selected and prepared in the 2026-09-30 ledger; no new October 3 technical delta was established.",
-      "previous_story_id": "2026-09-30-openai-gpt-6-1-sol"
-    }
-  ],
-  "publication": {
-    "story_ids": [],
-    "withheld_selected": [
-      {
-        "id": "2026-10-03-claude-code-2-1-288-permission-hardening",
-        "reason": "withheld-validation-failure: the controlled scheduler environment can persist UTF-8 repository files but does not expose the required image-generation-to-binary-GitHub-blob path for producing and committing the constitution-reviewed WebP plus review record. The selected research decision is preserved; no text-only story is published."
-      }
-    ],
-    "must_know_story_id": null
-  }
+	"editorial_date": "2026-10-03",
+	"schema_version": "1.0",
+	"decision_engine_version": "1.0",
+	"candidates": [
+		{
+			"id": "2026-10-03-claude-code-2-1-288-permission-hardening",
+			"decision": "selected",
+			"title": "Claude Code 2.1.288 closes fail-open permission gaps around shell deletion and hooks",
+			"desk": "tools",
+			"format": "briefing",
+			"depth": "practitioner",
+			"topics": ["coding-agents", "cli", "permissions", "security", "hooks"],
+			"entities": ["Anthropic", "Claude Code"],
+			"event_date": "2026-10-02",
+			"source_publication_date": "2026-10-02",
+			"summary": "Anthropic released Claude Code 2.1.288 with permission hardening for dangerous shell deletion and hook failures, alongside reliability fixes for long-running and resumed sessions.",
+			"what_changed": "The release now prompts before a dangerous rm embedded inside bash -c or sh -c when bypassPermissions mode or a shell allow rule would previously let it run without a prompt. It also blocks tool calls when PreToolUse or PermissionRequest hook matching fails or tool input cannot be serialized, rather than skipping those hooks.",
+			"why_it_matters": "Coding-agent safety depends on enforcement at execution boundaries, not just model intent. Wrapper commands and hook-processing failures are exactly the kinds of edge cases that can turn a nominal permission policy into a fail-open control.",
+			"engineer_takeaway": "If your team uses Claude Code with bypassPermissions, shell allow rules, or custom permission hooks, upgrade and test the enforcement path with adversarial wrapper commands and hook failures; keep bypass modes inside isolated environments rather than treating them as a normal workstation policy.",
+			"prerequisites": [
+				"coding agents",
+				"shell permissions",
+				"Claude Code hooks"
+			],
+			"primary_source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
+			"sources": [
+				{
+					"url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
+					"canonical_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288",
+					"publisher": "Anthropic",
+					"source_type": "official",
+					"role": "primary",
+					"publication_date": "2026-10-02"
+				},
+				{
+					"url": "https://mixed-news.com/en/claude-code-2-1-288-dangerous-rm-bash-c-wrapper-stable-channel/",
+					"canonical_url": "https://mixed-news.com/en/claude-code-2-1-288-dangerous-rm-bash-c-wrapper-stable-channel/",
+					"publisher": "MIXED",
+					"source_type": "reporting",
+					"role": "independent",
+					"publication_date": "2026-10-03"
+				}
+			],
+			"evidence": {
+				"level": "primary",
+				"rationale": "Anthropic's immutable v2.1.288 release notes document the dangerous-rm and fail-closed hook fixes. Independent reporting describes the rm wrapper reproduction and affected permission modes; no independent reproduction was performed in this run.",
+				"independent_validation": "Independent reporting corroborates the rm wrapper failure and release fix; this orchestration run did not execute a live exploit or regression test.",
+				"claim_scope": "The story treats the fixed behavior and release timing as primary-source facts and does not claim broader permission-system safety beyond the documented fixes."
+			},
+			"signal": {
+				"level": "high",
+				"rationale": "The fixes affect the permission boundary of a widely used coding agent, including configurations explicitly used for unattended or low-friction execution."
+			},
+			"editorial_score": {
+				"significance": 5,
+				"evidence": 4,
+				"novelty": 4,
+				"relevance": 5,
+				"durability": 5,
+				"weighted_total": 91
+			},
+			"learning_gap": {
+				"exists": false,
+				"concepts": []
+			},
+			"related_content": {
+				"previous_story_ids": []
+			},
+			"deduplication": {
+				"status": "new",
+				"publication_status": "new-confirmed",
+				"candidate_key": "https://github.com/anthropics/claude-code/releases/tag/v2.1.288|Claude Code 2.1.288|dangerous rm and hook permission hardening",
+				"canonical_event": "Anthropic releases Claude Code 2.1.288 with permission-boundary fixes",
+				"previous_coverage": null,
+				"material_delta": "New October 2 release closes documented permission-check gaps not covered by the existing Daily AI Pulse archive."
+			},
+			"publication_verification": {
+				"status": "verified-with-claim-scope"
+			}
+		}
+	],
+	"watchlist": [
+		{
+			"id": "2026-10-03-claude-code-mods-security-surface",
+			"decision": "watch",
+			"title": "Claude Mods open a deeper, unsandboxed extension surface inside Claude Code",
+			"desk": "tools",
+			"format": "briefing",
+			"depth": "practitioner",
+			"topics": ["coding-agents", "skills", "hooks", "permissions", "security"],
+			"entities": ["Anthropic", "Claude Code", "Claude Mods"],
+			"event_date": "2026-10-01",
+			"summary": "Claude Code 2.1.287 introduced Claude Mods, allowing plugins to modify deeper behavior. The repository source and documentation expose a materially more powerful extension surface, but this controlled run prioritizes the following day's concrete permission-boundary fixes and avoids splitting one rapidly evolving Claude Code release sequence into multiple stories without a stronger independent deployment signal.",
+			"evidence": {
+				"level": "primary",
+				"rationale": "Anthropic's release feed and public Mods source document the feature; community reporting discusses the security implications."
+			},
+			"signal": {
+				"level": "high",
+				"rationale": "A deeper plugin execution surface changes the trust model for coding-agent extensions."
+			},
+			"editorial_score": {
+				"significance": 5,
+				"evidence": 4,
+				"novelty": 5,
+				"relevance": 5,
+				"durability": 4,
+				"weighted_total": 93
+			},
+			"sources": [
+				{
+					"url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.287",
+					"publisher": "Anthropic",
+					"source_type": "official",
+					"role": "primary",
+					"publication_date": "2026-10-01"
+				}
+			],
+			"reason": "rapid-release-sequence-editorial-consolidation",
+			"promote_when": [
+				"independent deployment evidence demonstrates a concrete engineering or security consequence of the Mods execution model",
+				"Anthropic publishes a material follow-up changing the Mods trust or sandbox boundary"
+			]
+		}
+	],
+	"exclusions": [
+		{
+			"id": "2026-10-03-nvidia-open-agent-safety-followup",
+			"decision": "rejected",
+			"reason": "Already covered in the 2026-09-29 Daily AI Pulse ledger/story; October 2 reporting did not establish a separate material technical delta for this batch.",
+			"previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform"
+		},
+		{
+			"id": "2026-10-03-openai-dots-followup",
+			"decision": "rejected",
+			"reason": "Already selected and prepared in the 2026-09-30 ledger; subsequent commentary did not establish a new product or engineering delta for October 3.",
+			"previous_story_id": "2026-09-30-openai-dots"
+		},
+		{
+			"id": "2026-10-03-openai-gpt-6-1-sol-followup",
+			"decision": "rejected",
+			"reason": "Already selected and prepared in the 2026-09-30 ledger; no new October 3 technical delta was established.",
+			"previous_story_id": "2026-09-30-openai-gpt-6-1-sol"
+		}
+	],
+	"publication": {
+		"story_ids": ["2026-10-03-claude-code-2-1-288-permission-hardening"],
+		"withheld_selected": [],
+		"must_know_story_id": null
+	}
 }

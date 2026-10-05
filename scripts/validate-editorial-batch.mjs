@@ -105,6 +105,18 @@ function storyPath(id) {
   return null;
 }
 
+function storyIdsForDate(editorialDate) {
+  if (!existsSync(storiesDir)) return [];
+
+  return readdirSync(storiesDir)
+    .filter(
+      (name) =>
+        name.startsWith(`${editorialDate}-`) &&
+        (name.endsWith('.md') || name.endsWith('.mdx')),
+    )
+    .map((name) => name.replace(/\.mdx?$/, ''));
+}
+
 function latestLedger() {
   if (!existsSync(ledgersDir)) return null;
   const names = readdirSync(ledgersDir)
@@ -220,6 +232,24 @@ const publishedStoryIds = new Set(ledger.publication?.story_ids ?? []);
 const standaloneStoryIds = new Set(ledger.publication?.standalone_story_ids ?? []);
 const withheld = ledger.publication?.withheld_selected ?? [];
 const withheldIds = new Set(withheld.map((item) => (typeof item === 'string' ? item : item.id)));
+
+if (!retrospective) {
+  const batchStoryIds = new Set(storyIdsForDate(ledger.editorial_date));
+
+  for (const id of withheldIds) {
+    if (batchStoryIds.has(id)) {
+      fail(`withheld selected candidate has a story file in this batch: ${id}`);
+    }
+  }
+
+  for (const id of batchStoryIds) {
+    if (!publishedStoryIds.has(id)) {
+      fail(
+        `story file exists for editorial date but is not declared in publication.story_ids: ${id}`,
+      );
+    }
+  }
+}
 
 for (const id of publishedStoryIds) {
   if (!selectedById.has(id)) fail(`published story is not a selected ledger candidate: ${id}`);

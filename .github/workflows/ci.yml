@@ -29,6 +29,9 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
+      - name: Editorial validator regressions
+        run: node --test tests/editorial-validator.test.mjs
+
       - name: Illustration validator regressions
         run: node --test tests/illustration-validator.test.mjs
 
