@@ -1,6 +1,6 @@
 ---
 name: daily-ai-pulse-pr-preparation
-description: Prepare one reviewable Daily AI Pulse editorial batch from a structured candidate ledger. Re-verify selected candidates, run publication deduplication, draft canonical stories, generate illustrations through the Daily AI Pulse illustration skill, persist the complete ledger, perform available preflight validation, and open or update one canonical draft PR with evidence, exclusions, watch items, validation state, and conflicts visible to reviewers.
+description: Prepare one reviewable Daily AI Pulse editorial batch from a structured candidate ledger. Re-verify selected candidates, run publication deduplication, draft canonical stories, resolve illustrations through the Daily AI Pulse illustration workflow using Generation Identity V1 reuse-or-generate semantics, persist the complete ledger, perform available preflight validation, and open or update one canonical draft PR with evidence, exclusions, watch items, validation state, illustration state, and conflicts visible to reviewers.
 ---
 
 # Daily AI Pulse PR Preparation
@@ -14,6 +14,17 @@ workflow.
 
 This skill is the publication-preparation stage between editorial selection and
 human review.
+
+PR preparation owns publication orchestration.
+
+It does **not** own illustration-generation identity or the illustration reuse
+decision.
+
+Those belong to:
+
+```text
+$daily-ai-pulse-illustration
+```
 
 ## Canonical pipeline
 
@@ -31,7 +42,9 @@ Daily AI Pulse Orchestrator
                  ├── re-verify selected evidence
                  ├── re-run publication deduplication
                  ├── draft selected stories
-                 ├── generate illustrations
+                 ├── invoke illustration workflow
+                 │       ├── REUSE
+                 │       └── GENERATE
                  ├── create daily issue manifest
                  ├── persist candidate ledger
                  ├── run available preflight checks
@@ -71,6 +84,9 @@ of:
 - `docs/editorial/DECISION_ENGINE_V1.md`
 - `docs/editorial/TOPICS_V1.yml`
 - `docs/editorial/PR_PREPARATION_V1.md`
+- `docs/editorial/ILLUSTRATION_SYSTEM_V1.md`
+- `docs/editorial/ILLUSTRATION_GENERATION_IDENTITY_V1.md`
+- `docs/editorial/VISUAL_CONSTITUTION_V1.md`
 - `docs/CONTENT_MODEL.md`
 - `docs/DAILY_ISSUE.md`
 - `src/content.config.ts`
@@ -89,6 +105,9 @@ The editorial contract is authoritative for meaning.
 
 The current Astro content schema is authoritative for what the site can build
 today.
+
+The illustration system and Generation Identity V1 contract are authoritative
+for illustration reuse and generation.
 
 Use the compatibility mapping defined by `EDITORIAL_SCHEMA_V1.md` when the
 richer editorial model has not yet been migrated into Astro.
@@ -211,8 +230,13 @@ This skill MAY:
 - add context
 - find conflicts
 - record publication-time outcomes
+- invoke the illustration workflow
+- record whether illustration resolution reused or generated an asset
 
 This skill MUST NOT silently reclassify a candidate.
+
+This skill MUST NOT independently calculate Generation Identity V1 or decide
+that an illustration is reusable based only on repository state.
 
 If publication verification produces contradictory evidence, create an
 editorial conflict record and withhold that candidate from publication.
@@ -241,7 +265,8 @@ The candidate remains selected in the original research decision.
 5. One development produces one canonical story unless the ledger explicitly
    justifies a separate editorial treatment.
 6. No duplicate story is allowed without an explicit material delta.
-7. Every drafted story must have an illustration and useful alt text.
+7. Every drafted story must resolve to one valid primary illustration and useful
+   alt text.
 8. Each editorial date has at most one canonical publication branch.
 9. Each editorial date has at most one publication PR.
 10. A retry for the same editorial date must reuse the existing batch.
@@ -250,6 +275,12 @@ The candidate remains selected in the original research decision.
 13. Never enable auto-merge.
 14. Never merge the publication PR.
 15. Human review remains the final publication authority.
+16. PR preparation MUST delegate illustration identity and reuse decisions to
+    the illustration skill.
+17. Asset existence alone MUST NOT be treated as evidence that an illustration
+    is reusable.
+18. A PR-preparation retry MUST NOT force illustration regeneration when the
+    illustration workflow returns `REUSE`.
 
 ## Step 1 — Ingest and normalize the ledger
 
@@ -287,6 +318,7 @@ If the branch already exists:
 - inspect its current state
 - continue the existing batch
 - preserve valid work already present
+- preserve reusable illustration state
 - avoid unrelated changes
 
 Never create a second publication branch for the same editorial date.
@@ -429,7 +461,7 @@ In a ledger-only batch:
 
 - do not manufacture a story
 - do not create story files
-- do not generate illustrations
+- do not invoke illustration generation or reuse resolution
 - do not create a daily issue unless the current site contract explicitly
   requires one
 - persist the complete candidate ledger
@@ -548,23 +580,93 @@ Rules:
 - source list starts with the canonical primary source
 - do not publish an `unverified` story by default
 
-## Step 8 — Generate one illustration per drafted story
+Do not finalize illustration-related frontmatter until Step 8 resolves the
+story's illustration.
 
-After the draft is factually stable, invoke:
+## Step 8 — Resolve one illustration per drafted story
+
+After the story draft is factually stable, invoke:
 
 ```text
 $daily-ai-pulse-illustration
 ```
 
-Generate exactly one primary editorial illustration for each drafted story
-unless the story already has an explicitly approved reusable asset.
+The illustration skill owns:
 
-The illustration skill owns visual composition and must use:
+- visual-brief compilation
+- Generation Identity V1 computation
+- reuse eligibility
+- asset-integrity verification
+- candidate generation when required
+- constitutional visual review
+- candidate scoring
+- crop review
+- final asset normalization
+- version `1.3` review persistence for new generations
 
-- verified story context
-- relevant `docs/reference-layouts/` role/crop guidance
-- current visual constitution
-- current illustration system
+PR preparation MUST NOT independently decide illustration reuse.
+
+In particular, do not infer reuse from:
+
+- asset filename
+- asset existence
+- story ID
+- review-file existence alone
+- branch state
+- PR state
+- scheduler state
+- previous workflow completion
+- unchanged Git commit SHA
+- a successful earlier PR-preparation run
+
+For every drafted story the illustration workflow should resolve one of:
+
+```text
+REUSE
+→ an existing identity-aware review and final asset match the expected
+  Generation Identity V1 and asset-integrity contract
+
+GENERATE
+→ no reusable identity-aware generation exists and a new illustration is
+  produced under the current illustration-system contract
+```
+
+A legacy version `1.2` review is historical state.
+
+PR preparation MUST NOT:
+
+- fabricate Generation Identity V1 for it
+- silently rewrite it as version `1.3`
+- assume it is automatically reusable under the new identity contract
+- silently force migration
+
+If deliberate regeneration/migration is required, that decision belongs to the
+illustration workflow or a human reviewer.
+
+### REUSE outcome
+
+When the illustration skill returns `REUSE`:
+
+- accept the resolved illustration
+- preserve the existing WebP
+- preserve the existing review record
+- do not generate new candidates
+- do not rescore the illustration
+- do not change `selected_candidate`
+- do not rewrite generation timestamps
+- do not touch the asset merely because PR preparation was retried
+
+A successful reuse should normally produce no illustration diff.
+
+### GENERATE outcome
+
+When the illustration skill returns `GENERATE`:
+
+- allow the illustration skill to generate and review the required candidates
+- use the selected normalized production WebP
+- require a current identity-aware review record
+- require persisted asset-integrity metadata
+- do not independently rewrite generation identity after the skill returns
 
 Expected publication path:
 
@@ -579,20 +681,55 @@ image: "/images/stories/YYYY-MM-DD-slug.webp"
 imageAlt: "Concrete description of the editorial image"
 ```
 
-Verify:
+Verify after either outcome:
 
-- file exists
-- story reference matches the file path exactly
-- alt text conveys useful visual meaning
+- illustration workflow completed successfully
+- final file exists
+- story reference matches the final asset path exactly
+- useful alt text is present
 - article crop works
-- thumbnail crop works
+- thumbnail/small-size crop works
 - image contains no invented data
 - image contains no misleading product UI
+- corresponding review record exists when required by the illustration contract
 
-When committing binary WebP assets through GitHub APIs, use binary-safe Git
-object/blob operations rather than UTF-8 text-file operations.
+For identity-aware version `1.3` generations, additionally require:
+
+- persisted `generation_identity`
+- persisted `asset_integrity.sha256`
+- deterministic illustration validation to pass before publication preparation
+  is considered complete
+
+When committing newly generated binary WebP assets through GitHub APIs, use
+binary-safe Git object/blob operations rather than UTF-8 text-file operations.
 
 Do not ask the illustration skill to reinterpret editorial classifications.
+
+### Illustration ownership boundary
+
+PR preparation supplies:
+
+```text
+factually stable story
++
+publication context
++
+placement intent
+```
+
+The illustration skill returns:
+
+```text
+resolved illustration
++
+REUSE | GENERATE decision
++
+review/identity evidence
+```
+
+PR preparation consumes that result and continues the editorial batch.
+
+It does not duplicate the illustration skill's identity algorithm.
 
 ## Step 9 — Create the daily issue manifest
 
@@ -682,6 +819,12 @@ If `withheld_selected` is non-empty, every entry MUST use:
 
 The ledger is required for both publication and ledger-only batches.
 
+Do not add transient illustration execution state to the ledger merely because
+an illustration was reused or generated.
+
+Generation identity belongs in the illustration review record, not in the
+candidate ledger.
+
 ## Step 11 — Run editorial and structural preflight
 
 Before opening or updating the draft PR, verify everything possible in the
@@ -698,13 +841,21 @@ At minimum verify:
 - canonical-source duplicates are flagged
 - publication deduplication status is recorded
 - publication verification status is recorded
-- referenced illustrations exist
+- every published story resolves to an illustration
+- referenced illustration files exist
+- required illustration review records exist
+- `REUSE` outcomes did not unnecessarily rewrite illustration artifacts
+- generated version `1.3` illustrations contain generation identity and asset
+  integrity
 - pulse manifest references valid stories
 - no duplicate story references exist
 - canonical branch identity is correct
 - an existing canonical PR is reused rather than duplicated
 
 Editorial/source/deduplication failures are blocking.
+
+Illustration-resolution failures for a publication story are blocking for that
+story.
 
 Warnings require explicit reviewer visibility.
 
@@ -718,6 +869,12 @@ npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json
 npm run verify
 ```
 
+Also run the relevant regression tests when the batch or branch modifies
+workflow contracts or validators.
+
+For normal daily content batches, repository CI remains the final executable
+gate.
+
 Also verify selected external source links when possible.
 
 If executable validation fails:
@@ -725,6 +882,9 @@ If executable validation fails:
 - keep the batch on its canonical branch
 - do not claim it passed
 - expose the failure in the PR or final report
+- do not create a replacement branch or PR
+- do not regenerate an illustration merely because CI failed unless the failure
+  specifically proves the illustration is stale or invalid
 
 When the scheduler environment cannot execute repository commands:
 
@@ -749,10 +909,14 @@ A publication batch normally includes:
 
 ```text
 src/content/stories/<selected stories>.md
-public/images/stories/<selected illustrations>.webp
+public/images/stories/<newly generated illustrations>.webp
+docs/editorial/illustrations/reviews/<newly generated reviews>.json
 src/content/pulse/YYYY-MM-DD.md
 docs/editorial/ledgers/YYYY-MM-DD.json
 ```
+
+For reused illustrations, existing asset/review files may correctly produce no
+new diff.
 
 A ledger-only batch normally includes:
 
@@ -769,6 +933,9 @@ Do not mix unrelated:
 - documentation work unrelated to the batch
 
 into the daily editorial PR.
+
+A reused illustration producing no binary/review diff is expected and must not
+be treated as missing work when deterministic validation passes.
 
 ## Step 14 — Open or update exactly one draft PR
 
@@ -846,9 +1013,16 @@ Use this structure:
 
 - Explainer / Deep Dive / Playbook / Case Study opportunities carried from the ledger.
 
-### Assets
+### Illustrations
 
-- Story → illustration path; crop check complete.
+| Story | Decision | Asset | Identity / review state | Crop |
+| --- | --- | --- | --- | --- |
+| ... | REUSE | `/images/stories/...webp` | existing v1.3 identity validated | complete |
+| ... | GENERATE | `/images/stories/...webp` | new v1.3 review persisted | complete |
+
+Legacy illustration state, if encountered:
+
+- Story — existing v1.2 review; not silently migrated; reviewer action if deliberate regeneration is required.
 
 ### Validation
 
@@ -856,7 +1030,9 @@ Use this structure:
 - [ ] source verification complete
 - [ ] publication duplicate check complete
 - [ ] editorial/structural preflight passes
-- [ ] story illustrations exist and are referenced
+- [ ] every drafted story resolves to one illustration
+- [ ] illustration reuse/generation decisions are visible
+- [ ] identity-aware generated/reused assets pass `illustration:check`
 - [ ] daily issue references valid stories, when applicable
 
 Local executable validation: passed | failed | not run in scheduler environment
@@ -867,12 +1043,16 @@ GitHub Actions: pending | passed | failed
 For ledger-only batches:
 
 - leave the selected-story table empty or state `None`
+- omit the illustration table or state `Not applicable`
 - expose selected/watch/rejected counts
 - explain why no publication was produced
 
 Do not hide excluded candidates merely to make the PR look cleaner.
 
-Exclusion evidence is part of reviewer confidence.
+Do not hide illustration reuse decisions merely because no asset diff was
+created.
+
+Exclusion and reuse evidence are part of reviewer confidence.
 
 ## Step 15 — Inspect GitHub Actions handoff
 
@@ -900,6 +1080,10 @@ Report:
 - actionable blocker where available
 
 Do not create a replacement PR.
+
+Do not automatically regenerate illustrations unless the failure specifically
+indicates a generation-identity, asset-integrity, constitutional, crop, or
+illustration-contract problem requiring regeneration.
 
 ### CI pending
 
@@ -929,8 +1113,16 @@ For publication stories, withhold individual selected candidates when:
 - canonical source cannot be verified
 - important claims conflict with the source
 - publication duplicate conflict exists
-- required illustration cannot be produced
+- the illustration workflow cannot resolve a valid reusable or newly generated
+  illustration
+- required illustration validation cannot be satisfied
 - story/manifest relationships are structurally invalid
+
+An existing legacy `1.2` illustration review is not, by itself, permission to
+fabricate a `1.3` identity or silently migrate the asset.
+
+If migration is required and cannot be performed safely, expose that state to
+the reviewer.
 
 If no selected candidate remains publishable, persist the ledger and continue
 as a ledger-only batch when safe.
@@ -938,6 +1130,53 @@ as a ledger-only batch when safe.
 Executable GitHub Actions failures do not require a second PR.
 
 They leave the existing PR in draft.
+
+## Recovery and retry behavior
+
+A retry should resume from durable repository state.
+
+Before recreating work, inspect:
+
+- canonical daily branch
+- existing draft PR
+- persisted ledger
+- drafted story files
+- pulse manifest
+- existing illustration review records
+- existing final WebP assets
+
+For illustrations, always invoke the illustration workflow again to resolve
+current state.
+
+Do not assume:
+
+```text
+retry
+=
+regenerate image
+```
+
+A correct retry may produce:
+
+```text
+REUSE
+```
+
+with zero illustration changes.
+
+Likewise, do not assume:
+
+```text
+existing image
+=
+reusable
+```
+
+The illustration workflow must verify Generation Identity V1 and asset
+integrity.
+
+Recovery should preserve valid completed work and repair only inconsistent or
+missing state.
 
 ## Human overrides
 
@@ -955,6 +1194,16 @@ Reason: ...
 
 Never disguise an override as if it came from the original research ledger.
 
+A human may also explicitly request illustration regeneration even when the
+illustration workflow considers an existing `1.3` generation reusable.
+
+That is a deliberate illustration override.
+
+Do not reinterpret an ordinary retry as a forced-regeneration request.
+
+When a human requests forced regeneration, delegate it to the illustration
+skill so generation identity and audit metadata remain consistent.
+
 ## Completion criteria
 
 A successful automated run ends with one canonical daily branch and at most one
@@ -969,6 +1218,12 @@ The reviewer must be able to answer:
 - What was excluded or left on watch?
 - Did any classification or verification conflict emerge?
 - Is each story traceable to the ledger?
+- Does every published story resolve to exactly one illustration?
+- Was each illustration reused or newly generated?
+- For identity-aware illustrations, does the persisted review match the current
+  story, visual brief, reference inputs, and final asset?
+- Were legacy `1.2` illustration records left historically accurate rather than
+  silently rewritten?
 - Are illustrations present and crop-safe?
 - Did editorial and structural preflight pass?
 - Did executable validation pass, fail, or remain pending?
@@ -977,6 +1232,6 @@ The reviewer must be able to answer:
 
 The output is not merely a set of Markdown files.
 
-It is a reviewable, reproducible editorial batch.
+It is a reviewable, reproducible, retry-safe editorial batch.
 
 Human review remains the final publication boundary.

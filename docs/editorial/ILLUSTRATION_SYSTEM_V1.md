@@ -1,9 +1,14 @@
 # Daily AI Pulse — Illustration System v1
 
-**Version:** 1.2  
+**Version:** 1.3
 **Status:** Canonical visual-production workflow  
 **Constitution:** `docs/editorial/VISUAL_CONSTITUTION_V1.md`  
+**Generation identity:** `docs/editorial/ILLUSTRATION_GENERATION_IDENTITY_V1.md`
 **Skill:** `.agents/skills/daily-ai-pulse-illustration/SKILL.md`
+
+Version 1.3 introduces deterministic generation identity and safe illustration reuse.
+
+New illustration generations MUST compute and persist Generation Identity V1. Existing version 1.2 review records remain valid historical records and MUST NOT be retroactively upgraded unless the illustration is deliberately regenerated.
 
 ## Purpose
 
@@ -21,8 +26,14 @@ The system optimizes for:
 - direct comparison with golden production references
 - visual continuity with the established production archive
 - reproducible candidate review rather than single-shot generation
+- deterministic generation identity before image generation
+- safe reuse of an already-valid generation when meaningful inputs are unchanged
 
 A technically valid image is not automatically publishable.
+
+Likewise, the existence of an image file is not sufficient reason to reuse it.
+
+Reuse requires a matching Generation Identity V1 key, a valid review record, an existing final asset, matching asset integrity, and successful deterministic validation.
 
 ## Authority order
 
@@ -38,6 +49,24 @@ Read and apply visual instructions in this order:
 ```
 
 If instructions conflict, the higher item wins.
+
+### Execution identity contract
+
+Generation and reuse decisions are additionally governed by:
+
+```text
+docs/editorial/ILLUSTRATION_GENERATION_IDENTITY_V1.md
+```
+
+The visual authority order decides **what should be generated**.
+
+Generation Identity V1 decides **whether that exact generation has already been completed and can be safely reused**.
+
+The scheduler does not calculate generation identity. The illustration workflow and deterministic validator use the canonical repository implementation:
+
+```text
+scripts/lib/illustration-generation-identity.mjs
+```
 
 ## Canonical visual direction
 
@@ -133,6 +162,8 @@ Compare:
 
 Do not copy exact arrangements or story symbols.
 
+The exact referenced files are part of Generation Identity V1. If the contents of a layout reference or golden-reference image change while the path remains the same, the generation identity changes.
+
 ## Illustration archetypes
 
 Choose one primary archetype before prompting.
@@ -227,7 +258,167 @@ The `visual_metaphor` reduces that relationship to one strong image.
 
 If `must_show` contains more than roughly five elements, simplify.
 
-## Step 2 — Generate three candidates
+The visual brief is a generation input. Once Generation Identity V1 has been computed, modifying the brief makes that existing generation stale.
+
+## Step 2 — Compute generation identity and evaluate reuse
+
+Do not invoke image generation immediately after compiling the visual brief.
+
+First compute the expected Generation Identity V1.
+
+Generation identity includes:
+
+- canonical story ID
+- SHA-256 of the exact publication-ready story bytes
+- SHA-256 of the canonical visual brief
+- SHA-256 of the referenced layout and golden-reference contents
+- illustration-system version
+- visual-constitution version
+- prompt-contract version
+- candidate count
+- generator surface
+- exact model snapshot when reliably exposed by the generation surface
+
+Use the canonical implementation:
+
+```text
+scripts/lib/illustration-generation-identity.mjs
+```
+
+The generation identity MUST be computed from the same inputs that will be used for generation.
+
+### Current identity contract
+
+For illustration-system version 1.3:
+
+```text
+identity_version = 1
+illustration_system_version = 1.3
+visual_constitution_version = 1.1
+prompt_contract_version = 1
+candidate_count = 3
+```
+
+For generation through the current ChatGPT image-generation surface:
+
+```text
+generator_surface = chatgpt-image-tool
+```
+
+If the surface does not expose a reliable exact model identifier:
+
+```text
+model_snapshot = null
+```
+
+The workflow MUST NOT invent or infer a model snapshot.
+
+### Reuse decision
+
+Before generating candidates, check whether an existing review and final asset already represent the expected generation identity.
+
+Reuse is allowed only when:
+
+```text
+existing review
++
+identity-aware illustration-system version
++
+stored generation_key == expected generation_key
++
+final asset exists
++
+actual asset SHA-256 == review.asset_integrity.sha256
++
+review remains valid
+```
+
+If every condition passes:
+
+```text
+decision = REUSE
+```
+
+The workflow MUST NOT invoke image generation.
+
+It MUST NOT:
+
+- create new candidates
+- change `selected_candidate`
+- rewrite candidate scores
+- rewrite the final WebP
+- replace asset-integrity metadata
+- change `generated_at`
+- change the generation key
+
+A successful reuse SHOULD leave the illustration artifacts unchanged.
+
+The workflow may report:
+
+```text
+illustration: reused
+story_id: <story-id>
+generation_key: <generation-key>
+asset: <final-asset>
+```
+
+### Regeneration decision
+
+If any reuse condition fails:
+
+```text
+decision = GENERATE
+```
+
+Regeneration is required when, for example:
+
+- the review is missing
+- generation identity is missing
+- the expected generation key differs
+- the story source changed
+- the visual brief changed
+- the referenced layout changed
+- a golden-reference file changed
+- the illustration-system version changed
+- the visual-constitution version changed
+- the prompt-contract version changed
+- candidate count changed
+- generator surface changed
+- a known model snapshot changed
+- the asset is missing
+- the asset SHA-256 does not match the review
+- the existing review no longer passes validation
+
+A mismatched generation key means the existing illustration is stale for the current inputs.
+
+The workflow MUST NOT silently rewrite generation identity to make a stale asset appear reusable.
+
+### Retry semantics
+
+The following events alone do not require regeneration:
+
+- ChatGPT task retry
+- ChatGPT restart
+- manual workflow recovery
+- PR reopening
+- PR update
+- branch rebase
+- Git commit change
+- CI rerun
+- GitHub Actions retry
+- site-build retry
+
+If meaningful generation inputs remain unchanged, these operations produce the same expected generation key.
+
+## Step 3 — Generate three candidates
+
+This step runs only when the Step 2 reuse decision is:
+
+```text
+GENERATE
+```
+
+If Step 2 returns `REUSE`, skip candidate generation and continue with the existing validated review and final asset.
 
 Generate **three real composition candidates** by default.
 
@@ -248,7 +439,9 @@ Each candidate prompt must include, in this order:
 7. cover-crop requirement
 8. the constitution's full prohibition list
 
-## Step 3 — Constitutional hard-failure gate
+Candidate count is part of generation identity. Changing the configured candidate count requires a new generation identity.
+
+## Step 4 — Constitutional hard-failure gate
 
 Before any aesthetic scoring, reject a candidate if it contains any constitutional violation.
 
@@ -299,11 +492,11 @@ Hard failures include:
 - important content outside cover-safe area
 - focal idea fails at thumbnail size where that placement appears small
 
-If every candidate fails, regenerate three new candidates.
+If every candidate fails, regenerate three new candidates under the same expected generation identity.
 
 **Do not score candidates that fail the constitution.**
 
-## Step 4 — Build the golden-reference comparison sheet
+## Step 5 — Build the golden-reference comparison sheet
 
 The contact sheet must show the references **before** the new candidates.
 
@@ -339,7 +532,7 @@ The reviewer must answer:
 
 > **Would the selected candidate look intentionally commissioned for the same publication if the headline, company name, and metadata were removed?**
 
-## Step 5 — Quality scoring
+## Step 6 — Quality scoring
 
 Score each constitution-compliant candidate.
 
@@ -389,7 +582,7 @@ A candidate below 80 on Golden Reference Fit is blocked even if its weighted tot
 
 If no constitution-compliant candidate satisfies both thresholds, regenerate the batch.
 
-## Step 6 — Placement and crop review
+## Step 7 — Placement and crop review
 
 Review the selected candidate in the context implied by its declared placement.
 
@@ -414,7 +607,7 @@ Require:
 - important objects are not lost
 - negative space still feels intentional
 
-## Step 7 — Normalize for the declared output crop
+## Step 8 — Normalize for the declared output crop
 
 There is no universal final aspect ratio.
 
@@ -426,7 +619,15 @@ For the current article-hero implementation, a wide **1600 × 900 WebP** is acce
 
 Never stretch artwork to fit. Crop intentionally.
 
-## Step 8 — Persist the review record
+After final normalization, compute the SHA-256 of the exact final WebP bytes.
+
+The persisted review record MUST contain that checksum under:
+
+```text
+asset_integrity.sha256
+```
+
+## Step 9 — Persist the review record
 
 Commit:
 
@@ -434,11 +635,13 @@ Commit:
 docs/editorial/illustrations/reviews/<story-id>.json
 ```
 
+For new version 1.3 generations, the review record MUST include Generation Identity V1.
+
 Minimum shape:
 
 ```json
 {
-  "system_version": "1.2",
+  "system_version": "1.3",
   "constitution_version": "1.1",
   "story_id": "2026-09-29-example",
   "candidate_count": 3,
@@ -459,6 +662,20 @@ Minimum shape:
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
       "public/images/stories/2026-09-28-deepmind-agent-swarm.webp"
     ]
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "generation_key": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "story_id": "2026-09-29-example",
+    "story_source_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "visual_brief_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "reference_inputs_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null
   },
   "constitution_check": {
     "passed": true,
@@ -503,17 +720,68 @@ Minimum shape:
   "final_dimensions": {
     "width": 1600,
     "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 12345,
+    "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "git_blob_sha": "example-git-blob-sha",
+    "riff_container_complete": true
   }
 }
 ```
 
-This is a shape example, not an approved image review. A real record must use
-observed scores, verified sentences from its story, the actual WebP dimensions,
-and an existing asset before `illustration:check` can pass.
+This is a shape example, not an approved image review.
+
+A real record must use:
+
+- observed scores
+- verified sentences from its publication-ready story
+- the actual visual brief used for generation
+- actual Generation Identity V1 hashes
+- the actual final WebP dimensions
+- the actual final WebP SHA-256
+- an existing final asset
+
+before `illustration:check` can pass.
 
 Candidate images and contact sheets remain temporary unless a reviewer requests them.
 
-## Step 9 — Deterministic quality gate
+### Generation metadata
+
+Execution metadata that does not participate in generation identity MAY be stored separately.
+
+Example:
+
+```json
+{
+  "generation_metadata": {
+    "generated_at": "2026-10-05T09:30:00Z"
+  }
+}
+```
+
+The following MUST NOT contribute to `generation_key`:
+
+- `generated_at`
+- review time
+- selected candidate
+- candidate scores
+- final asset path
+- final asset checksum
+- Git blob SHA
+- Git commit SHA
+- branch name
+- pull-request number
+- CI run identifier
+- scheduler run identifier
+- publication status
+- human review comments
+
+These are outputs, execution metadata, or publication metadata rather than generation inputs.
+
+See `ILLUSTRATION_GENERATION_IDENTITY_V1.md` for the canonical identity-input contract.
+
+## Step 10 — Deterministic quality gate
 
 Run:
 
@@ -523,25 +791,103 @@ npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json
 
 The validator confirms at minimum:
 
-- illustration system version is `1.2`
+- illustration system version is supported
+- version `1.2` historical reviews remain valid without generation identity
+- version `1.3` reviews contain Generation Identity V1 metadata
 - constitution version is `1.1`
 - placement is declared
-- layout reference is declared and points under `docs/reference-layouts/`
-- verified context contains 2–3 sentences
-- output crop is declared
+- layout reference is declared and valid for the declared placement
+- referenced layout exists
+- verified context contains 2–3 substantive sentences
+- output crop is declared and matches the placement contract
 - at least three candidates were reviewed
 - at least two distinct golden production references are recorded
+- golden-reference files exist
 - constitutional check passed with zero violations
-- prohibited schematic/diagram language is explicitly audited
+- prohibited elements are explicitly audited
 - Golden Reference Fit is present and >= 80
-- weighted score is >= 85 under the v1.2 rubric
+- weighted score is >= 85 under the current rubric
+- weighted total matches the rubric calculation
 - zero unresolved hard failures
-- crop/thumbnail approval exists
-- final asset exists and has a complete WebP container
+- cover-crop approval exists
+- thumbnail/small-size approval exists
+- final asset exists
+- final asset has a complete WebP container
 - actual dimensions match the review record
 - final dimensions are large enough for the declared role
 
-The validator cannot prove taste. It proves that direct reference comparison and the required editorial review actually occurred.
+### Additional validation for version 1.3
+
+For identity-aware version `1.3` reviews, the validator additionally recomputes and verifies:
+
+```text
+story_source_sha256
+visual_brief_sha256
+reference_inputs_sha256
+generation_key
+asset_integrity.sha256
+```
+
+Validation fails when:
+
+- generation identity is missing
+- required generation-identity fields are missing
+- the story changed after generation
+- the visual brief changed after generation
+- referenced layout contents changed
+- golden-reference contents changed
+- illustration-system version is inconsistent
+- visual-constitution version is inconsistent
+- prompt-contract version is stale
+- candidate count is inconsistent
+- generator surface is inconsistent
+- model snapshot is inconsistent
+- the stored generation key does not match current generation inputs
+- the final WebP bytes do not match the recorded asset SHA-256
+
+The validator independently computes these values using:
+
+```text
+scripts/lib/illustration-generation-identity.mjs
+```
+
+The generation workflow and validator MUST NOT maintain separate implementations of the generation-key algorithm.
+
+The validator cannot prove taste. It proves that the required review occurred and that the persisted review, generation inputs, references, and final asset have not silently diverged.
+
+## Backward compatibility
+
+Illustration-system version `1.3` applies to newly generated or deliberately regenerated illustrations.
+
+Existing review records with:
+
+```text
+system_version = 1.2
+```
+
+remain valid historical records.
+
+They MUST NOT be required to contain `generation_identity`.
+
+Do not fabricate Generation Identity V1 metadata for historical assets when the exact original generation inputs cannot be proven.
+
+The compatibility rule is:
+
+```text
+1.2
+→ historical validation
+→ generation_identity not required
+
+1.3
+→ identity-aware validation
+→ generation_identity required
+```
+
+Existing `1.2` illustrations SHOULD remain untouched unless they are deliberately regenerated.
+
+If an existing illustration is deliberately regenerated under the current workflow, the replacement review MUST use the current illustration-system version and Generation Identity V1.
+
+Historical records are evidence of what was actually produced. They must not be rewritten merely to make old data look as if it had been produced by a newer workflow.
 
 ## Relationship to PR preparation
 
@@ -558,24 +904,96 @@ visual idea
 output crop
 ```
 
+Before requesting image generation, PR preparation must provide a factually stable story and complete visual brief.
+
+The illustration workflow then computes generation identity and performs the reuse decision.
+
+PR preparation MUST NOT decide reuse based only on:
+
+- asset filename
+- asset existence
+- story ID
+- PR state
+- branch state
+- previous scheduler completion
+
 `image file exists` is never sufficient.
+
+The persisted review, actual asset integrity, and Generation Identity V1 contract are authoritative for reuse.
 
 Publication-ready illustration means:
 
 ```text
 constitution-compliant brief
++ expected Generation Identity V1 computed
++ valid reuse decision OR new generation
 + placement-aware reference review
 + at least 2 golden references
-+ 3 candidates
++ 3 candidates when generation is required
 + constitutional hard-failure gate
 + golden-reference comparison sheet
 + weighted score >= 85
 + Golden Reference Fit >= 80
 + cover / thumbnail review
 + correct output crop
++ final asset SHA-256 recorded
 + committed review record
 + illustration:check passes
 ```
+
+For a reused illustration, candidate generation and candidate review are not repeated because the previously persisted review remains authoritative for the matching generation identity.
+
+## Version 1.3 production flow
+
+```text
+publication-ready story
+        ↓
+visual brief
+        ↓
+compute expected Generation Identity V1
+        ↓
+existing review + final asset?
+       ↙                     ↘
+     yes                      no
+      ↓                        ↓
+generation key matches?       GENERATE
+      ↓                        ↓
+asset checksum matches?   generate 3 candidates
+      ↓                        ↓
+review still valid?      constitutional hard gate
+   ↙       ↘                   ↓
+ yes        no          golden-reference review
+  ↓          ↓                  ↓
+REUSE     GENERATE         quality scoring
+                              ↓
+                         crop review
+                              ↓
+                     normalize final WebP
+                              ↓
+                     compute asset SHA-256
+                              ↓
+              persist review + generation identity
+                              ↓
+                   deterministic validator
+```
+
+Generation identity is evaluated **before any new image-generation call**.
+
+The purpose is not to make image generation deterministic.
+
+The purpose is to make workflow retries idempotent:
+
+```text
+same meaningful inputs
+        ↓
+same generation_key
+        ↓
+valid review + valid asset
+        ↓
+no new image generation
+```
+
+while still forcing regeneration when a meaningful generation input changes.
 
 ## Human authority
 
@@ -583,6 +1001,10 @@ Visual scoring is an editorial aid, not a substitute for taste.
 
 A human reviewer may reject an image that passes the thresholds.
 
+A matching generation identity does not prevent a human reviewer from requesting deliberate regeneration.
+
 A constitutional prohibition is stricter: do not override it casually. Change the constitution deliberately if the publication's art direction changes.
 
-The default response to a violation is regeneration, not lowering the bar.
+The default response to a constitutional violation is regeneration, not lowering the bar.
+
+A human-requested regeneration that intentionally changes generation inputs MUST produce a new generation identity. If a reviewer requests regeneration without changing any identity input, the workflow should treat that as an explicit override rather than an automatic retry.

@@ -32,6 +32,9 @@ jobs:
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
+      - name: Illustration generation identity regressions
+        run: node --test tests/illustration-generation-identity.test.mjs
+
       - name: Illustration validator regressions
         run: node --test tests/illustration-validator.test.mjs
 
