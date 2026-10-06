@@ -1,11 +1,12 @@
 {
-  "system_version": "1.2",
+  "system_version": "1.3",
   "constitution_version": "1.1",
   "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
   "story_id": "2026-10-03-claude-code-2-1-288-permission-hardening",
   "candidate_count": 3,
   "selected_candidate": "B",
   "visual_brief": {
+    "story_id": "2026-10-03-claude-code-2-1-288-permission-hardening",
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
     "subject": "Claude Code 2.1.288 permission hardening",
@@ -13,19 +14,63 @@
       "Anthropic says the release now prompts before a dangerous rm command embedded inside bash -c or sh -c when bypassPermissions mode or a matching shell allow rule would otherwise let it execute without a prompt.",
       "If hook matching fails or tool input cannot be serialized for the hook, the tool call is now blocked rather than continuing after the hook is skipped."
     ],
-    "output_crop": "wide",
-    "archetype": "mechanical-metaphor",
     "editorial_idea": "Authorization failures should stop execution instead of becoming implicit permission.",
     "visual_metaphor": "A wrapped execution path is forced through a physical enforcement clamp that constrains the whole bundle rather than trusting its outer wrapper.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": [
+      "a bundled execution path",
+      "a dominant physical enforcement clamp",
+      "a clear constrained passage through the enforcement boundary"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
     "golden_references": [
       "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
       "public/images/stories/2026-09-26-mcp-secrets.webp"
-    ]
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "generation_key": "a696ab0f82f957e8fd69d3212db8d2fb504fd262722710f67cf18efb63207d5b",
+    "story_id": "2026-10-03-claude-code-2-1-288-permission-hardening",
+    "story_source_sha256": "a628172ecddecc20930528018f4eb57eb052300ba09975f787f65c97815cb2bb",
+    "visual_brief_sha256": "95defe20a2ad80d98a1a84959dc548bc2428a6b5f437eef6611c42de9daebd8d",
+    "reference_inputs_sha256": "f23ad4b17183ec6853887971a22b6e5c325af76bbfe41ed165ebea6934d2ca34",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null
+  },
+  "generation_metadata": {
+    "override_reason": "Explicit human-authorized regeneration/migration of the historical version 1.2 illustration to version 1.3."
   },
   "candidate_notes": {
-    "A": "Constitution-compliant. The monumental gateway has strong crop resilience and publication-compatible materiality, but the fortress metaphor is too generic for the specific wrapped-command and fail-closed permission story.",
-    "B": "Selected. A bundled execution path is physically constrained by a heavy terracotta-and-charcoal clamp. The relationship remains abstract rather than pretending to depict Claude Code internals, survives article and thumbnail crops, and maps directly to enforcement over a wrapped command path.",
-    "C": "Constitution-compliant but not selected. The clamp and cable are story-relevant, yet the visibly frayed side wire introduces an avoidable suggestion of active breakage or escape, weakening technical meaning relative to B."
+    "A": "Constitution-compliant. The clamp and bundled path read immediately and the wide crop is strong, but the tangle-to-ordered transition can imply that permission enforcement repairs or normalizes the command rather than simply constraining execution. It is also denser and more photoreal/render-like than the two golden references.",
+    "B": "Selected. The wrapped execution bundle remains visually continuous while passing through a dominant terracotta-and-charcoal enforcement clamp embedded in an architectural boundary. It directly expresses constraining the whole wrapped path, preserves the fail-closed idea without inventing software internals, and has the strongest continuity with the golden production set.",
+    "C": "Constitution-compliant. The diagonal ribbon bundle and paired clamp jaws create a clear alternate composition with excellent small-size silhouette, but the boundary reads more like a mechanical guide or press than the explicit architectural enforcement boundary in B."
   },
   "constitution_check": {
     "passed": true,
@@ -54,45 +99,45 @@
     "unsupported_visual_claim": false
   },
   "scores": {
-    "story_specific": 94,
-    "brand_fit": 88,
-    "composition": 91,
-    "crop_quality": 92,
-    "technical_meaning": 91,
-    "cleanliness": 94,
-    "golden_reference_fit": 86,
-    "weighted_total": 90.45
+    "story_specific": 96,
+    "brand_fit": 92,
+    "composition": 94,
+    "crop_quality": 94,
+    "technical_meaning": 95,
+    "cleanliness": 97,
+    "golden_reference_fit": 91,
+    "weighted_total": 93.75
   },
   "candidate_scores": {
     "A": {
-      "story_specific": 80,
-      "brand_fit": 86,
-      "composition": 88,
-      "crop_quality": 90,
-      "technical_meaning": 79,
+      "story_specific": 90,
+      "brand_fit": 85,
+      "composition": 89,
+      "crop_quality": 91,
+      "technical_meaning": 82,
       "cleanliness": 96,
-      "golden_reference_fit": 84,
-      "weighted_total": 85.1
+      "golden_reference_fit": 83,
+      "weighted_total": 87.35
     },
     "B": {
-      "story_specific": 94,
-      "brand_fit": 88,
-      "composition": 91,
-      "crop_quality": 92,
-      "technical_meaning": 91,
-      "cleanliness": 94,
-      "golden_reference_fit": 86,
-      "weighted_total": 90.45
+      "story_specific": 96,
+      "brand_fit": 92,
+      "composition": 94,
+      "crop_quality": 94,
+      "technical_meaning": 95,
+      "cleanliness": 97,
+      "golden_reference_fit": 91,
+      "weighted_total": 93.75
     },
     "C": {
-      "story_specific": 86,
+      "story_specific": 92,
       "brand_fit": 89,
-      "composition": 91,
-      "crop_quality": 93,
-      "technical_meaning": 79,
-      "cleanliness": 94,
-      "golden_reference_fit": 87,
-      "weighted_total": 88.15
+      "composition": 92,
+      "crop_quality": 92,
+      "technical_meaning": 89,
+      "cleanliness": 96,
+      "golden_reference_fit": 88,
+      "weighted_total": 90.65
     }
   },
   "hard_failures": [],
@@ -104,15 +149,15 @@
     "height": 900
   },
   "crop_review": {
-    "article_desktop": "1100 x 591 center-cover review: the clamp, bundled path, and dark enforcement mass remain readable with intentional negative space.",
-    "article_mobile": "359 x 193 center-cover review: the central clamp remains dominant and the wrapped conduits visibly enter and leave the enforcement boundary.",
-    "thumbnail": "320 x 164 review: the charcoal tower and terracotta clamp retain a distinct silhouette; fine cable detail is not required to understand the composition."
+    "article_desktop": "1100 x 591 center-cover review: the terracotta clamp jaws, charcoal enforcement mass, and wrapped bundle remain fully legible; the left-side negative space and line accents remain intentional.",
+    "article_mobile": "359 x 193 center-cover review: the dominant clamp stays centered, the wrapped bundle is visible entering and leaving the boundary, and no critical meaning depends on the outer edges.",
+    "thumbnail": "320 x 164 review: the charcoal gateway and terracotta clamp retain a distinct silhouette, and the wrapped path remains readable without relying on fine surface detail."
   },
-  "golden_reference_comparison": "Direct side-by-side review used the exact repository WebPs for the OpenAI DNS sandbox and MCP secrets production illustrations. Candidate B matches their warm paper ground, charcoal architectural masses, sparing terracotta emphasis, physical editorial metaphor, strong foreground/background hierarchy, and controlled negative space. It is more volumetric, textured, and visually dense than the especially airy DNS reference and slightly more cinematic than the drawing-like production set, so Golden Reference Fit is scored at 86 rather than treated as near-identical. The result still reads as intentionally commissioned for the same publication.",
+  "golden_reference_comparison": "Direct review used the two declared production references: the OpenAI DNS sandbox illustration and the MCP secrets illustration. Candidate B shares their warm paper ground, large charcoal architectural masses, sparing terracotta focal accents, restrained technical linework, tactile material texture, strong physical metaphor, confident negative space, and readable thumbnail silhouette. It is somewhat more volumetric and mechanically monumental than the airy DNS reference and the more object-study-like MCP secrets reference, but the abstraction level, hierarchy, palette discipline, and editorial presence still read as intentionally commissioned for the same publication.",
   "asset_integrity": {
-    "byte_length": 33138,
-    "sha256": "8c0e0c8eac1c1b87c7599baaae914936d88e96f0dfe5c30462182a098833cdb3",
-    "git_blob_sha": "c1a15943ba357234ed6fd58fe7ca79774fb2652b",
+    "byte_length": 335612,
+    "sha256": "7cd07e18a13524bbe27aeb3ca3b51e3d2d62c6e1c1026c97cf39f1940e533743",
+    "git_blob_sha": "8dfbc9201d380fb04e1b80517d62e1406137f504",
     "riff_container_complete": true
   }
 }
