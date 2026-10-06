@@ -1,0 +1,196 @@
+{
+  "editorial_date": "2026-10-04",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "prepared_at": "2026-10-06T09:41:30.758535+00:00",
+    "evidence_cutoff": "2026-10-04T23:59:59+02:00",
+    "timezone": "Europe/Luxembourg",
+    "source_method": "Dated primary announcements, advisories and release metadata retrieved on October 6; not a preserved point-in-time web snapshot.",
+    "limitations": "Original day-end source snapshots are unavailable. Later events and later release notes are excluded; current navigation and related-story lists are not evidence for this edition.",
+    "desk_coverage": "All eight desks were considered in the historical-source scan; only one candidate met the selection bar. This is a scoped catch-up selection, not an exhaustive archive of every event."
+  },
+  "candidates": [
+    {
+      "id": "2026-10-04-claude-code-2-1-289-policy-precedence",
+      "decision": "selected",
+      "title": "Claude Code 2.1.289 fixes additional deny-rule and symlink gaps",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "permissions",
+        "security",
+        "sandboxing",
+        "cli"
+      ],
+      "entities": [
+        "Anthropic"
+      ],
+      "event_date": "2026-10-04",
+      "source_publication_date": "2026-10-03",
+      "summary": "The October 4 local-time release fixes policy precedence, symlinked read checks and shell-prefix handling beyond the October 3 hardening update.",
+      "what_changed": "Version 2.1.289 adds managed-rule precedence over mod approvals, Read deny checks on IDE symlinks and Bash deny/ask checks after environment or variable prefixes; these differ from the 2.1.288 shell-wrapper and hook fixes.",
+      "why_it_matters": "Upgrade and test policy precedence, symlinked IDE paths and environment-prefixed commands against real managed rules.",
+      "engineer_takeaway": "Upgrade and test policy precedence, symlinked IDE paths and environment-prefixed commands against real managed rules.",
+      "prerequisites": [
+        "agent tooling"
+      ],
+      "primary_source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.289",
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.289",
+          "canonical_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.289",
+          "publisher": "Anthropic",
+          "source_type": "repository",
+          "role": "primary",
+          "publication_date": "2026-10-03"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Dated first-party source establishes the announcement or advisory; technical and effectiveness claims remain attributed.",
+        "independent_validation": "No independent reproduction, product security test or vendor-result replication was performed.",
+        "claim_scope": "Announced behavior and explicitly delimited availability; no independent effectiveness guarantee."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Concrete operational change with a bounded practitioner takeaway."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 5,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 88
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "No standalone explainer commissioned for this catch-up batch.",
+        "suggested_explainer": null
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-10-03-claude-code-2-1-288-permission-hardening"
+        ]
+      },
+      "deduplication": {
+        "status": "material-update",
+        "publication_status": "material-update-confirmed",
+        "candidate_key": "claude-code-2-1-289-policy-precedence",
+        "canonical_event": "Version 2.1.289 adds managed-rule precedence over mod approvals, Read deny checks on IDE symlinks and Bash deny/ask checks after environment or variable prefixes; these differ from the 2.1.288 shell-wrapper and hook fixes.",
+        "previous_coverage": [
+          "2026-10-03-claude-code-2-1-288-permission-hardening"
+        ],
+        "material_delta": "Version 2.1.289 adds managed-rule precedence over mod approvals, Read deny checks on IDE symlinks and Bash deny/ask checks after environment or variable prefixes; these differ from the 2.1.288 shell-wrapper and hook fixes."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "source_publication_timestamp": "2026-10-03T23:07:17Z",
+      "local_event_timestamp": "2026-10-04T01:07:17+02:00"
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-04-reflection-preannouncement",
+      "decision": "watch",
+      "title": "Reflection model pre-announcement",
+      "desk": "models",
+      "event_date": "2026-10-04",
+      "source_publication_date": "2026-10-04",
+      "sources": [
+        {
+          "url": "https://www.axios.com/2026/10/04/reflection-open-weight-ai",
+          "publisher": "Axios",
+          "source_type": "reporting",
+          "role": "lead",
+          "publication_date": "2026-10-04",
+          "canonical_url": "https://www.axios.com/2026/10/04/reflection-open-weight-ai"
+        }
+      ],
+      "reason": "Pre-announcement only; no dated primary release artifacts established at this cutoff.",
+      "promote_when": [
+        "An official dated announcement and developer artifacts can be verified."
+      ],
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "model-releases",
+        "open-models"
+      ],
+      "entities": [
+        "Axios"
+      ],
+      "summary": "Pre-announcement only; no dated primary release artifacts established at this cutoff.",
+      "what_changed": "Reflection model pre-announcement",
+      "why_it_matters": "Potential follow-up; the stated promotion condition is required before publication.",
+      "engineer_takeaway": "Wait for the evidence described in promote_when before treating this as a validated engineering development.",
+      "prerequisites": [],
+      "primary_source_url": "https://www.axios.com/2026/10/04/reflection-open-weight-ai",
+      "evidence": {
+        "level": "unverified",
+        "rationale": "Pre-announcement only; no dated primary release artifacts established at this cutoff.",
+        "independent_validation": "Not independently validated.",
+        "claim_scope": "Watch item only; no published story or capability conclusion."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "A potentially relevant development with incomplete operational evidence."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 2,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 64.0
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "No commissioned follow-up.",
+        "suggested_explainer": null
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "2026-10-04-reflection-preannouncement",
+        "canonical_event": "Reflection model pre-announcement",
+        "previous_coverage": null,
+        "material_delta": "Original dated lead; held for stronger evidence."
+      },
+      "publication_verification": {
+        "status": "not-promoted"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-04-openai-gpt-6-1-sol-repeat",
+      "decision": "rejected",
+      "reason": "Previously covered September 30 announcement; no material delta within this editorial day was established.",
+      "previous_story_id": "2026-09-30-openai-gpt-6-1-sol"
+    },
+    {
+      "id": "2026-10-04-openai-dots-repeat",
+      "decision": "rejected",
+      "reason": "Previously covered September 30 announcement; no material delta within this editorial day was established.",
+      "previous_story_id": "2026-09-30-openai-dots"
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-04-claude-code-2-1-289-policy-precedence"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-04-claude-code-2-1-289-policy-precedence"
+  },
+  "editorial_opportunities": []
+}
