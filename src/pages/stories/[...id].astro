@@ -293,9 +293,9 @@ const imageSrc = story.data.image.startsWith('/')
   .article-header h1 {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: clamp(2.4rem, 4.4vw, 3.4rem);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.04;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.015em;
     max-width: 30ch;
     margin: 0.9rem 0 1.1rem;
   }
@@ -450,6 +450,7 @@ const imageSrc = story.data.image.startsWith('/')
     line-height: 1.05;
     margin: 3.3rem 0 1rem;
     letter-spacing: -0.025em;
+    font-weight: 500;
   }
   :global(.prose h3) {
     font-size: 1.4rem;
@@ -503,7 +504,7 @@ const imageSrc = story.data.image.startsWith('/')
     gap: 0.5rem 2rem;
     margin: 0 0 1.2rem;
     font:
-      600 0.7rem/1.2 ui-monospace,
+      700 0.7rem/1.2 ui-monospace,
       SFMono-Regular,
       Menlo,
       monospace;
@@ -530,6 +531,9 @@ const imageSrc = story.data.image.startsWith('/')
     grid-template-columns: repeat(3, minmax(0, 1fr));
     border-top: 1px solid var(--line);
   }
+  .related h2 {
+    font-weight: 500;
+  }
   .related-grid article {
     padding: 1.2rem 1.4rem 1.4rem 0;
     border-bottom: 1px solid var(--line);
@@ -543,6 +547,7 @@ const imageSrc = story.data.image.startsWith('/')
     font-size: 1.35rem;
     line-height: 1.08;
     margin: 0.4rem 0 0.65rem;
+    font-weight: 500;
   }
   .related-grid h3 a {
     text-decoration: none;
@@ -581,7 +586,7 @@ const imageSrc = story.data.image.startsWith('/')
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.15rem;
     line-height: 1.18;
-    font-weight: 600;
+    font-weight: 500;
   }
   .article-pager .next {
     text-align: right;
