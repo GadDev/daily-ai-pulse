@@ -2,57 +2,90 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DailyIssueRow from '../../components/DailyIssueRow.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import { buildPulseArchive } from '../../lib/pulse-archive';
 
 const base = import.meta.env.BASE_URL;
-const editions = (await getCollection('pulse')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const months = buildPulseArchive(await getCollection('pulse'), await getCollection('stories'));
 ---
 
 <BaseLayout
-  title="The Pulse — Daily AI editions"
-  description="Browse every Daily AI Pulse edition."
+  title="The Pulse archive — Daily AI editions"
+  description="Browse every Daily AI Pulse edition, newest first."
 >
-  <section class="issue-head">
-    <p class="eyebrow">DAILY ARCHIVE</p>
-    <h1>The Pulse</h1>
-    <p>Daily AI editions, curated for signal over noise.</p>
-  </section>
+  <header class="archive-head">
+    <p class="eyebrow">The back issues</p>
+    <h1>The Pulse archive</h1>
+    <p class="dek">Every curated edition, newest first.</p>
+  </header>
 
-  <section class="pulse-archive" aria-labelledby="pulse-archive-title">
-    <SectionHeading title="All editions" />
-
-    {editions.length > 0 ? (
-      <div class="issue-list">
-        {editions.map((edition, index) => (
-          <DailyIssueRow
-            index={index + 1}
-            label={edition.data.date.toLocaleDateString('en-GB', {
-              weekday: 'short',
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            })}
-            title={edition.data.title}
-            description={edition.data.summary}
-            href={`${base}pulse/${edition.id}/`}
-            meta={`${edition.data.sections.length} sections`}
-          />
-        ))}
-      </div>
-    ) : (
-      <p class="empty-state">No Pulse editions have been published yet.</p>
-    )}
-  </section>
+  {months.length > 0 ? (
+    months.map((month) => (
+      <section class="archive-month" aria-labelledby={`month-${month.key}`}>
+        <h2 class="month-heading" id={`month-${month.key}`}>
+          {month.label} · {month.editionCount} {month.editionCount === 1 ? 'edition' : 'editions'}
+        </h2>
+        <div class="issue-list">
+          {month.rows.map((row) => (
+            <DailyIssueRow
+              day={row.day}
+              label={row.weekdayMonth}
+              fullDate={row.fullDate}
+              title={row.title}
+              href={`${base}pulse/${row.id}/`}
+              storyCount={row.storyCount}
+              desks={row.desks}
+            />
+          ))}
+        </div>
+      </section>
+    ))
+  ) : (
+    <p class="empty-state">No Pulse editions have been published yet.</p>
+  )}
 </BaseLayout>
 
 <style>
-  .pulse-archive {
-    padding: 3rem 0 1rem;
+  .archive-head {
+    padding: 2.4rem 0 2.2rem;
   }
-  .issue-list {
-    margin-top: 0.25rem;
+  .eyebrow {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  h1 {
+    margin: 0.5rem 0 0.4rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+  }
+  .dek {
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.3;
+  }
+  .archive-month + .archive-month {
+    margin-top: 3rem;
+  }
+  .month-heading {
+    margin: 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.78rem;
+    font-weight: 00;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
   .empty-state {
     margin: 2rem 0;
