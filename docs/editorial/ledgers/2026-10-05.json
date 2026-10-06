@@ -1,0 +1,193 @@
+{
+  "editorial_date": "2026-10-05",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "provenance": {
+    "kind": "retrospective-backfill",
+    "prepared_at": "2026-10-06T09:41:30.758535+00:00",
+    "evidence_cutoff": "2026-10-05T23:59:59+02:00",
+    "timezone": "Europe/Luxembourg",
+    "source_method": "Dated primary announcements, advisories and release metadata retrieved on October 6; not a preserved point-in-time web snapshot.",
+    "limitations": "Original day-end source snapshots are unavailable. Later events and later release notes are excluded; current navigation and related-story lists are not evidence for this edition.",
+    "desk_coverage": "All eight desks were considered in the historical-source scan; only one candidate met the selection bar. This is a scoped catch-up selection, not an exhaustive archive of every event.",
+    "later_ledger_boundary": "The October 6 Beam watch record remains unchanged; this ledger records its October 5 first-party announcement without promoting it."
+  },
+  "candidates": [
+    {
+      "id": "2026-10-05-chatgpt-ads-measurement-integrations",
+      "decision": "selected",
+      "title": "ChatGPT Ads expands conversion integrations ahead of a visual pilot",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "api",
+        "data",
+        "governance",
+        "enterprise-adoption"
+      ],
+      "entities": [
+        "OpenAI"
+      ],
+      "event_date": "2026-10-05",
+      "source_publication_date": "2026-10-05",
+      "summary": "OpenAI announces conversion-data integrations and a visual ad test planned for later October in the US; causal measurement remains exploratory.",
+      "what_changed": "The October 5 announcement adds named conversion-data integrations and describes a future visual-format pilot, rather than a broadly launched format.",
+      "why_it_matters": "Separate attributed conversions from causal lift and review conversion-data governance before connecting customer systems.",
+      "engineer_takeaway": "Separate attributed conversions from causal lift and review conversion-data governance before connecting customer systems.",
+      "prerequisites": [
+        "conversion measurement"
+      ],
+      "primary_source_url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement/",
+          "canonical_url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-05"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Dated first-party source establishes the announcement or advisory; technical and effectiveness claims remain attributed.",
+        "independent_validation": "No independent reproduction, product security test or vendor-result replication was performed.",
+        "claim_scope": "Announced behavior and explicitly delimited availability; no independent effectiveness guarantee."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "Concrete operational change with a bounded practitioner takeaway."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 76
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "No standalone explainer commissioned for this catch-up batch.",
+        "suggested_explainer": null
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "chatgpt-ads-measurement-integrations",
+        "canonical_event": "The October 5 announcement adds named conversion-data integrations and describes a future visual-format pilot, rather than a broadly launched format.",
+        "previous_coverage": null,
+        "material_delta": "The October 5 announcement adds named conversion-data integrations and describes a future visual-format pilot, rather than a broadly launched format."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "selection_rationale": "Score 76: selected narrowly because named conversion-data integrations provide a concrete API/data governance takeaway. The future visual format is scoped as a pilot and effectiveness claims are withheld."
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-05-reflection-beam-release-artifacts",
+      "decision": "watch",
+      "title": "Reflection Beam announcement awaits release artifacts",
+      "desk": "models",
+      "event_date": "2026-10-05",
+      "source_publication_date": "2026-10-05",
+      "sources": [
+        {
+          "url": "https://reflection.ai/blog/introducing-beam",
+          "publisher": "Reflection AI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-05",
+          "canonical_url": "https://reflection.ai/blog/introducing-beam"
+        }
+      ],
+      "reason": "The first-party announcement promises weights, a model card, technical report and developer artifacts later in October; capability claims are not independently validated.",
+      "promote_when": [
+        "Official weights, model card, technical report and developer artifacts are released.",
+        "Independent evaluation establishes material capability claims."
+      ],
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "model-releases",
+        "open-models",
+        "evals"
+      ],
+      "entities": [
+        "Reflection AI"
+      ],
+      "summary": "The first-party announcement promises weights, a model card, technical report and developer artifacts later in October; capability claims are not independently validated.",
+      "what_changed": "Reflection Beam announcement awaits release artifacts",
+      "why_it_matters": "Potential follow-up; the stated promotion condition is required before publication.",
+      "engineer_takeaway": "Wait for the evidence described in promote_when before treating this as a validated engineering development.",
+      "prerequisites": [],
+      "primary_source_url": "https://reflection.ai/blog/introducing-beam",
+      "evidence": {
+        "level": "primary",
+        "rationale": "The first-party announcement promises weights, a model card, technical report and developer artifacts later in October; capability claims are not independently validated.",
+        "independent_validation": "Not independently validated.",
+        "claim_scope": "Watch item only; no published story or capability conclusion."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "A potentially relevant development with incomplete operational evidence."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 3,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 88.0
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "No commissioned follow-up.",
+        "suggested_explainer": null
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "2026-10-05-reflection-beam-release-artifacts",
+        "canonical_event": "Reflection Beam announcement awaits release artifacts",
+        "previous_coverage": null,
+        "material_delta": "Original dated lead; held for stronger evidence."
+      },
+      "publication_verification": {
+        "status": "not-promoted"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-05-openai-gpt-6-1-sol-repeat",
+      "decision": "rejected",
+      "reason": "Previously covered September 30 announcement; no material delta within this editorial day was established.",
+      "previous_story_id": "2026-09-30-openai-gpt-6-1-sol"
+    },
+    {
+      "id": "2026-10-05-openai-dots-repeat",
+      "decision": "rejected",
+      "reason": "Previously covered September 30 announcement; no material delta within this editorial day was established.",
+      "previous_story_id": "2026-09-30-openai-dots"
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-05-chatgpt-ads-measurement-integrations"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  },
+  "editorial_opportunities": []
+}
