@@ -1,0 +1,173 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-10-04-claude-code-2-1-289-policy-precedence",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Code 2.1.289 fixes additional deny-rule and symlink gaps",
+    "verified_context": [
+      "Claude Code 2.1.289 was published at 23:07:17 UTC on October 3, which is 01:07:17 on October 4 in Luxembourg.",
+      "Its release notes describe additional fixes involving managed deny rules, IDE symlink reads and environment-prefixed Bash commands."
+    ],
+    "editorial_idea": "Upgrade and test policy precedence, symlinked IDE paths and environment-prefixed commands against real managed rules.",
+    "visual_metaphor": "Several solid charcoal architectural passageways converge at a single heavy terracotta gate seated firmly across the opening. A short curved side passage also meets that same gate. This is an abstract policy-boundary metaphor, never a claim of complete protection.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "one clear central physical metaphor",
+      "spacious warm paper field",
+      "centered focal elements that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-04-claude-code-2-1-289-policy-precedence",
+    "story_source_sha256": "887c8f274590e116e7039213ce858987438b2e3deea3da30b3e20e7855793676",
+    "visual_brief_sha256": "c7967cb10da2dc925477c7228aabc5d0c0eb006d56273e72ba2ce6ca24d3d3d0",
+    "reference_inputs_sha256": "f23ad4b17183ec6853887971a22b6e5c325af76bbfe41ed165ebea6934d2ca34",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "464a8645a296b6422c5abc57ab1165a1a8267025858e93fffbb07cdfedcef1f5"
+  },
+  "candidate_notes": {
+    "A": "Viable alternate. The gate and converging paths convey policy, with more landscape detail than needed.",
+    "B": "Viable alternate. The curved secondary path is strong, but the oblique gate reads less immediately at thumbnail size.",
+    "C": "Selected. A centered terracotta gate and converging stone passages produce the clearest crop-safe boundary metaphor. It is an abstract editorial image, not evidence that all bypasses are closed."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 91,
+    "brand_fit": 90,
+    "composition": 92,
+    "crop_quality": 93,
+    "technical_meaning": 89,
+    "cleanliness": 96,
+    "golden_reference_fit": 88,
+    "weighted_total": 90.75
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 86,
+      "brand_fit": 87,
+      "composition": 86,
+      "crop_quality": 87,
+      "technical_meaning": 84,
+      "cleanliness": 95,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.15
+    },
+    "B": {
+      "story_specific": 88,
+      "brand_fit": 89,
+      "composition": 89,
+      "crop_quality": 88,
+      "technical_meaning": 87,
+      "cleanliness": 95,
+      "golden_reference_fit": 86,
+      "weighted_total": 88.15
+    },
+    "C": {
+      "story_specific": 91,
+      "brand_fit": 90,
+      "composition": 92,
+      "crop_quality": 93,
+      "technical_meaning": 89,
+      "cleanliness": 96,
+      "golden_reference_fit": 88,
+      "weighted_total": 90.75
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-04-claude-code-2-1-289-policy-precedence.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 430 center-cover crop inspected: the central metaphor remains readable.",
+    "article_mobile": "359 x 240 center-cover crop inspected: focal objects remain distinct.",
+    "thumbnail": "320 x 164 center-cover crop inspected: color and silhouette convey the same idea.",
+    "home_square": "320 x 320 center-cover crop inspected: central focal elements survive; nonessential peripheral context is cropped."
+  },
+  "golden_reference_comparison": "Compared directly against DNS sandbox and MCP secrets: stone architecture, warm canvas, restrained charcoal/terracotta contrast and a clear boundary metaphor agree. The gate is more literal and the cutaway less diagrammatic; Golden Reference Fit is 88. Without headline or company name it remains in the publication's visual family.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-04-claude-code-2-1-289-policy-precedence.webp",
+  "asset_integrity": {
+    "byte_length": 210750,
+    "sha256": "d1f8c868fd4007645c07f7a38b1f7805efc5382ca19a959c9d83d232578e8f6b",
+    "git_blob_sha": "cdde6cf36781d991543b7b115d2ba4d783a64e07",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-06T09:53:07.492404+00:00",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code 2.1.289 fixes additional deny-rule and symlink gaps. Verified context: Claude Code 2.1.289 was published at 23:07:17 UTC on October 3, which is 01:07:17 on October 4 in Luxembourg. Its release notes describe additional fixes involving managed deny rules, IDE symlink reads and environment-prefixed Bash commands.. One concrete visual metaphor: Several solid charcoal architectural passageways converge at a single heavy terracotta gate seated firmly across the opening. A short curved side passage also meets that same gate. This is an abstract policy-boundary metaphor, never a claim of complete protection.. Canonical variation: spacious architectural scene seen from a gentle three-quarter angle, physical metaphor centered; matte stone and charcoal surfaces with restrained terracotta accents. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "d4907d4141c80d81a51ae92891c0a7522c5bba0a00ea791116666a5f007af785",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code 2.1.289 fixes additional deny-rule and symlink gaps. Verified context: Claude Code 2.1.289 was published at 23:07:17 UTC on October 3, which is 01:07:17 on October 4 in Luxembourg. Its release notes describe additional fixes involving managed deny rules, IDE symlink reads and environment-prefixed Bash commands.. One concrete visual metaphor: Several solid charcoal architectural passageways converge at a single heavy terracotta gate seated firmly across the opening. A short curved side passage also meets that same gate. This is an abstract policy-boundary metaphor, never a claim of complete protection.. Material variation: close editorial still life of the same metaphor, emphasize finely worked metal, plaster and subtle paper grain; warm side light and strong sculptural shadow. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "0bc472d76e66b72ab9c173f7c5979dddfbf35c624db920cc9bcb6106062c95b5",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code 2.1.289 fixes additional deny-rule and symlink gaps. Verified context: Claude Code 2.1.289 was published at 23:07:17 UTC on October 3, which is 01:07:17 on October 4 in Luxembourg. Its release notes describe additional fixes involving managed deny rules, IDE symlink reads and environment-prefixed Bash commands.. One concrete visual metaphor: Several solid charcoal architectural passageways converge at a single heavy terracotta gate seated firmly across the opening. A short curved side passage also meets that same gate. This is an abstract policy-boundary metaphor, never a claim of complete protection.. Compositional variation: wider shallow cutaway view of the same metaphor, foreground subject larger, fewer supporting details, pale background and especially clear silhouette in the center. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "f1e991160db2091471e181afec5d08c87a99222f85063352f239a00d2782589c",
+        "constitution_passed": true
+      }
+    ]
+  }
+}
