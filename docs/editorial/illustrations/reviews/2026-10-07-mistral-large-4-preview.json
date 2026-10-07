@@ -1,0 +1,116 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-07-mistral-large-4-preview",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Mistral Large 4 enters public API preview before its weights ship",
+    "verified_context": [
+      "Mistral opened a public API preview of Mistral Large 4 on October 6.",
+      "Engineers can call the preview through Mistral Studio and the API now.",
+      "Mistral says model weights, additional architecture information, more benchmarks, and post-training details will arrive later in October."
+    ],
+    "editorial_idea": "A powerful model can be inspected through an API opening today while its full deployable form remains enclosed until a later release.",
+    "visual_metaphor": "A dense faceted scientific core visible through one open aperture in a larger layered shell, while the rest of the shell remains closed and materially opaque.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": [
+      "one dense central core",
+      "one open inspection aperture",
+      "a larger still-closed shell"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-07-mistral-large-4-preview",
+    "story_source_sha256": "cc38cf21629f9c6d8637c1083ae386b0b33262f3d3e54edab029e8113b2e70cb",
+    "visual_brief_sha256": "c98df7f640d6db5629ba85dc453f122943b096662be39b2e2db44e461029e6a9",
+    "reference_inputs_sha256": "f7c5629a4ea671109639f66a0634eb61b9910a8b72a634a8e01fefffdcffe609",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "d7017a78811fe8fc53b46943d30434268b13358bdf84812bb2b41e694db0cf57"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 89,
+    "composition": 92,
+    "crop_quality": 92,
+    "technical_meaning": 90,
+    "cleanliness": 96,
+    "golden_reference_fit": 87,
+    "weighted_total": 90.95
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-07-mistral-large-4-preview.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 97978,
+    "sha256": "d5ab31d4d110e5770b2e65fa4e5596b5c302762c8bde1c49798cc03d783b166b",
+    "git_blob_sha": "b501d30a514d27b7e264d2b68111874bc30c64df",
+    "riff_container_complete": true
+  }
+}
