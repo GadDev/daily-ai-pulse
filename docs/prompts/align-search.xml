@@ -1,0 +1,136 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual target: docs/reference-layouts/images/search.webp (Search results
+concept). Match its layout as closely as possible — this takes priority over
+any conflicting guidance elsewhere. The image shows:
+
+1. Global header: serif "The Daily AI Pulse" wordmark left, nav (Today /
+   Pulse / Categories / About), a "Search" affordance with icon and a black
+   pill "Subscribe" button right, thin rule below. (Owned by BaseLayout and
+   SearchButton; only verify that no nav item is active on /search/ and that
+   the search affordance is the one that reads as current.)
+2. Search head: small-caps tracked terracotta eyebrow ("SEARCH THE
+   PUBLICATION"), very large black display-serif H1 ("Find the signal.")
+   with tight tracking on a single line, then a two-line muted dek (about
+   55ch wide) below it. Left-aligned, generous whitespace, no illustration.
+3. Search form: a visible "Search" label above the field (small, dark, sans).
+   Below it a single row: a wide input with a left-aligned magnifier icon,
+   thin border, 4px-ish radius and light surface fill; then a dark (--ink)
+   "Search" button of the same height with the same radius, separated by a
+   small gap. The row spans roughly the left 80% of the content width, not
+   the full width. A full-width ink/line rule sits below the form.
+4. Results status: small-caps tracked bold muted label ("3 RESULTS") directly
+   under the rule, above the list.
+5. Result rows, one per hit, separated by thin bottom rules, no card
+   backgrounds. Each row is a two-column grid:
+   - Main column: small-caps tracked terracotta desk label ("SECURITY"), a
+     regular-weight serif title (~2rem, one line on desktop, tight leading),
+     then a two-line muted sans excerpt (~60ch max).
+   - Meta column (about 20% width) with a thin vertical divider on its
+     left: tiny bold tracked "EVIDENCE" label, the evidence level beneath in
+     regular text, then a small-caps tracked muted monospace-ish date
+     ("OCT 28, 2024").
+6. "Explore more" footer row below the last result, under a thin rule:
+   small-caps tracked muted "EXPLORE MORE" label followed by three
+   terracotta text links with a trailing arrow ("Research →", "Dev Tools →",
+   "AI Engineering →"), evenly spaced on one line.
+7. Palette/type: warm beige canvas, black display serif for H1/titles, muted
+   gray for dek/excerpt/meta, terracotta only for eyebrow, desk labels, and
+   explore links; --ink for the button and input text.
+
+Known mismatches to resolve:
+- The image's text is generated and fabricated (headlines, excerpts, dates
+  like "2024"/"2025", "3 RESULTS", the "agent security" query, evidence
+  labels such as "Research report"/"Technical analysis"). Per
+  IMAGE_GALLERY.md, do NOT copy it. Every title, excerpt, desk, evidence
+  level, date, and count must come from the real index/content.
+- The image's desk labels (Security, AI Engineering, Dev Tools) and
+  "Explore more" links are not guaranteed to be the site taxonomy. Use real
+  category titles from src/lib/categories.ts; choose Explore-more links from
+  real categories (e.g. the categories of the current results, falling back
+  to the first three desks when there are no results). Do not hard-code
+  them.
+- The image's evidence labels are free text; the site uses the schema
+  `evidence` enum from src/content.config.ts. Render the enum's display
+  label, not invented phrases.
+- The image shows a populated state only. Keep and style the existing empty
+  prompt ("Enter a term..."), searching, no-results, and development
+  "index not built" states.
+
+Current implementation (inspect before editing, do not redo):
+- src/pages/search/index.astro already has a form, `#search-status`
+  (aria-live), `#search-results`, and a client script that calls Pagefind
+  (`pagefind/pagefind.js`), then builds `.search-result` articles with an
+  eyebrow ("PULSE"/"STORY" guessed from title), h2 link, and excerpt.
+  Eyebrow is "ARCHIVE SEARCH", H1 is "Search Pulse", the label is sr-only,
+  there is no icon, no meta column, no explore-more row, and the content
+  column is capped at 860px.
+- Nothing in src/ sets `data-pagefind-*` attributes, so Pagefind exposes
+  only title, url, and excerpt. Desk, evidence level, and date must be
+  added as Pagefind metadata on the story page template (find it under
+  src/pages/stories/) with `data-pagefind-meta` (e.g. category, evidence,
+  date), keeping the existing index behavior (do not exclude or reorder
+  indexed body content). Daily-edition pages that appear in results have no
+  evidence level; render their meta column gracefully (e.g. "EDITION" label
+  plus date) rather than an empty or fabricated value.
+- tests/e2e/smoke.spec.ts depends on `#search-status` containing /result/i
+  and `.search-result` being visible for `search/?q=agent`. Keep both
+  working.
+</context>
+
+<task>
+Align the /search/ page with search.webp section by section: update
+src/pages/search/index.astro (markup, client rendering, scoped styles), add
+the Pagefind meta attributes to the story page template, and adjust
+src/components/SearchButton.astro or src/layouts/BaseLayout.astro only if
+needed for the header state. Result rows must be built with DOM APIs
+(textContent), never innerHTML, and excerpt markup must stay stripped as it
+is today.
+</task>
+
+<constraints>
+- Match column proportions, spacing, divider, and type hierarchy as closely
+  as the image shows. Result title weight is regular, not bold; H1 is a
+  single line at desktop width (replace the current `max-width: 10ch`).
+- Copy changes: eyebrow "SEARCH THE PUBLICATION", H1 "Find the signal.",
+  dek written in the site voice about searching stories by topic, tool, or
+  company. Do not copy the image's other text.
+- Status line: "{N} result(s)" in small caps with correct singular/plural;
+  keep the query available to screen readers (e.g. sr-only
+  "for “query”") and keep the aria-live behavior.
+- Form: visible label tied to the input via for/id, input keeps type="search"
+  and name="q", icon is decorative (aria-hidden), button remains
+  type="submit". Input and button must be 44px+ tall with visible keyboard
+  focus.
+- Reuse existing design tokens (--terracotta, --ink, --muted, --line,
+  --surface, --canvas); do not introduce new colors.
+- Base path: all links, including result URLs and Explore-more links, go
+  through import.meta.env.BASE_URL / the categories helper; do not hard-code
+  root-relative paths.
+- Accessibility: one h1; each result is an `article` with an h2 link; meta
+  column labelled so "Evidence" and the date are readable in order; dates use
+  `<time datetime>` when a valid ISO date is available; decorative arrows
+  aria-hidden; no color-only distinction; axe must pass.
+- Responsive: below tablet width, stack the form (input above button,
+  full width) and collapse each result to one column with the meta column
+  moving under the excerpt as an inline row (divider becomes a top rule);
+  no horizontal overflow.
+- Do not modify files under docs/reference-layouts/. Do not add features
+  beyond the image (no filters, facets, sorting, pagination, or
+  autocomplete); keep the existing 30-result cap.
+- Run npm run check, npm run lint, npm run format:check, npm run build, and
+  the e2e smoke and accessibility specs (npx playwright test
+  tests/e2e/smoke.spec.ts tests/e2e/accessibility.spec.ts); fix any failure
+  you introduced.
+</constraints>
+
+<output_format>
+Provide the edits as changes to src/pages/search/index.astro, the story page
+template (Pagefind meta), and any header file only if needed. After the
+edits, list which image section (1-7) each change corresponds to, and call
+out the fabricated-text, desk/evidence-taxonomy, and populated-state-only
+decisions explicitly.
+</output_format>
