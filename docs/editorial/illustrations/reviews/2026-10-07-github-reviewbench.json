@@ -1,0 +1,116 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-07-github-reviewbench",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "ReviewBench measures what code-review agents catch and how much noise they add",
+    "verified_context": [
+      "ReviewBench contains 219 public pull requests across 19 programming languages.",
+      "Results can be broken down by category and severity, and users can change the beta value in an F-beta score to prefer recall or precision.",
+      "A usable evaluation must ask what additional comments found and how much human review remained."
+    ],
+    "editorial_idea": "Automated review must balance broad inspection against the burden of too many low-value findings.",
+    "visual_metaphor": "Three physical inspection lenses sweep across one layered material specimen; one reveals deep fractures, one reveals fine surface marks, and a restrained catch tray separates useful fragments from excess debris.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": [
+      "one layered specimen",
+      "three distinct inspection lenses",
+      "a restrained separation of useful findings and excess debris"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-07-github-reviewbench",
+    "story_source_sha256": "fb30aaee55dfd358e146dd247cf8709fa94430b4532f6f171d6b4a8a0bc42a1d",
+    "visual_brief_sha256": "69f83aded321e133e2e22cd54a8a4e0902a0a502fea7310321b43d3767949c2e",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "f1662eb13c8b8a4b1e287621073e7bda3abb41596bc44b33b966234c2efd25b5"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 90,
+    "composition": 91,
+    "crop_quality": 90,
+    "technical_meaning": 94,
+    "cleanliness": 95,
+    "golden_reference_fit": 88,
+    "weighted_total": 91.4
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-07-github-reviewbench.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 174386,
+    "sha256": "770c572169a60b252f730c3e3a85d896c5397ccfea4b37a872c417d4d6a0123c",
+    "git_blob_sha": "7edb9888845e313ecf3657b00e69876a5a454104",
+    "riff_container_complete": true
+  }
+}
