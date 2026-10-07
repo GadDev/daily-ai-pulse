@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import InformationLayout from '../../layouts/InformationLayout.astro';
 
 const base = import.meta.env.BASE_URL;
 const levels = [
@@ -14,19 +14,21 @@ const levels = [
 ];
 ---
 
-<BaseLayout
+<InformationLayout
   title="Editorial methodology — The Daily AI Pulse"
   description="How Pulse selects stories, labels evidence, and handles corrections."
+  eyebrow="EDITORIAL STANDARD"
+  heading="How we choose the signal."
+  dek="The question behind each story: what changed, how do we know, and what should an engineer do with it?"
+  current="methodology"
 >
-  <article class="information-page">
-    <p class="eyebrow">EDITORIAL STANDARD</p>
-    <h1>How we choose the signal.</h1>
-    <p class="lead">
-      The question behind each story: what changed, how do we know, and what should an engineer do
-      with it?
-    </p>
-    <section>
-      <h2>Selection</h2>
+  <p slot="intro" class="intro">
+    Evidence describes support for a claim. Signal describes editorial importance. A high-signal
+    story can still have preliminary evidence, and those ideas should not be confused.
+  </p>
+  <section class="split">
+    <h2>Selection</h2>
+    <div>
       <p>
         We prioritize significance, evidence, novelty, relevance to engineering, and lasting
         usefulness. The score informs a human editorial choice. We prefer a short issue to a padded
@@ -37,24 +39,22 @@ const levels = [
         and incident reports. Vendor claims are attributed to their source; a benchmark headline is
         examined for what it actually measures.
       </p>
-    </section>
-    <section>
-      <h2>Evidence labels</h2>
-      <dl class="evidence-list">
-        {levels.map(([term, definition]) => (
-          <div>
-            <dt>{term}</dt>
-            <dd>{definition}</dd>
-          </div>
-        ))}
-      </dl>
-      <p>
-        Evidence describes support for a claim. Signal describes editorial importance. A high-signal
-        story can still have preliminary evidence, and those ideas should not be confused.
-      </p>
-    </section>
-    <section>
-      <h2>Reporting and corrections</h2>
+    </div>
+  </section>
+  <section class="split">
+    <h2>Evidence levels</h2>
+    <dl class="evidence-list">
+      {levels.map(([term, definition]) => (
+        <div>
+          <dt>{term}</dt>
+          <dd>{definition}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+  <section class="split">
+    <h2>Corrections</h2>
+    <div>
       <p>
         Stories link their sources and separate factual reporting from editorial interpretation,
         including a labeled Pulse Take where useful. Research coverage should identify preprints and
@@ -72,33 +72,72 @@ const levels = [
         </a>
         .
       </p>
-    </section>
-    <p class="return-link">
-      <a href={`${base}about/`}>← About Pulse</a>
-    </p>
-  </article>
-</BaseLayout>
+    </div>
+  </section>
+  <p class="return-link">
+    <a href={`${base}about/`}>← About Pulse</a>
+  </p>
+</InformationLayout>
 
 <style>
+  .intro {
+    max-width: 44rem;
+    margin: 1.5rem 0 0;
+    font:
+      700 1.05rem/1.6 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 2rem;
+  }
+  .split h2 {
+    margin: 0;
+  }
+  .split p {
+    margin: 0 0 1rem;
+  }
+  .split p:last-child {
+    margin-bottom: 0;
+  }
   .evidence-list {
+    margin: 0;
     border-top: 1px solid var(--line);
   }
   .evidence-list div {
     display: grid;
-    grid-template-columns: 9rem 1fr;
+    grid-template-columns: 9rem minmax(0, 1fr);
     gap: 1.5rem;
     padding: 0.9rem 0;
     border-bottom: 1px solid var(--line);
   }
   dt {
-    font-weight: 700;
+    font:
+      700 1.1rem/1.5 Georgia,
+      'Times New Roman',
+      serif;
   }
   dd {
     margin: 0;
   }
+  .evidence-list dd {
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .return-link {
+    margin: 1rem 0 0;
+  }
+  @media (max-width: 860px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+  }
   @media (max-width: 560px) {
     .evidence-list div {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 0.2rem;
     }
   }

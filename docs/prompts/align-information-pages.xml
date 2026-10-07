@@ -1,0 +1,176 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual targets (priority over conflicting guidance elsewhere, except where
+"Known mismatches" says otherwise):
+docs/reference-layouts/images/about.webp, methodology.webp, subscribe.webp,
+contact.webp, privacy.webp, terms.webp. Responsive HTML references live next
+to them (about.html, methodology.html, subscribe.html, contact.html,
+privacy.html, terms.html) and are authoritative for structure; use them to
+resolve anything the images leave ambiguous. All six share one shell and
+differ only in the main column:
+
+Shared shell (image sections S1-S3):
+S1. Global header: serif wordmark, nav (Today / Pulse / Categories / About),
+    search affordance, black pill "Subscribe". Owned by BaseLayout; only
+    verify that "About" is the active nav item on /about/ and that no nav
+    item is active on the other five pages. Do NOT copy per-image header
+    variations (a tagline beside the wordmark, a terracotta Subscribe
+    button, vertical dividers); the images disagree with each other here.
+S2. Information sidebar (left, about 20-25% of the width): a vertical list
+    About / Methodology / Subscribe / Contact / Privacy / Terms. The current
+    page is terracotta, heavier weight, with a 3px terracotta bar on its left
+    edge; other items are muted regular. A thin vertical rule separates the
+    sidebar from the content (visible in methodology, subscribe, contact,
+    privacy, terms; absent in about). Sidebar spacing is generous (about
+    3rem between items' baselines at desktop).
+S3. Page head in the content column: small-caps tracked terracotta eyebrow,
+    very large black display-serif H1 on a single line at desktop width with
+    tight tracking, then a muted serif dek (one to two lines). Left-aligned,
+    no illustration, then a thin rule before the first section.
+
+Per-page main column:
+- About: after the head, rows of "label | body" separated by thin rules. Left
+  column is a small-caps tracked terracotta label (PURPOSE / THE EDITOR /
+  EXPLORE), right column (about 65%) is a serif body paragraph with
+  terracotta underlined inline links. Dek is larger (about 1.6rem) than on
+  other pages.
+- Methodology: head has an extra bold-ish intro paragraph under the dek.
+  Sections are two columns: a regular-weight serif section title on the left
+  (about 1/3), content on the right. "Evidence levels" content is a
+  term/definition table: bold serif term column, muted definition column,
+  thin rule between rows. A final "Corrections" section.
+- Subscribe: numbered sections ("01", "02" in terracotta), each with a large
+  serif title (RSS, Email), a paragraph, and a right-hand column separated by
+  a thin vertical rule: a small-caps tracked "GOOD TO KNOW" label with a
+  checkmark list in the RSS section, "ON THE ROADMAP" label with a short
+  paragraph in the Email section. The RSS section has a dark pill button
+  "Open the RSS feed" with an external-link icon and the feed URL in muted
+  text beneath it.
+- Contact: sections "Corrections" and "Questions and feedback", each with a
+  regular-weight serif h2, a paragraph, and (for Corrections) a dark
+  rectangular button ("Open GitHub issues"). Thin rules between sections.
+- Privacy: three plain sections (serif h2 + muted paragraph), no rules
+  between them, generous vertical rhythm.
+- Terms: three sections separated by thin rules; the last has a terracotta
+  underlined inline link.
+Palette/type for all: warm beige canvas, black display serif for H1/h2,
+muted gray for dek/body, terracotta only for eyebrow, active sidebar item,
+labels/numerals, and inline links; --ink for buttons.
+
+Known mismatches to resolve:
+- The images' text is generated and fabricated. Per IMAGE_GALLERY.md, do NOT
+  copy it. Examples: "a small, independent team", "support independent
+  coverage", "peer-reviewed research", "reputable technical media",
+  "https://thedailyaipulse.com/rss", "Full articles, no paywall", "Works
+  with any RSS reader", "We read every issue", "© 2024", "reader-supported
+  publication", and the Terms claim that work may be shared with attribution
+  under MIT. Every sentence must stay factually true for this project
+  (single maintainer Alexandre Gadaix, GitHub issues for contact, RSS only,
+  email planned but unavailable, GitHub Pages hosting, dual licensing in
+  CONTENT_LICENSE.md and LICENSE). Keep the existing real copy as the source
+  of truth and restructure it into the image's layout; only add a statement
+  if you verify it in the repo (for example, check src/pages/rss.xml.ts
+  before claiming "full articles").
+- Headlines: the image H1s match existing ones for About, Methodology,
+  Subscribe, and Contact. For Privacy and Terms, adopt "Privacy, plainly."
+  and "Use and attribution." with the existing eyebrows replaced by
+  "PRIVACY" and "TERMS", and write a one-line dek for each (do not use the
+  image's dek if it overstates anything). The Terms "attribution" wording
+  must match CONTENT_LICENSE.md exactly in substance; if the license does not
+  grant sharing with attribution, say what it does grant and link to it.
+- The images show only a subset of each page. Keep every real section that
+  exists today and is not in the image (Contact: "Security or private
+  concerns"; Privacy: "Hosting"; Terms: "Full text"; About: "Who makes
+  Pulse", AI-tool disclosure; Methodology: evidence-vs-signal note and the
+  "← About Pulse" return link). Fit them into the same layout rather than
+  deleting them.
+- Footer designs differ across the six images and from each other. The footer
+  is owned by BaseLayout and out of scope; do not change it.
+- Image features not in the product: the copy-URL button (Subscribe), any
+  email form, any contact form. Do not add them. Show the real feed URL as
+  plain text built from Astro.site + import.meta.env.BASE_URL + "rss.xml".
+- The image shows populated pages only; there is no dynamic data here, so no
+  empty/loading states are needed.
+
+Current implementation (inspect before editing, do not redo):
+- Each page is src/pages/{about,methodology,subscribe,contact,privacy,terms}/
+  index.astro, wrapping an `<article class="information-page">` in
+  BaseLayout. Shared styles live in src/styles/global.css (`.information-page`
+  and `.primary-link`, max-width 800px, centered, h1 700 weight capped by
+  `max-width: 12ch` in about, single-column sections with a top rule).
+- There is no sidebar and no shared information layout. Create one Astro
+  layout or component (for example src/layouts/InformationLayout.astro
+  wrapping BaseLayout, with props for title, description, eyebrow, heading,
+  dek, and current page) so the six pages share the sidebar, grid, and head,
+  and the page list lives in one place. Do not create six copies of the
+  sidebar.
+- methodology/index.astro has scoped styles for `.evidence-list`
+  (term/definition rows); reuse and tune them rather than rewriting.
+- No e2e test currently references these pages by content; the accessibility
+  spec may crawl them, so axe must still pass.
+</context>
+
+<task>
+Align the six information pages with their images section by section:
+introduce a shared information layout with the left sidebar (S2) and page
+head (S3), then restructure each page's main column to match its image using
+the real copy. Adjust global.css only for the shared `.information-page`
+rules that conflict with the new grid; put page-specific styles in the page's
+scoped `<style>`. Touch BaseLayout.astro only if the About active state is
+wrong.
+</task>
+
+<constraints>
+- Match column proportions, spacing, dividers, and type hierarchy as closely
+  as the images show. H1 is a single line at desktop width (remove the
+  `max-width: 12ch` and `<br />` in About; scale with clamp so it does not
+  overflow at 1024px). Methodology/contact/privacy/terms h2 and Methodology
+  section titles are regular weight serif, not 700; check the current 700
+  against the images.
+- Sidebar: a `nav` with aria-label "Information", a list of six links built
+  from import.meta.env.BASE_URL, `aria-current="page"` on the current item
+  in addition to the terracotta bar (no color-only distinction). One h1 per
+  page; section titles are h2 in document order.
+- Label/body and term/definition structures use semantic markup: About rows
+  as sections with an h2 styled as the small-caps label (not a div); evidence
+  levels stay a `dl`; Subscribe numerals ("01") are aria-hidden and the h2
+  carries the name; the checkmark list is a `ul` with decorative aria-hidden
+  check icons; the external-link icon on the RSS button is aria-hidden and
+  the link text stays "Open the RSS feed". External GitHub links keep their
+  current rel/target behavior.
+- Buttons ("Open the RSS feed", "Open GitHub issues") are links styled with
+  --ink background, 44px+ tall, visible keyboard focus. Contact's button
+  points to the existing issues URL; it must not claim "We read every issue"
+  or any response commitment.
+- Reuse existing design tokens (--terracotta, --ink, --muted, --line,
+  --surface, --canvas); do not introduce new colors.
+- Base path: all internal links and the feed URL go through
+  import.meta.env.BASE_URL / Astro.site; no hard-coded root-relative paths.
+- Responsive: below tablet width (about 860px) the sidebar becomes a
+  horizontally wrapping row of links above the head (keeping the active
+  state), the vertical rule becomes a bottom rule, two-column section rows
+  (About, Methodology, Subscribe) collapse to a single column with the
+  label/title above the body, and the Subscribe right-hand column moves under
+  the section content with a top rule. No horizontal overflow at 320px.
+- Meta titles/descriptions in each page's BaseLayout props stay accurate; if
+  you change an H1, keep the title tag consistent with it.
+- Do not modify files under docs/reference-layouts/. Do not add features
+  beyond the images (no forms, copy button, email capture, table of
+  contents, or analytics).
+- Run npm run check, npm run lint, npm run format:check, npm run build, and
+  the e2e accessibility spec (npx playwright test
+  tests/e2e/accessibility.spec.ts); fix any failure you introduced.
+</constraints>
+
+<output_format>
+Provide the edits as: the new shared information layout/component, the six
+page files, and the minimal global.css changes. After the edits, list which
+image section (S1-S3 plus the per-page structures) each change corresponds
+to, and call out the fabricated-text, kept-real-sections, footer/header
+variation, and unsupported-feature (copy button, forms) decisions
+explicitly. List every factual claim you added or changed and where you
+verified it in the repo.
+</output_format>
