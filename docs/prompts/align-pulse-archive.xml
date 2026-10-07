@@ -1,0 +1,105 @@
+<role>
+You are working in the daily-ai-pulse Astro codebase as a front-end implementer.
+</role>
+
+<context>
+Visual target: docs/reference-layouts/images/archive.webp (Pulse archive
+concept). Match its layout as closely as possible — this takes priority over
+any conflicting guidance elsewhere. The image shows:
+
+1. Global header: serif "The Daily AI Pulse" wordmark left, uppercase tracked
+   nav (TODAY / PULSE / CATEGORIES / ABOUT) with the active entry ("PULSE") in
+   terracotta with a terracotta underline, search affordance and a black pill
+   "Subscribe" button right, thin rule below the header. (Owned by
+   BaseLayout; only verify that PULSE is the active item on /pulse/.)
+2. Archive head: small-caps serif terracotta eyebrow ("THE BACK ISSUES"),
+   very large black display-serif H1 ("The Pulse archive") with tight
+   tracking, then a muted serif dek ("Every curated edition, newest first.").
+   No illustration; the head is left-aligned with generous whitespace.
+3. Month group header: a full-width ink rule on top, a small-caps tracked
+   muted label ("SEPTEMBER 2026 · 17 EDITIONS"), and a thin rule below.
+4. Edition rows, newest first, one per daily edition, separated by thin
+   bottom rules, no card backgrounds. Each row is a 5-column grid:
+   - Day number: very large bold lining-figure serif ("28"), with a thin
+     vertical divider on its right.
+   - Weekday/month label: small-caps tracked muted sans ("MON · SEP").
+   - Edition title: regular-weight serif, wraps to two lines, left-aligned,
+     roughly the middle 40% of the row.
+   - Meta column with a thin vertical divider on its left: small-caps bold
+     "N STORIES" line, then a muted small-caps desk list separated by
+     middots ("POLICY · BUSINESS · RESEARCH").
+   - Terracotta right arrow, right-aligned.
+5. Palette/type: warm beige canvas, black display serif for H1/day/titles,
+   muted gray for labels/meta, terracotta only for eyebrow, active nav,
+   and row arrows.
+
+Known mismatches to resolve:
+- The image's text is generated and fabricated (headlines, "17 EDITIONS",
+  story counts, desks, and every row being "MON"). Per IMAGE_GALLERY.md, do
+  NOT copy it. Derive every date, title, count, and desk from the `pulse` and
+  `stories` content collections.
+- The image's desk labels (Policy, Business, Research, Product, Tools,
+  Infrastructure) are not the site taxonomy. Use the real story `category`
+  values from src/lib/categories.ts.
+- The image shows only one month. Group by real month and render one
+  month header per group, so multiple months stack naturally.
+
+Current implementation (partly done — inspect before editing, do not redo):
+- src/pages/pulse/index.astro is the OLD flat list: "DAILY ARCHIVE" eyebrow,
+  "The Pulse" H1, SectionHeading "All editions", and DailyIssueRow in its
+  story-row layout (index, label, description, "N sections" meta).
+- src/pages/pulse/index.astro.new is an unfinished rewrite using
+  buildPulseArchive() and the edition variant of DailyIssueRow. It is a
+  stray file name Astro will not route; fold it into index.astro and delete
+  the .new file.
+- src/lib/pulse-archive.ts already groups editions by UTC month and builds
+  rows (day, weekdayMonth, fullDate, storyCount, top desks).
+- src/components/DailyIssueRow.astro already has an edition variant
+  (triggered by the `day` prop) with the 5-column grid, stretched link,
+  sr-only full date, and terracotta arrow. Only tune it where it differs
+  from the image; the story-row variant must keep working for other pages
+  (e.g. src/pages/pulse/[date].astro).
+- Desk labels in `desks` are raw category keys; render them with the real
+  category titles from src/lib/categories.ts if they differ.
+</context>
+
+<task>
+Finish aligning the /pulse/ archive page with archive.webp section by
+section: replace src/pages/pulse/index.astro with the grouped-by-month
+implementation, remove index.astro.new, and adjust DailyIssueRow.astro
+(edition variant), src/lib/pulse-archive.ts, and any needed styles so the
+rendered page matches the image. Verify the PULSE nav item is active in
+BaseLayout on /pulse/ and fix only if it is not.
+</task>
+
+<constraints>
+- Match column proportions, spacing, dividers, and type hierarchy as closely
+  as the image shows. Title weight in the image is regular, not bold; day
+  number is bold; check the current 700 title weight against the image.
+- All titles, dates, counts, and desks come from real collection data. The
+  story count is the real number of story IDs across the edition's sections.
+- Month header text: "{Month YYYY} · {N} edition(s)", with real counts and
+  correct singular/plural.
+- Reuse existing design tokens (--terracotta, --ink, --muted, --line,
+  --surface); do not introduce new colors.
+- Base path: all links go through import.meta.env.BASE_URL.
+- Preserve accessibility: one h1, month headings as h2 tied to their
+  sections via aria-labelledby, whole-row link as a 44px+ target with visible
+  keyboard focus, day/label aria-hidden with the full date available to
+  screen readers, decorative arrow aria-hidden.
+- Responsive: below tablet width, collapse the row to a stacked layout
+  (day + label, title, meta) without horizontal overflow; keep the empty
+  state when no editions exist.
+- Do not modify files under docs/reference-layouts/. Do not add features
+  beyond the image (no filters, pagination, or search).
+- Run npm run check, npm run lint, npm run format:check, and the e2e
+  accessibility spec; fix any failure you introduced.
+</constraints>
+
+<output_format>
+Provide the edits as changes to src/pages/pulse/index.astro,
+src/components/DailyIssueRow.astro, src/lib/pulse-archive.ts (if needed),
+and the removal of src/pages/pulse/index.astro.new. After the edits, list
+which image section (1-5) each change corresponds to, and call out the
+fabricated-text, desk-taxonomy, and single-month decisions explicitly.
+</output_format>

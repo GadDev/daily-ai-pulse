@@ -1,0 +1,204 @@
+{
+	"editorial_date": "2026-10-06",
+	"schema_version": "1.0",
+	"decision_engine_version": "1.0",
+	"candidates": [
+		{
+			"id": "2026-10-06-claude-cowork-cloud-runtime",
+			"decision": "selected",
+			"title": "Claude Cowork moves new Pro and Max tasks to Anthropic's cloud",
+			"desk": "engineering",
+			"format": "briefing",
+			"depth": "practitioner",
+			"topics": [
+				"agents",
+				"agent-runtime",
+				"sandboxing",
+				"permissions",
+				"security",
+				"computer-use"
+			],
+			"entities": [
+				"Anthropic",
+				"Claude",
+				"Claude Cowork"
+			],
+			"event_date": "2026-10-06",
+			"source_publication_date": null,
+			"summary": "Anthropic removed the local-only option for new Cowork tasks on Pro and Max, moving the agent loop and code execution into per-session cloud sandboxes while brokering local file and browser access through Claude Desktop.",
+			"what_changed": "From October 6, new Pro and Max Cowork tasks run on Anthropic's servers. Existing local tasks stay local; cloud sessions access connected local resources only through the online desktop app, and files required in the cloud are copied selectively.",
+			"why_it_matters": "The visible workflow now crosses a different trust boundary. Background and cross-device execution become possible, but local data may be processed remotely, endpoint tools cannot inspect cloud execution, and the desktop app becomes a privileged broker.",
+			"engineer_takeaway": "Reassess data-classification, network-egress, connected-folder, connector-permission, observability, and endpoint-visibility assumptions before using cloud Cowork for sensitive engineering work. Use Claude Code desktop where execution and history must remain on one machine.",
+			"prerequisites": [
+				"agent runtimes",
+				"sandboxing",
+				"least-privilege access"
+			],
+			"primary_source_url": "https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile",
+			"sources": [
+				{
+					"url": "https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile",
+					"canonical_url": "https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile",
+					"publisher": "Anthropic",
+					"source_type": "documentation",
+					"role": "primary",
+					"publication_date": null
+				},
+				{
+					"url": "https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview",
+					"canonical_url": "https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview",
+					"publisher": "Anthropic",
+					"source_type": "documentation",
+					"role": "supporting",
+					"publication_date": null
+				}
+			],
+			"evidence": {
+				"level": "primary",
+				"rationale": "Anthropic's current help and architecture documentation explicitly state the October 6 plan change and describe the cloud sandbox, brokered local access, egress, credential, and observability boundaries.",
+				"independent_validation": "No independent security validation or live sandbox inspection was performed in this run.",
+				"claim_scope": "The story reports Anthropic's documented runtime change and architecture; it does not claim that the isolation or permission controls were independently verified."
+			},
+			"signal": {
+				"level": "high",
+				"rationale": "The change alters execution location, data flow, monitoring visibility, and control assumptions for a broadly available agentic work surface."
+			},
+			"editorial_score": {
+				"significance": 5,
+				"evidence": 4,
+				"novelty": 4,
+				"relevance": 5,
+				"durability": 5,
+				"weighted_total": 91
+			},
+			"learning_gap": {
+				"exists": true,
+				"concepts": [
+					"agent-runtime",
+					"sandboxing",
+					"permissions"
+				],
+				"existing_explainer_status": "No Pulse explainer focused on hybrid cloud-agent runtimes and desktop resource brokers was found.",
+				"suggested_explainer": "How Cloud Agents Reach Local Files: Sandboxes, Brokers, and Trust Boundaries"
+			},
+			"related_content": {
+				"previous_story_ids": []
+			},
+			"follow_up_opportunities": [
+				{
+					"format": "deep-dive",
+					"depth": "practitioner",
+					"reason": "The hybrid cloud-runtime and local-broker architecture warrants a reusable comparison of data flow, endpoint visibility, connector credentials, and policy enforcement."
+				}
+			],
+			"deduplication": {
+				"status": "new",
+				"publication_status": "new-confirmed",
+				"candidate_key": "anthropic-claude-cowork-pro-max-cloud-runtime-october-6",
+				"canonical_event": "New Claude Cowork tasks on Pro and Max move from optional local execution to Anthropic-managed cloud sandboxes on October 6, 2026.",
+				"previous_coverage": null,
+				"material_delta": "No matching Daily AI Pulse story or merged ledger record was found; this is a dated execution-architecture and availability change."
+			},
+			"publication_verification": {
+				"status": "verified-with-claim-scope"
+			}
+		}
+	],
+	"watchlist": [
+		{
+			"id": "2026-10-06-reflection-beam-release-artifacts",
+			"decision": "watch",
+			"title": "Reflection AI introduces Beam, a 501B-parameter open model trained with large-scale agentic RL",
+			"desk": "models",
+			"format": "briefing",
+			"depth": "advanced",
+			"topics": [
+				"model-releases",
+				"open-models",
+				"training",
+				"reinforcement-learning",
+				"infrastructure",
+				"evals"
+			],
+			"entities": [
+				"Reflection AI",
+				"Beam"
+			],
+			"event_date": "2026-10-05",
+			"summary": "Reflection AI announced Beam and published extensive vendor-reported training and infrastructure details, but weights, the model card, technical report, and developer artifacts are scheduled for later in October.",
+			"evidence": {
+				"level": "primary",
+				"rationale": "The launch blog is a detailed first-party source, but the model and reproducibility artifacts are not yet available and benchmark claims lack independent validation."
+			},
+			"signal": {
+				"level": "high",
+				"rationale": "If released as described, Beam could be a consequential open-weight reasoning and agent model."
+			},
+			"editorial_score": {
+				"significance": 5,
+				"evidence": 3,
+				"novelty": 5,
+				"relevance": 5,
+				"durability": 4,
+				"weighted_total": 88
+			},
+			"sources": [
+				{
+					"url": "https://reflection.ai/blog/introducing-beam",
+					"canonical_url": "https://reflection.ai/blog/introducing-beam",
+					"publisher": "Reflection AI",
+					"source_type": "official",
+					"role": "primary",
+					"publication_date": "2026-10-05"
+				}
+			],
+			"reason": "The announcement precedes the promised weights, model card, technical report, and developer artifacts; current performance and infrastructure claims remain vendor-reported.",
+			"promote_when": [
+				"Official weights, model card, technical report, and developer artifacts are released.",
+				"Independent benchmarks or replication validate material capability claims."
+			]
+		}
+	],
+	"exclusions": [
+		{
+			"id": "2026-10-06-amd-ross-followup",
+			"decision": "rejected",
+			"reason": "The September 30 Ross release is concrete but no October 6 material delta was established; it is outside today's event window and lower priority than the current Cowork architecture change.",
+			"previous_story_id": null
+		},
+		{
+			"id": "2026-10-06-bitdefender-ai-guardian-followup",
+			"decision": "rejected",
+			"reason": "The September 30 public beta announcement has no October 6 release, independent evaluation, or implementation delta suitable for a new daily story.",
+			"previous_story_id": null
+		},
+		{
+			"id": "2026-10-06-cowork-chat-merge-repeat",
+			"decision": "rejected",
+			"reason": "The September 16 Cowork-and-chat merger is background to today's event, not a separate October 6 development.",
+			"previous_story_id": null
+		},
+		{
+			"id": "2026-10-06-october-3-4-research-repeats",
+			"decision": "rejected",
+			"reason": "Previously evaluated GitHub workflow and agent-evaluation research candidates have no new release, replication, or material evidence today.",
+			"previous_story_id": null
+		}
+	],
+	"publication": {
+		"story_ids": [
+			"2026-10-06-claude-cowork-cloud-runtime"
+		],
+		"withheld_selected": [],
+		"must_know_story_id": "2026-10-06-claude-cowork-cloud-runtime"
+	},
+	"editorial_opportunities": [
+		{
+			"format": "deep-dive",
+			"depth": "practitioner",
+			"title": "Hybrid agent runtimes: cloud sandboxes and local brokers",
+			"reason": "The selected change exposes a reusable architecture and security boundary that extends beyond Cowork."
+		}
+	]
+}
+
