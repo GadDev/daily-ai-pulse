@@ -1,35 +1,46 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import InformationLayout from '../../layouts/InformationLayout.astro';
 ---
 
-<BaseLayout
+<InformationLayout
   title="Contact — The Daily AI Pulse"
   description="Send a correction, project question, or security report."
+  eyebrow="CONTACT"
+  heading="Send a note."
+  dek="The publication uses its public GitHub repository for corrections, questions, and project feedback."
+  current="contact"
 >
-  <article class="information-page">
-    <p class="eyebrow">CONTACT</p>
-    <h1>Send a note.</h1>
-    <p class="lead">
-      The publication uses its public GitHub repository for corrections, questions, and project
-      feedback.
+  <section>
+    <h2>Corrections</h2>
+    <p>
+      Open an issue and include the story link, the point to correct, and a supporting source. A
+      GitHub account is required to file an issue.
     </p>
-    <section>
-      <h2>Corrections and feedback</h2>
-      <p>
-        <a href="https://github.com/GadDev/daily-ai-pulse/issues/new/choose">Open an issue</a> and
-        include the story link, the point to correct, and a supporting source. A GitHub account is
-        required to file an issue.
-      </p>
-    </section>
-    <section>
-      <h2>Security or private concerns</h2>
-      <p>
-        Do not post a security vulnerability in a public issue. Follow the repository’s{' '}
-        <a href="https://github.com/GadDev/daily-ai-pulse/blob/main/SECURITY.md">
-          security reporting instructions
-        </a>
-        .
-      </p>
-    </section>
-  </article>
-</BaseLayout>
+    <a class="primary-link" href="https://github.com/GadDev/daily-ai-pulse/issues/new/choose">
+      Open GitHub issues
+    </a>
+  </section>
+  <section>
+    <h2>Questions and feedback</h2>
+    <p>Project questions and feedback also go through GitHub issues.</p>
+  </section>
+  <section>
+    <h2>Security or private concerns</h2>
+    <p>
+      Do not post a security vulnerability in a public issue. Follow the repository’s{' '}
+      <a href="https://github.com/GadDev/daily-ai-pulse/blob/main/SECURITY.md">
+        security reporting instructions
+      </a>
+      .
+    </p>
+  </section>
+</InformationLayout>
+
+<style>
+  p {
+    margin: 0 0 1.5rem;
+  }
+  section > p:last-child {
+    margin-bottom: 0;
+  }
+</style>
