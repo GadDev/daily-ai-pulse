@@ -6,6 +6,8 @@
 [![Deploy](https://github.com/GadDev/daily-ai-pulse/actions/workflows/deploy.yml/badge.svg)](https://github.com/GadDev/daily-ai-pulse/actions/workflows/deploy.yml)
 [![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
 
+![The Daily AI Pulse](./docs/assets/the-pulse.png)
+
 **Read the publication:** https://gaddev.github.io/daily-ai-pulse/
 
 ## How a daily edition reaches the site

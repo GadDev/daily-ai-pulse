@@ -1,0 +1,119 @@
+{
+  "editorial_date": "2026-10-08",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-08-microsoft-mxc-agent-containment",
+      "decision": "selected",
+      "title": "Microsoft MXC gives local coding agents a policy boundary across operating systems",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["agent-runtime", "agent-security", "sandboxing", "permissions", "coding-agents", "sdk", "cli"],
+      "entities": ["Microsoft", "GitHub", "Microsoft eXecution Containers", "GitHub Copilot"],
+      "event_date": "2026-10-07",
+      "source_publication_date": "2026-10-07",
+      "summary": "Microsoft made its open-source MXC containment SDK generally available as GitHub made MXC-backed local sandboxing generally available in Copilot CLI, the Copilot app, and VS Code Agent Host sessions.",
+      "what_changed": "Agent builders can express filesystem, network, UI, process, and containment requirements through one versioned policy and typed SDKs, while Copilot now exposes a production integration across Windows, macOS, and Linux with enterprise enforcement controls.",
+      "why_it_matters": "Local coding agents inherit powerful host authority. Moving policy outside the workload gives teams a reusable least-privilege boundary, but the documented security properties and enforcement gaps still vary by backend, operating system, and harness path.",
+      "engineer_takeaway": "Treat an agent sandbox as executable security configuration: choose a backend from the threat model, test denied operations, identify in-process tools outside OS interception, and require fail-closed behavior when the host cannot enforce policy.",
+      "prerequisites": ["process isolation", "least privilege", "coding-agent tool execution"],
+      "primary_source_url": "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/",
+      "sources": [
+        {"url": "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/", "canonical_url": "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/", "publisher": "Microsoft", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-07"},
+        {"url": "https://github.com/microsoft/mxc", "canonical_url": "https://github.com/microsoft/mxc", "publisher": "Microsoft", "source_type": "repository", "role": "supporting", "publication_date": "2026-10-07"},
+        {"url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/", "canonical_url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/", "publisher": "GitHub", "source_type": "official", "role": "supporting", "publication_date": "2026-10-07"},
+        {"url": "https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes", "canonical_url": "https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes", "publisher": "GitHub", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-07"}
+      ],
+      "evidence": {"level": "primary", "rationale": "Microsoft documents the GA SDK, policy model, backends, and operating modes; GitHub documents a shipping Copilot integration and its limitations. Independent security testing was not located.", "independent_validation": "None verified. The implementation is publicly inspectable, but this run did not penetration-test it.", "claim_scope": "Availability and documented architecture are verified; comparative isolation strength and security outcomes are not independently validated."},
+      "signal": {"level": "high", "rationale": "A cross-platform policy layer adopted by a major coding-agent product materially changes how teams can constrain local agent tool execution."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 95},
+      "learning_gap": {"exists": true, "concepts": ["sandboxing", "permissions"], "existing_explainer_status": "Pulse has covered sandboxing incidents and product controls, but not a reusable comparison of process sandboxes, session isolation, containers, and microVMs.", "suggested_explainer": "Process Sandboxes, Containers, and MicroVMs for AI Agents"},
+      "related_content": {"previous_story_ids": ["2026-10-03-claude-code-2-1-288-permission-hardening", "2026-10-04-claude-code-2-1-289-policy-precedence"]},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "Teams need a repeatable method for deriving, testing, and regression-checking least-privilege policies for coding-agent workloads."}],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "microsoft-mxc-ga-github-copilot-local-sandboxing-ga", "canonical_event": "Microsoft MXC and its GitHub Copilot local-sandbox integration become generally available on October 7, 2026.", "previous_coverage": null, "material_delta": "No prior Pulse story or merged ledger covers MXC or Copilot's MXC-backed local sandboxing."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "First-party architecture and integration details are consistent; no independent security evaluation was claimed."}
+    },
+    {
+      "id": "2026-10-08-claude-haiku-5-5",
+      "decision": "selected",
+      "title": "Claude Haiku 5.5 cuts small-model prices and changes migration semantics",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["model-releases", "pricing", "cost", "model-routing", "inference", "coding-agents", "computer-use", "api"],
+      "entities": ["Anthropic", "Claude Haiku 5.5", "Claude Haiku 4.5", "Claude Sonnet 5.5"],
+      "event_date": "2026-10-07",
+      "source_publication_date": "2026-10-07",
+      "summary": "Anthropic released Haiku 5.5 for high-volume work with lower tiered token prices, adjustable effort, browser and computer-use support, and a migration contract that changes token accounting, thinking, sampling, prefill, and tool behavior.",
+      "what_changed": "The fixed `claude-haiku-5-5` model ID is available across Anthropic's supported platforms. Prompts at or below 100,000 tokens receive the lowest pricing tier, while the newer tokenizer and API semantics require integration changes beyond a model-name swap.",
+      "why_it_matters": "The release makes small-model routing more economical for bounded subagent and high-volume tasks, but naive migration can produce request errors, changed budgets, truncated output, or invalid conversation replay.",
+      "engineer_takeaway": "Migrate on a branch, apply the documented request changes, recount representative prompts, and compare complete successful-task cost at several effort levels before changing a production route.",
+      "prerequisites": ["model routing", "token accounting", "tool-calling agent loops"],
+      "primary_source_url": "https://www.anthropic.com/claude-haiku-5-5",
+      "sources": [
+        {"url": "https://www.anthropic.com/claude-haiku-5-5", "canonical_url": "https://www.anthropic.com/claude-haiku-5-5", "publisher": "Anthropic", "source_type": "official", "role": "primary", "publication_date": "2026-10-07"},
+        {"url": "https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide", "canonical_url": "https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide", "publisher": "Anthropic", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-07"},
+        {"url": "https://www.anthropic.com/claude-haiku-5-5-system-card", "canonical_url": "https://www.anthropic.com/claude-haiku-5-5-system-card", "publisher": "Anthropic", "source_type": "official", "role": "supporting", "publication_date": "2026-10-07"}
+      ],
+      "evidence": {"level": "primary", "rationale": "Anthropic documents availability, exact prices, API changes, benchmark setup, and safety evaluation. Comparative performance remains vendor-reported, with launch testimonials selected by Anthropic.", "independent_validation": "Launch materials include first-hand customer evaluations, but this run found no independent public replication of the model's benchmark or production claims.", "claim_scope": "The story treats availability, prices, and integration contracts as verified; capability and average-cost claims remain scoped to Anthropic's measurements."},
+      "signal": {"level": "high", "rationale": "A large price decrease plus adjustable effort and migration-breaking behavior can materially change production routing, cost models, and agent-loop integrations."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 89},
+      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The briefing directly explains the pricing tiers, effort control, and migration effects needed to act on the release."},
+      "related_content": {"previous_story_ids": ["2026-09-29-claude-sonnet-5-5"]},
+      "follow_up_opportunities": [],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "anthropic-claude-haiku-5-5-release-pricing-effort-migration", "canonical_event": "Anthropic releases Claude Haiku 5.5 on October 7, 2026.", "previous_coverage": null, "material_delta": "Haiku 5.5 is a distinct model release with new price tiers and migration semantics; prior Pulse coverage concerns Sonnet 5.5."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "Availability, pricing, and migration requirements are verified from Anthropic sources; benchmark results were not independently reproduced."}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-08-github-secret-classifier",
+      "decision": "watch",
+      "title": "GitHub adds a purpose-built model for unstructured secret detection",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["security", "fine-tuning", "coding-agents", "ci", "cost"],
+      "entities": ["GitHub", "GitHub Secret Protection", "GitHub Copilot"],
+      "event_date": "2026-10-07",
+      "summary": "GitHub upgraded existing AI-detected password alerts to a fine-tuned classifier that reads surrounding code and announced private-preview or forthcoming checks for push protection and Copilot security review.",
+      "evidence": {"level": "primary", "rationale": "GitHub documents the model's intended role, rollout stages, eligibility, and planned AI Credit billing, but publishes no detection-quality evaluation."},
+      "signal": {"level": "high", "rationale": "Context-aware detection for credentials without recognizable token formats could materially affect pre-commit and push-time security workflows."},
+      "editorial_score": {"significance": 4, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 83},
+      "sources": [{"url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection/", "canonical_url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection/", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-07"}],
+      "reason": "The installed alert scanner changed, but the most consequential push and Copilot workflows remain private preview or forthcoming, and GitHub did not publish precision, recall, or false-positive data.",
+      "promote_when": ["Public rollout with implementation and operating details.", "Independent benchmark or GitHub-published detection-quality evaluation."]
+    },
+    {
+      "id": "2026-10-08-mai-code-1-1-flash-local-copilot",
+      "decision": "watch",
+      "title": "Microsoft previews local MAI Code 1.1 Flash routing for GitHub Copilot",
+      "desk": "tools",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": ["coding-agents", "model-routing", "inference", "performance", "open-models", "ide", "cli"],
+      "entities": ["Microsoft", "GitHub Copilot", "MAI Code 1.1 Flash", "Surface Laptop Ultra"],
+      "event_date": "2026-10-07",
+      "summary": "Microsoft described a quantized local coding model and future Copilot routing between on-device and cloud inference, with initial performance and benchmark results on new Surface hardware.",
+      "evidence": {"level": "preliminary", "rationale": "The technical write-up provides configuration and first-party results, but broad availability is forthcoming and measurements are limited to a vendor-selected hardware and software stack."},
+      "signal": {"level": "high", "rationale": "Practical local-cloud routing in a mainstream coding agent could change latency, privacy, resilience, and workstation requirements."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 5, "relevance": 4, "durability": 4, "weighted_total": 79},
+      "sources": [{"url": "https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/", "canonical_url": "https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/", "publisher": "Microsoft", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-07"}],
+      "reason": "The routing experience is described as coming soon, and the current performance evidence is a first-party evaluation on specific new hardware.",
+      "promote_when": ["Official release in Copilot with supported hardware and configuration details.", "Independent latency, quality, memory, and power measurements."]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-08-github-haiku-5-5-copilot", "decision": "rejected", "reason": "GitHub Copilot availability is a distribution detail of the selected Claude Haiku 5.5 release, not a separate technical development.", "previous_story_id": "2026-10-08-claude-haiku-5-5"},
+    {"id": "2026-10-08-copilot-discover-local-models", "decision": "rejected", "reason": "Local-model discovery in Copilot CLI is incremental and belongs to the broader local-routing development retained on watch.", "previous_story_id": null},
+    {"id": "2026-10-08-openai-chat-latest-snapshot", "decision": "rejected", "reason": "Updating a moving chat-latest pointer does not create a durable production API capability or stable model release.", "previous_story_id": null},
+    {"id": "2026-10-08-stack-overflow-ai-survey-repeat", "decision": "rejected", "reason": "Already retained on the October 7 watchlist; no new methodology, deployment evidence, or material delta was found.", "previous_story_id": null}
+  ],
+  "publication": {"story_ids": ["2026-10-08-microsoft-mxc-agent-containment", "2026-10-08-claude-haiku-5-5"], "withheld_selected": [], "must_know_story_id": "2026-10-08-microsoft-mxc-agent-containment"},
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "foundation", "title": "Process Sandboxes, Containers, and MicroVMs for AI Agents", "reason": "MXC exposes a reusable distinction between policy portability and isolation strength that many engineers need before choosing an agent runtime boundary."},
+    {"format": "playbook", "depth": "practitioner", "title": "Build and Test a Least-Privilege Policy for a Coding Agent", "reason": "The release creates a practical need for an auditable workflow that maps tasks to grants, exercises denials, and regression-tests the boundary."}
+  ]
+}

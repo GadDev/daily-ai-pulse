@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-08-claude-haiku-5-5",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-08-claude-haiku-5-5",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Haiku 5.5 cuts small-model prices and changes migration semantics",
+    "verified_context": [
+      "Anthropic released Claude Haiku 5.5 for high-volume, latency-sensitive work with lower tiered token prices.",
+      "Haiku 5.5 is the first Haiku-class model with adjustable effort.",
+      "Existing Haiku integrations must account for changed tokenization, thinking, sampling, prefill, and tool behavior."
+    ],
+    "editorial_idea": "A much smaller instrument can now be tuned along a cost-versus-effort range, but it fits into the existing system only after several precise adjustments.",
+    "visual_metaphor": "A compact faceted instrument seated in a calibrated cradle, with a single terracotta control arc changing its internal depth while several old connectors are visibly realigned around it.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": ["one compact central instrument", "one adjustable control arc", "several precisely realigned connectors", "a visual contrast between compact scale and careful migration"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-29-claude-sonnet-5-5.webp", "public/images/stories/2026-10-07-mistral-large-4-preview.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-08-claude-haiku-5-5",
+    "story_source_sha256": "dc1025fb38c9065160adffa48fd15a46b6522e7745be99bc4dae13c2b3b22ae6",
+    "visual_brief_sha256": "0197f9cd0a18027a2ba8ba15ccda95c0cf020984e0a567bb027011458c85ad91",
+    "reference_inputs_sha256": "7b2abc8ed2915c96d7ba254010bd774f9c655eb20bb302600cc1e6157e06967a",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "dbb2c44d73a86287e374f1345a84c82509984cbe8fcfbaf41ae58d9ceae63994"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant but not selected. The compact instrument and active adjustment are story-specific, but the visible human hands and product-demonstration staging reduce continuity with the publication's more abstract editorial archive.",
+    "B": "Selected. A small faceted core passes through a deep adjustable aperture while legacy coupling pieces are realigned at the entrance. The composition makes compact scale, effort depth, and migration work readable without depicting a literal model mechanism.",
+    "C": "Constitution-compliant and viable. The layered instrument and single lever clearly convey adjustable effort and integration changes, but the centered appliance-like form is less editorially distinctive than candidate B."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 94, "brand_fit": 89, "composition": 94, "crop_quality": 94, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 88, "weighted_total": 91.75},
+  "candidate_scores": {
+    "A": {"story_specific": 82, "brand_fit": 78, "composition": 85, "crop_quality": 88, "technical_meaning": 83, "cleanliness": 94, "golden_reference_fit": 76, "weighted_total": 82.25},
+    "B": {"story_specific": 94, "brand_fit": 89, "composition": 94, "crop_quality": 94, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 88, "weighted_total": 91.75},
+    "C": {"story_specific": 91, "brand_fit": 87, "composition": 89, "crop_quality": 90, "technical_meaning": 91, "cleanliness": 97, "golden_reference_fit": 86, "weighted_total": 89.25}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "1100 x 591 center-cover review preserves the compact core, adjustable aperture, and realigned coupling pieces.", "article_mobile": "359 x 193 center-cover review retains the core and layered effort-depth metaphor without losing the migration elements.", "thumbnail": "320 x 164 review keeps the small core and large aperture as a distinct two-part silhouette."},
+  "golden_reference_comparison": "Direct review beside the Claude Sonnet 5.5 and Mistral Large 4 production illustrations shows comparable warm ground, charcoal and terracotta material masses, scientific abstraction, tactile cutaway depth, and confident negative space. Candidate B is more kinetic and close-cropped than the references, so golden-reference fit is scored at 88.",
+  "final_asset": "/images/stories/2026-10-08-claude-haiku-5-5.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 119118, "sha256": "db2c9656a73bddcee061507439bc5b79b21f238ec86f47eaeb3151da663304b6", "git_blob_sha": "62f6e92e7d279ab04dc972ecc2f5696dfd7976ff", "riff_container_complete": true}
+}

@@ -87,7 +87,10 @@ const imageSrc = story.data.image.startsWith('/')
   section={story.data.category}
   tags={story.data.tags}
 >
-  <article class="article-shell">
+  <article
+    class="article-shell"
+    data-pagefind-meta={`category:${categoryTitle}, categoryKey:${story.data.category}, evidence:${story.data.evidence}, date:${story.data.date.toISOString().slice(0, 10)}`}
+  >
     <header class="article-header">
       {edition && (
         <a class="back-link" href={`${base}pulse/${edition.id}/`}>
