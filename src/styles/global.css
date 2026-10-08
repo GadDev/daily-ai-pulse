@@ -286,26 +286,7 @@ main {
   flex-wrap: wrap;
 }
 .information-page {
-  max-width: 800px;
-  padding: 5rem 0 1rem;
-  margin: 0 auto;
-}
-.information-page h1 {
-  font:
-    700 clamp(3.2rem, 8vw, 6rem)/0.95 Georgia,
-    'Times New Roman',
-    serif;
-  letter-spacing: -0.05em;
-  margin: 0.7rem 0 1.7rem;
-}
-.information-page .lead {
-  max-width: 40rem;
-  color: var(--muted);
-  font:
-    1.35rem/1.45 Georgia,
-    'Times New Roman',
-    serif;
-  margin-bottom: 3rem;
+  min-width: 0;
 }
 .information-page section {
   border-top: 1px solid var(--line);
@@ -313,7 +294,7 @@ main {
 }
 .information-page section h2 {
   font:
-    700 1.8rem/1.1 Georgia,
+    400 1.8rem/1.15 Georgia,
     'Times New Roman',
     serif;
   margin: 0 0 1rem;
@@ -325,20 +306,27 @@ main {
   color: var(--muted);
 }
 .information-page a {
+  color: var(--terracotta);
   text-underline-offset: 0.2em;
 }
 .information-page .primary-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
   background: var(--ink);
   color: var(--surface);
   border: 1px solid var(--ink);
-  padding: 0.85rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   text-decoration: none;
-  margin-bottom: 2rem;
 }
 .information-page .primary-link:hover {
   background: transparent;
   color: var(--ink);
+}
+.information-page .primary-link:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
 }
 .sr-only {
   position: absolute;
@@ -410,9 +398,6 @@ main {
   }
   .site-footer__grid {
     grid-template-columns: 1fr;
-  }
-  .information-page {
-    padding-top: 3rem;
   }
   .footer-subscribe {
     grid-column: auto;

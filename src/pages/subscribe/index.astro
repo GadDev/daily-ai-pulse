@@ -1,30 +1,214 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import InformationLayout from '../../layouts/InformationLayout.astro';
 
 const base = import.meta.env.BASE_URL;
+const feedUrl = new URL(`${base}rss.xml`, Astro.site).toString();
 ---
 
-<BaseLayout
+<InformationLayout
   title="Subscribe — The Daily AI Pulse"
   description="Follow new Daily AI Pulse editions by RSS."
+  eyebrow="FOLLOW THE PULSE"
+  heading="The next issue, in your feed."
+  dek="Add the RSS feed to your reader to get new editions and stories as they are published."
+  current="subscribe"
 >
-  <article class="information-page">
-    <p class="eyebrow">FOLLOW THE PULSE</p>
-    <h1>The next issue, in your feed.</h1>
-    <p class="lead">
-      Add the RSS feed to your reader to get new editions and stories as they are published.
-    </p>
-    <p>
-      <a class="primary-link" href={`${base}rss.xml`}>
-        Open the RSS feed →
-      </a>
-    </p>
-    <section>
-      <h2>Email editions</h2>
-      <p>
-        Email delivery is planned but is not available yet. No address is collected on this site
-        today.
-      </p>
-    </section>
-  </article>
-</BaseLayout>
+  <section class="option">
+    <div class="option__main">
+      <span class="numeral" aria-hidden="true">
+        01
+      </span>
+      <div>
+        <h2>RSS</h2>
+        <p>The feed lists each published story, newest first.</p>
+        <a class="primary-link" href={`${base}rss.xml`}>
+          Open the RSS feed
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 2h5v5M14 2 7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"></path>
+          </svg>
+        </a>
+        <p class="feed-url">{feedUrl}</p>
+      </div>
+    </div>
+    <div class="option__aside">
+      <h3>Good to know</h3>
+      <ul class="checks">
+        <li>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m3 8.5 3.2 3L13 4.5"></path>
+          </svg>
+          <span>No account or email address is required.</span>
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m3 8.5 3.2 3L13 4.5"></path>
+          </svg>
+          <span>Each story appears as its own feed item.</span>
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m3 8.5 3.2 3L13 4.5"></path>
+          </svg>
+          <span>Items carry the story title, summary, and category.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="option">
+    <div class="option__main">
+      <span class="numeral" aria-hidden="true">
+        02
+      </span>
+      <div>
+        <h2>Email</h2>
+        <p>No address is collected on this site today.</p>
+      </div>
+    </div>
+    <div class="option__aside">
+      <h3>On the roadmap</h3>
+      <p>Email delivery is planned but is not available yet.</p>
+    </div>
+  </section>
+</InformationLayout>
+
+<style>
+  .option {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 3rem;
+  }
+  .option__main {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+  }
+  .numeral {
+    color: var(--terracotta);
+    font:
+      1.3rem/1.6 Georgia,
+      'Times New Roman',
+      serif;
+    padding-top: 0.5rem;
+  }
+  .option h2 {
+    font-size: 2.4rem;
+    margin: 0 0 0.75rem;
+  }
+  .option__main p {
+    margin: 0 0 1.5rem;
+    font:
+      1.1rem/1.6 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .option__main p:last-child {
+    margin-bottom: 0;
+  }
+  .option__main .feed-url {
+    margin-top: 1rem;
+    font:
+      0.9rem/1.4 Inter,
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    overflow-wrap: anywhere;
+  }
+  .primary-link {
+    border-radius: 999px;
+  }
+  .option__aside {
+    border-left: 1px solid var(--line);
+    padding-left: 2.5rem;
+  }
+  .option__aside h3 {
+    margin: 0.5rem 0 1.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .option__aside p {
+    margin: 0;
+    font:
+      1.1rem/1.6 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+    color: var(--muted);
+    font:
+      1.05rem/1.5 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  .checks li {
+    display: grid;
+    grid-template-columns: 1.6rem minmax(0, 1fr);
+  }
+  @media (max-width: 860px) {
+    .option {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+    .option__aside {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0 0;
+    }
+  }
+  @media (max-width: 480px) {
+    .option__main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

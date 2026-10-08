@@ -1,0 +1,147 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const pages = [
+  { id: 'about', label: 'About' },
+  { id: 'methodology', label: 'Methodology' },
+  { id: 'subscribe', label: 'Subscribe' },
+  { id: 'contact', label: 'Contact' },
+  { id: 'privacy', label: 'Privacy' },
+  { id: 'terms', label: 'Terms' },
+] as const;
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  dek: string;
+  current: (typeof pages)[number]['id'];
+}
+
+const { title, description, eyebrow, heading, dek, current } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class:list={['information-layout', { 'information-layout--bare': current === 'about' }]}>
+    <nav class="information-nav" aria-label="Information">
+      <ul>
+        {pages.map((page) => (
+          <li>
+            <a href={`${base}${page.id}/`} aria-current={page.id === current ? 'page' : undefined}>
+              {page.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <article class="information-page" data-page={current}>
+      <header class="information-head">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{heading}</h1>
+        <p class="lead">{dek}</p>
+        <slot name="intro" />
+      </header>
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .information-layout {
+    display: grid;
+    grid-template-columns: minmax(11rem, 20%) minmax(0, 1fr);
+    gap: 4rem;
+    padding: 3rem 0 1rem;
+  }
+  .information-nav {
+    border-right: 1px solid var(--line);
+    padding: 1rem 2rem 1rem 0;
+  }
+  .information-layout--bare .information-nav {
+    border-right-color: transparent;
+  }
+  .information-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .information-nav a {
+    display: block;
+    padding: 0.4rem 0 0.4rem 1.1rem;
+    border-left: 3px solid transparent;
+    color: var(--muted);
+    font:
+      1.1rem/1.3 Georgia,
+      'Times New Roman',
+      serif;
+    text-decoration: none;
+  }
+  .information-nav a:hover {
+    color: var(--ink);
+  }
+  .information-nav a[aria-current='page'] {
+    color: var(--terracotta);
+    font-weight: 700;
+    border-left-color: var(--terracotta);
+  }
+  .information-nav a:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+  .information-head {
+    padding-bottom: 2rem;
+  }
+  .eyebrow {
+    color: var(--terracotta);
+    margin: 0;
+  }
+  h1 {
+    font:
+      700 clamp(2.2rem, 4.4vw, 4rem) / 1.05 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.045em;
+    margin: 0.7rem 0 1.5rem;
+    overflow-wrap: anywhere;
+  }
+  .lead {
+    max-width: 44rem;
+    margin: 0;
+    color: var(--muted);
+    font:
+      1.3rem/1.5 Georgia,
+      'Times New Roman',
+      serif;
+  }
+  [data-page='about'] .lead {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 860px) {
+    .information-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+    .information-nav {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+      padding: 0 0 1rem;
+    }
+    .information-layout--bare .information-nav {
+      border-bottom-color: var(--line);
+    }
+    .information-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+    }
+    .information-nav a {
+      padding: 0.6rem 0 0.6rem 0.75rem;
+    }
+  }
+</style>
