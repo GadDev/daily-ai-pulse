@@ -1,0 +1,173 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-10-01-claude-code-mods",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Claude Code mods put TypeScript inside the agent event loop",
+    "verified_context": [
+      "Anthropic introduced TypeScript mods for Claude Code on October 1, 2026.",
+      "Mods can intercept prompt, tool and permission events and run with the same machine access as Claude Code."
+    ],
+    "editorial_idea": "Review mod code, provenance and event order before installation; treat a mod as privileged local code.",
+    "visual_metaphor": "A precision charcoal workbench has one terracotta interchangeable insert seated in its central mechanical passage. The insert changes how a pale slab passes through. This is a physical metaphor for customization, not a security diagram.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one clear central physical metaphor",
+      "spacious warm paper field",
+      "centered focal elements that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-01-claude-code-mods",
+    "story_source_sha256": "9aa2a8ae25b0cbbce10a343f42411f787501bef5c445bd09ec0336278cab4233",
+    "visual_brief_sha256": "dae7abcc4875ed3828cc0afec5b8216dcb4b4f7cb115079263045cadcc7bef83",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "0db9f18508deaee9f7278de1f55611e2f35c269e2ef869d01e1feec73f1c0af6"
+  },
+  "candidate_notes": {
+    "A": "Viable canonical alternate. The seated insert is clear, but foliage, arches and distant scenery add secondary detail.",
+    "B": "Viable material alternate. The terracotta insert and pale passage are clear; the tight still life gives less negative space.",
+    "C": "Selected. The shallow cutaway isolates the insert changing the central pale passage. Charcoal and terracotta masses remain legible through every reviewed crop."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 91,
+    "brand_fit": 90,
+    "composition": 91,
+    "crop_quality": 92,
+    "technical_meaning": 90,
+    "cleanliness": 96,
+    "golden_reference_fit": 88,
+    "weighted_total": 90.55
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 86,
+      "brand_fit": 86,
+      "composition": 84,
+      "crop_quality": 85,
+      "technical_meaning": 85,
+      "cleanliness": 95,
+      "golden_reference_fit": 83,
+      "weighted_total": 85.3
+    },
+    "B": {
+      "story_specific": 88,
+      "brand_fit": 88,
+      "composition": 87,
+      "crop_quality": 86,
+      "technical_meaning": 87,
+      "cleanliness": 96,
+      "golden_reference_fit": 86,
+      "weighted_total": 87.45
+    },
+    "C": {
+      "story_specific": 91,
+      "brand_fit": 90,
+      "composition": 91,
+      "crop_quality": 92,
+      "technical_meaning": 90,
+      "cleanliness": 96,
+      "golden_reference_fit": 88,
+      "weighted_total": 90.55
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-01-claude-code-mods.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 430 center-cover crop inspected: the central metaphor remains readable.",
+    "article_mobile": "359 x 240 center-cover crop inspected: focal objects remain distinct.",
+    "thumbnail": "320 x 164 center-cover crop inspected: color and silhouette convey the same idea.",
+    "home_square": "320 x 320 center-cover crop inspected: central focal elements survive; nonessential peripheral context is cropped."
+  },
+  "golden_reference_comparison": "Shares the plugin ecosystem and Copilot review-control references' warm stone, charcoal massing, terracotta mechanism and physical editorial metaphor. The tighter cutaway is denser and more photographic than their drawn architectural fields; Golden Reference Fit is 88. It would still look commissioned for the same publication without a headline.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-01-claude-code-mods.webp",
+  "asset_integrity": {
+    "byte_length": 160908,
+    "sha256": "3b8d1f0802edf0fde2f3a818ac27e50817df1da1b4d150da5082e548e619972a",
+    "git_blob_sha": "7fb52765a849dbf1c52b5c2fd27db1638dab50ee",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-06T09:53:07.478185+00:00",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code mods put TypeScript inside the agent event loop. Verified context: Anthropic introduced TypeScript mods for Claude Code on October 1, 2026. Mods can intercept prompt, tool and permission events and run with the same machine access as Claude Code.. One concrete visual metaphor: A precision charcoal workbench has one terracotta interchangeable insert seated in its central mechanical passage. The insert changes how a pale slab passes through. This is a physical metaphor for customization, not a security diagram.. Canonical variation: spacious architectural scene seen from a gentle three-quarter angle, physical metaphor centered; matte stone and charcoal surfaces with restrained terracotta accents. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "1b4e355600a9d3b16a249b0bd3c990a00896a7cb2ed0705ac62241d142142b7e",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code mods put TypeScript inside the agent event loop. Verified context: Anthropic introduced TypeScript mods for Claude Code on October 1, 2026. Mods can intercept prompt, tool and permission events and run with the same machine access as Claude Code.. One concrete visual metaphor: A precision charcoal workbench has one terracotta interchangeable insert seated in its central mechanical passage. The insert changes how a pale slab passes through. This is a physical metaphor for customization, not a security diagram.. Material variation: close editorial still life of the same metaphor, emphasize finely worked metal, plaster and subtle paper grain; warm side light and strong sculptural shadow. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "7e685b1752d57b826df515c8d0e7855f0baa4b354fd8a86ed667b39e038ad1ec",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Claude Code mods put TypeScript inside the agent event loop. Verified context: Anthropic introduced TypeScript mods for Claude Code on October 1, 2026. Mods can intercept prompt, tool and permission events and run with the same machine access as Claude Code.. One concrete visual metaphor: A precision charcoal workbench has one terracotta interchangeable insert seated in its central mechanical passage. The insert changes how a pale slab passes through. This is a physical metaphor for customization, not a security diagram.. Compositional variation: wider shallow cutaway view of the same metaphor, foreground subject larger, fewer supporting details, pale background and especially clear silhouette in the center. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "d4c87c5c133ab1bd891dcdba90ce2db5f7f36bbf8b7d3742de096de6de699490",
+        "constitution_passed": true
+      }
+    ]
+  }
+}

@@ -46,7 +46,10 @@ const totalStories = sections.reduce((total, section) => total + section.stories
 ---
 
 <BaseLayout title={`${edition.data.title} | Pulse`} description={edition.data.summary}>
-  <header class="issue-hero">
+  <header
+    class="issue-hero"
+    data-pagefind-meta={`kind:edition, date:${edition.data.date.toISOString().slice(0, 10)}`}
+  >
     <div class="issue-kicker">
       <span>The Daily AI Pulse</span>
       <time datetime={edition.data.date.toISOString()}>{issueDate}</time>

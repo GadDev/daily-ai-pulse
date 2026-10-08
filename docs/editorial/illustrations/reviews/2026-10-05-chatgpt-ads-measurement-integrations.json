@@ -1,0 +1,173 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-10-05-chatgpt-ads-measurement-integrations",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "ChatGPT Ads expands conversion integrations ahead of a visual pilot",
+    "verified_context": [
+      "On October 5, OpenAI announced expanded ChatGPT Ads conversion integrations and measurement partnerships.",
+      "Its visual ad test is planned for later October in the US; the announcement describes incrementality work as early-stage."
+    ],
+    "editorial_idea": "Separate attributed conversions from causal lift and review conversion-data governance before connecting customer systems.",
+    "visual_metaphor": "A small terracotta specimen rests on a pale sculptural platform, separated by an open gap from a second charcoal platform bearing a brass-gray measuring caliper. The physical instrument suggests measurement without numbers, data plots or a software screen.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": [
+      "one clear central physical metaphor",
+      "spacious warm paper field",
+      "centered focal elements that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-05-chatgpt-ads-measurement-integrations",
+    "story_source_sha256": "bb33504b534191a889a4dd1422809d82d8bdc49407b0466027de275bd680084e",
+    "visual_brief_sha256": "8e31d03f2ff1d13bb3cfc3be8fa06c56157d8514f84b24d6b7bdc52bef3fb634",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "389efc53dd4b06ee17cb418bb40f025a9840b81d2d1200299783e83c4ebc3745"
+  },
+  "candidate_notes": {
+    "A": "Viable alternate. Separate specimen and instrument are clear, but scenery and lateral instrument placement weaken the focal relationship.",
+    "B": "Viable alternate. Strong material detail and open gap; the abstract specimen is less immediately recognizable.",
+    "C": "Selected. The recognizable terracotta specimen and unmarked measuring caliper stay separate across an open gap, supporting the distinction between an observed outcome and its measurement. No measured result is invented."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 89,
+    "brand_fit": 90,
+    "composition": 91,
+    "crop_quality": 90,
+    "technical_meaning": 87,
+    "cleanliness": 97,
+    "golden_reference_fit": 88,
+    "weighted_total": 89.6
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 86,
+      "brand_fit": 86,
+      "composition": 85,
+      "crop_quality": 85,
+      "technical_meaning": 83,
+      "cleanliness": 96,
+      "golden_reference_fit": 84,
+      "weighted_total": 85.5
+    },
+    "B": {
+      "story_specific": 87,
+      "brand_fit": 88,
+      "composition": 88,
+      "crop_quality": 87,
+      "technical_meaning": 85,
+      "cleanliness": 96,
+      "golden_reference_fit": 86,
+      "weighted_total": 87.35
+    },
+    "C": {
+      "story_specific": 89,
+      "brand_fit": 90,
+      "composition": 91,
+      "crop_quality": 90,
+      "technical_meaning": 87,
+      "cleanliness": 97,
+      "golden_reference_fit": 88,
+      "weighted_total": 89.6
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-05-chatgpt-ads-measurement-integrations.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 430 center-cover crop inspected: the central metaphor remains readable.",
+    "article_mobile": "359 x 240 center-cover crop inspected: focal objects remain distinct.",
+    "thumbnail": "320 x 164 center-cover crop inspected: color and silhouette convey the same idea.",
+    "home_square": "320 x 320 center-cover crop inspected: central focal elements survive; nonessential peripheral context is cropped."
+  },
+  "golden_reference_comparison": "The specimen and caliper retain the plugin ecosystem and Copilot review-control references' warm paper, stone, charcoal, terracotta and substantial physical forms. This still life is sparser than their mechanical architecture; Golden Reference Fit is 88. It would look intentionally commissioned for the same publication without metadata.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-05-chatgpt-ads-measurement-integrations.webp",
+  "asset_integrity": {
+    "byte_length": 101718,
+    "sha256": "15617b1d2ab6c97667d3b3d2bac964ff4e468fc5e7151bfe650eb1f1e61b0f04",
+    "git_blob_sha": "e5c26f772016a3947fef1543e740aa13029bb783",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-06T09:53:07.500567+00:00",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: ChatGPT Ads expands conversion integrations ahead of a visual pilot. Verified context: On October 5, OpenAI announced expanded ChatGPT Ads conversion integrations and measurement partnerships. Its visual ad test is planned for later October in the US; the announcement describes incrementality work as early-stage.. One concrete visual metaphor: A small terracotta specimen rests on a pale sculptural platform, separated by an open gap from a second charcoal platform bearing a brass-gray measuring caliper. The physical instrument suggests measurement without numbers, data plots or a software screen.. Canonical variation: spacious architectural scene seen from a gentle three-quarter angle, physical metaphor centered; matte stone and charcoal surfaces with restrained terracotta accents. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "1999fac1b1cbe916814fdb9e4358c7c9d3f449fb359204101a98ec9548ee7665",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: ChatGPT Ads expands conversion integrations ahead of a visual pilot. Verified context: On October 5, OpenAI announced expanded ChatGPT Ads conversion integrations and measurement partnerships. Its visual ad test is planned for later October in the US; the announcement describes incrementality work as early-stage.. One concrete visual metaphor: A small terracotta specimen rests on a pale sculptural platform, separated by an open gap from a second charcoal platform bearing a brass-gray measuring caliper. The physical instrument suggests measurement without numbers, data plots or a software screen.. Material variation: close editorial still life of the same metaphor, emphasize finely worked metal, plaster and subtle paper grain; warm side light and strong sculptural shadow. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "8f5eca6a2fe715b64ec0aa8c0f400867304698269839801dc023ac6b8be5d37f",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: ChatGPT Ads expands conversion integrations ahead of a visual pilot. Verified context: On October 5, OpenAI announced expanded ChatGPT Ads conversion integrations and measurement partnerships. Its visual ad test is planned for later October in the US; the announcement describes incrementality work as early-stage.. One concrete visual metaphor: A small terracotta specimen rests on a pale sculptural platform, separated by an open gap from a second charcoal platform bearing a brass-gray measuring caliper. The physical instrument suggests measurement without numbers, data plots or a software screen.. Compositional variation: wider shallow cutaway view of the same metaphor, foreground subject larger, fewer supporting details, pale background and especially clear silhouette in the center. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "5670cf9ac6b58e58e622e1d9786bb104c12334eb92de8924610d9310cdc5bd45",
+        "constitution_passed": true
+      }
+    ]
+  }
+}

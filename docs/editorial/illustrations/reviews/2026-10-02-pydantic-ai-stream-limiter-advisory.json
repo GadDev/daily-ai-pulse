@@ -1,0 +1,173 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-10-02-pydantic-ai-stream-limiter-advisory",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Pydantic AI warns that streamed requests can exhaust shared model capacity",
+    "verified_context": [
+      "The October 2 Pydantic AI advisory describes model-level streaming concurrency slots remaining occupied after requests end.",
+      "The advisory identifies 2.53.0 as patched and distinguishes the unaffected agent-level limiter."
+    ],
+    "editorial_idea": "Upgrade affected installations and check which concurrency limiter protects shared streaming endpoints.",
+    "visual_metaphor": "A heavy charcoal capacity rack holds a few terracotta blocks in its slots. A detached release linkage rests beside it, explaining retained capacity through a physical mechanical metaphor, without depicting an actual software architecture.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": [
+      "one clear central physical metaphor",
+      "spacious warm paper field",
+      "centered focal elements that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-02-pydantic-ai-stream-limiter-advisory",
+    "story_source_sha256": "bec22ec5a4c82505dcea1e5f723e058b2fb29f366cf4a69a22bb972bc7ad2751",
+    "visual_brief_sha256": "71c60471c8b24cd8e2006922d528cc29c520477bf76f7390be6b5191637d9469",
+    "reference_inputs_sha256": "f23ad4b17183ec6853887971a22b6e5c325af76bbfe41ed165ebea6934d2ca34",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "f3431b32c1bb21a08efe7f6122315b70add069d2d3ce9e13f2a2da076eb8203e"
+  },
+  "candidate_notes": {
+    "A": "Viable alternate. Retained blocks and disconnected linkage are readable; architectural scenery competes with the capacity rack.",
+    "B": "Selected. The rack and detached release linkage occupy distinct planes, making retained capacity the single focal idea. Empty slots avoid a misleading claim that every slot is always occupied.",
+    "C": "Viable alternate. Physical wear and detached linkage fit the story, but the lower angle and fragmented foreground reduce small-crop clarity."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 91,
+    "brand_fit": 89,
+    "composition": 90,
+    "crop_quality": 86,
+    "technical_meaning": 91,
+    "cleanliness": 95,
+    "golden_reference_fit": 87,
+    "weighted_total": 89.2
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 85,
+      "brand_fit": 85,
+      "composition": 85,
+      "crop_quality": 88,
+      "technical_meaning": 83,
+      "cleanliness": 95,
+      "golden_reference_fit": 82,
+      "weighted_total": 85.15
+    },
+    "B": {
+      "story_specific": 91,
+      "brand_fit": 89,
+      "composition": 90,
+      "crop_quality": 86,
+      "technical_meaning": 91,
+      "cleanliness": 95,
+      "golden_reference_fit": 87,
+      "weighted_total": 89.2
+    },
+    "C": {
+      "story_specific": 87,
+      "brand_fit": 87,
+      "composition": 85,
+      "crop_quality": 83,
+      "technical_meaning": 88,
+      "cleanliness": 95,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.0
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-10-02-pydantic-ai-stream-limiter-advisory.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 430 center-cover crop inspected: the central metaphor remains readable.",
+    "article_mobile": "359 x 240 center-cover crop inspected: focal objects remain distinct.",
+    "thumbnail": "320 x 164 center-cover crop inspected: color and silhouette convey the same idea.",
+    "home_square": "320 x 320 center-cover crop inspected: central focal elements survive; nonessential peripheral context is cropped."
+  },
+  "golden_reference_comparison": "Compared directly against the DNS sandbox and MCP secrets production images: warm paper, restrained terracotta, substantial charcoal objects and strong spatial depth agree. The mechanical still life uses less landscape and fewer fine technical lines; Golden Reference Fit is 87. It would read as the same publication without company metadata.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-02-pydantic-ai-stream-limiter-advisory.webp",
+  "asset_integrity": {
+    "byte_length": 183722,
+    "sha256": "39247d8c6c577796ba8453164b49aa0b71a4eb1a5b3b54c39dacc62c25794eb8",
+    "git_blob_sha": "155ccc2d3d833361181d05fe22021852fd8b95bb",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-06T09:53:07.486301+00:00",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Pydantic AI warns that streamed requests can exhaust shared model capacity. Verified context: The October 2 Pydantic AI advisory describes model-level streaming concurrency slots remaining occupied after requests end. The advisory identifies 2.53.0 as patched and distinguishes the unaffected agent-level limiter.. One concrete visual metaphor: A heavy charcoal capacity rack holds a few terracotta blocks in its slots. A detached release linkage rests beside it, explaining retained capacity through a physical mechanical metaphor, without depicting an actual software architecture.. Canonical variation: spacious architectural scene seen from a gentle three-quarter angle, physical metaphor centered; matte stone and charcoal surfaces with restrained terracotta accents. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "01e2584970600dac8c243c155620250dc6aaf8ea4effd9107cce092192c4ab68",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Pydantic AI warns that streamed requests can exhaust shared model capacity. Verified context: The October 2 Pydantic AI advisory describes model-level streaming concurrency slots remaining occupied after requests end. The advisory identifies 2.53.0 as patched and distinguishes the unaffected agent-level limiter.. One concrete visual metaphor: A heavy charcoal capacity rack holds a few terracotta blocks in its slots. A detached release linkage rests beside it, explaining retained capacity through a physical mechanical metaphor, without depicting an actual software architecture.. Material variation: close editorial still life of the same metaphor, emphasize finely worked metal, plaster and subtle paper grain; warm side light and strong sculptural shadow. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "c3c42192c769539602617f8c4ea905905e666391ba229156134ee79a4318b024",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero inside docs/reference-layouts/story.html. Artwork asset only. Output crop: wide landscape 16:9, high resolution; keep important focal elements in central 60 percent for desktop/mobile object-fit cover and square home crop. Subject: Pydantic AI warns that streamed requests can exhaust shared model capacity. Verified context: The October 2 Pydantic AI advisory describes model-level streaming concurrency slots remaining occupied after requests end. The advisory identifies 2.53.0 as patched and distinguishes the unaffected agent-level limiter.. One concrete visual metaphor: A heavy charcoal capacity rack holds a few terracotta blocks in its slots. A detached release linkage rests beside it, explaining retained capacity through a physical mechanical metaphor, without depicting an actual software architecture.. Compositional variation: wider shallow cutaway view of the same metaphor, foreground subject larger, fewer supporting details, pale background and especially clear silhouette in the center. Art direction: restrained contemporary editorial illustration with quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, physical material detail, spatial depth and clear visual hierarchy; never a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Golden archive direction: warm stone and paper architectural/mechanical editorial artwork; warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition and strong contrast; clear at thumbnail size. Only depict the supported abstract metaphor, no literal technical guarantees or numeric results. No words, letters, numbers, labels, logos, interface elements, page header, page footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, generated headline, screenshot imitation, border or frame.",
+        "source_png_sha256": "e7fb73acedbb30e24da3743b69f129fd4d9737c22c88e6aa27f6628b838a57e0",
+        "constitution_passed": true
+      }
+    ]
+  }
+}

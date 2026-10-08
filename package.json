@@ -12,6 +12,7 @@
     "content:check": "node scripts/validate-content.mjs",
     "editorial:check": "node scripts/validate-editorial-batch.mjs",
     "illustration:check": "node scripts/validate-illustration-batch.mjs",
+    "illustration:decision": "node scripts/resolve-illustration-generation.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",

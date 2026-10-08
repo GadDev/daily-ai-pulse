@@ -1,0 +1,114 @@
+{
+  "editorial_date": "2026-10-07",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-07-mistral-large-4-preview",
+      "decision": "selected",
+      "title": "Mistral Large 4 enters public API preview before its weights ship",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["model-releases", "open-models", "multimodal", "coding-agents", "agent-security", "api", "pricing"],
+      "entities": ["Mistral AI", "Mistral Large 4"],
+      "event_date": "2026-10-06",
+      "source_publication_date": "2026-10-06",
+      "summary": "Mistral opened a public API preview of Mistral Large 4, a multimodal mixture-of-experts model aimed at coding, agentic workflows, cybersecurity, and professional workloads; weights and fuller technical disclosures are promised later in October.",
+      "what_changed": "The model is callable through Mistral Studio and the API today with a one-million-token context window and published token pricing. Mistral plans to release weights, architecture details, additional benchmarks, and post-training details later in the month.",
+      "why_it_matters": "The preview gives engineers a new European-hosted frontier-scale option to evaluate now, but the staged release means API behavior can be tested before self-hosting claims, license terms, and architecture are fully inspectable.",
+      "engineer_takeaway": "Treat this as an API-preview evaluation, not an open-weight deployment decision. Test complete task cost, refusal behavior, coding reliability, and long-context performance, then revisit self-hosting after weights, license, model card, and technical report arrive.",
+      "prerequisites": ["model APIs", "mixture-of-experts models", "agent evaluation"],
+      "primary_source_url": "https://mistral.ai/news/mistral-large-4/",
+      "sources": [
+        {"url": "https://mistral.ai/news/mistral-large-4/", "canonical_url": "https://mistral.ai/news/mistral-large-4/", "publisher": "Mistral AI", "source_type": "official", "role": "primary", "publication_date": "2026-10-06"},
+        {"url": "https://docs.mistral.ai/models/mistral-large-4-0", "canonical_url": "https://docs.mistral.ai/models/mistral-large-4-0", "publisher": "Mistral AI", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-06"},
+        {"url": "https://www.reuters.com/world/china/mistral-ceo-says-new-ai-model-beats-chinese-ones-some-areas-2026-10-06/", "canonical_url": "https://www.reuters.com/world/china/mistral-ceo-says-new-ai-model-beats-chinese-ones-some-areas-2026-10-06/", "publisher": "Reuters", "source_type": "reporting", "role": "independent", "publication_date": "2026-10-06"}
+      ],
+      "evidence": {"level": "primary", "rationale": "The launch, API availability, context window, features, and pricing are documented by Mistral; performance is mostly vendor-reported and the promised weights are not yet available.", "independent_validation": "Artificial Analysis results are cited by Mistral, while Reuters independently confirms the staged public release; this run did not reproduce capability benchmarks.", "claim_scope": "Availability and documented API properties are verified. Benchmark, safety, and performance conclusions remain vendor or third-party benchmark claims."},
+      "signal": {"level": "high", "rationale": "A callable frontier-scale European model with planned weights could materially affect model routing, sovereignty, security research, and self-hosting choices."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 93},
+      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "No additional explainer is required to understand an API-preview model release."},
+      "related_content": {"previous_story_ids": ["2026-09-24-gpt-6-sol-luna", "2026-09-29-claude-sonnet-5-5"]},
+      "follow_up_opportunities": [],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "mistral-large-4-public-api-preview-before-weight-release", "canonical_event": "Mistral Large 4 public API preview on October 6, 2026.", "previous_coverage": null, "material_delta": "No matching Pulse story or ledger decision covers this model or preview."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "Mistral's launch page and model documentation report different active and total parameter counts; the story does not publish either figure."}
+    },
+    {
+      "id": "2026-10-07-github-reviewbench",
+      "decision": "selected",
+      "title": "ReviewBench measures what code-review agents catch and how much noise they add",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "evals", "benchmarks", "verification", "ci", "observability"],
+      "entities": ["GitHub", "Microsoft", "ReviewBench", "GitHub Copilot"],
+      "event_date": "2026-10-05",
+      "source_publication_date": "2026-10-05",
+      "summary": "GitHub and Microsoft released ReviewBench, a research-preview benchmark for code-review agents with 219 public pull requests across 19 languages, a multi-source golden set, configurable precision-recall weighting, and a self-serve runner.",
+      "what_changed": "Teams can inspect the dataset and evaluation configuration, submit a containerized review agent, and compare coverage, noise, severity, category, and cost. GitHub also published an internal-to-production validation example for a Copilot review ensemble.",
+      "why_it_matters": "Code review is not a single pass/fail task: teams trade recall against false-positive burden, severity, and cost. ReviewBench makes those operating choices visible instead of collapsing them into one headline score.",
+      "engineer_takeaway": "Use the benchmark to compare reviewer configurations and expose blind spots, but calibrate thresholds on your own repositories and keep production experiments and human acceptance as the final measure.",
+      "prerequisites": ["precision and recall", "code review", "agent evaluation"],
+      "primary_source_url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
+      "sources": [
+        {"url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/", "canonical_url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/", "publisher": "GitHub", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-05"},
+        {"url": "https://review-bench.ai/", "canonical_url": "https://review-bench.ai/", "publisher": "GitHub and Microsoft", "source_type": "benchmark", "role": "supporting", "publication_date": "2026-10-05"}
+      ],
+      "evidence": {"level": "primary", "rationale": "GitHub publishes the corpus design, labeling process, evaluator configuration, submission path, validation agreement, and one production experiment; independent replication is not yet available.", "independent_validation": "Senior engineers outside the dataset-building team re-labeled the golden findings, but this is first-party validation rather than external replication.", "claim_scope": "The story describes the released benchmark and GitHub's own reported offline-to-online correlation."},
+      "signal": {"level": "high", "rationale": "The benchmark provides an immediately usable evaluation surface for a rapidly expanding but hard-to-compare class of engineering agents."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 91},
+      "learning_gap": {"exists": true, "concepts": ["evals", "benchmarks"], "existing_explainer_status": "Pulse has agent-evaluation coverage, but no explainer focused on asymmetric precision-recall choices in automated code review.", "suggested_explainer": "Precision, Recall, and Review Fatigue in AI Code Review"},
+      "related_content": {"previous_story_ids": ["2026-09-22-copilot-review-controls", "2026-09-27-agent-trace-tampering"]},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "Teams need a repository-specific rollout method that connects offline scores to reviewer burden, accepted findings, severity, and CI policy."}],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "github-microsoft-reviewbench-code-review-agent-benchmark-research-preview", "canonical_event": "Public research preview of ReviewBench.", "previous_coverage": null, "material_delta": "No prior Pulse story or ledger covers ReviewBench."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    },
+    {
+      "id": "2026-10-07-agent-experience-evals",
+      "decision": "selected",
+      "title": "Agent Experience turns agent-friendly product design into an eval loop",
+      "desk": "workflows",
+      "format": "playbook",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "evals", "developer-experience", "skills", "mcp", "cli", "cost"],
+      "entities": ["Microsoft", "GitHub Copilot", "SharePoint Framework", "CLI for Microsoft 365"],
+      "event_date": "2026-10-06",
+      "source_publication_date": "2026-10-06",
+      "summary": "Microsoft's final Agent Experience article defines a repeatable method for measuring whether coding agents discover a technology, use it correctly, and do so at acceptable quality and cost.",
+      "what_changed": "The completed series consolidates propensity, efficacy, task cost, bare baselines, and agent profiles into a practical loop, backed by first-hand tests where seemingly agent-friendly changes sometimes made outcomes worse or far more expensive.",
+      "why_it_matters": "SDK, API, CLI, and documentation teams increasingly have nonhuman users. Optimizing for agents by convention alone can add context, cost, or failure modes; the intervention must be evaluated as part of the full agent profile.",
+      "engineer_takeaway": "Test representative tasks repeatedly with and without each documentation, skill, MCP, or interface change. Score selection, correctness, and complete task cost, inspect trajectories, and keep conclusions scoped to the exact model-harness-settings profile.",
+      "prerequisites": ["coding-agent harnesses", "task evaluation", "token pricing"],
+      "primary_source_url": "https://developer.microsoft.com/blog/what-is-agent-experience-ax/",
+      "sources": [
+        {"url": "https://developer.microsoft.com/blog/what-is-agent-experience-ax/", "canonical_url": "https://developer.microsoft.com/blog/what-is-agent-experience-ax/", "publisher": "Microsoft", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-06"},
+        {"url": "https://developer.microsoft.com/blog/not-all-model-upgrades-are-upgrades/", "canonical_url": "https://developer.microsoft.com/blog/not-all-model-upgrades-are-upgrades/", "publisher": "Microsoft", "source_type": "engineering-blog", "role": "supporting", "publication_date": "2026-07-06"}
+      ],
+      "evidence": {"level": "primary", "rationale": "Microsoft reports its own controlled repeated runs and publishes the tested scenarios, quality gates, token accounting, and important limitations; results are not independently replicated.", "independent_validation": "None. The measurements are first-hand Microsoft experiments on GitHub Copilot Chat and Microsoft technologies.", "claim_scope": "The workflow is broadly reusable, while the numeric results apply only to the tested agent profiles and tasks."},
+      "signal": {"level": "high", "rationale": "This gives platform and documentation teams an operational method for improving how agents use their technology without relying on untested conventions."},
+      "editorial_score": {"significance": 4, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 85},
+      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The selected playbook defines the method directly."},
+      "related_content": {"previous_story_ids": ["2026-09-15-harness-or-model", "2026-09-16-agentic-harness-engineering"]},
+      "follow_up_opportunities": [],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "microsoft-agent-experience-propensity-efficacy-task-cost-eval-loop", "canonical_event": "Microsoft publishes the concluding Agent Experience definition and workflow.", "previous_coverage": null, "material_delta": "Pulse has covered harness and workflow evaluation, but not this product-surface method or its reported intervention results."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    }
+  ],
+  "watchlist": [
+    {"id": "2026-10-07-swe-cc-policy-compliance", "decision": "watch", "title": "SWE-CC finds functionally correct agent patches still violate repository policy", "desk": "research", "format": "deep-dive", "depth": "advanced", "topics": ["coding-agents", "repo-instructions", "evals", "verification", "ci"], "entities": ["SWE-CC", "SWE-bench Verified"], "event_date": "2026-10-05", "summary": "A preprint extends 500 software-engineering tasks with 823 machine-checkable project policies and reports that agents violate 43.1% of applicable policies.", "evidence": {"level": "preliminary", "rationale": "The paper reports a large structured evaluation, but this run did not establish a public artifact or independent replication."}, "signal": {"level": "high", "rationale": "Repository-policy compliance is a consequential gap between benchmark correctness and merge readiness."}, "editorial_score": {"significance": 5, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 90}, "sources": [{"url": "https://arxiv.org/abs/2610.06193", "canonical_url": "https://arxiv.org/abs/2610.06193", "publisher": "arXiv", "source_type": "paper", "role": "primary", "publication_date": "2026-10-05"}], "reason": "The result is strong enough to track but remains an unreplicated preprint, and a reproducibility artifact was not verified in this run.", "promote_when": ["Public benchmark/checker artifacts are verified.", "Independent replication or follow-up evaluation confirms the compliance gap."]},
+    {"id": "2026-10-07-stack-overflow-ai-workflow-survey", "decision": "watch", "title": "Stack Overflow's 2026 survey maps where developers use and resist AI", "desk": "practice", "format": "case-study", "depth": "practitioner", "topics": ["coding-agents", "enterprise-adoption", "productivity", "collaboration"], "entities": ["Stack Overflow"], "event_date": "2026-10-06", "summary": "The 2026 survey publishes granular workflow-use and perceived-usefulness data for AI tools and agents across developer tasks.", "evidence": {"level": "primary", "rationale": "The first-party survey publishes question definitions, sample sizes, tables, and downloadable structured data, but remains self-reported and requires methodology review before strong causal interpretation."}, "signal": {"level": "medium", "rationale": "The dataset is useful for adoption context but does not by itself establish productivity or quality effects."}, "editorial_score": {"significance": 4, "evidence": 4, "novelty": 4, "relevance": 4, "durability": 4, "weighted_total": 80}, "sources": [{"url": "https://survey.stackoverflow.co/2026/ai/data/ai-work", "canonical_url": "https://survey.stackoverflow.co/2026/ai/data/ai-work", "publisher": "Stack Overflow", "source_type": "benchmark", "role": "primary", "publication_date": "2026-10-06"}], "reason": "The first-party data is substantial, but a publishable story needs a focused methodology review and a bounded engineering question rather than a broad survey recap.", "promote_when": ["Methodology and weighting are reviewed for a focused engineering claim.", "A specific deployment or longitudinal result connects adoption to quality or productivity."]},
+    {"id": "2026-10-07-reflection-beam-artifacts", "decision": "watch", "title": "Reflection Beam still awaits weights and technical artifacts", "desk": "models", "format": "briefing", "depth": "advanced", "topics": ["model-releases", "open-models", "training", "reinforcement-learning", "evals"], "entities": ["Reflection AI", "Beam"], "event_date": "2026-10-05", "summary": "Beam remains announced but its promised weights, model card, technical report, and developer artifacts are not yet available.", "evidence": {"level": "primary", "rationale": "First-party announcement only; release artifacts remain pending."}, "signal": {"level": "watch", "rationale": "The model could matter if released as described."}, "editorial_score": {"significance": 5, "evidence": 3, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 84}, "sources": [{"url": "https://reflection.ai/blog/introducing-beam", "canonical_url": "https://reflection.ai/blog/introducing-beam", "publisher": "Reflection AI", "source_type": "official", "role": "primary", "publication_date": "2026-10-05"}], "reason": "The October 6 watch condition remains unmet; there is no new release artifact or independent benchmark.", "promote_when": ["Weights, model card, technical report, and developer artifacts are released.", "Independent benchmarks validate material claims."]}
+  ],
+  "exclusions": [
+    {"id": "2026-10-07-github-ai-scan-coverage", "decision": "rejected", "reason": "The security overview now exposes AI Scan enablement counts, but this is an incremental administrative visibility change rather than a material new AI-engineering capability.", "previous_story_id": null},
+    {"id": "2026-10-07-claude-cowork-cloud-repeat", "decision": "rejected", "reason": "No material delta after the October 6 cloud-runtime story.", "previous_story_id": "2026-10-06-claude-cowork-cloud-runtime"},
+    {"id": "2026-10-07-openai-atlassian-partnership", "decision": "rejected", "reason": "The partnership announcement did not establish a distinct technical implementation change or independently measured engineering outcome suitable for publication.", "previous_story_id": null},
+    {"id": "2026-10-07-mistral-weights-promise", "decision": "rejected", "reason": "The future weight release is part of the selected Mistral Large 4 preview event, not a separate current development.", "previous_story_id": "2026-10-07-mistral-large-4-preview"}
+  ],
+  "publication": {"story_ids": ["2026-10-07-mistral-large-4-preview", "2026-10-07-github-reviewbench", "2026-10-07-agent-experience-evals"], "withheld_selected": [], "must_know_story_id": "2026-10-07-mistral-large-4-preview"},
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "foundation", "title": "Precision, recall, and review fatigue in AI code review", "reason": "ReviewBench exposes a reusable trade-off that affects CI gates and reviewer trust beyond any one product."},
+    {"format": "playbook", "depth": "practitioner", "title": "Validate an AI reviewer before making it a merge gate", "reason": "Teams need a bridge from offline benchmark scores to repository-specific findings, accepted-comment rates, severity, cost, and human review policy."}
+  ]
+}

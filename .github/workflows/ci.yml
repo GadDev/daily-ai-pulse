@@ -13,6 +13,7 @@ jobs:
   validate:
     name: Verify project
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -29,12 +30,22 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
+      - name: Editorial validator regressions
+        run: node --test tests/editorial-validator.test.mjs
+
+      - name: Illustration generation identity regressions
+        run: node --test tests/illustration-generation-identity.test.mjs
+
+      - name: Illustration generation decision regressions
+        run: node --test tests/illustration-generation-decision.test.mjs
+
       - name: Illustration validator regressions
         run: node --test tests/illustration-validator.test.mjs
 
   browser:
     name: Browser smoke and accessibility
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7

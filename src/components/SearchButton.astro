@@ -1,8 +1,14 @@
 ---
 const base = import.meta.env.BASE_URL;
+const isCurrent = Astro.url.pathname === `${base}search/`;
 ---
 
-<a class="search-button" href={`${base}search/`} aria-label="Search Pulse">
+<a
+  class:list={['search-button', { current: isCurrent }]}
+  href={`${base}search/`}
+  aria-label="Search Pulse"
+  aria-current={isCurrent ? 'page' : undefined}
+>
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <circle cx="11" cy="11" r="6.5"></circle>
     <path d="m16 16 4 4"></path>
@@ -42,7 +48,8 @@ const base = import.meta.env.BASE_URL;
     stroke: currentColor;
     stroke-width: 1.4;
   }
-  .search-button:hover {
+  .search-button:hover,
+  .search-button.current {
     color: var(--ink);
   }
   .search-button:focus-visible {
