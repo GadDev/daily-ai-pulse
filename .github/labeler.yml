@@ -1,0 +1,53 @@
+'ci/cd':
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/**'
+          - '.github/dependabot.yml'
+          - '.github/labeler.yml'
+          - '.github/labels.json'
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'package.json'
+          - 'package-lock.json'
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
+
+'area: content':
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'content/**'
+
+'area: frontend':
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/**'
+          - 'index.html'
+
+'area: infrastructure':
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**'
+          - 'scripts/**'
+          - 'package.json'
+          - 'package-lock.json'
+          - 'tsconfig.json'
+          - 'vite.config.ts'
+          - 'playwright.config.ts'
+
+design:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'design/**'
+          - 'docs/DESIGN_SYSTEM.md'
+          - 'docs/ART_DIRECTION.md'
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'tests/**'
+          - 'playwright.config.ts'

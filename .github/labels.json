@@ -1,0 +1,87 @@
+[
+  {
+    "name": "bug",
+    "color": "D73A4A",
+    "description": "Something is not working as intended."
+  },
+  {
+    "name": "enhancement",
+    "color": "A2EEEF",
+    "description": "New product capability or improvement."
+  },
+  {
+    "name": "documentation",
+    "color": "0075CA",
+    "description": "Documentation changes or improvements."
+  },
+  {
+    "name": "content",
+    "color": "7057FF",
+    "description": "AI Club session, programme, or editorial content."
+  },
+  {
+    "name": "design",
+    "color": "E4E669",
+    "description": "Visual design, UX, or design-system work."
+  },
+  {
+    "name": "accessibility",
+    "color": "0E8A16",
+    "description": "Accessibility and inclusive interaction improvements."
+  },
+  {
+    "name": "tests",
+    "color": "1D76DB",
+    "description": "Automated test coverage or test infrastructure."
+  },
+  {
+    "name": "ci/cd",
+    "color": "5319E7",
+    "description": "Continuous integration, delivery, automation, or repository tooling."
+  },
+  {
+    "name": "dependencies",
+    "color": "0366D6",
+    "description": "Dependency or GitHub Action updates."
+  },
+  {
+    "name": "security",
+    "color": "B60205",
+    "description": "Security hardening or vulnerability remediation."
+  },
+  {
+    "name": "area: frontend",
+    "color": "006B75",
+    "description": "Frontend application code and browser behaviour."
+  },
+  {
+    "name": "area: content",
+    "color": "C5DEF5",
+    "description": "Programme data, session metadata, and editorial content."
+  },
+  {
+    "name": "area: infrastructure",
+    "color": "BFD4F2",
+    "description": "Build, deployment, repository, or hosting infrastructure."
+  },
+  {
+    "name": "priority: critical",
+    "color": "B60205",
+    "description": "Urgent issue that blocks release, security, or core availability."
+  },
+  {
+    "name": "priority: high",
+    "color": "D93F0B",
+    "description": "High-impact issue that should be addressed soon."
+  },
+  {
+    "name": "status: blocked",
+    "color": "000000",
+    "description": "Cannot progress until an external dependency is resolved."
+  },
+  {
+    "name": "status: needs review",
+    "color": "FBCA04",
+    "description": "Ready for maintainer review or decision."
+  }
+]
