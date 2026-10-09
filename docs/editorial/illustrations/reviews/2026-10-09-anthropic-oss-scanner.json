@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-09-anthropic-oss-scanner",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-09-anthropic-oss-scanner",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Anthropic opens a model-generated vulnerability scanner to OSS maintainers",
+    "verified_context": [
+      "Anthropic opened a free opt-in service that periodically scans eligible open-source projects with its strongest models.",
+      "Maintainers may receive raw model-generated findings without Anthropic reviewing or triaging every report first.",
+      "Reports can include a reproducer, an explanation, a causal bisection where possible, and a candidate patch."
+    ],
+    "editorial_idea": "Automated discovery can surface many possible defects quickly, but each finding still has to pass through a deliberate human verification boundary.",
+    "visual_metaphor": "A broad field of rough code-like material passes through a large physical inspection lens, with only a few distinct defects isolated in a protected tray beyond it.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": ["large physical inspection lens", "dense incoming material", "small set of isolated defects", "clear verification boundary"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-28-openai-dns-sandbox.webp", "public/images/stories/2026-09-26-mcp-secrets.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-09-anthropic-oss-scanner",
+    "story_source_sha256": "2394b6d5f885d037d75bdbdb2afd19928aa8fd32e7a89c37070745a1a1e84de1",
+    "visual_brief_sha256": "4935b7023d2243c4043644ce5bcb644a5a72e3eae3b6c0bc1cc32b0dc0a4cf31",
+    "reference_inputs_sha256": "f23ad4b17183ec6853887971a22b6e5c325af76bbfe41ed165ebea6934d2ca34",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "17571fe095a050ee7a7e2dcebbbb0f0d43a45c53bfbe19161c479ab282a65d2b"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The freestanding inspection lens, incoming fragments, and three isolated specimens make the discovery-to-verification handoff legible, though the treatment is slightly more product-photographic than the golden references.",
+    "B": "Selected. A large physical aperture examines a small set of fractured specimens against a wider field of unresolved material. The composition gives verification architectural presence, keeps the metaphor distinct at thumbnail size, and best matches the archive's restrained spatial language.",
+    "C": "Constitution-compliant replacement. Layered translucent mineral planes visibly filter a large input into a small observation basin, but the rocky material and darker foreground are denser than the selected composition."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 94, "brand_fit": 91, "composition": 92, "crop_quality": 90, "technical_meaning": 90, "cleanliness": 95, "golden_reference_fit": 88, "weighted_total": 91.1},
+  "candidate_scores": {
+    "A": {"story_specific": 89, "brand_fit": 84, "composition": 87, "crop_quality": 88, "technical_meaning": 85, "cleanliness": 94, "golden_reference_fit": 82, "weighted_total": 86.25},
+    "B": {"story_specific": 94, "brand_fit": 91, "composition": 92, "crop_quality": 90, "technical_meaning": 90, "cleanliness": 95, "golden_reference_fit": 88, "weighted_total": 91.1},
+    "C": {"story_specific": 88, "brand_fit": 83, "composition": 85, "crop_quality": 87, "technical_meaning": 83, "cleanliness": 94, "golden_reference_fit": 81, "weighted_total": 85.05}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "1100 x 591 center-cover review preserves the overhead aperture, illuminated specimens, and surrounding unresolved field.", "article_mobile": "359 x 193 center-cover review retains the inspection pool and fractured specimens as the clear focal idea.", "thumbnail": "320 x 164 review keeps the illuminated basin and three-part specimen silhouette legible without fine detail."},
+  "golden_reference_comparison": "Direct review beside the DNS sandbox and MCP secrets production assets shows the same warm paper palette, charcoal architectural mass, sparing terracotta emphasis, physical security metaphor, controlled perspective, and deliberate negative space. Candidate B is somewhat denser than the DNS reference but retains the archive's material and compositional confidence.",
+  "final_asset": "/images/stories/2026-10-09-anthropic-oss-scanner.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 134380, "sha256": "338bd83dac2623c589695b5844b17f5f9fdae309c7ec08bacd4572553a48a611", "git_blob_sha": "b89e3424119385863018530eafcb49ac7df17a25", "riff_container_complete": true}
+}
