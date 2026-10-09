@@ -1,0 +1,115 @@
+{
+  "editorial_date": "2026-10-09",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-09-anthropic-oss-scanner",
+      "decision": "selected",
+      "title": "Anthropic opens a model-generated vulnerability scanner to OSS maintainers",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["security", "open-source", "verification", "coding-agents", "evals"],
+      "entities": ["Anthropic", "OSS Scanner", "Project Glasswing", "Claude Mythos"],
+      "event_date": "2026-10-08",
+      "source_publication_date": "2026-10-08",
+      "summary": "Anthropic launched OSS Scanner, a free opt-in service that sends eligible open-source maintainers periodic model-generated vulnerability reports without mandatory human review or triage.",
+      "what_changed": "Maintainers can enroll to receive raw findings that may include reproducers, causal bisections, and candidate patches, while Anthropic retains a separate human-reviewed coordinated-disclosure path.",
+      "why_it_matters": "The service moves frontier-model vulnerability discovery directly into maintainer workflows, making verification capacity, duplicate handling, severity calibration, and disclosure operations the practical bottleneck.",
+      "engineer_takeaway": "Treat every report as a hypothesis: isolate reproduction, measure triage cost and accepted findings, review generated patches normally, and keep disclosure decisions with maintainers.",
+      "prerequisites": ["software vulnerability triage", "coordinated vulnerability disclosure", "secure test environments"],
+      "primary_source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "sources": [
+        {"url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source", "canonical_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source", "publisher": "Anthropic", "source_type": "official", "role": "primary", "publication_date": "2026-10-08"}
+      ],
+      "evidence": {"level": "primary", "rationale": "Anthropic documents the released service, enrollment contract, report contents, internal validation slice, and named maintainer results.", "independent_validation": "Named maintainers provide first-hand results inside Anthropic's launch report, but this run found no independent audit of the full scanner output or operating cost.", "claim_scope": "Availability and workflow are verified. Quality numbers are first-party, selected-sample evidence and are not presented as overall precision or recall."},
+      "signal": {"level": "high", "rationale": "Direct delivery of raw frontier-model security findings could materially change vulnerability intake and maintenance work for critical open-source projects."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 93},
+      "learning_gap": {"exists": true, "concepts": ["verification"], "existing_explainer_status": "Pulse does not have a reusable explainer for evaluating model-generated vulnerability reports as hypotheses rather than scanner verdicts.", "suggested_explainer": "How to Validate an AI-Generated Vulnerability Report"},
+      "related_content": {"previous_story_ids": []},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "Maintainers need a repeatable intake, reproduction, deduplication, severity, patch-review, and disclosure workflow for untriaged model findings."}],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "anthropic-oss-scanner-opt-in-raw-model-vulnerability-reports", "canonical_event": "Anthropic launches OSS Scanner for eligible open-source maintainers on October 8, 2026.", "previous_coverage": null, "material_delta": "No merged Pulse ledger or story covers OSS Scanner or direct delivery of its raw findings."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The service and disclosed workflow are verified from Anthropic; scanner-quality figures remain scoped to Anthropic's selected validation and quoted maintainers."}
+    },
+    {
+      "id": "2026-10-09-agentcore-payments",
+      "decision": "selected",
+      "title": "AWS moves agent spending limits outside the model loop",
+      "desk": "practice",
+      "format": "case-study",
+      "depth": "practitioner",
+      "topics": ["agents", "permissions", "cost", "model-routing", "infrastructure", "api"],
+      "entities": ["Amazon Web Services", "Amazon Bedrock AgentCore payments", "Incarna", "BlockRun", "Coinbase", "x402"],
+      "event_date": "2026-10-08",
+      "source_publication_date": "2026-10-08",
+      "summary": "AWS documented a production integration in which Incarna agents pay BlockRun for individual inference requests over x402 while AgentCore payments manages signing and enforces session budgets outside the model loop.",
+      "what_changed": "The case provides a concrete production flow for request-level agent payments with managed wallets, exact or ceiling-based pricing, expiry, externally enforced spending limits, and an auditable settlement record.",
+      "why_it_matters": "Agents that buy APIs during execution need financial authority to be bounded independently of prompts; the design makes spending a scoped capability rather than a model-controlled instruction.",
+      "engineer_takeaway": "Bind budgets to expiring sessions, keep credentials and signing outside agent code, correlate charges with tool calls, and test retry, revocation, quote manipulation, partial failure, and exhaustion paths.",
+      "prerequisites": ["agent tool calling", "payment authorization", "idempotent API design"],
+      "primary_source_url": "https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/",
+      "sources": [
+        {"url": "https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/", "canonical_url": "https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/", "publisher": "Amazon Web Services", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-08"}
+      ],
+      "evidence": {"level": "primary", "rationale": "AWS supplies the production architecture, protocol flow, configuration path, and partner-reported implementation and transaction counts.", "independent_validation": "No independent audit or comparative study was located; the reported results come from AWS and the participating partners.", "claim_scope": "The story treats the deployment as a documented first-party case, not proof of comparative safety, reliability, cost, or general adoption."},
+      "signal": {"level": "high", "rationale": "Externally enforced financial limits are a durable control pattern for autonomous agents acquiring services during execution."},
+      "editorial_score": {"significance": 4, "evidence": 4, "novelty": 5, "relevance": 4, "durability": 4, "weighted_total": 84},
+      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The case study can define the payment-session and x402 concepts needed to understand the engineering pattern."},
+      "related_content": {"previous_story_ids": []},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "Teams need provider-neutral failure-mode tests and audit requirements before granting agents financial capabilities."}],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "aws-agentcore-payments-incarna-blockrun-x402-production-case", "canonical_event": "AWS publishes Incarna's production pay-per-inference integration with BlockRun and AgentCore payments on October 8, 2026.", "previous_coverage": null, "material_delta": "No merged Pulse ledger or story covers AgentCore payments, x402 inference purchases, or infrastructure-enforced agent budgets."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The architecture and production counts are consistent in the primary case study; comparative claims were excluded."}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-09-google-gemini-agent",
+      "decision": "watch",
+      "title": "Google introduces a universal Gemini agent for work",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-runtime", "multi-agent", "memory", "skills", "mcp", "model-routing", "permissions", "sandboxing", "observability", "cost"],
+      "entities": ["Google Cloud", "Gemini agent", "Gemini Enterprise", "Agent Sandbox", "Agent Gateway"],
+      "event_date": "2026-10-08",
+      "summary": "Google announced one persistent work agent spanning interactive and headless use, subagents, skills and tool registries, MCP, model routing, project spend caps, agent identities, sandboxing, and gateway policy.",
+      "evidence": {"level": "primary", "rationale": "Google's launch post describes an extensive architecture and customer examples, but does not provide a clear public API reference, access tier, or general-availability contract for the unified agent."},
+      "signal": {"level": "high", "rationale": "A governed persistent agent spanning work surfaces and developer systems could materially change enterprise agent architecture."},
+      "editorial_score": {"significance": 5, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 88},
+      "sources": [{"url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "publisher": "Google Cloud", "source_type": "official", "role": "primary", "publication_date": "2026-10-08"}],
+      "reason": "The keynote-style launch page combines many capabilities but does not establish the public API surface, access scope, rollout state, or implementation constraints needed for a precise engineering story.",
+      "promote_when": ["Official release and API documentation define availability and supported integration paths.", "Implementation details or independent production evidence clarify the sandbox, gateway, memory, routing, and cost-control behavior."]
+    },
+    {
+      "id": "2026-10-09-aws-rag-realtime-acl",
+      "decision": "watch",
+      "title": "AWS adds source-of-truth ACL checks to managed RAG retrieval",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": ["rag", "permissions", "security", "api"],
+      "entities": ["Amazon Web Services", "Amazon Quick", "Amazon Bedrock Knowledge Bases", "Google Drive"],
+      "event_date": "2026-10-07",
+      "summary": "AWS described a two-stage retrieval path that prefilters with indexed ACLs and then verifies candidate documents against an authoritative source at query time.",
+      "evidence": {"level": "primary", "rationale": "The first-party architecture is concrete, but the post provides no security evaluation, latency data, or exact support matrix beyond its illustrated integration."},
+      "signal": {"level": "medium", "rationale": "Query-time permission verification addresses stale ACLs in enterprise RAG, but the current evidence is limited to a vendor architecture description."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 4, "relevance": 4, "durability": 4, "weighted_total": 73},
+      "sources": [{"url": "https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/", "canonical_url": "https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/", "publisher": "Amazon Web Services", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-07"}],
+      "reason": "The design is useful, but the publication lacks an operating envelope for source support, query latency, failure behavior, and adversarial permission testing.",
+      "promote_when": ["Official implementation documentation and support matrix are published.", "Security testing or production measurements quantify authorization freshness, latency, and failure behavior."]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-09-anthropic-cyber-mission-umbrella", "decision": "rejected", "reason": "The broader Cyber Mission announcement is an umbrella initiative; OSS Scanner contains the concrete engineering development selected for coverage.", "previous_story_id": "2026-10-09-anthropic-oss-scanner"},
+    {"id": "2026-10-09-anthropic-usage-policy-update", "decision": "rejected", "reason": "The policy clarification does not introduce a new engineering capability, implementation contract, or measurable operating result.", "previous_story_id": null},
+    {"id": "2026-10-09-github-haiku-5-5-repeat", "decision": "rejected", "reason": "GitHub availability remains a distribution detail of Claude Haiku 5.5, already covered on October 8 without a new technical delta.", "previous_story_id": "2026-10-08-claude-haiku-5-5"},
+    {"id": "2026-10-09-microsoft-mxc-followup-repeat", "decision": "rejected", "reason": "Secondary reporting on Microsoft MXC and Copilot local sandboxing adds no material change beyond the October 8 story.", "previous_story_id": "2026-10-08-microsoft-mxc-agent-containment"}
+  ],
+  "publication": {"story_ids": ["2026-10-09-anthropic-oss-scanner", "2026-10-09-agentcore-payments"], "withheld_selected": [], "must_know_story_id": "2026-10-09-anthropic-oss-scanner"},
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "foundation", "title": "How to Validate an AI-Generated Vulnerability Report", "reason": "OSS Scanner exposes a reusable distinction between model-generated discovery and a verified security finding."},
+    {"format": "playbook", "depth": "practitioner", "title": "Build an Intake Loop for Model-Generated Security Reports", "reason": "Maintainers need a durable process for private intake, isolated reproduction, deduplication, severity review, patch verification, and disclosure."},
+    {"format": "playbook", "depth": "practitioner", "title": "Threat-Model an Agent That Can Spend Money", "reason": "The AgentCore case creates a provider-neutral need to test ceilings, expiry, revocation, quote manipulation, retries, and audit trails."}
+  ]
+}
