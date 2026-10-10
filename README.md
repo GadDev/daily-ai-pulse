@@ -8,7 +8,7 @@
 
 ![The Daily AI Pulse](./docs/assets/the-pulse.png)
 
-**Read the publication:** https://gaddev.github.io/daily-ai-pulse/
+**Read the publication:** https://daily-ai-pulse-db253.web.app/
 
 ## How a daily edition reaches the site
 
@@ -18,7 +18,7 @@
 | 2. Research and decide | The orchestrator discovers developments, checks merged ledgers and published stories for prior coverage, applies the decision engine, and classifies candidates. | A structured **candidate ledger** records selected, watch, and rejected/already-covered items, sources, evidence, signal, scoring, and deduplication reasoning. The ledger is both the authoritative publication handoff and durable editorial memory; see the [ledger contract](docs/editorial/ledgers/README.md). |
 | 3. Prepare draft publication | When candidates are selected, the same orchestrated run continues automatically into the [PR preparation stage](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md). | Selected candidates are re-verified, publication deduplication is re-run, canonical stories are drafted, the [illustration skill](.agents/skills/daily-ai-pulse-illustration/SKILL.md) is invoked, the daily issue is created, and the full ledger is persisted. The orchestrator creates or reuses one canonical daily branch and opens or updates exactly one **draft PR**. |
 | 4. Validate | The orchestrator performs every editorial and structural preflight check available in its execution environment. Pull-request GitHub Actions perform executable repository validation. | Validation failures remain visible on the draft PR. Missing executable validation is never treated as success. |
-| 5. Review and publish | A **human editor** reviews the draft PR and decides whether the batch should ship. | Only a human-approved merge to `main` triggers deployment to GitHub Pages. The orchestrator never merges, auto-merges, or marks the publication PR ready for review. |
+| 5. Review and publish | A **human editor** reviews the draft PR and decides whether the batch should ship. | Only a human-approved merge to `main` triggers deployment to Firebase Hosting. The orchestrator never merges, auto-merges, or marks the publication PR ready for review. |
 
 The Daily AI Pulse orchestrator is external to this repository, but the
 repository remains the source of truth for editorial and publication policy.
@@ -74,6 +74,10 @@ controls what builds today; its
 translates selected candidates into story frontmatter. A daily edition links
 canonical stories rather than duplicating their bodies.
 
+## Hosting and deployment
+
+The publication is hosted at [daily-ai-pulse-db253.web.app](https://daily-ai-pulse-db253.web.app/). Every human-approved merge to `main` runs [the deployment workflow](.github/workflows/deploy.yml), which validates and builds the static site, authenticates to Google Cloud via keyless Workload Identity Federation, and deploys to Firebase Hosting. See the [hosting migration and operations runbook](docs/FIREBASE_HOSTING_MIGRATION.md) for environment variables, verification, and rollback. The previous GitHub Pages address is legacy and is not the publication's canonical URL.
+
 ## Run the site locally
 
 Requirements: Node.js **22.22.3** (see `.nvmrc` and `package.json`), npm, and Git.
@@ -88,7 +92,7 @@ npm run dev
 
 Astro prints the local development URL. The site is static-first: Markdown/MDX
 stories in `src/content/stories/` and dated manifests in `src/content/pulse/`
-become HTML, CSS, and assets served from GitHub Pages. There is no production
+become HTML, CSS, and assets served from Firebase Hosting. There is no production
 database or required application server.
 
 ### Checks
