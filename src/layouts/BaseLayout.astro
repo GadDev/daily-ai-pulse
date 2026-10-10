@@ -24,7 +24,7 @@ const {
 const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) => currentPath === path || currentPath.startsWith(`${path}/`);
-const site = Astro.site ?? new URL('https://gaddev.github.io');
+const site = Astro.site ?? new URL('https://daily-ai-pulse-db253.web.app');
 const canonicalUrl = new URL(currentPath, site).toString();
 const rssUrl = new URL(`${base}rss.xml`, site).toString();
 const absoluteImage = image

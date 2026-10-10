@@ -1,9 +1,10 @@
+import process from 'node:process';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://gaddev.github.io',
-  base: '/daily-ai-pulse/',
+  site: process.env.SITE_URL ?? 'https://daily-ai-pulse-db253.web.app',
+  base: '/',
   integrations: [mdx(), sitemap()],
 });
