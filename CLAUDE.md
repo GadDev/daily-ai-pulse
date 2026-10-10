@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The Daily AI Pulse is a static-first AI engineering publication built with Astro and deployed to GitHub Pages. There is no application server or database in production — the deployed artifact is static HTML/CSS/JS built from Markdown/MDX content.
+The Daily AI Pulse is a static-first AI engineering publication built with Astro and deployed to Firebase Hosting. There is no application server or database in production — the deployed artifact is static HTML/CSS/JS built from Markdown/MDX content.
 
 ## Commands
 
@@ -42,7 +42,7 @@ Two Astro content collections, schema-validated in [src/content.config.ts](src/c
 
 `src/pages/` is file-based routing; story and category pages are generated at build time from the collections. `src/components/editorial/` holds the presentation components (story cards, big-story treatment, daily-issue rows) that consume validated content — keep editorial structure in frontmatter/Markdown, not hard-coded in components.
 
-The site is served below a GitHub Pages base path (`/daily-ai-pulse/`), so links/assets must go through `import.meta.env.BASE_URL` / `Astro.site` rather than hard-coded root-relative paths.
+The site is deployed at the Firebase Hosting domain root (`/`), not the former `/daily-ai-pulse/` subpath. Generate links/assets from `import.meta.env.BASE_URL` and canonical metadata from `Astro.site`; do not hard-code the old GitHub Pages prefix.
 
 ### The editorial pipeline (content, not code)
 
@@ -57,7 +57,7 @@ Daily editions are produced by a multi-stage handoff that is mostly external to 
    src/content/pulse/YYYY-MM-DD.md
    docs/editorial/ledgers/YYYY-MM-DD.json
    ```
-4. **Review and publish** — a human reviews the draft PR; GitHub Actions runs `npm run verify` + Playwright on the PR; merge to `main` triggers the Pages deployment.
+4. **Review and publish** — a human reviews the draft PR; GitHub Actions runs `npm run verify` + Playwright on the PR; merge to `main` triggers Firebase Hosting deployment via GitHub Actions and keyless Workload Identity Federation.
 
 Ledgers are immutable once merged — a correction requires a separate correction PR that explains the change, never an ordinary-run rewrite. If a required editorial contract can't be read, the research task must report the gap rather than claim a verified classification.
 
