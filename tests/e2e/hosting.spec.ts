@@ -6,11 +6,11 @@ const siteUrl = (process.env.SITE_URL ?? defaultSiteUrl).replace(/\/$/, '');
 test('root-hosted pages publish Firebase canonical URLs and assets', async ({ page }) => {
   await page.goto('/');
 
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${siteUrl}/`);
-  await expect(page.locator('link[rel="alternate"][type="application/rss+xml"]')).toHaveAttribute(
-    'href',
-    `${siteUrl}/rss.xml`,
-  );
+  const canonicalLink = page.locator('link[rel="canonical"]');
+  const rssLink = page.locator('link[rel="alternate"][type="application/rss+xml"]');
+
+  await expect(canonicalLink).toHaveAttribute('href', `${siteUrl}/`);
+  await expect(rssLink).toHaveAttribute('href', `${siteUrl}/rss.xml`);
 
   const internalLinks = await page.locator('a[href^="/"]').evaluateAll((nodes) =>
     nodes.map((node) => node.getAttribute('href') ?? ''),
