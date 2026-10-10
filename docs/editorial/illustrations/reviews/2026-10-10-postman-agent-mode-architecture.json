@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-10-postman-agent-mode-architecture",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-10-10-postman-agent-mode-architecture",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Selecting a small task-specific tool and context set from a mature product archive",
+    "verified_context": [
+      "Postman reported more tool-selection errors once an agent could see roughly 40 tools.",
+      "Its production architecture narrows more than 170 tools to about 15 relevant tools for a context-isolated subagent.",
+      "The team found missing or inaccurate context caused more failures than missing capabilities."
+    ],
+    "editorial_idea": "Agent quality depends on presenting the right small set of tools and purpose-shaped context, not exposing every capability at once.",
+    "visual_metaphor": "A large curved architectural archive filled with varied physical instruments and context specimens, with a precise illuminated selection alcove holding a small coherent working set beside one focused worktable.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": ["large archive of varied tools", "small selected working set", "focused context specimen"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-28-claude-plugin-ecosystem.webp", "public/images/stories/2026-09-22-copilot-review-controls.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-10-postman-agent-mode-architecture",
+    "story_source_sha256": "b90b43e97a45293da2912542316a3cfa695c3886719ac7f3ff719e96e2d31b8b",
+    "visual_brief_sha256": "976262c1cbb51164eddbd6c1143a07a96989cdc448c2273d2aac1a3ad4df2c98",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "374c0b2385517dad5d210d21ef5eaa09bf8c81ea27a6a4bcc9ce484f2000c092"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The archive and central worktable are elegant and readable, but the selected subset blends into the broader collection.",
+    "B": "Constitution-compliant. The focused table and varied collection carry the context theme, though the selection boundary is implicit rather than architectural.",
+    "C": "Selected. The deep archive surrounds a bright, compact alcove containing a coherent working set, making the large-capability-to-small-context reduction unmistakable."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 94, "brand_fit": 91, "composition": 92, "crop_quality": 91, "technical_meaning": 93, "cleanliness": 95, "golden_reference_fit": 89, "weighted_total": 91.75},
+  "candidate_scores": {
+    "A": {"story_specific": 90, "brand_fit": 87, "composition": 89, "crop_quality": 90, "technical_meaning": 88, "cleanliness": 95, "golden_reference_fit": 85, "weighted_total": 88.45},
+    "B": {"story_specific": 89, "brand_fit": 87, "composition": 90, "crop_quality": 90, "technical_meaning": 86, "cleanliness": 95, "golden_reference_fit": 84, "weighted_total": 88.0},
+    "C": {"story_specific": 94, "brand_fit": 91, "composition": 92, "crop_quality": 91, "technical_meaning": 93, "cleanliness": 95, "golden_reference_fit": 89, "weighted_total": 91.75}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "1100 x 591 center-cover review preserves the illuminated alcove and the surrounding archive tiers.", "article_mobile": "359 x 193 center-cover review retains the small working set as the dominant focal area.", "thumbnail": "320 x 164 review keeps the light-dark contrast between selected tools and the larger archive legible."},
+  "golden_reference_comparison": "Direct review beside the Claude plugin ecosystem and Copilot review controls assets shows compatible warm stone materiality, curved architecture, contained tooling metaphor, and restrained amber focus. Candidate C is more detailed than the references but preserves their hierarchy and confident center-safe silhouette.",
+  "final_asset": "/images/stories/2026-10-10-postman-agent-mode-architecture.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 142990, "sha256": "2535981938879dcbc2d5fd9dc97c13aee63a6b70578c23b2e7b9820a7e1cf63b", "git_blob_sha": "133099161bf54926a50fa072d90ea2646e5dae7e", "riff_container_complete": true}
+}

@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-10-microsoft-decision-1",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-10-10-microsoft-decision-1",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A model that scores fixed choices instead of generating prose",
+    "verified_context": [
+      "Microsoft released a model that returns calibrated probabilities over fixed answer options rather than generated text.",
+      "The API supports Boolean, multiple-choice, rating, and rubric-shaped decisions for routing, grading, screening, and agent action selection.",
+      "Applications can use confidence thresholds to act, defer, or request human review."
+    ],
+    "editorial_idea": "A constrained decision instrument measures several known paths and makes uncertainty visible instead of inventing a new destination.",
+    "visual_metaphor": "A finely built analog calibration instrument receives one material sample, distributes pressure across several fixed unlabeled channels, and holds one ambiguous result at a separate review gate.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": ["single input specimen", "several fixed output channels", "separate review gate"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-24-gpt-6-sol-luna.webp", "public/images/stories/2026-09-24-greedy-decoding-precision.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-10-microsoft-decision-1",
+    "story_source_sha256": "72c4b0888da5fc7a0d01e8c288cc457096d21f76ae8d9396315c39529fbc13e5",
+    "visual_brief_sha256": "9bfc40fdb0436ee14b5a10c2532e6887d72736644eac9c873b3d605368c729c8",
+    "reference_inputs_sha256": "f7c5629a4ea671109639f66a0634eb61b9910a8b72a634a8e01fefffdcffe609",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "d1b5f7825ba9a2c420e1d05570dd46c829d81519dc24eb04eb4b8f9281ae8292"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The physical apparatus clearly separates fixed channels and a manual side station, though the human figure makes it slightly more literal than the preferred archive language.",
+    "B": "Constitution-compliant. The single input and four material channels are highly legible, but the separate review gate is compact and less distinct.",
+    "C": "Selected. One specimen enters a bank of fixed pathways while a visibly distinct coral route terminates at its own inspection threshold, expressing constrained choice and deferral without interface imagery."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 94, "brand_fit": 90, "composition": 92, "crop_quality": 91, "technical_meaning": 92, "cleanliness": 95, "golden_reference_fit": 88, "weighted_total": 91.3},
+  "candidate_scores": {
+    "A": {"story_specific": 90, "brand_fit": 86, "composition": 88, "crop_quality": 89, "technical_meaning": 88, "cleanliness": 94, "golden_reference_fit": 83, "weighted_total": 87.55},
+    "B": {"story_specific": 92, "brand_fit": 89, "composition": 91, "crop_quality": 90, "technical_meaning": 90, "cleanliness": 95, "golden_reference_fit": 86, "weighted_total": 89.85},
+    "C": {"story_specific": 94, "brand_fit": 90, "composition": 92, "crop_quality": 91, "technical_meaning": 92, "cleanliness": 95, "golden_reference_fit": 88, "weighted_total": 91.3}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "1100 x 591 center-cover review preserves the input specimen, fixed weighing channels, and coral inspection gate.", "article_mobile": "359 x 193 center-cover review retains the central channel bank and distinct review path.", "thumbnail": "320 x 164 review keeps the branching apparatus and separate coral threshold recognizable."},
+  "golden_reference_comparison": "Direct review beside the GPT-6 Sol/Luna and greedy decoding precision assets shows the same warm architectural landscape, flowing fixed paths, sparse terracotta emphasis, and tactile mechanism. Candidate C is more dimensional than the flatter references but preserves their restrained decision-system metaphor and thumbnail silhouette.",
+  "final_asset": "/images/stories/2026-10-10-microsoft-decision-1.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 129056, "sha256": "157ae13b3ddfa96c0f752aa2d4873db5728d7fc363c159f3ad481ec21ec6ed72", "git_blob_sha": "c6030e08a4767cc675714466fd481b325d76cb13", "riff_container_complete": true}
+}
