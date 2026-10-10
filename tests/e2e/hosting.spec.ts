@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
-const siteUrl = (process.env.SITE_URL ?? 'https://daily-ai-pulse-db253.web.app').replace(/\/$/, '');
+const defaultSiteUrl = 'https://daily-ai-pulse-db253.web.app';
+const siteUrl = (process.env.SITE_URL ?? defaultSiteUrl).replace(/\/$/, '');
 
 test('root-hosted pages publish Firebase canonical URLs and assets', async ({ page }) => {
   await page.goto('/');
