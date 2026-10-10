@@ -20,7 +20,7 @@ Pulse is not a generic AI-news aggregator. Its core promise is **signal over noi
 - **Voice:** personal, technically credible, evidence-first, occasionally playful
 - **Editorial ratio:** roughly 75% evidence/explanation, 25% authored take
 - **Visual direction:** Warm Editorial, as defined in `DESIGN_SYSTEM.md`; the reference layouts propose its next page composition
-- **Technology:** Astro + TypeScript + Markdown/MDX + GitHub Pages
+- **Technology:** Astro + TypeScript + Markdown/MDX + Firebase Hosting
 
 ## 3. Audience
 
@@ -196,7 +196,7 @@ merge
   ↓
 GitHub Actions
   ↓
-GitHub Pages
+Firebase Hosting
 ```
 
 Initial automation must stop at a reviewable PR. Do not auto-push research directly to production.
@@ -211,7 +211,7 @@ Later, once the editorial pipeline is trusted, daily generation can create an au
 - Astro content collections
 - static generation
 - GitHub Actions
-- GitHub Pages
+- Firebase Hosting
 - React islands only when an interactive component genuinely benefits from client-side state
 
 The site should favor minimal JavaScript, fast static pages, strong SEO, accessible markup, RSS, syntax highlighting, category/tag generation, and maintainable content schemas.
@@ -237,7 +237,7 @@ The first usable release should provide:
 - evidence badges
 - story metadata rendering
 - responsive editorial layout
-- GitHub Pages deployment
+- Firebase Hosting deployment
 - product/editorial documentation
 - at least one migrated historical Pulse edition or representative content set
 
