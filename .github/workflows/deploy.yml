@@ -1,4 +1,4 @@
-name: Deploy Pulse to GitHub Pages
+name: Deploy Pulse to Firebase Hosting
 
 on:
   push:
@@ -7,35 +7,79 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
-  group: pages
+  group: firebase-hosting-production
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: ./dist
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+    name: Build, verify and deploy Firebase Hosting
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.FIREBASE_SITE_URL }}
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+      FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
+      SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
+
     steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Verify deployment configuration
+        env:
+          FIREBASE_WIF_PROVIDER: ${{ vars.FIREBASE_WIF_PROVIDER }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ vars.FIREBASE_SERVICE_ACCOUNT }}
+        shell: bash
+        run: |
+          : "${FIREBASE_PROJECT_ID:?Missing FIREBASE_PROJECT_ID}"
+          : "${FIREBASE_SITE_URL:?Missing FIREBASE_SITE_URL}"
+          : "${FIREBASE_WIF_PROVIDER:?Missing FIREBASE_WIF_PROVIDER}"
+          : "${FIREBASE_SERVICE_ACCOUNT:?Missing FIREBASE_SERVICE_ACCOUNT}"
+          test "$FIREBASE_PROJECT_ID" = "daily-ai-pulse-db253"
+          test "$FIREBASE_SITE_URL" = "https://daily-ai-pulse-db253.web.app"
+          test "$FIREBASE_SERVICE_ACCOUNT" = "daily-ai-pulse-deployer@daily-ai-pulse-db253.iam.gserviceaccount.com"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate content and build site
+        run: npm run verify
+
+      - name: Check static publication artifacts
+        shell: bash
+        run: |
+          for artifact in dist/index.html dist/rss.xml dist/robots.txt dist/sitemap-index.xml dist/pagefind/pagefind.js; do
+            test -f "$artifact" || { echo "::error::Missing $artifact"; exit 1; }
+          done
+
+      - name: Authenticate to Google Cloud using GitHub OIDC
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.FIREBASE_WIF_PROVIDER }}
+          service_account: ${{ vars.FIREBASE_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+
+      - name: Deploy static assets to Firebase Hosting
+        run: npx --yes firebase-tools@15.30.2 deploy --only hosting --project "$FIREBASE_PROJECT_ID" --non-interactive
+
+      - name: Verify live Hosting endpoints
+        shell: bash
+        run: |
+          for path in "/" "/robots.txt" "/rss.xml" "/sitemap-index.xml"; do
+            curl --fail --silent --show-error --location \
+              --retry 5 --retry-delay 3 --retry-all-errors \
+              "${FIREBASE_SITE_URL}${path}" -o /dev/null
+          done
