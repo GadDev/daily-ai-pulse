@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Daily AI Pulse is a static-first technical publication built with Astro. The repository separates editorial content from presentation so stories can be authored as Markdown/MDX, validated through Astro content collections, and rendered into static pages for GitHub Pages.
+The Daily AI Pulse is a static-first technical publication built with Astro. The repository separates editorial content from presentation so stories can be authored as Markdown/MDX, validated through Astro content collections, and rendered into static pages for Firebase Hosting.
 
 ```mermaid
 flowchart LR
@@ -10,7 +10,7 @@ flowchart LR
   B[Daily Pulse manifests] --> C
   C --> D[Pages + Components]
   D --> E[Astro static build]
-  E --> F[GitHub Pages]
+  E --> F[Firebase Hosting]
   G[GitHub Actions] --> E
 ```
 
@@ -33,7 +33,7 @@ public/
 └── images/              Publication and story imagery copied as static assets
 
 docs/                    Product, editorial, design, architecture, and publishing docs
-.github/workflows/        CI/CD and GitHub Pages deployment
+.github/workflows/        CI/CD and Firebase Hosting deployment
 ```
 
 ## Content model
@@ -62,7 +62,7 @@ That separation prevents duplicated editorial content and allows one article to 
 
 Astro's file-based pages build the publication into static routes. Dynamic-looking routes such as individual story pages are generated at build time from the content collection.
 
-All internal asset and navigation paths must respect the configured GitHub Pages base path (`/daily-ai-pulse/`). Prefer `import.meta.env.BASE_URL` and `Astro.site` over hard-coded root-relative assumptions.
+The publication is hosted at the domain root (`/`) on Firebase Hosting. Generate absolute canonical and RSS URLs from the configured `SITE_URL` / `Astro.site`, and use `import.meta.env.BASE_URL` for navigation and assets. Do not hard-code the legacy `/daily-ai-pulse/` prefix.
 
 ## Design architecture
 
@@ -75,22 +75,22 @@ The design system and page composition documents under `docs/` are the visual so
 The production path is:
 
 ```text
-push to main
+human-approved merge to main
     ↓
-GitHub Actions
+GitHub Actions (production environment)
     ↓
-npm ci
+npm ci + npm run verify
     ↓
-npm run build
+Astro static build + Pagefind (dist/)
     ↓
-astro check + astro build
+Google Cloud OIDC → deployment service account
     ↓
-upload static dist artifact
+Firebase CLI deploy --only hosting
     ↓
-GitHub Pages deployment
+HTTP endpoint smoke checks
 ```
 
-The workflow uses Node.js 22 and GitHub's Pages deployment actions. The build should remain reproducible from `package-lock.json`.
+The workflow pins Node.js 22.22.3 and authenticates with short-lived GitHub OIDC credentials; no service-account JSON key is stored. The build should remain reproducible from `package-lock.json`.
 
 ## Architectural principles
 
@@ -112,7 +112,7 @@ Evidence quality, sources, and editorial metadata are product features, not info
 
 ### Deployment paths are environment-aware
 
-The project is hosted below a GitHub Pages base path, so links and assets must be generated with the configured base/site values.
+The live site uses Firebase Hosting at the root path (`/`); links and assets must use the configured base/site values and must not rely on the former GitHub Pages subpath.
 
 ### Small, reviewable changes
 

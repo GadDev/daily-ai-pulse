@@ -127,7 +127,7 @@ function editionRow(day, weekday, title, detail) {
   return `<a class="edition-row" href="issue.html"><span class="edition-row__date"><strong>${day}</strong><small>${weekday} · SEP</small></span><span class="edition-row__title">${title}<small>${detail}</small></span><span class="edition-row__arrow" aria-hidden="true">↗</span></a>`;
 }
 function issue() {
-  return `<main class="container issue-page"><a class="back-link" href="archive.html">← All editions</a><header class="issue-intro"><p class="eyebrow">MONDAY · 28 SEPTEMBER 2026</p><div class="issue-intro__grid"><div><h1>The Daily AI Pulse</h1><p class="lead">Agent control moves to the center: a sandbox escape, a reviewed plugin ecosystem, and a swarm that produced cheating and oversight.</p></div><div class="issue-facts"><strong>Today’s briefing</strong><span>3 stories across 3 desks</span><span>Security · Tools · Research</span><a href="methodology.html">How we select stories ↗</a></div></div></header><section class="issue-feature"><div><p class="eyebrow">01 / MUST KNOW · SECURITY</p><h2><a href="story.html">${story.hero.title}</a></h2><p>${story.hero.deck}</p>${meta(story.hero, { category: false, signal: true })}<a class="text-link" href="story.html">Read the analysis →</a></div><a href="story.html" aria-label="Read featured story">${image(story.hero)}</a></section><div class="issue-list-heading"><h2>Also in this edition</h2><span>02—03</span></div>${issueItem('02', story.tools, 'ECOSYSTEM / DEV TOOLS')}${issueItem('03', story.research, 'RESEARCH')}<div class="issue-end"><a href="https://gaddev.github.io/daily-ai-pulse/pulse/2026-09-27/">← 27 September</a><a href="archive.html">Browse the archive →</a></div></main>`;
+  return `<main class="container issue-page"><a class="back-link" href="archive.html">← All editions</a><header class="issue-intro"><p class="eyebrow">MONDAY · 28 SEPTEMBER 2026</p><div class="issue-intro__grid"><div><h1>The Daily AI Pulse</h1><p class="lead">Agent control moves to the center: a sandbox escape, a reviewed plugin ecosystem, and a swarm that produced cheating and oversight.</p></div><div class="issue-facts"><strong>Today’s briefing</strong><span>3 stories across 3 desks</span><span>Security · Tools · Research</span><a href="methodology.html">How we select stories ↗</a></div></div></header><section class="issue-feature"><div><p class="eyebrow">01 / MUST KNOW · SECURITY</p><h2><a href="story.html">${story.hero.title}</a></h2><p>${story.hero.deck}</p>${meta(story.hero, { category: false, signal: true })}<a class="text-link" href="story.html">Read the analysis →</a></div><a href="story.html" aria-label="Read featured story">${image(story.hero)}</a></section><div class="issue-list-heading"><h2>Also in this edition</h2><span>02—03</span></div>${issueItem('02', story.tools, 'ECOSYSTEM / DEV TOOLS')}${issueItem('03', story.research, 'RESEARCH')}<div class="issue-end"><a href="https://daily-ai-pulse-db253.web.app/pulse/2026-09-27/">← 27 September</a><a href="archive.html">Browse the archive →</a></div></main>`;
 }
 function categories() {
   const desks = [
@@ -228,7 +228,7 @@ const views = {
       [
         [
           'RSS',
-          '<p>Add the publication feed to your preferred reader. <a class="pill-button" href="https://gaddev.github.io/daily-ai-pulse/rss.xml">Open the live RSS feed →</a></p>',
+          '<p>Add the publication feed to your preferred reader. <a class="pill-button" href="https://daily-ai-pulse-db253.web.app/rss.xml">Open the live RSS feed →</a></p>',
         ],
         [
           'Email',
@@ -264,7 +264,7 @@ const views = {
         ],
         [
           'Hosting',
-          '<p>GitHub Pages handles site delivery and documents its own security logging. Link to the current provider statement in the published policy.</p>',
+          '<p>Firebase Hosting delivers this static publication. See the live privacy page for links to Firebase provider privacy information.</p>',
         ],
         [
           'Changes',
