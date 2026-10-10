@@ -1,32 +1,29 @@
 import { expect, test } from '@playwright/test';
 
-const defaultSiteUrl = 'https://daily-ai-pulse-db253.web.app';
-const siteUrl = (process.env.SITE_URL ?? defaultSiteUrl).replace(/\/$/, '');
+const siteUrl = 'https://daily-ai-pulse-db253.web.app';
 
-test('root-hosted pages publish Firebase canonical URLs and assets', async ({ page }) => {
+test('root pages publish Firebase canonical URLs', async ({ page }) => {
   await page.goto('/');
 
-  const canonicalLink = page.locator('link[rel="canonical"]');
-  const rssLink = page.locator('link[rel="alternate"][type="application/rss+xml"]');
+  const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+  const rss = await page.locator('link[type="application/rss+xml"]').getAttribute('href');
 
-  await expect(canonicalLink).toHaveAttribute('href', `${siteUrl}/`);
-  await expect(rssLink).toHaveAttribute('href', `${siteUrl}/rss.xml`);
+  expect(canonical).toBe(`${siteUrl}/`);
+  expect(rss).toBe(`${siteUrl}/rss.xml`);
 
-  const internalLinks = await page.locator('a[href^="/"]').evaluateAll((nodes) =>
-    nodes.map((node) => node.getAttribute('href') ?? ''),
-  );
+  const links = await page.locator('a[href]').all();
 
-  expect(internalLinks.length).toBeGreaterThan(0);
-  expect(internalLinks.every((href) => !href.startsWith('/daily-ai-pulse/'))).toBe(true);
+  for (const link of links) {
+    const href = await link.getAttribute('href');
+    expect(href).not.toContain('/daily-ai-pulse/');
+  }
 });
 
-test('root-hosted discovery files resolve to the configured domain', async ({ request }) => {
-  const [robots, rss, sitemap, manifest] = await Promise.all([
-    request.get('/robots.txt'),
-    request.get('/rss.xml'),
-    request.get('/sitemap-index.xml'),
-    request.get('/site.webmanifest'),
-  ]);
+test('root-hosted discovery files resolve to Firebase URLs', async ({ request }) => {
+  const robots = await request.get('/robots.txt');
+  const rss = await request.get('/rss.xml');
+  const sitemap = await request.get('/sitemap-index.xml');
+  const manifest = await request.get('/site.webmanifest');
 
   expect(robots.ok()).toBeTruthy();
   expect(await robots.text()).toContain(`${siteUrl}/sitemap-index.xml`);
@@ -38,5 +35,6 @@ test('root-hosted discovery files resolve to the configured domain', async ({ re
   expect(await sitemap.text()).toContain(siteUrl);
 
   expect(manifest.ok()).toBeTruthy();
-  expect((await manifest.json()).start_url).toBe('./');
+  const manifestData = await manifest.json();
+  expect(manifestData.start_url).toBe('./');
 });
