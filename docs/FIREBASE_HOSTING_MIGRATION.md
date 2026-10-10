@@ -1,6 +1,6 @@
 # Firebase Hosting migration — Daily AI Pulse
 
-**Status:** Preparation only. Do **not** merge this branch until the deployment workflow and authentication are ready.
+**Status:** Deployment workflow prepared in draft PR #153; no Firebase production deployment has run yet. Do **not** merge until CI checks are green and the production workflow has been reviewed.
 
 ## Project
 
@@ -14,11 +14,11 @@
 
 - [x] Step 1: Create Firebase project (reported by project owner)
 - [x] Step 2: Pin Firebase project and configure Astro's root base path, canonical host, Hosting, and link tests
-- [ ] Verify Firebase Hosting is enabled and confirm the project's default URL
-- [ ] Step 3: Create dedicated Google Cloud deployment service account with minimum required permissions
-- [ ] Step 4: Configure GitHub OIDC Workload Identity Federation constrained to `GadDev/daily-ai-pulse` and `refs/heads/main`
-- [ ] Step 5: Replace GitHub Pages deployment workflow with Firebase Hosting deployment gated on configured identity; keep publishing bound to approved merges on `main`
-- [ ] Step 6: Run `npm ci`, `npm run verify`, `npm run test:e2e` and inspect the deployed Firebase website
+- [x] Verify the Firebase Hosting API using the configured quota project (reported by project owner)
+- [x] Step 3: Create dedicated Google Cloud deployment service account with minimum required permissions (reported by project owner)
+- [x] Step 4: Configure GitHub OIDC Workload Identity Federation constrained to `GadDev/daily-ai-pulse` and `refs/heads/main`; successful verification run reported by project owner
+- [x] Step 5: Prepare replacement of GitHub Pages deployment workflow with keyless Firebase Hosting deployment in PR #153 (pending CI review and merge)
+- [ ] Step 6: Run `npm ci`, `npm run verify`, `npm run test:e2e` in PR checks, merge PR #153 after review, and inspect the deployed Firebase website
 - [ ] Step 7: Confirm metadata, redirects, search, feeds, sitemap and article URLs before disabling GitHub Pages
 - [ ] Step 8: Update README, GitHub About website URL, documentation, status badge, and decide how to handle backlinks to GitHub Pages
 
@@ -38,6 +38,18 @@ SITE_URL=https://daily-ai-pulse-db253.web.app npm run build
 ```
 
 The Firebase project selection lives in `.firebaserc`. The `firebase.json` Hosting config serves the `dist` directory without an SPA catch-all rewrite: Astro generates real static routes.
+
+## Deployment workflow
+
+- GitHub Actions workflow: `.github/workflows/deploy.yml`, triggered on `main` pushes or manually from `main`.
+- Repository Actions variables: `FIREBASE_PROJECT_ID`, `FIREBASE_SITE_URL`, `FIREBASE_WIF_PROVIDER`, and `FIREBASE_SERVICE_ACCOUNT`.
+- GitHub environment: `production`; configure deployment-branch restrictions and optional reviewers in Settings → Environments before merging.
+- The job runs `npm run verify`, checks `dist` artifacts, authenticates via `google-github-actions/auth@v3` using short-lived GitHub OIDC credentials, and deploys with Firebase CLI.
+- It then checks the deployed home, robots, RSS, and sitemap endpoints. Deeper live browser checks remain a human acceptance criterion.
+- The OIDC smoke workflow `.github/workflows/verify-firebase-oidc.yml` has already been merged independently in PR #154; no key-based credentials are stored.
+- The workflow deliberately removes GitHub Pages deployment steps. Firebase release on the first merge is **not a final cutover**: the legacy GitHub Pages website stays available at its last published revision until Pages is explicitly disabled.
+
+**First deployment procedure:** finish PR validation, review the workflow and GitHub environment settings, then merge PR #153. Check the `Deploy Pulse to Firebase Hosting` Action run on `main`, and verify the new Firebase URL. Do not disable the old GitHub Pages site until the live checklist passes.
 
 ## Cutover and rollback
 
