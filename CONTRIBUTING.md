@@ -54,7 +54,7 @@ When changing UI behavior:
 
 - preserve keyboard accessibility and semantic HTML;
 - check narrow and wide layouts;
-- avoid hard-coded GitHub Pages URLs when `import.meta.env.BASE_URL` or `Astro.site` should be used;
+- avoid hard-coded hosting URLs or the old `/daily-ai-pulse/` base path; use `import.meta.env.BASE_URL` and `Astro.site` as appropriate;
 - keep content rendering separate from presentation components where possible.
 
 ## Editorial contributions
