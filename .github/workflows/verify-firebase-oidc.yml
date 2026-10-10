@@ -1,0 +1,57 @@
+name: Verify Firebase OIDC
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  oidc:
+    name: Verify keyless Google Cloud authentication
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Verify required repository variables
+        env:
+          FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+          FIREBASE_WIF_PROVIDER: ${{ vars.FIREBASE_WIF_PROVIDER }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ vars.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
+        shell: bash
+        run: |
+          : "${FIREBASE_PROJECT_ID:?Missing FIREBASE_PROJECT_ID repository variable}"
+          : "${FIREBASE_WIF_PROVIDER:?Missing FIREBASE_WIF_PROVIDER repository variable}"
+          : "${FIREBASE_SERVICE_ACCOUNT:?Missing FIREBASE_SERVICE_ACCOUNT repository variable}"
+          : "${FIREBASE_SITE_URL:?Missing FIREBASE_SITE_URL repository variable}"
+          test "$FIREBASE_PROJECT_ID" = "daily-ai-pulse-db253"
+          test "$FIREBASE_SERVICE_ACCOUNT" = "daily-ai-pulse-deployer@daily-ai-pulse-db253.iam.gserviceaccount.com"
+
+      - name: Authenticate using GitHub OIDC
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.FIREBASE_WIF_PROVIDER }}
+          service_account: ${{ vars.FIREBASE_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_lifetime: 300s
+          create_credentials_file: false
+          export_environment_variables: false
+
+      - name: Verify token was issued
+        env:
+          GOOGLE_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        shell: bash
+        run: |
+          if [ -z "$GOOGLE_ACCESS_TOKEN" ]; then
+            echo "::error::Google Cloud access token was not issued"
+            exit 1
+          fi
+          echo "PASS: GitHub OIDC exchanged for a short-lived Google Cloud access token."
