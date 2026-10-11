@@ -1,0 +1,93 @@
+{
+  "editorial_date": "2026-10-11",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-11-claude-dynamic-workflows",
+      "decision": "selected",
+      "title": "Anthropic lets managed agents write their own multi-agent workflows",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["agents", "multi-agent", "orchestration", "agent-runtime", "observability", "cost", "permissions"],
+      "entities": ["Anthropic", "Claude Managed Agents", "dynamic workflows"],
+      "event_date": "2026-10-09",
+      "source_publication_date": "2026-10-09",
+      "summary": "Claude Managed Agents can now generate a workflow program that runs many agents in phases, passes results between them, and executes in the background as a server-managed workflow run.",
+      "what_changed": "The managed runtime gained a beta multi-agent type that supports generated workflow programs, predefined or inline workers, phase and lifecycle events, shared sandbox files, budget pausing, and documented timeout, program, and thread-limit failures.",
+      "why_it_matters": "The orchestration plan itself can now be model-generated and executed by the platform, moving a consequential layer of control from application code into an agent-authored program whose spend, failure state, and output validity still require external enforcement.",
+      "engineer_takeaway": "Treat generated orchestration as untrusted runtime logic: constrain agents and tools, cap session spend, follow both run and worker-thread events, preserve the generated plan for audit, and validate task success independently of a completed run state.",
+      "prerequisites": ["multi-agent orchestration", "event-driven systems", "least-privilege authorization"],
+      "primary_source_url": "https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration",
+      "sources": [
+        {"url": "https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration", "canonical_url": "https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration", "publisher": "Anthropic", "source_type": "documentation", "role": "primary", "publication_date": "2026-10-09"},
+        {"url": "https://platform.claude.com/docs/en/managed-agents/workflow-runs", "canonical_url": "https://platform.claude.com/docs/en/managed-agents/workflow-runs", "publisher": "Anthropic", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-09"},
+        {"url": "https://platform.claude.com/docs/en/release-notes/overview", "canonical_url": "https://platform.claude.com/docs/en/release-notes/overview", "publisher": "Anthropic", "source_type": "release-notes", "role": "supporting", "publication_date": "2026-10-09"}
+      ],
+      "evidence": {"level": "primary", "rationale": "Anthropic's release notes and product documentation specify the beta configuration, worker types, event model, lifecycle, budgets, and limits in implementation-level detail.", "independent_validation": "No independent production evaluation of correctness, cost efficiency, failure recovery, or security was found.", "claim_scope": "The story reports the documented beta contract and engineering implications; it does not claim that generated workflows improve quality, cost, or reliability."},
+      "signal": {"level": "high", "rationale": "A model-generated, server-executed orchestration program changes the control, audit, cost, and verification boundaries of managed agent systems."},
+      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 95},
+      "learning_gap": {"exists": true, "concepts": ["multi-agent", "orchestration", "observability"], "existing_explainer_status": "Pulse covers agent runtimes and subagents but has no focused explainer on the difference between model-led delegation and model-generated orchestration programs.", "suggested_explainer": "Who Controls the Control Flow? Subagents, Workflows, and Generated Orchestration"},
+      "related_content": {"previous_story_ids": []},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "Teams need a concrete operating pattern for budgets, permission inheritance, event handling, audit capture, failure injection, and independent success checks around generated workflows."}],
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "anthropic-managed-agents-dynamic-workflow-programs", "canonical_event": "Anthropic adds beta dynamic workflows to Claude Managed Agents on October 9, 2026.", "previous_coverage": null, "material_delta": "No merged ledger or published story covers Anthropic's dynamic workflow runtime, the multiagent_20261001 contract, or server-managed workflow-run lifecycle."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "Configuration, lifecycle, events, limits, and budget behavior were reverified in Anthropic documentation; effectiveness and security remain unvalidated first-party claims."}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-11-cloudflare-skills-over-mcp",
+      "decision": "watch",
+      "title": "Cloudflare begins serving agent skills through MCP",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["mcp", "skills", "agents", "security", "permissions"],
+      "entities": ["Cloudflare", "Model Context Protocol", "Skills over MCP"],
+      "event_date": "2026-10-10",
+      "summary": "Cloudflare's API MCP server now exposes Cloudflare skills through the Skills over MCP extension using skills/list and skill:// resources.",
+      "evidence": {"level": "primary", "rationale": "Cloudflare documents the endpoint and discovery/read mechanism in its Agents changelog."},
+      "signal": {"level": "medium", "rationale": "Remote skill discovery could standardize capability distribution, but current interoperability, provenance, update, and trust behavior are not yet demonstrated."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 82},
+      "sources": [{"url": "https://developers.cloudflare.com/changelog/product/agents/", "canonical_url": "https://developers.cloudflare.com/changelog/product/agents/", "publisher": "Cloudflare", "source_type": "release-notes", "role": "primary", "publication_date": "2026-10-10"}],
+      "reason": "The launch establishes a working vendor endpoint but does not yet provide enough evidence about cross-client adoption, skill provenance, version pinning, update review, or permission boundaries for a durable engineering recommendation.",
+      "promote_when": ["Multiple independent MCP clients document interoperable Skills-over-MCP support.", "The extension publishes stable provenance, versioning, update, and permission guidance or a first-hand deployment reports those controls."]
+    },
+    {
+      "id": "2026-10-11-google-gemini-agent-carry",
+      "decision": "watch",
+      "title": "Google's universal Gemini agent still lacks a precise public integration contract",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-runtime", "skills", "mcp", "permissions", "sandboxing", "cost"],
+      "entities": ["Google Cloud", "Gemini agent", "Gemini Enterprise"],
+      "event_date": "2026-10-08",
+      "summary": "Google describes one work agent spanning knowledge work, coding, skills, tools, and enterprise systems, but the engineering availability and integration boundaries remain underspecified.",
+      "evidence": {"level": "primary", "rationale": "The official launch establishes product direction but not a sufficiently precise public API and availability contract."},
+      "signal": {"level": "high", "rationale": "A governed universal enterprise agent could materially change platform architecture if the announced surface becomes concretely available."},
+      "editorial_score": {"significance": 5, "evidence": 3, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 84},
+      "sources": [{"url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "publisher": "Google Cloud", "source_type": "official", "role": "primary", "publication_date": "2026-10-08"}],
+      "reason": "No new API reference, rollout contract, or implementation evidence was found after the October 10 watch decision.",
+      "promote_when": ["Official API and release documentation define availability and supported integration paths.", "Implementation details or independent deployment evidence clarify memory, sandbox, gateway, routing, and spend-control behavior."]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-11-github-copilot-jetbrains-controls", "decision": "rejected", "reason": "The October 10 JetBrains bundle is useful but incremental; MCP startup control, managed defaults, diagnostics shortcuts, and UX fixes do not clear the significance gate for a separate story after recent JetBrains and Copilot control coverage.", "previous_story_id": "2026-09-23-jetbrains-assisted-approvals"},
+    {"id": "2026-10-11-github-copilot-weekly-repeat", "decision": "rejected", "reason": "The October 9 weekly rollup repeats releases already evaluated individually, including local sandboxing, local-model discovery, and Claude Haiku 5.5 availability.", "previous_story_id": "2026-10-08-claude-haiku-5-5"},
+    {"id": "2026-10-11-claude-code-2-1-296", "decision": "rejected", "reason": "A maintenance bundle with policy, encoding, and reliability fixes; no single independently verified delta clears the selection threshold for a separate story.", "previous_story_id": "2026-10-04-claude-code-2-1-289-policy-precedence"},
+    {"id": "2026-10-11-anthropic-unintended-actions-repeat", "decision": "rejected", "reason": "No material delta beyond the October 10 incident disclosure and evaluation-policy change.", "previous_story_id": "2026-10-10-anthropic-unintended-agent-actions"},
+    {"id": "2026-10-11-postman-agent-mode-repeat", "decision": "rejected", "reason": "No material delta beyond the production architecture published and covered on October 10.", "previous_story_id": "2026-10-10-postman-agent-mode-architecture"},
+    {"id": "2026-10-11-microsoft-decision-1-repeat", "decision": "rejected", "reason": "No new independent evaluation or product change beyond the October 10 release story.", "previous_story_id": "2026-10-10-microsoft-decision-1"}
+  ],
+  "publication": {
+    "story_ids": ["2026-10-11-claude-dynamic-workflows"],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-11-claude-dynamic-workflows"
+  },
+  "editorial_opportunities": [
+    {"format": "playbook", "depth": "practitioner", "title": "Operate Model-Generated Workflows Safely", "reason": "The beta creates a reusable need for permission scoping, budget controls, event handling, audit capture, failure injection, and independent success checks."},
+    {"format": "explainer", "depth": "practitioner", "title": "Who Controls the Control Flow?", "reason": "Engineers need a durable mental model for the differences among tool calls, subagent delegation, application-authored DAGs, and model-generated workflow programs."}
+  ]
+}
