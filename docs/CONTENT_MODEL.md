@@ -202,8 +202,8 @@ The structured model should support these without changing story files:
 `storyTranslations` is a separate Astro collection under
 `src/content/story-translations/<locale>/<story-id>.md`. English stories and
 edition references retain their existing IDs and files. French (`fr`) is the
-only enabled translation locale in M1. No French routes are created by this
-collection; website rendering starts in M2.
+only enabled translation locale. The collection alone creates no routes; M2
+adds gated French routes described in `docs/FRENCH_READING.md`.
 
 Translation metadata contains `storyId`, `locale`, exact-byte `sourceSha256`,
 optional provenance `sourceRef`, French `title`, `description`, `imageAlt`,
@@ -238,7 +238,7 @@ relationships, then resolves each `(storyId, locale)` consistently:
 | `stale` | No | Reviewed copy's fingerprint differs from current English |
 | `current` | Yes | Reviewed copy matches a published English source |
 
-Only the lookup's `available` result may be used for future public article
+Only the lookup's `available` result may be used for public article
 bodies, cards, alternates, feeds or search. Recreate snapshots and the lookup
 for each static build. French edits require renewed human review even if the
 English source is unchanged. No separate translation-content hash is used.

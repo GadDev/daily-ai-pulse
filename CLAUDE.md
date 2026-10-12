@@ -18,6 +18,7 @@ npm run format:check
 npm run content:check      # node scripts/validate-content.mjs
 npm run translations:check # validate translation relationships and freshness
 npm run translations:test  # content and freshness regressions
+npm run translations:pages:test # isolated French page/visibility fixture build
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json    # validate one editorial batch against its ledger
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json  # validate review records + WebP assets for that batch
 npm run build              # astro check && astro build && pagefind --site dist
@@ -41,7 +42,7 @@ Three Astro content collections, schema-validated in [src/content.config.ts](src
 
 - **Stories** (`src/content/stories/*.md`) — the canonical unit of editorial content. Frontmatter carries category, format (`pulse`/`briefing`/`deep-dive`), difficulty, signal level, evidence level, companies, sources, and image metadata. A story is written once and referenced everywhere (daily editions, category pages, archive) — never duplicated.
 - **Pulse manifests** (`src/content/pulse/YYYY-MM-DD.md`) — a daily edition is a curated list of story-ID references (date, title, summary, featured story, ordered sections of story IDs), not a copy of article bodies.
-- **Story translations** (`src/content/story-translations/fr/<story-id>.md`) — separate French variants linked to canonical English IDs and exact source fingerprints. Review status is `draft`, `reviewed` or `withdrawn`; only the shared lookup in `src/lib/translations.ts` can declare a reviewed variant current and available. M1 adds no French routes. See `docs/CONTENT_MODEL.md` for freshness and correction rules.
+- **Story translations** (`src/content/story-translations/fr/<story-id>.md`) — separate French variants linked to canonical English IDs and exact source fingerprints. Review status is `draft`, `reviewed` or `withdrawn`; only the shared lookup in `src/lib/translations.ts` can declare a reviewed variant current and available. M2 adds `/fr/` and gated French reading routes, with explicit unavailable notices. See `docs/CONTENT_MODEL.md` for freshness and correction rules and `docs/FRENCH_READING.md` for routes and validation.
 
 `src/pages/` is file-based routing; story and category pages are generated at build time from the collections. `src/components/editorial/` holds the presentation components (story cards, big-story treatment, daily-issue rows) that consume validated content — keep editorial structure in frontmatter/Markdown, not hard-coded in components.
 

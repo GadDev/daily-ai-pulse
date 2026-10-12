@@ -1,0 +1,73 @@
+---
+import { messages, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  storyId?: string;
+  frenchAvailable?: boolean;
+}
+const { locale, storyId, frenchAvailable = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const englishHref = storyId ? `${base}stories/${storyId}/` : base;
+const frenchHref = storyId ? `${base}fr/stories/${storyId}/` : `${base}fr/`;
+const text = messages[locale];
+---
+
+<nav class="language-switcher" aria-label={text.languages} data-pagefind-ignore="all">
+  <a href={englishHref} lang="en" hreflang="en" aria-current={locale === 'en' ? 'page' : undefined}>
+    English
+  </a>
+  {!storyId || frenchAvailable || locale === 'fr' ? (
+    <a
+      href={frenchHref}
+      lang="fr"
+      hreflang="fr"
+      aria-current={locale === 'fr' ? 'page' : undefined}
+    >
+      Français
+    </a>
+  ) : (
+    <>
+      <span lang="fr" aria-disabled="true">
+        Français
+      </span>
+      <span class="language-note">
+        {text.unavailable}{' '}
+        <a href={`${base}fr/`} lang="fr">
+          {text.selection}
+        </a>
+      </span>
+    </>
+  )}
+</nav>
+<style>
+  .language-switcher {
+    width: min(1180px, 92vw);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .language-switcher > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .language-switcher a[aria-current] {
+    font-weight: 700;
+    text-decoration-color: var(--terracotta);
+  }
+  .language-switcher span[aria-disabled] {
+    color: var(--muted);
+  }
+  .language-note {
+    color: var(--muted);
+    padding: 0.5rem 0;
+  }
+  .language-switcher a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>

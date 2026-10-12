@@ -1,8 +1,14 @@
 ---
 import '../styles/global.css';
 import SearchButton from '../components/SearchButton.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { messages, type Locale } from '../lib/i18n';
 
 interface Props {
+  locale?: Locale;
+  storyId?: string;
+  frenchAvailable?: boolean;
+  noindex?: boolean;
   title?: string;
   description?: string;
   image?: string;
@@ -13,6 +19,10 @@ interface Props {
 }
 
 const {
+  locale = 'en',
+  storyId,
+  frenchAvailable = false,
+  noindex = false,
   title = 'The Daily AI Pulse',
   description = 'Signal over noise in AI.',
   image,
@@ -21,10 +31,20 @@ const {
   section,
   tags = [],
 } = Astro.props;
+const text = messages[locale];
 const base = import.meta.env.BASE_URL;
+const home = locale === 'fr' ? `${base}fr/` : base;
+const site = Astro.site ?? new URL('https://daily-ai-pulse-db253.web.app');
+const languageAlternates =
+  storyId && frenchAvailable
+    ? [
+        { locale: 'en', href: new URL(`${base}stories/${storyId}/`, site).toString() },
+        { locale: 'fr', href: new URL(`${base}fr/stories/${storyId}/`, site).toString() },
+      ]
+    : [];
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) => currentPath === path || currentPath.startsWith(`${path}/`);
-const site = Astro.site ?? new URL('https://daily-ai-pulse-db253.web.app');
+
 const canonicalUrl = new URL(currentPath, site).toString();
 const rssUrl = new URL(`${base}rss.xml`, site).toString();
 const absoluteImage = image
@@ -36,6 +56,7 @@ const structuredData =
     ? {
         '@context': 'https://schema.org',
         '@type': 'Article',
+        inLanguage: locale,
         headline: title,
         description,
         mainEntityOfPage: canonicalUrl,
@@ -54,12 +75,13 @@ const structuredData =
         '@type': 'WebSite',
         name: 'The Daily AI Pulse',
         url: new URL(base, site).toString(),
-        description: 'Signal over noise in AI.',
+        description: locale === 'fr' ? description : 'Signal over noise in AI.',
+        inLanguage: locale,
       };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -72,6 +94,10 @@ const structuredData =
     <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}site.webmanifest`} />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {languageAlternates.map((alternate) => (
+      <link rel="alternate" hreflang={alternate.locale} href={alternate.href} />
+    ))}
     <link rel="alternate" type="application/rss+xml" title="The Daily AI Pulse RSS" href={rssUrl} />
 
     <meta property="og:site_name" content="The Daily AI Pulse" />
@@ -96,107 +122,159 @@ const structuredData =
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
-  <body>
-    <header class="site-header">
+  <body data-pagefind-ignore={noindex ? 'all' : undefined}>
+    <header class:list={['site-header', { 'site-header--fr': locale === 'fr' }]}>
       <div class="site-header__inner">
         <div class="brand-block">
-          <a class="brand" href={base} aria-label="The Daily AI Pulse home">
+          <a class="brand" href={home} aria-label={text.homeLabel}>
             The Daily AI Pulse<span class="brand-dot" aria-hidden="true"></span>
           </a>
-          <p class="brand-tagline">Ideas Tools People Impact</p>
+          <p class="brand-tagline">{text.tagline}</p>
         </div>
 
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a class:list={{ active: currentPath === base }} href={base}>
-            Today
-          </a>
-          <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
-            Pulse
-          </a>
-          <a class:list={{ active: isActive(`${base}categories`) }} href={`${base}categories/`}>
-            Categories
-            <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true">
-              <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
-            </svg>
-          </a>
-          <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
-            About
-          </a>
-        </nav>
-
+        {locale === 'fr' ? (
+          <nav class="site-nav" aria-label="Navigation principale">
+            <a href={home} class:list={{ active: currentPath === home }}>
+              En français
+            </a>
+            <a href={base}>Édition du jour (en anglais)</a>
+            <a href={`${base}about/`}>À propos (en anglais)</a>
+          </nav>
+        ) : (
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a class:list={{ active: currentPath === base }} href={base}>
+              Today
+            </a>
+            <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
+              Pulse
+            </a>
+            <a class:list={{ active: isActive(`${base}categories`) }} href={`${base}categories/`}>
+              Categories
+              <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true">
+                <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
+              </svg>
+            </a>
+            <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
+              About
+            </a>
+          </nav>
+        )}
         <div class="site-actions">
-          <SearchButton />
+          <SearchButton locale={locale} />
           <a class="subscribe-button" href={`${base}subscribe/`}>
-            Subscribe
+            {locale === 'fr' ? 'S’abonner (en anglais)' : 'Subscribe'}
           </a>
         </div>
       </div>
+      <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} />
     </header>
 
     <main>
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <div class="site-footer__grid">
-        <section class="footer-publication">
-          <a class="brand brand--footer" href={base}>
-            The Daily AI Pulse
-          </a>
-          <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
-          <p class="footer-copy">
-            A daily briefing on the AI developments that matter to engineers, from research and
-            tools to real-world impact.
-          </p>
-          <div class="footer-links-inline" aria-label="Publication links">
-            <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">
+    {locale === 'fr' ? (
+      <footer class="site-footer">
+        <div class="site-footer__grid">
+          <section>
+            <a class="brand brand--footer" href={home}>
+              The Daily AI Pulse
+            </a>
+            <p class="footer-copy">
+              Une sélection d’articles sur l’IA, traduits et relus pour un lectorat technique
+              francophone.
+            </p>
+            <p class="footer-copy">
+              Les éditions quotidiennes complètes restent disponibles en anglais.
+            </p>
+          </section>
+          <section>
+            <h2>Explorer</h2>
+            <a href={home}>Sélection en français</a>
+            <a href={base}>Édition du jour (en anglais)</a>
+            <a href={`${base}categories/`}>Rubriques (en anglais)</a>
+            <a href={`${base}methodology/`}>Méthodologie (en anglais)</a>
+          </section>
+          <section>
+            <h2>Suivre la publication</h2>
+            <a href={`${base}rss.xml`}>Flux RSS (en anglais)</a>
+            <a href={`${base}subscribe/`}>Abonnement (en anglais)</a>
+            <a href="https://github.com/GadDev/daily-ai-pulse" lang="en">
               GitHub ↗
             </a>
+          </section>
+        </div>
+        <div class="site-footer__bottom">
+          <span>© 2026 Alexandre Gadaix. Tous droits réservés sur les contenus éditoriaux.</span>
+          <span class="footer-legal">
+            <a href={`${base}privacy/`}>Confidentialité (en anglais)</a>
+            <a href={`${base}terms/`}>Conditions (en anglais)</a>
+            <a href={`${base}contact/`}>Contact (en anglais)</a>
+          </span>
+        </div>
+      </footer>
+    ) : (
+      <footer class="site-footer">
+        <div class="site-footer__grid">
+          <section class="footer-publication">
+            <a class="brand brand--footer" href={base}>
+              The Daily AI Pulse
+            </a>
+            <p class="footer-copy footer-copy--lead">Clear. Curated. Consequential.</p>
+            <p class="footer-copy">
+              A daily briefing on the AI developments that matter to engineers, from research and
+              tools to real-world impact.
+            </p>
+            <div class="footer-links-inline" aria-label="Publication links">
+              <a href="https://github.com/GadDev/daily-ai-pulse" target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+              <a href={`${base}rss.xml`}>RSS feed</a>
+            </div>
+          </section>
+
+          <section>
+            <h2>Explore</h2>
+            <a href={base}>Home</a>
+            <a href={`${base}pulse/`}>Latest Pulse</a>
+            <a href={`${base}categories/`}>Categories</a>
+            <a href={`${base}about/`}>About</a>
+            <a href={`${base}methodology/`}>Methodology</a>
             <a href={`${base}rss.xml`}>RSS feed</a>
-          </div>
-        </section>
+          </section>
 
-        <section>
-          <h2>Explore</h2>
-          <a href={base}>Home</a>
-          <a href={`${base}pulse/`}>Latest Pulse</a>
-          <a href={`${base}categories/`}>Categories</a>
-          <a href={`${base}about/`}>About</a>
-          <a href={`${base}methodology/`}>Methodology</a>
-          <a href={`${base}rss.xml`}>RSS feed</a>
-        </section>
+          <section>
+            <h2>Categories</h2>
+            <a href={`${base}research/`}>Research</a>
+            <a href={`${base}models/`}>Models & Releases</a>
+            <a href={`${base}engineering/`}>AI Engineering</a>
+            <a href={`${base}tools/`}>Dev Tools</a>
+            <a href={`${base}practice/`}>AI in Practice</a>
+            <a href={`${base}workflows/`}>Workflows</a>
+            <a href={`${base}business/`}>Business & Industry</a>
+            <a href={`${base}curious/`}>Curious AI</a>
+          </section>
 
-        <section>
-          <h2>Categories</h2>
-          <a href={`${base}research/`}>Research</a>
-          <a href={`${base}models/`}>Models & Releases</a>
-          <a href={`${base}engineering/`}>AI Engineering</a>
-          <a href={`${base}tools/`}>Dev Tools</a>
-          <a href={`${base}practice/`}>AI in Practice</a>
-          <a href={`${base}workflows/`}>Workflows</a>
-          <a href={`${base}business/`}>Business & Industry</a>
-          <a href={`${base}curious/`}>Curious AI</a>
-        </section>
+          <section class="footer-subscribe">
+            <h2>Subscribe</h2>
+            <p class="footer-copy">Get each edition in your feed reader.</p>
+            <a class="footer-rss-button" href={`${base}rss.xml`}>
+              Subscribe with RSS →
+            </a>
+            <p class="footer-fineprint">Email delivery is being planned.</p>
+          </section>
+        </div>
 
-        <section class="footer-subscribe">
-          <h2>Subscribe</h2>
-          <p class="footer-copy">Get each edition in your feed reader.</p>
-          <a class="footer-rss-button" href={`${base}rss.xml`}>
-            Subscribe with RSS →
-          </a>
-          <p class="footer-fineprint">Email delivery is being planned.</p>
-        </section>
-      </div>
-
-      <div class="site-footer__bottom">
-        <span>© 2026 Alexandre Gadaix. All rights reserved for editorial content.</span>
-        <span class="footer-legal">
-          <a href={`${base}privacy/`}>Privacy</a>
-          <a href={`${base}terms/`}>Terms</a>
-          <a href={`${base}contact/`}>Contact</a>
-        </span>
-      </div>
-    </footer>
+        <div class="site-footer__bottom">
+          <span>© 2026 Alexandre Gadaix. All rights reserved for editorial content.</span>
+          <span class="footer-legal">
+            <a href={`${base}privacy/`}>Privacy</a>
+            <a href={`${base}terms/`}>Terms</a>
+            <a href={`${base}contact/`}>Contact</a>
+          </span>
+        </div>
+      </footer>
+    )}
   </body>
 </html>
 
@@ -300,6 +378,24 @@ const structuredData =
     }
   }
   @media (max-width: 640px) {
+    .site-header--fr .site-header__inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .site-header--fr .site-actions {
+      justify-content: flex-start;
+    }
+    .site-header .brand {
+      font-size: 1.2rem;
+    }
+    .site-header .site-actions {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .site-header .subscribe-button {
+      font-size: 0.85rem;
+      white-space: normal;
+      max-width: 11rem;
+    }
     .site-header .subscribe-button {
       padding: 0 1.1rem;
     }

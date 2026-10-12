@@ -23,7 +23,8 @@
     "verify": "npm run lint && npm run format:check && npm run content:check && npm run translations:check && npm run editorial:check && npm run illustration:check && npm run build",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "translations:pages:test": "node --test tests/french-pages.test.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",

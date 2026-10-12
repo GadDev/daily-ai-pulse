@@ -36,6 +36,9 @@ jobs:
       - name: Translation content and freshness regressions
         run: npm run translations:test
 
+      - name: French page rendering and visibility regressions
+        run: npm run translations:pages:test
+
       - name: Illustration generation identity regressions
         run: node --test tests/illustration-generation-identity.test.mjs
 
