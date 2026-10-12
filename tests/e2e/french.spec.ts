@@ -3,7 +3,13 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { buildFrenchFixture, fixtureId, pilotId } from '../helpers/french-fixture.mjs';
+import {
+  buildFrenchFixture,
+  draftSentinels,
+  fixtureId,
+  pilotId,
+  visibilityEditions,
+} from '../helpers/french-fixture.mjs';
 
 test.describe.configure({ mode: 'default' });
 
@@ -119,4 +125,39 @@ test('missing translations are explicit and unavailable bodies stay out of searc
   });
   expect(search.counts).toEqual([1, 0]);
   for (const url of search.urls) expect(url).toContain(`/fr/stories/${fixtureId('current')}/`);
+});
+
+test('English draft references remain unavailable across publication and real search results', async ({
+  page,
+  request,
+}) => {
+  const draft = fixtureId('source-draft');
+  for (const path of [
+    '/',
+    '/rss.xml',
+    '/pulse/',
+    `/pulse/${visibilityEditions.latest}/`,
+    `/pulse/${visibilityEditions.recent}/`,
+    '/research/',
+  ]) {
+    const response = await request.get(`${origin}${path}`);
+    expect(response.ok()).toBeTruthy();
+    const content = await response.text();
+    for (const token of [...draftSentinels, `/stories/${draft}/`])
+      expect(content, path).not.toContain(token);
+  }
+  expect((await request.get(`${origin}/stories/${draft}/`)).status()).toBe(404);
+  await page.goto(`${origin}/`);
+  const search = await page.evaluate(async (tokens) => {
+    const moduleUrl = '/pagefind/pagefind.js';
+    const pagefind = await import(/* @vite-ignore */ moduleUrl);
+    const results = await Promise.all(tokens.map((token) => pagefind.search(token)));
+    const published = await pagefind.search('zzpublishedstorybodyzz');
+    return {
+      hiddenCounts: results.map((result) => result.results.length),
+      published: published.results.length,
+    };
+  }, draftSentinels);
+  expect(search.hiddenCounts).toEqual(draftSentinels.map(() => 0));
+  expect(search.published).toBe(1);
 });

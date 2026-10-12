@@ -8,6 +8,19 @@ import { fingerprintStorySource } from '../../src/lib/translations.ts';
 
 export const pilotId = '2026-10-04-claude-code-2-1-289-policy-precedence';
 export const fixtureId = (state) => `2026-10-04-i18n-fixture-${state}`;
+export const visibilityEditions = {
+  latest: '2030-01-02',
+  recent: '2030-01-01',
+  empty: '2029-12-31',
+};
+export const draftSentinels = [
+  'zzdraftstorytitlezz',
+  'zzdraftstorydescriptionzz',
+  'zzdraftstorybodyzz',
+  'zzdraftstoryimagealtzz',
+  'zzdraftstorytagzz',
+  'zzdraftstorycompanyzz',
+];
 
 /** Synthetic approval lives only in an isolated temporary checkout. Never edit the pilot. */
 export function buildFrenchFixture() {
@@ -24,7 +37,30 @@ export function buildFrenchFixture() {
     for (const state of ['current', 'stale', 'withdrawn', 'source-draft']) {
       const id = fixtureId(state);
       const correction = { date: '2026-10-05', note: 'English correction.' };
-      const english = `---\n${stringify({ ...sourceData, draft: state === 'source-draft', corrections: [correction] })}---\n\nEnglish fixture body.\n`;
+      const draft = state === 'source-draft';
+      const data = {
+        ...sourceData,
+        draft,
+        corrections: [correction],
+        ...(draft
+          ? {
+              title: draftSentinels[0],
+              description: draftSentinels[1],
+              imageAlt: draftSentinels[3],
+              tags: [draftSentinels[4]],
+              companies: [draftSentinels[5]],
+              featured: true,
+              date: visibilityEditions.latest,
+              category: 'research',
+            }
+          : {}),
+      };
+      const bodyToken = draft
+        ? draftSentinels[2]
+        : state === 'current'
+          ? 'zzpublishedstorybodyzz'
+          : 'English fixture body.';
+      const english = `---\n${stringify(data)}---\n\n${bodyToken}\n`;
       writeFileSync(join(root, `src/content/stories/${id}.md`), english);
       const metadata = {
         storyId: id,
@@ -44,6 +80,36 @@ export function buildFrenchFixture() {
         join(root, `src/content/story-translations/fr/${id}.md`),
         `---\n${stringify(metadata)}---\n\n${body}`,
       );
+    }
+    // Referenced and featured drafts exercise every edition surface, not only an unlisted draft.
+    for (const [kind, date] of Object.entries(visibilityEditions)) {
+      const draftId = fixtureId('source-draft');
+      const currentId = fixtureId('current');
+      const sections =
+        kind === 'latest'
+          ? [
+              { key: 'draft-only', label: 'Draft only desk', stories: [draftId] },
+              {
+                key: 'visible',
+                label: 'Published fixture desk',
+                stories: [currentId, fixtureId('stale'), fixtureId('withdrawn')],
+              },
+            ]
+          : [
+              {
+                key: 'mixed',
+                label: 'Fixture desk',
+                stories: kind === 'empty' ? [draftId] : [currentId, draftId],
+              },
+            ];
+      const edition = {
+        date,
+        title: `Visibility fixture — ${kind} edition`,
+        summary: 'Synthetic publication visibility fixture.',
+        featured: draftId,
+        sections,
+      };
+      writeFileSync(join(root, `src/content/pulse/${date}.md`), `---\n${stringify(edition)}---\n`);
     }
     const build = spawnSync(
       process.execPath,

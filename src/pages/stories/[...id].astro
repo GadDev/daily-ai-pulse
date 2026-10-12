@@ -6,15 +6,15 @@ import PulseTake from '../../components/editorial/PulseTake.astro';
 import Evidence from '../../components/editorial/Evidence.astro';
 import TryThis from '../../components/editorial/TryThis.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
-import { findEditionForStory, readingTime } from '../../lib/stories';
+import { findEditionForStory, isPublishedStory, readingTime } from '../../lib/stories';
 import { getTranslationContent } from '../../lib/translation-content';
 import '../../styles/article.css';
 import { categories } from '../../lib/categories';
 
 export async function getStaticPaths() {
-  const stories = (await getCollection('stories'))
-    .filter((story) => !story.data.draft)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  const stories = (await getCollection('stories', isPublishedStory)).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
   const editions = await getCollection('pulse');
   const { lookup } = await getTranslationContent();
 

@@ -1,4 +1,4 @@
-# M2 — French reading and language switching
+# M2–M3 — French reading and publication visibility
 
 English remains the canonical editorial source. Astro statically builds two
 locales (`en`, `fr`), keeping English URLs unprefixed. No runtime translation,
@@ -48,8 +48,33 @@ label dictionary keeps UI localization separate from the editorial skill.
 Current translated article pairs have self canonicals, reciprocal absolute
 English/French language alternates and the correct HTML language. Notice pages
 have no language alternates. The curated French home has no alternate claiming
-it represents the entire English homepage. Broader M3 discovery work remains
-separate; exclusion of unavailable content is part of M2 safety, not deferred.
+it represents the entire English homepage. M2 established these metadata and exclusion rules; M3 also closes the English
+draft visibility gaps described below.
+
+## M3 — public English story visibility
+
+`isPublishedStory` in `src/lib/stories.ts` is the shared English publication
+predicate. Homepage, RSS, article routes, related/pager candidates, category
+listings and daily edition story maps resolve only non-draft stories. The Pulse
+archive applies the same predicate internally when resolving counts and desks.
+The build-time translation adapter still loads all source records so it can
+validate relationships and withhold translations of draft sources.
+
+If an edition's featured story is a draft, the homepage uses its first visible
+story before falling back to other published stories. Recent-edition counts,
+Pulse archive counts and daily-edition sections reflect visible references,
+not raw manifest lengths; draft-only sections disappear. Existing edition URLs
+and independently authored edition titles/summaries remain available, including
+an edition with zero visible stories. Editors must review those authored fields
+when withdrawing a story; story filtering does not redact free-form prose.
+
+No draft story route is built, so sitemap membership and Pagefind cannot expose
+that route. A referenced/featured draft fixture also checks every generated HTML
+page, the RSS feed and sitemap for its title, description, image alt, tags,
+company, body and story URL. A browser regression searches the actual English
+Pagefind index for the same tokens and verifies published content remains
+searchable. The existing French visibility and language-alternate regressions
+remain enabled. All changes take effect after a successful static rebuild.
 
 ## Review and publishing boundary
 
@@ -68,11 +93,13 @@ the normal publishing decision.
 - `npm run translations:pages:test`: an isolated temporary checkout generates current,
   stale, withdrawn and draft-source fixtures. It checks actual HTML, reciprocal
   links, preserved code/URLs/dates/corrections, draft-route absence, sitemap and
-  the generated Pagefind language index. Temporary approvals never edit the pilot.
+  the generated Pagefind language index. M3 adds referenced/featured English drafts,
+  mixed and empty editions, all-HTML/RSS/sitemap checks and visible story counts.
+  Temporary approvals never edit the pilot.
 - `tests/e2e/french.spec.ts`: uses the same isolated fixture in a local static
   server; tests keyboard switching, the same story in both directions, French
   accessibility, 320/375/1280-pixel layouts, selection link resolution, missing
-  translations, safe notices and real search results. Existing English browser
+  translations, safe notices, English draft exclusion and real search results. Existing English browser
   smoke/accessibility checks remain enabled.
 
 A failed validation blocks merging through the existing PR workflow; it does

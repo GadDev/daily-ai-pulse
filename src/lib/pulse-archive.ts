@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { categories } from './categories';
+import { isPublishedStory } from './stories';
 
 type Story = CollectionEntry<'stories'>;
 type Edition = CollectionEntry<'pulse'>;
@@ -43,7 +44,7 @@ export const topDesks = (storyIds: string[], storiesById: Map<string, Story>, li
 };
 
 export const buildPulseArchive = (editions: Edition[], stories: Story[]): ArchiveMonth[] => {
-  const storiesById = new Map(stories.map((story) => [story.id, story]));
+  const storiesById = new Map(stories.filter(isPublishedStory).map((story) => [story.id, story]));
   const months = new Map<string, ArchiveMonth>();
 
   const newestFirst = [...editions].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -51,7 +52,9 @@ export const buildPulseArchive = (editions: Edition[], stories: Story[]): Archiv
   for (const edition of newestFirst) {
     const { date } = edition.data;
     const key = date.toISOString().slice(0, 7);
-    const storyIds = edition.data.sections.flatMap((section) => section.stories);
+    const storyIds = edition.data.sections
+      .flatMap((section) => section.stories)
+      .filter((id) => storiesById.has(id));
 
     let month = months.get(key);
     if (!month) {

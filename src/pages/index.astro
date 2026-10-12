@@ -4,12 +4,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BigStory from '../components/BigStory.astro';
 import StoryCard from '../components/StoryCard.astro';
 import { categories } from '../lib/categories';
-import { readingTime } from '../lib/stories';
+import { isPublishedStory, readingTime } from '../lib/stories';
 
 type Story = CollectionEntry<'stories'>;
 
 const base = import.meta.env.BASE_URL;
-const stories = (await getCollection('stories')).sort(
+const stories = (await getCollection('stories', isPublishedStory)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 const editions = (await getCollection('pulse')).sort(
@@ -27,6 +27,7 @@ const editionStories = latestEdition
 
 const bigStory =
   (latestEdition && storiesById.get(latestEdition.data.featured)) ??
+  editionStories[0] ??
   stories.find((story) => story.data.featured) ??
   stories[0];
 
@@ -123,7 +124,10 @@ const desk = (story: Story) => categories[story.data.category].title.toUpperCase
       </div>
       <ul class="edition-list">
         {recentEditions.map((edition) => {
-          const total = edition.data.sections.reduce((sum, s) => sum + s.stories.length, 0);
+          const total = edition.data.sections.reduce(
+            (sum, section) => sum + section.stories.filter((id) => storiesById.has(id)).length,
+            0,
+          );
           const featured = storiesById.get(edition.data.featured);
           const title =
             featured?.data.title ??

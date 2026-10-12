@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { isPublishedStory } from '../lib/stories';
 
 const escapeXml = (value: string) =>
   value
@@ -14,7 +15,7 @@ export async function GET({ site }: { site?: URL }) {
   }
 
   const base = import.meta.env.BASE_URL;
-  const stories = (await getCollection('stories')).sort(
+  const stories = (await getCollection('stories', isPublishedStory)).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
   );
   const feedUrl = new URL(`${base}rss.xml`, site).toString();

@@ -1,8 +1,14 @@
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { after, before, test } from 'node:test';
-import { buildFrenchFixture, fixtureId, pilotId } from './helpers/french-fixture.mjs';
+import {
+  buildFrenchFixture,
+  draftSentinels,
+  fixtureId,
+  pilotId,
+  visibilityEditions,
+} from './helpers/french-fixture.mjs';
 
 let fixture;
 const read = (path) => readFileSync(join(fixture.dist, path), 'utf8');
@@ -92,4 +98,64 @@ test('sitemap and actual Pagefind index exclude notice pages', () => {
   const index = JSON.parse(read('pagefind/pagefind-entry.json'));
   assert.equal(index.languages.fr.page_count, 2); // selection + one current story, no notices
   assert.ok(index.languages.en.page_count >= 139);
+});
+
+test('English drafts leak no metadata, body or story URL into any built public HTML, RSS or sitemap', () => {
+  const paths = readdirSync(fixture.dist, { recursive: true })
+    .map(String)
+    .filter(
+      (path) => path.endsWith('.html') || path === 'rss.xml' || /^sitemap.*\.xml$/.test(path),
+    );
+  const forbidden = [...draftSentinels, `/stories/${fixtureId('source-draft')}/`];
+  for (const path of paths) {
+    const output = read(path);
+    for (const text of forbidden) assert.ok(!output.includes(text), `${text} leaked into ${path}`);
+  }
+  assert.equal(
+    existsSync(join(fixture.dist, `stories/${fixtureId('source-draft')}/index.html`)),
+    false,
+  );
+  assert.ok(read('rss.xml').includes(`/stories/${fixtureId('current')}/`));
+});
+
+test('homepage falls back to a visible story from its edition and counts only visible references', () => {
+  const html = read('index.html');
+  const heroHref = html.match(/href="(\/stories\/[^"]+)"/)?.[1];
+  assert.equal(heroHref, `/stories/${fixtureId('current')}/`);
+  assert.match(html, /3 selected stories/);
+  const editions = [...html.matchAll(/<li class="edition"[\s\S]*?<\/li>/g)].map(([row]) => row);
+  for (const [kind, count] of [
+    ['recent', '1 story'],
+    ['empty', '0 stories'],
+  ]) {
+    const row = editions.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
+    assert.ok(row, `${kind} edition must remain listed`);
+    assert.ok(row.includes(`${count}</p>`));
+  }
+});
+
+test('daily editions omit draft-only sections and Pulse archive counts only published stories', () => {
+  const latest = read(`pulse/${visibilityEditions.latest}/index.html`);
+  assert.match(latest, /1 desks/);
+  assert.match(latest, /3 stories/);
+  assert.doesNotMatch(latest, /Draft only desk/);
+  const recent = read(`pulse/${visibilityEditions.recent}/index.html`);
+  assert.match(recent, /1 stories/);
+  const empty = read(`pulse/${visibilityEditions.empty}/index.html`);
+  assert.match(empty, /0 desks/);
+  assert.match(empty, /0 stories/);
+  const archive = read('pulse/index.html');
+  const rows = [...archive.matchAll(/<article class="edition-row"[\s\S]*?<\/article>/g)].map(
+    ([row]) => row,
+  );
+  for (const [kind, count] of [
+    ['latest', '3 stories'],
+    ['recent', '1 story'],
+    ['empty', '0 stories'],
+  ]) {
+    const row = rows.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
+    assert.ok(row, `${kind} edition must remain in the archive`);
+    assert.ok(row.includes(`${count}</p>`), `${kind} count must exclude drafts`);
+    assert.doesNotMatch(row, />Research<\/p>/);
+  }
 });

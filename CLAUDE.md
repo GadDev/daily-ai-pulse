@@ -18,7 +18,7 @@ npm run format:check
 npm run content:check      # node scripts/validate-content.mjs
 npm run translations:check # validate translation relationships and freshness
 npm run translations:test  # content and freshness regressions
-npm run translations:pages:test # isolated French page/visibility fixture build
+npm run translations:pages:test # isolated EN/FR publication visibility fixture build
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json    # validate one editorial batch against its ledger
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json  # validate review records + WebP assets for that batch
 npm run build              # astro check && astro build && pagefind --site dist
@@ -87,5 +87,6 @@ Ledgers are immutable once merged — a correction requires a separate correctio
 ### Principles worth preserving when editing
 
 - Content editions, platform features, and design changes should generally ship as independent PRs so failures are easy to isolate.
+- Public English story queries must use `isPublishedStory` from `src/lib/stories.ts`; edition counts/desks must resolve only those visible stories. French surfaces use the translation availability lookup.
 - Evidence level, signal level, and sources are schema fields, not informal conventions — don't add a story without them.
 - The browser link check (`test:e2e`) covers homepage internal links only, not every route or external citation — external source claims still need human verification.
