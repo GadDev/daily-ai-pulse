@@ -1,0 +1,6 @@
+interface:
+  display_name: "Daily AI Pulse — French Translation"
+  short_description: "Translate and review Pulse articles in natural French"
+  default_prompt: "Use $daily-ai-pulse-translate-fr to draft an unpublished French translation of the specified Daily AI Pulse article, review fidelity and natural phrasing separately, and flag unresolved issues."
+policy:
+  allow_implicit_invocation: false
