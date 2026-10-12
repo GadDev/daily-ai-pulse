@@ -1,0 +1,65 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-12-mcp-reference-servers-1-0",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-12-mcp-reference-servers-1-0",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A coordinated 1.0 hardening release for seven MCP reference servers",
+    "verified_context": [
+      "The Model Context Protocol project released seven reference servers together: four TypeScript packages at 1.0.0 and the fetch, Git, and time Python servers at 2026.10.10.",
+      "The filesystem release tightened roots synchronization, the memory server added serialized and cross-process file locking, and the fetch server now refuses private, loopback, and metadata addresses by default.",
+      "The release also added protocol-level characterization tests, per-file coverage gates, Windows CI, publishing controls, and a release audit."
+    ],
+    "editorial_idea": "A 1.0 label is earned by aligning several different tool modules behind one hardened set of boundaries and tests, while external enforcement still surrounds the system.",
+    "visual_metaphor": "Seven distinct physical tool modules seated into a heavy shared protocol chassis, with one terracotta locking spine and an outer containment plinth showing that the modules are coordinated but not self-securing.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": ["seven distinct modules", "one shared central chassis", "a restrained terracotta locking spine", "physical depth and materiality", "cover-safe central silhouette"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-25-api-gateway-mcp.webp", "public/images/stories/2026-09-26-mcp-secrets.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-12-mcp-reference-servers-1-0",
+    "story_source_sha256": "b952230076dccd2f58047adfe30cb0c0a4a7e2426a19266db18acb709cf52e1c",
+    "visual_brief_sha256": "3ebcfaace6ddbfa1cc54086d47eea4ed8e2b7680898ea8fc35871b1027065ca3",
+    "reference_inputs_sha256": "e0b210c132b136e8abfa9c2382c591f1fa533d61dc5cf902d74a7281c972de70",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "0e2fab49de2ca13a2020ce04999d65b2cf97fe2a212207665a90ad3357f34c70"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. Seven recognizable tool-like modules form a strong silhouette, but globe, database, graph, and clock motifs make the piece more literal and iconographic than the golden references.",
+    "B": "Selected. Seven distinct sculptural modules sit in one heavy test bench and are held by a single terracotta calibration spine inside a larger architectural boundary; the metaphor remains legible without text or diagram language.",
+    "C": "Constitution-compliant. Seven radial segments produce a clean shared-baseline metaphor and excellent negative space, but the repeated geometry communicates modular unity more strongly than release hardening or testing."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 92, "brand_fit": 88, "composition": 92, "crop_quality": 93, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 90.55},
+  "candidate_scores": {
+    "A": {"story_specific": 88, "brand_fit": 82, "composition": 86, "crop_quality": 90, "technical_meaning": 86, "cleanliness": 91, "golden_reference_fit": 81, "weighted_total": 85.65},
+    "B": {"story_specific": 92, "brand_fit": 88, "composition": 92, "crop_quality": 93, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 90.55},
+    "C": {"story_specific": 85, "brand_fit": 88, "composition": 90, "crop_quality": 90, "technical_meaning": 83, "cleanliness": 97, "golden_reference_fit": 86, "weighted_total": 87.55}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The 1600 x 900 center crop preserves all seven modules, the shared dark chassis, the full terracotta locking spine, and the enclosing pale architecture.",
+    "article_mobile": "A centered narrow cover crop keeps the terracotta sphere, adjacent modules, and calibration spine as the dominant relationship while the chassis remains legible.",
+    "thumbnail": "At 320px wide, the seven high-contrast module silhouettes and one terracotta horizontal spine remain distinct without relying on surface detail."
+  },
+  "golden_reference_comparison": "Direct comparison with the API gateway and MCP secrets references shows the same warm paper ground, near-black architectural mass, sparing terracotta accent, physical depth, quiet landscape, and strong negative space. Candidate B has more modular objects than the references but preserves their sculptural editorial presence rather than becoming a schematic.",
+  "final_asset": "/images/stories/2026-10-12-mcp-reference-servers-1-0.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 91532, "sha256": "b1d1de19bcb62545400b832e2c187c9fa7e21c27b2c7b10a44ae27078715b878", "git_blob_sha": "859c1869e2ee93f952e908f86c8f6e14e5ecfc8f", "riff_container_complete": true}
+}
