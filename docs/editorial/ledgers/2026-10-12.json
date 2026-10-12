@@ -1,0 +1,152 @@
+{
+  "editorial_date": "2026-10-12",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-12-mcp-reference-servers-1-0",
+      "decision": "selected",
+      "title": "MCP's reference servers reach 1.0 after a release-hardening pass",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["mcp", "tool-calling", "security", "permissions", "memory", "verification"],
+      "entities": ["Model Context Protocol", "MCP reference servers"],
+      "event_date": "2026-10-11",
+      "source_publication_date": "2026-10-11",
+      "summary": "The Model Context Protocol project released seven reference servers together: four TypeScript packages at 1.0.0 and the fetch, Git, and time Python servers at 2026.10.10.",
+      "what_changed": "The coordinated release follows a hardening pass covering protocol-level characterization tests, per-file coverage gates, Windows CI, release auditing, filesystem-root synchronization, concurrent memory writes, private-network fetch denial, stricter Git and time errors, and package-publishing controls.",
+      "why_it_matters": "Reference servers frequently become client test fixtures and application starting points; making boundary changes, mutation concurrency, denied network destinations, and failure behavior explicit reduces ambiguity at the tool layer without turning the examples into a complete production security boundary.",
+      "engineer_takeaway": "Pin and test the new versions against roots updates, concurrent state writes, denied egress, proxy behavior, non-UTF-8 repositories, and stricter error responses; keep filesystem, network, and credential enforcement outside model-facing tool descriptions.",
+      "prerequisites": ["Model Context Protocol", "capability-based security", "concurrency control"],
+      "primary_source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.0.0",
+      "sources": [
+        {
+          "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.0.0",
+          "canonical_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.0.0",
+          "publisher": "Model Context Protocol",
+          "source_type": "release-notes",
+          "role": "primary",
+          "publication_date": "2026-10-11"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The official repository release identifies the published packages, versions, merged fixes, test gates, and release-audit work at implementation level.",
+        "independent_validation": "No independent security audit or production reliability evaluation of the 1.0 packages was found.",
+        "claim_scope": "The story reports the release record and its engineering implications; it does not claim that the packages are production-secure or independently validated."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A coordinated 1.0 for widely used MCP reference servers establishes a clearer implementation baseline for client testing and tool-host deployments, with concrete changes at filesystem, network, state, and error boundaries."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 85
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["mcp", "security", "permissions"],
+        "existing_explainer_status": "Pulse covers MCP secrets and gateway controls but has no focused explainer on how protocol roots, host policy, operating-system isolation, and network egress combine into an MCP server security boundary.",
+        "suggested_explainer": "Where an MCP Server's Security Boundary Actually Lives"
+      },
+      "related_content": {
+        "previous_story_ids": ["2026-09-25-api-gateway-mcp", "2026-09-26-mcp-secrets"]
+      },
+      "follow_up_opportunities": [
+        {
+          "format": "playbook",
+          "depth": "practitioner",
+          "reason": "The release supplies a concrete regression matrix for roots changes, filesystem semantics, concurrent memory writes, network denials, proxies, repository encodings, and client error handling."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "modelcontextprotocol-reference-servers-v1-0-0",
+        "canonical_event": "The Model Context Protocol project publishes the reference-server repository v1.0.0 release on October 11, 2026.",
+        "previous_coverage": null,
+        "material_delta": "No merged ledger or published story covers the reference-server v1.0.0 release, its coordinated package set, or this hardening pass. Earlier MCP stories concern gateway and secret-management controls rather than the reference implementations."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "notes": "The official GitHub release was reverified, including its publication time, package versions, registry status, fixes, tests, and release audit. Security and production-reliability claims remain limited to documented changes."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-12-cloudflare-skills-over-mcp",
+      "decision": "watch",
+      "title": "Cloudflare begins serving agent skills through MCP",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["mcp", "skills", "agents", "security", "permissions"],
+      "entities": ["Cloudflare", "Model Context Protocol", "Skills over MCP"],
+      "event_date": "2026-10-10",
+      "summary": "Cloudflare's API MCP server exposes Cloudflare skills through the Skills over MCP extension using skills/list and skill:// resources.",
+      "evidence": {"level": "primary", "rationale": "Cloudflare documents the endpoint and discovery/read mechanism in its Agents changelog."},
+      "signal": {"level": "medium", "rationale": "Remote skill discovery could standardize capability distribution, but interoperability and trust behavior remain unproven."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 82},
+      "sources": [{"url": "https://developers.cloudflare.com/changelog/product/agents/", "canonical_url": "https://developers.cloudflare.com/changelog/product/agents/", "publisher": "Cloudflare", "source_type": "release-notes", "role": "primary", "publication_date": "2026-10-10"}],
+      "reason": "No new cross-client adoption, provenance, version-pinning, update-review, or permission evidence was found after the October 11 watch decision.",
+      "promote_when": ["Multiple independent MCP clients document interoperable Skills-over-MCP support.", "Stable provenance, versioning, update, and permission guidance or a first-hand deployment documents those controls."]
+    },
+    {
+      "id": "2026-10-12-google-gemini-agent-carry",
+      "decision": "watch",
+      "title": "Google's universal Gemini agent still lacks a precise public integration contract",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-runtime", "skills", "mcp", "permissions", "sandboxing", "cost"],
+      "entities": ["Google Cloud", "Gemini agent", "Gemini Enterprise"],
+      "event_date": "2026-10-08",
+      "summary": "Google describes one work agent spanning knowledge work, coding, skills, tools, and enterprise systems, but the engineering availability and integration boundaries remain underspecified.",
+      "evidence": {"level": "primary", "rationale": "The official launch establishes product direction but not a sufficiently precise public API and availability contract."},
+      "signal": {"level": "high", "rationale": "A governed universal enterprise agent could materially change platform architecture if the announced surface becomes concretely available."},
+      "editorial_score": {"significance": 5, "evidence": 3, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 84},
+      "sources": [{"url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026", "publisher": "Google Cloud", "source_type": "official", "role": "primary", "publication_date": "2026-10-08"}],
+      "reason": "No new API reference, rollout contract, or implementation evidence was found after the October 11 watch decision.",
+      "promote_when": ["Official API and release documentation define availability and supported integration paths.", "Implementation details or independent deployment evidence clarify memory, sandbox, gateway, routing, and spend-control behavior."]
+    },
+    {
+      "id": "2026-10-12-artex-bank-incident",
+      "decision": "watch",
+      "title": "ARTEX was reportedly withdrawn after alleged use against South Korean banks",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-security", "security", "safety"],
+      "entities": ["ARTEX", "CrowdStrike", "South Korean police"],
+      "event_date": "2026-10-09",
+      "summary": "Reuters reports that the ARTEX developer removed the public repository and ended releases after CrowdStrike linked the agent to a bank-targeting campaign.",
+      "evidence": {"level": "preliminary", "rationale": "Credible independent reporting describes the takedown and attribution, but the repository is unavailable and no primary incident report was found."},
+      "signal": {"level": "high", "rationale": "Verified misuse of a general agent framework against financial institutions would materially inform tool-governance and release-policy debates."},
+      "editorial_score": {"significance": 5, "evidence": 2, "novelty": 4, "relevance": 4, "durability": 4, "weighted_total": 76},
+      "sources": [{"url": "https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09/", "canonical_url": "https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09/", "publisher": "Reuters", "source_type": "reporting", "role": "independent", "publication_date": "2026-10-09"}],
+      "reason": "The most consequential technical and attribution claims cannot be checked against a primary incident report, preserved repository notice, indicators, or law-enforcement statement.",
+      "promote_when": ["CrowdStrike or another named investigator publishes technical incident details and indicators.", "South Korean authorities or the developer publishes a verifiable primary record of the incident and withdrawal."]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-12-gemini-api-october-8-deprecations", "decision": "rejected", "reason": "The October 8 migration notice predates the current research window and no October 11–12 technical delta was published; retain as an operational deadline rather than a new daily story.", "previous_story_id": null},
+    {"id": "2026-10-12-github-copilot-weekly-repeat", "decision": "rejected", "reason": "The October 10 weekly rollup was already evaluated and rejected on October 11 because it repeats constituent releases covered individually.", "previous_story_id": "2026-10-08-claude-haiku-5-5"},
+    {"id": "2026-10-12-claude-agent-sdk-maintenance", "decision": "rejected", "reason": "The October 9 package updates are maintenance releases without a documented standalone capability or implementation delta that clears the significance gate.", "previous_story_id": null},
+    {"id": "2026-10-12-claude-dynamic-workflows-repeat", "decision": "rejected", "reason": "No material delta beyond the dynamic-workflow beta published and covered on October 11.", "previous_story_id": "2026-10-11-claude-dynamic-workflows"}
+  ],
+  "publication": {
+    "story_ids": ["2026-10-12-mcp-reference-servers-1-0"],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-12-mcp-reference-servers-1-0"
+  },
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "practitioner", "title": "Where an MCP Server's Security Boundary Actually Lives", "reason": "The 1.0 hardening makes the interaction among protocol roots, host authorization, operating-system isolation, and network egress a concrete reusable learning gap."},
+    {"format": "playbook", "depth": "practitioner", "title": "Regression-Test an MCP Server Upgrade", "reason": "The coordinated release provides a practical matrix for testing roots changes, concurrent state, denied network access, proxies, repository encodings, and client error handling."}
+  ]
+}
