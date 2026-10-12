@@ -33,6 +33,9 @@ jobs:
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
+      - name: Translation content and freshness regressions
+        run: npm run translations:test
+
       - name: Illustration generation identity regressions
         run: node --test tests/illustration-generation-identity.test.mjs
 

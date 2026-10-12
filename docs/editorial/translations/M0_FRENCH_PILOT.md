@@ -1,12 +1,21 @@
 # M0 French translation pilot
 
-Status: **Selected; translation trial not run**. Date: 12 October 2026.
+Status: **Trial run; French wording accepted by the user; publication review pending**.
+Date: 12 October 2026.
 
 ## Scope
 
 Draft and validate the reusable French translation skill contract, then select
-one short existing article for a later manual translation trial. This branch
-adds no live content, routing, content schema, scheduler or illustration changes.
+one short existing article for a manual translation trial. M1 subsequently adds
+the separate translation collection, fingerprints and freshness validation.
+It adds no French routing, scheduler or illustration changes.
+
+The trial preserved six body paragraphs, both link destinations, identifiers
+and date/time values. The model performed fidelity and French editing passes;
+the user accepted the wording in the conversation on 12 October 2026.
+This is not a claim that a human independently verified every source claim.
+The resulting copy is stored as an unpublished `draft` seed under
+`src/content/story-translations/fr/2026-10-04-claude-code-2-1-289-policy-precedence.md`.
 
 Skill: [.agents/skills/daily-ai-pulse-translate-fr/SKILL.md](../../../.agents/skills/daily-ai-pulse-translate-fr/SKILL.md).
 
@@ -69,19 +78,21 @@ unresolved issues. Do not commit, publish, change the source or orchestrator,
 regenerate illustrations or claim human approval.
 ```
 
-This example is a future trial request; it has not been executed by this branch.
+This request describes the completed trial and can be reused for a deliberate
+rerun against the pinned source. Do not overwrite human edits on a retry.
 
 ## Trial acceptance and review record
 
 - [x] Select an existing short article and verify its source identity.
 - [x] Draft the skill contract and shared glossary.
-- [ ] Run the translation trial and separate review passes.
+- [x] Run the translation trial and separate review passes.
 - [ ] Compare every French paragraph against English with a fluent human.
-- [ ] Preserve all identifiers, links, numeric values and retrospective caveats.
+- [x] Preserve all identifiers, links, numeric values and retrospective caveats.
 - [ ] Resolve ambiguous terminology and record the actual review edits.
 - [ ] Record hands-on invocation/review minutes and unresolved quality issues.
 - [ ] Decide whether to revise the skill or proceed to M1.
 
-The model's self-review is not independent verification. Human reviewer,
-quality assessment and trial timings remain unrecorded until the trial runs.
+The model's self-review is not independent verification. A full human bilingual
+comparison and hands-on trial timings have not been recorded. User acceptance
+of wording does not fabricate publication approval metadata.
 Do not mark M0 complete solely because the skill's structural validator passes.

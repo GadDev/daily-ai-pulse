@@ -5,8 +5,9 @@ description: Draft or revise an unpublished French translation of an existing Da
 
 # Daily AI Pulse — Translate into French
 
-Treat this as a manual M0 skill. Produce candidates for human review; do not
-claim that the current Astro schema accepts translation metadata.
+Invoke manually; orchestration is not enabled. Produce unpublished candidates
+for human review. The M1 collection accepts translation metadata but creates
+no French routes by itself.
 
 ## Read the inputs
 
@@ -98,7 +99,9 @@ trial, default to:
 
 `docs/editorial/translations/pilots/<story-id>.fr.md`
 
-Keep it outside `src/content/` so it cannot become a live article before M1.
+Keep trial candidates outside `src/content/`. Moving one into the separate
+translation collection is an explicitly authorized integration task, not part
+of translation execution.
 On an existing file, inspect and preserve human edits; propose changes rather
 than overwriting them without an explicit revision request.
 
