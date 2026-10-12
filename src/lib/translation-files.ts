@@ -1,5 +1,5 @@
 import process from 'node:process';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import {
   createStorySnapshot,
@@ -20,7 +20,9 @@ export function readTranslationFiles(root = process.cwd()) {
         return [id, createStorySnapshot(id, readFileSync(join(sourceDir, file)))] as const;
       }),
   );
-  const translations = readdirSync(translationDir, { recursive: true })
+  const translations = (
+    existsSync(translationDir) ? readdirSync(translationDir, { recursive: true }) : []
+  )
     .map(String)
     .filter((file) => file.endsWith('.md'))
     .map((file) => ({

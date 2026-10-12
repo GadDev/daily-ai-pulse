@@ -7,6 +7,7 @@ import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import test from 'node:test';
 import { stringify } from 'yaml';
+import { readTranslationFiles } from '../src/lib/translation-files.ts';
 import {
   createStorySnapshot,
   createTranslationLookup,
@@ -226,5 +227,21 @@ test('CLI rejects malformed files, unsupported MDX, unknown sources and duplicat
   ]) {
     const result = validate(files);
     assert.equal(result.status, 1, result.output);
+  }
+});
+
+test('build adapter accepts a missing translation directory without hiding English sources', () => {
+  const root = mkdtempSync(join(tmpdir(), 'pulse-empty-translations-'));
+  try {
+    const sourceDir = join(root, 'src/content/stories');
+    mkdirSync(sourceDir, { recursive: true });
+    writeFileSync(join(sourceDir, `${id}.md`), sourceText);
+    const { sources, translations, lookup } = readTranslationFiles(root);
+    assert.equal(sources.size, 1);
+    assert.deepEqual(translations, []);
+    assert.equal(lookup(id).state, 'absent');
+    assert.equal(lookup(id).available, false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
 });
