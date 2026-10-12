@@ -103,12 +103,20 @@ test('missing translations are explicit and unavailable bodies stay out of searc
     await expect(page.locator('main')).not.toContainText('MarqueurMasqueUnique');
   }
   await page.goto(`${origin}/fr/stories/${fixtureId('current')}/`);
-  const counts = await page.evaluate(async () => {
+  const search = await page.evaluate(async () => {
     const moduleUrl = '/pagefind/pagefind.js';
     const pagefind = await import(/* @vite-ignore */ moduleUrl);
     const current = await pagefind.search('MarqueurCourantUnique');
-    const hidden = await pagefind.search('MarqueurMasqueUnique');
-    return [current.results.length, hidden.results.length];
+    // Pagefind can match shared camel-case subwords. Test both result URLs and a distinct token.
+    const sharedTerm = await pagefind.search('MarqueurMasqueUnique');
+    const hidden = await pagefind.search('zzobsoletebodyblockedzz');
+    const urls = await Promise.all(
+      sharedTerm.results.map(
+        async (result: { data: () => Promise<{ url: string }> }) => (await result.data()).url,
+      ),
+    );
+    return { counts: [current.results.length, hidden.results.length], urls };
   });
-  expect(counts).toEqual([1, 0]);
+  expect(search.counts).toEqual([1, 0]);
+  for (const url of search.urls) expect(url).toContain(`/fr/stories/${fixtureId('current')}/`);
 });

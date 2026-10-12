@@ -72,7 +72,10 @@ test('stale and withdrawn URLs contain only a safe notice; English exposes no al
     assert.match(html, /Traduction française indisponible/);
     assert.match(html, /name="robots" content="noindex, follow"/);
     assert.match(html, /<body data-pagefind-ignore="all"/);
-    assert.doesNotMatch(html, /MarqueurMasqueUnique|<pre|Correction française vérifiée/);
+    assert.doesNotMatch(
+      html,
+      /MarqueurMasqueUnique|zzobsoletebodyblockedzz|<pre|Correction française vérifiée/,
+    );
     assert.doesNotMatch(html, /<link[^>]+hreflang=/);
     assert.match(html, new RegExp(`href="/stories/${fixtureId(state)}/"`));
     assert.match(english(state), /No current French translation/);

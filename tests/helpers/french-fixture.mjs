@@ -39,7 +39,7 @@ export function buildFrenchFixture() {
         imageAlt: 'Illustration française de la hiérarchie des règles',
         corrections: [{ date: '2026-10-05', note: 'Correction française vérifiée.' }],
       };
-      const body = `## Vérifier le rendu\n\nMarqueur${state === 'current' ? 'Courant' : 'Masque'}Unique : 2.1.289 reste identique. [Source technique](https://example.com/reference).\n\n\`\`\`js\nconst version = "2.1.289";\n\`\`\`\n`;
+      const body = `## Vérifier le rendu\n\nMarqueur${state === 'current' ? 'Courant' : 'Masque'}Unique : ${state === 'current' ? 'zzcurrentvisiblezz' : 'zzobsoletebodyblockedzz'} ; 2.1.289 reste identique. [Source technique](https://example.com/reference).\n\n\`\`\`js\nconst version = "2.1.289";\n\`\`\`\n`;
       writeFileSync(
         join(root, `src/content/story-translations/fr/${id}.md`),
         `---\n${stringify(metadata)}---\n\n${body}`,
