@@ -1,0 +1,94 @@
+name: Firebase Preview Cleanup
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    name: Resolve preview cleanup
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      eligible: ${{ steps.cleanup.outputs.eligible }}
+      pr_number: ${{ steps.cleanup.outputs.pr_number }}
+      channel: ${{ steps.cleanup.outputs.channel }}
+    steps:
+      - name: Checkout trusted cleanup code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          package-manager-cache: false
+      - name: Validate close event and derive channel
+        id: cleanup
+        run: node scripts/preview-cleanup.mjs
+
+  cleanup:
+    name: Delete closed PR preview
+    needs: resolve
+    if: needs.resolve.outputs.eligible == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: firebase-preview-pr-${{ needs.resolve.outputs.pr_number }}
+      cancel-in-progress: false
+    environment: preview
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+      FIREBASE_SITE_ID: ${{ vars.PREVIEW_FIREBASE_SITE_ID }}
+      FIREBASE_WIF_PROVIDER: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+      PREVIEW_CHANNEL: ${{ needs.resolve.outputs.channel }}
+    steps:
+      - name: Install pinned Firebase CLI
+        shell: bash
+        run: |
+          npm install \
+            --prefix "$RUNNER_TEMP/preview-cli" \
+            --no-audit \
+            --no-fund \
+            firebase-tools@15.30.2
+      - name: Authenticate using preview WIF
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+          service_account: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+      - name: Delete generated preview channel
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$PREVIEW_CHANNEL" =~ ^pr-[1-9][0-9]*$ ]]; then
+            echo "::error::Only generated PR preview channels are allowed."
+            exit 1
+          fi
+
+          "$RUNNER_TEMP/preview-cli/node_modules/.bin/firebase" \
+            hosting:channel:delete "$PREVIEW_CHANNEL" \
+            --site "$FIREBASE_SITE_ID" \
+            --project "$FIREBASE_PROJECT_ID" \
+            --force
+
+      - name: Write cleanup summary
+        shell: bash
+        run: |
+          printf '%s\n' \
+            '## Preview removed' \
+            '' \
+            "- Channel: $PREVIEW_CHANNEL" \
+            "- Pull request: #${{ needs.resolve.outputs.pr_number }}" \
+            '- Seven-day expiry remains the fallback for cleanup failures.' \
+            >> "$GITHUB_STEP_SUMMARY"
