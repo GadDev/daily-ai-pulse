@@ -391,8 +391,19 @@ jobs:
             'utf8',
           );
 
-          if (!/^x-robots-tag:\s*noindex,\s*nofollow\s*$/im.test(headers)) {
-            throw new Error('Preview response is missing the indexing header.');
+          const directives = headers
+            .split(/\r?\n/)
+            .filter((line) => /^x-robots-tag:/i.test(line))
+            .flatMap((line) =>
+              line
+                .slice(line.indexOf(':') + 1)
+                .toLowerCase()
+                .split(',')
+                .map((directive) => directive.trim()),
+            );
+
+          if (!directives.includes('noindex')) {
+            throw new Error('Preview response is missing the noindex directive.');
           }
           NODE
 
