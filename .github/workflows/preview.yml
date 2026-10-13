@@ -1,0 +1,429 @@
+name: Manual Firebase Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Open pull request number to preview
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: firebase-preview-pr-${{ inputs.pr_number }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validate PR and build preview
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    outputs:
+      head_sha: ${{ steps.pr.outputs.head_sha }}
+
+    steps:
+      - name: Validate preview request
+        id: pr
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::PR number must be a positive integer."
+            exit 1
+          fi
+
+          curl --fail --silent --show-error \
+            --header "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" \
+            --output "$RUNNER_TEMP/preview-pr.json"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+
+          const pr = JSON.parse(
+            readFileSync(`${process.env.RUNNER_TEMP}/preview-pr.json`, 'utf8'),
+          );
+
+          if (
+            pr.state !== 'open' ||
+            pr.base.ref !== 'main' ||
+            pr.base.repo.full_name !== process.env.GITHUB_REPOSITORY ||
+            pr.head.repo?.full_name !== process.env.GITHUB_REPOSITORY
+          ) {
+            throw new Error(
+              'Preview requires an open, same-repository PR targeting main.',
+            );
+          }
+
+          if (!/^[0-9a-f]{40}$/.test(pr.head.sha)) {
+            throw new Error('Invalid PR commit SHA.');
+          }
+
+          appendFileSync(
+            process.env.GITHUB_OUTPUT,
+            `head_sha=${pr.head.sha}\n`,
+          );
+          NODE
+
+      - name: Checkout selected PR commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.pr.outputs.head_sha }}
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate and build
+        run: npm run verify
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser smoke and accessibility checks
+        run: npm run test:e2e
+
+      - name: Upload static preview artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    name: Deploy approved preview
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    environment:
+      name: preview
+      url: ${{ steps.publish.outputs.url }}
+
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+      FIREBASE_SITE_ID: ${{ vars.PREVIEW_FIREBASE_SITE_ID }}
+      FIREBASE_WIF_PROVIDER: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+
+    steps:
+      - name: Checkout trusted deployment configuration
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+
+      - name: Validate deployment configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : "${FIREBASE_PROJECT_ID:?Missing preview project ID}"
+          : "${FIREBASE_SITE_ID:?Missing preview site ID}"
+          : "${FIREBASE_WIF_PROVIDER:?Missing preview WIF provider}"
+          : "${FIREBASE_SERVICE_ACCOUNT:?Missing preview service account}"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+
+          const config = JSON.parse(
+            readFileSync('firebase.preview.json', 'utf8'),
+          );
+
+          const hosting = config.hosting;
+          const allowedKeys = new Set([
+            'site',
+            'public',
+            'ignore',
+            'cleanUrls',
+            'trailingSlash',
+            'headers',
+          ]);
+
+          if (
+            Object.keys(config).length !== 1 ||
+            !hosting ||
+            Array.isArray(hosting) ||
+            typeof hosting !== 'object'
+          ) {
+            throw new Error('Expected a single static Hosting configuration.');
+          }
+
+          if (Object.keys(hosting).some((key) => !allowedKeys.has(key))) {
+            throw new Error('Unexpected Hosting option, hook, or backend rewrite.');
+          }
+
+          if (
+            hosting.site !== process.env.FIREBASE_SITE_ID ||
+            hosting.public !== 'dist'
+          ) {
+            throw new Error('Preview site or artifact directory does not match.');
+          }
+
+          const noindex = hosting.headers?.some(
+            (rule) =>
+              rule.source === '/**' &&
+              rule.headers?.some(
+                (header) =>
+                  header.key.toLowerCase() === 'x-robots-tag' &&
+                  header.value === 'noindex, nofollow',
+              ),
+          );
+
+          if (!noindex) {
+            throw new Error('Preview indexing protection is missing.');
+          }
+          NODE
+
+      - name: Download static preview artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: preview-dist
+          path: dist/
+          digest-mismatch: error
+
+      - name: Validate static artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          node --input-type=module <<'NODE'
+          import { lstatSync, readdirSync } from 'node:fs';
+          import { join } from 'node:path';
+
+          function inspect(path) {
+            const stat = lstatSync(path);
+
+            if (stat.isSymbolicLink()) {
+              throw new Error('Artifact must not contain symbolic links.');
+            }
+
+            if (stat.isDirectory()) {
+              for (const entry of readdirSync(path)) {
+                inspect(join(path, entry));
+              }
+            } else if (!stat.isFile()) {
+              throw new Error('Artifact contains an unsupported file type.');
+            }
+          }
+
+          inspect('dist');
+
+          for (const path of [
+            'dist/index.html',
+            'dist/rss.xml',
+            'dist/robots.txt',
+            'dist/sitemap-index.xml',
+            'dist/pagefind/pagefind.js',
+          ]) {
+            if (!lstatSync(path).isFile()) {
+              throw new Error(`Missing required artifact: ${path}`);
+            }
+          }
+
+          console.log('Static artifact checks passed.');
+          NODE
+
+      - name: Install pinned Firebase CLI
+        shell: bash
+        run: |
+          npm install \
+            --prefix "$RUNNER_TEMP/preview-cli" \
+            --no-audit \
+            --no-fund \
+            firebase-tools@15.30.2
+
+      - name: Confirm PR is still open and unchanged
+        id: request
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          EXPECTED_HEAD_SHA: ${{ needs.build.outputs.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Invalid PR number."
+            exit 1
+          fi
+
+          curl --fail --silent --show-error \
+            --header "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" \
+            --output "$RUNNER_TEMP/preview-pr-current.json"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+
+          const pr = JSON.parse(
+            readFileSync(
+              `${process.env.RUNNER_TEMP}/preview-pr-current.json`,
+              'utf8',
+            ),
+          );
+
+          if (
+            pr.state !== 'open' ||
+            pr.base.ref !== 'main' ||
+            pr.base.repo.full_name !== process.env.GITHUB_REPOSITORY ||
+            pr.head.repo?.full_name !== process.env.GITHUB_REPOSITORY ||
+            pr.head.sha !== process.env.EXPECTED_HEAD_SHA
+          ) {
+            throw new Error(
+              'PR was closed, changed, or is no longer eligible. Start a new run.',
+            );
+          }
+
+          appendFileSync(
+            process.env.GITHUB_OUTPUT,
+            `channel=pr-${process.env.PR_NUMBER}\n`,
+          );
+          NODE
+
+      - name: Authenticate using preview WIF
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+          service_account: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+
+      - name: Deploy temporary preview channel
+        id: publish
+        env:
+          PREVIEW_CHANNEL: ${{ steps.request.outputs.channel }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$PREVIEW_CHANNEL" =~ ^pr-[1-9][0-9]*$ ]]; then
+            echo "::error::Only generated PR preview channels are allowed."
+            exit 1
+          fi
+
+          "$RUNNER_TEMP/preview-cli/node_modules/.bin/firebase" \
+            hosting:channel:deploy "$PREVIEW_CHANNEL" \
+            --project="$FIREBASE_PROJECT_ID" \
+            --config=firebase.preview.json \
+            --expires=7d \
+            --no-authorized-domains \
+            --non-interactive \
+            --json \
+            | tee "$RUNNER_TEMP/preview-deploy.json"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+
+          const response = JSON.parse(
+            readFileSync(
+              `${process.env.RUNNER_TEMP}/preview-deploy.json`,
+              'utf8',
+            ),
+          );
+
+          const deployment = response.result?.[process.env.FIREBASE_SITE_ID];
+
+          if (response.status !== 'success' || !deployment?.url) {
+            throw new Error('Firebase did not return a successful preview URL.');
+          }
+
+          const url = new URL(deployment.url);
+          const prefix =
+            `${process.env.FIREBASE_SITE_ID}--${process.env.PREVIEW_CHANNEL}-`;
+
+          if (
+            url.protocol !== 'https:' ||
+            !url.hostname.startsWith(prefix) ||
+            !url.hostname.endsWith('.web.app') ||
+            url.username ||
+            url.password
+          ) {
+            throw new Error('Unexpected preview URL.');
+          }
+
+          appendFileSync(
+            process.env.GITHUB_OUTPUT,
+            `url=${url.origin}\n`,
+          );
+          NODE
+
+      - name: Verify preview endpoints and indexing header
+        env:
+          PREVIEW_URL: ${{ steps.publish.outputs.url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error \
+            --retry 5 --retry-delay 2 --retry-all-errors \
+            --dump-header "$RUNNER_TEMP/preview-headers.txt" \
+            --output /dev/null \
+            "$PREVIEW_URL/"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+
+          const headers = readFileSync(
+            `${process.env.RUNNER_TEMP}/preview-headers.txt`,
+            'utf8',
+          );
+
+          if (!/^x-robots-tag:\s*noindex,\s*nofollow\s*$/im.test(headers)) {
+            throw new Error('Preview response is missing the indexing header.');
+          }
+          NODE
+
+          for path in /robots.txt /rss.xml /sitemap-index.xml; do
+            curl --fail --silent --show-error \
+              --retry 5 --retry-delay 2 --retry-all-errors \
+              --output /dev/null \
+              "${PREVIEW_URL}${path}"
+          done
+
+      - name: Write preview summary
+        env:
+          PREVIEW_URL: ${{ steps.publish.outputs.url }}
+          PREVIEW_CHANNEL: ${{ steps.request.outputs.channel }}
+          PREVIEW_HEAD_SHA: ${{ needs.build.outputs.head_sha }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+
+          appendFileSync(
+            process.env.GITHUB_STEP_SUMMARY,
+            [
+              '## Preview deployed',
+              '',
+              `- URL: ${process.env.PREVIEW_URL}`,
+              `- Channel: ${process.env.PREVIEW_CHANNEL}`,
+              `- Tested commit: ${process.env.PREVIEW_HEAD_SHA}`,
+              '- Expiry: 7 days from deployment',
+              '- HTTP endpoints and indexing header: passed',
+              '',
+            ].join('\n'),
+          );
+          NODE
