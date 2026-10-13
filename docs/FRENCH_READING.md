@@ -108,3 +108,11 @@ translation stale without blocking that correction. Withdrawal is an editorial
 status change followed by a successful rebuild. Reverting this feature's code
 commit removes the French surfaces while retaining the M1 content/freshness
 foundation. There is no automatic publishing or rollback service.
+
+## M4 — technical acceptance
+
+The technical acceptance checklist is closed for the infrastructure scope.
+See [M4_ACCEPTANCE.md](editorial/translations/M4_ACCEPTANCE.md) for the pinned
+head/base/CI merge revision, criterion-to-test matrix, passing results, direct
+English source/asset tree comparisons and limits of automated validation.
+Human French publication review remains separate; the real pilot stays draft.
