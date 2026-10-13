@@ -1,0 +1,10 @@
+title: Daily AI Pulse Preview Hosting Deployer
+description: Hosting deployment permissions for the trusted preview workflow.
+stage: GA
+includedPermissions:
+  - firebase.projects.get
+  - firebasehosting.sites.get
+  - firebasehosting.sites.list
+  - firebasehosting.sites.update
+  - resourcemanager.projects.get
+  - serviceusage.services.use
