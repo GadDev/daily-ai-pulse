@@ -137,3 +137,96 @@ The remaining steps are:
 
 Retain the manual workflow as a fallback. M3 adds close-event cleanup; seven-day
 channel expiry remains the fallback.
+
+### M2 — trusted automatic preview consumer
+
+The automatic workflow is `.github/workflows/automatic-preview.yml`. It listens
+for completed `CI` runs through `workflow_run` and only considers successful
+pull-request runs. GitHub loads the consumer from the default branch; a rollout
+PR cannot activate this workflow before it is merged.
+
+A credential-free resolution job reads GitHub's API and validates:
+
+- Numeric repository/owner identity and the expected CI workflow ID/path.
+- A completed, successful, current run attempt with one associated PR.
+- An open, same-repository PR targeting `main`, with the current head and base.
+- The current synthetic merge commit and its exact base/head parents.
+- Successful `Verify project` and `Browser smoke and accessibility` jobs.
+- Exactly one unexpired artifact named for the originating run and attempt,
+  including its repository, revision, ID, and SHA-256 digest.
+
+The deployment job shares the `firebase-preview-pr-<number>` concurrency group
+with manual previews. It downloads the exact artifact ID from the originating
+run and treats a digest mismatch as an error. Trusted code from the consumer's
+`main` commit validates the downloaded provenance against GitHub records,
+rejects symlinks and unexpected root entries, and requires the static outputs.
+It never executes artifact code or installs PR dependencies.
+
+The deployer derives its Hosting configuration from trusted
+`firebase.preview.json`, pointing `public` at the validated artifact directory.
+It rejects hooks, backend rewrites, unexpected sites/projects, and missing
+indexing protection. The pinned CLI is installed before authentication.
+Eligibility and provenance are checked after an Environment approval wait and
+again immediately before publishing. Only `pr-<number>` channels are accepted.
+The summary records the tested merge SHA, URL, channel, and seven-day lifetime.
+
+An artifact containing an older base is deliberately skipped after `main`
+changes. Update the PR branch with current `main` to generate fresh CI and a
+new artifact; rerunning an old CI run retains its original tested revision.
+Runs predating the artifact producer are skipped when no eligible artifact
+exists. Re-running a failed automatic consumer is safe only while its source
+run attempt, PR revision, and artifact remain current.
+
+Environment protection rules still apply. If `preview` requires maintainer
+approval, automatic routing pauses there. Retain that gate for the first pilot;
+remove it later only if unattended same-repository previews are intended.
+
+#### Preview WIF update
+
+The manual-only provider must explicitly admit the automatic workflow/event
+pair. Run this once from an authenticated administrator terminal before merging
+the automatic consumer. It preserves the existing manual path and restricts
+both paths to the numeric owner/repository IDs, `main`, and `preview`.
+
+```bash
+gcloud iam workload-identity-pools providers update-oidc github-manual-preview \
+  --project=daily-ai-pulse-db253 \
+  --location=global \
+  --workload-identity-pool=daily-ai-pulse-preview \
+  --attribute-condition="assertion.repository_owner_id == '26112006' &&
+    assertion.repository_id == '1392414120' &&
+    assertion.ref == 'refs/heads/main' &&
+    assertion.environment == 'preview' &&
+    ((assertion.event_name == 'workflow_dispatch' &&
+      assertion.workflow_ref == 'GadDev/daily-ai-pulse/.github/workflows/preview.yml@refs/heads/main') ||
+     (assertion.event_name == 'workflow_run' &&
+      assertion.workflow_ref == 'GadDev/daily-ai-pulse/.github/workflows/automatic-preview.yml@refs/heads/main'))"
+```
+
+Keep the current attribute mappings and preview service-account bindings.
+No production provider or production service-account binding changes are needed.
+The provider retains its existing name despite serving two preview entry points.
+
+#### Step 3 — acceptance exercise
+
+After the consumer PR is merged and WIF is updated:
+
+1. Update an open same-repository pilot branch with current `main`; wait for
+   fresh CI. Confirm the automatic consumer downloads that run's exact artifact,
+   deploys the tested merge commit, and reports its preview URL.
+2. Update the pilot again; confirm the same `pr-<number>` channel is replaced.
+3. Make CI fail and confirm no preview deployment starts for that run.
+4. Check skipped results for fork, closed PR, missing artifact, stale head/base,
+   and superseded run-attempt cases. Unit regressions cover these conditions;
+   live negative-path exercises remain a rollout acceptance requirement.
+5. Confirm manual preview fallback still works and production is not targeted.
+
+M2 implementation is distinct from live acceptance. Do not mark the milestone
+accepted until this exercise has evidence. Close-event cleanup belongs to M3;
+expiry remains the fallback. A PR can still close in the narrow interval after
+the final eligibility check and before Firebase finishes publishing.
+
+Rollback: disable `Automatic Firebase Preview` and restore the manual-only WIF
+condition from M1. Keep the artifact producer and manual workflow if useful.
+Firebase Hosting permissions remain site-level; workflow guards do not provide
+an IAM-enforced guarantee that the identity cannot affect the live channel.

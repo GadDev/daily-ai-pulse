@@ -42,6 +42,9 @@ jobs:
       - name: Illustration validator regressions
         run: node --test tests/illustration-validator.test.mjs
 
+      - name: Automatic preview routing regressions
+        run: node --test tests/automatic-preview.test.mjs
+
       - name: Package static preview artifact
         if: >-
           github.event.pull_request.base.ref == 'main' &&
