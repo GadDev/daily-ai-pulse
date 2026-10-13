@@ -1,0 +1,161 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-13-copilot-telemetry-capture-controls",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-13-copilot-telemetry-capture-controls",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "GitHub separates identity attribution from sensitive content capture in Copilot OpenTelemetry",
+    "verified_context": [
+      "GitHub added opt-in user and machine attribution to Copilot OpenTelemetry: the authenticated GitHub login, local operating-system account, and machine name.",
+      "Identity capture remains independent from prompt and response content.",
+      "Administrators can independently control capture of prompts, responses, tool arguments, tool output, and policy details, and every class is off by default."
+    ],
+    "editorial_idea": "A useful agent trace can pass through a controlled observation path while identity attribution and sensitive content remain governed by separate physical shutters.",
+    "visual_metaphor": "A single trace travels through two distinct architectural iris gates: one exposes a restrained terracotta identity marker while the other keeps a dense paper-and-ink content core sealed, making the separation of attribution and content control visible without turning the image into a diagram.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "one restrained trace or trajectory",
+      "two physically separate control shutters",
+      "one terracotta attribution element",
+      "one sealed content mass",
+      "a strong center-safe crop"
+    ],
+    "must_not_show": [
+      "text",
+      "letters",
+      "numbers",
+      "logos",
+      "watermarks",
+      "UI chrome",
+      "screenshots",
+      "dashboards",
+      "terminal windows",
+      "literal robots",
+      "humanoid assistants",
+      "mascots",
+      "glowing brains",
+      "stock padlocks",
+      "floating code",
+      "marketing-poster typography",
+      "busy infographic panels",
+      "decorative icon grids"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-23-copilot-opentelemetry.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-13-copilot-telemetry-capture-controls",
+    "story_source_sha256": "c3bde4ab029846f99fd9f40d2f7b9f451850bd49957bc3d0d9d77607030e1dbc",
+    "visual_brief_sha256": "8e72c8733aa1ee8fa9a07f038f01488690be41afa1143bf88c4c222c6c47b2e2",
+    "reference_inputs_sha256": "ceb71e30b155ffcf57461a91da902c24241c0bfcefec89d3dbbc5126c3bf7c4d",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "b6f2bf60fef1e3b13c8fa7c36ed5020ac07a29c57891778612cf3d861e129262"
+  },
+  "candidate_notes": {
+    "A": "Selected. The thin trace passes through a compact terracotta-centered iris and a clearly separate stone shutter before reaching a sealed paper content mass; the quiet architectural landscape, material restraint, and negative space closely match both production references.",
+    "B": "Constitution-compliant. Separate levers make independent controls legible and the content mass is strong, but the bright trace and pointed output read closer to a schematic signal device than the quieter golden references.",
+    "C": "Constitution-compliant. The top-down canal and separated gates communicate the control sequence, but the tighter crop and luminous trace provide less negative space and a weaker responsive-cover silhouette than candidate A."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 89,
+    "composition": 92,
+    "crop_quality": 94,
+    "technical_meaning": 94,
+    "cleanliness": 96,
+    "golden_reference_fit": 88,
+    "weighted_total": 91.85
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 94,
+      "brand_fit": 89,
+      "composition": 92,
+      "crop_quality": 94,
+      "technical_meaning": 94,
+      "cleanliness": 96,
+      "golden_reference_fit": 88,
+      "weighted_total": 91.85
+    },
+    "B": {
+      "story_specific": 91,
+      "brand_fit": 88,
+      "composition": 90,
+      "crop_quality": 90,
+      "technical_meaning": 91,
+      "cleanliness": 94,
+      "golden_reference_fit": 86,
+      "weighted_total": 89.4
+    },
+    "C": {
+      "story_specific": 88,
+      "brand_fit": 87,
+      "composition": 87,
+      "crop_quality": 85,
+      "technical_meaning": 88,
+      "cleanliness": 94,
+      "golden_reference_fit": 85,
+      "weighted_total": 86.95
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The 1600 x 900 crop preserves the full trace, both separate shutters, the terracotta identity marker, and the sealed paper content mass with generous parchment space above and below.",
+    "article_mobile": "A centered narrow crop retains the terracotta-centered iris and the independent stone shutter as the principal relationship while still showing the trace between them.",
+    "thumbnail": "At 480 x 270, the two contrasting circular gates, thin dark trace, terracotta marker, and bound paper block remain distinct without relying on fine surface detail."
+  },
+  "golden_reference_comparison": "Direct comparison with the September Copilot OpenTelemetry and review-controls references shows the same warm paper ground, charcoal-and-brass line language, sparing terracotta accent, sculptural architectural mass, and calm negative space. Candidate A advances the earlier observability metaphor with two physically separate shutters and a sealed content block rather than repeating its multi-stream composition.",
+  "final_asset": "/images/stories/2026-10-13-copilot-telemetry-capture-controls.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 121678,
+    "sha256": "18223d169788ff0ac2eeaf939be53a5c1576d98a82319adebac0fde99f52fa94",
+    "git_blob_sha": "f6079b72feecbed3b8d890b9b162e0b65ecf3cdc",
+    "riff_container_complete": true
+  }
+}
