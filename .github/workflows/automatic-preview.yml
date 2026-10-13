@@ -1,0 +1,236 @@
+name: Automatic Firebase Preview
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+jobs:
+  resolve:
+    name: Resolve eligible CI artifact
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      eligible: ${{ steps.request.outputs.eligible }}
+      request: ${{ steps.request.outputs.request }}
+      pr_number: ${{ steps.request.outputs.pr_number }}
+    steps:
+      - name: Checkout trusted routing code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          package-manager-cache: false
+      - name: Validate originating CI run and current PR
+        id: request
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/automatic-preview.mjs resolve
+
+  deploy:
+    name: Deploy validated CI preview
+    needs: resolve
+    if: needs.resolve.outputs.eligible == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: firebase-preview-pr-${{ needs.resolve.outputs.pr_number }}
+      cancel-in-progress: false
+    environment:
+      name: preview
+      url: ${{ steps.publish.outputs.url }}
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: read
+      id-token: write
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+      FIREBASE_SITE_ID: ${{ vars.PREVIEW_FIREBASE_SITE_ID }}
+      FIREBASE_WIF_PROVIDER: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+      PREVIEW_REQUEST: ${{ needs.resolve.outputs.request }}
+    steps:
+      - name: Checkout trusted deployment code and configuration
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.3
+          package-manager-cache: false
+      - name: Download exact originating artifact
+        uses: actions/download-artifact@v8
+        with:
+          artifact-ids: ${{ fromJSON(env.PREVIEW_REQUEST).artifact_id }}
+          run-id: ${{ fromJSON(env.PREVIEW_REQUEST).run_id }}
+          repository: GadDev/daily-ai-pulse
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/automatic-preview-artifact
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Install pinned Firebase CLI
+        shell: bash
+        run: |
+          npm install \
+            --prefix "$RUNNER_TEMP/preview-cli" \
+            --no-audit \
+            --no-fund \
+            firebase-tools@15.30.2
+      - name: Recheck eligibility, artifact provenance, and trusted config
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/automatic-preview.mjs verify
+      - name: Authenticate using preview WIF
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.PREVIEW_FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.PREVIEW_FIREBASE_WIF_PROVIDER }}
+          service_account: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+      - name: Recheck immediately before publishing
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/automatic-preview.mjs verify
+
+      - name: Deploy temporary preview channel
+        id: publish
+        env:
+          PREVIEW_CHANNEL: pr-${{ needs.resolve.outputs.pr_number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$PREVIEW_CHANNEL" =~ ^pr-[1-9][0-9]*$ ]]; then
+            echo "::error::Only generated PR preview channels are allowed."
+            exit 1
+          fi
+
+          "$RUNNER_TEMP/preview-cli/node_modules/.bin/firebase" \
+            hosting:channel:deploy "$PREVIEW_CHANNEL" \
+            --project="$FIREBASE_PROJECT_ID" \
+            --config="$RUNNER_TEMP/automatic-preview-config.json" \
+            --expires=7d \
+            --no-authorized-domains \
+            --non-interactive \
+            --json \
+            | tee "$RUNNER_TEMP/preview-deploy.json"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+
+          const response = JSON.parse(
+            readFileSync(
+              `${process.env.RUNNER_TEMP}/preview-deploy.json`,
+              'utf8',
+            ),
+          );
+
+          const deployment = response.result?.[process.env.FIREBASE_SITE_ID];
+
+          if (response.status !== 'success' || !deployment?.url) {
+            throw new Error('Firebase did not return a successful preview URL.');
+          }
+
+          const url = new URL(deployment.url);
+          const prefix =
+            `${process.env.FIREBASE_SITE_ID}--${process.env.PREVIEW_CHANNEL}-`;
+
+          if (
+            url.protocol !== 'https:' ||
+            !url.hostname.startsWith(prefix) ||
+            !url.hostname.endsWith('.web.app') ||
+            url.username ||
+            url.password
+          ) {
+            throw new Error('Unexpected preview URL.');
+          }
+
+          appendFileSync(
+            process.env.GITHUB_OUTPUT,
+            `url=${url.origin}\n`,
+          );
+          NODE
+
+      - name: Verify preview endpoints and indexing header
+        env:
+          PREVIEW_URL: ${{ steps.publish.outputs.url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error \
+            --retry 5 --retry-delay 2 --retry-all-errors \
+            --dump-header "$RUNNER_TEMP/preview-headers.txt" \
+            --output /dev/null \
+            "$PREVIEW_URL/"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+
+          const headers = readFileSync(
+            `${process.env.RUNNER_TEMP}/preview-headers.txt`,
+            'utf8',
+          );
+
+          const directives = headers
+            .split(/\r?\n/)
+            .filter((line) => /^x-robots-tag:/i.test(line))
+            .flatMap((line) =>
+              line
+                .slice(line.indexOf(':') + 1)
+                .toLowerCase()
+                .split(',')
+                .map((directive) => directive.trim()),
+            );
+
+          if (!directives.includes('noindex')) {
+            throw new Error('Preview response is missing the noindex directive.');
+          }
+          NODE
+
+          for path in /robots.txt /rss.xml /sitemap-index.xml; do
+            curl --fail --silent --show-error \
+              --retry 5 --retry-delay 2 --retry-all-errors \
+              --output /dev/null \
+              "${PREVIEW_URL}${path}"
+          done
+
+      - name: Write preview summary
+        env:
+          PREVIEW_URL: ${{ steps.publish.outputs.url }}
+          PREVIEW_CHANNEL: pr-${{ needs.resolve.outputs.pr_number }}
+          PREVIEW_HEAD_SHA: ${{ fromJSON(needs.resolve.outputs.request).tested_sha }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+
+          appendFileSync(
+            process.env.GITHUB_STEP_SUMMARY,
+            [
+              '## Preview deployed',
+              '',
+              `- URL: ${process.env.PREVIEW_URL}`,
+              `- Channel: ${process.env.PREVIEW_CHANNEL}`,
+              `- Tested commit: ${process.env.PREVIEW_HEAD_SHA}`,
+              '- Expiry: 7 days from deployment',
+              '- HTTP endpoints and indexing header: passed',
+              '',
+            ].join('\n'),
+          );
+          NODE
