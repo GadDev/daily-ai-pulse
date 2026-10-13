@@ -51,6 +51,11 @@ jobs:
       FIREBASE_SERVICE_ACCOUNT: ${{ vars.PREVIEW_FIREBASE_SERVICE_ACCOUNT }}
       PREVIEW_CHANNEL: ${{ needs.resolve.outputs.channel }}
     steps:
+      - name: Checkout trusted cleanup configuration
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
       - name: Install pinned Firebase CLI
         shell: bash
         run: |
