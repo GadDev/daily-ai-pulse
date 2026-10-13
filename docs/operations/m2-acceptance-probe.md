@@ -11,4 +11,6 @@ Acceptance sequence:
 4. Restoring the valid revision deploys again.
 5. Closing the PR makes the channel eligible for M3 cleanup.
 
+Probe revision: 2 — verify that the existing `pr-166` channel is replaced.
+
 This file and branch can be removed after the acceptance evidence is recorded.
