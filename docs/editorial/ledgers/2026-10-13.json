@@ -1,0 +1,153 @@
+{
+  "editorial_date": "2026-10-13",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-13-copilot-telemetry-capture-controls",
+      "decision": "selected",
+      "title": "GitHub separates Copilot trace identity from content capture",
+      "desk": "workflows",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "observability", "governance", "security", "permissions"],
+      "entities": ["GitHub", "GitHub Copilot", "OpenTelemetry", "Visual Studio Code"],
+      "event_date": "2026-10-12",
+      "source_publication_date": "2026-10-12",
+      "summary": "GitHub added opt-in user and machine attribution to Copilot OpenTelemetry and split sensitive content collection into separately managed prompt, response, tool-argument, tool-output, and policy-detail classes.",
+      "what_changed": "Copilot enterprise telemetry can now attribute activity to an authenticated GitHub login, operating-system account, and machine while leaving content disabled; administrators can independently control five sensitive content classes instead of relying only on the legacy all-content shorthand.",
+      "why_it_matters": "Engineering organizations can investigate agent reliability and accountability without automatically collecting source-bearing prompts and tool payloads, but identity plus repository and session metadata still creates a sensitive activity record that needs explicit access, retention, and routing policy.",
+      "engineer_takeaway": "Begin with metadata-only traces, enable identity only for an approved attribution need, treat each content class as a separate sensitive data source, route OTLP to a restricted collector, and test the effective managed policy on every deployed client surface.",
+      "prerequisites": ["OpenTelemetry", "Copilot enterprise managed settings", "agent trace data governance"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/",
+          "canonical_url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/",
+          "publisher": "GitHub",
+          "source_type": "release-notes",
+          "role": "primary",
+          "publication_date": "2026-10-12"
+        },
+        {
+          "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
+          "canonical_url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
+          "publisher": "GitHub",
+          "source_type": "documentation",
+          "role": "supporting",
+          "publication_date": null
+        },
+        {
+          "url": "https://code.visualstudio.com/docs/agents/guides/monitoring-agents",
+          "canonical_url": "https://code.visualstudio.com/docs/agents/guides/monitoring-agents",
+          "publisher": "Microsoft",
+          "source_type": "documentation",
+          "role": "supporting",
+          "publication_date": "2026-10-07"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's dated changelog and current GitHub and VS Code documentation define the settings, fields, defaults, precedence, supported trace contents, and data-sensitivity warnings.",
+        "independent_validation": "No independent audit or cross-client implementation test of the new capture controls was found.",
+        "claim_scope": "The story reports the documented control surface and its operational implications; it does not claim uniform implementation across all clients or compliance sufficiency."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The update changes how enterprises can balance agent accountability, observability, and collection of source-bearing or identity-bearing data across managed coding-agent clients."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 85
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["observability", "governance", "security"],
+        "existing_explainer_status": "Pulse has a September briefing on Copilot OpenTelemetry export, but no reusable explainer on the difference between trace metadata, identity, and content capture for coding agents.",
+        "suggested_explainer": "What an AI Agent Trace Can Reveal"
+      },
+      "related_content": {
+        "previous_story_ids": ["2026-09-23-copilot-opentelemetry"]
+      },
+      "follow_up_opportunities": [
+        {
+          "format": "playbook",
+          "depth": "practitioner",
+          "reason": "The independent capture classes support a concrete deployment checklist for metadata-only baselines, audited identity enablement, temporary content escalation, collector controls, redaction, and retention."
+        }
+      ],
+      "deduplication": {
+        "status": "material-update",
+        "publication_status": "material-update-confirmed",
+        "candidate_key": "github-copilot-opentelemetry-identity-and-granular-content-capture",
+        "canonical_event": "GitHub adds identity attribution and five independently managed content-capture classes to Copilot OpenTelemetry on October 12, 2026.",
+        "previous_coverage": "2026-09-23-copilot-opentelemetry",
+        "material_delta": "The September story covered initial OpenTelemetry export and a single content-capture boundary. The new release adds opt-in user, OS-account, and host attribution and separates prompts, responses, tool arguments, tool output, and policy detail into independently controlled capture classes with managed-setting precedence."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "notes": "The October 12 changelog and current GitHub and VS Code references were rechecked. All settings and sensitive-data descriptions remain first-party documentation; no independent audit was located."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-13-aptos-agent-tooling",
+      "decision": "watch",
+      "title": "Aptos bundles MCP, agent skills, and LLM-ready docs for Move development",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["mcp", "skills", "coding-agents", "developer-experience", "security"],
+      "entities": ["Aptos", "Move", "Aptos MCP", "Aptos Agent Skills"],
+      "event_date": "2026-10-09",
+      "summary": "Aptos documentation now presents an official MCP server, installable Move and TypeScript SDK skills, and llms.txt feeds as one AI-assisted development surface.",
+      "evidence": {"level": "primary", "rationale": "The official documentation exposes installation paths and the combined tool surface, while dated secondary coverage identifies the October update."},
+      "signal": {"level": "medium", "rationale": "The bundle is a useful domain-specific agent-tooling pattern, but its security model, versioning, evaluation results, and adoption are not yet documented well enough for selection."},
+      "editorial_score": {"significance": 3, "evidence": 3, "novelty": 4, "relevance": 4, "durability": 4, "weighted_total": 70},
+      "sources": [
+        {"url": "https://aptos.dev/build/guides/application-integration", "canonical_url": "https://aptos.dev/build/guides/application-integration", "publisher": "Aptos", "source_type": "documentation", "role": "primary", "publication_date": null},
+        {"url": "https://cryptobriefing.com/aptos-ai-tools-move-development/", "canonical_url": "https://cryptobriefing.com/aptos-ai-tools-move-development/", "publisher": "Crypto Briefing", "source_type": "reporting", "role": "context", "publication_date": "2026-10-12"}
+      ],
+      "reason": "The integrated surface is real, but the primary documentation does not provide a dated release record, threat model, versioning contract, or measured evidence that the combination improves correctness for Move development.",
+      "promote_when": ["A dated official release or repository tag defines the MCP and skill versions and supported clients.", "A security review, reproducible benchmark, or first-hand deployment documents correctness and permission behavior."]
+    },
+    {
+      "id": "2026-10-13-cloudflare-skills-over-mcp",
+      "decision": "watch",
+      "title": "Cloudflare's Skills-over-MCP release still awaits interoperability evidence",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["mcp", "skills", "agents", "security", "permissions"],
+      "entities": ["Cloudflare", "Model Context Protocol", "Skills over MCP"],
+      "event_date": "2026-10-10",
+      "summary": "Cloudflare's API MCP server exposes skills through skills/list and skill:// resources, but the wider client and trust contract remains unsettled.",
+      "evidence": {"level": "primary", "rationale": "Cloudflare documents the endpoint and discovery/read mechanism."},
+      "signal": {"level": "medium", "rationale": "Remote skill discovery could standardize capability distribution, but practical interoperability and lifecycle controls remain unproven."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 82},
+      "sources": [{"url": "https://developers.cloudflare.com/changelog/product/agents/", "canonical_url": "https://developers.cloudflare.com/changelog/product/agents/", "publisher": "Cloudflare", "source_type": "release-notes", "role": "primary", "publication_date": "2026-10-10"}],
+      "reason": "No new cross-client adoption, provenance, version-pinning, update-review, or permission evidence was found after the October 12 watch decision.",
+      "promote_when": ["Multiple independent MCP clients document interoperable Skills-over-MCP support.", "Stable provenance, versioning, update, and permission guidance or a first-hand deployment documents those controls."]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-13-android-bench-2-repeat", "decision": "rejected", "subject": "Android Bench 2.0 long-horizon agent evaluations", "reason": "Already published on September 18; the current homepage and October recirculation do not establish a material benchmark or methodology delta.", "previous_story_id": "2026-09-18-android-bench-2", "source": "https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks"},
+    {"id": "2026-10-13-github-copilot-jetbrains-repeat", "decision": "rejected", "subject": "GitHub Copilot for JetBrains model and MCP controls", "reason": "Already evaluated in the October 11 ledger; no new technical delta was published on October 12–13.", "previous_story_id": null, "source": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/"},
+    {"id": "2026-10-13-github-copilot-weekly-repeat", "decision": "rejected", "subject": "GitHub Copilot weekly releases for October 5", "reason": "A rollup of constituent releases already covered or evaluated; it adds no distinct technical event.", "previous_story_id": "2026-10-08-claude-haiku-5-5", "source": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/"},
+    {"id": "2026-10-13-aws-gpt-6-bedrock-guide", "decision": "rejected", "subject": "AWS guide to running GPT-6 models on Amazon Bedrock", "reason": "The October 12 how-to repackages previously available models and does not establish a new model, price, API, or availability delta beyond earlier coverage.", "previous_story_id": "2026-09-24-gpt-6-sol-luna"}
+  ],
+  "publication": {
+    "story_ids": ["2026-10-13-copilot-telemetry-capture-controls"],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  },
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "practitioner", "title": "What an AI Agent Trace Can Reveal", "reason": "The update exposes a reusable distinction among trace metadata, identity attributes, prompts, responses, tool payloads, and policy details that many teams will need before adopting agent observability."},
+    {"format": "playbook", "depth": "practitioner", "title": "Deploy Coding-Agent Telemetry Without Collecting Everything", "reason": "The independent controls support a concrete policy and rollout sequence for metadata baselines, identity approval, temporary content escalation, collector access, redaction, and retention."}
+  ]
+}

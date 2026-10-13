@@ -48,6 +48,61 @@ jobs:
       - name: Illustration validator regressions
         run: node --test tests/illustration-validator.test.mjs
 
+      - name: Automatic preview routing regressions
+        run: node --test tests/automatic-preview.test.mjs
+
+      - name: Package static preview artifact
+        if: >-
+          github.event.pull_request.base.ref == 'main' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p "$RUNNER_TEMP/ci-preview"
+          cp -R dist "$RUNNER_TEMP/ci-preview/dist"
+
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+
+          const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          const testedSha = execFileSync('git', ['rev-parse', 'HEAD'], {
+            encoding: 'utf8',
+          }).trim();
+
+          if (testedSha !== process.env.GITHUB_SHA) {
+            throw new Error('Checkout does not match the CI event revision.');
+          }
+
+          const metadata = {
+            schema_version: 1,
+            repository: process.env.GITHUB_REPOSITORY,
+            run_id: process.env.GITHUB_RUN_ID,
+            run_attempt: process.env.GITHUB_RUN_ATTEMPT,
+            pr_number: event.pull_request.number,
+            head_sha: event.pull_request.head.sha,
+            base_sha: event.pull_request.base.sha,
+            tested_sha: testedSha,
+          };
+
+          writeFileSync(
+            `${process.env.RUNNER_TEMP}/ci-preview/provenance.json`,
+            `${JSON.stringify(metadata, null, 2)}\n`,
+          );
+          NODE
+
+      - name: Upload static preview artifact
+        if: >-
+          github.event.pull_request.base.ref == 'main' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-preview-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-preview/
+          if-no-files-found: error
+          retention-days: 1
+
   browser:
     name: Browser smoke and accessibility
     runs-on: ubuntu-latest
