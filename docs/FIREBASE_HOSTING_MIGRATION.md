@@ -226,6 +226,39 @@ accepted until this exercise has evidence. Close-event cleanup belongs to M3;
 expiry remains the fallback. A PR can still close in the narrow interval after
 the final eligibility check and before Firebase finishes publishing.
 
+#### M2 live acceptance — 2026-10-13
+
+Disposable PR [#166](https://github.com/GadDev/daily-ai-pulse/pull/166)
+kept the translation pilot isolated.
+
+- Initial CI
+  [38405697960](https://github.com/GadDev/daily-ai-pulse/actions/runs/38405697960)
+  and automatic preview
+  [38405842215](https://github.com/GadDev/daily-ai-pulse/actions/runs/38405842215)
+  passed.
+- Revision 2 CI
+  [38406232945](https://github.com/GadDev/daily-ai-pulse/actions/runs/38406232945)
+  and automatic preview
+  [38406402592](https://github.com/GadDev/daily-ai-pulse/actions/runs/38406402592)
+  passed, replacing the same `pr-166` channel.
+- Deliberately broken CI
+  [38406621107](https://github.com/GadDev/daily-ai-pulse/actions/runs/38406621107)
+  failed before artifact upload. Its automatic consumer
+  [38406766128](https://github.com/GadDev/daily-ai-pulse/actions/runs/38406766128)
+  was skipped, so no deployment job started.
+- Restored CI
+  [38406840575](https://github.com/GadDev/daily-ai-pulse/actions/runs/38406840575)
+  and automatic preview
+  [38407021509](https://github.com/GadDev/daily-ai-pulse/actions/runs/38407021509)
+  passed through WIF, deployment, endpoint, and indexing checks.
+- Manual fallback was already proven by successful run
+  [38399589459](https://github.com/GadDev/daily-ai-pulse/actions/runs/38399589459).
+- Fork, closed, stale head/base, superseded attempt, missing/expired artifact,
+  and tampered provenance are fail-closed regression cases. The disposable PR
+  will provide the live close event used to accept M3.
+
+M2 is accepted. Production was not targeted by any acceptance run.
+
 ### M3 — closed PR preview cleanup
 
 The cleanup workflow is `.github/workflows/preview-cleanup.yml`. It runs only
