@@ -226,6 +226,46 @@ accepted until this exercise has evidence. Close-event cleanup belongs to M3;
 expiry remains the fallback. A PR can still close in the narrow interval after
 the final eligibility check and before Firebase finishes publishing.
 
+### M3 — closed PR preview cleanup
+
+The cleanup workflow is `.github/workflows/preview-cleanup.yml`. It runs only
+for `pull_request_target` close events and checks out trusted code from `main`.
+A credential-free job validates the numeric owner/repository identity, closed
+state, `main` target, same-repository source, and positive PR number. It derives
+only the generated `pr-<number>` channel name; no branch or PR content becomes
+part of a Firebase command.
+
+The credentialed job shares `firebase-preview-pr-<number>` concurrency with
+manual and automatic deployments. This serialization covers the closure race:
+an in-flight deployment finishes before cleanup deletes its channel, while a
+queued deployment rechecks the PR and stops. The workflow deletes only the
+derived channel with the pinned Firebase CLI. Seven-day expiry remains the
+fallback if cleanup cannot run or fails.
+
+Before merging M3, extend preview WIF trust with the exact cleanup workflow and
+event while preserving both existing preview paths:
+
+```bash
+gcloud iam workload-identity-pools providers update-oidc github-manual-preview \
+  --project=daily-ai-pulse-db253 \
+  --location=global \
+  --workload-identity-pool=daily-ai-pulse-preview \
+  --attribute-condition="assertion.repository_owner_id == '26112006' &&
+    assertion.repository_id == '1392414120' &&
+    assertion.ref == 'refs/heads/main' &&
+    assertion.environment == 'preview' &&
+    ((assertion.event_name == 'workflow_dispatch' &&
+      assertion.workflow_ref == 'GadDev/daily-ai-pulse/.github/workflows/preview.yml@refs/heads/main') ||
+     (assertion.event_name == 'workflow_run' &&
+      assertion.workflow_ref == 'GadDev/daily-ai-pulse/.github/workflows/automatic-preview.yml@refs/heads/main') ||
+     (assertion.event_name == 'pull_request_target' &&
+      assertion.workflow_ref == 'GadDev/daily-ai-pulse/.github/workflows/preview-cleanup.yml@refs/heads/main'))"
+```
+
+After merging, close the disposable M2 acceptance PR. Confirm the cleanup run
+passes and the former preview URL no longer serves the channel. Reopening a PR
+does not restore a preview by itself; a new successful CI revision does.
+
 Rollback: disable `Automatic Firebase Preview` and restore the manual-only WIF
 condition from M1. Keep the artifact producer and manual workflow if useful.
 Firebase Hosting permissions remain site-level; workflow guards do not provide
