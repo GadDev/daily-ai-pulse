@@ -1,0 +1,1 @@
+const intentionalM2Failure = ;
