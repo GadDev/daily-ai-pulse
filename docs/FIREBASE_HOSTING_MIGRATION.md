@@ -299,6 +299,43 @@ After merging, close the disposable M2 acceptance PR. Confirm the cleanup run
 passes and the former preview URL no longer serves the channel. Reopening a PR
 does not restore a preview by itself; a new successful CI revision does.
 
+
+#### M3 live acceptance — 2026-10-13
+
+- M3 implementation merged in
+  [PR #167](https://github.com/GadDev/daily-ai-pulse/pull/167).
+- The first close event authenticated successfully but exposed a missing trusted
+  checkout before the Firebase command. The correction merged in
+  [PR #168](https://github.com/GadDev/daily-ai-pulse/pull/168).
+- Reopening and closing disposable PR #166 produced cleanup run
+  [38408575319](https://github.com/GadDev/daily-ai-pulse/actions/runs/38408575319).
+  Event validation, WIF authentication, and deletion of `pr-166` all passed.
+- A later automatic consumer run
+  [38408720113](https://github.com/GadDev/daily-ai-pulse/actions/runs/38408720113)
+  resolved the now-closed PR as ineligible and skipped its deployment job.
+
+M3 is accepted. Seven-day expiry remains configured as a fallback.
+
+### M4 — end-to-end closeout rehearsal
+
+Use one documentation-only closeout PR so product work remains isolated:
+
+1. Successful CI uploads the exact tested artifact.
+2. Automatic preview publishes the PR channel and verifies indexing protection.
+3. Review the closeout documentation through the preview.
+4. Merge the PR and confirm the production workflow succeeds.
+5. Confirm the close event deletes the PR preview channel.
+6. Record the CI, preview, production, and cleanup run links below.
+
+M4 evidence:
+
+- Closeout PR: pending
+- CI and automatic preview: pending
+- Production deployment: pending
+- Preview cleanup: pending
+
+The Firebase preview rollout is complete only after this final rehearsal.
+
 Rollback: disable `Automatic Firebase Preview` and restore the manual-only WIF
 condition from M1. Keep the artifact producer and manual workflow if useful.
 Firebase Hosting permissions remain site-level; workflow guards do not provide
