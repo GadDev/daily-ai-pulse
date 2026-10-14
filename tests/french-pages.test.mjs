@@ -32,7 +32,7 @@ test('curated French selection lists only current translations and is not a home
   assert.doesNotMatch(html, /<link[^>]+hreflang=/);
 });
 
-test('draft pilot and draft English source have no French production route', () => {
+test('fixture draft translation and draft English source have no French route', () => {
   for (const id of [pilotId, fixtureId('source-draft')]) {
     assert.equal(existsSync(join(fixture.dist, `fr/stories/${id}/index.html`)), false);
   }

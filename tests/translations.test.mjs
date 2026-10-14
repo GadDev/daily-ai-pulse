@@ -78,6 +78,15 @@ test('reviewed translations require reviewer identity and a valid review timesta
   }
 });
 
+test('completed model reviews are eligible while stale source fingerprints still withhold them', () => {
+  const reviewed = entry({ ...review, reviewedBy: 'Codex (model review)' });
+  assert.equal(lookup([reviewed])(id).state, 'current');
+  const changedSource = createStorySnapshot(id, sourceText + '\nSource changed after review.\n');
+  const stale = lookup([reviewed], changedSource)(id);
+  assert.equal(stale.state, 'stale');
+  assert.equal(stale.available, false);
+});
+
 test('only a current reviewed translation of a published source is available', () => {
   const result = lookup([entry(review)])(id);
   assert.equal(result.state, 'current');

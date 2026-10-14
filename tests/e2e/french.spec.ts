@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { readTranslationFiles } from '../../src/lib/translation-files';
 import {
   buildFrenchFixture,
   draftSentinels,
@@ -16,8 +17,34 @@ import {
 test.describe.configure({ mode: 'default' });
 
 let fixture: ReturnType<typeof buildFrenchFixture>;
+let emptyFixture: ReturnType<typeof buildFrenchFixture>;
 let server: Server;
+let emptyServer: Server;
 let origin: string;
+let emptyOrigin: string;
+
+async function serveFixture(dist: string) {
+  const server = createServer((request, response) => {
+    const pathname = decodeURIComponent(new URL(request.url!, 'http://localhost').pathname);
+    const path = resolve(dist, `.${pathname.endsWith('/') ? `${pathname}index.html` : pathname}`);
+    if (!path.startsWith(`${dist}/`) || !existsSync(path)) {
+      response.writeHead(404).end();
+      return;
+    }
+    const mime: Record<string, string> = {
+      '.html': 'text/html; charset=utf-8',
+      '.js': 'text/javascript',
+      '.css': 'text/css',
+      '.wasm': 'application/wasm',
+    };
+    response.setHeader('Content-Type', mime[extname(path)] ?? 'application/octet-stream');
+    response.end(readFileSync(path));
+  });
+  await new Promise<void>((done) => server.listen(0, '127.0.0.1', done));
+  const address = server.address();
+  if (!address || typeof address === 'string') throw new Error('Fixture server did not start');
+  return { server, origin: `http://127.0.0.1:${address.port}` };
+}
 
 // Include both sides of each masthead breakpoint and the inherited 960px rule.
 const mastheadWidths = [
@@ -101,34 +128,16 @@ function expectMasthead(geometry: Awaited<ReturnType<typeof readMasthead>>, widt
 test.beforeAll(async () => {
   test.setTimeout(120_000);
   fixture = buildFrenchFixture();
-  server = createServer((request, response) => {
-    const pathname = decodeURIComponent(new URL(request.url!, 'http://localhost').pathname);
-    const path = resolve(
-      fixture.dist,
-      `.${pathname.endsWith('/') ? `${pathname}index.html` : pathname}`,
-    );
-    if (!path.startsWith(`${fixture.dist}/`) || !existsSync(path)) {
-      response.writeHead(404).end();
-      return;
-    }
-    const mime: Record<string, string> = {
-      '.html': 'text/html; charset=utf-8',
-      '.js': 'text/javascript',
-      '.css': 'text/css',
-      '.wasm': 'application/wasm',
-    };
-    response.setHeader('Content-Type', mime[extname(path)] ?? 'application/octet-stream');
-    response.end(readFileSync(path));
-  });
-  await new Promise<void>((done) => server.listen(0, '127.0.0.1', done));
-  const address = server.address();
-  if (!address || typeof address === 'string') throw new Error('Fixture server did not start');
-  origin = `http://127.0.0.1:${address.port}`;
+  ({ server, origin } = await serveFixture(fixture.dist));
+  emptyFixture = buildFrenchFixture({ emptySelection: true });
+  ({ server: emptyServer, origin: emptyOrigin } = await serveFixture(emptyFixture.dist));
 });
 
 test.afterAll(async () => {
   if (server) await new Promise<void>((done) => server.close(() => done()));
+  if (emptyServer) await new Promise<void>((done) => emptyServer.close(() => done()));
   fixture?.cleanup();
+  emptyFixture?.cleanup();
 });
 
 test('French reading, keyboard language switching and mobile layout', async ({ page, request }) => {
@@ -443,14 +452,14 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
   }
 });
 
-test('production empty French selection stays usable on desktop and mobile', async ({
+test('empty French selection stays usable independently of production publication state', async ({
   page,
 }, testInfo) => {
   test.setTimeout(90_000);
-  // This route uses the normal production build; synthetic reviewed stories stay on the fixture server.
+  // An explicitly empty fixture preserves this state after real translations publish.
   for (const width of mastheadWidths) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/fr/');
+    await page.goto(`${emptyOrigin}/fr/`);
     expectMasthead(await readMasthead(page), width);
     await expect(page.locator('.empty-selection')).toContainText('Aucun article en français');
     await expect(
@@ -489,6 +498,57 @@ test('production empty French selection stays usable on desktop and mobile', asy
     });
     await englishEdition.blur();
     await page.screenshot({ path: testInfo.outputPath(`fr-empty-${width}.png`), fullPage: true });
+  }
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+  expect(
+    results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? '')),
+  ).toEqual([]);
+});
+
+test('production reviewed translations appear in the selection and preserve their story when switching', async ({
+  page,
+}, testInfo) => {
+  test.setTimeout(90_000);
+  const content = readTranslationFiles(resolve(import.meta.dirname, '../..'));
+  const translations = content.translations.filter(
+    (entry) => content.lookup(entry.data.storyId).available,
+  );
+  await page.goto('/fr/');
+  await expect(page.locator('.selection-list h2 a')).toHaveCount(translations.length);
+  if (translations.length === 0) {
+    await expect(page.locator('.empty-selection')).toBeVisible();
+    return;
+  }
+  await expect(page.locator('.empty-selection')).toHaveCount(0);
+  for (const width of mastheadWidths) {
+    await page.setViewportSize({ width, height: 900 });
+    expectMasthead(await readMasthead(page), width);
+    if ([1280, 960, 375, 320].includes(width))
+      await page.screenshot({
+        path: testInfo.outputPath(`fr-production-${width}.png`),
+        fullPage: true,
+      });
+  }
+  for (const { data } of translations) {
+    await page.goto('/fr/');
+    await page.getByRole('link', { name: data.title, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`/fr/stories/${data.storyId}/$`));
+    await expect(page.locator('h1')).toHaveText(data.title);
+    await expect(page.locator('.article-hero img')).toHaveAttribute('alt', data.imageAlt);
+    await page
+      .locator('.language-switcher')
+      .getByRole('link', { name: 'English', exact: true })
+      .click();
+    await expect(page).toHaveURL(new RegExp(`/stories/${data.storyId}/$`));
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await page
+      .locator('.language-switcher')
+      .getByRole('link', { name: 'Français', exact: true })
+      .click();
+    await expect(page).toHaveURL(new RegExp(`/fr/stories/${data.storyId}/$`));
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
   }
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])

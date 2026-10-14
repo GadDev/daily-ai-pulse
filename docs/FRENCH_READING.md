@@ -79,13 +79,19 @@ remain enabled. All changes take effect after a successful static rebuild.
 
 ## Review and publishing boundary
 
-The real pilot remains `draft`, without `reviewedBy` or `reviewedAt`. Wording
-acceptance did not supply the full bilingual publication review or its reviewer
-metadata. `/fr/` therefore starts with an honest empty state. No synthetic test
-approval is copied into content. After a fluent human completes the review,
-a separate editorial change can set `reviewed`, the actual reviewer and actual
-review time against the checked source hash. Merge/deployment still requires
-the normal publishing decision.
+Completed translations use `reviewed` after fidelity, French-editing and integrity
+checks pass. The maintainer's 14 October 2026 policy accepts completed model review;
+a separate human bilingual approval is not required by default. `reviewedBy`
+identifies the actual reviewer and review type, and `reviewedAt` records the actual
+UTC review time after the final source-fingerprint check. Model review must never
+be described as human approval or independent verification. Explicit draft requests
+and unresolved material issues remain unpublished; source changes still make
+reviewed translations stale. Merge/deployment requires the normal publishing decision.
+
+The pilot and two additional translations now have completed model reviews in
+the publication collection. See [FRENCH_MANUAL_TRIALS.md](editorial/translations/FRENCH_MANUAL_TRIALS.md)
+for source fingerprints and review evidence. Synthetic test metadata is confined
+to isolated fixtures and does not approve production content.
 
 ## Validation and rollback
 
@@ -96,12 +102,14 @@ the normal publishing decision.
   links, preserved code/URLs/dates/corrections, draft-route absence, sitemap and
   the generated Pagefind language index. M3 adds referenced/featured English drafts,
   mixed and empty editions, all-HTML/RSS/sitemap checks and visible story counts.
-  Temporary approvals never edit the pilot.
+  Fixture status and review metadata never edit production content.
 - `tests/e2e/french.spec.ts`: uses the same isolated fixture in a local static
   server; tests keyboard switching, the same story in both directions, French
   accessibility, 320/375/1280-pixel layouts, selection link resolution, missing
   translations, safe notices, English draft exclusion and real search results. Existing English browser
-  smoke/accessibility checks remain enabled.
+  smoke/accessibility checks remain enabled. An independent empty-selection fixture
+  preserves empty-state coverage after publication; a production-build regression
+  checks all available real translations and story-preserving language switching.
 
 A failed validation blocks merging through the existing PR workflow; it does
 not fall back to publishing unreviewed text. An English correction makes the
@@ -116,7 +124,7 @@ The technical acceptance checklist is closed for the infrastructure scope.
 See [M4_ACCEPTANCE.md](editorial/translations/M4_ACCEPTANCE.md) for the pinned
 head/base/CI merge revision, criterion-to-test matrix, passing results, direct
 English source/asset tree comparisons and limits of automated validation.
-Human French publication review remains separate; the real pilot stays draft.
+That historical record predates the current model-review publication policy.
 
 
 ## French masthead UX follow-up
@@ -134,13 +142,13 @@ in content, rather than forcing small UI text or multi-line desktop navigation.
 New browser regressions measure header height (<=90px desktop, <=112px mobile),
 nav text line count, wordmark/action separation, row positions, language targets
 and page overflow for both languages at 1280, 960, 375 and 320px. A production
-empty-state regression also checks French accessibility and captures PNGs.
+empty-selection fixture also checks French accessibility and captures PNGs.
 CI publishes the screenshots as `multilingual-ux-screenshots`; these are browser
 evidence, while the committed WebP proposals are layout references. Geometry
 assertions are not pixel-diff or human visual approval.
 
 The earlier M4 acceptance record remains pinned to its recorded revision.
-The updated UX must pass current PR CI; the real translation remains draft.
+The updated UX and publication content must pass current PR CI.
 
 ### Masthead alignment and regression coverage
 
@@ -161,8 +169,8 @@ The width matrix includes 320/375/1280px and both sides of the 640, 860, 960 and
 1100px transitions. An isolated fixture supplies three current French articles
 with long titles and descriptions to check wrapping, clipping, row separation
 and working reading links. Its synthetic review metadata never approves the
-real pilot; the production empty-state check remains separate. CI screenshots
-include the populated fixture as well as reading and empty-release states.
+real pilot; the independent empty-state fixture remains separate. CI screenshots
+include the populated fixture, actual publication selection, reading and empty states.
 
 The frontend follow-up applies the WebP hierarchy to the French selection:
 full-width rule, separate preparation/availability messages and a terracotta
