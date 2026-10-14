@@ -35,13 +35,11 @@ const text = messages[locale];
       <span aria-hidden="true">FR</span>
     </a>
   ) : (
-    <span
-      class="language-unavailable"
-      aria-disabled="true"
-      aria-label="Français — no current translation"
-      title={text.unavailable}
-    >
+    <span class="language-unavailable" aria-disabled="true" title={text.unavailable}>
       <span aria-hidden="true">FR</span>
+      <span class="sr-only">
+        <span lang="fr">Français</span> — no current translation
+      </span>
     </span>
   )}
 </nav>
