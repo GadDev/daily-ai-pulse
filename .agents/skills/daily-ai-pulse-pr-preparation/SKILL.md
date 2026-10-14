@@ -1,6 +1,6 @@
 ---
 name: daily-ai-pulse-pr-preparation
-description: Prepare one reviewable Daily AI Pulse editorial batch from a structured candidate ledger. Re-verify selected candidates, run publication deduplication, draft canonical stories, resolve illustrations through the Daily AI Pulse illustration workflow using Generation Identity V1 reuse-or-generate semantics, persist the complete ledger, perform available preflight validation, and open or update one canonical draft PR with evidence, exclusions, watch items, validation state, illustration state, and conflicts visible to reviewers.
+description: Prepare one reviewable Daily AI Pulse editorial batch from a structured candidate ledger. Re-verify selected candidates, run publication deduplication, draft canonical stories, prepare reviewed French translations in the same PR, resolve illustrations through the Daily AI Pulse illustration workflow using Generation Identity V1 reuse-or-generate semantics, persist the complete ledger, perform available preflight validation, and open or update one canonical draft PR with evidence, exclusions, watch items, validation state, illustration state, and conflicts visible to reviewers.
 ---
 
 # Daily AI Pulse PR Preparation
@@ -45,6 +45,9 @@ Daily AI Pulse Orchestrator
                  ├── invoke illustration workflow
                  │       ├── REUSE
                  │       └── GENERATE
+                 ├── finalize and commit English source bytes
+                 ├── invoke French translation skill
+                 ├── record reviewed / reused / blocked translations
                  ├── create daily issue manifest
                  ├── persist candidate ledger
                  ├── run available preflight checks
@@ -731,6 +734,31 @@ PR preparation consumes that result and continues the editorial batch.
 
 It does not duplicate the illustration skill's identity algorithm.
 
+## Step 8a — Prepare French for the same editorial PR
+
+Read `docs/editorial/translations/DAILY_BILINGUAL_WORKFLOW.md` and the current
+`.agents/skills/daily-ai-pulse-translate-fr/SKILL.md`, glossary and review checklist.
+For each finalized non-draft English story in this batch, invoke that translation
+skill after illustration resolution has fixed the image alt and source bytes.
+Commit those English bytes first, and pass their real commit and SHA-256.
+An explicitly English-only task overrides this handoff; disclose the omission.
+
+Include successful `reviewed` French files in this same canonical daily branch
+and draft PR. Preserve current reviewed files on retries without restamping them.
+Revision authority covers stale/incomplete translations of stories in this batch;
+preserve human edits and never restore withdrawn copy without an explicit request.
+Report blocked translations separately with exact source hash, reason and next action;
+a French blocker must not suppress a valid English story or change ledger selection.
+Ledger-only batches do not invoke the translator.
+
+Run `npm run translations:batch -- docs/editorial/ledgers/YYYY-MM-DD.json` after
+persisting the ledger and before handoff. Inspect every non-current result and
+record it in the PR; the default command reports coverage without failing on
+missing/stale French. `--require-current` is an optional complete-batch gate.
+This is a deterministic availability report, not a fidelity review. Run the skill's
+full fidelity/editing/integrity checks and recheck English bytes after final edits.
+Do not modify scheduler configuration or create a second translation PR per day.
+
 ## Step 9 — Create the daily issue manifest
 
 For a publication batch, create or update:
@@ -866,6 +894,8 @@ When shell/repository execution is available, run:
 ```bash
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json
+npm run translations:check
+npm run translations:batch -- docs/editorial/ledgers/YYYY-MM-DD.json
 npm run verify
 ```
 
@@ -909,6 +939,7 @@ A publication batch normally includes:
 
 ```text
 src/content/stories/<selected stories>.md
+src/content/story-translations/fr/<reviewed translations>.md
 public/images/stories/<newly generated illustrations>.webp
 docs/editorial/illustrations/reviews/<newly generated reviews>.json
 src/content/pulse/YYYY-MM-DD.md
@@ -1023,6 +1054,15 @@ Use this structure:
 Legacy illustration state, if encountered:
 
 - Story — existing v1.2 review; not silently migrated; reviewer action if deliberate regeneration is required.
+
+### French translations
+
+| Story | Outcome | Source ref / SHA-256 | French revision / review | Blocker / next action |
+| --- | --- | --- | --- | --- |
+| ... | reviewed / reused-current / blocked / English-only-requested | exact source | path, blob SHA, actual reviewer/type and UTC time | reason or none |
+
+State coverage: current / total. Distinguish executed checks, model inspection
+and checks not run. Account for every non-current result from `translations:batch`.
 
 ### Validation
 
@@ -1222,6 +1262,8 @@ The reviewer must be able to answer:
 - Was each illustration reused or newly generated?
 - For identity-aware illustrations, does the persisted review match the current
   story, visual brief, reference inputs, and final asset?
+- Does every batch story have a current reviewed French copy or a visible blocker?
+- Are translation reviewer/type/time and exact source fingerprints truthful?
 - Were legacy `1.2` illustration records left historically accurate rather than
   silently rewritten?
 - Are illustrations present and crop-safe?

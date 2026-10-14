@@ -36,6 +36,9 @@ jobs:
       - name: Translation content and freshness regressions
         run: npm run translations:test
 
+      - name: Translation batch coverage regressions
+        run: npm run translations:batch:test
+
       - name: French page rendering and visibility regressions
         run: npm run translations:pages:test
 

@@ -24,7 +24,9 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "preview": "astro preview",
-    "translations:pages:test": "node --test tests/french-pages.test.mjs"
+    "translations:pages:test": "node --test tests/french-pages.test.mjs",
+    "translations:batch": "node scripts/translation-batch.mjs",
+    "translations:batch:test": "node --test tests/translation-batch.test.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
