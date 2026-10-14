@@ -6,6 +6,7 @@ import {
   buildFrenchFixture,
   draftSentinels,
   fixtureId,
+  frenchSelectionSamples,
   pilotId,
   visibilityEditions,
 } from './helpers/french-fixture.mjs';
@@ -96,7 +97,7 @@ test('sitemap and actual Pagefind index exclude notice pages', () => {
     assert.ok(!sitemap.includes(`/fr/stories/${fixtureId(state)}/`));
   }
   const index = JSON.parse(read('pagefind/pagefind-entry.json'));
-  assert.equal(index.languages.fr.page_count, 2); // selection + one current story, no notices
+  assert.equal(index.languages.fr.page_count, 2 + frenchSelectionSamples.length);
   assert.ok(index.languages.en.page_count >= 139);
 });
 

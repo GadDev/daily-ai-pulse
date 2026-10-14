@@ -2,12 +2,13 @@ import { createServer, type Server } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import {
   buildFrenchFixture,
   draftSentinels,
   fixtureId,
   frenchReadingTitle,
+  frenchSelectionSamples,
   pilotId,
   visibilityEditions,
 } from '../helpers/french-fixture.mjs';
@@ -17,6 +18,85 @@ test.describe.configure({ mode: 'default' });
 let fixture: ReturnType<typeof buildFrenchFixture>;
 let server: Server;
 let origin: string;
+
+// Include both sides of each masthead breakpoint and the inherited 960px rule.
+const mastheadWidths = [
+  1280, 1101, 1100, 1099, 961, 960, 959, 861, 860, 859, 858, 641, 640, 639, 375, 320,
+];
+
+async function readMasthead(page: Page) {
+  return page.evaluate(() => {
+    const box = (selector: string) => {
+      const { left, right, top, bottom, width, height } = document
+        .querySelector(selector)!
+        .getBoundingClientRect();
+      return { left, right, top, bottom, width, height };
+    };
+    const labels = Array.from(document.querySelectorAll('.site-nav a')).map((link) => {
+      const rect = link.getBoundingClientRect();
+      const range = document.createRange();
+      range.selectNodeContents(link.querySelector('.destination-label, .nav-label') ?? link);
+      return {
+        left: rect.left,
+        right: rect.right,
+        height: rect.height,
+        lines: new Set(Array.from(range.getClientRects()).map((rect) => Math.round(rect.y))).size,
+      };
+    });
+    return {
+      header: box('.site-header'),
+      inner: box('.site-header__inner'),
+      brand: box('.brand-block'),
+      nav: box('.site-nav'),
+      actions: box('.site-actions'),
+      search: box('.search-button'),
+      switcher: box('.language-switcher'),
+      targets: Array.from(document.querySelectorAll('.language-switcher > *')).map((target) => {
+        const { width, height } = target.getBoundingClientRect();
+        return { width, height };
+      }),
+      labels,
+      overflow: document.documentElement.scrollWidth > innerWidth,
+    };
+  });
+}
+
+function expectMasthead(geometry: Awaited<ReturnType<typeof readMasthead>>, width: number) {
+  expect(geometry.overflow, `${width}px page overflow`).toBe(false);
+  expect(geometry.header.height).toBeLessThanOrEqual(width >= 860 ? 90 : 112);
+  expect(geometry.brand.right).toBeLessThanOrEqual(geometry.actions.left);
+  expect(geometry.switcher.left).toBeGreaterThanOrEqual(geometry.actions.left);
+  expect(geometry.switcher.right).toBeLessThanOrEqual(geometry.actions.right);
+  expect(geometry.switcher.top).toBeGreaterThanOrEqual(geometry.actions.top);
+  expect(geometry.switcher.bottom).toBeLessThanOrEqual(geometry.actions.bottom);
+  expect(geometry.switcher.left).toBeGreaterThanOrEqual(geometry.search.right);
+  for (const target of geometry.targets) {
+    expect(target.width).toBeGreaterThanOrEqual(44);
+    expect(target.height).toBeGreaterThanOrEqual(44);
+  }
+  for (const label of geometry.labels) {
+    expect(label.lines, `${width}px nav wraps`).toBe(1);
+    expect(label.height).toBeGreaterThanOrEqual(44);
+    expect(label.left).toBeGreaterThanOrEqual(geometry.inner.left);
+    expect(label.right).toBeLessThanOrEqual(geometry.inner.right);
+    if (width >= 860) {
+      expect(label.left, `${width}px nav overlaps brand`).toBeGreaterThanOrEqual(
+        geometry.brand.right,
+      );
+      expect(label.right, `${width}px nav overlaps actions`).toBeLessThanOrEqual(
+        geometry.actions.left,
+      );
+    }
+  }
+  if (width < 860) {
+    expect(geometry.nav.top).toBeGreaterThanOrEqual(
+      Math.max(geometry.brand.bottom, geometry.actions.bottom),
+    );
+  } else {
+    expect(geometry.nav.top).toBeLessThan(geometry.actions.bottom);
+    expect(geometry.nav.bottom).toBeGreaterThan(geometry.actions.top);
+  }
+}
 
 test.beforeAll(async () => {
   test.setTimeout(120_000);
@@ -85,7 +165,9 @@ test('French reading, keyboard language switching and mobile layout', async ({ p
   await expect(page).toHaveURL(`${origin}/stories/${id}/`);
 
   await page.goto(`${origin}/fr/`);
-  await expect(page.locator('main a[href*="/fr/stories/"]')).toHaveCount(1);
+  await expect(page.locator('main a[href*="/fr/stories/"]')).toHaveCount(
+    1 + frenchSelectionSamples.length,
+  );
   for (const href of await page
     .locator('a[href^="/"]')
     .evaluateAll((links) => links.map((link) => link.getAttribute('href')!))) {
@@ -166,18 +248,162 @@ test('English draft references remain unavailable across publication and real se
   expect(search.published).toBe(1);
 });
 
+test('the active language stays on the current page across story and non-story routes', async ({
+  page,
+}) => {
+  const currentStory = fixtureId('current');
+  const routes = [
+    { path: '/', locale: 'en' },
+    { path: '/about/', locale: 'en' },
+    { path: '/categories/', locale: 'en' },
+    { path: '/search/', locale: 'en' },
+    { path: `/pulse/${visibilityEditions.latest}/`, locale: 'en' },
+    { path: `/stories/${pilotId}/`, locale: 'en' },
+    { path: `/stories/${currentStory}/`, locale: 'en' },
+    { path: '/fr/', locale: 'fr' },
+    { path: `/fr/stories/${currentStory}/`, locale: 'fr' },
+    { path: `/fr/stories/${fixtureId('stale')}/`, locale: 'fr' },
+    { path: `/fr/stories/${fixtureId('withdrawn')}/`, locale: 'fr' },
+  ];
+  for (const { path, locale } of routes) {
+    await page.goto(`${origin}${path}`);
+    const switcher = page.getByRole('navigation', {
+      name: locale === 'en' ? 'Reading language' : 'Langue de lecture',
+    });
+    const active = switcher.getByRole('link', {
+      name: locale === 'en' ? 'English' : 'Français',
+      exact: true,
+    });
+    await expect(switcher.locator('[aria-current="page"]')).toHaveCount(1);
+    await expect(active).toHaveAttribute('aria-current', 'page');
+    await expect(active).toHaveAttribute('href', path);
+    await active.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(`${origin}${path}`);
+    await expect(page.locator('html')).toHaveAttribute('lang', locale);
+    if (path === `/stories/${currentStory}/`) {
+      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveAttribute(
+        'href',
+        `/fr/stories/${currentStory}/`,
+      );
+    } else if (locale === 'fr' && path !== '/fr/') {
+      await expect(switcher.getByRole('link', { name: 'English', exact: true })).toHaveAttribute(
+        'href',
+        path.replace('/fr/', '/'),
+      );
+    } else if (path === `/stories/${pilotId}/`) {
+      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveCount(0);
+    } else if (locale === 'en') {
+      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveAttribute(
+        'href',
+        '/fr/',
+      );
+    }
+  }
+});
+
+test('populated French selection wraps several long titles without clipping or overlapping rows', async ({
+  page,
+  request,
+}, testInfo) => {
+  test.setTimeout(90_000);
+  await page.goto(`${origin}/fr/`);
+  await expect(page.locator('.empty-selection')).toHaveCount(0);
+  const titles = [frenchReadingTitle, ...frenchSelectionSamples.map((sample) => sample.title)];
+  await expect(page.locator('.selection-list h2')).toHaveCount(titles.length);
+  for (const title of titles)
+    await expect(page.getByRole('heading', { level: 2, name: title, exact: true })).toBeVisible();
+  for (const sample of frenchSelectionSamples) {
+    const href = `/fr/stories/${fixtureId(sample.state)}/`;
+    await expect(page.getByRole('link', { name: sample.title, exact: true })).toHaveAttribute(
+      'href',
+      href,
+    );
+    expect((await request.get(`${origin}${href}`)).ok()).toBe(true);
+  }
+  for (const width of mastheadWidths) {
+    await page.setViewportSize({ width, height: 900 });
+    expectMasthead(await readMasthead(page), width);
+    const rows = await page.locator('.selection-list li').evaluateAll((items) =>
+      items.map((item) => {
+        const row = item.getBoundingClientRect();
+        const title = item.querySelector('h2')!;
+        const description = item.querySelector('p:last-child')!.getBoundingClientRect();
+        const style = getComputedStyle(title);
+        const range = document.createRange();
+        range.selectNodeContents(title);
+        const boxes = Array.from(range.getClientRects());
+        const clipped =
+          ['hidden', 'clip'].includes(style.overflowY) ||
+          !['none', ''].includes(style.getPropertyValue('-webkit-line-clamp'));
+        return {
+          top: row.top,
+          bottom: row.bottom,
+          textWithinRow: boxes.every(
+            (box) => box.left >= row.left - 1 && box.right <= row.right + 1,
+          ),
+          titleBeforeDescription: title.getBoundingClientRect().bottom <= description.top,
+          clipped: clipped && title.scrollHeight > title.clientHeight + 1,
+          lines: new Set(boxes.map((box) => Math.round(box.y))).size,
+        };
+      }),
+    );
+    for (const [index, row] of rows.entries()) {
+      expect(row.textWithinRow, `${width}px selection title overflows`).toBe(true);
+      expect(row.titleBeforeDescription, `${width}px title overlaps description`).toBe(true);
+      expect(row.clipped, `${width}px title clipped`).toBe(false);
+      if (width <= 375) expect(row.lines).toBeGreaterThan(1);
+      if (index > 0) expect(row.top).toBeGreaterThanOrEqual(rows[index - 1].bottom);
+    }
+    await page.screenshot({
+      path: testInfo.outputPath(`fr-populated-${width}.png`),
+      fullPage: true,
+    });
+  }
+});
+
+test('unavailable French control keeps the same masthead alignment as the French selection', async ({
+  page,
+}) => {
+  test.setTimeout(60_000);
+  for (const width of mastheadWidths) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(`${origin}/stories/${pilotId}/`);
+    const english = await readMasthead(page);
+    expectMasthead(english, width);
+    await expect(page.locator('.language-unavailable')).toHaveAttribute('aria-disabled', 'true');
+    await page.goto(`${origin}/fr/`);
+    const french = await readMasthead(page);
+    expectMasthead(french, width);
+    expect(Math.abs(english.switcher.left - french.switcher.left)).toBeLessThanOrEqual(1);
+    expect(Math.abs(english.switcher.top - french.switcher.top)).toBeLessThanOrEqual(1);
+  }
+});
+
 test('masthead geometry and PNG evidence accommodate French labels at every target width', async ({
   page,
 }, testInfo) => {
+  test.setTimeout(90_000);
+  const englishGeometry = new Map<number, Awaited<ReturnType<typeof readMasthead>>>();
   for (const locale of ['en', 'fr']) {
-    for (const width of [1280, 960, 375, 320]) {
+    for (const width of mastheadWidths) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`${origin}/${locale === 'fr' ? 'fr/' : ''}stories/${fixtureId('current')}/`);
+      const masthead = await readMasthead(page);
+      expectMasthead(masthead, width);
+      if (locale === 'en') englishGeometry.set(width, masthead);
+      else {
+        const english = englishGeometry.get(width)!;
+        for (const slot of ['search', 'switcher'] as const) {
+          for (const edge of ['left', 'right', 'top', 'bottom'] as const) {
+            expect(
+              Math.abs(masthead[slot][edge] - english[slot][edge]),
+              `${width}px ${slot} shifts between locales`,
+            ).toBeLessThanOrEqual(1);
+          }
+        }
+      }
       const geometry = await page.evaluate(() => {
-        const header = document.querySelector('.site-header')!.getBoundingClientRect();
-        const brand = document.querySelector('.brand-block')!.getBoundingClientRect();
-        const actions = document.querySelector('.site-actions')!.getBoundingClientRect();
-        const nav = document.querySelector('.site-nav')!.getBoundingClientRect();
         const title = document.querySelector('h1')!;
         const titleRange = document.createRange();
         titleRange.selectNodeContents(title);
@@ -188,58 +414,19 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
           titleStyle.getPropertyValue('-webkit-line-clamp'),
         );
         const readingHeader = title.closest('.article-header')!.getBoundingClientRect();
-        const labels = Array.from(document.querySelectorAll('.site-nav a')).map((link) => {
-          const rect = link.getBoundingClientRect();
-          const range = document.createRange();
-          range.selectNodeContents(link.querySelector('.destination-label, .nav-label') ?? link);
-          return {
-            x: rect.x,
-            right: rect.right,
-            height: rect.height,
-            lines: new Set(Array.from(range.getClientRects()).map((box) => Math.round(box.y))).size,
-          };
-        });
-        const targets = Array.from(document.querySelectorAll('.language-switcher a')).map(
-          (link) => ({
-            width: link.getBoundingClientRect().width,
-            height: link.getBoundingClientRect().height,
-          }),
-        );
         return {
-          height: header.height,
-          brandRight: brand.right,
-          actionsLeft: actions.left,
-          navTop: nav.top,
-          actionsBottom: actions.bottom,
-          labels,
-          targets,
           titleLines: new Set(titleBoxes.map((box) => Math.round(box.y))).size,
           titleWithinHeader: titleBoxes.every(
             (box) => box.left >= readingHeader.left - 1 && box.right <= readingHeader.right + 1,
           ),
           // Tight serif line boxes can have ink overflow without hiding any text.
           titleClipped: (clipsTitle || clampsTitle) && title.scrollHeight > title.clientHeight + 1,
-          overflow: document.documentElement.scrollWidth > innerWidth,
         };
       });
-      expect(geometry.overflow, `${locale} ${width}`).toBe(false);
-      expect(geometry.height, `${locale} ${width}`).toBeLessThanOrEqual(width >= 960 ? 90 : 112);
-      expect(geometry.brandRight).toBeLessThanOrEqual(geometry.actionsLeft);
       expect(geometry.titleWithinHeader, `${locale} ${width} title exceeds reading area`).toBe(
         true,
       );
       expect(geometry.titleClipped, `${locale} ${width} title is clipped`).toBe(false);
-      for (const target of geometry.targets) {
-        expect(target.width).toBeGreaterThanOrEqual(44);
-        expect(target.height).toBeGreaterThanOrEqual(44);
-      }
-      for (const label of geometry.labels) {
-        expect(label.lines, `${locale} ${width} nav wraps`).toBe(1);
-        expect(label.height).toBeGreaterThanOrEqual(44);
-        expect(label.right).toBeLessThanOrEqual(width);
-      }
-      if (width < 860) expect(geometry.navTop).toBeGreaterThanOrEqual(geometry.actionsBottom);
-      if (width >= 960) expect(geometry.navTop).toBeLessThan(geometry.actionsBottom);
       if (locale === 'fr') {
         if (width === 1280) expect(geometry.titleLines).toBeLessThanOrEqual(3);
         await expect(page.getByRole('heading', { level: 1 })).toHaveText(frenchReadingTitle);
@@ -259,10 +446,12 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
 test('production empty French selection stays usable on desktop and mobile', async ({
   page,
 }, testInfo) => {
+  test.setTimeout(90_000);
   // This route uses the normal production build; synthetic reviewed stories stay on the fixture server.
-  for (const width of [1280, 960, 375, 320]) {
+  for (const width of mastheadWidths) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/fr/');
+    expectMasthead(await readMasthead(page), width);
     await expect(page.locator('.empty-selection')).toContainText('Aucun article en français');
     await expect(
       page.locator('.site-nav').getByRole('link', { name: 'Sélection' }),

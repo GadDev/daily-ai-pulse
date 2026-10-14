@@ -7,8 +7,11 @@ interface Props {
 }
 const { locale, storyId, frenchAvailable = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const englishHref = storyId ? `${base}stories/${storyId}/` : base;
-const frenchHref = storyId ? `${base}fr/stories/${storyId}/` : `${base}fr/`;
+// The selected language describes this page, including non-story routes.
+const englishHref =
+  locale === 'en' ? Astro.url.pathname : storyId ? `${base}stories/${storyId}/` : base;
+const frenchHref =
+  locale === 'fr' ? Astro.url.pathname : storyId ? `${base}fr/stories/${storyId}/` : `${base}fr/`;
 const text = messages[locale];
 ---
 

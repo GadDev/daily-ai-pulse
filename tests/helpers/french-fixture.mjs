@@ -10,6 +10,24 @@ export const pilotId = '2026-10-04-claude-code-2-1-289-policy-precedence';
 // The proposal's long title is a layout sample; this fixture never approves the real pilot.
 export const frenchReadingTitle =
   'Claude Code 2.1.289 corrige d’autres failles dans les règles de refus et la gestion des liens symboliques';
+export const frenchSelectionSamples = [
+  {
+    state: 'selection-tools',
+    category: 'tools',
+    title:
+      'Des outils de développement pour comprendre les changements de configuration et vérifier les autorisations avant chaque exécution',
+    description:
+      'Un exemple de mise en page avec une description volontairement longue : les équipes comparent les paramètres, les journaux et les résultats avant de modifier leur environnement de travail.',
+  },
+  {
+    state: 'selection-engineering',
+    category: 'engineering',
+    title:
+      'Comment les équipes d’ingénierie évaluent les systèmes d’intelligence artificielle lorsque les consignes et les dépendances évoluent',
+    description:
+      'Une seconde synthèse de test pour vérifier le rythme de lecture, les retours à la ligne et la séparation entre plusieurs articles dans la sélection française.',
+  },
+];
 export const fixtureId = (state) => `2026-10-04-i18n-fixture-${state}`;
 export const visibilityEditions = {
   latest: '2030-01-02',
@@ -37,7 +55,14 @@ export function buildFrenchFixture() {
     symlinkSync(join(repo, 'node_modules'), join(root, 'node_modules'), 'dir');
     const source = readFileSync(join(repo, `src/content/stories/${pilotId}.md`), 'utf8');
     const sourceData = parse(source.split('---')[1]);
-    for (const state of ['current', 'stale', 'withdrawn', 'source-draft']) {
+    for (const state of [
+      'current',
+      'stale',
+      'withdrawn',
+      'source-draft',
+      ...frenchSelectionSamples.map((sample) => sample.state),
+    ]) {
+      const selectionSample = frenchSelectionSamples.find((sample) => sample.state === state);
       const id = fixtureId(state);
       const correction = { date: '2026-10-05', note: 'English correction.' };
       const draft = state === 'source-draft';
@@ -45,6 +70,7 @@ export function buildFrenchFixture() {
         ...sourceData,
         draft,
         corrections: [correction],
+        ...(selectionSample ? { category: selectionSample.category } : {}),
         ...(draft
           ? {
               title: draftSentinels[0],
@@ -72,16 +98,20 @@ export function buildFrenchFixture() {
         status: state === 'withdrawn' ? 'withdrawn' : 'reviewed',
         reviewedBy: 'Synthetic test fixture — not publication approval',
         reviewedAt: '2026-10-12T11:00:00Z',
-        title:
-          state === 'current'
+        title: selectionSample
+          ? selectionSample.title
+          : state === 'current'
             ? frenchReadingTitle
             : `Un titre français suffisamment long pour vérifier la lecture sur mobile : ${state}`,
         description:
+          selectionSample?.description ??
           'Une synthèse française pour vérifier les liens, les dates et la fidélité du rendu.',
         imageAlt: 'Illustration française de la hiérarchie des règles',
         corrections: [{ date: '2026-10-05', note: 'Correction française vérifiée.' }],
       };
-      const body = `## Vérifier le rendu\n\nMarqueur${state === 'current' ? 'Courant' : 'Masque'}Unique : ${state === 'current' ? 'zzcurrentvisiblezz' : 'zzobsoletebodyblockedzz'} ; 2.1.289 reste identique. [Source technique](https://example.com/reference).\n\n\`\`\`js\nconst version = "2.1.289";\n\`\`\`\n`;
+      const body = selectionSample
+        ? '## Exemple de lecture\n\nContenu synthétique pour les tests de la sélection, sans approbation du pilote réel.\n'
+        : `## Vérifier le rendu\n\nMarqueur${state === 'current' ? 'Courant' : 'Masque'}Unique : ${state === 'current' ? 'zzcurrentvisiblezz' : 'zzobsoletebodyblockedzz'} ; 2.1.289 reste identique. [Source technique](https://example.com/reference).\n\n\`\`\`js\nconst version = "2.1.289";\n\`\`\`\n`;
       writeFileSync(
         join(root, `src/content/story-translations/fr/${id}.md`),
         `---\n${stringify(metadata)}---\n\n${body}`,

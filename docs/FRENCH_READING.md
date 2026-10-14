@@ -142,6 +142,28 @@ assertions are not pixel-diff or human visual approval.
 The earlier M4 acceptance record remains pinned to its recorded revision.
 The updated UX must pass current PR CI; the real translation remains draft.
 
+### Masthead alignment and regression coverage
+
+The active language link targets the current page, including English search,
+information, category and dated-edition routes. Switching to another language
+still preserves a current story pair or links to the curated selection where
+no equivalent page exists. Unavailable French story translations remain
+non-interactive; their reserved 44px slot keeps the header aligned.
+
+Both locales reserve the same subscription-button width, so translated labels
+and EN indicators do not move the search or language controls. Browser checks
+compare these controls' positions across locales and assert that navigation
+links do not collide with the wordmark or action area. They also require the
+switcher to stay inside header actions, guarding against the former standalone
+language row.
+
+The width matrix includes 320/375/1280px and both sides of the 640, 860, 960 and
+1100px transitions. An isolated fixture supplies three current French articles
+with long titles and descriptions to check wrapping, clipping, row separation
+and working reading links. Its synthetic review metadata never approves the
+real pilot; the production empty-state check remains separate. CI screenshots
+include the populated fixture as well as reading and empty-release states.
+
 The frontend follow-up applies the WebP hierarchy to the French selection:
 full-width rule, separate preparation/availability messages and a terracotta
 English-edition link with a 44px target. French reading titles use the available
