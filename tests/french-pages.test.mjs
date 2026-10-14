@@ -1,0 +1,162 @@
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { after, before, test } from 'node:test';
+import {
+  buildFrenchFixture,
+  draftSentinels,
+  fixtureId,
+  frenchSelectionSamples,
+  pilotId,
+  visibilityEditions,
+} from './helpers/french-fixture.mjs';
+
+let fixture;
+const read = (path) => readFileSync(join(fixture.dist, path), 'utf8');
+const french = (state) => read(`fr/stories/${fixtureId(state)}/index.html`);
+const english = (state) => read(`stories/${fixtureId(state)}/index.html`);
+before(() => {
+  fixture = buildFrenchFixture();
+});
+after(() => {
+  fixture?.cleanup();
+});
+
+test('curated French selection lists only current translations and is not a home equivalent', () => {
+  const html = read('fr/index.html');
+  assert.match(html, /<html lang="fr"/);
+  assert.match(html, new RegExp(`/fr/stories/${fixtureId('current')}/`));
+  for (const state of ['stale', 'withdrawn', 'source-draft']) {
+    assert.ok(!html.includes(`/fr/stories/${fixtureId(state)}/`));
+  }
+  assert.doesNotMatch(html, /<link[^>]+hreflang=/);
+});
+
+test('draft pilot and draft English source have no French production route', () => {
+  for (const id of [pilotId, fixtureId('source-draft')]) {
+    assert.equal(existsSync(join(fixture.dist, `fr/stories/${id}/index.html`)), false);
+  }
+});
+
+test('current French page preserves code, links, sources, image and canonical dates', () => {
+  const html = french('current');
+  assert.match(html, /<html lang="fr"/);
+  assert.match(html, /MarqueurCourantUnique/);
+  assert.match(html, /id="vérifier-le-rendu"/);
+  assert.match(html, /https:\/\/example.com\/reference/);
+  assert.match(html, /2\.1\.289/);
+  assert.match(html, /<pre[^>]*[\s\S]*const/);
+  assert.match(html, /alt="Illustration française de la hiérarchie des règles"/);
+  assert.match(html, /4 octobre 2026/);
+  assert.match(html, /5 octobre 2026/);
+  assert.match(html, /Correction française vérifiée/);
+  assert.match(html, /https:\/\/github.com\/anthropics\/claude-code/);
+  assert.match(html, /aria-label="Rechercher dans les articles en anglais"/);
+  assert.doesNotMatch(html, /name="robots"/);
+});
+
+test('language alternates are reciprocal and the switcher preserves the story', () => {
+  const id = fixtureId('current');
+  for (const html of [french('current'), english('current')]) {
+    for (const locale of ['en', 'fr']) {
+      const path = `${locale === 'fr' ? 'fr/' : ''}stories/${id}/`;
+      assert.ok(
+        html.includes(`hreflang="${locale}" href="https://daily-ai-pulse-db253.web.app/${path}"`),
+      );
+    }
+  }
+  assert.match(
+    french('current'),
+    new RegExp(`rel="canonical" href="https://daily-ai-pulse-db253.web.app/fr/stories/${id}/"`),
+  );
+  assert.match(english('current'), new RegExp(`href="/fr/stories/${id}/" lang="fr" hreflang="fr"`));
+  assert.match(french('current'), new RegExp(`href="/stories/${id}/" lang="en" hreflang="en"`));
+});
+
+test('stale and withdrawn URLs contain only a safe notice; English exposes no alternate', () => {
+  for (const state of ['stale', 'withdrawn']) {
+    const html = french(state);
+    assert.match(html, /Traduction française indisponible/);
+    assert.match(html, /name="robots" content="noindex, follow"/);
+    assert.match(html, /<body data-pagefind-ignore="all"/);
+    assert.doesNotMatch(
+      html,
+      /MarqueurMasqueUnique|zzobsoletebodyblockedzz|<pre|Correction française vérifiée/,
+    );
+    assert.doesNotMatch(html, /<link[^>]+hreflang=/);
+    assert.match(html, new RegExp(`href="/stories/${fixtureId(state)}/"`));
+    assert.match(english(state), /No current French translation/);
+    assert.doesNotMatch(english(state), /<link[^>]+hreflang=/);
+  }
+});
+
+test('sitemap and actual Pagefind index exclude notice pages', () => {
+  const sitemap = read('sitemap-0.xml');
+  assert.ok(sitemap.includes(`/fr/stories/${fixtureId('current')}/`));
+  for (const state of ['stale', 'withdrawn', 'source-draft']) {
+    assert.ok(!sitemap.includes(`/fr/stories/${fixtureId(state)}/`));
+  }
+  const index = JSON.parse(read('pagefind/pagefind-entry.json'));
+  assert.equal(index.languages.fr.page_count, 2 + frenchSelectionSamples.length);
+  assert.ok(index.languages.en.page_count >= 139);
+});
+
+test('English drafts leak no metadata, body or story URL into any built public HTML, RSS or sitemap', () => {
+  const paths = readdirSync(fixture.dist, { recursive: true })
+    .map(String)
+    .filter(
+      (path) => path.endsWith('.html') || path === 'rss.xml' || /^sitemap.*\.xml$/.test(path),
+    );
+  const forbidden = [...draftSentinels, `/stories/${fixtureId('source-draft')}/`];
+  for (const path of paths) {
+    const output = read(path);
+    for (const text of forbidden) assert.ok(!output.includes(text), `${text} leaked into ${path}`);
+  }
+  assert.equal(
+    existsSync(join(fixture.dist, `stories/${fixtureId('source-draft')}/index.html`)),
+    false,
+  );
+  assert.ok(read('rss.xml').includes(`/stories/${fixtureId('current')}/`));
+});
+
+test('homepage falls back to a visible story from its edition and counts only visible references', () => {
+  const html = read('index.html');
+  const heroHref = html.match(/href="(\/stories\/[^"]+)"/)?.[1];
+  assert.equal(heroHref, `/stories/${fixtureId('current')}/`);
+  assert.match(html, /3 selected stories/);
+  const editions = [...html.matchAll(/<li class="edition"[\s\S]*?<\/li>/g)].map(([row]) => row);
+  for (const [kind, count] of [
+    ['recent', '1 story'],
+    ['empty', '0 stories'],
+  ]) {
+    const row = editions.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
+    assert.ok(row, `${kind} edition must remain listed`);
+    assert.ok(row.includes(`${count}</p>`));
+  }
+});
+
+test('daily editions omit draft-only sections and Pulse archive counts only published stories', () => {
+  const latest = read(`pulse/${visibilityEditions.latest}/index.html`);
+  assert.match(latest, /1 desks/);
+  assert.match(latest, /3 stories/);
+  assert.doesNotMatch(latest, /Draft only desk/);
+  const recent = read(`pulse/${visibilityEditions.recent}/index.html`);
+  assert.match(recent, /1 stories/);
+  const empty = read(`pulse/${visibilityEditions.empty}/index.html`);
+  assert.match(empty, /0 desks/);
+  assert.match(empty, /0 stories/);
+  const archive = read('pulse/index.html');
+  const rows = [...archive.matchAll(/<article class="edition-row"[\s\S]*?<\/article>/g)].map(
+    ([row]) => row,
+  );
+  for (const [kind, count] of [
+    ['latest', '3 stories'],
+    ['recent', '1 story'],
+    ['empty', '0 stories'],
+  ]) {
+    const row = rows.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
+    assert.ok(row, `${kind} edition must remain in the archive`);
+    assert.ok(row.includes(`${count}</p>`), `${kind} count must exclude drafts`);
+    assert.doesNotMatch(row, />Research<\/p>/);
+  }
+});

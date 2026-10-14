@@ -3,6 +3,9 @@ import type { CollectionEntry } from 'astro:content';
 type Story = CollectionEntry<'stories'>;
 type Edition = CollectionEntry<'pulse'>;
 
+/** Public English surfaces resolve stories only after this publication gate. */
+export const isPublishedStory = (story: Story) => !story.data.draft;
+
 export const readingTime = (story: Story) =>
   story.data.type === 'deep-dive'
     ? '8 min read'

@@ -197,6 +197,68 @@ The structured model should support these without changing story files:
 - trending-topic summaries;
 - RSS feeds.
 
+## Story translations (M1)
+
+`storyTranslations` is a separate Astro collection under
+`src/content/story-translations/<locale>/<story-id>.md`. English stories and
+edition references retain their existing IDs and files. French (`fr`) is the
+only enabled translation locale. The collection alone creates no routes; M2
+adds gated French routes described in `docs/FRENCH_READING.md`.
+
+Translation metadata contains `storyId`, `locale`, exact-byte `sourceSha256`,
+optional provenance `sourceRef`, French `title`, `description`, `imageAlt`,
+and translated correction notes with the original dates and ordering.
+Category, tags, source labels/URLs, publication date, evidence, signal,
+image path and edition selection are inherited from the canonical story.
+Unknown fields are rejected to prevent independent copies of those values.
+
+Stored review states:
+
+| Status | Meaning |
+| --- | --- |
+| `draft` | Default; not available for public rendering |
+| `reviewed` | Human-reviewed; requires `reviewedBy` and an ISO datetime `reviewedAt` |
+| `withdrawn` | Explicitly unavailable; may retain prior review metadata |
+
+`fingerprintStorySource` hashes the exact canonical source bytes with SHA-256.
+Formatting and line-ending changes also invalidate freshness. Review metadata
+is procedural evidence backed by Git/PR review, not proof that an agent cannot
+forge approval. Generation must not fill human approval fields.
+
+`createStorySnapshot` captures the current fingerprint, draft flag and correction
+dates. `createTranslationLookup` validates translation identities and
+relationships, then resolves each `(storyId, locale)` consistently:
+
+| Derived state | Available? | Meaning |
+| --- | --- | --- |
+| `absent` | No | No translation exists |
+| `draft` | No | Translation is awaiting review |
+| `withdrawn` | No | Translation was withdrawn |
+| `source-draft` | No | Reviewed copy references an unpublished English draft |
+| `stale` | No | Reviewed copy's fingerprint differs from current English |
+| `current` | Yes | Reviewed copy matches a published English source |
+
+Only the lookup's `available` result may be used for public article
+bodies, cards, alternates, feeds or search. Recreate snapshots and the lookup
+for each static build. French edits require renewed human review even if the
+English source is unchanged. No separate translation-content hash is used.
+
+Run `npm run translations:check` for relationships and freshness, and
+`npm run translations:test` for regressions. Translation checking is included
+in `npm run verify`; PR CI also executes the regressions.
+
+Malformed metadata, unknown sources, duplicate variants, incorrect file paths,
+empty bodies, unsupported MDX and current-source correction-date mismatches
+fail validation. Stale valid copy is reported but does not fail an English
+correction: its body is unavailable. Correction-date correspondence is enforced
+when the fingerprint matches; an older translation may lack a newly added
+English correction until it is updated. M2/M3 will render a safe update notice
+at known stale/withdrawn French URLs rather than exposing the old body.
+
+The accepted M0 wording is stored as a draft seed. Its source SHA-256 is
+validated; it has no fabricated human review metadata and cannot be published
+by adding this collection alone.
+
 ## Source of truth
 
 - Product intent and roadmap: `PRD.md`.

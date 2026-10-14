@@ -1,0 +1,177 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getTranslationContent } from '../../../lib/translation-content';
+import { frenchCategories, frenchDate, frenchLabels } from '../../../lib/i18n';
+import '../../../styles/article.css';
+
+export async function getStaticPaths() {
+  const { stories, lookup } = await getTranslationContent();
+  return stories
+    .filter((story) => {
+      const { state } = lookup(story.id);
+      return !story.data.draft && ['current', 'stale', 'withdrawn'].includes(state);
+    })
+    .map((story) => {
+      const { state, entry } = lookup(story.id);
+      return {
+        params: { id: story.id },
+        props: { story, translation: entry!, available: state === 'current', state },
+      };
+    });
+}
+interface Props {
+  story: CollectionEntry<'stories'>;
+  translation: CollectionEntry<'storyTranslations'>;
+  available: boolean;
+  state: string;
+}
+const { story, translation, available, state } = Astro.props;
+// Never render an outdated or withdrawn body, even into a hidden element.
+const rendered = available ? await render(translation) : undefined;
+const Content = rendered?.Content;
+const base = import.meta.env.BASE_URL;
+const imageSrc = story.data.image.startsWith('/')
+  ? `${base}${story.data.image.slice(1)}`
+  : story.data.image;
+const title = available ? translation.data.title : 'Traduction française indisponible';
+const description = available
+  ? translation.data.description
+  : 'Consultez l’article original en anglais ou la sélection en français.';
+---
+
+<BaseLayout
+  locale="fr"
+  storyId={story.id}
+  frenchAvailable={available}
+  noindex={!available}
+  title={`${title} — Pulse`}
+  description={description}
+  image={available ? story.data.image : undefined}
+  type={available ? 'article' : 'website'}
+  publishedTime={available ? story.data.date.toISOString() : undefined}
+  section={available ? story.data.category : undefined}
+  tags={available ? story.data.tags : []}
+>
+  {available && Content ? (
+    <article class="article-shell">
+      <header class="article-header">
+        <a class="back-link" href={`${base}fr/`}>
+          ← Retour à la sélection en français
+        </a>
+        <p class="eyebrow article-eyebrow">
+          {frenchCategories[story.data.category]} / {frenchLabels[story.data.type]}
+        </p>
+        <h1>{translation.data.title}</h1>
+        <p class="dek">{translation.data.description}</p>
+        <div class="article-meta">
+          <ul class="meta-list" aria-label="Informations sur l’article">
+            <li>
+              <time datetime={story.data.date.toISOString()}>{frenchDate(story.data.date)}</time>
+            </li>
+            <li>Par The Daily AI Pulse</li>
+          </ul>
+        </div>
+        <p class="translation-note">
+          Traduit de{' '}
+          <a href={`${base}stories/${story.id}/`} hreflang="en">
+            l’article original en anglais
+          </a>
+          . Les intitulés des sources sont conservés dans leur langue d’origine.
+        </p>
+      </header>
+      <figure class="article-hero">
+        <img src={imageSrc} alt={translation.data.imageAlt} loading="eager" />
+      </figure>
+      <div class="article-layout article-layout--no-toc">
+        <div class="article-main">
+          <div class="prose">
+            <Content />
+          </div>
+          {translation.data.corrections.length > 0 && (
+            <section class="sources" aria-labelledby="corrections-title">
+              <h2 id="corrections-title">Corrections</h2>
+              <ul>
+                {translation.data.corrections.map((correction) => (
+                  <li>
+                    <time datetime={correction.date.toISOString()}>
+                      {frenchDate(correction.date)}
+                    </time>{' '}
+                    : {correction.note}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+          <section class="sources" aria-labelledby="sources-title">
+            <p class="eyebrow">VÉRIFICATION</p>
+            <h2 id="sources-title">Sources</h2>
+            <dl class="verification">
+              <div>
+                <dt>Éléments probants</dt>
+                <dd>{frenchLabels[story.data.evidence]}</dd>
+              </div>
+              <div>
+                <dt>Signal</dt>
+                <dd>{frenchLabels[story.data.signal]}</dd>
+              </div>
+              <div>
+                <dt>Difficulté</dt>
+                <dd>{frenchLabels[story.data.difficulty]}</dd>
+              </div>
+            </dl>
+            <ol>
+              {story.data.sources.map((source) => (
+                <li>
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {source.label}
+                    <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </div>
+      </div>
+    </article>
+  ) : (
+    <section class="translation-unavailable" aria-labelledby="unavailable-title">
+      <h1 id="unavailable-title">Traduction française indisponible</h1>
+      <p>
+        {state === 'stale'
+          ? 'L’article original a été modifié. Sa traduction doit être mise à jour et relue avant d’être proposée à nouveau.'
+          : 'Cette traduction a été retirée de la publication.'}
+      </p>
+      <p>
+        <a href={`${base}stories/${story.id}/`}>Lire l’article original en anglais</a>
+      </p>
+      <p>
+        <a href={`${base}fr/`}>Voir la sélection en français</a>
+      </p>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .translation-note {
+    max-width: 46rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .article-header h1 {
+    max-width: none;
+  }
+  .translation-unavailable {
+    max-width: 46rem;
+    padding: 3rem 0;
+    min-height: 40vh;
+  }
+  .translation-unavailable h1 {
+    font:
+      500 clamp(2rem, 5vw, 3rem)/1.1 Georgia,
+      serif;
+  }
+  .translation-unavailable p {
+    line-height: 1.6;
+  }
+</style>

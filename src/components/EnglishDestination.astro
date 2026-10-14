@@ -1,0 +1,27 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<span class="destination-label">{label}</span>
+<span class="destination-language" aria-hidden="true">
+  EN
+</span>
+<span class="sr-only"> (en anglais)</span>
+<style>
+  .destination-language {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.35rem;
+    padding: 0.12rem 0.2rem;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    font:
+      500 0.58rem/1 ui-monospace,
+      monospace;
+    vertical-align: middle;
+    letter-spacing: 0.03em;
+  }
+</style>

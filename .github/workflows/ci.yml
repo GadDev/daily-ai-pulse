@@ -33,6 +33,12 @@ jobs:
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
+      - name: Translation content and freshness regressions
+        run: npm run translations:test
+
+      - name: French page rendering and visibility regressions
+        run: npm run translations:pages:test
+
       - name: Illustration generation identity regressions
         run: node --test tests/illustration-generation-identity.test.mjs
 
@@ -132,4 +138,13 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 7
+
+      - name: Upload multilingual UX screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: multilingual-ux-screenshots
+          path: test-results/**/*.png
+          if-no-files-found: ignore
           retention-days: 7

@@ -3,10 +3,11 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DailyIssueRow from '../../components/DailyIssueRow.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import { isPublishedStory } from '../../lib/stories';
 
 export async function getStaticPaths() {
   const editions = await getCollection('pulse');
-  const stories = await getCollection('stories');
+  const stories = await getCollection('stories', isPublishedStory);
   const storiesById = new Map(stories.map((story) => [story.id, story]));
 
   return editions.map((edition) => ({

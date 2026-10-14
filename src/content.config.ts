@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { translationSchema } from './lib/translations';
 
 const correctionSchema = z.object({
   date: z.coerce.date(),
@@ -65,4 +66,9 @@ const pulse = defineCollection({
   }),
 });
 
-export const collections = { stories, pulse };
+const storyTranslations = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/story-translations' }),
+  schema: translationSchema,
+});
+
+export const collections = { stories, pulse, storyTranslations };

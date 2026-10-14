@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTranslationContent } from '../../lib/translation-content';
+import { frenchDate, frenchCategories } from '../../lib/i18n';
+const { stories, lookup } = await getTranslationContent();
+const selection = stories
+  .filter((story) => lookup(story.id).available)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  locale="fr"
+  title="Sélection en français — The Daily AI Pulse"
+  description="Une sélection d’articles sur l’IA, traduits et relus pour un lectorat technique francophone."
+>
+  <section class="french-selection" aria-labelledby="selection-title">
+    <header class="selection-header">
+      <p class="eyebrow">THE DAILY AI PULSE / EN FRANÇAIS</p>
+      <h1 id="selection-title">L’essentiel de l’IA, en français</h1>
+      <p class="dek">
+        Une sélection d’articles traduits et relus. Les éditions quotidiennes complètes restent
+        disponibles <a href={base}>en anglais</a>.
+      </p>
+    </header>
+    {selection.length === 0 ? (
+      <div class="empty-selection">
+        <p class="empty-selection__title">
+          Les premières traductions sont en cours de préparation.
+        </p>
+        <p class="empty-selection__description">
+          Aucun article en français n’est encore disponible.
+        </p>
+        <a class="english-edition-link" href={base}>
+          Lire l’édition du jour en anglais →
+        </a>
+      </div>
+    ) : (
+      <ul class="selection-list">
+        {selection.map((story) => {
+          const translation = lookup(story.id).entry!;
+          return (
+            <li>
+              <p class="eyebrow">
+                {frenchCategories[story.data.category]} ·{' '}
+                <time datetime={story.data.date.toISOString()}>{frenchDate(story.data.date)}</time>
+              </p>
+              <h2>
+                <a href={`${base}fr/stories/${story.id}/`}>{translation.data.title}</a>
+              </h2>
+              <p>{translation.data.description}</p>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+</BaseLayout>
+<style>
+  .french-selection {
+    padding: 3rem 0;
+    min-height: 40vh;
+  }
+  .selection-header .eyebrow {
+    margin: 0;
+    color: var(--terracotta);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    font:
+      500 clamp(2.3rem, 5vw, 3.4rem)/1.08 Georgia,
+      serif;
+    margin: 1rem 0 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  .dek {
+    font:
+      1.2rem/1.6 Georgia,
+      serif;
+    color: var(--muted);
+    max-width: 46rem;
+    margin: 0;
+  }
+  .selection-header {
+    padding-bottom: 2rem;
+  }
+  .empty-selection {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .empty-selection__title {
+    margin: 0;
+    font:
+      1.2rem/1.5 Georgia,
+      serif;
+  }
+  .empty-selection__description {
+    margin: 0.5rem 0 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .english-edition-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  .english-edition-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .selection-list {
+    list-style: none;
+    padding: 0;
+  }
+  .selection-list li {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  h2 {
+    font:
+      500 1.8rem/1.2 Georgia,
+      serif;
+    overflow-wrap: anywhere;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  @media (max-width: 640px) {
+    .french-selection {
+      padding-top: 2rem;
+    }
+  }
+</style>

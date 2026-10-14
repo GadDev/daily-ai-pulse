@@ -1,0 +1,103 @@
+---
+import { messages, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  storyId?: string;
+  frenchAvailable?: boolean;
+}
+const { locale, storyId, frenchAvailable = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+// The selected language describes this page, including non-story routes.
+const englishHref =
+  locale === 'en' ? Astro.url.pathname : storyId ? `${base}stories/${storyId}/` : base;
+const frenchHref =
+  locale === 'fr' ? Astro.url.pathname : storyId ? `${base}fr/stories/${storyId}/` : `${base}fr/`;
+const text = messages[locale];
+---
+
+<nav class="language-switcher" aria-label={text.languages} data-pagefind-ignore="all">
+  <a
+    href={englishHref}
+    lang="en"
+    hreflang="en"
+    aria-label="English"
+    title="English"
+    aria-current={locale === 'en' ? 'page' : undefined}
+  >
+    <span aria-hidden="true">EN</span>
+  </a>
+  {!storyId || frenchAvailable || locale === 'fr' ? (
+    <a
+      href={frenchHref}
+      lang="fr"
+      hreflang="fr"
+      aria-label="Français"
+      title={!storyId ? 'Sélection en français' : 'Français'}
+      aria-current={locale === 'fr' ? 'page' : undefined}
+    >
+      <span aria-hidden="true">FR</span>
+    </a>
+  ) : (
+    <span class="language-unavailable" aria-disabled="true" title={text.unavailable}>
+      <span aria-hidden="true">FR</span>
+      <span class="sr-only">
+        <span lang="fr">Français</span> — no current translation
+      </span>
+    </span>
+  )}
+</nav>
+<style>
+  .language-switcher {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    padding: 0;
+    font:
+      600 0.72rem/1 ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+  .language-switcher > a,
+  .language-unavailable {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-height: 44px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .language-switcher a[aria-current] {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--terracotta);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5rem;
+  }
+  .language-switcher a:not([aria-current]):hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+  }
+  .language-unavailable {
+    color: var(--muted);
+    text-decoration: line-through;
+    cursor: default;
+  }
+  .language-switcher > :first-child {
+    position: relative;
+  }
+  .language-switcher > :first-child::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 14px;
+    height: 16px;
+    border-right: 1px solid var(--line);
+  }
+  .language-switcher a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+</style>

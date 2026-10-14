@@ -16,6 +16,9 @@ npm run lint:fix
 npm run format             # prettier --write .
 npm run format:check
 npm run content:check      # node scripts/validate-content.mjs
+npm run translations:check # validate translation relationships and freshness
+npm run translations:test  # content and freshness regressions
+npm run translations:pages:test # isolated EN/FR publication visibility fixture build
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json    # validate one editorial batch against its ledger
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json  # validate review records + WebP assets for that batch
 npm run build              # astro check && astro build && pagefind --site dist
@@ -35,10 +38,11 @@ Node version is pinned via `.nvmrc`/`package.json` engines (`>=22.22.3 <23`); ru
 
 ### Content is data, not markup
 
-Two Astro content collections, schema-validated in [src/content.config.ts](src/content.config.ts):
+Three Astro content collections, schema-validated in [src/content.config.ts](src/content.config.ts):
 
 - **Stories** (`src/content/stories/*.md`) — the canonical unit of editorial content. Frontmatter carries category, format (`pulse`/`briefing`/`deep-dive`), difficulty, signal level, evidence level, companies, sources, and image metadata. A story is written once and referenced everywhere (daily editions, category pages, archive) — never duplicated.
 - **Pulse manifests** (`src/content/pulse/YYYY-MM-DD.md`) — a daily edition is a curated list of story-ID references (date, title, summary, featured story, ordered sections of story IDs), not a copy of article bodies.
+- **Story translations** (`src/content/story-translations/fr/<story-id>.md`) — separate French variants linked to canonical English IDs and exact source fingerprints. Review status is `draft`, `reviewed` or `withdrawn`; only the shared lookup in `src/lib/translations.ts` can declare a reviewed variant current and available. M2 adds `/fr/` and gated French reading routes, with explicit unavailable notices. See `docs/CONTENT_MODEL.md` for freshness and correction rules and `docs/FRENCH_READING.md` for routes and validation.
 
 `src/pages/` is file-based routing; story and category pages are generated at build time from the collections. `src/components/editorial/` holds the presentation components (story cards, big-story treatment, daily-issue rows) that consume validated content — keep editorial structure in frontmatter/Markdown, not hard-coded in components.
 
@@ -83,5 +87,6 @@ Ledgers are immutable once merged — a correction requires a separate correctio
 ### Principles worth preserving when editing
 
 - Content editions, platform features, and design changes should generally ship as independent PRs so failures are easy to isolate.
+- Public English story queries must use `isPublishedStory` from `src/lib/stories.ts`; edition counts/desks must resolve only those visible stories. French surfaces use the translation availability lookup.
 - Evidence level, signal level, and sources are schema fields, not informal conventions — don't add a story without them.
 - The browser link check (`test:e2e`) covers homepage internal links only, not every route or external citation — external source claims still need human verification.

@@ -10,6 +10,8 @@
     "dev": "astro dev",
     "check": "astro check",
     "content:check": "node scripts/validate-content.mjs",
+    "translations:check": "node scripts/validate-translations.mjs",
+    "translations:test": "node --test tests/translations.test.mjs",
     "editorial:check": "node scripts/validate-editorial-batch.mjs",
     "illustration:check": "node scripts/validate-illustration-batch.mjs",
     "illustration:decision": "node scripts/resolve-illustration-generation.mjs",
@@ -18,17 +20,19 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "build": "npm run check && astro build && pagefind --site dist",
-    "verify": "npm run lint && npm run format:check && npm run content:check && npm run editorial:check && npm run illustration:check && npm run build",
+    "verify": "npm run lint && npm run format:check && npm run content:check && npm run translations:check && npm run editorial:check && npm run illustration:check && npm run build",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "translations:pages:test": "node --test tests/french-pages.test.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/sitemap": "3.7.4",
     "astro": "^7.3.8",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "yaml": "2.9.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
