@@ -22,10 +22,15 @@ const base = import.meta.env.BASE_URL;
       disponibles <a href={base}>en anglais</a>.
     </p>
     {selection.length === 0 ? (
-      <p class="empty-selection">
-        Les premières traductions sont en cours de préparation. Aucun article en français n’est
-        encore disponible.
-      </p>
+      <>
+        <p class="empty-selection">
+          Les premières traductions sont en cours de préparation. Aucun article en français n’est
+          encore disponible.
+        </p>
+        <p>
+          <a href={base}>Lire l’édition du jour en anglais →</a>
+        </p>
+      </>
     ) : (
       <ul class="selection-list">
         {selection.map((story) => {

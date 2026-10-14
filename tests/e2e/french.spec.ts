@@ -98,7 +98,10 @@ test('missing translations are explicit and unavailable bodies stay out of searc
 }) => {
   await page.goto(`${origin}/stories/${pilotId}/`);
   const switcher = page.getByRole('navigation', { name: 'Reading language' });
-  await expect(switcher).toContainText('No current French translation.');
+  await expect(switcher).not.toContainText('No current French translation.');
+  await expect(page.getByRole('complementary', { name: 'Translation availability' })).toContainText(
+    'No current French translation.',
+  );
   await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveCount(0);
   expect((await request.get(`${origin}/fr/stories/${pilotId}/`)).status()).toBe(404);
   for (const state of ['stale', 'withdrawn']) {
@@ -160,4 +163,93 @@ test('English draft references remain unavailable across publication and real se
   }, draftSentinels);
   expect(search.hiddenCounts).toEqual(draftSentinels.map(() => 0));
   expect(search.published).toBe(1);
+});
+
+test('masthead geometry and PNG evidence accommodate French labels at every target width', async ({
+  page,
+}, testInfo) => {
+  for (const locale of ['en', 'fr']) {
+    for (const width of [1280, 960, 375, 320]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`${origin}/${locale === 'fr' ? 'fr/' : ''}stories/${fixtureId('current')}/`);
+      const geometry = await page.evaluate(() => {
+        const header = document.querySelector('.site-header')!.getBoundingClientRect();
+        const brand = document.querySelector('.brand-block')!.getBoundingClientRect();
+        const actions = document.querySelector('.site-actions')!.getBoundingClientRect();
+        const nav = document.querySelector('.site-nav')!.getBoundingClientRect();
+        const labels = Array.from(document.querySelectorAll('.site-nav a')).map((link) => {
+          const rect = link.getBoundingClientRect();
+          const range = document.createRange();
+          range.selectNodeContents(link.querySelector('.destination-label, .nav-label') ?? link);
+          return {
+            x: rect.x,
+            right: rect.right,
+            height: rect.height,
+            lines: new Set(Array.from(range.getClientRects()).map((box) => Math.round(box.y))).size,
+          };
+        });
+        const targets = Array.from(document.querySelectorAll('.language-switcher a')).map(
+          (link) => ({
+            width: link.getBoundingClientRect().width,
+            height: link.getBoundingClientRect().height,
+          }),
+        );
+        return {
+          height: header.height,
+          brandRight: brand.right,
+          actionsLeft: actions.left,
+          navTop: nav.top,
+          actionsBottom: actions.bottom,
+          labels,
+          targets,
+          overflow: document.documentElement.scrollWidth > innerWidth,
+        };
+      });
+      expect(geometry.overflow, `${locale} ${width}`).toBe(false);
+      expect(geometry.height, `${locale} ${width}`).toBeLessThanOrEqual(width >= 960 ? 90 : 112);
+      expect(geometry.brandRight).toBeLessThanOrEqual(geometry.actionsLeft);
+      for (const target of geometry.targets) {
+        expect(target.width).toBeGreaterThanOrEqual(44);
+        expect(target.height).toBeGreaterThanOrEqual(44);
+      }
+      for (const label of geometry.labels) {
+        expect(label.lines, `${locale} ${width} nav wraps`).toBe(1);
+        expect(label.height).toBeGreaterThanOrEqual(44);
+        expect(label.right).toBeLessThanOrEqual(width);
+      }
+      if (width < 860) expect(geometry.navTop).toBeGreaterThanOrEqual(geometry.actionsBottom);
+      if (width >= 960) expect(geometry.navTop).toBeLessThan(geometry.actionsBottom);
+      await page.screenshot({
+        path: testInfo.outputPath(`${locale}-reading-${width}.png`),
+        fullPage: true,
+      });
+    }
+  }
+});
+
+test('production empty French selection stays usable on desktop and mobile', async ({
+  page,
+}, testInfo) => {
+  // This route uses the normal production build; synthetic reviewed stories stay on the fixture server.
+  for (const width of [1280, 960, 375, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/fr/');
+    await expect(page.locator('.empty-selection')).toContainText('Aucun article en français');
+    await expect(page.locator('main a[href*="/fr/stories/"]')).toHaveCount(0);
+    expect(
+      await page
+        .locator('.site-header')
+        .evaluate((header) => header.getBoundingClientRect().height),
+    ).toBeLessThanOrEqual(width >= 960 ? 90 : 112);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await page.screenshot({ path: testInfo.outputPath(`fr-empty-${width}.png`), fullPage: true });
+  }
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+  expect(
+    results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? '')),
+  ).toEqual([]);
 });

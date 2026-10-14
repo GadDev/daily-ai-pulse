@@ -13,61 +13,77 @@ const text = messages[locale];
 ---
 
 <nav class="language-switcher" aria-label={text.languages} data-pagefind-ignore="all">
-  <a href={englishHref} lang="en" hreflang="en" aria-current={locale === 'en' ? 'page' : undefined}>
-    English
+  <a
+    href={englishHref}
+    lang="en"
+    hreflang="en"
+    aria-label="English"
+    title="English"
+    aria-current={locale === 'en' ? 'page' : undefined}
+  >
+    <span aria-hidden="true">EN</span>
   </a>
   {!storyId || frenchAvailable || locale === 'fr' ? (
     <a
       href={frenchHref}
       lang="fr"
       hreflang="fr"
+      aria-label="Français"
+      title={!storyId ? 'Sélection en français' : 'Français'}
       aria-current={locale === 'fr' ? 'page' : undefined}
     >
-      Français
+      <span aria-hidden="true">FR</span>
     </a>
   ) : (
-    <>
-      <span lang="fr" aria-disabled="true">
-        Français
-      </span>
-      <span class="language-note">
-        {text.unavailable}{' '}
-        <a href={`${base}fr/`} hreflang="fr">
-          {text.selection}
-        </a>
-      </span>
-    </>
+    <span
+      class="language-unavailable"
+      aria-disabled="true"
+      aria-label="Français — no current translation"
+      title={text.unavailable}
+    >
+      <span aria-hidden="true">FR</span>
+    </span>
   )}
 </nav>
 <style>
   .language-switcher {
-    width: min(1180px, 92vw);
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
+    flex: 0 0 auto;
     align-items: center;
-    gap: 0 1rem;
-    font-size: 0.85rem;
-    border-bottom: 1px solid var(--line);
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font:
+      600 0.72rem/1 ui-sans-serif,
+      system-ui,
+      sans-serif;
   }
-  .language-switcher > a {
+  .language-switcher > a,
+  .language-unavailable {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 44px;
     min-height: 44px;
+    border-radius: 50%;
+    color: var(--muted);
+    text-decoration: none;
   }
   .language-switcher a[aria-current] {
-    font-weight: 700;
-    text-decoration-color: var(--terracotta);
+    background: var(--ink);
+    color: var(--surface);
   }
-  .language-switcher span[aria-disabled] {
-    color: var(--muted);
+  .language-switcher a:not([aria-current]):hover {
+    background: var(--surface-alt);
+    color: var(--ink);
   }
-  .language-note {
+  .language-unavailable {
     color: var(--muted);
-    padding: 0.5rem 0;
+    text-decoration: line-through;
+    cursor: default;
   }
   .language-switcher a:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--terracotta);
     outline-offset: 3px;
   }
 </style>

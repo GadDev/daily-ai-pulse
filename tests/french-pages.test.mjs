@@ -50,7 +50,7 @@ test('current French page preserves code, links, sources, image and canonical da
   assert.match(html, /5 octobre 2026/);
   assert.match(html, /Correction française vérifiée/);
   assert.match(html, /https:\/\/github.com\/anthropics\/claude-code/);
-  assert.match(html, /Rechercher \(en anglais\)/);
+  assert.match(html, /aria-label="Rechercher dans les articles en anglais"/);
   assert.doesNotMatch(html, /name="robots"/);
 });
 

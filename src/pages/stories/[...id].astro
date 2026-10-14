@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TranslationAvailability from '../../components/TranslationAvailability.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
 import PulseTake from '../../components/editorial/PulseTake.astro';
 import Evidence from '../../components/editorial/Evidence.astro';
@@ -145,6 +146,7 @@ const imageSrc = story.data.image.startsWith('/')
           )}
         </div>
       </div>
+      {!frenchAvailable && <TranslationAvailability />}
     </header>
 
     <figure class="article-hero">

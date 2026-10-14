@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SearchButton from '../components/SearchButton.astro';
+import EnglishDestination from '../components/EnglishDestination.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { messages, type Locale } from '../lib/i18n';
 
@@ -135,38 +136,42 @@ const structuredData =
         {locale === 'fr' ? (
           <nav class="site-nav" aria-label="Navigation principale">
             <a href={home} class:list={{ active: currentPath === home }}>
-              En français
+              Sélection
             </a>
-            <a href={base}>Édition du jour (en anglais)</a>
-            <a href={`${base}about/`}>À propos (en anglais)</a>
+            <a href={base}>
+              <EnglishDestination label="Édition" />
+            </a>
+            <a href={`${base}about/`}>
+              <EnglishDestination label="À propos" />
+            </a>
           </nav>
         ) : (
           <nav class="site-nav" aria-label="Primary navigation">
             <a class:list={{ active: currentPath === base }} href={base}>
-              Today
+              <span class="nav-label">Today</span>
             </a>
             <a class:list={{ active: isActive(`${base}pulse`) }} href={`${base}pulse/`}>
-              Pulse
+              <span class="nav-label">Pulse</span>
             </a>
             <a class:list={{ active: isActive(`${base}categories`) }} href={`${base}categories/`}>
-              Categories
+              <span class="nav-label">Categories</span>
               <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true">
                 <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
               </svg>
             </a>
             <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
-              About
+              <span class="nav-label">About</span>
             </a>
           </nav>
         )}
         <div class="site-actions">
           <SearchButton locale={locale} />
+          <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} />
           <a class="subscribe-button" href={`${base}subscribe/`}>
-            {locale === 'fr' ? 'S’abonner (en anglais)' : 'Subscribe'}
+            {locale === 'fr' ? <EnglishDestination label="S’abonner" /> : 'Subscribe'}
           </a>
         </div>
       </div>
-      <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} />
     </header>
 
     <main>
@@ -191,14 +196,24 @@ const structuredData =
           <section>
             <h2>Explorer</h2>
             <a href={home}>Sélection en français</a>
-            <a href={base}>Édition du jour (en anglais)</a>
-            <a href={`${base}categories/`}>Rubriques (en anglais)</a>
-            <a href={`${base}methodology/`}>Méthodologie (en anglais)</a>
+            <a href={base}>
+              <EnglishDestination label="Édition" />
+            </a>
+            <a href={`${base}categories/`}>
+              <EnglishDestination label="Rubriques" />
+            </a>
+            <a href={`${base}methodology/`}>
+              <EnglishDestination label="Méthodologie" />
+            </a>
           </section>
           <section>
             <h2>Suivre la publication</h2>
-            <a href={`${base}rss.xml`}>Flux RSS (en anglais)</a>
-            <a href={`${base}subscribe/`}>Abonnement (en anglais)</a>
+            <a href={`${base}rss.xml`}>
+              <EnglishDestination label="Flux RSS" />
+            </a>
+            <a href={`${base}subscribe/`}>
+              <EnglishDestination label="Abonnement" />
+            </a>
             <a href="https://github.com/GadDev/daily-ai-pulse" lang="en">
               GitHub ↗
             </a>
@@ -207,9 +222,15 @@ const structuredData =
         <div class="site-footer__bottom">
           <span>© 2026 Alexandre Gadaix. Tous droits réservés sur les contenus éditoriaux.</span>
           <span class="footer-legal">
-            <a href={`${base}privacy/`}>Confidentialité (en anglais)</a>
-            <a href={`${base}terms/`}>Conditions (en anglais)</a>
-            <a href={`${base}contact/`}>Contact (en anglais)</a>
+            <a href={`${base}privacy/`}>
+              <EnglishDestination label="Confidentialité" />
+            </a>
+            <a href={`${base}terms/`}>
+              <EnglishDestination label="Conditions" />
+            </a>
+            <a href={`${base}contact/`}>
+              <EnglishDestination label="Contact" />
+            </a>
           </span>
         </div>
       </footer>
@@ -288,18 +309,26 @@ const structuredData =
   .site-header .site-header__inner {
     width: min(1180px, 92vw);
     min-height: 88px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.25rem;
     border-bottom: 1px solid var(--line);
+    padding: 0;
   }
   .brand-block {
+    justify-content: center;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    padding: 0.9rem 0 0.8rem;
+    padding: 0;
   }
   .site-header .brand {
-    font-size: 1.7rem;
-    font-weight: 400;
-    line-height: 1;
+    font:
+      400 1.6rem/1 Georgia,
+      'Times New Roman',
+      serif;
+    white-space: nowrap;
     letter-spacing: -0.03em;
   }
   .brand-dot {
@@ -315,41 +344,50 @@ const structuredData =
   .brand-tagline {
     margin: 0;
     color: var(--muted);
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.28em;
-    word-spacing: 0.55em;
+    letter-spacing: 0.2em;
+    word-spacing: 0.35em;
+    white-space: nowrap;
     text-transform: uppercase;
   }
   .site-header .site-nav {
-    gap: 2.4rem;
+    grid-column: auto;
+    order: 0;
+    padding: 0;
+    gap: 1.35rem;
+    justify-content: center;
+    overflow: visible;
     font:
-      1rem/1.2 Georgia,
+      0.95rem/1.2 Georgia,
       'Times New Roman',
       serif;
   }
   .site-header .site-nav a {
     display: inline-flex;
+    flex: 0 0 auto;
     align-items: center;
     min-height: 44px;
     border-bottom: 0;
+    white-space: nowrap;
+    text-decoration: none;
     text-underline-offset: 0.6rem;
     text-decoration-thickness: 2px;
   }
   .site-header .site-nav a:hover {
-    text-decoration-line: underline;
+    text-decoration: underline;
     text-decoration-color: var(--line);
   }
   .site-header .site-nav a.active {
     color: var(--ink);
-    text-decoration-line: underline;
+    text-decoration: underline;
     text-decoration-color: var(--terracotta);
   }
   .nav-chevron {
     width: 0.7rem;
     height: 0.7rem;
-    margin-left: 0.45rem;
+    margin-left: 0.3rem;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.4;
@@ -357,47 +395,76 @@ const structuredData =
     stroke-linejoin: round;
   }
   .site-header .site-actions {
-    gap: 2.4rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+    align-items: center;
   }
   .site-header .subscribe-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 44px;
-    padding: 0 1.6rem;
+    padding: 0 1rem;
     font:
-      500 1rem/1 Georgia,
+      500 0.95rem/1 Georgia,
       'Times New Roman',
       serif;
+    white-space: nowrap;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1100px) {
+    .site-header .site-header__inner {
+      gap: 0.9rem;
+    }
+    .site-header .brand {
+      font-size: 1.4rem;
+    }
     .site-header .site-nav {
-      gap: 1.6rem;
+      gap: 1rem;
+      font-size: 0.9rem;
     }
     .site-header .site-actions {
-      gap: 1rem;
+      gap: 0.3rem;
+    }
+    .site-header .subscribe-button {
+      padding-inline: 0.8rem;
+    }
+  }
+  @media (max-width: 859px) {
+    .site-header .site-header__inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0;
+      min-height: 108px;
+    }
+    .brand-block,
+    .site-header .site-actions {
+      min-height: 64px;
+    }
+    .site-header .site-nav {
+      grid-column: 1 / -1;
+      order: 3;
+      min-height: 44px;
+      justify-content: flex-start;
+      gap: 1.25rem;
+      overflow-x: auto;
+    }
+    .site-header .subscribe-button {
+      display: none;
     }
   }
   @media (max-width: 640px) {
-    .site-header--fr .site-header__inner {
-      grid-template-columns: minmax(0, 1fr);
-    }
-    .site-header--fr .site-actions {
-      justify-content: flex-start;
-    }
     .site-header .brand {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
+    }
+    .brand-tagline {
+      display: none;
     }
     .site-header .site-actions {
-      flex-wrap: wrap;
       gap: 0;
     }
-    .site-header .subscribe-button {
+    .site-header .site-nav {
       font-size: 0.85rem;
-      white-space: normal;
-      max-width: 11rem;
-    }
-    .site-header .subscribe-button {
-      padding: 0 1.1rem;
+      gap: 1.2rem;
     }
   }
 </style>

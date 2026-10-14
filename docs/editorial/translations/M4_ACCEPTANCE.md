@@ -97,3 +97,13 @@ implementation change is needed to close it. Existing CI provides the evidence.
   pilot, or activate translation automation.
 
 See [FRENCH_READING.md](../../FRENCH_READING.md) for the implementation contract.
+
+
+## Subsequent masthead UX revision
+
+This record describes the pinned pre-UX revision above. The later
+[French UX design and implementation](../../design/mockups/fr-ux/README.md)
+adds real masthead geometry checks and screenshot evidence at 1280, 960, 375
+and 320px, including the production empty French selection. The old overflow
+checks alone do not certify the new masthead. See the current PR CI for the
+updated acceptance result; no translation publication approval is implied.

@@ -28,9 +28,10 @@ a 404 and is not the preferred withdrawal procedure.
 ## Language and presentation
 
 The shared layout accepts a typed locale and story availability. English and
-Français links require no JavaScript and preserve the same story only when its
-French translation is current. Otherwise English articles say “No current
-French translation” and offer a separate French selection link. Other English
+Français accessible link names (visually EN / FR in the masthead) require no JavaScript and preserve the same story only when its
+French translation is current. Otherwise English articles display “No current
+French translation” in article content and offer a separate French selection link.
+The unavailable FR state stays non-interactive in the header. Other English
 pages link to the French selection rather than inventing translated equivalents.
 French notices always offer their canonical English story.
 
@@ -116,3 +117,27 @@ See [M4_ACCEPTANCE.md](editorial/translations/M4_ACCEPTANCE.md) for the pinned
 head/base/CI merge revision, criterion-to-test matrix, passing results, direct
 English source/asset tree comparisons and limits of automated validation.
 Human French publication review remains separate; the real pilot stays draft.
+
+
+## French masthead UX follow-up
+
+[PNG designs and switcher comparison](design/mockups/fr-ux/README.md) were committed
+before the implementation. The selected two-link EN / FR control is inside
+header actions, with native language names for accessible labels and 44px
+minimum link targets. The former full-width language row is removed. Search is
+icon-only with a full accessible name; subscription stays available in the
+footer when its header action is hidden below 860px.
+
+The masthead uses one row at 960px and above and at most two rows below 860px.
+Primary navigation labels never wrap. French labels and titles wrap naturally
+in content, rather than forcing small UI text or multi-line desktop navigation.
+New browser regressions measure header height (<=90px desktop, <=112px mobile),
+nav text line count, wordmark/action separation, row positions, language targets
+and page overflow for both languages at 1280, 960, 375 and 320px. A production
+empty-state regression also checks French accessibility and captures PNGs.
+CI publishes the screenshots as `multilingual-ux-screenshots`; these are browser
+evidence, while the committed PNG proposals are layout references. Geometry
+assertions are not pixel-diff or human visual approval.
+
+The earlier M4 acceptance record remains pinned to its recorded revision.
+The updated UX must pass current PR CI; the real translation remains draft.
