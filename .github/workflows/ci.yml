@@ -51,6 +51,9 @@ jobs:
       - name: Automatic preview routing regressions
         run: node --test tests/automatic-preview.test.mjs
 
+      - name: Preview cleanup regressions
+        run: node --test tests/preview-cleanup.test.mjs
+
       - name: Package static preview artifact
         if: >-
           github.event.pull_request.base.ref == 'main' &&
