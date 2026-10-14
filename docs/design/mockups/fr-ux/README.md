@@ -59,3 +59,25 @@ fonts; production retains its current Georgia/system font stack).
 
 M4's prior overflow-only evidence does not prove this new header geometry.
 Update acceptance evidence after the UX changes pass their additional tests.
+
+
+## Reference-aligned refinement
+
+Reviewed all fourteen images in `docs/reference-layouts/images` on main and
+read their companion README. Home, story and component images were inspected
+at full size; the other page types were compared together. Local image bytes
+were verified against main's Git blob IDs before inspection.
+
+The references prioritize a magazine masthead, serif hierarchy, thin rules,
+quiet metadata and one dominant dark subscription action. The first rounded,
+dark EN / FR treatment competed with that action. This revision retains two
+native language links and their 44px targets, but uses a fine divider, text
+weight and terracotta underline for the current language. It is a reading
+preference rather than a second primary call to action. The PNGs now reflect
+this quieter treatment.
+
+The reference images are generated visual concepts, not factual content or
+pixel-perfect screenshots. Their companion HTML/CSS and documentation define
+the layout constraints. Long French copy still wraps naturally; no text from
+those concept images is promoted into published articles. The empty release
+state and unpublished reading samples keep their existing editorial boundaries.
