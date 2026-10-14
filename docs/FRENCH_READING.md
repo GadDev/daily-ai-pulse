@@ -121,7 +121,7 @@ Human French publication review remains separate; the real pilot stays draft.
 
 ## French masthead UX follow-up
 
-[PNG designs and switcher comparison](design/mockups/fr-ux/README.md) were committed
+[WebP designs and switcher comparison](design/mockups/fr-ux/README.md) were committed
 before the implementation. The selected two-link EN / FR control is inside
 header actions, with native language names for accessible labels and 44px
 minimum link targets. The former full-width language row is removed. Search is
@@ -136,7 +136,7 @@ nav text line count, wordmark/action separation, row positions, language targets
 and page overflow for both languages at 1280, 960, 375 and 320px. A production
 empty-state regression also checks French accessibility and captures PNGs.
 CI publishes the screenshots as `multilingual-ux-screenshots`; these are browser
-evidence, while the committed PNG proposals are layout references. Geometry
+evidence, while the committed WebP proposals are layout references. Geometry
 assertions are not pixel-diff or human visual approval.
 
 The earlier M4 acceptance record remains pinned to its recorded revision.

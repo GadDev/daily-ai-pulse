@@ -1,13 +1,13 @@
 # French reading UX — design before implementation
 
-Reference designs for PR #158, created 14 October 2026. These PNGs are drawn
+Reference designs for PR #158, created 14 October 2026. These WebPs are drawn
 layout proposals, not browser screenshots or publication approval. The reading
 example uses the existing unpublished pilot as a typography/length sample;
 the production French selection remains empty until editorial approval.
 
 ## Language switcher brainstorm
 
-![Language switcher options](language-switcher-options.png)
+![Language switcher options](language-switcher-options.webp)
 
 | Option | Strength | Cost | Decision |
 | --- | --- | --- | --- |
@@ -24,15 +24,15 @@ may link to that curated selection without claiming equivalence.
 
 ## French selection — empty release state
 
-![Desktop 1280](fr-selection-1280.png)
-![Tablet / small desktop 960](fr-selection-960.png)
-![Mobile 375](fr-selection-375.png)
-![Mobile 320](fr-selection-320.png)
+![Desktop 1280](fr-selection-1280.webp)
+![Tablet / small desktop 960](fr-selection-960.webp)
+![Mobile 375](fr-selection-375.webp)
+![Mobile 320](fr-selection-320.webp)
 
 ## Reading example — typography stress case, unpublished
 
-![French reading desktop](fr-reading-1280.png)
-![French reading mobile](fr-reading-375.png)
+![French reading desktop](fr-reading-1280.webp)
+![French reading mobile](fr-reading-375.webp)
 
 ## Implementation decisions
 
@@ -49,7 +49,7 @@ may link to that curated selection without claiming equivalence.
 - Allow long titles/decks to wrap naturally; keep code independently scrollable.
 - Validate headers and labels on English and French at 1280, 960, 375 and 320px:
   header height, row placement, nav item line count, target sizes and overflow.
-- Capture browser PNGs in CI and check layout, keyboard operation and axe;
+- Capture browser screenshots in CI and check layout, keyboard operation and axe;
   drawn proposals alone cannot establish final implementation quality.
 
 Initial guardrails: masthead height <=90px at desktop widths and <=112px on
@@ -73,7 +73,7 @@ quiet metadata and one dominant dark subscription action. The first rounded,
 dark EN / FR treatment competed with that action. This revision retains two
 native language links and their 44px targets, but uses a fine divider, text
 weight and terracotta underline for the current language. It is a reading
-preference rather than a second primary call to action. The PNGs now reflect
+preference rather than a second primary call to action. The WebPs now reflect
 this quieter treatment.
 
 The reference images are generated visual concepts, not factual content or

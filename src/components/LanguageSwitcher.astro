@@ -48,9 +48,7 @@ const text = messages[locale];
     display: inline-flex;
     flex: 0 0 auto;
     align-items: center;
-    padding: 2px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
+    padding: 0;
     font:
       600 0.72rem/1 ui-sans-serif,
       system-ui,
@@ -63,22 +61,37 @@ const text = messages[locale];
     justify-content: center;
     width: 44px;
     min-height: 44px;
-    border-radius: 50%;
     color: var(--muted);
     text-decoration: none;
   }
   .language-switcher a[aria-current] {
-    background: var(--ink);
-    color: var(--surface);
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--terracotta);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5rem;
   }
   .language-switcher a:not([aria-current]):hover {
-    background: var(--surface-alt);
     color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
   }
   .language-unavailable {
     color: var(--muted);
     text-decoration: line-through;
     cursor: default;
+  }
+  .language-switcher > :first-child {
+    position: relative;
+  }
+  .language-switcher > :first-child::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 14px;
+    height: 16px;
+    border-right: 1px solid var(--line);
   }
   .language-switcher a:focus-visible {
     outline: 2px solid var(--terracotta);
