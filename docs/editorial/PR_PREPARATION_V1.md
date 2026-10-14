@@ -1,6 +1,6 @@
 # Daily AI Pulse — PR Preparation v1
 
-**Version:** 1.1  
+**Version:** 1.2
 **Status:** Canonical automated publication handoff  
 **Agent skill:** `.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md`
 
@@ -31,7 +31,8 @@ flowchart TD
     H -->|Yes| J["Draft canonical story"]
 
     J --> K["Generate illustration"]
-    K --> L["Create daily issue manifest"]
+    K --> T["Finalize English + prepare reviewed French"]
+    T --> L["Create daily issue manifest"]
     L --> M["Persist full ledger"]
     M --> N["Editorial + structural preflight"]
     N --> O["Open or update one draft PR"]
@@ -119,6 +120,7 @@ A publication batch normally creates:
 
 ```text
 src/content/stories/<story-id>.md
+src/content/story-translations/fr/<reviewed-story-id>.md
 public/images/stories/<story-id>.webp
 src/content/pulse/YYYY-MM-DD.md
 docs/editorial/ledgers/YYYY-MM-DD.json
@@ -363,6 +365,25 @@ Before the story can be considered publication-ready:
 When binary artwork is committed through GitHub APIs, it MUST use binary-safe
 Git object/blob operations rather than UTF-8 text-file operations.
 
+## French translation handoff
+
+After English wording and illustration alt text are final, commit the exact source
+bytes and invoke the repository's French translation skill for every non-draft
+batch story. Include successful reviewed translations in the same canonical daily
+branch/PR. Reuse current reviews unchanged on retries; revise stale/incomplete
+copies while preserving human edits. Do not restore withdrawn translations without
+an explicit request. An explicitly English-only task may omit French with disclosure.
+
+A blocked French translation leaves a valid English story publishable. Record its
+story ID, exact source ref/hash, reason, and next action separately from
+`publication.withheld_selected`; do not alter the ledger schema or research decision.
+Run `translations:batch` against the explicit ledger and expose every non-current
+result in the PR. A ledger-only run produces no translation work. Final source
+edits require fresh review; timestamps alone cannot restore stale copy.
+
+See [the bilingual runbook](translations/DAILY_BILINGUAL_WORKFLOW.md) for checks,
+retry rules and review evidence. This handoff does not change scheduler settings.
+
 ## Validation model
 
 Validation has two layers.
@@ -396,6 +417,7 @@ When a repository execution environment is available, run:
 ```bash
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json
+npm run translations:batch -- docs/editorial/ledgers/YYYY-MM-DD.json
 npm run verify
 ```
 
@@ -443,6 +465,8 @@ Required reviewer visibility:
 - rejected/already-covered candidates
 - editorial opportunities
 - illustration paths
+- French coverage and per-story reviewed/reused/blocked outcomes, source fingerprints,
+  actual review identity/type/time, and actionable blockers
 - editorial preflight status
 - executable validation status
 - GitHub Actions status when available

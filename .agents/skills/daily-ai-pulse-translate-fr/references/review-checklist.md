@@ -9,7 +9,8 @@ maintainer's policy. A successful build alone establishes no translation fidelit
 
 - Record story ID, source commit and exact-byte source SHA-256.
 - Record the French candidate path and immutable Git blob SHA or commit.
-- Confirm the English source is published and has not changed since drafting.
+- Confirm the source is published or finalized/non-draft in an authorized
+  bilingual batch, and has not changed since drafting.
 - Confirm review metadata names the actual reviewer and review type.
 
 ## Compare meaning and editorial boundaries

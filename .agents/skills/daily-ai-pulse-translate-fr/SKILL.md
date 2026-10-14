@@ -1,11 +1,12 @@
 ---
 name: daily-ai-pulse-translate-fr
-description: Translate or revise an existing Daily AI Pulse English article into French when explicitly requested, and deliver a source-matched reviewed article after fidelity and French-editing checks pass. Record the real model or human reviewer and review time; block unresolved issues. Do not use for UI localization, independent news research, deployment, or automatic orchestration.
+description: Translate or revise an existing Daily AI Pulse English article into French when requested directly or invoked by an authorized bilingual editorial batch, and deliver a source-matched reviewed article after fidelity and French-editing checks pass. Record the real model or human reviewer and review time; block unresolved issues. Do not use for UI localization, independent news research, deployment, or scheduler management.
 ---
 
 # Daily AI Pulse — Translate into French
 
-Invoke manually; orchestration is not enabled. Deliver successful translations
+Invoke directly or from the authorized PR-preparation translation handoff.
+This skill never starts or configures a recurring task. Deliver successful translations
 as `status: reviewed` with truthful review metadata, ready for the publication
 collection. A separate human bilingual approval is not required by default.
 Normal Git/PR review and merge still control production deployment.
@@ -20,9 +21,16 @@ Normal Git/PR review and merge still control production deployment.
    accessible. Read [references/glossary.md](references/glossary.md) for every
    invocation. If required source text or glossary is unavailable, report
    `blocked`; do not reconstruct either from memory.
-3. Confirm that the source is an existing published article.
+3. Confirm that the source is an existing published article, or a finalized,
+   non-draft English article in an explicitly authorized bilingual editorial
+   batch. For a new batch, commit final English bytes before translation and
+   use that actual commit as `sourceRef`; never invent a future commit.
    Accept plain Markdown. Stop on unsupported MDX, imports or executable
    markup rather than dropping blocks or translating component identifiers.
+   On a retry, reuse a current reviewed translation without rewriting its
+   body or review metadata. Inspect and preserve human edits. A stale or draft
+   file needs explicit revision authority from the task or batch handoff; a
+   withdrawn translation requires an explicit restoration request.
 4. Compute SHA-256 over exact source bytes with available deterministic
    tooling. Record the commit/ref and hash. Compare any supplied expected hash.
    Block on mismatch or inability to compute the hash; do not invent one.

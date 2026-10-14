@@ -1,8 +1,9 @@
 # M2–M3 — French reading and publication visibility
 
 English remains the canonical editorial source. Astro statically builds two
-locales (`en`, `fr`), keeping English URLs unprefixed. No runtime translation,
-automatic language redirect, orchestrator change or publication action is added.
+locales (`en`, `fr`), keeping English URLs unprefixed. No runtime translation or automatic language redirect is used. The
+[bilingual workflow](editorial/translations/DAILY_BILINGUAL_WORKFLOW.md) defines
+translation preparation within the daily PR; scheduler configuration is separate.
 
 ## Routes and availability
 
