@@ -93,6 +93,9 @@ English and approve the exact revision.
 
 ## Return the candidate and review report
 
+Use [references/review-checklist.md](references/review-checklist.md) to prepare
+the exact-revision human review handoff and record coverage gaps from manual trials.
+
 Return one UTF-8 Markdown candidate plus a concise report. If file creation
 is requested, use the editor's explicit destination. For an M0 repository
 trial, default to:

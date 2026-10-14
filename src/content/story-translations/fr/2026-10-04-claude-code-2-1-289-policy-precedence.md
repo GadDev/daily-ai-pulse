@@ -2,7 +2,7 @@
 # Traduction de l'anglais — brouillon en attente de relecture humaine.
 storyId: "2026-10-04-claude-code-2-1-289-policy-precedence"
 locale: fr
-sourceRef: "7669c0c31be06bece4669f34018f0931b0cbf14e"
+sourceRef: "54e6d9aa63d0a6ff5796b9fff29f059db27998ee"
 sourceSha256: "887c8f274590e116e7039213ce858987438b2e3deea3da30b3e20e7855793676"
 status: draft
 title: "Claude Code 2.1.289 corrige d’autres failles dans les règles de refus et la gestion des liens symboliques"
