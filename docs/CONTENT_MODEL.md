@@ -217,13 +217,16 @@ Stored review states:
 | Status | Meaning |
 | --- | --- |
 | `draft` | Default; not available for public rendering |
-| `reviewed` | Human-reviewed; requires `reviewedBy` and an ISO datetime `reviewedAt` |
+| `reviewed` | Completed model or human translation review; requires the actual reviewer/type in `reviewedBy` and an actual ISO datetime `reviewedAt` |
 | `withdrawn` | Explicitly unavailable; may retain prior review metadata |
 
 `fingerprintStorySource` hashes the exact canonical source bytes with SHA-256.
 Formatting and line-ending changes also invalidate freshness. Review metadata
 is procedural evidence backed by Git/PR review, not proof that an agent cannot
-forge approval. Generation must not fill human approval fields.
+forge approval. The translation skill may record completed model review as
+`Codex (model review)` with its actual completion time. It must not invent human
+approval. Successful translations use explicit `status: reviewed`; the schema's
+conservative default remains `draft` for records that omit a completion status.
 
 `createStorySnapshot` captures the current fingerprint, draft flag and correction
 dates. `createTranslationLookup` validates translation identities and
@@ -240,7 +243,7 @@ relationships, then resolves each `(storyId, locale)` consistently:
 
 Only the lookup's `available` result may be used for public article
 bodies, cards, alternates, feeds or search. Recreate snapshots and the lookup
-for each static build. French edits require renewed human review even if the
+for each static build. French edits require renewed translation review even if the
 English source is unchanged. No separate translation-content hash is used.
 
 Run `npm run translations:check` for relationships and freshness, and
@@ -255,9 +258,10 @@ when the fingerprint matches; an older translation may lack a newly added
 English correction until it is updated. M2/M3 will render a safe update notice
 at known stale/withdrawn French URLs rather than exposing the old body.
 
-The accepted M0 wording is stored as a draft seed. Its source SHA-256 is
-validated; it has no fabricated human review metadata and cannot be published
-by adding this collection alone.
+The original M0 trial was stored as a draft seed. The maintainer subsequently
+enabled completed model reviews as sufficient translation review. Current
+publication state follows the collection metadata and source fingerprint, not
+the historical trial envelope. Normal PR merge and deployment govern publication.
 
 ## Source of truth
 

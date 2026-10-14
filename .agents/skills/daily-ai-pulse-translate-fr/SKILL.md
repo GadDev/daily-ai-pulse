@@ -1,13 +1,14 @@
 ---
 name: daily-ai-pulse-translate-fr
-description: Draft or revise an unpublished French translation of an existing Daily AI Pulse English article when explicitly requested. Preserve technical meaning and Markdown, review bilingual fidelity and natural French in separate passes, identify the source version, and report unresolved issues for human approval. Do not use for UI localization, independent news research, publication, or automatic orchestration.
+description: Translate or revise an existing Daily AI Pulse English article into French when explicitly requested, and deliver a source-matched reviewed article after fidelity and French-editing checks pass. Record the real model or human reviewer and review time; block unresolved issues. Do not use for UI localization, independent news research, deployment, or automatic orchestration.
 ---
 
 # Daily AI Pulse — Translate into French
 
-Invoke manually; orchestration is not enabled. Produce unpublished candidates
-for human review. The M1 collection accepts translation metadata but creates
-no French routes by itself.
+Invoke manually; orchestration is not enabled. Deliver successful translations
+as `status: reviewed` with truthful review metadata, ready for the publication
+collection. A separate human bilingual approval is not required by default.
+Normal Git/PR review and merge still control production deployment.
 
 ## Read the inputs
 
@@ -19,7 +20,7 @@ no French routes by itself.
    accessible. Read [references/glossary.md](references/glossary.md) for every
    invocation. If required source text or glossary is unavailable, report
    `blocked`; do not reconstruct either from memory.
-3. Confirm that the source is an existing published article for an M0 pilot.
+3. Confirm that the source is an existing published article.
    Accept plain Markdown. Stop on unsupported MDX, imports or executable
    markup rather than dropping blocks or translating component identifiers.
 4. Compute SHA-256 over exact source bytes with available deterministic
@@ -88,49 +89,66 @@ prove fidelity.
 
 Treat a second pass by the same model as self-review, not independent
 verification. Never use confidence scores or back-translation agreement as
-approval. A fluent human must compare the complete pilot translation with
-English and approve the exact revision.
+proof of fidelity. Successful execution of all review passes, deterministic
+integrity checks and the final source freshness check qualifies the translation
+as reviewed under the maintainer's policy. Record model review explicitly;
+never describe it as human approval or independent verification.
+
+Check the envelope, correction-date correspondence, block order, code/inline
+identifiers, link destinations, numeric values and dates against the source
+with available deterministic tooling. Explain checks that need contextual
+inspection, such as translated dates or decimal separators. Block any material
+unresolved mismatch. A passing layout/build alone does not establish fidelity.
 
 ## Return the candidate and review report
 
 Use [references/review-checklist.md](references/review-checklist.md) to prepare
-the exact-revision human review handoff and record coverage gaps from manual trials.
+the exact-revision review record and disclose coverage gaps.
 
-Return one UTF-8 Markdown candidate plus a concise report. If file creation
-is requested, use the editor's explicit destination. For an M0 repository
-trial, default to:
+Return one UTF-8 Markdown article plus a concise report. If file creation is
+requested, use the editor's explicit destination. For a repository translation,
+default to:
 
-`docs/editorial/translations/pilots/<story-id>.fr.md`
+`src/content/story-translations/fr/<story-id>.md`
 
-Keep trial candidates outside `src/content/`. Moving one into the separate
-translation collection is an explicitly authorized integration task, not part
-of translation execution.
+Writing a requested repository translation includes integration into that
+collection. Respect an explicit draft-only or trial-only request; keep such
+trial files outside the collection when requested. Archived trial outputs do
+not become active articles merely because this default changes.
 On an existing file, inspect and preserve human edits; propose changes rather
 than overwriting them without an explicit revision request.
 
-Use candidate frontmatter with:
+Use article frontmatter with:
 
 - `storyId`: canonical ID, without the extension.
 - `locale: fr`.
 - `sourceRef`: actual source commit/ref.
 - `sourceSha256`: deterministically computed exact-byte fingerprint.
-- `status: draft`.
+- `status: reviewed` after the checks pass.
+- `reviewedBy`: actual reviewer identity and review type, for example
+  `Codex (model review)` when Codex performed the review. Use a human name only
+  when that person actually reviewed the exact revision.
+- `reviewedAt`: actual UTC ISO datetime read from the runtime clock after the
+  final review/freshness check. Never reuse a sample or inferred approval time.
 - French `title`, `description` and `imageAlt`.
 - `corrections`: original correction dates paired with translated notes;
   empty when the source has none.
 
-This is an unpublished candidate envelope, not current canonical story
-frontmatter. Do not set `reviewedBy`, `reviewedAt`, `status: reviewed`, or
-other human approval evidence.
+Use the existing translation schema; inherited story metadata remains on the
+English source. Reserve `draft` for an explicit draft request or unfinished
+review, rather than the default successful result. Do not invent review evidence
+or promote a blocked translation. Source edits still make reviewed copy stale.
 
 In the report include:
 
-- Result: `ready-for-human-review` or `blocked`.
+- Result: `reviewed`, `draft-requested` or `blocked`.
 - Source path, actual ref/hash and approximate body word count.
 - Checks performed and their execution/inspection status.
 - Important changes made during review and terminology decisions.
 - Remaining ambiguities, omissions or unsupported structure.
-- Human review still required, including translated quotations when present.
+- Actual review type, reviewer, timestamp and reviewed French revision.
+- Any optional human follow-up and untested structures, without making them a
+  default publication prerequisite.
 
 If a material issue remains, return `blocked` even if candidate prose is
 available. Keep unresolved flags outside the article body; do not hide them
@@ -141,7 +159,7 @@ If the tracked source changed during the task, report the mismatch and stop;
 do not attach the old translation to the new source. Record a known newer
 source separately rather than silently updating the requested snapshot.
 
-Do not commit, push, open a PR, publish, merge, modify the orchestrator or
-generate illustrations as part of translation execution. These are separate
-actions requiring explicit task authorization. Return the draft and review
-surface only.
+Commit, push and open a PR when authorized by the repository task. A reviewed
+article becomes public after normal merge/build/deployment; do not merge or
+deploy, modify the orchestrator, or generate illustrations without task
+authorization. Do not activate recurring translation automation implicitly.

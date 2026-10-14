@@ -1,5 +1,9 @@
 # M4 — multilingual technical acceptance
 
+Historical infrastructure record. The empty selection and draft pilot below
+describe its pinned revision. See [FRENCH_MANUAL_TRIALS.md](FRENCH_MANUAL_TRIALS.md)
+for the subsequent completed model reviews and current publication policy.
+
 Status: **Closed for the infrastructure scope** · assessed 13 October 2026.
 
 PR: [#158](https://github.com/GadDev/daily-ai-pulse/pull/158).

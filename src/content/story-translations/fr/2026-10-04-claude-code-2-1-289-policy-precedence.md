@@ -1,10 +1,12 @@
 ---
-# Traduction de l'anglais — brouillon en attente de relecture humaine.
+# Traduction de l'anglais — relecture par modèle terminée.
 storyId: "2026-10-04-claude-code-2-1-289-policy-precedence"
 locale: fr
 sourceRef: "54e6d9aa63d0a6ff5796b9fff29f059db27998ee"
 sourceSha256: "887c8f274590e116e7039213ce858987438b2e3deea3da30b3e20e7855793676"
-status: draft
+status: reviewed
+reviewedBy: "Codex (model review)"
+reviewedAt: "2026-10-14T12:02:46.399Z"
 title: "Claude Code 2.1.289 corrige d’autres failles dans les règles de refus et la gestion des liens symboliques"
 description: "La version publiée le 4 octobre, heure de Luxembourg, corrige l’ordre de priorité des règles, les contrôles de lecture via des liens symboliques et le traitement des préfixes des commandes shell, en complément du renforcement du 3 octobre."
 imageAlt: "Une barrière mécanique couleur terre cuite fermement installée à la jonction de plusieurs passages gris anthracite"

@@ -1,5 +1,13 @@
 import { spawnSync } from 'node:child_process';
-import { cpSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import {
+  cpSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import process from 'node:process';
@@ -44,7 +52,7 @@ export const draftSentinels = [
 ];
 
 /** Synthetic approval lives only in an isolated temporary checkout. Never edit the pilot. */
-export function buildFrenchFixture() {
+export function buildFrenchFixture({ emptySelection = false } = {}) {
   const repo = resolve(import.meta.dirname, '../..');
   const root = mkdtempSync(join(tmpdir(), 'pulse-french-pages-'));
   const cleanup = () => rmSync(root, { recursive: true, force: true });
@@ -53,6 +61,24 @@ export function buildFrenchFixture() {
       cpSync(join(repo, file), join(root, file), { recursive: true });
     }
     symlinkSync(join(repo, 'node_modules'), join(root, 'node_modules'), 'dir');
+    // Control translation states independently of actual editorial publication.
+    // The real pilot may be reviewed; this fixture explicitly makes its copy draft.
+    const translationDir = join(root, 'src/content/story-translations/fr');
+    rmSync(translationDir, { recursive: true, force: true });
+    mkdirSync(translationDir, { recursive: true });
+    const pilot = readFileSync(
+      join(repo, `src/content/story-translations/fr/${pilotId}.md`),
+      'utf8',
+    );
+    const pilotMatch = pilot.match(/^---\n([\s\S]*?)\n---/);
+    const pilotMetadata = parse(pilotMatch[1]);
+    pilotMetadata.status = 'draft';
+    delete pilotMetadata.reviewedBy;
+    delete pilotMetadata.reviewedAt;
+    writeFileSync(
+      join(translationDir, `${pilotId}.md`),
+      `---\n${stringify(pilotMetadata)}---${pilot.slice(pilotMatch[0].length)}`,
+    );
     const source = readFileSync(join(repo, `src/content/stories/${pilotId}.md`), 'utf8');
     const sourceData = parse(source.split('---')[1]);
     for (const state of [
@@ -95,7 +121,7 @@ export function buildFrenchFixture() {
         storyId: id,
         locale: 'fr',
         sourceSha256: state === 'stale' ? '0'.repeat(64) : fingerprintStorySource(english),
-        status: state === 'withdrawn' ? 'withdrawn' : 'reviewed',
+        status: state === 'withdrawn' ? 'withdrawn' : emptySelection ? 'draft' : 'reviewed',
         reviewedBy: 'Synthetic test fixture — not publication approval',
         reviewedAt: '2026-10-12T11:00:00Z',
         title: selectionSample

@@ -1,8 +1,14 @@
 # French pilot review and manual workflow trials
 
-Date: 14 October 2026. Result: **ready for complete human bilingual review**.
-No human publication approval has been recorded. All three translations remain
-drafts; the two additional trials are outside the publication collection.
+Date: 14 October 2026. Result: **three completed model reviews, ready for publication
+through this editorial PR**. The maintainer requested that successful translations
+no longer remain drafts. The updated translation skill accepts completed model review
+and records it honestly; no human approval is claimed or required by default.
+
+All three publication copies use `status: reviewed`, `reviewedBy: "Codex (model review)"`
+and `reviewedAt: "2026-10-14T12:02:46.399Z"`. That timestamp was read from the runtime
+clock after the final exact-source/ref and French-revision checks. The two archived
+trial files retain their original draft metadata as historical execution evidence.
 
 ## Release baseline
 
@@ -25,9 +31,9 @@ and list markers; they are not reading-time estimates.
 
 | Article | English words | French words | Candidate location | Coverage |
 | --- | ---: | ---: | --- | --- |
-| Claude Code 2.1.289 pilot | 196 | 301 | [Real pilot draft](../../../src/content/story-translations/fr/2026-10-04-claude-code-2-1-289-policy-precedence.md) | Six paragraphs; UTC/Luxembourg times; retrospective notice; two links; technical identifiers |
-| Claude Code 2.1.288 | 490 | 681 | [Trial draft](pilots/2026-10-03-claude-code-2-1-288-permission-hardening.fr.md) | Four headings; five list items; fourteen inline-code spans; authorization failure behavior |
-| ReviewBench | 593 | 842 | [Trial draft](pilots/2026-10-07-github-reviewbench.fr.md) | Four headings; unordered and ordered lists; corpus counts; five percentages; first-party versus independent evidence |
+| Claude Code 2.1.289 pilot | 196 | 301 | [Reviewed pilot](../../../src/content/story-translations/fr/2026-10-04-claude-code-2-1-289-policy-precedence.md) | Six paragraphs; UTC/Luxembourg times; retrospective notice; two links; technical identifiers |
+| Claude Code 2.1.288 | 490 | 681 | [Reviewed translation](../../../src/content/story-translations/fr/2026-10-03-claude-code-2-1-288-permission-hardening.md) | Four headings; five list items; fourteen inline-code spans; authorization failure behavior |
+| ReviewBench | 593 | 842 | [Reviewed translation](../../../src/content/story-translations/fr/2026-10-07-github-reviewbench.md) | Four headings; unordered and ordered lists; corpus counts; five percentages; first-party versus independent evidence |
 
 | Canonical story ID | Exact source SHA-256 |
 | --- | --- |
@@ -40,7 +46,8 @@ and list markers; they are not reading-time estimates.
 Reviewer: **Codex model inspection; not a human approval**. Compared the complete
 source, title, description, image alt and correction metadata with the existing
 French wording. Its provenance ref now records the current verified source
-snapshot; its accepted wording, `draft` state and empty correction list are retained.
+snapshot; its accepted wording and empty correction list are retained. Review status
+and actual model-review metadata now reflect the completed checks.
 
 | Block | Model-inspection finding |
 | --- | --- |
@@ -53,8 +60,8 @@ snapshot; its accepted wording, `draft` state and empty correction list are reta
 | Reader-facing metadata | Title and description preserve the fix scope and local-date context. French alt matches the canonical gate/converging-passage concept; actual artwork was inspected. No corrections exist in either source or draft. |
 
 No material omission, addition, date ambiguity or unsupported structure was found
-by model inspection. Human approval is still pending; this conclusion is not
-independent security verification. The exact French pilot Git blob to compare is
+by model inspection. This conclusion is not independent security verification.
+The original French draft studied in the comparison had Git blob
 `1f71d29e57c8d9987f455fb22c42f5bfad8f3114`.
 
 ## Additional trial reviews and refinements
@@ -69,21 +76,23 @@ self-review; they do not establish independent human verification.
   its condition, version and shell/hook scope. Body and code remain unchanged.
 - [ReviewBench review](reviews/2026-10-07-reviewbench.md): retained French decimal
   commas, relative changes and first-party attribution. “Taux de prise en compte”
-  remains a house-term proposal for human review; the source does not define the
+  remains a house term open to optional reviewer feedback; the source does not define the
   metric, so the translation does not claim every finding was fixed.
 - Expanded the glossary for authorization failure behavior, hooks, shell wrappers,
   precision/recall, findings, severity, addressed rate and merge gates. Added a
   warning against replacing relative percentage changes with percentage points.
-- Added the skill's [human review checklist](../../../.agents/skills/daily-ai-pulse-translate-fr/references/review-checklist.md)
-  to bind approval to an exact French revision and disclose trial coverage gaps.
+- Added the skill's [review checklist](../../../.agents/skills/daily-ai-pulse-translate-fr/references/review-checklist.md)
+  to bind review to an exact French revision and disclose trial coverage gaps.
 
 ## Checks and publication rehearsal
 
 **Executed:** exact-byte source/ref comparisons, strict translation-envelope
-parsing, draft/no-approval assertions, correction-date correspondence, Markdown
+parsing, archived draft/no-approval assertions, correction-date correspondence, Markdown
 block-order checks, inline-code sequences, link destinations, version/numeric
 values and relative-percentage presentation. The skill's structural validator
-passed; its unchanged agent metadata still describes draft translation and review.
+passed. The skill and agent metadata now describe completed reviewed translations.
+A fresh task-context trial of the updated skill produced a reviewed translation
+with actual model-review metadata after its fidelity and integrity checks passed.
 
 **Executed in an isolated checkout:** the complete real pilot body was built with
 explicitly synthetic review metadata. It appeared once in `/fr/`, resolved to its
@@ -96,26 +105,26 @@ untouched by the rehearsal. These checks establish technical readiness, not appr
 **Manual/model inspection:** semantic fidelity, natural French, evidence strength,
 terminology and pilot image description. **Not run:** human bilingual approval,
 new source-claim/security/benchmark reproduction, or production French publication.
-Human review minutes and hands-on invocation minutes were not measured.
+Human review minutes and hands-on invocation minutes were not measured. The actual
+publication copies now use the completed model review under the maintainer's policy;
+the earlier synthetic rehearsal did not provide their review identity or timestamp.
 
 Tables, code fences, translated quotations, source correction notes and fragment
 links are absent from these three sources and remain untested by the manual trials.
 Existing infrastructure regressions do not replace editorial trials of those
-structures. Automation readiness remains unproven until human findings and review
-effort are recorded and the remaining structures are exercised.
+structures. Recurring translation automation remains unvalidated; exercise the
+remaining structures and record reviewer findings and effort before introducing it.
 
 ## Complete publication through this editorial PR
 
-1. Have a fluent human compare the entire pilot with the pinned English source
-   and confirm the exact French blob above, with their reviewer identity.
-2. Resolve requested changes and obtain approval again if the French text changes.
-3. Recheck the current English fingerprint, then record the actual reviewer and
-   approval timestamp in `reviewedBy`/`reviewedAt`; change only the pilot to `reviewed`.
-4. Run verification and confirm the actual approved pilot's selection and language
-   links in the preview. Keep the two trial candidates unpublished.
-5. Merge only after that review and normal PR checks. Confirm the first live French
-   route after deployment; record human findings before planning automation.
+1. Keep the source fingerprints current and repeat review if either language changes.
+2. Run verification and confirm all three actual reviewed articles in the selection,
+   with story-preserving language switches. Keep empty, draft and stale regressions.
+3. Merge after normal PR checks, then confirm the live French selection and routes
+   after deployment. Optional fluent-human feedback can refine the glossary.
 
-Approval fields remain absent because no complete human bilingual approval of
-this exact revision has been supplied. No scheduler, orchestrator, feed, artwork
-or automatic publication behavior changes.
+The archived [permission-hardening draft](pilots/2026-10-03-claude-code-2-1-288-permission-hardening.fr.md)
+and [ReviewBench draft](pilots/2026-10-07-github-reviewbench.fr.md), together with their
+original reports, document the earlier draft-only trials. Their bodies match the
+reviewed publication copies. No scheduler, orchestrator, feed, artwork or automatic
+merge/deployment behavior changes.

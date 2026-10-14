@@ -1,15 +1,16 @@
 # French translation review checklist
 
-Use this checklist on the complete canonical English source and French draft.
-Record model inspection separately from fluent human approval. A successful
-build, source fingerprint or layout test establishes no publication approval.
+Use this checklist on the complete canonical English source and French article.
+Identify model review explicitly. Completed fidelity/editing/integrity checks
+qualify the article as reviewed; human bilingual approval is optional under the
+maintainer's policy. A successful build alone establishes no translation fidelity.
 
 ## Identify the exact revision
 
 - Record story ID, source commit and exact-byte source SHA-256.
 - Record the French candidate path and immutable Git blob SHA or commit.
 - Confirm the English source is published and has not changed since drafting.
-- Confirm the draft contains no human approval fields.
+- Confirm review metadata names the actual reviewer and review type.
 
 ## Compare meaning and editorial boundaries
 
@@ -35,15 +36,19 @@ build, source fingerprint or layout test establishes no publication approval.
 - Record unresolved passages outside the publishable body. Block handoff for
   material unresolved meaning, not merely stylistic alternatives.
 
-## Record a real human decision
+## Record the completed review
 
-- Ask a fluent human to compare the complete source and exact French revision.
-- Record reviewer identity, exact approved French blob/commit, decision and
-  actual approval timestamp only when the reviewer provides that decision.
-- Record human review minutes only if measured; otherwise say not measured.
-- Leave declined or incomplete reviews as draft. Renew approval after French edits.
-- In an explicitly authorized editorial integration, recheck the source hash,
-  set `reviewedBy`, `reviewedAt` and `status: reviewed`, and validate the build.
+- Complete fidelity, French-editing and final-fidelity passes plus deterministic
+  integrity checks. Recheck the exact source fingerprint before finalizing.
+- Set `reviewedBy` to the actual reviewer/type, e.g. `Codex (model review)`;
+  do not fabricate a human identity or claim independent verification.
+- Read the actual runtime UTC clock after review and record it as `reviewedAt`.
+- Set `status: reviewed` on successful output and integrate it into the requested
+  collection. Human bilingual approval is not a default prerequisite.
+- Keep explicitly requested drafts or incomplete reviews unpublished; report
+  material unresolved issues as blocked. Repeat review after French edits.
+- Record hands-on minutes only if measured. Identify optional human follow-up
+  separately from checks required for successful skill execution.
 
 ## Check the publication candidate
 
@@ -57,5 +62,5 @@ build, source fingerprint or layout test establishes no publication approval.
 
 Record whether the source exercised lists, tables, code fences, quotations,
 corrections, relative links and dates/timezones. Mark absent structures as
-untested. Do not approve automation from a few successful plain-Markdown drafts;
-first record human findings, review effort and a tested failure path.
+untested. A few successful plain-Markdown translations do not validate recurring
+automation; record review findings, effort and failure behavior before expanding it.

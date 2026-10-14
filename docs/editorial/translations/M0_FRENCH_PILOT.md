@@ -1,5 +1,10 @@
 # M0 French translation pilot
 
+Historical trial record. The 14 October 2026 policy now accepts completed model
+review and publishes successful translations through the normal editorial PR.
+See [FRENCH_MANUAL_TRIALS.md](FRENCH_MANUAL_TRIALS.md) for current review metadata
+and publication state; the draft-only instructions below describe the original trial.
+
 Status: **Trial run; French wording accepted by the user; publication review pending**.
 Date: 12 October 2026.
 
