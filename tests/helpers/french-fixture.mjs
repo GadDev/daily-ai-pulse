@@ -13,6 +13,11 @@ import { join, resolve } from 'node:path';
 import process from 'node:process';
 import { parse, stringify } from 'yaml';
 import { fingerprintStorySource } from '../../src/lib/translations.ts';
+import {
+  addedCorrection,
+  editorialBody,
+  editorialCorrections,
+} from './french-editorial-sample.mjs';
 
 export const pilotId = '2026-10-04-claude-code-2-1-289-policy-precedence';
 // The proposal's long title is a layout sample; this fixture never approves the real pilot.
@@ -52,7 +57,9 @@ export const draftSentinels = [
 ];
 
 /** Synthetic approval lives only in an isolated temporary checkout. Never edit the pilot. */
-export function buildFrenchFixture({ emptySelection = false } = {}) {
+export function buildFrenchFixture({ emptySelection = false, reviewStage = 'initial' } = {}) {
+  if (!['initial', 'stale', 'updated-draft', 'reviewed'].includes(reviewStage))
+    throw new Error(`Unknown fixture review stage: ${reviewStage}`);
   const repo = resolve(import.meta.dirname, '../..');
   const root = mkdtempSync(join(tmpdir(), 'pulse-french-pages-'));
   const cleanup = () => rmSync(root, { recursive: true, force: true });
@@ -115,15 +122,30 @@ export function buildFrenchFixture({ emptySelection = false } = {}) {
         : state === 'current'
           ? 'zzpublishedstorybodyzz'
           : 'English fixture body.';
-      const english = `---\n${stringify(data)}---\n\n${bodyToken}\n`;
+      const current = state === 'current';
+      if (current) data.corrections = editorialCorrections.en;
+      const initialEnglish = `---\n${stringify(data)}---\n\n${current ? editorialBody('en') : bodyToken}\n`;
+      const sourceUpdated = current && reviewStage !== 'initial';
+      const translationUpdated = current && ['updated-draft', 'reviewed'].includes(reviewStage);
+      const english = sourceUpdated
+        ? `---\n${stringify({ ...data, corrections: [...editorialCorrections.en, addedCorrection.en] })}---\n\n${editorialBody('en', { updated: true })}\n`
+        : initialEnglish;
       writeFileSync(join(root, `src/content/stories/${id}.md`), english);
       const metadata = {
         storyId: id,
         locale: 'fr',
-        sourceSha256: state === 'stale' ? '0'.repeat(64) : fingerprintStorySource(english),
-        status: state === 'withdrawn' ? 'withdrawn' : emptySelection ? 'draft' : 'reviewed',
+        sourceSha256:
+          state === 'stale'
+            ? '0'.repeat(64)
+            : fingerprintStorySource(current && !translationUpdated ? initialEnglish : english),
+        status:
+          state === 'withdrawn'
+            ? 'withdrawn'
+            : emptySelection || (current && reviewStage === 'updated-draft')
+              ? 'draft'
+              : 'reviewed',
         reviewedBy: 'Synthetic test fixture — not publication approval',
-        reviewedAt: '2026-10-12T11:00:00Z',
+        reviewedAt: translationUpdated ? '2026-10-13T11:00:00Z' : '2026-10-12T11:00:00Z',
         title: selectionSample
           ? selectionSample.title
           : state === 'current'
@@ -133,11 +155,19 @@ export function buildFrenchFixture({ emptySelection = false } = {}) {
           selectionSample?.description ??
           'Une synthèse française pour vérifier les liens, les dates et la fidélité du rendu.',
         imageAlt: 'Illustration française de la hiérarchie des règles',
-        corrections: [{ date: '2026-10-05', note: 'Correction française vérifiée.' }],
+        corrections: current
+          ? [...editorialCorrections.fr, ...(translationUpdated ? [addedCorrection.fr] : [])]
+          : [{ date: '2026-10-05', note: 'Correction française vérifiée.' }],
       };
+      if (current && reviewStage === 'updated-draft') {
+        delete metadata.reviewedBy;
+        delete metadata.reviewedAt;
+      }
       const body = selectionSample
         ? '## Exemple de lecture\n\nContenu synthétique pour les tests de la sélection, sans approbation du pilote réel.\n'
-        : `## Vérifier le rendu\n\nMarqueur${state === 'current' ? 'Courant' : 'Masque'}Unique : ${state === 'current' ? 'zzcurrentvisiblezz' : 'zzobsoletebodyblockedzz'} ; 2.1.289 reste identique. [Source technique](https://example.com/reference).\n\n\`\`\`js\nconst version = "2.1.289";\n\`\`\`\n`;
+        : current
+          ? editorialBody('fr', { updated: translationUpdated })
+          : '## Vérifier le rendu\n\nMarqueurMasqueUnique : zzobsoletebodyblockedzz ; 2.1.289 reste identique. [Source technique](https://example.com/reference).\n';
       writeFileSync(
         join(root, `src/content/story-translations/fr/${id}.md`),
         `---\n${stringify(metadata)}---\n\n${body}`,

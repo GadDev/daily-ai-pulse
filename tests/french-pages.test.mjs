@@ -6,10 +6,12 @@ import {
   buildFrenchFixture,
   draftSentinels,
   fixtureId,
+  frenchReadingTitle,
   frenchSelectionSamples,
   pilotId,
   visibilityEditions,
 } from './helpers/french-fixture.mjs';
+import { addedCorrection, editorialCorrections } from './helpers/french-editorial-sample.mjs';
 
 let fixture;
 const read = (path) => readFileSync(join(fixture.dist, path), 'utf8');
@@ -42,17 +44,89 @@ test('current French page preserves code, links, sources, image and canonical da
   const html = french('current');
   assert.match(html, /<html lang="fr"/);
   assert.match(html, /MarqueurCourantUnique/);
-  assert.match(html, /id="vérifier-le-rendu"/);
+  assert.match(html, /id="vérifier-la-politique"/);
+  assert.match(html, /id="vérifier-la-politique-1"/);
+  const fragments = [...html.matchAll(/href="(#[^"]+)"/g)].map((match) =>
+    decodeURIComponent(match[1]),
+  );
+  for (const id of ['vérifier-la-politique', 'vérifier-la-politique-1'])
+    assert.ok(fragments.includes(`#${id}`));
   assert.match(html, /https:\/\/example.com\/reference/);
-  assert.match(html, /2\.1\.289/);
   assert.match(html, /<pre[^>]*[\s\S]*const/);
+  assert.match(html, /<table[\s\S]*<th[^>]*>Opération<\/th>[\s\S]*<th[^>]*>Résultat attendu<\/th>/);
+  assert.match(html, /<td[^>]*>Écriture<\/td>[\s\S]*Refusée ; le service reste inchangé/);
+  assert.match(
+    html,
+    /<blockquote>[\s\S]*Une lecture réussie ne prouve pas que les écritures sont bloquées/,
+  );
+  assert.match(html, /citation inventée pour les tests/);
   assert.match(html, /alt="Illustration française de la hiérarchie des règles"/);
   assert.match(html, /4 octobre 2026/);
   assert.match(html, /5 octobre 2026/);
-  assert.match(html, /Correction française vérifiée/);
+  assert.ok(html.includes(editorialCorrections.fr[0].note));
   assert.match(html, /https:\/\/github.com\/anthropics\/claude-code/);
   assert.match(html, /aria-label="Rechercher dans les articles en anglais"/);
   assert.doesNotMatch(html, /name="robots"/);
+});
+
+test('a real source edit with a new correction withholds French routes, listing, alternates and search until review completes', () => {
+  const id = fixtureId('current');
+  // Initial state is already built above. Every subsequent stage rebuilds exact
+  // source bytes and reindexes Pagefind, rather than simulating a lookup result.
+  for (const stage of ['stale', 'updated-draft', 'reviewed']) {
+    const candidate = buildFrenchFixture({ reviewStage: stage });
+    try {
+      const readCandidate = (path) => readFileSync(join(candidate.dist, path), 'utf8');
+      const selection = readCandidate('fr/index.html');
+      const source = readCandidate(`stories/${id}/index.html`);
+      assert.ok(
+        readFileSync(join(candidate.root, `src/content/stories/${id}.md`), 'utf8').includes(
+          addedCorrection.en.note,
+        ),
+      );
+      assert.match(source, /three retries/);
+      const route = join(candidate.dist, `fr/stories/${id}/index.html`);
+      const current = stage === 'reviewed';
+      assert.equal(selection.includes(`/fr/stories/${id}/`), current, stage);
+      assert.equal(/<link\b[^>]*hreflang="fr"/.test(source), current, stage);
+      assert.equal(readCandidate('sitemap-0.xml').includes(`/fr/stories/${id}/`), current, stage);
+      const index = JSON.parse(readCandidate('pagefind/pagefind-entry.json'));
+      assert.equal(
+        index.languages.fr.page_count,
+        1 + frenchSelectionSamples.length + Number(current),
+      );
+      if (stage === 'updated-draft') {
+        assert.equal(existsSync(route), false);
+      } else {
+        const html = readCandidate(`fr/stories/${id}/index.html`);
+        if (current) {
+          assert.match(html, /zzreviewedupdatedzz/);
+          assert.match(html, /trois nouvelles tentatives/);
+          assert.ok(html.includes(addedCorrection.fr.note));
+          assert.match(html, /6 octobre 2026/);
+          assert.doesNotMatch(html, /name="robots"/);
+          assert.match(html, /hreflang="en"/);
+        } else {
+          assert.match(html, /L’article original a été modifié/);
+          assert.match(html, /noindex, follow/);
+          assert.match(html, /data-pagefind-ignore="all"/);
+          for (const token of [
+            frenchReadingTitle,
+            'MarqueurCourantUnique',
+            editorialCorrections.fr[0].note,
+            'zzreviewedupdatedzz',
+            '<blockquote',
+            '<table',
+            '<pre',
+          ])
+            assert.ok(!html.includes(token), `${token} leaked in stale reading page`);
+          assert.doesNotMatch(html, /<link[^>]+hreflang=/);
+        }
+      }
+    } finally {
+      candidate.cleanup();
+    }
+  }
 });
 
 test('language alternates are reciprocal and the switcher preserves the story', () => {
