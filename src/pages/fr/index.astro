@@ -15,22 +15,26 @@ const base = import.meta.env.BASE_URL;
   description="Une sélection d’articles sur l’IA, traduits et relus pour un lectorat technique francophone."
 >
   <section class="french-selection" aria-labelledby="selection-title">
-    <p class="eyebrow">THE DAILY AI PULSE / EN FRANÇAIS</p>
-    <h1 id="selection-title">L’essentiel de l’IA, en français</h1>
-    <p class="dek">
-      Une sélection d’articles traduits et relus. Les éditions quotidiennes complètes restent
-      disponibles <a href={base}>en anglais</a>.
-    </p>
+    <header class="selection-header">
+      <p class="eyebrow">THE DAILY AI PULSE / EN FRANÇAIS</p>
+      <h1 id="selection-title">L’essentiel de l’IA, en français</h1>
+      <p class="dek">
+        Une sélection d’articles traduits et relus. Les éditions quotidiennes complètes restent
+        disponibles <a href={base}>en anglais</a>.
+      </p>
+    </header>
     {selection.length === 0 ? (
-      <>
-        <p class="empty-selection">
-          Les premières traductions sont en cours de préparation. Aucun article en français n’est
-          encore disponible.
+      <div class="empty-selection">
+        <p class="empty-selection__title">
+          Les premières traductions sont en cours de préparation.
         </p>
-        <p>
-          <a href={base}>Lire l’édition du jour en anglais →</a>
+        <p class="empty-selection__description">
+          Aucun article en français n’est encore disponible.
         </p>
-      </>
+        <a class="english-edition-link" href={base}>
+          Lire l’édition du jour en anglais →
+        </a>
+      </div>
     ) : (
       <ul class="selection-list">
         {selection.map((story) => {
@@ -54,14 +58,20 @@ const base = import.meta.env.BASE_URL;
 </BaseLayout>
 <style>
   .french-selection {
-    max-width: 52rem;
     padding: 3rem 0;
     min-height: 40vh;
   }
+  .selection-header .eyebrow {
+    margin: 0;
+    color: var(--terracotta);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+  }
   h1 {
     font:
-      500 clamp(2.3rem, 5vw, 4rem)/1.08 Georgia,
+      500 clamp(2.3rem, 5vw, 3.4rem)/1.08 Georgia,
       serif;
+    margin: 1rem 0 1.25rem;
     overflow-wrap: anywhere;
   }
   .dek {
@@ -69,10 +79,39 @@ const base = import.meta.env.BASE_URL;
       1.2rem/1.6 Georgia,
       serif;
     color: var(--muted);
+    max-width: 46rem;
+    margin: 0;
+  }
+  .selection-header {
+    padding-bottom: 2rem;
   }
   .empty-selection {
-    padding: 2rem 0;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--line);
+  }
+  .empty-selection__title {
+    margin: 0;
+    font:
+      1.2rem/1.5 Georgia,
+      serif;
+  }
+  .empty-selection__description {
+    margin: 0.5rem 0 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .english-edition-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  .english-edition-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
   .selection-list {
     list-style: none;
@@ -91,5 +130,10 @@ const base = import.meta.env.BASE_URL;
   a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+  }
+  @media (max-width: 640px) {
+    .french-selection {
+      padding-top: 2rem;
+    }
   }
 </style>

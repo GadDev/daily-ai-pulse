@@ -141,3 +141,13 @@ assertions are not pixel-diff or human visual approval.
 
 The earlier M4 acceptance record remains pinned to its recorded revision.
 The updated UX must pass current PR CI; the real translation remains draft.
+
+The frontend follow-up applies the WebP hierarchy to the French selection:
+full-width rule, separate preparation/availability messages and a terracotta
+English-edition link with a 44px target. French reading titles use the available
+header width, retaining the existing type scale and natural wrapping. The
+translation note remains within a readable measure. Selection navigation stays
+highlighted on French reading pages, while `aria-current="page"` describes only
+the actual selection URL. The synthetic reading fixture uses the proposal's
+long title; browser checks cover containment, truncation and desktop line count.
+The complete site footer and publication attribution remain in place.

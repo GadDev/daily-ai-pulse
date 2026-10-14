@@ -7,6 +7,9 @@ import { parse, stringify } from 'yaml';
 import { fingerprintStorySource } from '../../src/lib/translations.ts';
 
 export const pilotId = '2026-10-04-claude-code-2-1-289-policy-precedence';
+// The proposal's long title is a layout sample; this fixture never approves the real pilot.
+export const frenchReadingTitle =
+  'Claude Code 2.1.289 corrige d’autres failles dans les règles de refus et la gestion des liens symboliques';
 export const fixtureId = (state) => `2026-10-04-i18n-fixture-${state}`;
 export const visibilityEditions = {
   latest: '2030-01-02',
@@ -69,7 +72,10 @@ export function buildFrenchFixture() {
         status: state === 'withdrawn' ? 'withdrawn' : 'reviewed',
         reviewedBy: 'Synthetic test fixture — not publication approval',
         reviewedAt: '2026-10-12T11:00:00Z',
-        title: `Un titre français suffisamment long pour vérifier la lecture sur mobile : ${state}`,
+        title:
+          state === 'current'
+            ? frenchReadingTitle
+            : `Un titre français suffisamment long pour vérifier la lecture sur mobile : ${state}`,
         description:
           'Une synthèse française pour vérifier les liens, les dates et la fidélité du rendu.',
         imageAlt: 'Illustration française de la hiérarchie des règles',

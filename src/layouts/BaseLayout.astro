@@ -135,7 +135,13 @@ const structuredData =
 
         {locale === 'fr' ? (
           <nav class="site-nav" aria-label="Navigation principale">
-            <a href={home} class:list={{ active: currentPath === home }}>
+            <a
+              href={home}
+              class:list={{
+                active: currentPath === home || currentPath.startsWith(`${home}stories/`),
+              }}
+              aria-current={currentPath === home ? 'page' : undefined}
+            >
               Sélection
             </a>
             <a href={base}>

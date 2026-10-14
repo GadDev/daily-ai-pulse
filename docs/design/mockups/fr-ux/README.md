@@ -81,3 +81,20 @@ pixel-perfect screenshots. Their companion HTML/CSS and documentation define
 the layout constraints. Long French copy still wraps naturally; no text from
 those concept images is promoted into published articles. The empty release
 state and unpublished reading samples keep their existing editorial boundaries.
+
+## Frontend mapping
+
+The frontend follows the proposals' hierarchy and spacing with the existing
+Georgia/system fonts and complete publication footer. The compact footer and
+unpublished disclaimer drawn in the mockups are explanatory design annotations;
+they do not replace the site's footer or translation attribution.
+
+| Proposal | Frontend behavior | Validation |
+| --- | --- | --- |
+| French selection, four widths | Full-width rule; restrained title; separate serif preparation message and muted availability text; terracotta English-edition link with a 44px target | Production empty-state browser checks, keyboard focus, axe and captured screens |
+| French reading, desktop/mobile | Long titles use the available reading header width and wrap without truncation; translation attribution keeps a readable measure | Synthetic fixture uses the proposal's long title; title containment, clipping and desktop line-count checks at the four widths |
+| Visible EN / FR links | Quiet active underline and fine divider; native same-story links when available | Existing keyboard, availability, geometry and accessibility checks |
+| Selection navigation | Highlight the parent French section while reading; `aria-current="page"` only on the selection itself | Browser assertions on the selection and reading pages |
+
+The real pilot stays draft. The reading fixture is temporary test content;
+changing its layout sample does not supply editorial approval.

@@ -7,6 +7,7 @@ import {
   buildFrenchFixture,
   draftSentinels,
   fixtureId,
+  frenchReadingTitle,
   pilotId,
   visibilityEditions,
 } from '../helpers/french-fixture.mjs';
@@ -177,6 +178,11 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
         const brand = document.querySelector('.brand-block')!.getBoundingClientRect();
         const actions = document.querySelector('.site-actions')!.getBoundingClientRect();
         const nav = document.querySelector('.site-nav')!.getBoundingClientRect();
+        const title = document.querySelector('h1')!;
+        const titleRange = document.createRange();
+        titleRange.selectNodeContents(title);
+        const titleBoxes = Array.from(titleRange.getClientRects());
+        const readingHeader = title.closest('.article-header')!.getBoundingClientRect();
         const labels = Array.from(document.querySelectorAll('.site-nav a')).map((link) => {
           const rect = link.getBoundingClientRect();
           const range = document.createRange();
@@ -202,12 +208,21 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
           actionsBottom: actions.bottom,
           labels,
           targets,
+          titleLines: new Set(titleBoxes.map((box) => Math.round(box.y))).size,
+          titleWithinHeader: titleBoxes.every(
+            (box) => box.left >= readingHeader.left - 1 && box.right <= readingHeader.right + 1,
+          ),
+          titleClipped: title.scrollHeight > title.clientHeight + 1,
           overflow: document.documentElement.scrollWidth > innerWidth,
         };
       });
       expect(geometry.overflow, `${locale} ${width}`).toBe(false);
       expect(geometry.height, `${locale} ${width}`).toBeLessThanOrEqual(width >= 960 ? 90 : 112);
       expect(geometry.brandRight).toBeLessThanOrEqual(geometry.actionsLeft);
+      expect(geometry.titleWithinHeader, `${locale} ${width} title exceeds reading area`).toBe(
+        true,
+      );
+      expect(geometry.titleClipped, `${locale} ${width} title is clipped`).toBe(false);
       for (const target of geometry.targets) {
         expect(target.width).toBeGreaterThanOrEqual(44);
         expect(target.height).toBeGreaterThanOrEqual(44);
@@ -219,6 +234,14 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
       }
       if (width < 860) expect(geometry.navTop).toBeGreaterThanOrEqual(geometry.actionsBottom);
       if (width >= 960) expect(geometry.navTop).toBeLessThan(geometry.actionsBottom);
+      if (locale === 'fr') {
+        if (width === 1280) expect(geometry.titleLines).toBeLessThanOrEqual(3);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveText(frenchReadingTitle);
+        const selectionLink = page.locator('.site-nav').getByRole('link', { name: 'Sélection' });
+        await expect(selectionLink).toHaveClass(/active/);
+        // The selection is the parent section, not the current article URL.
+        await expect(selectionLink).not.toHaveAttribute('aria-current', 'page');
+      }
       await page.screenshot({
         path: testInfo.outputPath(`${locale}-reading-${width}.png`),
         fullPage: true,
@@ -235,6 +258,16 @@ test('production empty French selection stays usable on desktop and mobile', asy
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/fr/');
     await expect(page.locator('.empty-selection')).toContainText('Aucun article en français');
+    await expect(
+      page.locator('.site-nav').getByRole('link', { name: 'Sélection' }),
+    ).toHaveAttribute('aria-current', 'page');
+    const englishEdition = page.getByRole('link', { name: 'Lire l’édition du jour en anglais →' });
+    await expect(englishEdition).toHaveAttribute('href', '/');
+    await englishEdition.focus();
+    await expect(englishEdition).toBeFocused();
+    expect(
+      await englishEdition.evaluate((link) => link.getBoundingClientRect().height),
+    ).toBeGreaterThanOrEqual(44);
     await expect(page.locator('main a[href*="/fr/stories/"]')).toHaveCount(0);
     expect(
       await page
@@ -244,6 +277,22 @@ test('production empty French selection stays usable on desktop and mobile', asy
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
+    const hierarchy = await page.locator('.french-selection').evaluate((section) => {
+      const empty = section.querySelector('.empty-selection')!.getBoundingClientRect();
+      const title = section.querySelector('h1')!.getBoundingClientRect();
+      const rect = section.getBoundingClientRect();
+      return {
+        fullWidthRule: Math.abs(empty.width - rect.width) < 1,
+        titleBeforeEmpty: title.bottom < empty.top,
+        emptyWithinPage: empty.right <= innerWidth,
+      };
+    });
+    expect(hierarchy).toEqual({
+      fullWidthRule: true,
+      titleBeforeEmpty: true,
+      emptyWithinPage: true,
+    });
+    await englishEdition.blur();
     await page.screenshot({ path: testInfo.outputPath(`fr-empty-${width}.png`), fullPage: true });
   }
   const results = await new AxeBuilder({ page })
