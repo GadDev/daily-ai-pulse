@@ -9,6 +9,8 @@ export default defineConfig({
   site: process.env.SITE_URL ?? 'https://daily-ai-pulse-db253.web.app',
   base: '/',
   i18n: { defaultLocale: 'en', locales: ['en', 'fr'], routing: { prefixDefaultLocale: false } },
+  // Keep literal code comments readable against the publication's light shell.
+  markdown: { shikiConfig: { theme: 'github-light-high-contrast' } },
   integrations: [
     mdx(),
     sitemap({

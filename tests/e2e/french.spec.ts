@@ -13,6 +13,12 @@ import {
   pilotId,
   visibilityEditions,
 } from '../helpers/french-fixture.mjs';
+import {
+  addedCorrection,
+  editorialCode,
+  editorialCommand,
+  editorialCorrections,
+} from '../helpers/french-editorial-sample.mjs';
 
 test.describe.configure({ mode: 'default' });
 
@@ -556,4 +562,156 @@ test('production reviewed translations appear in the selection and preserve thei
   expect(
     results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? '')),
   ).toEqual([]);
+});
+
+test('French editorial structures preserve literal code, attributed test quotations, corrections and localized duplicate-heading links', async ({
+  page,
+}, testInfo) => {
+  await page.goto(`${origin}/fr/stories/${fixtureId('current')}/`);
+  const prose = page.locator('.prose');
+  await expect(prose.locator('table th')).toHaveText(['Opération', 'Résultat attendu']);
+  await expect(prose.locator('table tbody tr')).toHaveCount(2);
+  await expect(prose.locator('blockquote')).toHaveText(
+    '« Une lecture réussie ne prouve pas que les écritures sont bloquées. »',
+  );
+  await expect(prose).toContainText('La personne fictive chargée de la revue');
+  await expect(prose).toContainText('citation inventée pour les tests');
+  const code = prose.locator('pre code');
+  await expect(code).toHaveCount(2);
+  expect((await code.nth(0).innerText()).trim()).toBe(editorialCode);
+  expect((await code.nth(1).innerText()).trim()).toBe(editorialCommand);
+  await expect(prose.locator('a[href="https://example.com/reference#policy"]')).toHaveCount(1);
+  for (const [id, name] of [
+    ['vérifier-la-politique', 'première vérification'],
+    ['vérifier-la-politique-1', 'seconde vérification'],
+  ]) {
+    const link = prose.getByRole('link', { name, exact: true });
+    expect(decodeURIComponent((await link.getAttribute('href'))!)).toBe(`#${id}`);
+    await link.focus();
+    await page.keyboard.press('Enter');
+    expect(decodeURIComponent(new URL(page.url()).hash)).toBe(`#${id}`);
+    await expect(prose.locator(`[id="${id}"]`)).toBeVisible();
+  }
+  await expect(page.locator('#corrections-title + ul')).toContainText(
+    editorialCorrections.fr[0].note,
+  );
+  for (const width of [1280, 375, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(
+      false,
+    );
+    const scrollable = page.locator('.prose pre').first();
+    if (width <= 375)
+      expect(await scrollable.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
+    await page.screenshot({
+      path: testInfo.outputPath(`fr-editorial-${width}.png`),
+      fullPage: true,
+    });
+  }
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+  expect(
+    results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? '')),
+  ).toEqual([]);
+});
+
+test('source editing and completed translation review remove and restore the same French article across publication and real search', async ({
+  page,
+  request,
+}) => {
+  test.setTimeout(180_000);
+  const id = fixtureId('current');
+  const stages = ['initial', 'stale', 'updated-draft', 'reviewed'] as const;
+  for (const stage of stages) {
+    const candidate = stage === 'initial' ? fixture : buildFrenchFixture({ reviewStage: stage });
+    const hosted = stage === 'initial' ? { server, origin } : await serveFixture(candidate.dist);
+    try {
+      const available = ['initial', 'reviewed'].includes(stage);
+      await page.goto(`${hosted.origin}/fr/`);
+      await expect(page.locator(`a[href="/fr/stories/${id}/"]`)).toHaveCount(Number(available));
+      // Query actual language-specific Pagefind results, not just index page counts.
+      const urls = await page.evaluate(async () => {
+        const moduleUrl = '/pagefind/pagefind.js';
+        const pagefind = await import(/* @vite-ignore */ moduleUrl);
+        const results = await pagefind.search('zzcurrentvisiblezz');
+        return Promise.all(
+          results.results.map(
+            async (result: { data: () => Promise<{ url: string }> }) => (await result.data()).url,
+          ),
+        );
+      });
+      expect(
+        urls.some((url) => url.endsWith(`/fr/stories/${id}/`)),
+        stage,
+      ).toBe(available);
+      await page.goto(`${hosted.origin}/stories/${id}/`);
+      const french = page
+        .locator('.language-switcher')
+        .getByRole('link', { name: 'Français', exact: true });
+      await expect(french).toHaveCount(Number(available));
+      if (stage !== 'initial') await expect(page.locator('.prose')).toContainText('three retries');
+      if (stage === 'updated-draft') {
+        expect((await request.get(`${hosted.origin}/fr/stories/${id}/`)).status()).toBe(404);
+      } else if (stage === 'stale') {
+        await page.goto(`${hosted.origin}/fr/stories/${id}/`);
+        await expect(page.locator('main')).toContainText('L’article original a été modifié');
+        await expect(page.locator('.prose, .article-hero, #corrections-title')).toHaveCount(0);
+        await expect(page.locator('main')).not.toContainText('MarqueurCourantUnique');
+      } else {
+        await french.click();
+        await expect(page).toHaveURL(`${hosted.origin}/fr/stories/${id}/`);
+        const expected =
+          stage === 'reviewed' ? editorialCode.replace('retries: 2', 'retries: 3') : editorialCode;
+        expect((await page.locator('.prose pre code').first().innerText()).trim()).toBe(expected);
+        if (stage === 'reviewed') {
+          await expect(page.locator('.prose')).toContainText('trois nouvelles tentatives');
+          await expect(page.locator('#corrections-title + ul')).toContainText(
+            addedCorrection.fr.note,
+          );
+          await expect(page.locator('#corrections-title + ul time')).toHaveCount(2);
+        }
+        await page
+          .locator('.language-switcher')
+          .getByRole('link', { name: 'English', exact: true })
+          .click();
+        await expect(page).toHaveURL(`${hosted.origin}/stories/${id}/`);
+      }
+    } finally {
+      if (stage !== 'initial') {
+        await new Promise<void>((done) => hosted.server.close(() => done()));
+        candidate.cleanup();
+      }
+    }
+  }
+});
+
+test('the published table translation remains readable on desktop and mobile', async ({
+  page,
+}, testInfo) => {
+  const id = '2026-09-29-nvidia-open-agent-safety-platform';
+  const content = readTranslationFiles(resolve(import.meta.dirname, '../..'));
+  test.skip(
+    !content.lookup(id).available,
+    'An English edit may legitimately withhold this translation; the fixture covers that transition.',
+  );
+  await page.goto(`/fr/stories/${id}/`);
+  await expect(page.locator('.prose table thead th')).toHaveText([
+    'Scénario',
+    'Résultat attendu à vérifier',
+  ]);
+  await expect(page.locator('.prose table tbody tr')).toHaveCount(6);
+  await expect(page.locator('.prose')).toContainText(
+    'pas de résultats rapportés d’un test indépendant d’OpenShell',
+  );
+  for (const width of [1280, 375, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(
+      false,
+    );
+    await page.screenshot({
+      path: testInfo.outputPath(`fr-table-article-${width}.png`),
+      fullPage: true,
+    });
+  }
 });

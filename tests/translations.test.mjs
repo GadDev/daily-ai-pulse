@@ -162,6 +162,38 @@ test('new English correction dates do not block stale translations from being sa
   assert.equal(lookup([entry(review)], corrected)(id).state, 'stale');
 });
 
+test('source correction stays withheld through a refreshed review timestamp and matching draft, then recovers after complete review', () => {
+  const original = entry({ ...review, reviewedBy: 'Synthetic model reviewer' });
+  assert.equal(lookup([original])(id).available, true);
+  const corrected = createStorySnapshot(
+    id,
+    '---\ntitle: Source\ncorrections:\n  - date: 2026-10-14\n    note: Retry count corrected from two to three.\n---\n\nUse three retries.\n',
+  );
+  assert.equal(lookup([original], corrected)(id).state, 'stale');
+  const newReview = {
+    ...review,
+    reviewedBy: 'Synthetic model reviewer',
+    reviewedAt: '2026-10-14T12:00:00Z',
+  };
+  assert.equal(lookup([entry(newReview)], corrected)(id).available, false);
+  const updated = {
+    sourceSha256: corrected.sourceSha256,
+    corrections: [
+      { date: '2026-10-14', note: 'Le nombre de nouvelles tentatives passe de deux à trois.' },
+    ],
+  };
+  const draft = entry({ ...updated, status: 'draft' });
+  assert.equal(lookup([draft], corrected)(id).state, 'draft');
+  assert.equal(lookup([draft], corrected)(id).available, false);
+  assert.throws(
+    () => lookup([entry({ ...newReview, sourceSha256: corrected.sourceSha256 })], corrected),
+    /corrections must match/,
+  );
+  const reviewed = entry({ ...newReview, ...updated });
+  assert.equal(lookup([reviewed], corrected)(id).state, 'current');
+  assert.equal(lookup([reviewed], corrected)(id).available, true);
+});
+
 test('frontmatter parsing supports CRLF and rejects duplicate keys and empty bodies', () => {
   const document = `---\n${stringify(metadata())}---\n\nCorps français.\n`;
   assert.equal(parseTranslationDocument(document.replaceAll('\n', '\r\n')).data.status, 'draft');

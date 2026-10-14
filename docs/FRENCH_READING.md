@@ -93,6 +93,12 @@ the publication collection. See [FRENCH_MANUAL_TRIALS.md](editorial/translations
 for source fingerprints and review evidence. Synthetic test metadata is confined
 to isolated fixtures and does not approve production content.
 
+The [structure coverage follow-up](editorial/translations/FRENCH_STRUCTURE_COVERAGE.md)
+adds the complete NVIDIA table translation and synthetic bilingual coverage for
+fenced code, quotations, correction notes and localized heading links. Rebuilt
+fixtures exercise English edits, withheld stale copy, a source-matched French draft
+and restored publication/search after completed review.
+
 ## Validation and rollback
 
 - `npm run verify`: normal content, metadata, type, format and production build checks.
