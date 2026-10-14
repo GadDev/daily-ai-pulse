@@ -23,7 +23,7 @@ These are editorial choices for the pilot, not universal translations.
 | shell wrapper | wrapper shell | Preserve literal `bash -c`, `sh -c` and the inner command |
 | permission hook | hook d'autorisation | Preserve `PreToolUse` and `PermissionRequest`; do not imply the hook always succeeds |
 | precision / recall | précision / rappel | Distinguish valid findings from coverage of known issues; preserve metric names such as F-beta |
-| finding | constat / signalement | Use constat for a validated reference finding; signalement for an agent comment not yet validated |
+| finding | constat / signalement | Neither term proves a confirmed defect; preserve reference findings versus generated comments |
 | false positive | faux positif | Do not turn a disputed or low-value finding into a confirmed defect |
 | severity | gravité | Do not replace severity with priority or business impact |
 | addressed rate | taux de prise en compte (addressed rate) | Do not claim resolution or acceptance when the source does not define the metric |
