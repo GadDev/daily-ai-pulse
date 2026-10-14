@@ -182,6 +182,11 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
         const titleRange = document.createRange();
         titleRange.selectNodeContents(title);
         const titleBoxes = Array.from(titleRange.getClientRects());
+        const titleStyle = getComputedStyle(title);
+        const clipsTitle = ['hidden', 'clip'].includes(titleStyle.overflowY);
+        const clampsTitle = !['none', ''].includes(
+          titleStyle.getPropertyValue('-webkit-line-clamp'),
+        );
         const readingHeader = title.closest('.article-header')!.getBoundingClientRect();
         const labels = Array.from(document.querySelectorAll('.site-nav a')).map((link) => {
           const rect = link.getBoundingClientRect();
@@ -212,7 +217,8 @@ test('masthead geometry and PNG evidence accommodate French labels at every targ
           titleWithinHeader: titleBoxes.every(
             (box) => box.left >= readingHeader.left - 1 && box.right <= readingHeader.right + 1,
           ),
-          titleClipped: title.scrollHeight > title.clientHeight + 1,
+          // Tight serif line boxes can have ink overflow without hiding any text.
+          titleClipped: (clipsTitle || clampsTitle) && title.scrollHeight > title.clientHeight + 1,
           overflow: document.documentElement.scrollWidth > innerWidth,
         };
       });
