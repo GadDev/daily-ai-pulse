@@ -1,0 +1,126 @@
+{
+  "editorial_date": "2026-10-15",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-15-openai-gpt-4-api-deprecations",
+      "decision": "selected",
+      "title": "OpenAI puts four GPT-4 API families on a 90-day migration clock",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["api", "model-releases", "fine-tuning", "governance", "cost"],
+      "entities": ["OpenAI", "GPT-4o", "GPT-4o mini", "GPT-4.1", "GPT-4.1 mini", "GPT-6 Luna"],
+      "event_date": "2026-10-14",
+      "source_publication_date": "2026-10-14",
+      "summary": "OpenAI notified API developers that specific GPT-4o, GPT-4o mini, GPT-4.1, and GPT-4.1 mini snapshots—and fine-tunes based on them—will shut down on January 14, 2027.",
+      "what_changed": "Five pinned snapshot IDs across four GPT-4 families now have a single January 14, 2027 shutdown date and `gpt-6-luna` as the recommended replacement; affected fine-tuned versions follow the same schedule.",
+      "why_it_matters": "Production systems may have prompts, schemas, tool behavior, quality thresholds, and fine-tunes calibrated to these snapshots. A replacement recommendation does not establish behavioral parity, so the notice creates a time-bounded evaluation and rollout program.",
+      "engineer_takeaway": "Inventory pinned IDs and fine-tuned descendants, replay production-representative evals against the exact replacement configuration, measure quality/latency/token cost, and complete a staged cutover before January 14.",
+      "prerequisites": ["API model lifecycle", "evaluation harnesses", "fine-tuned model inventory"],
+      "primary_source_url": "https://developers.openai.com/api/docs/deprecations",
+      "sources": [
+        {"url": "https://developers.openai.com/api/docs/deprecations", "canonical_url": "https://developers.openai.com/api/docs/deprecations", "publisher": "OpenAI", "source_type": "documentation", "role": "primary", "publication_date": "2026-10-14"}
+      ],
+      "evidence": {"level": "primary", "rationale": "OpenAI's canonical API deprecation page names every affected snapshot, the shutdown date, the recommended replacement, and the fine-tune scope.", "independent_validation": "No independent replacement-parity testing was found or performed during this run.", "claim_scope": "The story treats the lifecycle notice as established and presents migration testing as editorial guidance; it makes no claim that the recommended replacement is behaviorally equivalent."},
+      "signal": {"level": "high", "rationale": "A 90-day shutdown window for widely deployed API snapshots and their fine-tunes directly affects production reliability, evaluation work, and change-management schedules."},
+      "editorial_score": {"significance": 5, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 96},
+      "learning_gap": {"exists": true, "concepts": ["api", "evals", "fine-tuning"], "existing_explainer_status": "Pulse has covered individual model deprecations, but not a reusable migration method for pinned snapshots and fine-tuned descendants.", "suggested_explainer": "How to Migrate a Pinned Model Without Losing Its Behavioral Contract"},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "The deadline exposes a reusable workflow for dependency inventory, representative replay, fine-tune migration, canary routing, and rollback."}],
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "openai-gpt-4o-gpt-4-1-api-snapshot-shutdown-2027-01-14", "canonical_event": "OpenAI announces January 14, 2027 API shutdown for listed GPT-4o and GPT-4.1 snapshots and their fine-tunes.", "previous_coverage": null, "material_delta": "No merged Pulse story or ledger covers this October 14 GPT-4-series notice, its affected snapshot list, its January deadline, or its fine-tune scope."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The canonical deprecation page was rechecked on October 15. Replacement parity and migration effort are not claimed as verified."}
+    },
+    {
+      "id": "2026-10-15-hydrafusion-stage-aware-review",
+      "decision": "selected",
+      "title": "HydraFusion now spends more reasoning on review than drafting",
+      "desk": "workflows",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": ["coding-agents", "model-routing", "orchestration", "reasoning", "verification", "tool-calling"],
+      "entities": ["GitHub", "GitHub Copilot", "HydraFusion", "HydraFusion Max"],
+      "event_date": "2026-10-14",
+      "source_publication_date": "2026-10-14",
+      "summary": "GitHub updated HydraFusion with stage-specific reasoning effort, conditional judging and repair, workspace-grounded parallel critics, a refreshed model pool, and a higher-effort Max option.",
+      "what_changed": "HydraFusion now uses medium reasoning effort for initial drafts and high effort for review; Cascade can judge and repair only when needed; Critique uses tools to inspect the workspace and parallel critic models; Max applies higher effort to demanding tasks.",
+      "why_it_matters": "The release makes model effort, workspace inspection, judgment, and repair independently schedulable parts of a coding-agent workflow rather than properties of one session-wide model choice.",
+      "engineer_takeaway": "Evaluate agentic coding systems by stage: define what critics must inspect, measure false accepts and unnecessary repairs, track cost and latency per stage, and keep deterministic tests authoritative when model reviewers disagree.",
+      "prerequisites": ["coding-agent orchestration", "reasoning effort", "repository verification"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/",
+      "sources": [
+        {"url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/", "canonical_url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-14"},
+        {"url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/", "canonical_url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration", "publisher": "GitHub", "source_type": "engineering-blog", "role": "context", "publication_date": "2026-09-16"}
+      ],
+      "evidence": {"level": "primary", "rationale": "GitHub's dated changelog documents the stage-specific effort, Cascade and Critique changes, model pool, Max option, clients, plan access, and continued research-preview status.", "independent_validation": "No independent benchmark of the October HydraFusion changes was available during this run.", "claim_scope": "The story describes GitHub's documented orchestration behavior and derives evaluation questions; it does not claim a measured quality, latency, or token advantage."},
+      "signal": {"level": "high", "rationale": "Stage-aware reasoning and workspace-grounded review are durable design choices for coding-agent quality and cost control, not a cosmetic client update."},
+      "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 88},
+      "learning_gap": {"exists": false, "concepts": ["model-routing", "verification", "reasoning"], "existing_explainer_status": "The material update can teach the architecture directly while linking the September HydraFusion story."},
+      "follow_up_opportunities": [{"format": "deep-dive", "depth": "advanced", "reason": "Independent task-level traces or benchmark data would support a separate analysis of judge false-accept rates, critic diversity, stage cost, and repair efficiency."}],
+      "related_content": {"previous_story_ids": ["2026-09-16-hydrafusion"]},
+      "deduplication": {"status": "material-update", "publication_status": "material-update-confirmed", "candidate_key": "github-hydrafusion-stage-specific-reasoning-workspace-critique-max", "canonical_event": "GitHub updates HydraFusion orchestration and introduces HydraFusion Max on October 14, 2026.", "previous_coverage": {"story_id": "2026-09-16-hydrafusion", "source_url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/"}, "material_delta": "The September story covered initial multi-model planning, drafting, critique, revision, and escalation. The October release adds explicit per-stage effort, a conditional judge/repair step, tool-grounded parallel critics, a new model pool, cross-client availability details, and a distinct Max operating mode."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The October changelog and September canonical story were rechecked. Product behavior remains vendor-documented and benchmark-free."}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-15-tofu-tool-boundary-fuzzing",
+      "decision": "watch",
+      "title": "ToFu fuzzes semantic trust failures across MCP tools",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": ["mcp", "tool-calling", "agent-security", "security", "evals"],
+      "entities": ["ToFu", "MCP"],
+      "event_date": "2026-10-09",
+      "source_publication_date": "2026-10-09",
+      "summary": "A preprint proposes metadata-derived semantic checks and fuzzing harnesses for the LLM-orchestrator-tool boundary across 273 MCP servers and 3,405 tools.",
+      "what_changed": "The paper reports a large empirical scan of tool implementations, but the arXiv abstract says bugs were found in 343 tools while the comments say there were 253 verified semantic security bugs.",
+      "primary_source_url": "https://arxiv.org/abs/2610.13651",
+      "sources": [{"url": "https://arxiv.org/abs/2610.13651", "canonical_url": "https://arxiv.org/abs/2610.13651", "publisher": "arXiv", "source_type": "paper", "role": "primary", "publication_date": "2026-10-09"}],
+      "evidence": {"level": "preliminary", "rationale": "The 33-page preprint exposes methods and appendices, but its public metadata contains a material inconsistency in the headline verified-bug count."},
+      "signal": {"level": "high", "rationale": "Semantic validation at the tool boundary is a central agent-security problem, and the claimed corpus is unusually broad."},
+      "editorial_score": {"significance": 4, "evidence": 3, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 84},
+      "deduplication": {"status": "new", "candidate_key": "tofu-mcp-semantic-tool-boundary-fuzzing"},
+      "reason": "A central result is internally inconsistent between the arXiv abstract and comments, so publication would require choosing or obscuring a disputed metric.",
+      "promote_when": ["authors correct or reconcile the 343-tool versus 253-bug count", "public artifacts permit replication of the corpus and semantic oracles"]
+    },
+    {
+      "id": "2026-10-15-agentic-market-first-price-auctions",
+      "decision": "watch",
+      "title": "First-price auctions for prompt-routing markets",
+      "desk": "research",
+      "format": "explainer",
+      "depth": "advanced",
+      "topics": ["agents", "model-routing", "inference", "cost"],
+      "entities": ["EmbedLLM"],
+      "event_date": "2026-10-14",
+      "source_publication_date": "2026-10-14",
+      "summary": "A new theory preprint studies strategic first-price auctions in which AI agents bid for prompts based on expected reward minus inference cost.",
+      "what_changed": "The authors derive welfare bounds under competitive-floor and near-independence assumptions and simulate strategic bidders on the EmbedLLM routing dataset.",
+      "primary_source_url": "https://arxiv.org/abs/2610.20587",
+      "sources": [{"url": "https://arxiv.org/abs/2610.20587", "canonical_url": "https://arxiv.org/abs/2610.20587", "publisher": "arXiv", "source_type": "paper", "role": "primary", "publication_date": "2026-10-14"}],
+      "evidence": {"level": "preliminary", "rationale": "The result is a new preprint with theoretical guarantees and simulated strategic bidding, not evidence from a deployed agent market."},
+      "signal": {"level": "watch", "rationale": "The mechanism could inform future decentralized model routing, but today's engineering consequence is speculative."},
+      "editorial_score": {"significance": 3, "evidence": 3, "novelty": 4, "relevance": 3, "durability": 3, "weighted_total": 64},
+      "deduplication": {"status": "new", "candidate_key": "agentic-markets-first-price-auction-prompt-routing"},
+      "reason": "Interesting mechanism-design work, but the validation uses simulated bidders rather than an operating routing market.",
+      "promote_when": ["independent replication", "implementation details from a deployed agent-routing market"]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-15-gpt-5-5-retirement-cutoff", "decision": "rejected", "reason": "The October 14 retirement executed a September 11 notice; the cutoff adds no new capability, implementation detail, or migration guidance beyond the previously announced event.", "source_url": "https://developers.openai.com/codex/changelog"},
+    {"id": "2026-10-15-github-actions-workflow-lockfiles", "decision": "rejected", "reason": "Useful software-supply-chain functionality, but the change has no specific AI engineering consequence and would require artificial scope expansion.", "source_url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/"},
+    {"id": "2026-10-15-anthropic-singapore-ai-agreement", "decision": "rejected", "reason": "Institutional partnership news without a concrete technical release, engineering configuration, deployment result, or independently evaluable implementation detail.", "source_url": "https://www.anthropic.com/news"}
+  ],
+  "publication": {
+    "story_ids": ["2026-10-15-openai-gpt-4-api-deprecations", "2026-10-15-hydrafusion-stage-aware-review"],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-15-openai-gpt-4-api-deprecations"
+  },
+  "editorial_opportunities": [
+    {"format": "playbook", "depth": "practitioner", "title": "How to Migrate a Pinned Model Without Losing Its Behavioral Contract", "reason": "The GPT-4 shutdown creates a reusable need for inventory, replay evaluation, fine-tune migration, canary routing, and rollback guidance."},
+    {"format": "deep-dive", "depth": "advanced", "title": "Measuring Stage-Aware Agent Review", "reason": "HydraFusion's architecture justifies a separate treatment once traces or benchmarks can quantify judge errors, critic diversity, repair value, and stage cost."}
+  ]
+}
