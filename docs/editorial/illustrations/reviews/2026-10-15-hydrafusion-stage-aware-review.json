@@ -1,0 +1,47 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-15-hydrafusion-stage-aware-review",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-15-hydrafusion-stage-aware-review",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A coding-agent workflow spends modest effort on drafting, deeper effort on parallel workspace inspection, and enters repair only when a judge requests it",
+    "verified_context": [
+      "HydraFusion now uses medium reasoning effort for initial drafts and high effort for review.",
+      "Critique uses tools to inspect the workspace and parallel critic models.",
+      "Cascade can judge initial work and request repair only when needed; HydraFusion Max applies higher effort on demanding tasks."
+    ],
+    "editorial_idea": "Review becomes a separate, deeper execution phase grounded in the real workspace rather than the draft model's summary.",
+    "visual_metaphor": "A restrained clay drafting stream feeds a layered artifact into a deep stone inspection chamber, where three independent lenses examine it before a brass judge diverts flawed material through a compact repair loop.",
+    "archetype": "mechanical-physical-metaphor",
+    "output_crop": "wide",
+    "must_show": ["one modest drafting stream", "one layered workspace artifact", "three independent inspection lenses", "one brass judge gate", "one compact repair loop"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface elements", "page header", "page footer", "buttons", "badges", "invented charts", "watermark", "neon effects", "robots", "glowing AI brains", "screenshot imitation", "bare schematic or diagram", "border", "frame", "unsupported visual claim"],
+    "golden_references": ["public/images/stories/2026-09-28-deepmind-agent-swarm.webp", "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version": "1", "story_id": "2026-10-15-hydrafusion-stage-aware-review", "story_source_sha256": "14c8aa0e79a27213261cb3aa171b7c77bdbb47bd9c59ee3d15e6d9a5b8063de5", "visual_brief_sha256": "c2d8d797b44f40fe6a1c5ddd37bef5e8925547b5449524c7a443338c342421cb", "reference_inputs_sha256": "bb93eaf051ce53378fcbbf3c6129c599606156fa994ca912bf026a4739987f3a", "illustration_system_version": "1.3", "visual_constitution_version": "1.1", "prompt_contract_version": "1", "candidate_count": 3, "generator_surface": "chatgpt-image-tool", "model_snapshot": null, "generation_key": "f82a7652dcb588ccbf0185a3c37f6ea745746eb447d55ee6a6ab9593af094d93"},
+  "candidate_notes": {
+    "A": "Selected. A simple drafting stream enters a much deeper three-lens inspection chamber, and the separate brass gate plus repair loop remain readable without diagrammatic arrows.",
+    "B": "Rejected before scoring because the miniature workspace includes text-like marks that could violate the no-letters constraint, and the dense well weakens thumbnail clarity.",
+    "C": "Constitution-compliant. The ordinary and Max paths are elegant, but the balance mechanism and gallery of forms make the conditional repair relationship less direct."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 94, "brand_fit": 88, "composition": 91, "crop_quality": 94, "technical_meaning": 94, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 91.35},
+  "candidate_scores": {
+    "A": {"story_specific": 94, "brand_fit": 88, "composition": 91, "crop_quality": 94, "technical_meaning": 94, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 91.35},
+    "C": {"story_specific": 88, "brand_fit": 88, "composition": 90, "crop_quality": 92, "technical_meaning": 86, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 88.4}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "The drafting stream, three critics, central artifact, judge gate, and repair return remain visible across the 1600 x 900 crop.", "article_mobile": "A centered narrow crop retains the three-lens review chamber and judge gate as the core relationship.", "thumbnail": "The terracotta input, dark critic lenses, and brass diversion gate stay distinct at 480 x 270."},
+  "golden_reference_comparison": "The selected image shares the references' distributed inspection motif, pale architectural structure, terracotta working material, aged brass mechanisms, and restrained editorial lighting while forming a new stage-aware review chamber.",
+  "final_asset": "/images/stories/2026-10-15-hydrafusion-stage-aware-review.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 130170, "sha256": "bf0338f61eea0ce3b1cfd1fae1eec66a9ce53f34f07294de65efea5b563cd8d1", "git_blob_sha": "9ebc48d6ae7effe057c4c160c477498569b5c1d4", "riff_container_complete": true}
+}

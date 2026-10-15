@@ -1,0 +1,48 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-15-openai-gpt-4-api-deprecations",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-15-openai-gpt-4-api-deprecations",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Several pinned GPT-4 API snapshots and their fine-tuned descendants must cross one controlled migration boundary before a fixed shutdown",
+    "verified_context": [
+      "OpenAI announced a January 14, 2027 API shutdown for listed GPT-4o, GPT-4o mini, GPT-4.1, and GPT-4.1 mini snapshots.",
+      "Fine-tuned versions follow the shutdown schedule of their affected base models.",
+      "OpenAI recommends GPT-6 Luna as the replacement for every listed snapshot."
+    ],
+    "editorial_idea": "A dated model retirement becomes a disciplined dependency migration when every pinned and inherited workload must pass through one tested boundary.",
+    "visual_metaphor": "Five weathered ceramic vessels move along separate shallow stone channels toward one precise brass gate, with one intact terracotta vessel waiting on the replacement path.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": ["five aging vessels", "separate converging stone channels", "one precise brass gate", "one intact terracotta replacement vessel", "center-safe negative space"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface elements", "page header", "page footer", "buttons", "badges", "invented charts", "watermark", "neon effects", "robots", "glowing AI brains", "screenshot imitation", "bare schematic or diagram", "border", "frame", "unsupported visual claim"],
+    "golden_references": ["public/images/stories/2026-09-24-gpt-6-sol-luna.webp", "public/images/stories/2026-10-13-copilot-telemetry-capture-controls.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version": "1", "story_id": "2026-10-15-openai-gpt-4-api-deprecations", "story_source_sha256": "359fd8d27e951f6f3c529021db95bca41a22a16c5c0404a2df7edc34641e0711", "visual_brief_sha256": "8acd9f531b36ef1be97490b9667b922fa537612df65c6a864571a484407c150a", "reference_inputs_sha256": "d6fad3f00c68fa3ac9a6afc2df9cc30f7e8e4a0d598f39d6165ad80bf6829f38", "illustration_system_version": "1.3", "visual_constitution_version": "1.1", "prompt_contract_version": "1", "candidate_count": 3, "generator_surface": "chatgpt-image-tool", "model_snapshot": null, "generation_key": "396a47eab0827edb67d09494a8e9cd12ac7734f5eb9e6951088c764105370028"},
+  "candidate_notes": {
+    "A": "Selected. Five visibly weathered vessels converge through one precise brass threshold toward a single intact terracotta successor; the migration relationship remains clear at thumbnail scale.",
+    "B": "Constitution-compliant. Calibration threads make inherited behavioral dependencies legible, but the fine brass detail becomes busy in a small crop.",
+    "C": "Constitution-compliant. Nested model stones clearly suggest fine-tuned descendants, but the archival transfer is less immediate than candidate A's deadline gate."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 95, "brand_fit": 89, "composition": 94, "crop_quality": 95, "technical_meaning": 93, "cleanliness": 97, "golden_reference_fit": 88, "weighted_total": 92.45},
+  "candidate_scores": {
+    "A": {"story_specific": 95, "brand_fit": 89, "composition": 94, "crop_quality": 95, "technical_meaning": 93, "cleanliness": 97, "golden_reference_fit": 88, "weighted_total": 92.45},
+    "B": {"story_specific": 92, "brand_fit": 88, "composition": 90, "crop_quality": 91, "technical_meaning": 94, "cleanliness": 94, "golden_reference_fit": 88, "weighted_total": 90.8},
+    "C": {"story_specific": 90, "brand_fit": 88, "composition": 89, "crop_quality": 92, "technical_meaning": 90, "cleanliness": 96, "golden_reference_fit": 87, "weighted_total": 89.3}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "All five source vessels, the brass gate, and the replacement vessel remain visible in the final 1600 x 900 crop.", "article_mobile": "A centered narrow crop preserves the gate, two representative aging vessels, and the replacement vessel.", "thumbnail": "The many-to-one convergence and terracotta successor remain legible at 480 x 270."},
+  "golden_reference_comparison": "The selected image carries the references' warm paper atmosphere, monumental geometric boundary, restrained terracotta and brass, physical depth, and quiet negative space while using a distinct migration-channel composition.",
+  "final_asset": "/images/stories/2026-10-15-openai-gpt-4-api-deprecations.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 110898, "sha256": "7da40a790273736b94727338ceb446b10b2c69b3cf112e2eb26d1be90ab7cd7f", "git_blob_sha": "3ae66e8d7c22e9fea23f308bcce1dbf443bf2cbf", "riff_container_complete": true}
+}
