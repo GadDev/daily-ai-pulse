@@ -1,0 +1,128 @@
+{
+  "editorial_date": "2026-10-16",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-16-github-agentic-autofix-ga",
+      "decision": "selected",
+      "title": "GitHub's security agent now validates fixes before opening a draft PR",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "security", "verification", "ci", "governance", "cost"],
+      "entities": ["GitHub", "GitHub Copilot", "CodeQL", "Agentic Autofix"],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "GitHub made Agentic Autofix generally available for code-scanning alerts, with repository-wide investigation, CodeQL validation, iterative repair, batch assignment, and draft-pull-request output.",
+      "what_changed": "A formerly limited remediation workflow is now generally available: teams can assign one alert, batch up to 25 alerts into one pull request, or invoke assignment through the REST API; the agent explores the repository and reruns CodeQL before opening a draft pull request.",
+      "why_it_matters": "The release turns security remediation into an agent workflow with an external verifier and a preserved human merge boundary, while exposing concrete policy, cost, and validation limits that teams must govern.",
+      "engineer_takeaway": "Pilot on a narrow security campaign, keep normal CI and ownership review authoritative, record where CodeQL validation is unavailable, and measure regressions, reopened alerts, review time, AI credits, and Actions minutes.",
+      "prerequisites": ["code scanning", "CodeQL", "pull-request review", "coding-agent governance"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+      "sources": [
+        {"url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/", "canonical_url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-15"},
+        {"url": "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/code-scanning/autofix-for-code-scanning", "canonical_url": "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/code-scanning/autofix-for-code-scanning", "publisher": "GitHub", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-15"}
+      ],
+      "evidence": {"level": "primary", "rationale": "GitHub's dated release and canonical documentation specify the workflow, eligible alerts, CodeQL rerun, administrative policy, API assignment, costs, and validation limitations.", "independent_validation": "No independent patch-correctness, regression, cost, or reviewer-effort study was available during this run.", "claim_scope": "Availability and documented mechanics are established; remediation quality and productivity effects remain vendor-reported and unvalidated."},
+      "signal": {"level": "high", "rationale": "A generally available security-remediation agent with an external validation loop changes how teams can operationalize alert backlogs while preserving clear review boundaries."},
+      "editorial_score": {"significance": 5, "evidence": 5, "novelty": 5, "relevance": 5, "durability": 4, "weighted_total": 98},
+      "learning_gap": {"exists": true, "concepts": ["verification", "coding-agents"], "existing_explainer_status": "Pulse has covered coding-agent review and policy controls, but not a reusable distinction between closing a static-analysis alert and validating a secure, behavior-preserving repair.", "suggested_explainer": "What an External Verifier Can—and Cannot—Prove About an Agent Patch"},
+      "follow_up_opportunities": [{"format": "playbook", "depth": "practitioner", "reason": "The release exposes a reusable rollout method covering alert selection, validation scope, CI ownership, review metrics, and cost controls."}],
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "github-agentic-autofix-code-scanning-ga-codeql-validation-draft-pr", "canonical_event": "GitHub makes Agentic Autofix generally available on October 15, 2026.", "previous_coverage": null, "material_delta": "No merged Pulse story or ledger covers the generally available end-to-end remediation agent, its batch/API assignment paths, or its documented CodeQL validation boundaries."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The official release and documentation were rechecked on October 16; claims about effectiveness are explicitly limited to GitHub's documented behavior."}
+    },
+    {
+      "id": "2026-10-16-github-ai-scan-ga",
+      "decision": "selected",
+      "title": "GitHub's AI Scan reaches GA as an advisory layer beside CodeQL",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["security", "ci", "evals", "developer-experience", "cost"],
+      "entities": ["GitHub", "AI Scan", "CodeQL", "Copilot Autofix"],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "GitHub made AI Scan for pull requests generally available as an AI-based advisory scanner for changed code in languages and frameworks outside current CodeQL coverage.",
+      "what_changed": "AI Scan moved to general availability with documented execution conditions, supported examples, detection categories, inherited settings, AI-credit billing, and explicit gaps for forks, Dependabot, full-repository scans, and merge enforcement.",
+      "why_it_matters": "Teams gain security coverage without a separate build configuration, but the detector is probabilistic, budget-dependent, and unable to act as a required merge check, so rollout needs its own evaluation and governance loop.",
+      "engineer_takeaway": "Treat AI Scan as a supplementary detector: sample findings by category, measure accepted and false-positive results, test budget exhaustion, document coverage gaps, and keep deterministic scanners and ordinary review gates in place.",
+      "prerequisites": ["pull-request code scanning", "static analysis", "security findings triage"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
+      "sources": [
+        {"url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/", "canonical_url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-15"},
+        {"url": "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/code-scanning/ai-powered-security-detections", "canonical_url": "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/code-scanning/ai-powered-security-detections", "publisher": "GitHub", "source_type": "documentation", "role": "supporting", "publication_date": "2026-10-15"}
+      ],
+      "evidence": {"level": "primary", "rationale": "GitHub's dated release and canonical documentation define the GA status, triggering conditions, supported examples, finding categories, billing behavior, and limitations.", "independent_validation": "No independent benchmark of detection precision, recall, cost, or developer outcomes for the GA release was available during this run.", "claim_scope": "The story reports availability and documented behavior, not an independently established improvement in vulnerability detection."},
+      "signal": {"level": "high", "rationale": "The release expands pull-request security coverage into code and configuration types outside CodeQL while making probabilistic findings visible beside deterministic analysis."},
+      "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 88},
+      "learning_gap": {"exists": false, "concepts": ["evals", "security"], "existing_explainer_status": "The briefing can explain the advisory-versus-enforcing distinction directly without requiring a separate foundation piece."},
+      "follow_up_opportunities": [{"format": "case-study", "depth": "practitioner", "reason": "A serious organization's language-level findings, false-positive review, budget behavior, and remediation outcomes would justify a separate empirical treatment."}],
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {"status": "material-update", "publication_status": "material-update-confirmed", "candidate_key": "github-ai-scan-pull-requests-general-availability-advisory-coverage", "canonical_event": "GitHub makes AI Scan for pull requests generally available on October 15, 2026.", "previous_coverage": {"ledger_date": "2026-10-07", "candidate_id": "2026-10-07-github-ai-scan-coverage", "decision": "rejected", "source_url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview/"}, "material_delta": "The earlier ledger rejected an administrative metrics update. General availability establishes the scanner itself as a supported capability and publishes its runtime conditions, coverage examples, enforcement gaps, billing behavior, and detection categories."},
+      "publication_verification": {"status": "verified-with-claim-scope", "notes": "The official release and documentation were rechecked on October 16; effectiveness remains explicitly unvalidated outside GitHub's first-party description."}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-16-openai-agreement-analyzer",
+      "decision": "watch",
+      "title": "Sullivan & Cromwell describes an adversarial multi-agent agreement review workflow",
+      "desk": "practice",
+      "format": "case-study",
+      "depth": "practitioner",
+      "topics": ["agents", "multi-agent", "verification", "enterprise-adoption"],
+      "entities": ["OpenAI", "Sullivan & Cromwell", "Agreement Analyzer", "ChatGPT Enterprise"],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "OpenAI and Sullivan & Cromwell describe an agreement-review system that combines curated precedents and playbooks with parallel review cycles and an adversarial challenge step.",
+      "what_changed": "A first-hand deployment account exposes a useful verification pattern—parallel specialist review, challenges to conclusions, visible sources, and separate supported, dismissed, and qualified findings—but publishes no evaluation results or implementation details.",
+      "primary_source_url": "https://openai.com/index/sullivan-cromwell/",
+      "sources": [{"url": "https://openai.com/index/sullivan-cromwell/", "canonical_url": "https://openai.com/index/sullivan-cromwell", "publisher": "OpenAI", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-15"}],
+      "evidence": {"level": "anecdotal", "rationale": "The account is first-hand but promotional and provides no accuracy, reviewer-time, throughput, cost, or error-rate measurements."},
+      "signal": {"level": "medium", "rationale": "The adversarial review and provenance pattern is instructive, but the absence of implementation and outcome data prevents a trustworthy deployment case study."},
+      "editorial_score": {"significance": 4, "evidence": 2, "novelty": 4, "relevance": 4, "durability": 4, "weighted_total": 70},
+      "deduplication": {"status": "new", "candidate_key": "sullivan-cromwell-agreement-analyzer-adversarial-multi-agent-review"},
+      "reason": "The source describes workflow intent but not implementation, evaluation design, error rates, or measured operating outcomes.",
+      "promote_when": ["implementation details", "measured evaluation or reviewer outcomes", "independent validation"]
+    },
+    {
+      "id": "2026-10-16-aws-trust-in-depth",
+      "decision": "watch",
+      "title": "AWS packages agent governance as a five-layer Trust in Depth framework",
+      "desk": "workflows",
+      "format": "playbook",
+      "depth": "practitioner",
+      "topics": ["agents", "agent-security", "permissions", "observability", "governance", "verification"],
+      "entities": ["AWS", "Amazon Bedrock AgentCore", "AWS Agent Registry", "Amazon CloudWatch Omni", "Strands Box"],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "AWS proposes scope, know, bound, observe, and prove as layered controls for autonomous agents and maps them to several AWS products.",
+      "what_changed": "The article consolidates existing controls and product claims into one governance framework, including external tool-call policy enforcement and selective use of automated reasoning.",
+      "primary_source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+      "sources": [{"url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/", "canonical_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control", "publisher": "AWS", "source_type": "official", "role": "primary", "publication_date": "2026-10-15"}],
+      "evidence": {"level": "primary", "rationale": "The vendor documents its proposed framework and product mapping, but the post is thought leadership rather than a new release or evaluated deployment."},
+      "signal": {"level": "watch", "rationale": "The layered model is potentially reusable, but today's piece does not establish a new capability or comparative evidence."},
+      "editorial_score": {"significance": 3, "evidence": 3, "novelty": 3, "relevance": 4, "durability": 5, "weighted_total": 67},
+      "deduplication": {"status": "new", "candidate_key": "aws-trust-in-depth-five-layer-agent-governance-framework"},
+      "reason": "The framework currently bundles vendor product claims without a concrete new release, implementation artifact, or measured deployment.",
+      "promote_when": ["implementation details", "independent evaluation", "first-hand deployment measurements"]
+    }
+  ],
+  "exclusions": [
+    {"id": "2026-10-16-github-copilot-model-deprecations", "decision": "rejected", "reason": "The November 16 retirement notice is actionable for affected Copilot users, but it is a narrow vendor lifecycle bulletin with no new model capability, evaluation evidence, or migration detail beyond suggested replacements.", "source_url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/"},
+    {"id": "2026-10-16-github-copilot-slack-teams-multi-repo", "decision": "rejected", "reason": "Multi-repository questions and improved conversation recovery are useful product improvements, but the announcement provides no new agent architecture, operating evidence, or implementation detail.", "source_url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates/"},
+    {"id": "2026-10-16-openai-rosalind-academic-plan", "decision": "rejected", "reason": "The change is a sponsored-access program for eligible U.S. academic labs, not a new model release, API capability, benchmark, or engineering implementation.", "source_url": "https://openai.com/index/introducing-the-rosalind-academic-plan/"},
+    {"id": "2026-10-16-github-code-quality-csv", "decision": "rejected", "reason": "The CSV license report is an administrative export with no material AI-engineering capability or workflow consequence.", "source_url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv/"}
+  ],
+  "publication": {
+    "story_ids": ["2026-10-16-github-agentic-autofix-ga", "2026-10-16-github-ai-scan-ga"],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-16-github-agentic-autofix-ga"
+  },
+  "editorial_opportunities": [
+    {"format": "explainer", "depth": "practitioner", "title": "What an External Verifier Can—and Cannot—Prove About an Agent Patch", "reason": "Agentic Autofix makes the boundary between alert closure and behavior-preserving security validation immediately relevant and reusable."},
+    {"format": "case-study", "depth": "practitioner", "title": "Operating an Advisory AI Security Scanner in CI", "reason": "A real rollout with category-level precision, review cost, budget behavior, and remediation outcomes would add evidence the GA announcement does not provide."}
+  ]
+}
