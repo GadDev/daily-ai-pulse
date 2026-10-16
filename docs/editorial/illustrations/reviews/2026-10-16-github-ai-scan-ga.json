@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-16-github-ai-scan-ga",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-16-github-ai-scan-ga",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "An advisory AI security layer revealing possible flaws beside an established deterministic scanner",
+    "verified_context": [
+      "GitHub's AI Scan analyzes pull-request changes in selected languages and frameworks outside current CodeQL coverage.",
+      "Its findings are advisory, cannot block merges through rulesets, and may include false positives.",
+      "The scanner does not run on pull requests from forks or Dependabot and stops producing findings when a hard AI-credit budget is exhausted."
+    ],
+    "editorial_idea": "A probabilistic detector can reveal additional weak points, but it remains a supplementary observation layer rather than the mechanism that locks or opens the gate.",
+    "visual_metaphor": "A translucent specimen plate reveals a concealed fracture under an offset light while a separate precise mechanical gauge remains beside it, with a clear gap showing advisory rather than controlling authority.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": ["specimen-plate", "concealed-fracture", "separate-mechanical-gauge"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-26-mcp-secrets.webp", "public/images/stories/2026-09-24-greedy-decoding-precision.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-16-github-ai-scan-ga",
+    "story_source_sha256": "61f980a21c1c36a4c0a9f5d7424864809f72e90154ddcf9fa4e68f95bf1ee9d7",
+    "visual_brief_sha256": "5825841c8ecc9c6762865ccf0d9f4c49e9f4b545675c2d75911efcf0a1630c9d",
+    "reference_inputs_sha256": "4c80015b47f295ddbc0bfd96b8f3d26bf361edb1ac81ee812a19d3f30ca59c04",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "185fed113a74cbf6a7a1eb5415531ce33bfa335c3f2c18481cddad80a96c1a6b"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The backlit plate and separate gauge read clearly, though the large lamp creates a more literal laboratory scene than the other candidates.",
+    "B": "Selected. Layered stone and a single revealed fissure give the finding physical presence, while the freestanding instrument remains clearly observational rather than controlling.",
+    "C": "Constitution-compliant. The suspended plate has a strong silhouette, but the specimen's central star-like fracture reads slightly more dramatic and less restrained than the selected candidate."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 93, "brand_fit": 84, "composition": 91, "crop_quality": 94, "technical_meaning": 88, "cleanliness": 96, "golden_reference_fit": 82, "weighted_total": 88.95},
+  "candidate_scores": {
+    "A": {"story_specific": 92, "brand_fit": 82, "composition": 89, "crop_quality": 91, "technical_meaning": 90, "cleanliness": 95, "golden_reference_fit": 81, "weighted_total": 87.65},
+    "B": {"story_specific": 93, "brand_fit": 84, "composition": 91, "crop_quality": 94, "technical_meaning": 88, "cleanliness": 96, "golden_reference_fit": 82, "weighted_total": 88.95},
+    "C": {"story_specific": 90, "brand_fit": 81, "composition": 87, "crop_quality": 89, "technical_meaning": 89, "cleanliness": 95, "golden_reference_fit": 80, "weighted_total": 86.2}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop": "The wide crop preserves the complete stone specimen, illuminated fissure, and freestanding instrument with clear negative space.", "article_mobile": "A centered narrow crop retains the revealed fissure and part of the separate observation instrument without implying a control gate.", "thumbnail": "The pale block, terracotta fissure, and dark instrument remain distinct at 320px wide."},
+  "golden_reference_comparison": "The selected image carries the references' warm field, spare terracotta accent, sculptural physical metaphor, large negative space, and dark precision object while avoiding the reference set's exact symbols or arrangements.",
+  "final_asset": "/images/stories/2026-10-16-github-ai-scan-ga.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 76028, "sha256": "c746affc21de36ee4164491cb8e80319a7117a77b9cd196677e90331a31217db", "git_blob_sha": "378daccae8dc1f06b75872ce852d6c0123feb3ef", "riff_container_complete": true}
+}
