@@ -1,0 +1,113 @@
+{
+  "editorial_date": "2026-10-18",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [],
+  "watchlist": [
+    {
+      "id": "2026-10-18-anthropic-embedded-independent-evaluators",
+      "decision": "watch",
+      "title": "Anthropic embeds METR evaluators with employee-like access",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "evals",
+        "safety",
+        "governance"
+      ],
+      "entities": [
+        "Anthropic",
+        "METR",
+        "SecureBio",
+        "Accenture"
+      ],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "Anthropic says six METR employees now have company hardware, office space, and access broadly comparable to its internal risk-assessment teams, with publication rights subject to predefined redaction categories.",
+      "what_changed": "The evaluator relationship moved from external review of published risk reports to an embedded-access model with a three-tier framework, while METR has not yet published findings from the new arrangement.",
+      "primary_source_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+          "canonical_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-15"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Anthropic documents the access model and publication terms, but the source is the company being evaluated and no assessment from the embedded team has been published."
+      },
+      "signal": {
+        "level": "watch",
+        "rationale": "The access model could strengthen frontier-model assurance, but its engineering value depends on the scope and evidence in independent published findings."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 77
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "anthropic-metr-embedded-independent-evaluator-access-model",
+        "canonical_event": "Anthropic begins an embedded evaluator arrangement with METR in October 2026."
+      },
+      "reason": "The announcement defines an access and governance process, not an evaluation result; selecting it now would require inferring assurance value before independent findings exist.",
+      "promote_when": [
+        "METR publishes its first assessment under the embedded-access arrangement",
+        "the report documents methods, access limits, findings, and Anthropic's response"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-18-google-ai-search-source-links",
+      "decision": "rejected",
+      "subject": "Google adds more source links and discovery surfaces to AI Search",
+      "reason": "A consumer-search presentation update with no new model, API, evaluation result, or reusable engineering implementation detail.",
+      "source_url": "https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/"
+    },
+    {
+      "id": "2026-10-18-google-research-2026-roundup",
+      "decision": "rejected",
+      "subject": "Google Research@ 2026 milestone roundup",
+      "reason": "The post is a high-level index to previously announced projects and does not establish one distinct new technical event suitable for a canonical story.",
+      "source_url": "https://blog.google/innovation-and-ai/technology/research/research-capabilities-intelligence-2026/"
+    },
+    {
+      "id": "2026-10-18-nvidia-indic-corpus-repeat",
+      "decision": "rejected",
+      "subject": "NVIDIA and AI4Bharat's forthcoming 2.8T-token Indic corpus",
+      "reason": "Already recorded on the October 17 batch watchlist; the corpus remains described as forthcoming, with no verified dataset release, license, or audit constituting a material delta.",
+      "previous_candidate_id": "2026-10-17-nvidia-indic-pretraining-corpus",
+      "source_url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
+    },
+    {
+      "id": "2026-10-18-openai-rosalind-repeat",
+      "decision": "rejected",
+      "subject": "OpenAI Rosalind Academic Plan",
+      "reason": "Already rejected in the October 16 ledger; it remains a sponsored-access program rather than a new model, API capability, benchmark, or engineering implementation.",
+      "previous_candidate_id": "2026-10-16-openai-rosalind-academic-plan",
+      "source_url": "https://openai.com/index/introducing-the-rosalind-academic-plan/"
+    },
+    {
+      "id": "2026-10-18-github-license-compliance-repeat",
+      "decision": "rejected",
+      "subject": "GitHub open source license compliance general availability",
+      "reason": "Already assessed in the October 17 batch and still has no specific AI-engineering consequence; no material delta was found.",
+      "previous_candidate_id": "2026-10-17-github-license-compliance-ga",
+      "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/"
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  }
+}
