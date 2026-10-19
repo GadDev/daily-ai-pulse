@@ -22,7 +22,7 @@ npm run translations:pages:test # isolated EN/FR publication visibility fixture 
 npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json    # validate one editorial batch against its ledger
 npm run illustration:check -- docs/editorial/ledgers/YYYY-MM-DD.json  # validate review records + WebP assets for that batch
 npm run build              # astro check && astro build && pagefind --site dist
-npm run verify              # lint + format:check + content:check + editorial:check + illustration:check + build — what PR CI runs
+npm run verify              # lint + format + content + translations + editorial + illustrations + build
 npm run preview
 npm run test:e2e           # Playwright: smoke, homepage links, accessibility (axe)
 npm run test:e2e:ui
@@ -30,7 +30,7 @@ npm run test:e2e:ui
 
 To run a single Playwright spec: `npx playwright test tests/e2e/smoke.spec.ts`.
 
-The `editorial:check` and `illustration:check` scripts skip (not fail) when no dated ledger exists for the batch being validated — they require an explicit `docs/editorial/ledgers/YYYY-MM-DD.json` path.
+Without an explicit path, `editorial:check` and `illustration:check` validate the latest ledger, or skip if none exists. An explicit missing path fails. New publishing batches must pass their own dated `docs/editorial/ledgers/YYYY-MM-DD.json` path.
 
 Node version is pinned via `.nvmrc`/`package.json` engines (`>=22.22.3 <23`); run `nvm use` before installing.
 
@@ -54,7 +54,7 @@ Daily editions are produced by a multi-stage handoff that is mostly external to 
 
 1. **Discover** — an external ChatGPT-scheduled research task reads the repo's editorial contracts (`docs/editorial/EDITORIAL_SCHEMA_V1.md`, `DECISION_ENGINE_V1.md`, `TOPICS_V1.yml`) and searches for developments.
 2. **Decide** — that task produces a structured **candidate ledger** (selected / watch / rejected items with sources, evidence, signal, dedup reasoning). This ledger is the authoritative handoff — contract in [docs/editorial/ledgers/README.md](docs/editorial/ledgers/README.md).
-3. **Prepare** — an editor hands the ledger to the `daily-ai-pulse-pr-preparation` skill ([.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md)), which re-verifies selected claims, drafts canonical stories, calls the `daily-ai-pulse-illustration` skill for artwork, writes the daily manifest and persisted ledger, and opens exactly one draft PR. Contract: [docs/editorial/PR_PREPARATION_V1.md](docs/editorial/PR_PREPARATION_V1.md). A successful batch normally produces exactly:
+3. **Prepare** — the same orchestrated run continues with the `daily-ai-pulse-pr-preparation` skill ([.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md)), which re-verifies selected claims, drafts canonical stories, calls the `daily-ai-pulse-illustration` skill for artwork, writes the daily manifest and persisted ledger, and opens exactly one draft PR. Contract: [docs/editorial/PR_PREPARATION_V1.md](docs/editorial/PR_PREPARATION_V1.md). A successful batch normally produces exactly:
    ```
    src/content/stories/<story-id>.md
    public/images/stories/<story-id>.webp
@@ -82,7 +82,7 @@ Ledgers are immutable once merged — a correction requires a separate correctio
 | What the site currently renders | [src/content.config.ts](src/content.config.ts), [docs/CONTENT_MODEL.md](docs/CONTENT_MODEL.md), [docs/DAILY_ISSUE.md](docs/DAILY_ISSUE.md), [docs/EDITORIAL_COMPONENTS.md](docs/EDITORIAL_COMPONENTS.md) |
 | PR preparation contract/skill | [docs/editorial/PR_PREPARATION_V1.md](docs/editorial/PR_PREPARATION_V1.md), [.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) |
 | Illustration review | [docs/editorial/VISUAL_CONSTITUTION_V1.md](docs/editorial/VISUAL_CONSTITUTION_V1.md), [ILLUSTRATION_SYSTEM_V1.md](docs/editorial/ILLUSTRATION_SYSTEM_V1.md), [.agents/skills/daily-ai-pulse-illustration/SKILL.md](.agents/skills/daily-ai-pulse-illustration/SKILL.md) |
-| Visual/page design | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md), [docs/PAGE_COMPOSITIONS.md](docs/PAGE_COMPOSITIONS.md), [docs/reference-layouts/README.md](docs/reference-layouts/README.md) (design proposals, not yet implemented in Astro pages) |
+| Visual/page design | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md), [docs/reference-layouts/README.md](docs/reference-layouts/README.md) (standalone design references; inspect Astro pages for shipped behavior) |
 
 ### Principles worth preserving when editing
 

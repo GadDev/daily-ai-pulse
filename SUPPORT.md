@@ -4,10 +4,10 @@ The Daily AI Pulse is an independently maintained open-source publication projec
 
 ## Documentation
 
-Start with the project documentation in [`docs/`](./docs/):
+Start with the [documentation index](./docs/README.md):
 
 - [`ARCHITECTURE.md`](./docs/ARCHITECTURE.md) — technical structure and deployment model
-- [`PRODUCT.md`](./docs/PRODUCT.md) and [`PRD.md`](./docs/PRD.md) — product direction
+- [`PRD.md`](./docs/PRD.md) — product direction
 - [`CONTENT_MODEL.md`](./docs/CONTENT_MODEL.md) — story and daily-edition schemas
 - [`EDITORIAL.md`](./docs/EDITORIAL.md) — evidence and editorial standards
 - [`DESIGN_SYSTEM.md`](./docs/DESIGN_SYSTEM.md) — visual language

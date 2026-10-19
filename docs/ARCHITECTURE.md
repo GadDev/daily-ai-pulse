@@ -68,7 +68,9 @@ The publication is hosted at the domain root (`/`) on Firebase Hosting. Generate
 
 The project intentionally uses a small component system rather than a general-purpose application framework. Components such as story cards, the big-story treatment, navigation, article table of contents, and daily-issue rows consume validated content data and focus on presentation.
 
-The design system and page composition documents under `docs/` are the visual source of truth.
+The [design system](DESIGN_SYSTEM.md) defines shared visual rules;
+[standalone layout references](reference-layouts/README.md) guide composition.
+Inspect `src/pages/` and components for current shipped behavior.
 
 ## Build and deployment
 
@@ -89,6 +91,8 @@ Firebase CLI deploy --only hosting
     ↓
 HTTP endpoint smoke checks
 ```
+
+See [hosting operations](HOSTING.md) for configuration, previews, and recovery.
 
 The workflow pins Node.js 22.22.3 and authenticates with short-lived GitHub OIDC credentials; no service-account JSON key is stored. The build should remain reproducible from `package-lock.json`.
 
