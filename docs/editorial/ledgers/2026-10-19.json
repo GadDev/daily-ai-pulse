@@ -1,0 +1,321 @@
+{
+  "editorial_date": "2026-10-19",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-19-anthropic-scion-agent-scale-source-control",
+      "decision": "selected",
+      "title": "Anthropic redesigns source control for agent-scale software development",
+      "desk": "practice",
+      "format": "case-study",
+      "depth": "advanced",
+      "topics": [
+        "coding-agents",
+        "ci",
+        "developer-experience",
+        "orchestration"
+      ],
+      "entities": [
+        "Anthropic",
+        "Claude",
+        "Scion",
+        "Antique"
+      ],
+      "event_date": "2026-10-13",
+      "source_publication_date": "2026-10-13",
+      "summary": "Anthropic says it replaced git for its monorepo with Scion, a server-centric source-control system designed around always-online agents and CI jobs, after its merge volume rose from about 2,500 changes per day in May to more than 30,000 per day by September.",
+      "what_changed": "The company documented the architecture and migration of an internal source-control stack that centralizes history and expensive operations, makes working copies sparse or optional, exposes source-control queries as APIs, and scales storage and derived metadata horizontally. The post was updated October 15 with additional prior-art context.",
+      "why_it_matters": "It is a concrete example of AI coding throughput moving the bottleneck from code generation into repository, checkout, merge, review, and CI infrastructure. The design is unusual and not a general replacement for git, but it exposes failure modes teams may encounter as agent concurrency grows.",
+      "engineer_takeaway": "Measure checkout volume, clone traffic, merge latency, review queues, CI fan-out, and repository materialization before changing source control. Prefer incremental fixes until agent concurrency makes offline/full-clone assumptions an observed bottleneck; then evaluate sparse, API-first, server-centric patterns against your actual workload.",
+      "prerequisites": [
+        "large monorepo operations",
+        "distributed source control",
+        "CI infrastructure"
+      ],
+      "primary_source_url": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+          "canonical_url": "https://www.anthropic.com/engineering/redesigning-source-control",
+          "publisher": "Anthropic",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-10-13"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Anthropic provides a first-hand engineering account with workload measurements, migration details, architectural principles, and implementation mechanisms.",
+        "independent_validation": "Independent clean-room projects inspired by the post exist, but they do not validate Anthropic's internal production metrics or implementation.",
+        "claim_scope": "Architecture and reported production workload are first-party evidence; the story does not claim Scion is broadly superior to git or independently reproduce Anthropic's scale claims."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The case study shows agentic coding changing a foundational software-development infrastructure assumption and gives concrete architecture for the new bottleneck."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "ci",
+          "coding-agents"
+        ],
+        "existing_explainer_status": "Pulse has covered coding-agent workflows and CI controls, but not the infrastructure consequences of many always-online agent clients against a very large monorepo.",
+        "suggested_explainer": "When AI Agents Turn Source Control Into Distributed Infrastructure"
+      },
+      "follow_up_opportunities": [
+        {
+          "format": "deep-dive",
+          "depth": "advanced",
+          "reason": "Scion's changesets, derived-data pipeline, content-addressed caches, sparse/virtualized checkout protocol, and lock-free server-side operations justify a separate architecture treatment."
+        }
+      ],
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "anthropic-scion-agent-scale-source-control-architecture",
+        "canonical_event": "Anthropic publishes the architecture and production migration of Scion for its agent-heavy monorepo.",
+        "previous_coverage": null,
+        "material_delta": "No merged Pulse story or ledger record was found for Scion or Anthropic's source-control redesign."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "notes": "The primary engineering post was rechecked on October 19. Publication date, October 15 update note, workload figures, migration claim, and architecture details are present in the source; internal metrics remain first-party."
+      }
+    },
+    {
+      "id": "2026-10-19-nvidia-nemotron-3-5-super-vl",
+      "decision": "selected",
+      "title": "NVIDIA releases Nemotron 3.5 Super VL for multimodal agent workloads",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "model-releases",
+        "open-models",
+        "multimodal",
+        "inference",
+        "serving",
+        "tool-calling"
+      ],
+      "entities": [
+        "NVIDIA",
+        "Nemotron 3.5 Super VL",
+        "NeMo",
+        "vLLM",
+        "SGLang",
+        "TensorRT-LLM"
+      ],
+      "event_date": "2026-10-15",
+      "source_publication_date": "2026-10-15",
+      "summary": "NVIDIA released Nemotron 3.5 Super VL, an open-weight 120B-total/12B-active multimodal mixture-of-experts model for text, image, document, video, reasoning, and tool-using agent workflows, alongside deployment and customization cookbooks.",
+      "what_changed": "Downloadable BF16 and NVFP4 checkpoints, deployment paths for vLLM, SGLang, TensorRT-LLM and Dynamo, and post-training recipes are available. NVIDIA also documents a hybrid Mamba/attention/MoE architecture, long-context support, speculative decoding, and multimodal agent workflows.",
+      "why_it_matters": "Teams evaluating self-hosted multimodal agents now have a large open-weight option with day-zero serving integrations and post-training tooling, but deployment economics and quality claims still need workload-specific reproduction.",
+      "engineer_takeaway": "Pin the checkpoint and serving stack, reproduce one multimodal agent workload end to end, measure accuracy together with tokens, latency, throughput and GPU memory, and separate vendor benchmark claims from independently reproduced results before standardizing on the model.",
+      "prerequisites": [
+        "mixture-of-experts models",
+        "multimodal evaluation",
+        "GPU inference"
+      ],
+      "primary_source_url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/",
+      "sources": [
+        {
+          "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/",
+          "canonical_url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning",
+          "publisher": "NVIDIA",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-10-15"
+        },
+        {
+          "url": "https://github.com/NVIDIA-NeMo/Nemotron/tree/main/usage-cookbook/Nemotron-3.5-Super-VL",
+          "canonical_url": "https://github.com/NVIDIA-NeMo/Nemotron/tree/main/usage-cookbook/Nemotron-3.5-Super-VL",
+          "publisher": "NVIDIA",
+          "source_type": "repository",
+          "role": "supporting",
+          "publication_date": "2026-10-15"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "NVIDIA's technical release and public repository establish model availability, architecture, serving integrations, and customization paths.",
+        "independent_validation": "NVIDIA cites an EXO Labs evaluation and external harness results, but most performance and deployment claims in the launch remain vendor-curated and were not independently protocol-matched during this run.",
+        "claim_scope": "Availability and documented interfaces are verified; throughput, benchmark leadership, post-training gains, and production economics remain claim-scoped."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A large open-weight multimodal agent model with common serving integrations materially expands the self-hosted agent deployment space."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 89
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [
+          "open-models",
+          "inference"
+        ],
+        "existing_explainer_status": "The release can be understood with existing model-serving concepts; a separate foundation item is not required."
+      },
+      "follow_up_opportunities": [
+        {
+          "format": "deep-dive",
+          "depth": "advanced",
+          "reason": "A protocol-matched comparison of BF16/NVFP4 serving, long-context memory, speculative decoding, and multimodal agent quality would add evidence beyond the launch materials."
+        }
+      ],
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "nvidia-nemotron-3-5-super-vl-open-multimodal-agent-model",
+        "canonical_event": "NVIDIA releases Nemotron 3.5 Super VL and its deployment/customization stack on October 15, 2026.",
+        "previous_coverage": null,
+        "material_delta": "No merged Pulse story or ledger record was found for Nemotron 3.5 Super VL."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "notes": "The October 15 NVIDIA technical release and public Nemotron repository were rechecked on October 19; availability and documented stack are verified while performance claims remain scoped."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-19-anthropic-employment-agent-hours",
+      "decision": "watch",
+      "title": "Anthropic reports agent hours outnumber employee hours six to one",
+      "desk": "practice",
+      "format": "case-study",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "workflows",
+        "observability",
+        "verification"
+      ],
+      "entities": [
+        "Anthropic",
+        "Claude"
+      ],
+      "event_date": "2026-10-16",
+      "source_publication_date": "2026-10-16",
+      "summary": "Anthropic's internal research reports rapid growth in agent-hours, higher output after tool adoption, and human attention becoming a bottleneck, based on internal operational data, surveys, calendars, hiring records, and interviews.",
+      "what_changed": "The company published a quantitative internal study connecting AI-tool adoption with changes in output, work organization, monitoring practices, and hiring priorities.",
+      "primary_source_url": "https://www.anthropic.com/research/employment-at-anthropic",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/research/employment-at-anthropic",
+          "canonical_url": "https://www.anthropic.com/research/employment-at-anthropic",
+          "publisher": "Anthropic",
+          "source_type": "paper",
+          "role": "primary",
+          "publication_date": "2026-10-16"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The study uses comprehensive internal company data and interviews, but it studies Anthropic itself and causal/generalizable claims require caution."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "The human-attention and monitoring bottleneck is directly relevant to agent-heavy engineering organizations, but external generalizability is not yet established."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 5,
+        "weighted_total": 80
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "anthropic-internal-agent-hours-human-attention-work-organization",
+        "canonical_event": "Anthropic publishes its internal study of AI-agent use and changing work organization."
+      },
+      "reason": "The findings are unusually concrete but come from one frontier AI company with exceptional tool access and incentives; a software-engineering story would benefit from external replication or a narrower first-hand engineering implementation account.",
+      "promote_when": [
+        "independent study replicates the attention/monitoring bottleneck in another engineering organization",
+        "Anthropic publishes implementation details for the monitoring and meta-work systems used to manage agent output"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-19-google-adk-overnight-repeat",
+      "decision": "rejected",
+      "subject": "Google's 11-hour Gemini 4 Argon optimization run on ADK Python",
+      "reason": "Already published by Daily AI Pulse on October 14; no new technical delta was found.",
+      "previous_story_id": "2026-10-14-adk-overnight-agent-workflow",
+      "source_url": "https://developers.googleblog.com/optimizing-a-200000-line-python-codebase-overnight-with-gemini-4-argon/"
+    },
+    {
+      "id": "2026-10-19-gemini-4-argon-repeat",
+      "decision": "rejected",
+      "subject": "Gemini 4 Argon model release and Copilot availability",
+      "reason": "The model release was already published on October 14 and Copilot availability was already rejected as a distribution-only delta.",
+      "previous_story_id": "2026-10-14-gemini-4-argon",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+    },
+    {
+      "id": "2026-10-19-anthropic-embedded-evaluator-repeat",
+      "decision": "rejected",
+      "subject": "Anthropic embedded METR evaluator access model",
+      "reason": "Already recorded on the October 18 watchlist; no independent assessment under the arrangement has been published.",
+      "previous_candidate_id": "2026-10-18-anthropic-embedded-independent-evaluators",
+      "source_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "withheld_selected": [
+      {
+        "id": "2026-10-19-anthropic-scion-agent-scale-source-control",
+        "reason": "withheld-illustration-resolution-unavailable"
+      },
+      {
+        "id": "2026-10-19-nvidia-nemotron-3-5-super-vl",
+        "reason": "withheld-illustration-resolution-unavailable"
+      }
+    ],
+    "must_know_story_id": null
+  },
+  "editorial_opportunities": [
+    {
+      "format": "deep-dive",
+      "depth": "advanced",
+      "title": "Inside Agent-Scale Source Control",
+      "reason": "Scion's architecture is detailed enough to justify a separate treatment of changesets, derived data, sparse/virtualized working copies, caches, and server-side operations."
+    },
+    {
+      "format": "explainer",
+      "depth": "practitioner",
+      "title": "When AI Agents Turn Source Control Into Distributed Infrastructure",
+      "reason": "The Scion case exposes a reusable learning gap around why always-online, high-concurrency agent clients stress assumptions inherited from human-scale git workflows."
+    },
+    {
+      "format": "deep-dive",
+      "depth": "advanced",
+      "title": "Benchmarking Nemotron 3.5 Super VL Beyond Launch Claims",
+      "reason": "Protocol-matched multimodal agent testing across serving stacks and precisions would materially improve the evidence base."
+    }
+  ]
+}
