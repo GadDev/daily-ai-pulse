@@ -1,0 +1,66 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-20-redhat-mcp-gateway-ga",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-20-redhat-mcp-gateway-ga",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A production MCP gateway separating multiple tenants while controlling agent-to-tool traffic",
+    "verified_context": [
+      "Red Hat made its MCP gateway generally available in Connectivity Link 1.5 with dedicated and shared isolation patterns.",
+      "The gateway supports protocol negotiation between stateless and earlier stateful MCP transports while federating tools, prompts, and selected resources.",
+      "Structured audit logs, Prometheus metrics, and an external NeMo Guardrails integration provide separate observability and content-policy controls."
+    ],
+    "editorial_idea": "A shared gateway can centralize policy while preserving separate traffic paths and operational boundaries for multiple agent-tool tenants.",
+    "visual_metaphor": "A monumental layered gatehouse with several sealed chambers and one controlled terracotta passage branching into isolated corridors.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": ["layered-gatehouse", "separate-chambers", "controlled-terracotta-passage", "visible-boundaries"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-24-gpt-6-sol-luna.webp", "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-20-redhat-mcp-gateway-ga",
+    "story_source_sha256": "e634ca8ca4cbedb2e4496560ca4b52aec520f0ad1bdf8cb5d83189c0e5760a04",
+    "visual_brief_sha256": "caddf6eb36a446a257c2314fafa7e99838f31fda73ecc270e14cb24c3e78841c",
+    "reference_inputs_sha256": "a4c9ba2de5816bed6b8394411b617d11ee7a538ee87ca3186cbc1ea893356f97",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "640b8451d86fdb05ac108cb5c1d907a38c423b611d163d348bab0245ede221cb"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The frontal gatehouse and three chambers communicate separation, but the retained objects in each chamber compete with the traffic-path metaphor.",
+    "B": "Selected. A single controlled path branches over four physically separated wells, preserving the gateway threshold and tenant isolation at thumbnail and cover crops.",
+    "C": "Constitution-compliant. The circular compound expresses isolation, but human figures and landscape detail reduce the clarity of the gateway path at small size."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores": {"story_specific":95,"brand_fit":88,"composition":94,"crop_quality":92,"technical_meaning":94,"cleanliness":97,"golden_reference_fit":87,"weighted_total":91.75},
+  "candidate_scores": {
+    "A": {"story_specific":90,"brand_fit":84,"composition":89,"crop_quality":88,"technical_meaning":88,"cleanliness":95,"golden_reference_fit":83,"weighted_total":87.3},
+    "B": {"story_specific":95,"brand_fit":88,"composition":94,"crop_quality":92,"technical_meaning":94,"cleanliness":97,"golden_reference_fit":87,"weighted_total":91.75},
+    "C": {"story_specific":88,"brand_fit":86,"composition":90,"crop_quality":90,"technical_meaning":86,"cleanliness":94,"golden_reference_fit":85,"weighted_total":87.8}
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The central gate and all four isolated wells remain visible in the wide crop.",
+    "article_mobile": "A centered narrow cover crop keeps the primary gate, intersection, and two deep separated wells.",
+    "thumbnail": "The terracotta path and dark isolated wells remain distinct at 320px wide."
+  },
+  "golden_reference_comparison": "The selected image matches the production archive's warm field, architectural mass, sparse terracotta emphasis, physical depth, and strong central silhouette while using a story-specific gateway composition.",
+  "final_asset": "/images/stories/2026-10-20-redhat-mcp-gateway-ga.webp",
+  "final_dimensions": {"width":1600,"height":900},
+  "asset_integrity": {"byte_length":122544,"sha256":"5078747447bd0cc70b60d0812252fd7e21c8d345a4cec853d8d1a30508400e75","git_blob_sha":"6c934c1be47359aed1521ae77e3b4b52b16e06eb","riff_container_complete":true},
+  "generation_metadata": {"generated_at":"2026-10-20T10:06:06Z"}
+}

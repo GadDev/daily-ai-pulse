@@ -237,17 +237,11 @@
     }
   ],
   "publication": {
-    "story_ids": [],
-    "withheld_selected": [
-      {
-        "id": "2026-10-20-redhat-mcp-gateway-ga",
-        "reason": "withheld-illustration-decision-not-run"
-      },
-      {
-        "id": "2026-10-20-github-copilot-model-policy-api",
-        "reason": "withheld-illustration-decision-not-run"
-      }
+    "story_ids": [
+      "2026-10-20-redhat-mcp-gateway-ga",
+      "2026-10-20-github-copilot-model-policy-api"
     ],
+    "withheld_selected": [],
     "must_know_story_id": null
   },
   "editorial_opportunities": []
