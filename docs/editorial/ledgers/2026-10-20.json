@@ -1,0 +1,254 @@
+{
+  "editorial_date": "2026-10-20",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-20-redhat-mcp-gateway-ga",
+      "decision": "selected",
+      "title": "Red Hat's OpenShift MCP gateway reaches general availability",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "mcp",
+        "agent-security",
+        "infrastructure"
+      ],
+      "entities": [],
+      "event_date": "2026-10-16",
+      "source_publication_date": "2026-10-16",
+      "summary": "Red Hat reports production GA for its MCP gateway in Connectivity Link 1.5.",
+      "what_changed": "Adds isolation, stateless sessions, prompts and resources, guardrails and security hardening.",
+      "why_it_matters": "Teams running multiple agent-tool tenants have new gateway controls to evaluate.",
+      "engineer_takeaway": "Review tenant isolation, session handling, access policy and rollout compatibility before adoption.",
+      "prerequisites": [],
+      "primary_source_url": "https://www.redhat.com/en/blog/model-context-protocol-gateway-red-hat-openshift-now-generally-available",
+      "sources": [
+        {
+          "url": "https://www.redhat.com/en/blog/model-context-protocol-gateway-red-hat-openshift-now-generally-available",
+          "canonical_url": "https://www.redhat.com/en/blog/model-context-protocol-gateway-red-hat-openshift-now-generally-available",
+          "publisher": "Red Hat",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-16"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "First-party dated technical announcement.",
+        "independent_validation": "Not independently verified",
+        "claim_scope": "Release and documented features, not operational performance."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Material operational or API configuration implications."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "MCP gateway isolation",
+          "stateless sessions"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "redhat-mcp-gateway-ga",
+        "canonical_event": "Adds isolation, stateless sessions, prompts and resources, guardrails and security hardening.",
+        "previous_coverage": null,
+        "material_delta": "Adds isolation, stateless sessions, prompts and resources, guardrails and security hardening."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
+    },
+    {
+      "id": "2026-10-20-github-copilot-model-policy-api",
+      "decision": "selected",
+      "title": "GitHub introduces REST APIs for Copilot model policies",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "governance",
+        "api",
+        "model-routing"
+      ],
+      "entities": [],
+      "event_date": "2026-10-19",
+      "source_publication_date": "2026-10-19",
+      "summary": "GitHub's October 19 changelog reports model policy REST API controls.",
+      "what_changed": "Enterprise and organization administrators can retrieve and update model policies through GET and PATCH endpoints.",
+      "why_it_matters": "Model governance can be audited and automated rather than managed only through interactive settings.",
+      "engineer_takeaway": "Inspect endpoint scope, permissions, and rollout defaults before automating model access.",
+      "prerequisites": [],
+      "primary_source_url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/",
+          "canonical_url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-19"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "First-party dated technical announcement.",
+        "independent_validation": "Not independently verified",
+        "claim_scope": "Release and documented features, not operational performance."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Material operational or API configuration implications."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "model policy management API"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "github-copilot-model-policy-api",
+        "canonical_event": "Enterprise and organization administrators can retrieve and update model policies through GET and PATCH endpoints.",
+        "previous_coverage": null,
+        "material_delta": "Enterprise and organization administrators can retrieve and update model policies through GET and PATCH endpoints."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-20-aws-torchneuron",
+      "decision": "watch",
+      "title": "AWS TorchNeuron PyTorch compatibility announcement",
+      "desk": "engineering",
+      "event_date": "2026-10-19",
+      "summary": "Secondary reporting describes a PyTorch-to-Trainium compatibility initiative.",
+      "what_changed": "A claimed migration path was announced but first-party artifacts were not verified in this pass.",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/machine-learning/trainium/",
+          "role": "context"
+        }
+      ],
+      "evidence": {
+        "level": "unverified"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 1,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 74
+      },
+      "deduplication": {
+        "candidate_key": "aws-torchneuron-pytorch-trainium"
+      },
+      "reason": "Canonical dated AWS release and inspectable software artifacts not established.",
+      "promote_when": [
+        "Confirm dated AWS announcement and inspect public code, installation or compatibility documentation."
+      ]
+    },
+    {
+      "id": "2026-10-20-claude-code-hook-diagnostics",
+      "decision": "watch",
+      "title": "Claude Code plugin hook diagnostic improvements",
+      "desk": "workflows",
+      "event_date": "2026-10-19",
+      "summary": "A claimed patch adds reporting for skipped plugin hooks.",
+      "what_changed": "More explicit hook-skipping diagnostics are reported.",
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-code/releases",
+          "role": "context"
+        }
+      ],
+      "evidence": {
+        "level": "unverified"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 2,
+        "evidence": 2,
+        "novelty": 2,
+        "relevance": 3,
+        "durability": 2,
+        "weighted_total": 43
+      },
+      "deduplication": {
+        "candidate_key": "claude-code-plugin-hook-skipped-diagnostics"
+      },
+      "reason": "Exact release and change details not independently checked; narrower incremental change.",
+      "promote_when": [
+        "Confirm primary changelog and material engineering consequences."
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-20-copilot-model-deprecations",
+      "decision": "rejected",
+      "title": "GitHub Copilot models deprecated on October 19",
+      "reason": "The September 18 announcement already set the retirement date; October 19 execution does not establish a new technical capability. Similar lifecycle notices evaluated in October 16 ledger.",
+      "source_url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/"
+    },
+    {
+      "id": "2026-10-20-google-apigee-hybrid-mcp",
+      "decision": "rejected",
+      "title": "Google Apigee hybrid MCP support",
+      "reason": "Older September release; overlaps previously published September 25 MCP gateway story without a confirmed material delta.",
+      "previous_story_id": "2026-09-25-api-gateway-mcp"
+    },
+    {
+      "id": "2026-10-20-anthropic-scion-repeat",
+      "decision": "rejected",
+      "title": "Anthropic Scion source-control architecture",
+      "reason": "Already selected in the October 19 candidate ledger; no new delta established.",
+      "previous_story_id": "2026-10-19-anthropic-scion-agent-scale-source-control"
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "withheld_selected": [
+      {
+        "id": "2026-10-20-redhat-mcp-gateway-ga",
+        "reason": "withheld-illustration-decision-not-run"
+      },
+      {
+        "id": "2026-10-20-github-copilot-model-policy-api",
+        "reason": "withheld-illustration-decision-not-run"
+      }
+    ],
+    "must_know_story_id": null
+  },
+  "editorial_opportunities": []
+}
