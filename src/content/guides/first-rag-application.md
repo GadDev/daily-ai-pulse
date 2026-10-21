@@ -1,9 +1,10 @@
 ---
 title: Deploying Your First RAG Application
 description: Build and run a small local RAG API with FastAPI, lexical document retrieval, Ollama, and inspectable citations—without a paid model API.
-status: draft
+status: published
 format: tutorial
 verification: researched
+publishedAt: 2026-10-21
 difficulty: beginner
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
