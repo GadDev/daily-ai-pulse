@@ -100,6 +100,16 @@ jobs:
           GUIDE_REVIEW_PREVIEW: '1'
         run: npm run build
 
+      - name: Assert draft guides render only in this review preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          for slug in first-rag-application rag-retrieval-evaluation; do
+            page="dist/guides/$slug/index.html"
+            test -f "$page"
+            grep -q "EDITORIAL PREVIEW" "$page"
+          done
+
       - name: Upload static preview artifact
         uses: actions/upload-artifact@v7
         with:
