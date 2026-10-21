@@ -66,7 +66,6 @@ const pulse = defineCollection({
   }),
 });
 
-
 const guides = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
   schema: z
@@ -84,9 +83,7 @@ const guides = defineCollection({
       verifiedAt: z.coerce.date().optional(),
       testEnvironment: z.string().min(1).optional(),
       testArtifacts: z.array(z.string().url()).default([]),
-      sources: z
-        .array(z.object({ label: z.string().min(1), url: z.string().url() }))
-        .default([]),
+      sources: z.array(z.object({ label: z.string().min(1), url: z.string().url() })).default([]),
       affiliateLinks: z.boolean().default(false),
       disclosure: z.string().min(1).optional(),
     })
@@ -94,14 +91,18 @@ const guides = defineCollection({
       const error = (path: string, message: string) =>
         ctx.addIssue({ code: 'custom', path: [path], message });
       if (guide.status === 'published') {
-        if (!guide.publishedAt) error('publishedAt', 'Published guides require a publication date.');
+        if (!guide.publishedAt)
+          error('publishedAt', 'Published guides require a publication date.');
         if (!guide.verifiedAt) error('verifiedAt', 'Published guides require a verification date.');
         if (!guide.author) error('author', 'Published guides require a real author.');
         if (!guide.reviewer) error('reviewer', 'Published guides require an identified reviewer.');
-        if (guide.sources.length === 0) error('sources', 'Published guides require source references.');
+        if (guide.sources.length === 0)
+          error('sources', 'Published guides require source references.');
         if (guide.verification === 'hands-on') {
-          if (!guide.testEnvironment) error('testEnvironment', 'Hands-on guides require a test environment.');
-          if (guide.testArtifacts.length === 0) error('testArtifacts', 'Hands-on guides require reproducible artifacts.');
+          if (!guide.testEnvironment)
+            error('testEnvironment', 'Hands-on guides require a test environment.');
+          if (guide.testArtifacts.length === 0)
+            error('testArtifacts', 'Hands-on guides require reproducible artifacts.');
         }
       }
       if (guide.affiliateLinks && !guide.disclosure) {
