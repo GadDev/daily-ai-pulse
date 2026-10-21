@@ -6,36 +6,23 @@ The [visual concept gallery](IMAGE_GALLERY.md) has one image for each page type 
 
 The reference pages are deliberately separate from `src/pages/`. They do not change the deployed site. The content is a representative snapshot based on the 28 September 2026 edition and existing story assets. Reading times and several archive headlines are **illustrative layout copy**, pending a real content-derived reading-time implementation and editorial titles. Do not publish them as factual metadata.
 
-## Review of the current site
-
-The current site has a coherent warm editorial identity, good whitespace, clear article sourcing, and restrained navigation. The problems are concentrated in hierarchy and repeatability:
-
-- At a desktop viewport around 1348 × 900, the dated issue's title repeats the date and occupies most of the first screen. The first story barely appears.
-- A long article title fills nearly the entire first screen before the illustration or body starts.
-- The home hero is a tall two-panel card with a heavy button; its scale leaves the curated desks below the fold.
-- Category lists are readable, but 22 same-weight Research rows are hard to scan. Raw `evidence/preliminary` metadata reads like a database field.
-- The Pulse archive repeats the date in both date label and headline, producing long rows with little distinguishing signal.
-- Search has a clear form, but results and empty/zero states need the same story hierarchy as other archives.
-
-The visual improvement should be a **better morning reading path**: date → selected story → supporting signal → detail. It should retain the beige paper palette and quiet serif/sans pairing.
-
 ## Page references
 
 | Reference                           | Purpose                       | Main layout decision                                                            | Implementation mapping                                      |
 | ----------------------------------- | ----------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [Home](index.html)                  | Curated front page            | Compact edition rail, unboxed lead, asymmetric supporting signal                | `src/pages/index.astro`, `BigStory`, `StoryCard`            |
 | [Dated issue](issue.html)           | The day's editorial selection | Date outside H1, one featured story, two compact numbered rows for this edition | `src/pages/pulse/[date].astro`, `DailyIssueRow`             |
-| [Categories index](categories.html) | Browse all eight desks        | Short descriptions in a two-column directory                                    | Proposed `/categories/` in PR #105                          |
+| [Categories index](categories.html) | Browse all eight desks        | Short descriptions in a two-column directory                                    | `src/pages/categories/index.astro`                          |
 | [Research category](category.html)  | Deep category browsing        | Quiet art, count, optional row images, readable metadata                        | `CategoryArchive`, `CategoryNav`, `StoryListRow`            |
 | [Article](story.html)               | Focused long-form reading     | Bounded H1, visible hero, article measure, evidence note, TOC                   | `src/pages/stories/[...id].astro`, editorial MDX components |
 | [Pulse archive](archive.html)       | Find a past edition           | Date-led monthly list without redundant date headlines                          | `src/pages/pulse/index.astro`, `DailyIssueRow`              |
 | [Search](search.html)               | Find a story                  | Search input, result count, text-first rows, empty result state                 | `src/pages/search/index.astro`                              |
-| [About](about.html)                 | Publication identity          | One readable policy template with local navigation                              | Proposed `/about/` in PR #105                               |
-| [Methodology](methodology.html)     | Selection and evidence        | Definitions as a compact two-column list                                        | Proposed `/methodology/` in PR #105                         |
-| [Subscribe](subscribe.html)         | Follow the publication        | Honest RSS action while email is unavailable                                    | Proposed `/subscribe/` in PR #105                           |
-| [Contact](contact.html)             | Corrections and feedback      | Short, task-oriented route                                                      | Proposed `/contact/` in PR #105                             |
-| [Privacy](privacy.html)             | Data-handling information     | Short sections and links to hosting policy                                      | Proposed `/privacy/` in PR #105                             |
-| [Terms](terms.html)                 | Content and code license      | Separate editorial rights from MIT code                                         | Proposed `/terms/` in PR #105                               |
+| [About](about.html)                 | Publication identity          | One readable policy template with local navigation                              | `src/pages/about/index.astro`                               |
+| [Methodology](methodology.html)     | Selection and evidence        | Definitions as a compact two-column list                                        | `src/pages/methodology/index.astro`                         |
+| [Subscribe](subscribe.html)         | Follow the publication        | Honest RSS action while email is unavailable                                    | `src/pages/subscribe/index.astro`                           |
+| [Contact](contact.html)             | Corrections and feedback      | Short, task-oriented route                                                      | `src/pages/contact/index.astro`                             |
+| [Privacy](privacy.html)             | Data-handling information     | Short sections and links to hosting policy                                      | `src/pages/privacy/index.astro`                             |
+| [Terms](terms.html)                 | Content and code license      | Separate editorial rights from MIT code                                         | `src/pages/terms/index.astro`                               |
 | [Components](components.html)       | Reusable visual language      | Typography, image/text stories, evidence, actions, editorial voice              | Shared components and styles                                |
 
 ## Shared design rules
@@ -62,12 +49,14 @@ The visual improvement should be a **better morning reading path**: date → sel
 | Action         | Clear verb and destination                        | Arrow glyph                      | Dark pill for subscribe, text link for reading/back |
 | Search state   | Query/result count                                | Suggested desks                  | Empty, results, no results                          |
 
-## What to implement first
+## Using these references
 
-1. Use the edition manifest as the home and issue selection source; make the issue H1/date compact.
-2. Centralize human-readable metadata and content-derived reading time.
-3. Update the category and archive rows, including optional imagery and real story counts.
-4. Apply the article type scale and shell. Keep the existing TOC, sources, related stories, and narrow reading column.
-5. Integrate the information pages from PR #105 and the shared component styles.
+Use these layouts to discuss hierarchy and composition, then inspect the current
+Astro page before implementing a change. The reference copy is a dated snapshot,
+not a backlog or a record of what remains unimplemented. Current product scope
+lives in the [PRD](../PRD.md); shared visual rules live in the
+[design system](../DESIGN_SYSTEM.md).
 
-This is a visual specification for review. It should be implemented in the Astro components after the content-model decisions in issues #86, #93, #94, #100, #101, and #103 are settled.
+Keep the HTML, CSS, JavaScript, images, and gallery together. Illustration
+generation and validation use placement-specific reference paths, so removing
+these files requires a separate contract and tooling change.

@@ -44,12 +44,8 @@ the orchestrator persists a **ledger-only batch** rather than manufacturing
 content. Zero-story days remain part of the editorial record and contribute to
 future deduplication.
 
-**Current status:** the editorial contracts, orchestration contract,
-publication skills, and validators are in place. The scheduled orchestrator is
-configured to run research → ledger → draft PR as one workflow. The remaining
-operational milestone is a controlled live batch validating branch creation,
-ledger persistence, story and illustration generation, draft PR creation, and
-GitHub Actions handoff end to end.
+The scheduled task is configured outside this repository. Check its current task
+state and recent PR/Actions results before claiming an unattended run succeeded.
 
 Historical editions have retrospective ledgers with explicit provenance.
 Without a dated ledger, the editorial and illustration validators may report a
@@ -57,17 +53,9 @@ skip; a new publishing batch must validate against its explicit ledger path.
 
 ## Find the source of truth
 
-| Question | Read |
-| --- | --- |
-| What is the publication building toward? | [Product requirements](docs/PRD.md) and [architecture](docs/ARCHITECTURE.md) |
-| What is publishable and how should it sound? | [Editorial guide](docs/EDITORIAL.md) |
-| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
-| What is the durable editorial memory and publication handoff? | [Candidate ledger contract and example](docs/editorial/ledgers/README.md) |
-| What can the current site render? | [Astro schema](src/content.config.ts), [content model](docs/CONTENT_MODEL.md), [daily issue contract](docs/DAILY_ISSUE.md), and [editorial MDX components](docs/EDITORIAL_COMPONENTS.md) |
-| How is a publication PR prepared? | [PR preparation contract](docs/editorial/PR_PREPARATION_V1.md) and [skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) |
-| How are French translations prepared? | [Bilingual workflow](docs/editorial/translations/DAILY_BILINGUAL_WORKFLOW.md), [reading contract](docs/FRENCH_READING.md), and [translation skill](.agents/skills/daily-ai-pulse-translate-fr/SKILL.md) |
-| How are illustrations reviewed? | [Visual constitution](docs/editorial/VISUAL_CONSTITUTION_V1.md), [illustration system](docs/editorial/ILLUSTRATION_SYSTEM_V1.md), and [skill](.agents/skills/daily-ai-pulse-illustration/SKILL.md) |
-| What should a page or asset look like? | [Design system](docs/DESIGN_SYSTEM.md), [earlier page compositions](docs/PAGE_COMPOSITIONS.md), and [responsive layout references](docs/reference-layouts/README.md). The references propose changes separate from deployed Astro pages. |
+Use the [documentation index](docs/README.md) to find the owner document for
+product scope, architecture, content, editorial automation, French translations,
+illustrations, design, and hosting operations.
 
 The editorial schema describes the richer candidate model. The Astro schema
 controls what builds today; its
@@ -77,7 +65,7 @@ canonical stories rather than duplicating their bodies.
 
 ## Hosting and deployment
 
-The publication is hosted at [daily-ai-pulse-db253.web.app](https://daily-ai-pulse-db253.web.app/). Every human-approved merge to `main` runs [the deployment workflow](.github/workflows/deploy.yml), which validates and builds the static site, authenticates to Google Cloud via keyless Workload Identity Federation, and deploys to Firebase Hosting. See the [hosting migration and operations runbook](docs/FIREBASE_HOSTING_MIGRATION.md) for environment variables, verification, and rollback. The previous GitHub Pages address is legacy and is not the publication's canonical URL.
+The publication is hosted at [daily-ai-pulse-db253.web.app](https://daily-ai-pulse-db253.web.app/). Every human-approved merge to `main` runs [the deployment workflow](.github/workflows/deploy.yml), which validates and builds the static site, authenticates to Google Cloud via keyless Workload Identity Federation, and deploys to Firebase Hosting. See the [hosting operations runbook](docs/HOSTING.md) for environment variables, verification, and rollback. The previous GitHub Pages address is legacy and is not the publication's canonical URL.
 
 ## Run the site locally
 
