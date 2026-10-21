@@ -1,0 +1,94 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleToc from '../../components/ArticleToc.astro';
+import GuideDisclosure from '../../components/guides/GuideDisclosure.astro';
+import GuideVerification from '../../components/guides/GuideVerification.astro';
+import { formatGuideDate, guideFormats, isPublishedGuide } from '../../lib/guides';
+import '../../styles/article.css';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides', isPublishedGuide);
+  return guides.map((guide) => ({ params: { id: guide.id }, props: { guide } }));
+}
+
+interface Props {
+  guide: CollectionEntry<'guides'>;
+}
+
+const { guide } = Astro.props;
+const { Content, headings } = await render(guide);
+const base = import.meta.env.BASE_URL;
+const tocItems = headings
+  .filter((heading) => heading.depth === 2 || heading.depth === 3)
+  .map((heading) => ({ id: heading.slug, label: heading.text }));
+---
+
+<BaseLayout
+  title={`${guide.data.title} — Tools & Guides — The Daily AI Pulse`}
+  description={guide.data.description}
+  type="article"
+  publishedTime={guide.data.publishedAt?.toISOString()}
+  section="Tools & Guides"
+  englishOnly
+>
+  <article class="article-shell" data-pagefind-meta={`contentType:guide, format:${guide.data.format}, verification:${guide.data.verification}`}>
+    <header class="article-header">
+      <a class="back-link" href={`${base}guides/`}>← All Tools & Guides</a>
+      <p class="eyebrow article-eyebrow">{guideFormats[guide.data.format].label} / {guide.data.difficulty}</p>
+      <h1>{guide.data.title}</h1>
+      <p class="dek">{guide.data.description}</p>
+      <div class="article-meta">
+        <ul class="meta-list" aria-label="Guide metadata">
+          <li>By {guide.data.author}</li>
+          {guide.data.publishedAt && (
+            <li>
+              <time datetime={guide.data.publishedAt.toISOString()}>
+                Published {formatGuideDate(guide.data.publishedAt)}
+              </time>
+            </li>
+          )}
+          {guide.data.updatedAt && (
+            <li>
+              <time datetime={guide.data.updatedAt.toISOString()}>
+                Updated {formatGuideDate(guide.data.updatedAt)}
+              </time>
+            </li>
+          )}
+        </ul>
+      </div>
+      <GuideVerification guide={guide} />
+      {guide.data.affiliateLinks && guide.data.disclosure && (
+        <GuideDisclosure disclosure={guide.data.disclosure} />
+      )}
+      <p class="guide-language">This guide is currently available only in English.</p>
+    </header>
+    <div class:list={['article-layout', { 'article-layout--no-toc': tocItems.length === 0 }]}>
+      {tocItems.length > 0 && (
+        <aside class="article-aside">
+          <ArticleToc items={tocItems} />
+        </aside>
+      )}
+      <div class="article-main">
+        <div class="prose"><Content /></div>
+        <section class="sources" aria-labelledby="guide-sources">
+          <p class="eyebrow">VERIFICATION</p>
+          <h2 id="guide-sources">Sources &amp; artifacts</h2>
+          <p>Reviewed by {guide.data.reviewer}.</p>
+          <ol>
+            {guide.data.sources.map((source) => (
+              <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>
+            ))}
+            {guide.data.testArtifacts.map((url) => (
+              <li><a href={url} target="_blank" rel="noreferrer">Reproducible test artifact ↗</a></li>
+            ))}
+          </ol>
+        </section>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-language { color: var(--muted); font-size: .8rem; margin: 1rem 0 0; }
+</style>
