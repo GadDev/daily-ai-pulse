@@ -32,10 +32,17 @@ const tocItems = headings
   section="Tools & Guides"
   englishOnly
 >
-  <article class="article-shell" data-pagefind-meta={`contentType:guide, format:${guide.data.format}, verification:${guide.data.verification}`}>
+  <article
+    class="article-shell"
+    data-pagefind-meta={`contentType:guide, format:${guide.data.format}, verification:${guide.data.verification}`}
+  >
     <header class="article-header">
-      <a class="back-link" href={`${base}guides/`}>← All Tools & Guides</a>
-      <p class="eyebrow article-eyebrow">{guideFormats[guide.data.format].label} / {guide.data.difficulty}</p>
+      <a class="back-link" href={`${base}guides/`}>
+        ← All Tools & Guides
+      </a>
+      <p class="eyebrow article-eyebrow">
+        {guideFormats[guide.data.format].label} / {guide.data.difficulty}
+      </p>
       <h1>{guide.data.title}</h1>
       <p class="dek">{guide.data.description}</p>
       <div class="article-meta">
@@ -70,17 +77,27 @@ const tocItems = headings
         </aside>
       )}
       <div class="article-main">
-        <div class="prose"><Content /></div>
+        <div class="prose">
+          <Content />
+        </div>
         <section class="sources" aria-labelledby="guide-sources">
           <p class="eyebrow">VERIFICATION</p>
           <h2 id="guide-sources">Sources &amp; artifacts</h2>
           <p>Reviewed by {guide.data.reviewer}.</p>
           <ol>
             {guide.data.sources.map((source) => (
-              <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>
+              <li>
+                <a href={source.url} target="_blank" rel="noreferrer">
+                  {source.label}
+                </a>
+              </li>
             ))}
             {guide.data.testArtifacts.map((url) => (
-              <li><a href={url} target="_blank" rel="noreferrer">Reproducible test artifact ↗</a></li>
+              <li>
+                <a href={url} target="_blank" rel="noreferrer">
+                  Reproducible test artifact ↗
+                </a>
+              </li>
             ))}
           </ol>
         </section>
@@ -90,5 +107,9 @@ const tocItems = headings
 </BaseLayout>
 
 <style>
-  .guide-language { color: var(--muted); font-size: .8rem; margin: 1rem 0 0; }
+  .guide-language {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin: 1rem 0 0;
+  }
 </style>
