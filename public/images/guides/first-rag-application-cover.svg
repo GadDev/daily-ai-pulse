@@ -6,8 +6,8 @@
 <filter id="shadow" x="-30%" y="-40%" width="160%" height="200%"><feGaussianBlur stdDeviation="21"/></filter>
 <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".38" numOctaves="2" seed="6"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".05"/></feComponentTransfer></filter>
 </defs>
-<rect width="1600" height="900" fill="#f3ebdd"/><path d="M0 0h1600v620H0Z" fill="#f5eee3"/>
-<circle cx="1235" cy="250" r="310" fill="#d9ac8c" opacity=".38"/><path d="M0 690L1600 612V900H0Z" fill="#e9dac5"/>
+<rect width="1600" height="900" fill="#F3EBDD"/><path d="M0 0h1600v620H0Z" fill="#FAF6EE"/>
+<circle cx="1235" cy="250" r="310" fill="#8A4B35" opacity=".14"/><path d="M0 690L1600 612V900H0Z" fill="#e9dac5"/>
 <ellipse cx="795" cy="785" rx="580" ry="65" fill="#514838" opacity=".17" filter="url(#shadow)"/>
 <path d="M0 724l168-83 1364-12 68 65v206H0Z" fill="#d8c6af"/>
 <path d="M0 724l168-83 1364-12-67 74Z" fill="#f6f0e5"/>
@@ -25,6 +25,9 @@
 <path d="M1065 528q130-55 276-34l152 39-14 46-176-26-223 59Z" fill="#fdf8ef"/>
 <path d="M1064 587q144-36 261-26l194 59-9 37-217-43-230 31Z" fill="#e6d6bc"/>
 <path d="M1176 690q133-30 261-7l131 50-27 38-158-22-196 10Z" fill="#fdf8ef"/>
+<!-- Incised stone edges give the central boundary tangible material detail without becoming a diagram. -->
+<path d="M598 266v416M1037 251v436" stroke="#FAF6EE" stroke-width="3" opacity=".22"/>
+<path d="M592 720q215 32 467 0" stroke="#171B1A" stroke-width="3" opacity=".25" fill="none"/>
 <path d="M240 748q-9-111 68-164 33-22 80-25l68 154Z" fill="#b9a58d" opacity=".38"/>
 <rect width="1600" height="900" filter="url(#grain)" opacity=".42"/>
 </svg>

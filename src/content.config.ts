@@ -94,6 +94,7 @@ const guides = defineCollection({
       const error = (path: string, message: string) =>
         ctx.addIssue({ code: 'custom', path: [path], message });
       if (guide.status === 'published') {
+        if (!guide.image) error('image', 'Published guides require an editorial cover illustration.');
         if (!guide.publishedAt)
           error('publishedAt', 'Published guides require a publication date.');
         if (!guide.verifiedAt) error('verifiedAt', 'Published guides require a verification date.');

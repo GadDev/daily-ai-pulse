@@ -67,6 +67,9 @@ for (const name of existsSync(guidesDir)
   const file = join(guidesDir, name);
   try {
     const metadata = parse(frontmatter(file));
+    if (metadata?.status === 'published' && !metadata.image) {
+      errors.push(`${name}: published guides require an editorial cover illustration`);
+    }
     const imageError = guideImageError(metadata?.image, root);
     if (imageError) errors.push(`${name}: ${imageError}`);
   } catch (error) {

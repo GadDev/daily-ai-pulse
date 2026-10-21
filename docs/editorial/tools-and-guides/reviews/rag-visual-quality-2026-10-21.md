@@ -45,3 +45,22 @@ Until the workflow change is merged, the PR source assets linked above are avail
 4. Run exact-commit CI, merge the approved publication change, then verify the actual `/guides/` listings and detail pages.
 
 No review record is retroactively reclassified as a human sign-off.
+
+## Visual constitution remediation for PR #194
+
+The publication-wide [visual constitution](../../VISUAL_CONSTITUTION_V1.md) applies equally to cover art for **stories and guides**. The earlier generated RAG workspace image with floating UI cards, readable citation numbers and an arrowed process **fails the text/interface and diagram-first hard gates** and must not be used as a guide cover. A technical diagram is permitted *inside* a tutorial, visually and semantically separated from its editorial illustration.
+
+### Two independent, story-specific cover briefs
+
+| Placement | Verified guide facts | Single visual idea | Primary archetype |
+| --- | --- | --- | --- |
+| First RAG application — wide article hero | Markdown passages are ranked lexically and selected as model context; local Ollama generation uses the selected excerpts; citation-ID validation does not verify factual support. | Unmarked physical paper passing through a thick architectural boundary, representing context selection without diagramming FastAPI or Ollama. | Architectural cutaway / artifact study |
+| RAG retrieval evaluation — wide article hero | Five synthetic questions are judged against independently assigned relevant document IDs; Recall@k and MRR@k assess retrieved rank; sample scores do not generalize to production. | A material glass inspection lens focused on plain, stepped paper specimens, suggesting scrutiny of ranked results without displaying scores. | Scientific specimen / artifact study |
+
+Both SVG covers remain wordless, without UI, numerical results or connection arrows. The inspection lens originally contained a checkmark-like mark, which was removed in this follow-up to avoid an implied evaluation success. Their warm-paper, near-black and restrained terracotta colors have been brought closer to the constitution palette. The underlying SVGs are **locally constructed vector artwork**, not ChatGPT-generated image candidates. Their modification is not a passing image-generation-identity test.
+
+### Art review still required
+
+Before approval, place each cover next to *at least two inspected production images* (suggested: `2026-09-28-claude-plugin-ecosystem.webp` and `2026-09-28-openai-dns-sandbox.webp` for the first; `2026-09-24-greedy-decoding-precision.webp` and `2026-09-27-agent-trace-tampering.webp` for the second) and compare abstraction, negative space, fine-line density, texture, physical depth, color and visual silhouette—not just the hexadecimal palette. Inspect `/guides/` cards and article hero at 1280, 960, 375 and 320 px with actual `object-fit: cover` behavior. **These side-by-side comparisons and human crop approvals have not been performed or recorded**; do not mark them complete on the basis of this contract review.
+
+For future guides, the illustration-system 1.3 generation/reuse protocol needs a **guide-aware generation identity** with stable guide source bytes and chosen golden-reference hashes. The news-only `story_id` and story-specific validator must not be adapted by inventing a news story. No key, candidate scores, generated-image provenance or human approval is asserted here.

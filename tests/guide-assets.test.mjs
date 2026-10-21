@@ -38,6 +38,14 @@ test('optional guide covers may be omitted', (t) => {
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
 
+test('content check requires cover artwork for published guides, but not drafts', (t) => {
+  const { writeGuide, check } = fixture(t);
+  writeGuide('status: published');
+  const result = check();
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  assert.match(result.stderr, /published guides require an editorial cover illustration/);
+});
+
 test('content check accepts an existing guide cover file', (t) => {
   const { root, writeGuide, check } = fixture(t);
   const assets = join(root, 'public/images/guides');
@@ -95,6 +103,9 @@ test('content check refuses potentially executable or externally embedded vector
     '<svg viewBox="0 0 20 20"><script>alert(1)</script></svg>',
     '<svg viewBox="0 0 20 20"><image href="https://example.com/x.png"/></svg>',
     '<svg viewBox="0 0 20 20" onload="alert(1)"></svg>',
+    '<svg viewBox="0 0 20 20"><text x="4" y="12">Score</text></svg>',
+    '<svg viewBox="0 0 20 20"><style>text{fill:red}</style></svg>',
+    '<svg viewBox="0 0 20 20"><a href="#item"><path id="item"/></a></svg>',
   ]) {
     writeFileSync(asset, markup);
     writeGuide('image: /images/guides/unsafe.svg\nimageAlt: Unsafe');

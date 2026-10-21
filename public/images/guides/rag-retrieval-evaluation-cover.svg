@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Editorial still life of a large glass inspection lens and a sequence of stepped document plinths">
-<defs><linearGradient id="field" x2=".8" y2="1"><stop stop-color="#faf5ed"/><stop offset="1" stop-color="#eee2d2"/></linearGradient>
+<defs><linearGradient id="field" x2=".8" y2="1"><stop stop-color="#FAF6EE"/><stop offset="1" stop-color="#F3EBDD"/></linearGradient>
 <linearGradient id="dark" x2="0" y2="1"><stop stop-color="#626962"/><stop offset="1" stop-color="#202d2c"/></linearGradient>
 <linearGradient id="warm" x2=".6" y2="1"><stop stop-color="#dfb08c"/><stop offset=".5" stop-color="#b87853"/><stop offset="1" stop-color="#714632"/></linearGradient>
 <radialGradient id="glass"><stop stop-color="#f6fbf5" stop-opacity=".79"/><stop offset=".75" stop-color="#dae3dc" stop-opacity=".57"/><stop offset="1" stop-color="#899d91" stop-opacity=".27"/></radialGradient>
 <filter id="blur"><feGaussianBlur stdDeviation="25"/></filter><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".38" numOctaves="2" seed="8"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".052"/></feComponentTransfer></filter>
 </defs><rect width="1600" height="900" fill="url(#field)"/>
-<circle cx="1245" cy="215" r="300" fill="#cc9677" opacity=".24"/>
+<circle cx="1245" cy="215" r="300" fill="#8A4B35" opacity=".13"/>
 <path d="M0 600q480-90 900-40t700-28v368H0Z" fill="#e4d6c4"/>
 <ellipse cx="765" cy="758" rx="650" ry="70" filter="url(#blur)" opacity=".13"/>
 <path d="M35 748v-82l325-61 60 104v81Z" fill="#bfa88e"/><path d="M35 668l325-63 59 72-340 77Z" fill="#f8efdf"/>
@@ -28,6 +28,9 @@
 <path d="M1091 497l231 218" stroke="#2c3531" stroke-width="66" stroke-linecap="round"/>
 <path d="M1088 496l228 210" stroke="#a47152" stroke-width="43" stroke-linecap="round"/>
 <path d="M888 242q60-46 133-37" stroke="#fafdf4" stroke-width="25" stroke-linecap="round" opacity=".62"/>
-<path d="M932 301l46 42 79-94" fill="none" stroke="#bc815e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".82"/>
+<!-- The inspection lens enlarges a blank paper specimen, never a score, approval badge or invented result. -->
+<path d="M913 290l109-28 52 52-111 30Z" fill="#FAF6EE" opacity=".83"/>
+<path d="M926 272l90-24 51 48-94 27Z" fill="#e6d6bc" opacity=".86"/>
+<path d="M937 262l70-19 51 46-73 21Z" fill="#fffaf2" opacity=".96"/>
 <rect width="1600" height="900" filter="url(#grain)" opacity=".38"/>
 </svg>
