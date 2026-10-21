@@ -18,8 +18,8 @@ sources:
     url: https://ollama.com/library/llama3.2
   - label: HTTPX — Async HTTP requests
     url: https://www.python-httpx.org/async/
-image: /images/guides/first-rag-application-cover.svg
-imageAlt: 'Layered paper documents cross an illustrated sandstone threshold, representing local retrieval of selected context.'
+image: /images/guides/first-rag-application.webp
+imageAlt: 'Paper runbooks pass through a terracotta arch toward a local computer, representing selected retrieval context.'
 affiliateLinks: false
 ---
 
