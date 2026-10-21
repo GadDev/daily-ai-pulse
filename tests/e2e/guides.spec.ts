@@ -77,7 +77,9 @@ test('draft guide has no route, feed or search presence', async ({ page, request
   }
 });
 
-test('first RAG tutorial remains unpublished until an actual editor approves it', async ({ request }) => {
+test('first RAG tutorial remains unpublished until an actual editor approves it', async ({
+  request,
+}) => {
   const id = 'first-rag-application';
   const title = 'Deploying Your First RAG Application';
   expect((await request.get(`/guides/${id}/`)).status()).toBe(404);
