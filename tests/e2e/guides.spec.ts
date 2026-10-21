@@ -7,10 +7,16 @@ test('Tools & Guides landing exposes three formats without fictional reviews', a
   await expect(page.getByRole('heading', { name: 'Tutorials' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Technical reviews' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Toolkits' })).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: 'Guides' })).toHaveAttribute('aria-current', 'page');
-  await expect(page.getByRole('navigation', { name: 'Reading language' })
-    .getByRole('link', { name: 'Français', exact: true })).toHaveCount(0);
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Primary navigation' })
+      .getByRole('link', { name: 'Guides' }),
+  ).toHaveAttribute('aria-current', 'page');
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Reading language' })
+      .getByRole('link', { name: 'Français', exact: true }),
+  ).toHaveCount(0);
   await expect(page.locator('.language-unavailable')).toHaveAttribute('aria-disabled', 'true');
   await expect(page.locator('main')).not.toContainText('DRAFT_GUIDE_ROUTE_SENTINEL_NEVER_PUBLISH');
 
@@ -35,7 +41,9 @@ test('Tools & Guides landing exposes three formats without fictional reviews', a
   const accessibility = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
     .analyze();
-  expect(accessibility.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
+  expect(
+    accessibility.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? '')),
+  ).toEqual([]);
 });
 
 test('draft guide has no route, feed or search presence', async ({ page, request }) => {
