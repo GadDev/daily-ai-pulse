@@ -13,6 +13,15 @@
 - [ ] References, commands and links have been reviewed; sensitive data is absent.
 - [ ] Translation state is correct and publication follows human PR review.
 
+## Tutorial visuals and code checklist
+
+- [ ] Editorial cover obeys the publication's visual constitution; no fake UI, numbers, logos or textual diagrams in generated cover artwork.
+- [ ] Technical architecture diagram is **separately** accurate and labeled, with accessible prose describing nodes and directions.
+- [ ] Every code sample has a language identifier, complete prerequisites and copyable commands.
+- [ ] Code runs in the stated environment **or** is explicitly marked unexecuted; any expected output is labeled illustrative.
+- [ ] Primary references are linked where relevant and listed in guide `sources` metadata.
+- [ ] No separate `examples/` folder is created for an ordinary article.
+
 ## 1. Technical product review
 
 ```md

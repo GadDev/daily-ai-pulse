@@ -11,6 +11,14 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <article class="guide-card">
+  {guide.data.image && (
+    <img
+      class="guide-card__image"
+      src={`${base}${guide.data.image.slice(1)}`}
+      alt={guide.data.imageAlt ?? ''}
+      loading="lazy"
+    />
+  )}
   <p class="guide-card__eyebrow">
     {guideFormats[guide.data.format].label} · {verificationLabels[guide.data.verification]}
   </p>
@@ -33,6 +41,14 @@ const base = import.meta.env.BASE_URL;
     border-top: 1px solid var(--line);
     padding: 1.3rem 0 1.8rem;
     min-width: 0;
+  }
+  .guide-card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    background: var(--surface-alt);
+    margin-bottom: 1.2rem;
   }
   .guide-card__eyebrow {
     margin: 0;
