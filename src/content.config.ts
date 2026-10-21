@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { translationSchema } from './lib/translations';
+import { guideImageError } from './lib/guide-assets';
 
 const correctionSchema = z.object({
   date: z.coerce.date(),
@@ -83,10 +84,7 @@ const guides = defineCollection({
       verifiedAt: z.coerce.date().optional(),
       testEnvironment: z.string().min(1).optional(),
       testArtifacts: z.array(z.string().url()).default([]),
-      image: z
-        .string()
-        .regex(/^\/images\/guides\/[a-z0-9][a-z0-9-]*\.webp$/)
-        .optional(),
+      image: z.string().optional(),
       imageAlt: z.string().min(1).optional(),
       sources: z.array(z.object({ label: z.string().min(1), url: z.string().url() })).default([]),
       affiliateLinks: z.boolean().default(false),
@@ -113,6 +111,8 @@ const guides = defineCollection({
       if (Boolean(guide.image) !== Boolean(guide.imageAlt)) {
         error('imageAlt', 'Guide cover image and alt text must be supplied together.');
       }
+      const imageError = guideImageError(guide.image);
+      if (imageError) error('image', imageError);
       if (guide.affiliateLinks && !guide.disclosure) {
         error('disclosure', 'Affiliate links require an explicit disclosure.');
       }

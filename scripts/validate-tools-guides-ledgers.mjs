@@ -119,10 +119,18 @@ export function validateGuideLedger(ledger, filename) {
     if (
       chosen.length === 1 &&
       isKey(guideId) &&
-      guideId !== chosen[0].topic_key &&
+      chosen[0].decision === 'material-update' &&
       guideId !== chosen[0].related_guide_id
-    )
-      fail('handoff.guide_id', 'must match selected topic_key or updated guide ID');
+    ) {
+      fail('handoff.guide_id', 'material-update must match related_guide_id');
+    } else if (
+      chosen.length === 1 &&
+      isKey(guideId) &&
+      chosen[0].decision === 'selected' &&
+      guideId !== chosen[0].topic_key
+    ) {
+      fail('handoff.guide_id', 'must match selected topic_key');
+    }
   } else if (guideId !== null || prNumber !== null) {
     fail('handoff', 'non-draft outcomes cannot claim a guide PR handoff');
   }

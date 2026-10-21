@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "check": "astro check",
     "content:check": "node scripts/validate-content.mjs",
+    "guides:assets:test": "node --test tests/guide-assets.test.mjs",
     "guides:ledger:check": "node scripts/validate-tools-guides-ledgers.mjs",
     "guides:ledger:test": "node --test tests/tools-guides-ledger.test.mjs",
     "translations:check": "node scripts/validate-translations.mjs",

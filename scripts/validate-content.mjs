@@ -1,9 +1,12 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import { parse } from 'yaml';
+import { guideImageError } from '../src/lib/guide-assets.ts';
 
 const root = process.cwd();
 const storiesDir = join(root, 'src/content/stories');
 const pulseDir = join(root, 'src/content/pulse');
+const guidesDir = join(root, 'src/content/guides');
 const publicDir = join(root, 'public');
 const errors = [];
 
@@ -55,6 +58,19 @@ for (const name of files(pulseDir)) {
     if (!storyIds.has(ref)) errors.push(`${name}: unknown story reference: ${ref}`);
     if (seen.has(ref)) errors.push(`${name}: duplicate story reference: ${ref}`);
     seen.add(ref);
+  }
+}
+
+for (const name of existsSync(guidesDir)
+  ? readdirSync(guidesDir, { recursive: true }).filter((name) => /\.mdx?$/.test(name))
+  : []) {
+  const file = join(guidesDir, name);
+  try {
+    const metadata = parse(frontmatter(file));
+    const imageError = guideImageError(metadata?.image, root);
+    if (imageError) errors.push(`${name}: ${imageError}`);
+  } catch (error) {
+    errors.push(`${name}: cannot validate guide cover: ${error.message}`);
   }
 }
 

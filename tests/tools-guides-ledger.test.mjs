@@ -117,6 +117,22 @@ test('material updates must identify existing guide and meaningful delta', () =>
   );
 });
 
+test('material-update handoff must identify the related guide, not the topic key', () => {
+  const update = candidate({
+    decision: 'material-update',
+    related_guide_id: 'rag-deployment',
+    material_delta: 'New deployment method changes the documented steps.',
+  });
+  for (const guideId of [update.topic_key, 'unrelated-guide']) {
+    assert.match(
+      check(ledger({ candidates: [update], handoff: { guide_id: guideId, pr_number: null } })).join(
+        ' ',
+      ),
+      /material-update.*related_guide_id/,
+    );
+  }
+});
+
 test('reject inconsistent handoff and multiple selected topics', () => {
   const second = candidate({ topic_key: 'other-outcome' });
   const errors = check(ledger({ candidates: [candidate(), second] })).join(' ');

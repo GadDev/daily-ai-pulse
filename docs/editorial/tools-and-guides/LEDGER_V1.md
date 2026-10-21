@@ -72,7 +72,7 @@ This sample is **illustrative only**. The source URL is a placeholder and MUST N
 
 A `duplicate` decision requires `related_guide_id` or `related_pr_number`; link to the actual competing item, not merely a similar title. A `material-update` requires an existing `related_guide_id`, a substantive `material_delta`, and primary sources. Avoid treating a minor vendor release or synonym as a material change.
 
-**At most one** candidate can be `selected` or `material-update` per execution. A `draft-pr` must have exactly one such candidate and `handoff.guide_id` matching the selected topic's new draft slug (or the existing guide ID being updated). `ledger-only` and `blocked` have null handoff fields. A `blocked` ledger may retain a selected candidate if drafting failed; this is **not** proof of publication.
+**At most one** candidate can be `selected` or `material-update` per execution. A `draft-pr` must have exactly one such candidate. For `selected`, `handoff.guide_id` must match `topic_key`; for `material-update`, it must match `related_guide_id`, even when the topic key differs. `ledger-only` and `blocked` have null handoff fields. A `blocked` ledger may retain a selected candidate if drafting failed; this is **not** proof of publication.
 
 Record research decisions and downstream preparation separately. The ledger's `selected` decision never means `status: published`, and the PR may still be a draft. `pr_number` can remain null while a draft PR is being created; update it after GitHub confirms the PR number. Never invent branch names, review evidence, links or test results.
 

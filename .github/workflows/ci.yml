@@ -33,6 +33,9 @@ jobs:
       - name: Tools & Guides ledger validator regressions
         run: npm run guides:ledger:test
 
+      - name: Tools & Guides cover asset regressions
+        run: npm run guides:assets:test
+
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
