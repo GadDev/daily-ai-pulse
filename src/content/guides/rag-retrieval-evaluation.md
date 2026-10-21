@@ -15,6 +15,8 @@ sources:
     url: https://docs.haystack.deepset.ai/docs/3.3/evaluation
   - label: Scikit-learn — Metrics and scoring
     url: https://scikit-learn.org/stable/modules/model_evaluation.html
+image: /images/guides/rag-retrieval-evaluation-cover.svg
+imageAlt: 'A large inspection lens hangs over a sequence of ranked document plinths, evoking careful retrieval evaluation.'
 affiliateLinks: false
 ---
 
@@ -30,18 +32,13 @@ That is a different engineering problem from getting a local RAG service running
 
 A retrieval pipeline starts with a question and returns ranked document or passage IDs. A *golden set* pairs each question with IDs that a reviewer has judged relevant. You compare the ranked output with those judgments.
 
-~~~text
-                                Golden set
-                      (question → relevant IDs)
-                                   |
-                                   v
-Question → Retriever → Ranked IDs → Scorer → Recall@k + MRR@k
-                           |                       |
-                           +-----------------------+
-                                   |
-                                   v
-                        Inspect missed questions
-~~~
+<figure class="guide-technical-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/images/guides/rag-retrieval-evaluation-flow-mobile.svg" />
+    <img src="/images/guides/rag-retrieval-evaluation-flow.svg" alt="Fixed questions are sent to a retriever; its ranked IDs are compared with human-reviewed relevance labels to calculate Recall at k and MRR at k, and missed questions are inspected." width="1260" height="375" loading="lazy" decoding="async" />
+  </picture>
+  <figcaption>Technical explanation of the actual tutorial workflow. Labels are part of the diagram, not the editorial cover.</figcaption>
+</figure>
 
 The arrows show the actual data flow. Each question goes to the retriever; the scorer compares its ranked IDs with the separately recorded relevant IDs. The score is **not** an evaluation of generated answers or whether a cited sentence supports a factual claim.
 
