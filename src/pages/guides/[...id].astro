@@ -7,11 +7,11 @@ import GuideDisclosure from '../../components/guides/GuideDisclosure.astro';
 import GuideVerification from '../../components/guides/GuideVerification.astro';
 import { formatGuideDate, guideFormats, isPublishedGuide } from '../../lib/guides';
 
-const reviewPreview = process.env.GUIDE_REVIEW_PREVIEW === '1';
-const allowedPreviewIds = new Set(['first-rag-application', 'rag-retrieval-evaluation']);
 import '../../styles/article.css';
 
 export async function getStaticPaths() {
+  const reviewPreview = process.env.GUIDE_REVIEW_PREVIEW === '1';
+  const allowedPreviewIds = new Set(['first-rag-application', 'rag-retrieval-evaluation']);
   const guides = await getCollection(
     'guides',
     (guide) => isPublishedGuide(guide) || (reviewPreview && allowedPreviewIds.has(guide.id)),
