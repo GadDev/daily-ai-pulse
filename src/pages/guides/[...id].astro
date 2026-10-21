@@ -27,6 +27,7 @@ const tocItems = headings
 <BaseLayout
   title={`${guide.data.title} — Tools & Guides — The Daily AI Pulse`}
   description={guide.data.description}
+  image={guide.data.image}
   type="article"
   publishedTime={guide.data.publishedAt?.toISOString()}
   section="Tools & Guides"
@@ -70,6 +71,15 @@ const tocItems = headings
       )}
       <p class="guide-language">This guide is currently available only in English.</p>
     </header>
+    {guide.data.image && (
+      <figure class="article-hero">
+        <img
+          src={`${base}${guide.data.image.slice(1)}`}
+          alt={guide.data.imageAlt ?? ''}
+          loading="eager"
+        />
+      </figure>
+    )}
     <div class:list={['article-layout', { 'article-layout--no-toc': tocItems.length === 0 }]}>
       {tocItems.length > 0 && (
         <aside class="article-aside">
