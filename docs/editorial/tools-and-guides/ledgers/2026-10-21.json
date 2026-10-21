@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "editorial_date": "2026-10-21",
+  "run_status": "draft-pr",
+  "run_note": "Controlled manual pilot of the independent Tools & Guides editorial workflow, outside the Tuesday/Friday scheduler. Existing first RAG application tutorial is on main as a draft; selected a distinct evidence-based retrieval-evaluation learning outcome. The candidate guide remains unpublished; live model integration and cover-illustration provenance not yet verified.",
+  "candidates": [
+    {
+      "topic_key": "rag-retrieval-evaluation",
+      "title": "Evaluate RAG Retrieval Quality with a Golden Question Set",
+      "format": "tutorial",
+      "decision": "selected",
+      "reader_outcome": "Create a small labeled query set and measure Recall@k and MRR@k with code that reports individual retrieval misses.",
+      "reason": "Distinct from an introductory RAG deployment tutorial: this teaches deterministic measurement of retrieval coverage and ranking quality using a synthetic corpus and no paid model API.",
+      "sources": [
+        "https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html",
+        "https://docs.haystack.deepset.ai/docs/3.3/evaluation",
+        "https://scikit-learn.org/stable/modules/model_evaluation.html"
+      ]
+    },
+    {
+      "topic_key": "rag-first-application-deployment",
+      "title": "Deploying Your First RAG Application",
+      "format": "tutorial",
+      "decision": "duplicate",
+      "reader_outcome": "Build and start a local RAG API using FastAPI, Ollama, and runbook documents.",
+      "reason": "The same reader outcome already exists in src/content/guides/first-rag-application.md, merged from PR #189 and still status: draft. Do not recreate it.",
+      "sources": [],
+      "related_guide_id": "first-rag-application",
+      "related_pr_number": 189
+    },
+    {
+      "topic_key": "rag-answer-grounding-evaluation",
+      "title": "Checking whether generated RAG claims are supported",
+      "format": "tutorial",
+      "decision": "watch",
+      "reader_outcome": "Verify that a generated answer's individual claims are supported by retrieved passages.",
+      "reason": "A claim-level scoring tutorial would require a reviewed support-judgment dataset and an explicitly defined evaluation protocol. Distinct from checking reference IDs or retrieval overlap; defer until such evidence can be assembled.",
+      "sources": []
+    }
+  ],
+  "handoff": {
+    "guide_id": "rag-retrieval-evaluation",
+    "pr_number": 191
+  }
+}
