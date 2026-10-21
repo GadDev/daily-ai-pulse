@@ -53,7 +53,13 @@ test('valid no-publication and blocked runs may preserve decisions without a gui
     related_pr_number: 189,
   });
   assert.deepEqual(
-    check(ledger({ run_status: 'ledger-only', candidates: [duplicate], handoff: { guide_id: null, pr_number: null } })),
+    check(
+      ledger({
+        run_status: 'ledger-only',
+        candidates: [duplicate],
+        handoff: { guide_id: null, pr_number: null },
+      }),
+    ),
     [],
   );
   assert.deepEqual(
@@ -86,7 +92,13 @@ test('reject selected topic without real sources and placeholder source URLs', (
 test('reject duplicates without an actual linked guide or PR', () => {
   const item = candidate({ decision: 'duplicate', sources: [] });
   assert.match(
-    check(ledger({ run_status: 'ledger-only', candidates: [item], handoff: { guide_id: null, pr_number: null } })).join(' '),
+    check(
+      ledger({
+        run_status: 'ledger-only',
+        candidates: [item],
+        handoff: { guide_id: null, pr_number: null },
+      }),
+    ).join(' '),
     /reference an existing guide or PR/,
   );
 });
@@ -94,7 +106,11 @@ test('reject duplicates without an actual linked guide or PR', () => {
 test('material updates must identify existing guide and meaningful delta', () => {
   const item = candidate({ decision: 'material-update' });
   assert.match(check(ledger({ candidates: [item] })).join(' '), /material_delta/);
-  const good = candidate({ decision: 'material-update', related_guide_id: 'rag-deployment', material_delta: 'New deployment method changes the documented steps.' });
+  const good = candidate({
+    decision: 'material-update',
+    related_guide_id: 'rag-deployment',
+    material_delta: 'New deployment method changes the documented steps.',
+  });
   assert.deepEqual(
     check(ledger({ candidates: [good], handoff: { guide_id: 'rag-deployment', pr_number: null } })),
     [],
@@ -117,7 +133,10 @@ test('cross-date repeat selection is blocked after a previous draft PR', () => {
     filename: `${LEDGER_DIRECTORY}/2026-10-27.json`,
     ledger: ledger({ editorial_date: '2026-10-27' }),
   };
-  assert.match(validateLedgerHistory([next, previous]).join(' '), /already selected for a draft PR/);
+  assert.match(
+    validateLedgerHistory([next, previous]).join(' '),
+    /already selected for a draft PR/,
+  );
 });
 
 test('blocked previous run can be retried on a later date', () => {
@@ -137,11 +156,13 @@ test('material updates do not impersonate new guide selections', () => {
     filename: `${LEDGER_DIRECTORY}/2026-10-27.json`,
     ledger: ledger({
       editorial_date: '2026-10-27',
-      candidates: [candidate({
-        decision: 'material-update',
-        related_guide_id: 'rag-retrieval-evaluation',
-        material_delta: 'Different retrieval API changes the implementation.',
-      })],
+      candidates: [
+        candidate({
+          decision: 'material-update',
+          related_guide_id: 'rag-retrieval-evaluation',
+          material_delta: 'Different retrieval API changes the implementation.',
+        }),
+      ],
     }),
   };
   assert.deepEqual(validateLedgerHistory([{ filename, ledger: ledger() }, next]), []);
