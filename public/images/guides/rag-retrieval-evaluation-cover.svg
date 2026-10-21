@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Editorial still life of a large glass inspection lens and a sequence of stepped document plinths">
+<defs><linearGradient id="field" x2=".8" y2="1"><stop stop-color="#faf5ed"/><stop offset="1" stop-color="#eee2d2"/></linearGradient>
+<linearGradient id="dark" x2="0" y2="1"><stop stop-color="#626962"/><stop offset="1" stop-color="#202d2c"/></linearGradient>
+<linearGradient id="warm" x2=".6" y2="1"><stop stop-color="#dfb08c"/><stop offset=".5" stop-color="#b87853"/><stop offset="1" stop-color="#714632"/></linearGradient>
+<radialGradient id="glass"><stop stop-color="#f6fbf5" stop-opacity=".79"/><stop offset=".75" stop-color="#dae3dc" stop-opacity=".57"/><stop offset="1" stop-color="#899d91" stop-opacity=".27"/></radialGradient>
+<filter id="blur"><feGaussianBlur stdDeviation="25"/></filter><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".38" numOctaves="2" seed="8"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".052"/></feComponentTransfer></filter>
+</defs><rect width="1600" height="900" fill="url(#field)"/>
+<circle cx="1245" cy="215" r="300" fill="#cc9677" opacity=".24"/>
+<path d="M0 600q480-90 900-40t700-28v368H0Z" fill="#e4d6c4"/>
+<ellipse cx="765" cy="758" rx="650" ry="70" filter="url(#blur)" opacity=".13"/>
+<path d="M35 748v-82l325-61 60 104v81Z" fill="#bfa88e"/><path d="M35 668l325-63 59 72-340 77Z" fill="#f8efdf"/>
+<path d="M342 759V570l333-85 75 84v220H342Z" fill="url(#dark)"/>
+<path d="M342 570l333-85 75 84-334 81Z" fill="#83867c"/>
+<path d="M793 766V463l357-72 89 76v334H793Z" fill="url(#warm)"/>
+<path d="M793 463l357-72 89 76-354 78Z" fill="#edbb99"/>
+<path d="M1212 771V565l232-45 79 72v212h-311Z" fill="#978a79"/>
+<path d="M1212 565l232-45 79 72-230 49Z" fill="#e6d6be"/>
+<path d="M110 616q112-22 205-28l-20 125-174 5Z" fill="#fff9ef"/><path d="M135 596q98-27 184-24l-16 118-176 3Z" fill="#e9ddca"/>
+<path d="M455 526l211-45 32 52-209 52Z" fill="#fffaf2"/>
+<path d="M460 504l209-45 30 36-212 50Z" fill="#ece1d1"/>
+<path d="M909 424l224-46 29 55-219 50Z" fill="#fef9ef"/>
+<path d="M922 402l207-41 30 38-212 52Z" fill="#fff5e7"/>
+<path d="M1320 548l150-31 35 38-150 38Z" fill="#fff6e7"/>
+<ellipse cx="1047" cy="363" rx="238" ry="229" fill="#293533" opacity=".14" filter="url(#blur)"/>
+<circle cx="967" cy="334" r="224" fill="none" stroke="#293534" stroke-width="47"/>
+<circle cx="967" cy="334" r="189" fill="url(#glass)" stroke="#c5cfc5" stroke-width="7"/>
+<circle cx="967" cy="334" r="162" fill="none" stroke="#fffdf3" stroke-width="9" opacity=".67"/>
+<path d="M1091 497l231 218" stroke="#2c3531" stroke-width="66" stroke-linecap="round"/>
+<path d="M1088 496l228 210" stroke="#a47152" stroke-width="43" stroke-linecap="round"/>
+<path d="M888 242q60-46 133-37" stroke="#fafdf4" stroke-width="25" stroke-linecap="round" opacity=".62"/>
+<path d="M932 301l46 42 79-94" fill="none" stroke="#bc815e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".82"/>
+<rect width="1600" height="900" filter="url(#grain)" opacity=".38"/>
+</svg>
