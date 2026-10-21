@@ -17,8 +17,8 @@ sources:
     url: https://ollama.com/library/llama3.2
   - label: HTTPX — Async HTTP requests
     url: https://www.python-httpx.org/async/
-image: /images/guides/first-rag-application.webp
-imageAlt: 'Layered paper runbooks pass through a terracotta architectural gateway toward a selected document.'
+image: /images/guides/first-rag-application-cover.svg
+imageAlt: 'Layered paper documents cross an illustrated sandstone threshold, representing local retrieval of selected context.'
 affiliateLinks: false
 ---
 
@@ -30,11 +30,13 @@ Retrieval-augmented generation (RAG) lets a language model answer using document
 
 ## 1. Understand the pipeline
 
-~~~text
-Question → FastAPI POST /ask → tokenize and rank Markdown passages
-         → numbered source excerpts → local Ollama model
-         → reject invalid citation numbers → answer + source metadata
-~~~
+<figure class="guide-technical-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/images/guides/first-rag-architecture-mobile.svg" />
+    <img src="/images/guides/first-rag-architecture.svg" alt="Question enters FastAPI; passages are ranked and numbered, passed to local Ollama, and citation IDs are checked before returning answer and source references." width="1260" height="375" loading="lazy" decoding="async" />
+  </picture>
+  <figcaption>Technical explanation of the actual tutorial workflow. Labels are part of the diagram, not the editorial cover.</figcaption>
+</figure>
 
 The initial retriever is **lexical**, not semantic: it scores overlapping words with a simple length-normalized weighting. For a tiny teaching corpus, that makes it easy to inspect the retrieval step. It is not an evaluation of embedding models or vector databases.
 
