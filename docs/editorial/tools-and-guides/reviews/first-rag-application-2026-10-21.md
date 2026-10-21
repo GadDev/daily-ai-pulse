@@ -37,19 +37,27 @@ The smoke check executed in a temporary local folder using the fictional Markdow
 
 These are **documentation checks**, not live Ollama execution. Prices, performance and model output have not been measured.
 
-## Illustration review — publication gate still open
+## Illustration review — candidate committed; final approval still open
 
-The requested direction is a single wordless, paper-textured architectural metaphor for local RAG retrieval, following `VISUAL_CONSTITUTION_V1.md` and `ILLUSTRATION_SYSTEM_V1.md`, not an infographic or a fake UI.
+A **review candidate** is now checked in at
+[`public/images/guides/first-rag-application.webp`](../../../../public/images/guides/first-rag-application.webp)
+and referenced by paired `image` / `imageAlt` metadata in the **still-unpublished** guide.
 
-A candidate artwork-only crop was prepared from an image-generation response and visually inspected against these existing production references:
+- Format: WebP, **512 × 239 px**, 5,502 bytes.
+- Git object blob SHA-1: `c679292373a405f5052738e749a7f99c84e426a4`.
+- File SHA-256: `d44ca5e33160c972c878400ca1f83627f7dd1b23be2d28271e5e4508cb66523f`.
+- Alt text: *Layered paper runbooks pass through a terracotta architectural gateway toward a selected document.*
+- Scene: physical paper documents, a terracotta architectural threshold, cream paper surface and muted ink architectural forms. The composition represents selective retrieval conceptually; it is **not** a diagram of a real model's mechanisms.
+
+**Provenance limitation:** The original image-generation response was a larger infographic/dashboard that displayed false claims about publication and an autonomous task run. That source composite was **rejected and is not part of this PR**. This WebP is a manually isolated artwork-only crop, then resized/re-encoded as a small review asset. It does not contain the false status labels, but it is not an independently generated final cover. Do not present it as evidence that the article was published or that the October 23 scheduler ran.
+
+**Production quality limitation:** 512 px width is adequate for inspecting the design direction in the GitHub diff but may be insufficient for a full-width, high-density article hero. A higher-resolution standalone illustration and responsive crop review may be required **before approval**. The wordless character of the composition, legibility at card size, cropping and visual-constitution compliance must be approved by a human editor. Comparison references:
 - `public/images/stories/2026-09-28-deepmind-agent-swarm.webp`
 - `public/images/stories/2026-09-22-copilot-review-controls.webp`
 
-The candidate uses warm paper, ink/terracotta planes, layered source-paper forms and a single threshold metaphor. It has no readable headline, status label or page UI. The original generated composite contained false publication/scheduler status claims and must **never** be committed or distributed as evidence. Only the image-only crop is a candidate.
+**Validator boundary:** The existing news-specific illustration Generation Identity V1 validator is not adapted for guides. The WebP is a real, integrity-verifiable binary asset, and the guide metadata is structurally checkable; this does **not** constitute a passing generation-identity or human art-review gate. Never spoof a news story ID to satisfy the validator.
 
-**Illustration status: pending human approval and GitHub binary-safe upload.** No image path or alt text may be activated in frontmatter until the actual final WebP is committed and responsive crops inspected. Guide-specific generation identity validation is not supported by the news-only validator; do not spoof story IDs or pretend it has passed. If the user rejects the extracted artwork, regenerate or commission an image-only illustration.
-
-Proposed descriptive alt text: *Layered paper documents pass through a terracotta architectural opening toward a selected source, against a quiet cream background.*
+**Current illustration decision: CANDIDATE — NOT APPROVED FOR PUBLICATION.** The guide remains `status: draft`, and no human approval timestamp has been recorded.
 
 ## Human editor approval form (not a recorded sign-off)
 
