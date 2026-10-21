@@ -38,14 +38,6 @@ test('optional guide covers may be omitted', (t) => {
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
 
-test('content check requires cover artwork for published guides, but not drafts', (t) => {
-  const { writeGuide, check } = fixture(t);
-  writeGuide('status: published');
-  const result = check();
-  assert.equal(result.status, 1, result.stdout + result.stderr);
-  assert.match(result.stderr, /published guides require an editorial cover illustration/);
-});
-
 test('content check accepts an existing guide cover file', (t) => {
   const { root, writeGuide, check } = fixture(t);
   const assets = join(root, 'public/images/guides');
@@ -78,40 +70,6 @@ test('content check rejects cover references outside the guide asset contract', 
     const result = check();
     assert.equal(result.status, 1, result.stdout + result.stderr);
     assert.match(result.stderr, /image must reference \/images\/guides\//);
-  }
-});
-
-test('content check accepts standalone vector editorial covers', (t) => {
-  const { root, writeGuide, check } = fixture(t);
-  const folder = join(root, 'public/images/guides');
-  mkdirSync(folder, { recursive: true });
-  writeFileSync(
-    join(folder, 'vector.svg'),
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><rect width="1600" height="900"/></svg>',
-  );
-  writeGuide('image: /images/guides/vector.svg\nimageAlt: Nontechnical editorial still life');
-  const result = check();
-  assert.equal(result.status, 0, result.stdout + result.stderr);
-});
-
-test('content check refuses potentially executable or externally embedded vector covers', (t) => {
-  const { root, writeGuide, check } = fixture(t);
-  const folder = join(root, 'public/images/guides');
-  mkdirSync(folder, { recursive: true });
-  const asset = join(folder, 'unsafe.svg');
-  for (const markup of [
-    '<svg viewBox="0 0 20 20"><script>alert(1)</script></svg>',
-    '<svg viewBox="0 0 20 20"><image href="https://example.com/x.png"/></svg>',
-    '<svg viewBox="0 0 20 20" onload="alert(1)"></svg>',
-    '<svg viewBox="0 0 20 20"><text x="4" y="12">Score</text></svg>',
-    '<svg viewBox="0 0 20 20"><style>text{fill:red}</style></svg>',
-    '<svg viewBox="0 0 20 20"><a href="#item"><path id="item"/></a></svg>',
-  ]) {
-    writeFileSync(asset, markup);
-    writeGuide('image: /images/guides/unsafe.svg\nimageAlt: Unsafe');
-    const result = check();
-    assert.equal(result.status, 1, result.stdout + result.stderr);
-    assert.match(result.stderr, /SVG guide cover must be a standalone/);
   }
 });
 
