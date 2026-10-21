@@ -26,7 +26,7 @@ Retrieval-augmented generation (RAG) lets a language model answer using document
 
 **Everything you need is in this guide.** You create two short Markdown documents and one Python file by copying the blocks below. The entire example fits in a disposable local folder; the Daily AI Pulse repository remains a publication, not a catalog of sample applications.
 
-> **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. This guide remains a draft for human review. Citation IDs alone do **not** establish that an answer is factually supported.
+> **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. Citation IDs alone do **not** establish that an answer is factually supported.
 
 ## 1. Understand the pipeline
 
