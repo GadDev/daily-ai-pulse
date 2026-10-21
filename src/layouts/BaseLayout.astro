@@ -178,7 +178,12 @@ const structuredData =
         )}
         <div class="site-actions">
           <SearchButton locale={locale} />
-          <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} englishOnly={englishOnly} />
+          <LanguageSwitcher
+            locale={locale}
+            storyId={storyId}
+            frenchAvailable={frenchAvailable}
+            englishOnly={englishOnly}
+          />
           <a class="subscribe-button" href={`${base}subscribe/`}>
             {locale === 'fr' ? <EnglishDestination label="S’abonner" /> : 'Subscribe'}
           </a>
