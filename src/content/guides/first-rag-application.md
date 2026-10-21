@@ -117,8 +117,8 @@ In another terminal:
 
 ```sh
 curl -sS http://127.0.0.1:8000/health
-curl -sS http://127.0.0.1:8000/ask \\
-  -H 'content-type: application/json' \\
+curl -sS http://127.0.0.1:8000/ask \
+  -H 'content-type: application/json' \
   -d '{"question":"How do we rollback a failed release?"}'
 ```
 
@@ -143,8 +143,8 @@ The companion `Dockerfile` packages the API; `compose.yaml` starts API and Ollam
 docker compose up -d --build
 docker compose exec ollama ollama pull llama3.2:1b
 curl -sS http://127.0.0.1:8000/health
-curl -sS http://127.0.0.1:8000/ask \\
-  -H 'content-type: application/json' \\
+curl -sS http://127.0.0.1:8000/ask \
+  -H 'content-type: application/json' \
   -d '{"question":"Who approves the production rollout?"}'
 docker compose down
 ```
