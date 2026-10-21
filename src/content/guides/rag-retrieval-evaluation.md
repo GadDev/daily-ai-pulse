@@ -16,8 +16,8 @@ sources:
     url: https://docs.haystack.deepset.ai/docs/3.3/evaluation
   - label: Scikit-learn — Metrics and scoring
     url: https://scikit-learn.org/stable/modules/model_evaluation.html
-image: /images/guides/rag-retrieval-evaluation-cover.svg
-imageAlt: 'A large inspection lens hangs over a sequence of ranked document plinths, evoking careful retrieval evaluation.'
+image: /images/guides/rag-retrieval-evaluation.webp
+imageAlt: 'A magnifying lens examines documents on ascending stone plinths, representing ranked retrieval evaluation.'
 affiliateLinks: false
 ---
 
