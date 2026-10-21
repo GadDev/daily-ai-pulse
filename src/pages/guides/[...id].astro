@@ -107,11 +107,7 @@ const tocItems = headings
         <section class="sources" aria-labelledby="guide-sources">
           <p class="eyebrow">VERIFICATION</p>
           <h2 id="guide-sources">Sources &amp; artifacts</h2>
-          <p>
-            {guide.data.reviewer
-              ? `Reviewed by ${guide.data.reviewer}.`
-              : 'Awaiting human editorial review.'}
-          </p>
+          {guide.data.reviewer && <p>Reviewed by {guide.data.reviewer}.</p>}
           <ol>
             {guide.data.sources.map((source) => (
               <li>
