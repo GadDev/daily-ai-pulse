@@ -1,10 +1,12 @@
 ---
 title: Evaluate RAG Retrieval Quality with a Golden Question Set
 description: Measure Recall@k and MRR@k for a tiny retrieval pipeline using fictional runbooks and Python's standard library.
-status: draft
+status: published
 format: tutorial
 verification: researched
+publishedAt: 2026-10-21
 difficulty: intermediate
+author: The Daily AI Pulse
 verifiedAt: 2026-10-21
 testEnvironment: "Python 3.13.5 on Linux; standard-library-only local script; four deterministic assertions and sample output executed by the pilot authoring assistant. No Ollama, embedding service, or real production data was tested."
 sources:
@@ -14,6 +16,8 @@ sources:
     url: https://docs.haystack.deepset.ai/docs/3.3/evaluation
   - label: Scikit-learn — Metrics and scoring
     url: https://scikit-learn.org/stable/modules/model_evaluation.html
+image: /images/guides/rag-retrieval-evaluation.webp
+imageAlt: 'A magnifying lens examines documents on ascending stone plinths, representing ranked retrieval evaluation.'
 affiliateLinks: false
 ---
 
@@ -23,24 +27,19 @@ That is a different engineering problem from getting a local RAG service running
 
 **By the end**, you will have a five-question *golden set*, a simple lexical retriever, two ranking metrics, and a way to list the questions your retrieval pipeline misses. We use fictional runbooks and deterministic results so you can understand what each score means before connecting a real document store.
 
-> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. This article remains a draft awaiting human review.
+> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. The results must not be extrapolated to a real RAG application.
 
 ## 1. What exactly are we evaluating?
 
 A retrieval pipeline starts with a question and returns ranked document or passage IDs. A *golden set* pairs each question with IDs that a reviewer has judged relevant. You compare the ranked output with those judgments.
 
-~~~text
-                                Golden set
-                      (question → relevant IDs)
-                                   |
-                                   v
-Question → Retriever → Ranked IDs → Scorer → Recall@k + MRR@k
-                           |                       |
-                           +-----------------------+
-                                   |
-                                   v
-                        Inspect missed questions
-~~~
+<figure class="guide-technical-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/images/guides/rag-retrieval-evaluation-flow-mobile.svg" />
+    <img src="/images/guides/rag-retrieval-evaluation-flow.svg" alt="Fixed questions are sent to a retriever; its ranked IDs are compared with human-reviewed relevance labels to calculate Recall at k and MRR at k, and missed questions are inspected." width="1260" height="375" loading="lazy" decoding="async" />
+  </picture>
+  <figcaption>Technical explanation of the actual tutorial workflow. Labels are part of the diagram, not the editorial cover.</figcaption>
+</figure>
 
 The arrows show the actual data flow. Each question goes to the retriever; the scorer compares its ranked IDs with the separately recorded relevant IDs. The score is **not** an evaluation of generated answers or whether a cited sentence supports a factual claim.
 
@@ -155,7 +154,7 @@ The code runs four deterministic checks before printing its report: a partial-re
 
 ## 4. Understand why the failure matters
 
-The printed failure suggests one potential weakness: matching words rather than meaning. The code does **not** prove that embeddings will fix the problem. It only shows that this specific retriever misses a relevant runbook under this wording.
+The printed failure suggests one potential weakness: matching words rather than meaning. The code does **not** prove that embeddings will fix the problem. It only shows that this specific retriever misses a relevant runbook under this wording. A separate query such as “What do we do with outage?” can rank the unrelated access-control document first because the generic term “with” overlaps its text. That failure illustrates why both **top-k recall** and **the rank of the first relevant result** matter; it is a limitation of this example, not evidence about any production system.
 
 Before you switch tools, inspect:
 

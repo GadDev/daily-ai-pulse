@@ -28,13 +28,15 @@ Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comp
 
 ## Visuals and instructional materials
 
-**Editorial illustrations** for guides must follow [the existing visual constitution](VISUAL_CONSTITUTION_V1.md) and its illustration/reuse controls. They are metaphors or editorial studies, **not** labeled technical schematics. Optional cover `image` and `imageAlt` frontmatter may reference an approved WebP in `/images/guides/`; both must be present together, and reviewed crop/asset evidence is required before publication.
+**Editorial cover illustrations** must follow [the Daily AI Pulse visual constitution](VISUAL_CONSTITUTION_V1.md) and [illustration system](ILLUSTRATION_SYSTEM_V1.md), with a single physically present visual metaphor, warm editorial palette, no labels, fake UI, charts or diagram-first compositions. Every **published** guide requires a genuine, readable, high-resolution **WebP** asset in `public/images/guides/` with matching `image` and `imageAlt` metadata. `object-fit: cover` crop checks and production-reference comparisons remain editorial quality requirements. Preserve generated-image provenance, actual technical claims, and binary integrity; never fabricate a news-story illustration identity for a guide.
 
-**Technical diagrams within tutorials** have a different role: they must be accurate, clearly labeled, readable, accessible and relevant to the implemented steps. Include nearby textual explanations. Use diagram formats the current Astro renderer actually supports; an unsupported Mermaid fence is not a rendered flowchart. Never imply an illustration constitutes proof that an architecture was implemented.
+**Technical diagrams** inside tutorials have a separate teaching role and *may* be labeled SVG diagrams, with accessible alt text, mobile-responsive layout, and nearby written explanation. Keep their engineering claims consistent with the actual tutorial code; do not depict untested pipelines as executed. Ordinary code snippets are fenced, copyable language-tagged examples within Markdown, not standalone applications or mandatory CI exercises.
 
-Every technical tutorial must have copyable, language-tagged code and commands, outputs distinguished as **observed versus illustrative**, primary technical references linked near supported claims, prerequisites, security/cost limitations and a verification section. Default to self-contained Markdown content rather than a new `examples/` folder.
+Every tutorial needs clear goals, prerequisites, version context, commands, expected outputs distinguished from observed results, primary-source references, security/privacy/cost caveats, troubleshooting and honest verification. Do not add dedicated per-article test suites as routine editorial scaffolding.
 
-For the separate twice-weekly automation, follow [Tools & Guides Editorial Orchestrator v1](TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md). Its **independent topic and decision history** lives under [the evergreen ledger contract](tools-and-guides/LEDGER_V1.md), not the daily news ledgers. Its scheduled task is configured outside this repository and does not change the news process.
+Publication uses actual editorial authorization and truthful evidence, but **a named reviewer is not required**. The `reviewer` field is optional; do not invent a name, timestamp, test or sign-off. A human-controlled PR merge remains the publication boundary. `verification: researched` remains appropriate when only limited or mocked components were executed.
+
+The separate twice-weekly task follows [Tools & Guides Editorial Orchestrator v1](TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md). Its independent editorial decisions live under [the evergreen ledger contract](tools-and-guides/LEDGER_V1.md), not the daily news ledger.
 
 ## Evidence and provenance
 

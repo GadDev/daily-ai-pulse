@@ -1,9 +1,10 @@
 ---
 title: Deploying Your First RAG Application
 description: Build and run a small local RAG API with FastAPI, lexical document retrieval, Ollama, and inspectable citations—without a paid model API.
-status: draft
+status: published
 format: tutorial
 verification: researched
+publishedAt: 2026-10-21
 difficulty: beginner
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
@@ -18,7 +19,7 @@ sources:
   - label: HTTPX — Async HTTP requests
     url: https://www.python-httpx.org/async/
 image: /images/guides/first-rag-application.webp
-imageAlt: 'Layered paper runbooks pass through a terracotta architectural gateway toward a selected document.'
+imageAlt: 'Paper runbooks pass through a terracotta arch toward a local computer, representing selected retrieval context.'
 affiliateLinks: false
 ---
 
@@ -26,15 +27,17 @@ Retrieval-augmented generation (RAG) lets a language model answer using document
 
 **Everything you need is in this guide.** You create two short Markdown documents and one Python file by copying the blocks below. The entire example fits in a disposable local folder; the Daily AI Pulse repository remains a publication, not a catalog of sample applications.
 
-> **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. This guide remains a draft for human review. Citation IDs alone do **not** establish that an answer is factually supported.
+> **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. Citation IDs alone do **not** establish that an answer is factually supported.
 
 ## 1. Understand the pipeline
 
-~~~text
-Question → FastAPI POST /ask → tokenize and rank Markdown passages
-         → numbered source excerpts → local Ollama model
-         → reject invalid citation numbers → answer + source metadata
-~~~
+<figure class="guide-technical-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/images/guides/first-rag-architecture-mobile.svg" />
+    <img src="/images/guides/first-rag-architecture.svg" alt="Question enters FastAPI; passages are ranked and numbered, passed to local Ollama, and citation IDs are checked before returning answer and source references." width="1260" height="375" loading="lazy" decoding="async" />
+  </picture>
+  <figcaption>Technical explanation of the actual tutorial workflow. Labels are part of the diagram, not the editorial cover.</figcaption>
+</figure>
 
 The initial retriever is **lexical**, not semantic: it scores overlapping words with a simple length-normalized weighting. For a tiny teaching corpus, that makes it easy to inspect the retrieval step. It is not an evaluation of embedding models or vector databases.
 

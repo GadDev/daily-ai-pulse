@@ -94,11 +94,12 @@ const guides = defineCollection({
       const error = (path: string, message: string) =>
         ctx.addIssue({ code: 'custom', path: [path], message });
       if (guide.status === 'published') {
+        if (!guide.image)
+          error('image', 'Published guides require an editorial cover illustration.');
         if (!guide.publishedAt)
           error('publishedAt', 'Published guides require a publication date.');
         if (!guide.verifiedAt) error('verifiedAt', 'Published guides require a verification date.');
         if (!guide.author) error('author', 'Published guides require a real author.');
-        if (!guide.reviewer) error('reviewer', 'Published guides require an identified reviewer.');
         if (guide.sources.length === 0)
           error('sources', 'Published guides require source references.');
         if (guide.verification === 'hands-on') {
