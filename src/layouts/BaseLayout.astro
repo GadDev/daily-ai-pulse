@@ -10,6 +10,7 @@ interface Props {
   storyId?: string;
   frenchAvailable?: boolean;
   noindex?: boolean;
+  englishOnly?: boolean;
   title?: string;
   description?: string;
   image?: string;
@@ -24,6 +25,7 @@ const {
   storyId,
   frenchAvailable = false,
   noindex = false,
+  englishOnly = false,
   title = 'The Daily AI Pulse',
   description = 'Signal over noise in AI.',
   image,
@@ -147,8 +149,8 @@ const structuredData =
             <a href={base}>
               <EnglishDestination label="Édition" />
             </a>
-            <a href={`${base}about/`}>
-              <EnglishDestination label="À propos" />
+            <a href={`${base}guides/`}>
+              <EnglishDestination label="Guides" />
             </a>
           </nav>
         ) : (
@@ -165,14 +167,14 @@ const structuredData =
                 <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
               </svg>
             </a>
-            <a class:list={{ active: isActive(`${base}about`) }} href={`${base}about/`}>
-              <span class="nav-label">About</span>
+            <a class:list={{ active: isActive(`${base}guides`) }} href={`${base}guides/`}>
+              <span class="nav-label">Guides</span>
             </a>
           </nav>
         )}
         <div class="site-actions">
           <SearchButton locale={locale} />
-          <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} />
+          <LanguageSwitcher locale={locale} storyId={storyId} frenchAvailable={frenchAvailable} englishOnly={englishOnly} />
           <a class="subscribe-button" href={`${base}subscribe/`}>
             {locale === 'fr' ? <EnglishDestination label="S’abonner" /> : 'Subscribe'}
           </a>
@@ -207,6 +209,12 @@ const structuredData =
             </a>
             <a href={`${base}categories/`}>
               <EnglishDestination label="Rubriques" />
+            </a>
+            <a href={`${base}guides/`}>
+              <EnglishDestination label="Guides" />
+            </a>
+            <a href={`${base}about/`}>
+              <EnglishDestination label="À propos" />
             </a>
             <a href={`${base}methodology/`}>
               <EnglishDestination label="Méthodologie" />
@@ -265,6 +273,7 @@ const structuredData =
             <a href={base}>Home</a>
             <a href={`${base}pulse/`}>Latest Pulse</a>
             <a href={`${base}categories/`}>Categories</a>
+            <a href={`${base}guides/`}>Tools &amp; Guides</a>
             <a href={`${base}about/`}>About</a>
             <a href={`${base}methodology/`}>Methodology</a>
             <a href={`${base}rss.xml`}>RSS feed</a>
