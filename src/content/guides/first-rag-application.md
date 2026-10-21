@@ -17,6 +17,8 @@ sources:
     url: https://ollama.com/library/llama3.2
   - label: HTTPX — Async HTTP requests
     url: https://www.python-httpx.org/async/
+image: /images/guides/first-rag-application.webp
+imageAlt: 'Layered paper runbooks pass through a terracotta architectural gateway toward a selected document.'
 affiliateLinks: false
 ---
 
