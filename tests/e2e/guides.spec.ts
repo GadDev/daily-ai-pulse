@@ -63,10 +63,12 @@ test('draft guide has no route, feed or search presence', async ({ page, request
     const pagefind = await import(/* @vite-ignore */ moduleUrl);
     const search = await pagefind.search(term);
     return Promise.all(
-      search.results.map(async (result: { data: () => Promise<{ url: string; excerpt: string }> }) => {
-        const data = await result.data();
-        return { url: data.url, excerpt: data.excerpt };
-      }),
+      search.results.map(
+        async (result: { data: () => Promise<{ url: string; excerpt: string }> }) => {
+          const data = await result.data();
+          return { url: data.url, excerpt: data.excerpt };
+        },
+      ),
     );
   }, marker);
   for (const result of results) {
