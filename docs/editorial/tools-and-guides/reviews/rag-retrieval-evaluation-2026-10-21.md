@@ -34,11 +34,13 @@ Verified as reachable and relevant during this review:
 
 Reviewers must check any changes to these third-party pages before final publication.
 
-## Visual review
+## Visual review — revised in PR #194
 
-- **Technical diagram:** The article contains an intentionally simple, labeled plain-text data-flow diagram. It is descriptive and renderable by the Astro Markdown renderer; it is not a claim that a Mermaid diagram is supported. The surrounding prose explains how query, retrieved IDs, gold labels and scorer relate.
-- **Cover illustration:** Still pending commit and approval. An editorial illustration candidate was generated during release preparation, using the constitution's warm paper, terracotta and ink palette; it depicted paper documents passing through a physical architectural threshold. This *may be too close to* the first RAG guide's cover and must be evaluated for distinctness and crop quality. An attempted alternative generation included interface labels and **false publication badges**, which violates the visual constitution and is rejected. No generated interface/status graphic is approved. A source image living outside GitHub is not a verified production asset. The article must not set a nonexistent `image` path.
-- Before publication: obtain a unique **wordless editorial illustration** for ranked relevance assessment; commit the reviewed WebP through a binary-safe GitHub upload, set matching alt text, verify responsive crops and asset existence. Do not spoof the news-only generation-identity validator.
+A distinct, scalable wordless editorial cover is now staged at `public/images/guides/rag-retrieval-evaluation-cover.svg`. The large inspection lens and stepped document plinths represent **ranking and examination**, not the architecture of deploying an application. The visual constitution's warm paper, ink and terracotta vocabulary is retained. Its frontmatter reference and meaningful alt text are present. This is a standalone, locally authored vector asset; do **not** misrepresent it as having passed the separate news illustration-generation identity validator or as human-approved art.
+
+A separate **rendered instructional diagram** is now embedded in the article at `public/images/guides/rag-retrieval-evaluation-flow.svg`, with a mobile variant. It correctly shows independent judged-gold labels feeding the scorer alongside ranked retrieval results. This is explanatory technical material, not cover art. Its labels/arrows are intentional and its content remains separate from the synthetic benchmark evidence.
+
+The older attempt to generate an announcement-style dashboard was rejected because it included false `Published` labels. That rejected graphic is not committed. **Final art/crop approval is still required before changing `status: draft`.**
 
 ## Approval and publication gate
 
