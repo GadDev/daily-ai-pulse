@@ -12,8 +12,9 @@ const allowedPreviewIds = new Set(['first-rag-application', 'rag-retrieval-evalu
 import '../../styles/article.css';
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides', (guide) =>
-    isPublishedGuide(guide) || (reviewPreview && allowedPreviewIds.has(guide.id)),
+  const guides = await getCollection(
+    'guides',
+    (guide) => isPublishedGuide(guide) || (reviewPreview && allowedPreviewIds.has(guide.id)),
   );
   return guides.map((guide) => ({ params: { id: guide.id }, props: { guide } }));
 }
@@ -46,7 +47,8 @@ const tocItems = headings
   >
     {unpublishedPreview && (
       <aside class="guide-preview-alert" aria-label="Unpublished review">
-        EDITORIAL PREVIEW — Unpublished. Sources, diagrams, images and technical claims require human approval.
+        EDITORIAL PREVIEW — Unpublished. Sources, diagrams, images and technical claims require
+        human approval.
       </aside>
     )}
     <header class="article-header">
@@ -105,7 +107,11 @@ const tocItems = headings
         <section class="sources" aria-labelledby="guide-sources">
           <p class="eyebrow">VERIFICATION</p>
           <h2 id="guide-sources">Sources &amp; artifacts</h2>
-          <p>{guide.data.reviewer ? `Reviewed by ${guide.data.reviewer}.` : 'Awaiting human editorial review.'}</p>
+          <p>
+            {guide.data.reviewer
+              ? `Reviewed by ${guide.data.reviewer}.`
+              : 'Awaiting human editorial review.'}
+          </p>
           <ol>
             {guide.data.sources.map((source) => (
               <li>
