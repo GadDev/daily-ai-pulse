@@ -148,8 +148,8 @@ The central editorial question remains:
 
 > **What changed, how strong is the evidence, and what should an engineer do with that information?**
 
-## Evergreen Tools & Guides (planned)
+## Evergreen Tools & Guides
 
-The proposed **Tools & Guides** section extends these evidence-first and editorial-independence principles to tutorials, technical reviews and curated toolkits. Its [editorial foundation](editorial/TOOLS_AND_GUIDES_V1.md) specifies firsthand versus researched evidence, commercial disclosures, freshness and human review. Use the [authoring templates](editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) for draft outlines.
+The **Tools & Guides** section extends these evidence-first and editorial-independence principles to tutorials, technical reviews and curated toolkits. Its [editorial foundation](editorial/TOOLS_AND_GUIDES_V1.md) specifies firsthand versus researched evidence, commercial disclosures, freshness and human review. Use the [authoring templates](editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) for draft outlines.
 
-These documents do not alter the existing news categories, story schema, editorial automation or site routes. Later PRs will implement content and validation.
+The implementation provides a separate Astro collection and English-only `/guides/` routes, but does not change the existing news categories, news story schema or daily editorial automation. Real tutorials and reviews require separate human-reviewed content PRs.

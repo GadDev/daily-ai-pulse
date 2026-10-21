@@ -1,0 +1,186 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuideCard from '../../components/guides/GuideCard.astro';
+import { guideFormats, isPublishedGuide } from '../../lib/guides';
+
+const base = import.meta.env.BASE_URL;
+const published = (await getCollection('guides', isPublishedGuide)).sort(
+  (a, b) => (b.data.publishedAt?.valueOf() ?? 0) - (a.data.publishedAt?.valueOf() ?? 0),
+);
+const formats = ['tutorial', 'review', 'toolkit'] as const;
+---
+
+<BaseLayout
+  title="Tools & Guides — The Daily AI Pulse"
+  description="Practical AI engineering tutorials, independent technical evaluations and curated developer resources."
+  englishOnly
+>
+  <div class="guide-index">
+    <header class="guide-index__header">
+      <p class="guide-index__eyebrow">TOOLS & GUIDES / THE AI WORKBENCH</p>
+      <h1>Build better. Choose wisely.</h1>
+      <p class="guide-index__dek">
+        Hands-on engineering tutorials, independent technical evaluations and useful resources. Made
+        for people who build with AI—not an extension of the daily news cycle.
+      </p>
+      <p class="guide-index__language">
+        This section is currently in English. Reviewed French translations will follow.
+      </p>
+    </header>
+
+    <div class="guide-index__intro" aria-label="Explore by format">
+      {formats.map((format, i) => (
+        <section>
+          <p class="guide-index__number">{String(i + 1).padStart(2, '0')}</p>
+          <h2>{guideFormats[format].label}s</h2>
+          <p>{guideFormats[format].description}</p>
+        </section>
+      ))}
+    </div>
+
+    {published.length === 0 ? (
+      <section class="guide-index__empty" aria-labelledby="guides-coming">
+        <p class="guide-index__eyebrow">COMING SOON</p>
+        <h2 id="guides-coming">The workbench is being prepared.</h2>
+        <p>
+          We are preparing independently reviewed guides. Until then, explore our
+          <a href={`${base}engineering/`}>AI Engineering coverage</a> and
+          <a href={`${base}tools/`}>Dev Tools reporting</a>.
+        </p>
+      </section>
+    ) : (
+      <div class="guide-index__sections">
+        {formats.map((format) => {
+          const items = published.filter((guide) => guide.data.format === format);
+          return (
+            items.length > 0 && (
+              <section class="guide-index__section" aria-labelledby={`guides-${format}`}>
+                <div class="guide-index__section-head">
+                  <p class="guide-index__eyebrow">IN THE WORKBENCH</p>
+                  <h2 id={`guides-${format}`}>{guideFormats[format].label}s</h2>
+                </div>
+                <div class="guide-index__grid">
+                  {items.map((guide) => (
+                    <GuideCard guide={guide} />
+                  ))}
+                </div>
+              </section>
+            )
+          );
+        })}
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .guide-index {
+    padding: 0 0 3rem;
+  }
+  .guide-index__header {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 3rem;
+    max-width: 61rem;
+  }
+  .guide-index__eyebrow,
+  .guide-index__number {
+    margin: 0;
+    font:
+      700 0.73rem/1.5 ui-sans-serif,
+      system-ui,
+      sans-serif;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+  }
+  .guide-index__header h1 {
+    font:
+      500 clamp(2.7rem, 6vw, 5rem)/1.05 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.04em;
+    margin: 0.8rem 0 1rem;
+    overflow-wrap: anywhere;
+  }
+  .guide-index__dek {
+    font:
+      1.2rem/1.5 Georgia,
+      'Times New Roman',
+      serif;
+    color: var(--muted);
+    max-width: 46rem;
+  }
+  .guide-index__language {
+    color: var(--muted);
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+  .guide-index__intro {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    gap: 1.5rem;
+    padding: 1.5rem 0 2rem;
+  }
+  .guide-index__intro section {
+    min-width: 0;
+  }
+  .guide-index__intro h2 {
+    font:
+      500 1.55rem/1.15 Georgia,
+      'Times New Roman',
+      serif;
+    margin: 0.4rem 0;
+  }
+  .guide-index__intro p:last-child {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .guide-index__empty {
+    max-width: 50rem;
+    padding: clamp(3rem, 7vw, 5rem) 0;
+  }
+  .guide-index__empty h2 {
+    font:
+      500 clamp(2rem, 4vw, 3rem)/1.15 Georgia,
+      'Times New Roman',
+      serif;
+    margin: 0.6rem 0;
+  }
+  .guide-index__empty p:last-child {
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .guide-index__empty a {
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+    margin-inline: 0.2em;
+  }
+  .guide-index__sections {
+    display: grid;
+    gap: 3rem;
+    padding-top: 3rem;
+  }
+  .guide-index__section-head h2 {
+    font:
+      500 clamp(2rem, 4vw, 3rem)/1.2 Georgia,
+      'Times New Roman',
+      serif;
+    margin: 0.5rem 0 1.4rem;
+  }
+  .guide-index__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+  }
+  @media (max-width: 700px) {
+    .guide-index__intro,
+    .guide-index__grid {
+      grid-template-columns: 1fr;
+    }
+    .guide-index__intro {
+      gap: 1.3rem;
+    }
+  }
+</style>

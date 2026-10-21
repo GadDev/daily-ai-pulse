@@ -4,8 +4,9 @@ interface Props {
   locale: Locale;
   storyId?: string;
   frenchAvailable?: boolean;
+  englishOnly?: boolean;
 }
-const { locale, storyId, frenchAvailable = false } = Astro.props;
+const { locale, storyId, frenchAvailable = false, englishOnly = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 // The selected language describes this page, including non-story routes.
 const englishHref =
@@ -26,7 +27,7 @@ const text = messages[locale];
   >
     <span aria-hidden="true">EN</span>
   </a>
-  {!storyId || frenchAvailable || locale === 'fr' ? (
+  {!englishOnly && (!storyId || frenchAvailable || locale === 'fr') ? (
     <a
       href={frenchHref}
       lang="fr"

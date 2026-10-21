@@ -1,0 +1,54 @@
+---
+import type { Guide } from '../../lib/guides';
+import { formatGuideDate, verificationLabels } from '../../lib/guides';
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+---
+
+<aside class="guide-verification" aria-label="Guide verification">
+  <p class="guide-verification__label">How this guide was evaluated</p>
+  <p>
+    <strong>{verificationLabels[guide.data.verification]}</strong>
+  </p>
+  {guide.data.verifiedAt && (
+    <p>
+      Verified{' '}
+      <time datetime={guide.data.verifiedAt.toISOString()}>
+        {formatGuideDate(guide.data.verifiedAt)}
+      </time>
+    </p>
+  )}
+  {guide.data.testEnvironment && <p>Test environment: {guide.data.testEnvironment}</p>}
+  {guide.data.verification !== 'hands-on' && (
+    <p>
+      This is not a claim of hands-on product testing. Consult the source references and
+      limitations.
+    </p>
+  )}
+</aside>
+<style>
+  .guide-verification {
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.2rem;
+    background: var(--surface-alt);
+    border-left: 3px solid var(--line);
+  }
+  .guide-verification__label {
+    color: var(--terracotta);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  p {
+    margin: 0.2rem 0 0.45rem;
+    font:
+      0.9rem/1.5 ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+</style>

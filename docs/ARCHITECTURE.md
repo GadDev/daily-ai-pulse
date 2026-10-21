@@ -8,6 +8,7 @@ The Daily AI Pulse is a static-first technical publication built with Astro. The
 flowchart LR
   A[Story Markdown / MDX] --> C[Astro Content Collections]
   B[Daily Pulse manifests] --> C
+  H[Evergreen guides] --> C
   C --> D[Pages + Components]
   D --> E[Astro static build]
   E --> F[Firebase Hosting]
@@ -23,6 +24,7 @@ src/
 ├── components/          Reusable presentation and interaction components
 ├── content/
 │   ├── stories/         Canonical standalone articles
+│   ├── guides/          Evergreen tutorials, reviews and toolkits
 │   └── pulse/           Daily edition manifests that reference stories
 ├── layouts/             Shared document/page shells
 ├── pages/               File-based routes and category/archive pages
@@ -51,6 +53,12 @@ A story is the canonical unit of editorial content. Story frontmatter is validat
 - companies, sources, and optional editorial image metadata.
 
 This metadata supports category views, article pages, related-story logic, evidence labelling, feeds, and future search/filtering.
+
+### Tools & Guides
+
+A separate `guides` Astro collection owns evergreen tutorials, technical reviews and toolkits. The independent publication gate `status: published` governs `/guides/` listings and `/guides/[...id]` static routes, keeping drafts and withdrawn work out of the site, Pagefind, RSS and sitemap. Published entries require real review evidence, sources, author/reviewer and dated verification. Guide templates and source-to-publication review boundaries are documented under `docs/editorial/TOOLS_AND_GUIDES_V1.md`.
+
+Guides are initially English-only; French reader surfaces identify English destinations, and no incorrect translation alternates are generated. Guides do not enter the daily scoring engine or issue manifests.
 
 ### Daily editions
 

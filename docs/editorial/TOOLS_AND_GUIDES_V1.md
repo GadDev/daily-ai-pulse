@@ -1,6 +1,6 @@
 # Tools & Guides — editorial foundation (v1)
 
-**Status:** Proposed editorial contract for a future section; no site schema, routes, or automation have been implemented.
+**Status:** Evergreen editorial contract. The Astro collection, English landing page, and publication-gated detail routes are implemented; actual reviewed guides and translations are separate publication work.
 
 ## Purpose and positioning
 
@@ -13,7 +13,7 @@ Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comp
 - [Editorial guide](../EDITORIAL.md) continues to own publication-wide evidence, sourcing, voice, and independence principles.
 - [Editorial schema](EDITORIAL_SCHEMA_V1.md), [decision engine](DECISION_ENGINE_V1.md), [topic vocabulary](TOPICS_V1.yml), and [PR preparation contract](PR_PREPARATION_V1.md) remain authoritative for **news**; they do not automatically govern evergreen rankings or publication.
 - This document owns additional evergreen-specific rules, and [the authoring templates](TOOLS_AND_GUIDES_TEMPLATES_V1.md) provide drafting worksheets.
-- Current `src/content.config.ts` owns the **implemented** Astro model; worksheet fields below are not production frontmatter until a later implementation PR.
+- Current `src/content.config.ts` owns the **implemented** Astro model for `guides`; the linked worksheets are drafting structures, not literal schema frontmatter.
 - The existing manual/reviewed French translation policy remains authoritative. Never expose a stale or unreviewed French version as current.
 
 ## Reader promise and editorial categories
@@ -83,4 +83,4 @@ Record publication date, last substantial update, latest verification date, affe
 - A hands-on, reproducible first tutorial; one transparently curated toolkit; one properly evidenced review.
 - Required review evidence, disclaimers and cost notes visible in content.
 - No extra backend, CMS, paid service or third-party tracking by default.
-- Later PRs own schema/UX, technical validators, implementation, and translations; this docs PR **changes none of them**.
+- The section infrastructure is implemented separately from the daily news publication path. Real articles, additional technical validators, localization, and monetization operations remain separate PRs.
