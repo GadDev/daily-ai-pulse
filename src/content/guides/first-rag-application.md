@@ -7,7 +7,7 @@ verification: researched
 difficulty: beginner
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
-testEnvironment: 'Python 3.13; FastAPI 0.128.2; HTTPX 0.28.1; local HTTP smoke assertions using a mocked generator; Ollama and Docker not exercised'
+testEnvironment: 'Python 3.13.5 on Linux; FastAPI 0.128.2, Uvicorn 0.48.0, HTTPX 0.28.1; in-process HTTP smoke assertions using a mocked generator. Ollama and Docker not exercised.'
 sources:
   - label: FastAPI — Deployment concepts
     url: https://fastapi.tiangolo.com/deployment/
@@ -24,7 +24,7 @@ Retrieval-augmented generation (RAG) lets a language model answer using document
 
 **Everything you need is in this guide.** You create two short Markdown documents and one Python file by copying the blocks below. The entire example fits in a disposable local folder; the Daily AI Pulse repository remains a publication, not a catalog of sample applications.
 
-> **Verification boundary:** The retrieval and FastAPI routes were exercised with deterministic, mocked model responses in an isolated Python 3.13 environment. Live Ollama generation, actual model accuracy, and the optional Docker deployment have **not** been verified. This guide remains a draft for human review. Citation IDs alone do **not** establish that an answer is factually supported.
+> **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. This guide remains a draft for human review. Citation IDs alone do **not** establish that an answer is factually supported.
 
 ## 1. Understand the pipeline
 
@@ -241,6 +241,7 @@ import app
 
 assert app.retrieve("rollback failed deployment", app.passages())[0][1] == "Rollback"
 assert app.retrieve("penguin orbit", app.passages()) == []
+assert len(app.passages()) == 3  # Release approval, rollback, escalation
 
 async def run():
     async with httpx.AsyncClient(
@@ -259,6 +260,18 @@ async def run():
                 "question": "How do we rollback failed deployment?"
             })
             assert bad.status_code == 502
+        with patch.object(app, "generate", AsyncMock(return_value="Wrong [99]")):
+            bad_id = await client.post("/ask", json={
+                "question": "How do we rollback failed deployment?"
+            })
+            assert bad_id.status_code == 502
+        with patch.object(app, "generate", AsyncMock(
+            side_effect=httpx.ConnectError("Ollama offline")
+        )):
+            unavailable = await client.post("/ask", json={
+                "question": "How do we rollback failed deployment?"
+            })
+            assert unavailable.status_code == 503
         no_match = await client.post("/ask", json={
             "question": "Do penguins orbit planets?"
         })
@@ -271,7 +284,7 @@ print("Mocked-API smoke checks passed")
 PY
 ~~~
 
-These checks exercise retrieval, API integration, citation rejection, and basic input validation. They **do not** establish answer quality, model safety, or successful Ollama deployment. This distinction is part of the editorial contract.
+These checks exercise retrieval, API integration, invalid/missing citation rejection, simulated model unavailability, and basic input validation. The `503` check mocks a connection error; it does not require a running Ollama server. They **do not** establish answer quality, model safety, or successful Ollama deployment. This distinction is part of the editorial contract.
 
 ## 7. Deployment choices and their costs
 
