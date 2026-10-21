@@ -6,9 +6,18 @@ export type Guide = CollectionEntry<'guides'>;
 export const isPublishedGuide = (guide: Guide) => guide.data.status === 'published';
 
 export const guideFormats = {
-  tutorial: { label: 'Tutorial', description: 'Build, verify and deploy practical AI applications.' },
-  review: { label: 'Technical review', description: 'Evaluate developer tools with transparent evidence.' },
-  toolkit: { label: 'Toolkit', description: 'Explore useful resources and the trade-offs behind each selection.' },
+  tutorial: {
+    label: 'Tutorial',
+    description: 'Build, verify and deploy practical AI applications.',
+  },
+  review: {
+    label: 'Technical review',
+    description: 'Evaluate developer tools with transparent evidence.',
+  },
+  toolkit: {
+    label: 'Toolkit',
+    description: 'Explore useful resources and the trade-offs behind each selection.',
+  },
 } as const;
 
 export const verificationLabels = {
