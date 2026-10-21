@@ -83,7 +83,10 @@ const guides = defineCollection({
       verifiedAt: z.coerce.date().optional(),
       testEnvironment: z.string().min(1).optional(),
       testArtifacts: z.array(z.string().url()).default([]),
-      image: z.string().regex(/^\/images\/guides\/[a-z0-9][a-z0-9-]*\.webp$/).optional(),
+      image: z
+        .string()
+        .regex(/^\/images\/guides\/[a-z0-9][a-z0-9-]*\.webp$/)
+        .optional(),
       imageAlt: z.string().min(1).optional(),
       sources: z.array(z.object({ label: z.string().min(1), url: z.string().url() })).default([]),
       affiliateLinks: z.boolean().default(false),
