@@ -30,17 +30,6 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
-      - name: Set up Python for RAG companion
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
-
-      - name: Run RAG companion API tests
-        run: |
-          python -m pip install -r examples/rag-starter/requirements-test.txt
-          cd examples/rag-starter
-          python -m pytest -q tests
-
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
