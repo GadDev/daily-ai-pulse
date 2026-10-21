@@ -61,7 +61,8 @@ skip; a new publishing batch must validate against its explicit ledger path.
 | --- | --- |
 | What is the publication building toward? | [Product requirements](docs/PRD.md) and [architecture](docs/ARCHITECTURE.md) |
 | What is publishable and how should it sound? | [Editorial guide](docs/EDITORIAL.md) |
-| How are evergreen technical reviews and tutorials governed? | [Tools & Guides editorial foundation](docs/editorial/TOOLS_AND_GUIDES_V1.md) and [authoring templates](docs/editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) (proposed, not implemented site features) |\n| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
+| How are evergreen technical reviews and tutorials governed? | [Tools & Guides editorial foundation](docs/editorial/TOOLS_AND_GUIDES_V1.md) and [authoring templates](docs/editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) (editorial standards and templates) |
+| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
 | What is the durable editorial memory and publication handoff? | [Candidate ledger contract and example](docs/editorial/ledgers/README.md) |
 | What can the current site render? | [Astro schema](src/content.config.ts), [content model](docs/CONTENT_MODEL.md), [daily issue contract](docs/DAILY_ISSUE.md), and [editorial MDX components](docs/EDITORIAL_COMPONENTS.md) |
 | How is a publication PR prepared? | [PR preparation contract](docs/editorial/PR_PREPARATION_V1.md) and [skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) |
@@ -93,8 +94,12 @@ npm run dev
 
 Astro prints the local development URL. The site is static-first: Markdown/MDX
 stories in `src/content/stories/` and dated manifests in `src/content/pulse/`
-become HTML, CSS, and assets served from Firebase Hosting. There is no production
+become HTML, CSS, and assets served from Firebase Hosting. The separate `guides` collection in `src/content/guides/` provides the English-only `/guides/` landing page and publishes only entries marked `status: published`. There is no production
 database or required application server.
+
+### Tools & Guides authoring
+
+The new section has **no published guides yet**. Drafts are withheld from public routes, RSS, search and the sitemap. Use [evergreen editorial standards](docs/editorial/TOOLS_AND_GUIDES_V1.md) and [copy-ready templates](docs/editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md). Every published entry needs a verified author/reviewer, publication and verification dates, source references, format, and provenance. Hands-on entries additionally require test environment and artifact URLs. Compensated links require explicit disclosure; production affiliate-link operations and reviewed French translations are deferred to follow-up PRs.
 
 ### Checks
 
