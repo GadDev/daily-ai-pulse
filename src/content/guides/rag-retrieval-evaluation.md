@@ -5,6 +5,7 @@ status: draft
 format: tutorial
 verification: researched
 difficulty: intermediate
+author: The Daily AI Pulse
 verifiedAt: 2026-10-21
 testEnvironment: "Python 3.13.5 on Linux; standard-library-only local script; four deterministic assertions and sample output executed by the pilot authoring assistant. No Ollama, embedding service, or real production data was tested."
 sources:
@@ -23,7 +24,7 @@ That is a different engineering problem from getting a local RAG service running
 
 **By the end**, you will have a five-question *golden set*, a simple lexical retriever, two ranking metrics, and a way to list the questions your retrieval pipeline misses. We use fictional runbooks and deterministic results so you can understand what each score means before connecting a real document store.
 
-> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. This article remains a draft awaiting human review.
+> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. The guide's publication requires separate editorial review; the results must not be extrapolated to a real RAG application.
 
 ## 1. What exactly are we evaluating?
 
@@ -155,7 +156,7 @@ The code runs four deterministic checks before printing its report: a partial-re
 
 ## 4. Understand why the failure matters
 
-The printed failure suggests one potential weakness: matching words rather than meaning. The code does **not** prove that embeddings will fix the problem. It only shows that this specific retriever misses a relevant runbook under this wording.
+The printed failure suggests one potential weakness: matching words rather than meaning. The code does **not** prove that embeddings will fix the problem. It only shows that this specific retriever misses a relevant runbook under this wording. A separate query such as “What do we do with outage?” can rank the unrelated access-control document first because the generic term “with” overlaps its text. That failure illustrates why both **top-k recall** and **the rank of the first relevant result** matter; it is a limitation of this example, not evidence about any production system.
 
 Before you switch tools, inspect:
 
