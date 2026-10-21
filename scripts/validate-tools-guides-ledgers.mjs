@@ -109,8 +109,7 @@ export function validateGuideLedger(ledger, filename) {
     return errors;
   }
   const { guide_id: guideId, pr_number: prNumber } = ledger.handoff;
-  if (guideId !== null && !isKey(guideId))
-    fail('handoff.guide_id', 'must be a slug or null');
+  if (guideId !== null && !isKey(guideId)) fail('handoff.guide_id', 'must be a slug or null');
   if (prNumber !== null && (!Number.isSafeInteger(prNumber) || prNumber < 1))
     fail('handoff.pr_number', 'must be a positive integer or null');
 
@@ -134,7 +133,9 @@ export function validateGuideLedger(ledger, filename) {
 export function validateLedgerHistory(records) {
   const errors = [];
   const prepared = new Map();
-  for (const { filename, ledger } of [...records].sort((a, b) => a.filename.localeCompare(b.filename))) {
+  for (const { filename, ledger } of [...records].sort((a, b) =>
+    a.filename.localeCompare(b.filename),
+  )) {
     errors.push(...validateGuideLedger(ledger, filename));
     if (!isObject(ledger) || !Array.isArray(ledger.candidates)) continue;
     for (const candidate of ledger.candidates) {
@@ -162,7 +163,9 @@ export function validateLedgerDirectory(root = process.cwd()) {
   if (!existsSync(directory)) return [];
   const records = [];
   const errors = [];
-  for (const name of readdirSync(directory).filter((name) => name.endsWith('.json')).sort()) {
+  for (const name of readdirSync(directory)
+    .filter((name) => name.endsWith('.json'))
+    .sort()) {
     const filename = join(LEDGER_DIRECTORY, name);
     try {
       records.push({ filename, ledger: JSON.parse(readFileSync(join(directory, name), 'utf8')) });
