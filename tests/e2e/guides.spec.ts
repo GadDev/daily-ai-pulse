@@ -76,3 +76,18 @@ test('draft guide has no route, feed or search presence', async ({ page, request
     expect(result.excerpt).not.toContain(marker);
   }
 });
+
+test('first RAG tutorial remains unpublished until an actual editor approves it', async ({
+  request,
+}) => {
+  const id = 'first-rag-application';
+  const title = 'Deploying Your First RAG Application';
+  expect((await request.get(`/guides/${id}/`)).status()).toBe(404);
+  for (const route of ['/guides/', '/sitemap-0.xml', '/rss.xml']) {
+    const response = await request.get(route);
+    expect(response.ok()).toBe(true);
+    const content = await response.text();
+    expect(content).not.toContain(`/guides/${id}/`);
+    expect(content).not.toContain(title);
+  }
+});
