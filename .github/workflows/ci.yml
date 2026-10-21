@@ -30,6 +30,9 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
+      - name: Tools & Guides ledger validator regressions
+        run: npm run guides:ledger:test
+
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.mjs
 
