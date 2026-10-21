@@ -77,17 +77,20 @@ test('draft guide has no route, feed or search presence', async ({ page, request
   }
 });
 
-test('first RAG tutorial remains unpublished until an actual editor approves it', async ({
+test('both RAG tutorials remain unpublished in ordinary builds until human approval', async ({
   request,
 }) => {
-  const id = 'first-rag-application';
-  const title = 'Deploying Your First RAG Application';
-  expect((await request.get(`/guides/${id}/`)).status()).toBe(404);
-  for (const route of ['/guides/', '/sitemap-0.xml', '/rss.xml']) {
-    const response = await request.get(route);
-    expect(response.ok()).toBe(true);
-    const content = await response.text();
-    expect(content).not.toContain(`/guides/${id}/`);
-    expect(content).not.toContain(title);
+  for (const [id, title] of [
+    ['first-rag-application', 'Deploying Your First RAG Application'],
+    ['rag-retrieval-evaluation', 'Evaluate RAG Retrieval Quality with a Golden Question Set'],
+  ]) {
+    expect((await request.get(`/guides/${id}/`)).status()).toBe(404);
+    for (const route of ['/guides/', '/sitemap-0.xml', '/rss.xml']) {
+      const response = await request.get(route);
+      expect(response.ok()).toBe(true);
+      const content = await response.text();
+      expect(content).not.toContain(`/guides/${id}/`);
+      expect(content).not.toContain(title);
+    }
   }
 });
