@@ -78,3 +78,9 @@ Complete this section **only after actual personal review**, recording real iden
 ## Autonomous-run validation (separate future event)
 
 As of October 21, the Tuesday/Friday task is enabled, **last run is null**, and its first Friday October 23 execution has not yet occurred. A separate October 23 afternoon check will inspect the actual task run, date-scoped GitHub PR/ledger (if any), duplicate decisions and exact-head CI. This readiness review does not assert the scheduled task has already succeeded.
+
+## Visual-quality addendum — follow-up in PR #194
+
+The 512×239 WebP crop staged in merged PR #193 did not meet the intended article-hero quality. PR #194 **removes** that asset and supplies a scalable editorial replacement at `public/images/guides/first-rag-application-cover.svg`. Its scene is layered, wordless paper moving through an architectural threshold. The article now references the replacement with updated alt text. A labeled architecture graphic is also embedded in the article using separate desktop/mobile SVGs.
+
+**Approval status remains pending.** Scalable presentation and static validation do not establish the human crop review or substitute for a standalone generated-image provenance record. The guide remains `status: draft`, with Ollama still untested; no reviewer or publication date has been asserted.
