@@ -1,9 +1,10 @@
 ---
 title: Evaluate RAG Retrieval Quality with a Golden Question Set
 description: Measure Recall@k and MRR@k for a tiny retrieval pipeline using fictional runbooks and Python's standard library.
-status: draft
+status: published
 format: tutorial
 verification: researched
+publishedAt: 2026-10-21
 difficulty: intermediate
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
