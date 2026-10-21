@@ -34,7 +34,7 @@ Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comp
 
 Every technical tutorial must have copyable, language-tagged code and commands, outputs distinguished as **observed versus illustrative**, primary technical references linked near supported claims, prerequisites, security/cost limitations and a verification section. Default to self-contained Markdown content rather than a new `examples/` folder.
 
-For the separate twice-weekly automation, follow [Tools & Guides Editorial Orchestrator v1](TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md). Its scheduled task is configured outside this repository and does not change the news process.
+For the separate twice-weekly automation, follow [Tools & Guides Editorial Orchestrator v1](TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md). Its **independent topic and decision history** lives under [the evergreen ledger contract](tools-and-guides/LEDGER_V1.md), not the daily news ledgers. Its scheduled task is configured outside this repository and does not change the news process.
 
 ## Evidence and provenance
 
