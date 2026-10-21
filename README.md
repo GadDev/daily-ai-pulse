@@ -61,7 +61,7 @@ skip; a new publishing batch must validate against its explicit ledger path.
 | --- | --- |
 | What is the publication building toward? | [Product requirements](docs/PRD.md) and [architecture](docs/ARCHITECTURE.md) |
 | What is publishable and how should it sound? | [Editorial guide](docs/EDITORIAL.md) |
-| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
+| How are evergreen technical reviews and tutorials governed? | [Tools & Guides editorial foundation](docs/editorial/TOOLS_AND_GUIDES_V1.md) and [authoring templates](docs/editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) (proposed, not implemented site features) |\n| How are candidates classified and selected? | [Editorial schema](docs/editorial/EDITORIAL_SCHEMA_V1.md), [decision engine](docs/editorial/DECISION_ENGINE_V1.md), and [topic vocabulary](docs/editorial/TOPICS_V1.yml) |
 | What is the durable editorial memory and publication handoff? | [Candidate ledger contract and example](docs/editorial/ledgers/README.md) |
 | What can the current site render? | [Astro schema](src/content.config.ts), [content model](docs/CONTENT_MODEL.md), [daily issue contract](docs/DAILY_ISSUE.md), and [editorial MDX components](docs/EDITORIAL_COMPONENTS.md) |
 | How is a publication PR prepared? | [PR preparation contract](docs/editorial/PR_PREPARATION_V1.md) and [skill](.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md) |
