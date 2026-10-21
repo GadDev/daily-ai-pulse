@@ -1,0 +1,39 @@
+---
+import type { Guide } from '../../lib/guides';
+import { formatGuideDate, guideFormats, verificationLabels } from '../../lib/guides';
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<article class="guide-card">
+  <p class="guide-card__eyebrow">
+    {guideFormats[guide.data.format].label} · {verificationLabels[guide.data.verification]}
+  </p>
+  <h3><a href={`${base}guides/${guide.id}/`}>{guide.data.title}</a></h3>
+  <p class="guide-card__description">{guide.data.description}</p>
+  <p class="guide-card__meta">
+    {guide.data.publishedAt && (
+      <time datetime={guide.data.publishedAt.toISOString()}>
+        {formatGuideDate(guide.data.publishedAt)}
+      </time>
+    )}
+    <span>{guide.data.difficulty}</span>
+  </p>
+</article>
+<style>
+  .guide-card { position: relative; border-top: 1px solid var(--line); padding: 1.3rem 0 1.8rem; min-width: 0; }
+  .guide-card__eyebrow { margin: 0; font: 700 0.7rem/1.5 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta); }
+  h3 { margin: .65rem 0 .6rem; font: 500 clamp(1.5rem, 2.5vw, 2rem)/1.12 Georgia, 'Times New Roman', serif; overflow-wrap: anywhere; }
+  h3 a { text-decoration: none; }
+  h3 a::after { content: ''; position: absolute; inset: 0; }
+  h3 a:hover { text-decoration: underline; text-underline-offset: .15em; }
+  h3 a:focus-visible { outline: none; }
+  h3 a:focus-visible::after { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+  .guide-card__description { color: var(--muted); line-height: 1.55; margin: 0 0 .8rem; }
+  .guide-card__meta { display: flex; flex-wrap: wrap; gap: .75rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-size: .7rem; }
+</style>
