@@ -6,7 +6,7 @@ import { expect, test } from '@playwright/test';
 test('Tools & Guides landing exposes three formats without fictional reviews', async ({ page }) => {
   await page.goto('/guides/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Build better. Choose wisely.');
-  await expect(page.getByRole('heading', { name: 'Tutorials' })).toBeVisible();
+  await expect(page.getByLabel('Explore by format').getByRole('heading', { name: 'Tutorials' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Technical reviews' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Toolkits' })).toBeVisible();
   await expect(
