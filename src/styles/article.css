@@ -217,6 +217,24 @@
   line-height: 1.6;
   font-style: italic;
 }
+:where(.article-shell) .prose .guide-technical-diagram {
+  margin: 2rem 0;
+  padding: 0.75rem;
+  background: #e9e2d6;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+:where(.article-shell) .prose .guide-technical-diagram picture,
+:where(.article-shell) .prose .guide-technical-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+:where(.article-shell) .prose .guide-technical-diagram figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font: 0.79rem/1.45 ui-sans-serif, system-ui, sans-serif;
+}
 :where(.article-shell) .prose pre {
   overflow: auto;
   padding: 1.2rem;
