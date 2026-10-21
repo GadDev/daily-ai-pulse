@@ -73,7 +73,6 @@ test('content check rejects cover references outside the guide asset contract', 
   }
 });
 
-
 test('content check accepts standalone vector editorial covers', (t) => {
   const { root, writeGuide, check } = fixture(t);
   const folder = join(root, 'public/images/guides');
