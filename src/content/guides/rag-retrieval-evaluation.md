@@ -26,7 +26,7 @@ That is a different engineering problem from getting a local RAG service running
 
 **By the end**, you will have a five-question *golden set*, a simple lexical retriever, two ranking metrics, and a way to list the questions your retrieval pipeline misses. We use fictional runbooks and deterministic results so you can understand what each score means before connecting a real document store.
 
-> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. The guide's publication requires separate editorial review; the results must not be extrapolated to a real RAG application.
+> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. The results must not be extrapolated to a real RAG application.
 
 ## 1. What exactly are we evaluating?
 
