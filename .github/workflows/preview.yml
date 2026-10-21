@@ -95,6 +95,11 @@ jobs:
       - name: Browser smoke and accessibility checks
         run: npm run test:e2e
 
+      - name: Build unpublished guide review routes for the isolated PR preview
+        env:
+          GUIDE_REVIEW_PREVIEW: '1'
+        run: npm run build
+
       - name: Upload static preview artifact
         uses: actions/upload-artifact@v7
         with:
