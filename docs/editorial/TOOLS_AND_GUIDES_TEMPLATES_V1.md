@@ -5,7 +5,7 @@
 ## Common preflight checklist
 
 - [ ] Audience, reader problem and objective are specific.
-- [ ] Accurate title, real author/reviewer, draft/publication and last-verification dates.
+- [ ] Accurate title, identified author/publisher, actual draft/publication dates and last-verification dates; a named reviewer is optional.
 - [ ] Product versions, sources, test conditions and uncertainty are recorded.
 - [ ] Hands-on versus researched provenance is explicit; no invented experience.
 - [ ] Privacy, security, price, limitations and alternatives are discussed where relevant.
@@ -29,7 +29,7 @@
 
 **Format:** Technical review
 **Evidence:** Hands-on | Researched
-**Reviewer:** [real name or verified byline]
+**Editorial review:** [real review evidence or publisher-approved release; no invented reviewer name]
 **Evaluated:** [date]
 **Product/version/plan:** [values verified at review date]
 **Environment:** [OS, hardware, runtime, configuration] or "Not tested"
@@ -107,7 +107,7 @@
 # [Toolkit] for [specific use case]
 
 **Format:** Toolkit
-**Curator/reviewer:** [real attribution]
+**Curator/publisher:** [real attribution]
 **Reviewed:** [date]
 **Selection criteria:** [requirements and exclusions]
 **Commercial relationship:** [none or prominently disclosed]
@@ -141,7 +141,7 @@
 # [Product A] vs [Product B] for [task]
 
 **Format:** Comparison
-**Reviewer and test date:** [verified]
+**Evaluation and test date:** [verified]
 **Evidence:** [hands-on or researched; no unearned numeric score]
 
 ## Use case and evaluation criteria
@@ -169,7 +169,7 @@
 # [Title]: Is it useful for [reader]?
 
 **Format:** Book/course review
-**Reviewer/date:** [verified]
+**Review date:** [verified]
 **Edition or course version:** [verified]
 **Materials actually examined:** [chapters/modules/assignments; not inferred]
 **Commercial relationship:** [none or disclosure]
