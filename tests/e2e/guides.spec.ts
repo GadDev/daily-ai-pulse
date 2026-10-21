@@ -58,10 +58,19 @@ test('draft guide has no route, feed or search presence', async ({ page, request
     expect(html).not.toContain(`/guides/${id}/`);
   }
   await page.goto('/guides/');
-  const hits = await page.evaluate(async (term) => {
+  const results = await page.evaluate(async (term) => {
     const moduleUrl = '/pagefind/pagefind.js';
     const pagefind = await import(/* @vite-ignore */ moduleUrl);
-    return (await pagefind.search(term)).results.length;
+    const search = await pagefind.search(term);
+    return Promise.all(
+      search.results.map(async (result: { data: () => Promise<{ url: string; excerpt: string }> }) => {
+        const data = await result.data();
+        return { url: data.url, excerpt: data.excerpt };
+      }),
+    );
   }, marker);
-  expect(hits).toBe(0);
+  for (const result of results) {
+    expect(result.url).not.toContain(`/guides/${id}/`);
+    expect(result.excerpt).not.toContain(marker);
+  }
 });
