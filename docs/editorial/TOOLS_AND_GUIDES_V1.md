@@ -28,13 +28,15 @@ Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comp
 
 ## Visuals and instructional materials
 
-**Editorial illustrations** for guides must follow [the existing visual constitution](VISUAL_CONSTITUTION_V1.md) and its illustration/reuse controls. They are metaphors or editorial studies, **not** labeled technical schematics. Optional cover `image` and `imageAlt` frontmatter may reference an approved WebP in `/images/guides/`; both must be present together, and reviewed crop/asset evidence is required before publication.
+**Editorial illustrations** for guides must follow [the existing visual constitution](VISUAL_CONSTITUTION_V1.md) and its illustration/reuse controls. They are metaphors or editorial studies, **not** labeled technical schematics. Optional cover `image` and `imageAlt` frontmatter may reference a reviewed WebP or a carefully audited, self-contained scalable SVG in `/images/guides/`; both must be present together. SVG covers must have no scripts, embedded/external resources, words, UI or diagrams. The SVG safety validator is not a substitute for the visual constitution, asset provenance or human crop review.
 
-**Technical diagrams within tutorials** have a different role: they must be accurate, clearly labeled, readable, accessible and relevant to the implemented steps. Include nearby textual explanations. Use diagram formats the current Astro renderer actually supports; an unsupported Mermaid fence is not a rendered flowchart. Never imply an illustration constitutes proof that an architecture was implemented.
+**Technical diagrams within tutorials** have a different role: they must be accurate, clearly labeled, readable, accessible and relevant to the implemented steps. Include nearby textual explanations. Prefer actual, accessible SVG diagrams with mobile and desktop variants and adjacent explanatory prose. Use diagram formats the current Astro renderer actually supports; an unsupported Mermaid fence or ASCII code block is not a rendered diagram. Never imply an illustration constitutes proof that an architecture was implemented.
 
 Every technical tutorial must have copyable, language-tagged code and commands, outputs distinguished as **observed versus illustrative**, primary technical references linked near supported claims, prerequisites, security/cost limitations and a verification section. Default to self-contained Markdown content rather than a new `examples/` folder.
 
 For the separate twice-weekly automation, follow [Tools & Guides Editorial Orchestrator v1](TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md). Its **independent topic and decision history** lives under [the evergreen ledger contract](tools-and-guides/LEDGER_V1.md), not the daily news ledgers. Its scheduled task is configured outside this repository and does not change the news process.
+
+**Unpublished review access:** The manual Firebase PR preview workflow may render the two pilot RAG drafts with an explicit unpublished warning via `GUIDE_REVIEW_PREVIEW=1`, only on its ephemeral, noindex preview site. Normal builds and production routes continue to exclude drafts; never mistake this preview for publishing.
 
 ## Evidence and provenance
 
