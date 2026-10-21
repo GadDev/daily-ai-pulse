@@ -1,4 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
+import { readFileSync } from 'node:fs';
+import { URL } from 'node:url';
 import { expect, test } from '@playwright/test';
 
 test('Tools & Guides landing exposes three formats without fictional reviews', async ({ page }) => {
@@ -77,20 +79,58 @@ test('draft guide has no route, feed or search presence', async ({ page, request
   }
 });
 
-test('both RAG tutorials remain unpublished in ordinary builds until human approval', async ({
+test('both RAG tutorials respect the editorial publication gate and expose their visuals when published', async ({
+  page,
   request,
 }) => {
-  for (const [id, title] of [
-    ['first-rag-application', 'Deploying Your First RAG Application'],
-    ['rag-retrieval-evaluation', 'Evaluate RAG Retrieval Quality with a Golden Question Set'],
-  ]) {
-    expect((await request.get(`/guides/${id}/`)).status()).toBe(404);
-    for (const route of ['/guides/', '/sitemap-0.xml', '/rss.xml']) {
-      const response = await request.get(route);
-      expect(response.ok()).toBe(true);
-      const content = await response.text();
-      expect(content).not.toContain(`/guides/${id}/`);
-      expect(content).not.toContain(title);
+  const guides = [
+    {
+      id: 'first-rag-application',
+      title: 'Deploying Your First RAG Application',
+      diagram: '/images/guides/first-rag-architecture.svg',
+    },
+    {
+      id: 'rag-retrieval-evaluation',
+      title: 'Evaluate RAG Retrieval Quality with a Golden Question Set',
+      diagram: '/images/guides/rag-retrieval-evaluation-flow.svg',
+    },
+  ] as const;
+
+  for (const guide of guides) {
+    const frontmatter = readFileSync(
+      new URL(`../../src/content/guides/${guide.id}.md`, import.meta.url),
+      'utf8',
+    );
+    const published = /^status: published$/m.test(frontmatter);
+    const response = await request.get(`/guides/${guide.id}/`);
+    const landing = await request.get('/guides/');
+    expect(landing.ok()).toBe(true);
+    const listing = await landing.text();
+
+    if (!published) {
+      expect(response.status(), `${guide.id} must remain gated while draft`).toBe(404);
+      expect(listing).not.toContain(`/guides/${guide.id}/`);
+      expect(listing).not.toContain(guide.title);
+      for (const route of ['/sitemap-0.xml', '/rss.xml']) {
+        const file = await request.get(route);
+        expect(file.ok()).toBe(true);
+        expect(await file.text()).not.toContain(`/guides/${guide.id}/`);
+      }
+      continue;
     }
+
+    expect(response.ok(), `${guide.id} must be publicly accessible once published`).toBe(true);
+    expect(listing).toContain(guide.title);
+    expect(listing).toContain(`/guides/${guide.id}/`);
+    await page.goto(`/guides/${guide.id}/`);
+    await expect(page.getByRole('heading', { level: 1, name: guide.title })).toBeVisible();
+    await expect(page.locator('.article-hero img')).toBeVisible();
+    await expect(page.locator('.guide-technical-diagram img')).toHaveCount(1);
+    await expect(page.locator('.guide-technical-diagram img')).toHaveAttribute(
+      'src',
+      guide.diagram,
+    );
+    await expect(page.locator('.prose pre code').first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Sources & artifacts' })).toBeVisible();
   }
 });
