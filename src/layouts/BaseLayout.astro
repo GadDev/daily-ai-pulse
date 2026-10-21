@@ -167,7 +167,11 @@ const structuredData =
                 <path d="m2.5 4.5 3.5 3.5 3.5-3.5"></path>
               </svg>
             </a>
-            <a class:list={{ active: isActive(`${base}guides`) }} href={`${base}guides/`}>
+            <a
+              class:list={{ active: isActive(`${base}guides`) }}
+              href={`${base}guides/`}
+              aria-current={isActive(`${base}guides`) ? 'page' : undefined}
+            >
               <span class="nav-label">Guides</span>
             </a>
           </nav>
