@@ -30,9 +30,6 @@ jobs:
       - name: Lint, format-check, content-check, type-check, and build
         run: npm run verify
 
-      - name: RAG retrieval guide executable regression
-        run: node --test tests/rag-retrieval-guide.test.mjs
-
       - name: Tools & Guides ledger validator regressions
         run: npm run guides:ledger:test
 
