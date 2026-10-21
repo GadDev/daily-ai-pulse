@@ -82,7 +82,7 @@ The source heading and filename travel along with each excerpt, so the API can r
 
 ## 4. Implement the entire FastAPI application
 
-Create **\`app.py\`** with the following code. There are no hidden source files or library wrappers.
+Create **`app.py`** with the following code. There are no hidden source files or library wrappers.
 
 ~~~python
 """Local RAG teaching sample: fictional docs, lexical search, local Ollama."""
@@ -217,7 +217,7 @@ curl -sS http://127.0.0.1:8000/ask \
   -d '{"question":"How do we rollback failed deployment?"}'
 ~~~
 
-When Ollama is available and its answer contains a valid \`[1]\` reference, the JSON response has the following **illustrative shape**, not a recorded live-model output:
+When Ollama is available and its answer contains a valid `[1]` reference, the JSON response has the following **illustrative shape**, not a recorded live-model output:
 
 ~~~json
 {
@@ -226,11 +226,11 @@ When Ollama is available and its answer contains a valid \`[1]\` reference, the 
 }
 ~~~
 
-Ask about an unrelated topic, such as penguins orbiting planets: the API should abstain. Stop Ollama and ask about a rollback: the API should return \`503\`. The \`/health\` endpoint tests the HTTP application process, **not model availability**.
+Ask about an unrelated topic, such as penguins orbiting planets: the API should abstain. Stop Ollama and ask about a rollback: the API should return `503`. The `/health` endpoint tests the HTTP application process, **not model availability**.
 
 ## 6. Verify the logic without downloading a model
 
-You can run a short self-contained smoke check against the FastAPI application using a deterministic mocked answer. Install no test framework; Python's \`unittest.mock\` and the already installed HTTPX are sufficient:
+You can run a short self-contained smoke check against the FastAPI application using a deterministic mocked answer. Install no test framework; Python's `unittest.mock` and the already installed HTTPX are sufficient:
 
 ~~~bash
 python - <<'PY'
@@ -277,7 +277,7 @@ These checks exercise retrieval, API integration, citation rejection, and basic 
 
 For your first deployment, the loopback-only Uvicorn process above is enough to understand a running HTTP service.
 
-For local Docker packaging, a future exercise can containerize the same \`app.py\`, mount the \`knowledge/\` directory, and communicate with Ollama on a private network. Do not assume \`127.0.0.1\` inside a container points to Ollama running on the host—it points to that container. A working Docker setup also requires correct model storage, service networking, health checks, and pinned images. **Docker deployment has not been verified in this tutorial**, so no claim of a working production container is made.
+For local Docker packaging, a future exercise can containerize the same `app.py`, mount the `knowledge/` directory, and communicate with Ollama on a private network. Do not assume `127.0.0.1` inside a container points to Ollama running on the host—it points to that container. A working Docker setup also requires correct model storage, service networking, health checks, and pinned images. **Docker deployment has not been verified in this tutorial**, so no claim of a working production container is made.
 
 Running a model on your computer avoids a hosted-model API bill, but requires memory, storage and electricity. A publicly hosted deployment introduces infrastructure costs and security obligations; this example has **no authentication, authorization, rate limits, TLS termination, document permissions or production monitoring**. Never expose it directly to the public internet.
 
