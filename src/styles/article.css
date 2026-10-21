@@ -233,7 +233,10 @@
 :where(.article-shell) .prose .guide-technical-diagram figcaption {
   margin-top: 0.75rem;
   color: var(--muted);
-  font: 0.79rem/1.45 ui-sans-serif, system-ui, sans-serif;
+  font:
+    0.79rem/1.45 ui-sans-serif,
+    system-ui,
+    sans-serif;
 }
 :where(.article-shell) .prose pre {
   overflow: auto;
