@@ -63,7 +63,7 @@ New images or revisions cannot falsely claim compliance with the news-specific i
 - Record sources as metadata and cite relevant authoritative sources near technical claims. Date volatile claims and record exclusions/alternatives.
 - Code must be copyable, language-tagged, internally consistent and use synthetic data/placeholders. Never commit live API keys, personally identifying data or commercial tracking links.
 - Default to no new paid service or required external infrastructure. Clearly disclose any optional costs.
-- The guide stays invisible while `status: draft`, including after a draft PR is merged. A reviewer must separately approve and supply real publishing information before `status: published`.
+- The guide stays invisible while `status: draft`, including after a draft PR is merged. The maintainer must authorize publication separately and supply an actual publication date before `status: published`; a named reviewer field is optional and must never be invented.
 - Do not mark a draft or translation reviewed just to satisfy a validator. Guides remain English-only until a supported, independently reviewed French workflow exists.
 - If tools required to browse GitHub, run code, generate a binary illustration or create a PR are unavailable in the scheduled environment, stop at the applicable boundary and report the concrete blocker. Never claim that an automated handoff occurred when it did not.
 
