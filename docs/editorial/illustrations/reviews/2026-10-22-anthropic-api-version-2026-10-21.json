@@ -1,0 +1,164 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-22-anthropic-api-version-2026-10-21",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-22-anthropic-api-version-2026-10-21",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A major client SDK upgrade that also changes the network protocol contract",
+    "verified_context": [
+      "Anthropic released Claude API version 2026-10-21 together with new major SDK and CLI versions that send the new version by default.",
+      "The new API version rejects Messages requests that include temperature, top_p, or top_k and changes accepted content-block placement and several response fields.",
+      "The SDK majors also change authentication headers, typing, tool-runner compaction, and legacy client surfaces independently of the API version."
+    ],
+    "editorial_idea": "What looks like one package upgrade is actually two coupled interfaces being rebuilt at the same crossing.",
+    "visual_metaphor": "A substantial physical adapter bridge between two precision machine couplings, with one side being refitted while the other remains aligned.",
+    "archetype": "mechanical-physical-metaphor",
+    "output_crop": "wide",
+    "must_show": [
+      "one dominant adapter bridge",
+      "two visibly different precision couplings",
+      "a clear migration path across the bridge"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-22-anthropic-api-version-2026-10-21",
+    "story_source_sha256": "95b1198ce34ab599c689aff6507315a3a0008eecd6f913459c6f57109da6fa56",
+    "visual_brief_sha256": "dd6c69484faf60cbabfd14cee3b79111c4c7c27afc382146ead1881f6f4e0146",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "da4b56636f338e14cc03ecbc28510bc58ac4d3266638967517e85af53635160b"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant. The monumental bridge makes the adapter metaphor legible, but the construction workers add narrative detail and weaken the quiet artifact-study quality of the golden references.",
+    "B": "Selected. Two nested precision thresholds turn the apparently simple crossing into a second interface migration, with a single terracotta payload and strong central crop resilience.",
+    "C": "Constitution-compliant. The articulated joint clearly expresses coordinated migration, but the busier rail network and scaffolding reduce negative space at small sizes."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 92,
+    "composition": 93,
+    "crop_quality": 93,
+    "technical_meaning": 91,
+    "cleanliness": 97,
+    "golden_reference_fit": 91,
+    "weighted_total": 92.65
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 91,
+      "brand_fit": 88,
+      "composition": 90,
+      "crop_quality": 93,
+      "technical_meaning": 90,
+      "cleanliness": 86,
+      "golden_reference_fit": 86,
+      "weighted_total": 89.35
+    },
+    "B": {
+      "story_specific": 94,
+      "brand_fit": 92,
+      "composition": 93,
+      "crop_quality": 93,
+      "technical_meaning": 91,
+      "cleanliness": 97,
+      "golden_reference_fit": 91,
+      "weighted_total": 92.65
+    },
+    "C": {
+      "story_specific": 92,
+      "brand_fit": 91,
+      "composition": 92,
+      "crop_quality": 89,
+      "technical_meaning": 90,
+      "cleanliness": 94,
+      "golden_reference_fit": 90,
+      "weighted_total": 90.9
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "Both nested couplings, the bridge deck, and the terracotta payload remain legible in the 1200 by 430 center cover crop.",
+    "article_mobile": "The 359 by 240 center cover crop retains both interface thresholds and the payload without depending on peripheral detail.",
+    "thumbnail": "At 320 by 164, the terracotta payload and nested dark coupling remain a clean, distinct silhouette."
+  },
+  "golden_reference_comparison": "Candidate B matches the references' warm paper field, restrained stone and metal materiality, terracotta emphasis, deliberate arches, sparse physical metaphor, and clear thumbnail silhouette without copying their arrangements.",
+  "final_asset": "/images/stories/2026-10-22-anthropic-api-version-2026-10-21.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 195502,
+    "sha256": "200b3a5b33a6b983cdd3eddc4316350e1a3b6406b4b9813118623b74731a3dff",
+    "git_blob_sha": "ef6a87438dde7e88a23a3cd6b872f37c7fa39533",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-22T07:04:11Z"
+  }
+}

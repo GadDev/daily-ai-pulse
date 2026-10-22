@@ -1,0 +1,141 @@
+{
+  "editorial_date": "2026-10-22",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-22-anthropic-api-version-2026-10-21",
+      "decision": "selected",
+      "title": "Anthropic's new API version removes sampling controls and changes SDK authentication",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "api",
+        "sdk",
+        "cli",
+        "security"
+      ],
+      "entities": [
+        "Anthropic",
+        "Claude Platform",
+        "ant CLI"
+      ],
+      "event_date": "2026-10-21",
+      "source_publication_date": "2026-10-21",
+      "summary": "Anthropic released Claude API version 2026-10-21 and new major SDK and CLI versions that use it by default.",
+      "what_changed": "The new API version rejects Messages requests that include temperature, top_p, or top_k, tightens accepted content-block placement, renames several Admin and Analytics response fields, and ships with major SDK changes including bearer-token authentication and removal of legacy client surfaces.",
+      "why_it_matters": "A routine major SDK upgrade can change the API version sent by an application and therefore activate request-breaking behavior, proxy authentication changes, type changes, and removed helpers at once.",
+      "engineer_takeaway": "Audit request construction, proxy credential handling, tool-runner compaction, message typing, Admin API field parsing, and legacy Completions use before upgrading; test the new API version and the SDK major together.",
+      "prerequisites": [
+        "Claude Messages API",
+        "client SDK versioning"
+      ],
+      "primary_source_url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+      "sources": [
+        {
+          "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+          "canonical_url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+          "publisher": "Anthropic",
+          "source_type": "documentation",
+          "role": "primary",
+          "publication_date": "2026-10-21"
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "canonical_url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-10-21"
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/cli-sdks-libraries/overview",
+          "canonical_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/overview",
+          "publisher": "Anthropic",
+          "source_type": "documentation",
+          "role": "context",
+          "publication_date": "2026-10-21"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Anthropic's dated release notes and migration guide enumerate the API version, first compatible SDK majors, rejected request fields, renamed response fields, and client changes.",
+        "independent_validation": "No independent integration test is claimed; the story reports the vendor's published compatibility contract.",
+        "claim_scope": "The story covers documented interface and migration changes. It does not claim performance, reliability, or security improvements from the upgrade."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The new major SDKs change the API version automatically and combine wire-level breaking changes with authentication, typing, tool-runner, and legacy-surface changes."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 5,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 97
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The migration guide is sufficiently concrete for a focused briefing; no separate concept explainer is required."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://platform.claude.com/docs/en/api/migration-2026-10-21|Claude API version 2026-10-21|breaking API SDK and CLI migration",
+        "canonical_event": "Anthropic releases Claude API version 2026-10-21 and corresponding major SDK and CLI versions.",
+        "previous_coverage": null,
+        "material_delta": "No prior Pulse story covers this API version or its migration contract."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [
+    {
+      "id": "2026-10-22-nvidia-openshell-reference-architecture-repeat",
+      "decision": "rejected",
+      "title": "NVIDIA details its OpenShell reference architecture and Sentry runtime",
+      "reason": "The October 21 posts elaborate the same OpenShell and Sentry architecture published by Pulse on September 29; the implementation description does not establish an independently validated or deployable material delta beyond that coverage.",
+      "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform",
+      "source_url": "https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/"
+    },
+    {
+      "id": "2026-10-22-github-cli-expiring-oauth",
+      "decision": "rejected",
+      "title": "GitHub CLI previews expiring auto-refreshing OAuth tokens",
+      "reason": "This is a useful developer-security release, but it has no material AI or AI-engineering dimension for Daily AI Pulse.",
+      "source_url": "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens/"
+    },
+    {
+      "id": "2026-10-22-openai-agent-builder-deprecation-repeat",
+      "decision": "rejected",
+      "title": "OpenAI documentation reiterates the Agent Builder shutdown",
+      "reason": "The shutdown was announced on June 3, 2026; current documentation reiterates the November 30 deadline without a new dated technical delta.",
+      "source_url": "https://developers.openai.com/api/docs/deprecations"
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-22-anthropic-api-version-2026-10-21"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-22-anthropic-api-version-2026-10-21"
+  },
+  "editorial_opportunities": [
+    {
+      "format": "playbook",
+      "depth": "practitioner",
+      "title": "Test an AI SDK major as a protocol migration",
+      "reason": "The release shows why SDK-major upgrades need contract tests for API headers, proxy credentials, request fields, response parsing, and agent-loop helpers rather than only dependency compilation."
+    }
+  ]
+}
