@@ -9,6 +9,8 @@ This skill implements the **v2 practice revision** of `docs/editorial/TOOLS_AND_
 
 ## Workflow
 
+Apply the canonical **Editorial Voice v2** section of `TOOLS_AND_GUIDES_V1.md`: direct, approachable, independently skeptical and evidence-led. Choose the editorial genre before outlining; comparisons, investigative analysis and practical explainers share a voice, not a heading sequence. Templates are optional worksheets. Keep `format` within `tutorial`, `review`, `toolkit`; express genre in prose. Use a duplication matrix for an explicitly commissioned series, without changing the scheduled one-guide/one-PR limit.
+
 1. Inspect current GitHub `main`, **all existing Tools & Guides ledgers**, open guide/ledger-only PRs (including their unmerged ledger changes), published and unpublished guides, especially the already-published first RAG deployment and retrieval-evaluation tutorials. Do not assume only merged documents exist; never invent a branch or assume old snapshots are current.
 2. Find a meaningful evergreen engineering question. Deduplicate by stable `topic_key` and by **reader problem, intended outcome, audience and scope**, not merely matching titles. Record selected/watch/rejected/duplicate/material-update decisions with reasons and actual related guide/PR identifiers. Prefer existing work and substantive updates over near-duplicates. No mandatory quota.
 3. Collect verified primary sources and an editorial evidence table: claim, reference URL, observed date, verified or unverified, implications. Ensure source links exist and directly support claims.

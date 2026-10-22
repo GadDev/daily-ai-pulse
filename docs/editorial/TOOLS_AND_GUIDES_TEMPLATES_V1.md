@@ -4,6 +4,8 @@
 
 ## Common preflight checklist
 
+- [ ] Read [Editorial Voice v2](TOOLS_AND_GUIDES_V1.md#editorial-voice-v2). Choose the editorial genre before outlining; these worksheets are optional prompts, not mandatory headings or a shared article formula.
+- [ ] For a series, record distinct questions and owned explanations in a duplication matrix. Introductions and endings cannot be swapped between pieces without changing their meaning.
 - [ ] Audience, reader problem and objective are specific.
 - [ ] Accurate title, identified author/publisher, actual draft/publication dates and last-verification dates; a named reviewer is optional.
 - [ ] Product versions, sources, test conditions and uncertainty are recorded.
@@ -136,7 +138,9 @@
 [Source URLs, changes and future review trigger.]
 ```
 
-## 4. Later: controlled comparison
+## 4. Comparative review
+
+Use `format: review`. A researched comparison may compare documented workflows using declared criteria; call it a documentation-based comparison and leave outcomes unmeasured. A controlled experiment additionally needs comparable tasks, versions, plans, prompts, repetitions, environments and raw observations. Do not turn missing observations into scores.
 
 ```md
 # [Product A] vs [Product B] for [task]
@@ -190,6 +194,14 @@
 ## Sources and update history
 [Publisher/course documentation and review evidence.]
 ```
+
+## 6. Investigative industry analysis worksheet
+
+Use `format: review`, and identify the genre in the article body. Begin with a fair question or contradiction; trace terminology and historical primary artifacts; separate architectural change from branding; examine commercial incentives and credible counterarguments. Attribute claims of being first rather than asserting an inventor without evidence. Close with an evidence-supported judgment and the evidence that could change it. No compulsory product table, verdict-first opening or identical headings to a comparison.
+
+## 7. Practical technical explainer worksheet
+
+Use `format: review` when it best fits the current schema. Begin with a misconception or concrete task, build a mental model, and carry one example through the explanation. Distinguish human responsibility, agent actions and tools. Use a rendered accessible diagram where relationships need it, with prose explaining its limits. Finish with practical criteria; avoid rankings and repeated vendor histories.
 
 ## Editor release checklist
 

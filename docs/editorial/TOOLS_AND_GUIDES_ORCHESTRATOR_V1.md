@@ -1,7 +1,7 @@
 # Tools & Guides — Editorial Orchestrator v1
 
 **Status:** Canonical contract for the independent scheduled evergreen workflow.  
-**Practice revision:** v2 (2026-10-22, following publication of the first two RAG tutorials). The `_V1.md` filename stays unchanged because the scheduled task reads this path from `main`; this is not a new scheduler or a parallel contract.  
+**Practice revision:** v2 (2026-10-22, following publication of the first two RAG tutorials). The `_V1.md` filename stays unchanged because the scheduled task reads this path from `main`; this is not a new scheduler or a parallel contract.
 **Repository:** `GadDev/daily-ai-pulse`  
 **Trigger:** Separate ChatGPT scheduled task, **Tuesday and Friday mornings, Europe/Luxembourg**. Scheduling is configured outside this repository. This document does not enable GitHub Actions scheduling.
 
@@ -41,6 +41,8 @@ Repository contracts win over this task's remembered assumptions. Code, publicat
 - **The first two tutorials are already published:** compare new proposals with both `first-rag-application` and `rag-retrieval-evaluation`, their merged ledger and any active guide PRs. Prefer a different reader outcome or a substantive update over another near-duplicate RAG introduction.
 
 ## One scheduled execution
+
+Apply [Editorial Voice v2 and genre guidance](TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) before outlining. Editorial voice is shared; article structure follows its question and genre. Templates are optional worksheets, not repeated headings. Preserve the implemented `tutorial`, `review`, `toolkit` values. For an explicitly commissioned series, record a duplication matrix; the ordinary scheduled one-guide/one-PR limits below remain unchanged.
 
 1. **Discover the actual state.** Confirm the Europe/Luxembourg editorial date, latest main, open guide PRs and existing published/draft/withdrawn guides. Read all merged evergreen ledgers and ledger files in open or unmerged guide PRs before proposing a topic. Check PRs including unfinished work before proposing another article. Resume/review existing unfinished guide work when that is more useful than opening a competing PR.
 2. **Select one substantive opportunity.** Prefer a practical reader problem with durable value and enough trustworthy supporting material. Compare stable topic keys **and** reader problem, intended outcome, audience and scope against historical ledgers, all published/draft/withdrawn guides, and currently open PRs. Mark selected/watch/rejected/duplicate/material-update decisions with reasons. Similar headings alone do not mean duplication; material updates require a concrete delta. Consider relevance, testability, maintenance, security/privacy and realistically achievable cost. A timely product launch alone is not a sufficient evergreen topic.

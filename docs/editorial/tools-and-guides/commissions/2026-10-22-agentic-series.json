@@ -1,0 +1,76 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-22",
+  "authorization": "Maintainer approved Editorial Voice v2 and continuation with the commissioned four article drafts in conversation.",
+  "scheduled_run": false,
+  "state": "publication-prepared",
+  "publication_authorized": true,
+  "review_record": "docs/editorial/tools-and-guides/reviews/agentic-series-2026-10-22.md",
+  "pr_number": 199,
+  "guides": [
+    {
+      "topic_key": "ai-coding-assistants-compared",
+      "decision": "draft-prepared",
+      "genre": "comparative-technical-review",
+      "reader_outcome": "Choose candidate assistance tools by developer workflow and plan a comparable task pilot.",
+      "reason": "Commissioned; distinct from runtime/environment selection and existing RAG tutorials."
+    },
+    {
+      "topic_key": "agentic-development-environments-compared",
+      "decision": "draft-prepared",
+      "genre": "comparative-technical-review",
+      "reader_outcome": "Choose a delegated execution operating model by controls, recovery and evidence.",
+      "reason": "Commissioned; compares environments rather than ordinary assistance or category history."
+    },
+    {
+      "topic_key": "ade-real-shift-or-rebranding",
+      "decision": "draft-prepared",
+      "genre": "investigative-industry-analysis",
+      "reader_outcome": "Assess which category claims are supported and what remains unclear.",
+      "reason": "Commissioned; an argument through dated artifacts and counterevidence, not another buying guide."
+    },
+    {
+      "topic_key": "ide-vs-ade-workflows",
+      "decision": "draft-prepared",
+      "genre": "practical-technical-explainer",
+      "reader_outcome": "Understand how responsibility changes across three workflows for one API endpoint.",
+      "reason": "Commissioned; teaching scope and responsibility, not product ranking."
+    }
+  ],
+  "deduplication": [
+    {
+      "guide_id": "first-rag-application",
+      "decision": "already-covered-different-outcome",
+      "reason": "Published local RAG deployment tutorial; not part of this series."
+    },
+    {
+      "guide_id": "rag-retrieval-evaluation",
+      "decision": "already-covered-different-outcome",
+      "reason": "Published retrieval-measurement tutorial; not duplicated."
+    }
+  ],
+  "excluded_or_deferred": [
+    {
+      "item": "Universal assistant or ADE performance ranking",
+      "reason": "No controlled product sessions or comparable outcome measurements."
+    },
+    {
+      "item": "Earliest inventor of the ADE term",
+      "reason": "A dated vendor use is established; exhaustive priority is not."
+    },
+    {
+      "item": "Antigravity in the environment-control shortlist",
+      "reason": "Relevant CLI/account migration covered in assistant comparison; equivalent environment evidence was not assembled."
+    },
+    {
+      "item": "Four selected candidates in a scheduled daily ledger",
+      "reason": "This authorized manual batch is recorded here, leaving the existing one-selection scheduled contract intact."
+    }
+  ],
+  "publication_authorization": {
+    "quote": "I authorize the publication",
+    "authorized_at": "2026-10-22",
+    "scope": "All four commissioned guides; publication metadata included in PR #197."
+  },
+  "publication_pr_number": 197
+}

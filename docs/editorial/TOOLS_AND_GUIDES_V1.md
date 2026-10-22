@@ -6,7 +6,50 @@
 
 **Tools & Guides** complements Daily AI Pulse's daily reporting with practical, durable resources for software and AI engineers. News explains what changed; evergreen content helps readers decide what to build, test, or adopt. Editorial value precedes monetization.
 
-Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comparisons and books/courses may use the templates below later; avoid introducing dedicated page types before demand is demonstrated. Do not add a ninth news desk. Preserve existing voice, visual constitution, accessibility and English/French review controls.
+Use **tutorials**, **technical reviews**, and **curated toolkits** as the implemented formats. Comparisons, investigations and explainers are editorial genres within these formats, not additional page types. Do not add a ninth news desk. Preserve the visual constitution, accessibility and English/French review controls.
+
+## Editorial Voice v2
+
+**Revision:** v2, prepared 2026-10-22; takes effect for new Tools & Guides drafts after human merge. This section owns evergreen voice; templates provide optional worksheets and the orchestrator applies these rules. Existing published articles are not silently rewritten.
+
+Write as a technically literate, independent editor talking to a curious developer. Be direct, approachable and skeptical of corporate claims. Explain an unfamiliar term when the reader first needs it, then show its consequence through a concrete engineering decision. Develop an original Daily AI Pulse voice; do not imitate a named journalist's wording, persona or recurring devices.
+
+Start with a real problem, question or contradiction. Ask what changes, what evidence supports it, who controls execution, how failure is recovered and who benefits commercially. Skepticism must examine an identifiable claim, not turn every paragraph into a sneer. Give counterarguments their strongest fair reading; reach a position only as strong as the evidence permits.
+
+Keep six evidence categories distinguishable in context: verified facts, our tested observations, attributed vendor claims, independent reporting, editorial interpretation and unresolved questions. A working definition is our analytical tool, not an industry standard. Reading documentation is not product testing. A benchmark is not proof of everyday productivity.
+
+Use short, connected paragraphs, concrete examples and purposeful transitions. Tables compare; diagrams explain relationships; lists collect genuinely parallel items. Humor may clarify a technical point. Avoid generic AI openings, unearned superlatives, rhetorical question barrages, fake experience and conclusions that merely repeat the introduction. Clarity takes priority over sounding provocative.
+
+### One identity, different genres
+
+| Editorial genre | Narrative and reader outcome | Evidence and ending |
+| --- | --- | --- |
+| Comparative technical review | Open with a developer decision; establish selection and evaluation criteria before comparing workflows. | Separate documented capability from measured performance. End with scenario-specific choices and conditions that would change them; no fabricated universal winner. |
+| Investigative industry analysis | Follow a fair question through history, competing definitions, architecture and commercial incentives. | Attribute origin/first claims; seek counterevidence. End with a reasoned judgment and what remains unproven, rather than a product ranking. |
+| Practical technical explainer | Resolve a misconception progressively through one sustained example. | Verify mechanisms and diagrams. End with a usable decision rule, rather than a buying guide. |
+| Engineering tutorial | Teach a specific outcome through explanation and proportionate, copyable steps. | Distinguish expected from executed results; explain failure recovery and verification limits. |
+| Curated toolkit | Select resources around a declared reader problem. | Explain inclusion, exclusion, provenance and trade-offs; disclose commercial interests. |
+
+The Astro values remain `tutorial`, `review`, `toolkit`. Comparisons, investigative analysis and practical explainers can use `format: review`; name the editorial genre in the body. No schema expansion is needed for a different narrative.
+
+For a related series, create a duplication matrix before drafting: question, audience, owned explanation, excluded material and intended cross-links. Each introduction, section sequence and conclusion must fit that article. Cross-link a deep explanation instead of repeating it. Before submission, challenge whether openings could be swapped, whether claims outrun their evidence, and whether an experienced developer learns anything beyond a feature list.
+
+### Before and after
+
+These are invented editing examples, not product findings, quotations or article excerpts.
+
+| Weak draft | Voice v2 edit | Editorial reason |
+| --- | --- | --- |
+| Agentic environments are revolutionizing software engineering. | An agent can edit your code and run commands. Before delegating a task, decide which files, credentials and network destinations it may reach. | Replace a grand claim with a mechanism and a decision. |
+| Tool A is the best assistant for every developer. | If you need suggestions inside your current editor, start there. If you need an agent to finish a repository task, evaluate its execution and review controls separately. | Make the recommendation conditional; a real comparison must supply evidence for each product. |
+| We tested the sandbox and found it secure. | The documentation describes a sandbox. We did not test whether the boundary holds against malicious repository content. | Match confidence to the evidence actually obtained. |
+| IDEs are dead. ADEs are the future. | The editor may stay. What changes is who chooses and executes the next action, and who reviews the result. | Explain responsibility without inventing a technological replacement. |
+
+### Evidence and editorial self-review
+
+For significant claims, retain a reviewable matrix with **claim, source URL, evidence type, date checked, product/version/plan and limitations**. Record an unpinned live document as such; never substitute the date checked for a tested release number. Set comparison criteria before conclusions. Investigations must examine counterarguments and incentives; explainers must validate mechanisms and diagram relationships. Research breadth should follow the question, without a claim of exhaustive coverage.
+
+Review each article individually for software correctness, agent execution/permission behavior, reporting fairness, comparison methodology and narrative quality. Then review the series for overlap. Record substantive issues and revisions, unresolved questions and publication blockers. Report findings, not private reasoning transcripts. No fabricated interviews, quotations, testing, prices or personal experience.
 
 ## Scope and source of truth
 
@@ -21,9 +64,9 @@ Launch with **tutorials**, **technical reviews**, and **curated toolkits**. Comp
 | Type | Reader problem | Required evidence |
 | --- | --- | --- |
 | Tutorial | How can I make something work? | Runnable steps, prerequisites, expected outputs, validation details and limitations |
-| Technical review | Is this product appropriate for my use case? | Product/version, methodology, strengths, weaknesses and sources |
+| Review (including comparisons, analysis and explainers) | What should I choose or understand about this engineering question? | Declared genre and scope, relevant versions, methodology, sourced mechanisms or claims, limitations and justified conclusions |
 | Toolkit | Which tools/resources should I consider? | Selection/exclusion criteria, researched or hands-on labels on each item, trade-offs |
-| Comparison (later) | How do options perform on the same task? | Common workload, controlled environment, explicit comparability limits |
+| Comparison (review genre) | Which option fits a particular workflow? | Declared criteria; documented capability or controlled workload clearly identified, with explicit comparability limits |
 | Book/course review (later) | Is a learning resource worth my time? | Materials actually examined, edition/access, prerequisite fit, limitations |
 
 ## Visuals and instructional materials

@@ -150,6 +150,8 @@ The central editorial question remains:
 
 ## Evergreen Tools & Guides
 
+Tools & Guides uses the [Editorial Voice v2 and genre guidance](editorial/TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) in its existing evergreen contract. A shared voice does not require shared headings: comparisons, investigations and explainers should tell different stories. The news checklist above remains a set of reporting questions, not a compulsory evergreen outline.
+
 The **Tools & Guides** section extends these evidence-first and editorial-independence principles to tutorials, technical reviews and curated toolkits. Its [editorial foundation](editorial/TOOLS_AND_GUIDES_V1.md) specifies firsthand versus researched evidence, commercial disclosures, freshness and human review. Use the [authoring templates](editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) for draft outlines.
 
 The implementation provides a separate Astro collection and English-only `/guides/` routes, but does not change the existing news categories, news story schema or daily editorial automation. Real tutorials and reviews require separate human-reviewed content PRs. The independent [evergreen orchestrator contract](editorial/TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md) governs research, tutorials with code and diagrams, constitution-compliant cover art, and no-merge draft PR handoff; the daily news workflow is unchanged.
