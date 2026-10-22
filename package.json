@@ -8,16 +8,16 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "check": "astro check",
-    "content:check": "node scripts/validate-content.mjs",
-    "guides:assets:test": "node --test tests/guide-assets.test.mjs",
-    "guides:ledger:check": "node scripts/validate-tools-guides-ledgers.mjs",
-    "guides:ledger:test": "node --test tests/tools-guides-ledger.test.mjs",
-    "translations:check": "node scripts/validate-translations.mjs",
-    "translations:test": "node --test tests/translations.test.mjs",
-    "editorial:check": "node scripts/validate-editorial-batch.mjs",
-    "illustration:check": "node scripts/validate-illustration-batch.mjs",
-    "illustration:decision": "node scripts/resolve-illustration-generation.mjs",
+    "check": "npm run typecheck:tooling && astro check",
+    "content:check": "node scripts/validate-content.ts",
+    "guides:assets:test": "node --test tests/guide-assets.test.ts",
+    "guides:ledger:check": "node scripts/validate-tools-guides-ledgers.ts",
+    "guides:ledger:test": "node --test tests/tools-guides-ledger.test.ts",
+    "translations:check": "node scripts/validate-translations.ts",
+    "translations:test": "node --test tests/translations.test.ts",
+    "editorial:check": "node scripts/validate-editorial-batch.ts",
+    "illustration:check": "node scripts/validate-illustration-batch.ts",
+    "illustration:decision": "node scripts/resolve-illustration-generation.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -27,9 +27,11 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "preview": "astro preview",
-    "translations:pages:test": "node --test tests/french-pages.test.mjs",
-    "translations:batch": "node scripts/translation-batch.mjs",
-    "translations:batch:test": "node --test tests/translation-batch.test.mjs"
+    "translations:pages:test": "node --test tests/french-pages.test.ts",
+    "translations:batch": "node scripts/translation-batch.ts",
+    "translations:batch:test": "node --test tests/translation-batch.test.ts",
+    "typecheck:tooling": "tsc -p tsconfig.tooling.json",
+    "test": "node --test tests/*.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
@@ -42,9 +44,12 @@
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.0",
+    "@types/node": "22.20.5",
     "eslint": "10.12.0",
+    "jiti": "2.7.0",
     "pagefind": "1.5.2",
     "prettier": "3.9.9",
-    "prettier-plugin-astro": "1.1.1"
+    "prettier-plugin-astro": "1.1.1",
+    "typescript-eslint": "8.72.0"
   }
 }

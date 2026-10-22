@@ -1059,7 +1059,7 @@ This document defines behavior.
 The canonical implementation SHOULD live in one reusable module:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 The generation skill and validator MUST use the same implementation.

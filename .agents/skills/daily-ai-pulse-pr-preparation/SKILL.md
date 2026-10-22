@@ -93,9 +93,9 @@ of:
 - `docs/CONTENT_MODEL.md`
 - `docs/DAILY_ISSUE.md`
 - `src/content.config.ts`
-- `scripts/validate-content.mjs`
-- `scripts/validate-editorial-batch.mjs`
-- `scripts/validate-illustration-batch.mjs`
+- `scripts/validate-content.ts`
+- `scripts/validate-editorial-batch.ts`
+- `scripts/validate-illustration-batch.ts`
 - `.github/workflows/ci.yml`
 
 For illustration work, invoke:

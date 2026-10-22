@@ -6,7 +6,7 @@ import { join, resolve } from 'node:path';
 import process from 'node:process';
 import test from 'node:test';
 
-const script = resolve('scripts/build-illustration-contact-sheet.mjs');
+const script = resolve('scripts/build-illustration-contact-sheet.ts');
 const references = [
   resolve('public/images/stories/2026-09-28-openai-dns-sandbox.webp'),
   resolve('public/images/stories/2026-09-28-deepmind-agent-swarm.webp'),
@@ -15,7 +15,7 @@ const references = [
 test('comparison sheet renders local references and rejects undecodable artwork', () => {
   const fixture = mkdtempSync(join(tmpdir(), 'pulse-contact-sheet-'));
   try {
-    const render = (candidate, output) =>
+    const render = (candidate: string, output: string) =>
       spawnSync(
         process.execPath,
         [

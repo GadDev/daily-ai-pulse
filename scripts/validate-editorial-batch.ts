@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { URL } from 'node:url';
+import type { EditorialCandidate, EditorialLedger } from './lib/editorial-types.ts';
 
 const root = process.cwd();
 const storiesDir = join(root, 'src/content/stories');
@@ -9,27 +10,27 @@ const ledgersDir = join(root, 'docs/editorial/ledgers');
 const topicsFile = join(root, 'docs/editorial/TOPICS_V1.yml');
 const publicDir = join(root, 'public');
 
-const errors = [];
-const warnings = [];
+const errors: string[] = [];
+const warnings: string[] = [];
 
-function fail(message) {
+function fail(message: string) {
   errors.push(message);
 }
 
-function warn(message) {
+function warn(message: string) {
   warnings.push(message);
 }
 
-function readJson(path) {
+function readJson(path: string): EditorialLedger | null {
   try {
     return JSON.parse(readFileSync(path, 'utf8'));
   } catch (error) {
-    fail(`${path}: invalid JSON (${error.message})`);
+    fail(`${path}: invalid JSON (${error instanceof Error ? error.message : String(error)})`);
     return null;
   }
 }
 
-function canonicalUrl(value) {
+function canonicalUrl(value: string) {
   try {
     const url = new URL(value);
     const removable = [];
@@ -54,17 +55,17 @@ function canonicalUrl(value) {
   }
 }
 
-function frontmatter(content) {
+function frontmatter(content: string) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   return match?.[1] ?? '';
 }
 
-function scalar(fm, key) {
+function scalar(fm: string, key: string) {
   const match = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
   return match?.[1]?.trim() ?? null;
 }
 
-function inlineArray(fm, key) {
+function inlineArray(fm: string, key: string) {
   const match = fm.match(new RegExp(`^${key}:\\s*\\[([^\\]]*)\\]\\s*$`, 'm'));
   if (!match) return null;
   return match[1]
@@ -73,7 +74,7 @@ function inlineArray(fm, key) {
     .filter(Boolean);
 }
 
-function blockArray(fm, key) {
+function blockArray(fm: string, key: string) {
   const lines = fm.split('\n');
   const start = lines.findIndex((line) => new RegExp(`^${key}:\\s*$`).test(line));
   if (start === -1) return null;
@@ -87,17 +88,17 @@ function blockArray(fm, key) {
   return result;
 }
 
-function arrayField(fm, key) {
+function arrayField(fm: string, key: string) {
   return inlineArray(fm, key) ?? blockArray(fm, key) ?? [];
 }
 
-function sourceUrls(fm) {
+function sourceUrls(fm: string) {
   return [...fm.matchAll(/^\s+url:\s*["']?(https?:\/\/[^"'\s]+)["']?\s*$/gm)].map(
     (match) => match[1],
   );
 }
 
-function storyPath(id) {
+function storyPath(id: string) {
   const md = join(storiesDir, `${id}.md`);
   const mdx = join(storiesDir, `${id}.mdx`);
   if (existsSync(md)) return md;
@@ -105,7 +106,7 @@ function storyPath(id) {
   return null;
 }
 
-function storyIdsForDate(editorialDate) {
+function storyIdsForDate(editorialDate: string) {
   if (!existsSync(storiesDir)) return [];
 
   return readdirSync(storiesDir)
@@ -121,12 +122,12 @@ function latestLedger() {
   const names = readdirSync(ledgersDir)
     .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
     .sort();
-  return names.length ? join(ledgersDir, names.at(-1)) : null;
+  return names.length ? join(ledgersDir, names.at(-1)!) : null;
 }
 
-function collectLedgerRecords(ledger) {
-  const records = [];
-  for (const key of ['candidates', 'watchlist', 'exclusions']) {
+function collectLedgerRecords(ledger: EditorialLedger) {
+  const records: (EditorialCandidate & { __bucket: string })[] = [];
+  for (const key of ['candidates', 'watchlist', 'exclusions'] as const) {
     const list = ledger?.[key];
     if (list == null) continue;
     if (!Array.isArray(list)) {
@@ -141,16 +142,16 @@ function collectLedgerRecords(ledger) {
 function topicVocabulary() {
   if (!existsSync(topicsFile)) {
     fail('TOPICS_V1.yml is missing');
-    return new Set();
+    return new Set<string>();
   }
   const text = readFileSync(topicsFile, 'utf8');
-  const topics = new Set();
+  const topics = new Set<string>();
   for (const match of text.matchAll(/^  ([a-z0-9-]+):\s*$/gm)) topics.add(match[1]);
   return topics;
 }
 
-function priorSourceIndex(currentStoryIds, editorialDate) {
-  const index = new Map();
+function priorSourceIndex(currentStoryIds: Set<string>, editorialDate: string) {
+  const index = new Map<string, string[]>();
   if (!existsSync(storiesDir)) return index;
   for (const name of readdirSync(storiesDir).filter((entry) => /\.mdx?$/.test(entry))) {
     const id = name.replace(/\.mdx?$/, '');
@@ -314,11 +315,11 @@ for (const id of publishedStoryIds) {
   const tags = arrayField(fm, 'tags');
   const urls = sourceUrls(fm);
 
-  if (!categoryValues.has(category)) fail(`${id}: invalid category: ${category}`);
-  if (!typeValues.has(type)) fail(`${id}: invalid type: ${type}`);
-  if (!difficultyValues.has(difficulty)) fail(`${id}: invalid difficulty: ${difficulty}`);
-  if (!signalValues.has(signal)) fail(`${id}: invalid signal: ${signal}`);
-  if (!evidenceValues.has(evidence)) fail(`${id}: invalid evidence: ${evidence}`);
+  if (!categoryValues.has(category ?? '')) fail(`${id}: invalid category: ${category}`);
+  if (!typeValues.has(type ?? '')) fail(`${id}: invalid type: ${type}`);
+  if (!difficultyValues.has(difficulty ?? '')) fail(`${id}: invalid difficulty: ${difficulty}`);
+  if (!signalValues.has(signal ?? '')) fail(`${id}: invalid signal: ${signal}`);
+  if (!evidenceValues.has(evidence ?? '')) fail(`${id}: invalid evidence: ${evidence}`);
   if (urls.length === 0) fail(`${id}: no source URLs in frontmatter`);
 
   for (const tag of tags) {
@@ -361,7 +362,7 @@ for (const id of publishedStoryIds) {
     const hasPreviousCoverage = Boolean(candidate?.deduplication?.previous_coverage);
     const hasMaterialDelta = Boolean(candidate?.deduplication?.material_delta);
     const allowedMaterialUpdate =
-      ['material-update', 'material-update-confirmed'].includes(dedupStatus) &&
+      ['material-update', 'material-update-confirmed'].includes(dedupStatus ?? '') &&
       hasPreviousCoverage &&
       hasMaterialDelta;
 

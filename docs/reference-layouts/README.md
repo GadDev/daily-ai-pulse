@@ -1,6 +1,6 @@
 # The Daily AI Pulse — editorial layout references
 
-These **standalone, responsive HTML references** propose the next layout direction. Open [`index.html`](index.html) in a browser, or serve the repository root and visit `/docs/reference-layouts/` (for example, run `python3 -m http.server 8000` from the repository root). Run `node docs/reference-layouts/validate.mjs` from the repository root to check page rendering, headings, local links, and assets. The dark switcher at the bottom moves among page types; it is a design-review control and is not part of the publication.
+These **standalone, responsive HTML references** propose the next layout direction. Open [`index.html`](index.html) in a browser, or serve the repository root and visit `/docs/reference-layouts/` (for example, run `python3 -m http.server 8000` from the repository root). Run `node docs/reference-layouts/validate.ts` from the repository root to check page rendering, headings, local links, and assets. The dark switcher at the bottom moves among page types; it is a design-review control and is not part of the publication.
 
 The [visual concept gallery](IMAGE_GALLERY.md) has one image for each page type and the component sheet. These generated images help review hierarchy and mood; the HTML references and this guide define the actual layout and copy. Some words, dates, counts, links, and claims inside generated images differ from the real content. Do not use image text as publication content or treat the images as screenshots of the HTML.
 

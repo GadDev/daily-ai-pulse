@@ -10,12 +10,14 @@ The Daily AI Pulse is a static-first AI engineering publication built with Astro
 
 ```bash
 npm run dev              # Astro dev server
-npm run check             # astro check (TypeScript/content types)
+npm run check             # strict tooling TypeScript check + astro check
 npm run lint              # eslint .
 npm run lint:fix
 npm run format             # prettier --write .
 npm run format:check
-npm run content:check      # node scripts/validate-content.mjs
+npm run content:check      # node scripts/validate-content.ts
+npm run typecheck:tooling   # scripts, tests and Node-loaded configs
+npm test                    # all Node regression tests (requires Playwright Chromium)
 npm run translations:check # validate translation relationships and freshness
 npm run translations:test  # content and freshness regressions
 npm run translations:pages:test # isolated EN/FR publication visibility fixture build
@@ -31,6 +33,8 @@ npm run test:e2e:ui
 To run a single Playwright spec: `npx playwright test tests/e2e/smoke.spec.ts`.
 
 The `editorial:check` and `illustration:check` scripts skip (not fail) when no dated ledger exists for the batch being validated — they require an explicit `docs/editorial/ledgers/YYYY-MM-DD.json` path.
+
+Scripts and Node tests run directly as TypeScript using Node’s native type stripping; no build step or loader is needed. Keep imports explicit (`.ts`) and use erasable syntax. ESLint loads its TypeScript config through the pinned `jiti` development dependency. `npm run typecheck:tooling` checks the scripts, tests and tooling configs separately from Astro.
 
 Node version is pinned via `.nvmrc`/`package.json` engines (`>=22.22.3 <23`); run `nvm use` before installing.
 

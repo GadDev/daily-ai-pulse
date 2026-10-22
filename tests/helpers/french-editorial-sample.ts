@@ -27,7 +27,7 @@ export const addedCorrection = {
   },
 };
 
-export function editorialBody(locale, { updated = false } = {}) {
+export function editorialBody(locale: 'en' | 'fr', { updated = false } = {}) {
   const code = updated ? editorialCode.replace('retries: 2', 'retries: 3') : editorialCode;
   const command = updated ? editorialCommand.replace(', 2)', ', 3)') : editorialCommand;
   return locale === 'en'

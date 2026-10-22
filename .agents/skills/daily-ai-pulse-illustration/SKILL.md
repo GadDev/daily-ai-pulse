@@ -53,13 +53,13 @@ npm run illustration:decision
 implemented by:
 
 ```text
-scripts/resolve-illustration-generation.mjs
+scripts/resolve-illustration-generation.ts
 ```
 
 The decision CLI delegates Generation Identity V1 calculations to:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 The illustration skill MUST NOT maintain a second reuse algorithm.
@@ -456,7 +456,7 @@ Generation Identity V1 object that must be persisted with the new review.
 Use:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 and:
@@ -702,7 +702,7 @@ candidates**.
 Run:
 
 ```bash
-node scripts/build-illustration-contact-sheet.mjs \
+node scripts/build-illustration-contact-sheet.ts \
   --story <story-id> \
   --out /tmp/<story-id>-contact-sheet.png \
   --reference <golden-reference-1> \

@@ -37,7 +37,7 @@ jobs:
         id: request
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/automatic-preview.mjs resolve
+        run: node scripts/automatic-preview.ts resolve
 
   deploy:
     name: Deploy validated CI preview
@@ -94,7 +94,7 @@ jobs:
       - name: Recheck eligibility, artifact provenance, and trusted config
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/automatic-preview.mjs verify
+        run: node scripts/automatic-preview.ts verify
       - name: Authenticate using preview WIF
         uses: google-github-actions/auth@v3
         with:
@@ -105,7 +105,7 @@ jobs:
       - name: Recheck immediately before publishing
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/automatic-preview.mjs verify
+        run: node scripts/automatic-preview.ts verify
 
       - name: Deploy temporary preview channel
         id: publish

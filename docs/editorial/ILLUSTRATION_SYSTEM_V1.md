@@ -65,7 +65,7 @@ Generation Identity V1 decides **whether that exact generation has already been 
 The scheduler does not calculate generation identity. The illustration workflow and deterministic validator use the canonical repository implementation:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 ## Canonical visual direction
@@ -282,7 +282,7 @@ Generation identity includes:
 Use the canonical implementation:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 The generation identity MUST be computed from the same inputs that will be used for generation.
@@ -516,7 +516,7 @@ NEW CANDIDATES
 Use:
 
 ```bash
-node scripts/build-illustration-contact-sheet.mjs \
+node scripts/build-illustration-contact-sheet.ts \
   --story <story-id> \
   --out /tmp/<story-id>-contact-sheet.png \
   --reference <golden-reference-1> \
@@ -848,7 +848,7 @@ Validation fails when:
 The validator independently computes these values using:
 
 ```text
-scripts/lib/illustration-generation-identity.mjs
+scripts/lib/illustration-generation-identity.ts
 ```
 
 The generation workflow and validator MUST NOT maintain separate implementations of the generation-key algorithm.

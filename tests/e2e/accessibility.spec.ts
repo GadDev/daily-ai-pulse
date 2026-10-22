@@ -1,4 +1,4 @@
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 const routes = ['', 'pulse/2026-09-28/', 'stories/2026-09-28-openai-dns-sandbox/', 'search/'];

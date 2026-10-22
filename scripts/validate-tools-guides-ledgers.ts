@@ -9,16 +9,17 @@ const STATUSES = new Set(['draft-pr', 'ledger-only', 'blocked']);
 const KEY = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
-const hasText = (value) => typeof value === 'string' && value.trim().length > 0;
-const isKey = (value) => typeof value === 'string' && KEY.test(value);
-const realDate = (value) =>
+const isObject = (value: unknown): value is Record<string, unknown> =>
+  value !== null && typeof value === 'object' && !Array.isArray(value);
+const hasText = (value: unknown) => typeof value === 'string' && value.trim().length > 0;
+const isKey = (value: unknown): value is string => typeof value === 'string' && KEY.test(value);
+const realDate = (value: unknown) =>
   typeof value === 'string' &&
   DATE.test(value) &&
   !Number.isNaN(Date.parse(value)) &&
   new Date(value).toISOString().slice(0, 10) === value;
 
-function isSourceUrl(value) {
+function isSourceUrl(value: unknown) {
   if (typeof value !== 'string') return false;
   try {
     const url = new URL(value);
@@ -38,16 +39,16 @@ function isSourceUrl(value) {
  * Validate one run's recorded editorial decisions.
  * Returns diagnostic messages instead of exiting, to enable isolated tests.
  */
-export function validateGuideLedger(ledger, filename) {
-  const errors = [];
-  const fail = (field, reason) => errors.push(`${filename}: ${field}: ${reason}`);
+export function validateGuideLedger(ledger: unknown, filename: string) {
+  const errors: string[] = [];
+  const fail = (field: string, reason: string) => errors.push(`${filename}: ${field}: ${reason}`);
   const expectedDate = basename(filename, '.json');
 
   if (!isObject(ledger)) return [`${filename}: ledger must be an object`];
   if (ledger.schema_version !== '1.0') fail('schema_version', 'must be 1.0');
   if (!realDate(ledger.editorial_date) || ledger.editorial_date !== expectedDate)
     fail('editorial_date', 'must be a real date matching YYYY-MM-DD.json');
-  if (!STATUSES.has(ledger.run_status))
+  if (!STATUSES.has(typeof ledger.run_status === 'string' ? ledger.run_status : ''))
     fail('run_status', 'must be draft-pr, ledger-only, or blocked');
   if (!hasText(ledger.run_note)) fail('run_note', 'must describe the actual outcome');
   if (!Array.isArray(ledger.candidates)) {
@@ -56,7 +57,7 @@ export function validateGuideLedger(ledger, filename) {
   }
 
   const seen = new Set();
-  const chosen = [];
+  const chosen: Record<string, unknown>[] = [];
   for (const [index, candidate] of ledger.candidates.entries()) {
     const where = `candidates[${index}]`;
     if (!isObject(candidate)) {
@@ -71,12 +72,16 @@ export function validateGuideLedger(ledger, filename) {
     for (const field of ['title', 'reader_outcome', 'reason']) {
       if (!hasText(candidate[field])) fail(`${where}.${field}`, 'must not be empty');
     }
-    if (!FORMATS.has(candidate.format)) fail(`${where}.format`, 'invalid format');
-    if (!DECISIONS.has(candidate.decision)) fail(`${where}.decision`, 'invalid decision');
+    if (!FORMATS.has(typeof candidate.format === 'string' ? candidate.format : ''))
+      fail(`${where}.format`, 'invalid format');
+    if (!DECISIONS.has(typeof candidate.decision === 'string' ? candidate.decision : ''))
+      fail(`${where}.decision`, 'invalid decision');
     if (!Array.isArray(candidate.sources) || !candidate.sources.every(isSourceUrl))
       fail(`${where}.sources`, 'must contain real HTTP(S) URLs (or an empty array)');
     else if (
-      ['selected', 'material-update'].includes(candidate.decision) &&
+      ['selected', 'material-update'].includes(
+        typeof candidate.decision === 'string' ? candidate.decision : '',
+      ) &&
       candidate.sources.length === 0
     )
       fail(`${where}.sources`, 'selected and material-update require source URLs');
@@ -85,7 +90,9 @@ export function validateGuideLedger(ledger, filename) {
       fail(`${where}.related_guide_id`, 'must be a guide slug');
     if (
       'related_pr_number' in candidate &&
-      (!Number.isSafeInteger(candidate.related_pr_number) || candidate.related_pr_number < 1)
+      (!Number.isSafeInteger(candidate.related_pr_number) ||
+        typeof candidate.related_pr_number !== 'number' ||
+        candidate.related_pr_number < 1)
     )
       fail(`${where}.related_pr_number`, 'must be a positive integer');
     if (
@@ -100,7 +107,12 @@ export function validateGuideLedger(ledger, filename) {
     )
       fail(where, 'material-update needs related_guide_id and material_delta');
 
-    if (['selected', 'material-update'].includes(candidate.decision)) chosen.push(candidate);
+    if (
+      ['selected', 'material-update'].includes(
+        typeof candidate.decision === 'string' ? candidate.decision : '',
+      )
+    )
+      chosen.push(candidate);
   }
   if (chosen.length > 1) fail('candidates', 'at most one selected/material-update per run');
 
@@ -110,7 +122,10 @@ export function validateGuideLedger(ledger, filename) {
   }
   const { guide_id: guideId, pr_number: prNumber } = ledger.handoff;
   if (guideId !== null && !isKey(guideId)) fail('handoff.guide_id', 'must be a slug or null');
-  if (prNumber !== null && (!Number.isSafeInteger(prNumber) || prNumber < 1))
+  if (
+    prNumber !== null &&
+    (!Number.isSafeInteger(prNumber) || typeof prNumber !== 'number' || prNumber < 1)
+  )
     fail('handoff.pr_number', 'must be a positive integer or null');
 
   if (ledger.run_status === 'draft-pr') {
@@ -138,9 +153,9 @@ export function validateGuideLedger(ledger, filename) {
 }
 
 /** Detect repeated selections across dates; earlier blocked runs are retryable. */
-export function validateLedgerHistory(records) {
-  const errors = [];
-  const prepared = new Map();
+export function validateLedgerHistory(records: { filename: string; ledger: unknown }[]) {
+  const errors: string[] = [];
+  const prepared = new Map<string, string>();
   for (const { filename, ledger } of [...records].sort((a, b) =>
     a.filename.localeCompare(b.filename),
   )) {
@@ -158,7 +173,9 @@ export function validateLedgerHistory(records) {
         );
       if (
         ledger.run_status === 'draft-pr' &&
-        ['selected', 'material-update'].includes(candidate.decision)
+        ['selected', 'material-update'].includes(
+          typeof candidate.decision === 'string' ? candidate.decision : '',
+        )
       )
         prepared.set(candidate.topic_key, filename);
     }
@@ -170,7 +187,7 @@ export function validateLedgerDirectory(root = process.cwd()) {
   const directory = join(root, LEDGER_DIRECTORY);
   if (!existsSync(directory)) return [];
   const records = [];
-  const errors = [];
+  const errors: string[] = [];
   for (const name of readdirSync(directory)
     .filter((name) => name.endsWith('.json'))
     .sort()) {
@@ -178,7 +195,9 @@ export function validateLedgerDirectory(root = process.cwd()) {
     try {
       records.push({ filename, ledger: JSON.parse(readFileSync(join(directory, name), 'utf8')) });
     } catch (error) {
-      errors.push(`${filename}: invalid JSON: ${error.message}`);
+      errors.push(
+        `${filename}: invalid JSON: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
   return [...errors, ...validateLedgerHistory(records)];

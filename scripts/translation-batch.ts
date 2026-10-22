@@ -8,7 +8,10 @@ import {
 } from '../src/lib/translations.ts';
 
 /** Read-only coverage report. Availability is not a translation-fidelity verdict. */
-export function inspectTranslationBatch(root, ledger) {
+export function inspectTranslationBatch(
+  root: string,
+  ledger: { editorial_date?: string; publication?: { story_ids?: unknown } },
+) {
   const ids = ledger.publication?.story_ids;
   if (!Array.isArray(ids) || new Set(ids).size !== ids.length) {
     throw new Error('Expected unique publication.story_ids in the editorial ledger');
@@ -74,7 +77,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     console.log(JSON.stringify(report, null, 2));
     if (requireCurrent && report.needsAttention) process.exitCode = 1;
   } catch (error) {
-    console.error(error.message);
+    console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
   }
 }

@@ -7,13 +7,14 @@ import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
+import type { TestContext } from 'node:test';
 import {
   buildGenerationIdentityFromRepository,
   sha256,
-} from '../scripts/lib/illustration-generation-identity.mjs';
+} from '../scripts/lib/illustration-generation-identity.ts';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const cli = join(repositoryRoot, 'scripts/resolve-illustration-generation.mjs');
+const cli = join(repositoryRoot, 'scripts/resolve-illustration-generation.ts');
 
 const storyId = '2026-10-05-example';
 const storyPath = `src/content/stories/${storyId}.md`;
@@ -51,18 +52,18 @@ const baseBrief = {
   cover_crop_safe: true,
 };
 
-function cloneJson(value) {
+function cloneJson<T>(value: T): T {
   return JSON.parse(JSON.stringify(value));
 }
 
-function write(root, path, content) {
+function write(root: string, path: string, content: string | Uint8Array) {
   const target = join(root, path);
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, content);
   return target;
 }
 
-function createFixture(t) {
+function createFixture(t: TestContext) {
   const fixture = mkdtempSync(join(tmpdir(), 'pulse-illustration-decision-'));
 
   t.after(() => {
@@ -118,7 +119,15 @@ function createFixture(t) {
   };
 }
 
-function runCli({ fixture, briefPath, extraArgs = [] }) {
+function runCli({
+  fixture,
+  briefPath,
+  extraArgs = [],
+}: {
+  fixture: string;
+  briefPath: string;
+  extraArgs?: string[];
+}) {
   const result = spawnSync(
     process.execPath,
     [cli, '--story', storyId, '--brief', briefPath, '--json', ...extraArgs],
@@ -270,7 +279,7 @@ test('historical version 1.2 review produces LEGACY', (t) => {
 
 test('identity-aware review missing generation identity produces GENERATE / review-invalid', (t) => {
   const state = createFixture(t);
-  const invalidReview = cloneJson(state.review);
+  const invalidReview: Partial<typeof state.review> = cloneJson(state.review);
   delete invalidReview.generation_identity;
   write(state.fixture, reviewPath, JSON.stringify(invalidReview, null, 2));
 

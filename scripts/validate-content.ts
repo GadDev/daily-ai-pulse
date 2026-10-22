@@ -8,12 +8,12 @@ const storiesDir = join(root, 'src/content/stories');
 const pulseDir = join(root, 'src/content/pulse');
 const guidesDir = join(root, 'src/content/guides');
 const publicDir = join(root, 'public');
-const errors = [];
+const errors: string[] = [];
 
-const files = (dir) => readdirSync(dir).filter((name) => /\.mdx?$/.test(name));
+const files = (dir: string) => readdirSync(dir).filter((name) => /\.mdx?$/.test(name));
 const storyIds = new Set(files(storiesDir).map((name) => name.replace(/\.mdx?$/, '')));
 
-function frontmatter(file) {
+function frontmatter(file: string) {
   const content = readFileSync(file, 'utf8');
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) errors.push(`${file}: missing frontmatter`);
@@ -62,7 +62,9 @@ for (const name of files(pulseDir)) {
 }
 
 for (const name of existsSync(guidesDir)
-  ? readdirSync(guidesDir, { recursive: true }).filter((name) => /\.mdx?$/.test(name))
+  ? readdirSync(guidesDir, { recursive: true, encoding: 'utf8' }).filter((name) =>
+      /\.mdx?$/.test(name),
+    )
   : []) {
   const file = join(guidesDir, name);
   try {
@@ -73,7 +75,9 @@ for (const name of existsSync(guidesDir)
     const imageError = guideImageError(metadata?.image, root);
     if (imageError) errors.push(`${name}: ${imageError}`);
   } catch (error) {
-    errors.push(`${name}: cannot validate guide cover: ${error.message}`);
+    errors.push(
+      `${name}: cannot validate guide cover: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 }
 

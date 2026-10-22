@@ -1,6 +1,88 @@
 import { appendFileSync, lstatSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { requireEnv } from './lib/environment.ts';
+
+export interface RepositoryMetadata {
+  id: number;
+  owner?: { id: number };
+  full_name?: string;
+}
+export interface PreviewEvent {
+  repository?: RepositoryMetadata;
+  workflow_run?: { id: number; run_attempt: number };
+}
+export interface WorkflowRun {
+  id: number;
+  repository?: RepositoryMetadata;
+  head_repository?: RepositoryMetadata;
+  workflow_id: number;
+  path: string;
+  event: string;
+  status: string;
+  conclusion: string;
+  run_attempt: number;
+  head_sha: string;
+  head_branch: string;
+  pull_requests?: { number: number }[];
+}
+export interface PullRequest {
+  state: string;
+  base: { ref: string; repo?: RepositoryMetadata; sha: string };
+  head: { ref: string; repo?: RepositoryMetadata; sha: string };
+  merge_commit_sha: string;
+}
+interface MergeCommit {
+  sha: string;
+  parents?: { sha: string }[];
+}
+interface JobList {
+  total_count: number;
+  jobs?: { name: string; conclusion: string }[];
+}
+export interface ArtifactMetadata {
+  id: number;
+  name: string;
+  expired: boolean;
+  expires_at: string;
+  digest?: string;
+  workflow_run?: {
+    id: number;
+    head_sha: string;
+    repository_id: number;
+    head_repository_id: number;
+  };
+}
+interface ArtifactList {
+  total_count: number;
+  artifacts?: ArtifactMetadata[];
+}
+export interface PreviewRequest {
+  schema_version: number;
+  repository: string;
+  run_id: string;
+  run_attempt: string;
+  pr_number: number;
+  head_sha: string;
+  base_sha: string;
+  tested_sha: string;
+  artifact_id: number;
+  artifact_digest: string;
+}
+export interface HostingConfig {
+  hosting: {
+    site: string;
+    public: string;
+    ignore?: string[];
+    cleanUrls?: boolean;
+    trailingSlash?: boolean;
+    headers?: { source: string; headers?: { key: string; value: string }[] }[];
+    [key: string]: unknown;
+  };
+}
+type MetadataApi = (path: string) => Promise<unknown>;
+type PreviewResult =
+  { eligible: false; reason: string } | { eligible: true; request: PreviewRequest };
 
 export const policy = {
   repository: 'GadDev/daily-ai-pulse',
@@ -11,22 +93,29 @@ export const policy = {
 };
 
 const shaPattern = /^[0-9a-f]{40}$/;
-const positiveInteger = (value) => Number.isSafeInteger(value) && value > 0;
-const skip = (reason) => ({ eligible: false, reason });
+const positiveInteger = (value: unknown): value is number =>
+  typeof value === 'number' && Number.isSafeInteger(value) && value > 0;
+const skip = (reason: string) => ({ eligible: false as const, reason });
 
 // All authorization inputs come from GitHub, never from downloaded metadata.
-export async function resolveRequest(api, event, now = Date.now()) {
+export async function resolveRequest(
+  api: MetadataApi,
+  event: PreviewEvent,
+  now = Date.now(),
+): Promise<PreviewResult> {
+  const workflowRun = event.workflow_run;
   if (
+    !workflowRun ||
     event.repository?.id !== policy.repositoryId ||
     event.repository?.owner?.id !== policy.ownerId ||
-    !positiveInteger(event.workflow_run?.id)
+    !positiveInteger(workflowRun.id)
   ) {
     return skip('Unexpected repository or originating run.');
   }
 
-  const run = await api(`/actions/runs/${event.workflow_run.id}`);
+  const run = (await api(`/actions/runs/${workflowRun.id}`)) as WorkflowRun;
   if (
-    run.id !== event.workflow_run.id ||
+    run.id !== workflowRun.id ||
     run.repository?.id !== policy.repositoryId ||
     run.head_repository?.id !== policy.repositoryId ||
     run.repository?.owner?.id !== policy.ownerId ||
@@ -35,7 +124,7 @@ export async function resolveRequest(api, event, now = Date.now()) {
     run.event !== 'pull_request' ||
     run.status !== 'completed' ||
     run.conclusion !== 'success' ||
-    run.run_attempt !== event.workflow_run.run_attempt ||
+    run.run_attempt !== workflowRun.run_attempt ||
     !positiveInteger(run.run_attempt) ||
     !shaPattern.test(run.head_sha) ||
     run.pull_requests?.length !== 1
@@ -45,8 +134,8 @@ export async function resolveRequest(api, event, now = Date.now()) {
 
   const number = run.pull_requests[0].number;
   if (!positiveInteger(number)) return skip('Invalid PR association.');
-  const pr = await api(`/pulls/${number}`);
-  const main = await api('/git/ref/heads/main');
+  const pr = (await api(`/pulls/${number}`)) as PullRequest;
+  const main = (await api('/git/ref/heads/main')) as { object?: { sha?: string } };
   if (
     pr.state !== 'open' ||
     pr.base?.ref !== 'main' ||
@@ -55,13 +144,13 @@ export async function resolveRequest(api, event, now = Date.now()) {
     pr.head?.sha !== run.head_sha ||
     pr.head?.ref !== run.head_branch ||
     pr.base?.sha !== main.object?.sha ||
-    !shaPattern.test(pr.base?.sha) ||
+    !shaPattern.test(pr.base?.sha ?? '') ||
     !shaPattern.test(pr.merge_commit_sha)
   ) {
     return skip('PR is closed, forked, retargeted, or no longer matches the CI revision.');
   }
 
-  const commit = await api(`/git/commits/${pr.merge_commit_sha}`);
+  const commit = (await api(`/git/commits/${pr.merge_commit_sha}`)) as MergeCommit;
   if (
     commit.sha !== pr.merge_commit_sha ||
     commit.parents?.length !== 2 ||
@@ -72,7 +161,9 @@ export async function resolveRequest(api, event, now = Date.now()) {
   }
 
   // Require both expected CI jobs to have actually passed, even if CI was edited.
-  const jobs = await api(`/actions/runs/${run.id}/attempts/${run.run_attempt}/jobs?per_page=100`);
+  const jobs = (await api(
+    `/actions/runs/${run.id}/attempts/${run.run_attempt}/jobs?per_page=100`,
+  )) as JobList;
   if (
     jobs.total_count > 100 ||
     !['Verify project', 'Browser smoke and accessibility'].every((name) =>
@@ -83,7 +174,9 @@ export async function resolveRequest(api, event, now = Date.now()) {
   }
 
   const name = `ci-preview-${run.id}-${run.run_attempt}`;
-  const artifacts = await api(`/actions/runs/${run.id}/artifacts?name=${name}&per_page=100`);
+  const artifacts = (await api(
+    `/actions/runs/${run.id}/artifacts?name=${name}&per_page=100`,
+  )) as ArtifactList;
   if (artifacts.total_count !== 1 || artifacts.artifacts?.length !== 1) {
     return skip('Expected exactly one artifact for this CI attempt.');
   }
@@ -93,6 +186,7 @@ export async function resolveRequest(api, event, now = Date.now()) {
     !positiveInteger(artifact.id) ||
     artifact.expired ||
     !(Date.parse(artifact.expires_at) > now) ||
+    typeof artifact.digest !== 'string' ||
     !/^sha256:[0-9a-f]{64}$/.test(artifact.digest) ||
     artifact.workflow_run?.id !== run.id ||
     artifact.workflow_run?.head_sha !== run.head_sha ||
@@ -103,7 +197,7 @@ export async function resolveRequest(api, event, now = Date.now()) {
   }
 
   return {
-    eligible: true,
+    eligible: true as const,
     request: {
       schema_version: 1,
       repository: policy.repository,
@@ -119,8 +213,8 @@ export async function resolveRequest(api, event, now = Date.now()) {
   };
 }
 
-export function validateArtifact(directory, request) {
-  function inspect(path) {
+export function validateArtifact(directory: string, request: PreviewRequest) {
+  function inspect(path: string) {
     const stat = lstatSync(path);
     if (stat.isSymbolicLink()) throw new Error('Artifact contains a symbolic link.');
     if (stat.isDirectory()) {
@@ -139,7 +233,7 @@ export function validateArtifact(directory, request) {
     throw new Error('Invalid provenance file.');
   }
   const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
-  const keys = [
+  const keys: (keyof PreviewRequest)[] = [
     'schema_version',
     'repository',
     'run_id',
@@ -169,7 +263,7 @@ export function validateArtifact(directory, request) {
   }
 }
 
-export function deploymentConfig(config, directory, site) {
+export function deploymentConfig(config: HostingConfig, directory: string, site: string) {
   const hosting = config.hosting;
   const allowed = new Set(['site', 'public', 'ignore', 'cleanUrls', 'trailingSlash', 'headers']);
   if (
@@ -194,7 +288,7 @@ export function deploymentConfig(config, directory, site) {
   return { hosting: { ...hosting, public: resolve(directory, 'dist') } };
 }
 
-async function api(path) {
+async function api(path: string): Promise<unknown> {
   const response = await globalThis.fetch(
     `https://api.github.com/repos/${policy.repository}${path}`,
     {
@@ -211,26 +305,26 @@ async function api(path) {
 }
 
 async function main() {
-  const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+  const event = JSON.parse(readFileSync(requireEnv('GITHUB_EVENT_PATH'), 'utf8'));
   const result = await resolveRequest(api, event);
   if (process.argv[2] === 'resolve') {
-    appendFileSync(process.env.GITHUB_OUTPUT, `eligible=${result.eligible}\n`);
+    appendFileSync(requireEnv('GITHUB_OUTPUT'), `eligible=${result.eligible}\n`);
     if (result.eligible) {
       appendFileSync(
-        process.env.GITHUB_OUTPUT,
+        requireEnv('GITHUB_OUTPUT'),
         `request=${JSON.stringify(result.request)}\npr_number=${result.request.pr_number}\n`,
       );
     } else {
-      appendFileSync(process.env.GITHUB_STEP_SUMMARY, `Preview skipped: ${result.reason}\n`);
+      appendFileSync(requireEnv('GITHUB_STEP_SUMMARY'), `Preview skipped: ${result.reason}\n`);
     }
     return;
   }
   if (process.argv[2] !== 'verify') throw new Error('Unknown preview command.');
-  const expected = JSON.parse(process.env.PREVIEW_REQUEST);
+  const expected = JSON.parse(requireEnv('PREVIEW_REQUEST'));
   if (!result.eligible || JSON.stringify(result.request) !== JSON.stringify(expected)) {
     throw new Error('Preview request changed or is no longer eligible.');
   }
-  const directory = join(process.env.RUNNER_TEMP, 'automatic-preview-artifact');
+  const directory = join(requireEnv('RUNNER_TEMP'), 'automatic-preview-artifact');
   validateArtifact(directory, expected);
   if (process.env.FIREBASE_PROJECT_ID !== 'daily-ai-pulse-db253') {
     throw new Error('Unexpected preview project.');
@@ -238,17 +332,17 @@ async function main() {
   const config = deploymentConfig(
     JSON.parse(readFileSync('firebase.preview.json', 'utf8')),
     directory,
-    process.env.FIREBASE_SITE_ID,
+    requireEnv('FIREBASE_SITE_ID'),
   );
   writeFileSync(
-    join(process.env.RUNNER_TEMP, 'automatic-preview-config.json'),
+    join(requireEnv('RUNNER_TEMP'), 'automatic-preview-config.json'),
     `${JSON.stringify(config, null, 2)}\n`,
   );
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
-    console.error(error.message);
+    console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
   });
 }

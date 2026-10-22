@@ -1,4 +1,21 @@
+import tseslint from 'typescript-eslint';
+
 export default [
+  {
+    files: ['**/*.ts'],
+    languageOptions: { parser: tseslint.parser },
+    plugins: { '@typescript-eslint': tseslint.plugin },
+    rules: {
+      'no-constant-condition': ['error', { checkLoops: false }],
+      'no-unreachable': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
+    },
+  },
   {
     ignores: ['dist/**', '.astro/**', 'node_modules/**', 'coverage/**', 'playwright-report/**'],
   },
@@ -33,7 +50,7 @@ export default [
     },
   },
   {
-    files: ['docs/reference-layouts/validate.mjs'],
+    files: ['docs/reference-layouts/validate.ts'],
     languageOptions: {
       globals: {
         URL: 'readonly',
