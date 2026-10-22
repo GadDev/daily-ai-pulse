@@ -1,8 +1,11 @@
 # Editorial Voice v2 — current-writing assessment and series brief
 
-**Date:** 2026-10-22, Europe/Luxembourg.  
-**State:** Proposed editorial direction; article drafting awaits maintainer approval.  
-**Inspected default branch:** `140718d4e2545454b9b8004604e176312640ce01`, including merged [PR #196](https://github.com/GadDev/daily-ai-pulse/pull/196).  
+**Date:** 2026-10-22, Europe/Luxembourg.
+
+**State:** Proposed editorial direction; article drafting awaits maintainer approval.
+
+**Inspected default branch:** `140718d4e2545454b9b8004604e176312640ce01`, including merged [PR #196](https://github.com/GadDev/daily-ai-pulse/pull/196).
+
 **Authority:** [Editorial Voice v2](../../TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) is the canonical guidance. This is a dated assessment and commission brief, not another rulebook.
 
 ## What the existing writing gets right
