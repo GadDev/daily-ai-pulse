@@ -1,0 +1,117 @@
+---
+import { pageNumbers } from '../lib/pagination';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  current: number;
+  total: number;
+  href: (page: number) => string;
+  locale: Locale;
+}
+const { current, total, href, locale } = Astro.props;
+const fr = locale === 'fr';
+---
+
+{total > 1 && (
+  <nav class="pagination" aria-label={fr ? 'Pagination des articles' : 'Story pagination'}>
+    <p>
+      {fr ? 'Page' : 'Page'} {current} {fr ? 'sur' : 'of'} {total}
+    </p>
+    <div class="pagination-controls">
+      {current > 1 ? (
+        <a rel="prev" href={href(current - 1)}>
+          {fr ? 'Précédent' : 'Previous'}
+        </a>
+      ) : (
+        <span aria-disabled="true">{fr ? 'Précédent' : 'Previous'}</span>
+      )}
+      <ol>
+        {pageNumbers(current, total).map((page) => (
+          <li>
+            {page === 'gap' ? (
+              <span aria-hidden="true">…</span>
+            ) : (
+              <a
+                href={href(page)}
+                aria-label={`${fr ? 'Page' : 'Page'} ${page}`}
+                aria-current={page === current ? 'page' : undefined}
+              >
+                {page}
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+      {current < total ? (
+        <a rel="next" href={href(current + 1)}>
+          {fr ? 'Suivant' : 'Next'}
+        </a>
+      ) : (
+        <span aria-disabled="true">{fr ? 'Suivant' : 'Next'}</span>
+      )}
+    </div>
+  </nav>
+)}
+<style>
+  .pagination {
+    border-top: 1px solid var(--line);
+    margin-top: 1.5rem;
+    padding-block: 1rem;
+  }
+  p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  .pagination-controls,
+  ol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a,
+  span {
+    display: inline-flex;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.5rem;
+  }
+  ol span {
+    min-width: 16px;
+    padding-inline: 0;
+  }
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a[aria-current] {
+    background: var(--ink);
+    color: var(--canvas);
+  }
+  a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 2px;
+  }
+  span[aria-disabled] {
+    color: var(--muted);
+  }
+  @media (max-width: 540px) {
+    .pagination-controls {
+      flex-wrap: wrap;
+    }
+    ol {
+      order: 3;
+      flex-basis: 100%;
+    }
+  }
+</style>

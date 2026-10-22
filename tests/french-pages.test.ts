@@ -93,7 +93,7 @@ test('a real source edit with a new correction withholds French routes, listing,
       const index = JSON.parse(readCandidate('pagefind/pagefind-entry.json'));
       assert.equal(
         index.languages.fr.page_count,
-        1 + frenchSelectionSamples.length + Number(current),
+        17 + frenchSelectionSamples.length + Number(current),
       );
       if (stage === 'updated-draft') {
         assert.equal(existsSync(route), false);
@@ -171,7 +171,7 @@ test('sitemap and actual Pagefind index exclude notice pages', () => {
     assert.ok(!sitemap.includes(`/fr/stories/${fixtureId(state)}/`));
   }
   const index = JSON.parse(read('pagefind/pagefind-entry.json'));
-  assert.equal(index.languages.fr.page_count, 2 + frenchSelectionSamples.length);
+  assert.equal(index.languages.fr.page_count, 18 + frenchSelectionSamples.length);
   assert.ok(index.languages.en.page_count >= 139);
 });
 
@@ -232,5 +232,60 @@ test('daily editions omit draft-only sections and Pulse archive counts only publ
     assert.ok(row, `${kind} edition must remain in the archive`);
     assert.ok(row.includes(`${count}</p>`), `${kind} count must exclude drafts`);
     assert.doesNotMatch(row, />Research<\/p>/);
+  }
+});
+
+test('French category archives isolate category and translation eligibility', () => {
+  const tools = read('fr/tools/index.html');
+  const engineering = read('fr/engineering/index.html');
+  assert.ok(engineering.includes(`/fr/stories/${fixtureId('current')}/`));
+  for (const state of ['stale', 'withdrawn'])
+    assert.ok(!engineering.includes(`/fr/stories/${fixtureId(state)}/`));
+  assert.ok(tools.includes(`/fr/stories/${fixtureId('selection-tools')}/`));
+  for (const state of ['stale', 'withdrawn', 'source-draft', 'selection-engineering']) {
+    assert.ok(!tools.includes(`/fr/stories/${fixtureId(state)}/`));
+  }
+  assert.doesNotMatch(tools, /aria-label="Pagination des articles"/);
+  const empty = read('fr/research/index.html');
+  assert.match(empty, /Aucun article en français/);
+  assert.doesNotMatch(empty, /aria-label="Pagination des articles"/);
+  assert.equal(existsSync(join(fixture.dist, 'fr/research/2/index.html')), false);
+});
+
+test('French multi-page archives partition translated stories and preserve language navigation', () => {
+  const candidate = buildFrenchFixture({ categoryPagination: true });
+  try {
+    const pages = ['', '2/', '3/'].map((page) =>
+      readFileSync(join(candidate.dist, `fr/curious/${page}index.html`), 'utf8'),
+    );
+    const ids = pages.map((html) =>
+      [...html.matchAll(/<h3[^>]*>\s*<a href="([^"]+)"/g)].map((match) => match[1]),
+    );
+    assert.deepEqual(
+      ids.map((page) => page.length),
+      [12, 12, 1],
+    );
+    assert.equal(new Set(ids.flat()).size, 25);
+    assert.match(
+      pages[1],
+      /rel="canonical" href="https:\/\/daily-ai-pulse-db253.web.app\/fr\/curious\/2\/"/,
+    );
+    assert.match(pages[1], /href="\/fr\/curious\/" rel="prev"|rel="prev" href="\/fr\/curious\/"/);
+    assert.match(pages[1], /aria-current="page"[^>]*>2<|aria-current="page"[^>]*> 2 </);
+    const reverse = ['', '2/', '3/'].flatMap((page) =>
+      [
+        ...readFileSync(
+          join(candidate.dist, `fr/curious/oldest/${page}index.html`),
+          'utf8',
+        ).matchAll(/<h3[^>]*>\s*<a href="([^"]+)"/g),
+      ].map((match) => match[1]),
+    );
+    assert.deepEqual(reverse, [...ids.flat()].reverse());
+    for (const page of ['0', '1', '4', '-1', 'abc'])
+      assert.equal(existsSync(join(candidate.dist, `fr/curious/${page}/index.html`)), false);
+    const english = readFileSync(join(candidate.dist, 'curious/3/index.html'), 'utf8');
+    assert.match(english, /href="\/fr\/curious\/3\/" lang="fr"/);
+  } finally {
+    candidate.cleanup();
   }
 });
