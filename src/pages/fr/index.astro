@@ -1,4 +1,5 @@
 ---
+import CategoryNav from '../../components/CategoryNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getTranslationContent } from '../../lib/translation-content';
 import { frenchDate, frenchCategories } from '../../lib/i18n';
@@ -14,6 +15,7 @@ const base = import.meta.env.BASE_URL;
   title="Sélection en français — The Daily AI Pulse"
   description="Une sélection d’articles sur l’IA, traduits et relus pour un lectorat technique francophone."
 >
+  <CategoryNav locale="fr" />
   <section class="french-selection" aria-labelledby="selection-title">
     <header class="selection-header">
       <p class="eyebrow">THE DAILY AI PULSE / EN FRANÇAIS</p>

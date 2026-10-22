@@ -1,0 +1,11 @@
+---
+import CategoryArchive from '../../components/CategoryArchive.astro';
+import { categories } from '../../lib/categories';
+import { categoryContent } from '../../lib/category-content';
+import { archivePages } from '../../lib/pagination';
+export async function getStaticPaths() {
+  return archivePages((await categoryContent('tools', 'en')).length);
+}
+---
+
+<CategoryArchive config={categories.tools} {...Astro.props} />

@@ -7,6 +7,7 @@ import { messages, type Locale } from '../lib/i18n';
 
 interface Props {
   locale?: Locale;
+  archiveLanguageHref?: string;
   storyId?: string;
   frenchAvailable?: boolean;
   noindex?: boolean;
@@ -22,6 +23,7 @@ interface Props {
 
 const {
   locale = 'en',
+  archiveLanguageHref,
   storyId,
   frenchAvailable = false,
   noindex = false,
@@ -179,6 +181,7 @@ const structuredData =
         <div class="site-actions">
           <SearchButton locale={locale} />
           <LanguageSwitcher
+            archiveLanguageHref={archiveLanguageHref}
             locale={locale}
             storyId={storyId}
             frenchAvailable={frenchAvailable}

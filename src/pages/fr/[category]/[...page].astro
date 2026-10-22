@@ -1,0 +1,20 @@
+---
+import CategoryArchive from '../../../components/CategoryArchive.astro';
+import { categories } from '../../../lib/categories';
+import { categoryContent } from '../../../lib/category-content';
+import { archivePages } from '../../../lib/pagination';
+export async function getStaticPaths() {
+  return (
+    await Promise.all(
+      Object.values(categories).map(async (config) =>
+        archivePages((await categoryContent(config.key, 'fr')).length).map((path) => ({
+          params: { category: config.key, ...path.params },
+          props: { config, ...path.props },
+        })),
+      ),
+    )
+  ).flat();
+}
+---
+
+<CategoryArchive {...Astro.props} locale="fr" />
