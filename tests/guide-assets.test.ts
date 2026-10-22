@@ -5,10 +5,11 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import process from 'node:process';
 import test from 'node:test';
+import type { TestContext } from 'node:test';
 
-const script = resolve(import.meta.dirname, '../scripts/validate-content.mjs');
+const script = resolve(import.meta.dirname, '../scripts/validate-content.ts');
 
-function fixture(t) {
+function fixture(t: TestContext) {
   const root = mkdtempSync(join(tmpdir(), 'pulse-guide-assets-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   for (const directory of ['src/content/stories', 'src/content/pulse', 'src/content/guides']) {
@@ -18,7 +19,7 @@ function fixture(t) {
   mkdirSync(join(guide, '..'), { recursive: true });
   return {
     root,
-    writeGuide: (metadata) => writeFileSync(guide, `---\n${metadata}\n---\n\nFixture.\n`),
+    writeGuide: (metadata: string) => writeFileSync(guide, `---\n${metadata}\n---\n\nFixture.\n`),
     check: () => spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' }),
   };
 }
@@ -81,7 +82,7 @@ test('Astro collection sync independently rejects a missing guide cover', (t) =>
   symlinkSync(join(repo, 'node_modules'), join(root, 'node_modules'), 'dir');
   writeFileSync(join(root, 'package.json'), '{"type":"module"}');
   writeFileSync(
-    join(root, 'astro.config.mjs'),
+    join(root, 'astro.config.ts'),
     "import mdx from '@astrojs/mdx';\nexport default { integrations: [mdx()] };\n",
   );
   writeGuide(

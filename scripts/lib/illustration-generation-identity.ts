@@ -1,6 +1,51 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { isAbsolute, relative, resolve } from 'node:path';
+import type { PathLike } from 'node:fs';
+
+// Input shapes describe the contract; runtime checks below still reject malformed data.
+export type JsonValue =
+  null | boolean | number | string | JsonValue[] | { [key: string]: JsonValue };
+export interface ReferenceOptions {
+  root: string;
+  layoutReference: string;
+  goldenReferences: string[];
+}
+export interface VisualBrief {
+  layout_reference: string;
+  golden_references: string[];
+  [key: string]: unknown;
+}
+export interface IdentityOptions {
+  storyId: string;
+  storySourceSha256: string;
+  visualBrief: object;
+  referenceInputsSha256: string;
+  illustrationSystemVersion: string;
+  visualConstitutionVersion: string;
+  candidateCount: number;
+  generatorSurface: string;
+  modelSnapshot?: string | null;
+  identityVersion?: string;
+  promptContractVersion?: string;
+}
+export interface RepositoryIdentityOptions extends Omit<
+  IdentityOptions,
+  'storySourceSha256' | 'referenceInputsSha256' | 'visualBrief'
+> {
+  root: string;
+  storyPath: string;
+  visualBrief: VisualBrief;
+}
+export interface ReuseOptions {
+  expectedGenerationKey: string;
+  review: {
+    generation_identity?: { generation_key?: string };
+    asset_integrity?: { sha256?: string };
+  } | null;
+  assetExists: boolean;
+  actualAssetSha256: string | null;
+}
 
 export const GENERATION_IDENTITY_VERSION = '1';
 export const PROMPT_CONTRACT_VERSION = '1';
@@ -12,7 +57,7 @@ const SHA256_PATTERN = /^[a-f0-9]{64}$/;
  *
  * Accepts strings, Buffers, and Uint8Arrays.
  */
-export function sha256(value) {
+export function sha256(value: unknown) {
   if (typeof value !== 'string' && !(value instanceof Uint8Array)) {
     throw new TypeError('sha256() expects a string or Uint8Array');
   }
@@ -25,7 +70,7 @@ export function sha256(value) {
  *
  * No newline, encoding, or whitespace normalization is performed.
  */
-export function sha256File(path) {
+export function sha256File(path: PathLike) {
   return sha256(readFileSync(path));
 }
 
@@ -41,7 +86,7 @@ export function sha256File(path) {
  *
  * Unsupported JSON values fail instead of being silently omitted.
  */
-export function canonicalize(value) {
+export function canonicalize(value: unknown): JsonValue {
   if (value === null) {
     return null;
   }
@@ -73,7 +118,7 @@ export function canonicalize(value) {
         Object.keys(value)
           .sort()
           .map((key) => {
-            const child = value[key];
+            const child = (value as Record<string, unknown>)[key];
 
             if (child === undefined) {
               throw new TypeError(`Canonical JSON does not support undefined values: ${key}`);
@@ -93,14 +138,14 @@ export function canonicalize(value) {
  * Serialize a value using the Generation Identity V1
  * canonical JSON rules.
  */
-export function canonicalJson(value) {
+export function canonicalJson(value: unknown) {
   return JSON.stringify(canonicalize(value));
 }
 
 /**
  * Compute SHA-256 over UTF-8 encoded canonical JSON.
  */
-export function sha256Json(value) {
+export function sha256Json(value: unknown) {
   return sha256(canonicalJson(value));
 }
 
@@ -108,7 +153,7 @@ export function sha256Json(value) {
  * Resolve a repository-relative path while preventing
  * absolute paths or traversal outside the repository root.
  */
-export function resolveRepositoryPath(root, repositoryPath) {
+export function resolveRepositoryPath(root: string, repositoryPath: string) {
   assertNonEmptyString(root, 'root');
 
   assertNonEmptyString(repositoryPath, 'repositoryPath');
@@ -139,7 +184,11 @@ export function resolveRepositoryPath(root, repositoryPath) {
  * 1. layout reference
  * 2. golden references in declared order
  */
-export function buildReferenceInputs({ root, layoutReference, goldenReferences }) {
+export function buildReferenceInputs({
+  root,
+  layoutReference,
+  goldenReferences,
+}: ReferenceOptions) {
   assertNonEmptyString(layoutReference, 'layoutReference');
 
   if (!Array.isArray(goldenReferences)) {
@@ -166,7 +215,11 @@ export function buildReferenceInputs({ root, layoutReference, goldenReferences }
  * This protects against a referenced layout or golden
  * reference changing while retaining the same path.
  */
-export function buildReferenceInputsSha256({ root, layoutReference, goldenReferences }) {
+export function buildReferenceInputsSha256({
+  root,
+  layoutReference,
+  goldenReferences,
+}: ReferenceOptions) {
   const referenceInputs = buildReferenceInputs({
     root,
     layoutReference,
@@ -194,7 +247,7 @@ export function buildGenerationIdentity({
   modelSnapshot = null,
   identityVersion = GENERATION_IDENTITY_VERSION,
   promptContractVersion = PROMPT_CONTRACT_VERSION,
-}) {
+}: IdentityOptions) {
   assertNonEmptyString(storyId, 'storyId');
 
   assertSha256(storySourceSha256, 'storySourceSha256');
@@ -282,7 +335,7 @@ export function buildGenerationIdentityFromRepository({
   modelSnapshot = null,
   identityVersion = GENERATION_IDENTITY_VERSION,
   promptContractVersion = PROMPT_CONTRACT_VERSION,
-}) {
+}: RepositoryIdentityOptions) {
   assertNonEmptyString(storyPath, 'storyPath');
 
   const absoluteStoryPath = resolveRepositoryPath(root, storyPath);
@@ -327,7 +380,7 @@ export function evaluateGenerationReuse({
   review,
   assetExists,
   actualAssetSha256,
-}) {
+}: ReuseOptions) {
   assertSha256(expectedGenerationKey, 'expectedGenerationKey');
 
   if (!review) {
@@ -379,17 +432,17 @@ export function evaluateGenerationReuse({
  * Boolean convenience wrapper around
  * evaluateGenerationReuse().
  */
-export function canReuseGeneration(options) {
+export function canReuseGeneration(options: ReuseOptions) {
   return evaluateGenerationReuse(options).reusable;
 }
 
-function assertNonEmptyString(value, name) {
+function assertNonEmptyString(value: unknown, name: string): asserts value is string {
   if (typeof value !== 'string' || value.trim() === '') {
     throw new TypeError(`${name} must be a non-empty string`);
   }
 }
 
-function assertSha256(value, name) {
+function assertSha256(value: unknown, name: string): asserts value is string {
   if (typeof value !== 'string' || !SHA256_PATTERN.test(value)) {
     throw new TypeError(`${name} must be a lowercase hexadecimal SHA-256 digest`);
   }

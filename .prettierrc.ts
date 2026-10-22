@@ -1,4 +1,4 @@
-/** @type {import('prettier').Config} */
+import type { Config } from 'prettier';
 export default {
   plugins: ['prettier-plugin-astro'],
   singleQuote: true,
@@ -12,4 +12,4 @@ export default {
       },
     },
   ],
-};
+} satisfies Config;

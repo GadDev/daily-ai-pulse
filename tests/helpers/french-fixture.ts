@@ -13,11 +13,7 @@ import { join, resolve } from 'node:path';
 import process from 'node:process';
 import { parse, stringify } from 'yaml';
 import { fingerprintStorySource } from '../../src/lib/translations.ts';
-import {
-  addedCorrection,
-  editorialBody,
-  editorialCorrections,
-} from './french-editorial-sample.mjs';
+import { addedCorrection, editorialBody, editorialCorrections } from './french-editorial-sample.ts';
 
 export const pilotId = '2026-10-04-claude-code-2-1-289-policy-precedence';
 // The proposal's long title is a layout sample; this fixture never approves the real pilot.
@@ -41,7 +37,7 @@ export const frenchSelectionSamples = [
       'Une seconde synthèse de test pour vérifier le rythme de lecture, les retours à la ligne et la séparation entre plusieurs articles dans la sélection française.',
   },
 ];
-export const fixtureId = (state) => `2026-10-04-i18n-fixture-${state}`;
+export const fixtureId = (state: string) => `2026-10-04-i18n-fixture-${state}`;
 export const visibilityEditions = {
   latest: '2030-01-02',
   recent: '2030-01-01',
@@ -64,7 +60,7 @@ export function buildFrenchFixture({ emptySelection = false, reviewStage = 'init
   const root = mkdtempSync(join(tmpdir(), 'pulse-french-pages-'));
   const cleanup = () => rmSync(root, { recursive: true, force: true });
   try {
-    for (const file of ['src', 'public', 'astro.config.mjs', 'tsconfig.json', 'package.json']) {
+    for (const file of ['src', 'public', 'astro.config.ts', 'tsconfig.json', 'package.json']) {
       cpSync(join(repo, file), join(root, file), { recursive: true });
     }
     symlinkSync(join(repo, 'node_modules'), join(root, 'node_modules'), 'dir');
@@ -78,6 +74,7 @@ export function buildFrenchFixture({ emptySelection = false, reviewStage = 'init
       'utf8',
     );
     const pilotMatch = pilot.match(/^---\n([\s\S]*?)\n---/);
+    if (!pilotMatch) throw new Error('Pilot fixture is missing frontmatter');
     const pilotMetadata = parse(pilotMatch[1]);
     pilotMetadata.status = 'draft';
     delete pilotMetadata.reviewedBy;
@@ -144,8 +141,9 @@ export function buildFrenchFixture({ emptySelection = false, reviewStage = 'init
             : emptySelection || (current && reviewStage === 'updated-draft')
               ? 'draft'
               : 'reviewed',
-        reviewedBy: 'Synthetic test fixture — not publication approval',
-        reviewedAt: translationUpdated ? '2026-10-13T11:00:00Z' : '2026-10-12T11:00:00Z',
+        reviewedBy: 'Synthetic test fixture — not publication approval' as string | undefined,
+        reviewedAt: (translationUpdated ? '2026-10-13T11:00:00Z' : '2026-10-12T11:00:00Z') as
+          string | undefined,
         title: selectionSample
           ? selectionSample.title
           : state === 'current'

@@ -1,9 +1,9 @@
 import { createServer, type Server } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { readTranslationFiles } from '../../src/lib/translation-files';
+import { readTranslationFiles } from '../../src/lib/translation-files.ts';
 import {
   buildFrenchFixture,
   draftSentinels,
@@ -12,13 +12,13 @@ import {
   frenchSelectionSamples,
   pilotId,
   visibilityEditions,
-} from '../helpers/french-fixture.mjs';
+} from '../helpers/french-fixture.ts';
 import {
   addedCorrection,
   editorialCode,
   editorialCommand,
   editorialCorrections,
-} from '../helpers/french-editorial-sample.mjs';
+} from '../helpers/french-editorial-sample.ts';
 
 test.describe.configure({ mode: 'default' });
 

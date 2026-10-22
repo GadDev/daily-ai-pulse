@@ -5,17 +5,24 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import test from 'node:test';
+import type { EditorialLedger } from '../scripts/lib/editorial-types.ts';
 
 const root = process.cwd();
-const validator = resolve(root, 'scripts/validate-editorial-batch.mjs');
+const validator = resolve(root, 'scripts/validate-editorial-batch.ts');
 
-function write(rootDir, path, content) {
+function write(rootDir: string, path: string, content: string) {
   const target = join(rootDir, path);
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, content);
 }
 
-function validate({ ledger, stories = {} }) {
+function validate({
+  ledger,
+  stories = {},
+}: {
+  ledger: EditorialLedger;
+  stories?: Record<string, string>;
+}) {
   const fixture = mkdtempSync(join(tmpdir(), 'pulse-editorial-validator-'));
 
   try {

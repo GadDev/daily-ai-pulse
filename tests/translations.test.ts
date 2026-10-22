@@ -43,7 +43,7 @@ const review = {
   reviewedAt: '2026-10-12T11:00:00Z',
 };
 
-function lookup(entries, snapshot = source) {
+function lookup(entries: Parameters<typeof createTranslationLookup>[0], snapshot = source) {
   return createTranslationLookup(entries, new Map([[id, snapshot]]));
 }
 
@@ -206,7 +206,7 @@ test('frontmatter parsing supports CRLF and rejects duplicate keys and empty bod
   );
 });
 
-const validator = resolve('scripts/validate-translations.mjs');
+const validator = resolve('scripts/validate-translations.ts');
 function validate(files = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'pulse-translations-'));
   try {

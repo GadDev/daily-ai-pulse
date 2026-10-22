@@ -8,7 +8,7 @@ import {
   validateGuideLedger,
   validateLedgerDirectory,
   validateLedgerHistory,
-} from '../scripts/validate-tools-guides-ledgers.mjs';
+} from '../scripts/validate-tools-guides-ledgers.ts';
 
 const date = '2026-10-23';
 const validSource = 'https://fastapi.tiangolo.com/tutorial/';
@@ -39,7 +39,7 @@ function ledger(patch = {}) {
 }
 
 const filename = `${LEDGER_DIRECTORY}/${date}.json`;
-const check = (value) => validateGuideLedger(value, filename);
+const check = (value: unknown) => validateGuideLedger(value, filename);
 
 test('valid selected guide with a pending PR number', () => {
   assert.deepEqual(check(ledger()), []);

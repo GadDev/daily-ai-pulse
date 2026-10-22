@@ -13,7 +13,7 @@ for (const file of files) {
   const page = file === 'index.html' ? 'home' : file.replace(/\.html$/, '');
   const document = {
     body: { dataset: { page } },
-    getElementById(id) {
+    getElementById(id: string) {
       return id === 'app' ? root : control;
     },
   };

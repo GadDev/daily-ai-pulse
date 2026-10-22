@@ -10,13 +10,13 @@ import {
   frenchSelectionSamples,
   pilotId,
   visibilityEditions,
-} from './helpers/french-fixture.mjs';
-import { addedCorrection, editorialCorrections } from './helpers/french-editorial-sample.mjs';
+} from './helpers/french-fixture.ts';
+import { addedCorrection, editorialCorrections } from './helpers/french-editorial-sample.ts';
 
-let fixture;
-const read = (path) => readFileSync(join(fixture.dist, path), 'utf8');
-const french = (state) => read(`fr/stories/${fixtureId(state)}/index.html`);
-const english = (state) => read(`stories/${fixtureId(state)}/index.html`);
+let fixture: ReturnType<typeof buildFrenchFixture>;
+const read = (path: string) => readFileSync(join(fixture.dist, path), 'utf8');
+const french = (state: string) => read(`fr/stories/${fixtureId(state)}/index.html`);
+const english = (state: string) => read(`stories/${fixtureId(state)}/index.html`);
 before(() => {
   fixture = buildFrenchFixture();
 });
@@ -76,7 +76,7 @@ test('a real source edit with a new correction withholds French routes, listing,
   for (const stage of ['stale', 'updated-draft', 'reviewed']) {
     const candidate = buildFrenchFixture({ reviewStage: stage });
     try {
-      const readCandidate = (path) => readFileSync(join(candidate.dist, path), 'utf8');
+      const readCandidate = (path: string) => readFileSync(join(candidate.dist, path), 'utf8');
       const selection = readCandidate('fr/index.html');
       const source = readCandidate(`stories/${id}/index.html`);
       assert.ok(
@@ -202,7 +202,7 @@ test('homepage falls back to a visible story from its edition and counts only vi
   for (const [kind, count] of [
     ['recent', '1 story'],
     ['empty', '0 stories'],
-  ]) {
+  ] as const) {
     const row = editions.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
     assert.ok(row, `${kind} edition must remain listed`);
     assert.ok(row.includes(`${count}</p>`));
@@ -227,7 +227,7 @@ test('daily editions omit draft-only sections and Pulse archive counts only publ
     ['latest', '3 stories'],
     ['recent', '1 story'],
     ['empty', '0 stories'],
-  ]) {
+  ] as const) {
     const row = rows.find((html) => html.includes(`/pulse/${visibilityEditions[kind]}/`));
     assert.ok(row, `${kind} edition must remain in the archive`);
     assert.ok(row.includes(`${count}</p>`), `${kind} count must exclude drafts`);

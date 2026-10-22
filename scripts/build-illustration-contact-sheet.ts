@@ -4,12 +4,12 @@ import { chromium } from '@playwright/test';
 
 const args = process.argv.slice(2);
 
-function option(name) {
+function option(name: string) {
   const index = args.indexOf(name);
   return index === -1 ? null : args[index + 1];
 }
 
-function repeatedOption(name) {
+function repeatedOption(name: string) {
   const values = [];
   for (let index = 0; index < args.length; index += 1) {
     if (args[index] === name && args[index + 1]) values.push(args[index + 1]);
@@ -33,23 +33,24 @@ const positional = args.filter((_, index) => !consumedIndexes.has(index));
 
 if (!storyId || !output || referenceInputs.length < 2 || positional.length < 3) {
   console.error(
-    'Usage: node scripts/build-illustration-contact-sheet.mjs --story <story-id> --out <output.png> --reference <golden-1> --reference <golden-2> <candidate-a> <candidate-b> <candidate-c> [more...]',
+    'Usage: node scripts/build-illustration-contact-sheet.ts --story <story-id> --out <output.png> --reference <golden-1> --reference <golden-2> <candidate-a> <candidate-b> <candidate-c> [more...]',
   );
   process.exit(1);
 }
 
-function imageRecord(input, label) {
+function imageRecord(input: string, label: string) {
   const path = resolve(input);
   if (!existsSync(path)) {
     console.error(`Image does not exist: ${path}`);
     process.exit(1);
   }
-  const mimeType = {
+  const mimeTypes: Record<string, string> = {
     '.webp': 'image/webp',
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
-  }[extname(path).toLowerCase()];
+  };
+  const mimeType = mimeTypes[extname(path).toLowerCase()];
   if (!mimeType) throw new Error(`Unsupported image format: ${path}`);
   return {
     label,
@@ -66,7 +67,7 @@ const candidates = positional.map((candidate, index) =>
   imageRecord(candidate, String.fromCharCode(65 + index)),
 );
 
-function cards(records, type) {
+function cards(records: ReturnType<typeof imageRecord>[], type: string) {
   return records
     .map(
       (record) => `
@@ -79,7 +80,7 @@ function cards(records, type) {
     .join('');
 }
 
-function escapeHtml(value) {
+function escapeHtml(value: string) {
   return value
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
@@ -191,7 +192,11 @@ try {
   await page.setContent(html, { waitUntil: 'load' });
   const imagesLoaded = await page
     .locator('img')
-    .evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0));
+    .evaluateAll((images) =>
+      images.every(
+        (image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0,
+      ),
+    );
   if (!imagesLoaded) throw new Error('Contact sheet contains an image that could not be decoded');
   await page.screenshot({ path: resolve(output), fullPage: true });
   console.log(`Contact sheet written to ${resolve(output)}`);
