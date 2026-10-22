@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 1880" role="img" aria-labelledby="title desc"><title id="title">One endpoint, three responsibility models</title><desc id="desc">A developer defines the same endpoint and acceptance criteria for three workflows. The manual path is developer-directed edits and tests. Assistance adds AI suggestions while the developer directs tools. Delegation lets the agent loop over tools under configured controls. All return to human review, which may request revision.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#344f51"/></marker></defs><rect width="560" height="1880" rx="16" fill="#faf6ee"/>
+<text x="280" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#171b1a">POST /bookmarks</text>
+<text x="280" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#171b1a">Same contract; different control</text>
+<rect x="40" y="110" width="480" height="120" rx="12" fill="#e8efec" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">DEVELOPER</text>
+<text x="280.0" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Define scope and acceptance</text>
+<text x="280" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#171b1a">1. Manual IDE</text>
+<text x="280" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#171b1a">2. With AI assistance</text>
+<text x="280" y="1120" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#171b1a">3. Delegated workflow</text>
+<rect x="65" y="310" width="430" height="135" rx="12" fill="#e8efec" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="344" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">DEVELOPER</text>
+<text x="280.0" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Explore, edit, choose checks</text>
+<path d="M280 445 V475" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="475" width="430" height="110" rx="12" fill="#fff" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="509" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">TOOLS</text>
+<text x="280.0" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Execute chosen actions</text>
+<rect x="65" y="680" width="430" height="110" rx="12" fill="#e9e2d6" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="714" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">AI SUGGESTION</text>
+<text x="280.0" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Propose code or tests</text>
+<path d="M280 790 V820" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="820" width="430" height="110" rx="12" fill="#e8efec" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="854" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">DEVELOPER</text>
+<text x="280.0" y="890" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Review and direct</text>
+<path d="M280 930 V960" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="960" width="430" height="110" rx="12" fill="#fff" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="994" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">TOOLS</text>
+<text x="280.0" y="1030" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Execute chosen actions</text>
+<rect x="48" y="1145" width="472" height="370" rx="16" fill="none" stroke="#8a4b35" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="65" y="1170" width="430" height="135" rx="12" fill="#e9e2d6" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="1204" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">AGENT</text>
+<text x="280.0" y="1240" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Choose the next action</text>
+<text x="280.0" y="1276" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">within delegated scope</text>
+<path d="M280 1305 V1340" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="1340" width="430" height="110" rx="12" fill="#fff" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="1374" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">TOOLS</text>
+<text x="280.0" y="1410" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Execute permitted action</text>
+<path d="M495 1395 H510 V1225 H495" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="280" y="1490" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#171b1a">Results feed the next step</text>
+<text x="280" y="1555" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#171b1a">Human-configured controls</text>
+<path d="M40 170 H20 V365 H65" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M20 365 V735 H65" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M20 735 V1230 H65" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M495 530 H545 V1640 H280 V1670" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M495 1015 H545" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M495 1395 H545" fill="none" stroke="#344f51" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="40" y="1670" width="480" height="140" rx="12" fill="#e8efec" stroke="#344f51" stroke-width="2"/>
+<text x="280.0" y="1704" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#171b1a">HUMAN REVIEW</text>
+<text x="280.0" y="1740" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Inspect diff and test evidence</text>
+<text x="280.0" y="1776" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#171b1a">Accept or request changes</text>
+<text x="280" y="1850" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#171b1a">Revision returns to the task brief</text>
+</svg>
