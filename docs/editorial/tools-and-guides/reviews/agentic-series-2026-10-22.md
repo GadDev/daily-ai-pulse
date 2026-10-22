@@ -1,5 +1,7 @@
 # Coding assistants and agentic environments — commissioned draft-series review
 
+**Draft PR:** [#199](https://github.com/GadDev/daily-ai-pulse/pull/199), stacked on [#197](https://github.com/GadDev/daily-ai-pulse/pull/197).
+
 **Editorial date and source cutoff:** 2026-10-22, Europe/Luxembourg.
 
 **Authorization:** The maintainer approved the Editorial Voice v2 direction in conversation after PR #197 was prepared. This authorizes the four draft articles and assets; it does not authorize publication or merging. The article PR is stacked on #197 while that PR remains open.

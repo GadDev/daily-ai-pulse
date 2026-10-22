@@ -6,7 +6,7 @@
   "state": "drafts-prepared",
   "publication_authorized": false,
   "review_record": "docs/editorial/tools-and-guides/reviews/agentic-series-2026-10-22.md",
-  "pr_number": null,
+  "pr_number": 199,
   "guides": [
     {
       "topic_key": "ai-coding-assistants-compared",
