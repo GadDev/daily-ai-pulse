@@ -37,7 +37,7 @@ jobs:
         run: npm run guides:assets:test
 
       - name: Editorial validator regressions
-        run: node --test tests/editorial-validator.test.mjs
+        run: node --test tests/editorial-validator.test.ts
 
       - name: Translation content and freshness regressions
         run: npm run translations:test
@@ -49,19 +49,19 @@ jobs:
         run: npm run translations:pages:test
 
       - name: Illustration generation identity regressions
-        run: node --test tests/illustration-generation-identity.test.mjs
+        run: node --test tests/illustration-generation-identity.test.ts
 
       - name: Illustration generation decision regressions
-        run: node --test tests/illustration-generation-decision.test.mjs
+        run: node --test tests/illustration-generation-decision.test.ts
 
       - name: Illustration validator regressions
-        run: node --test tests/illustration-validator.test.mjs
+        run: node --test tests/illustration-validator.test.ts
 
       - name: Automatic preview routing regressions
-        run: node --test tests/automatic-preview.test.mjs
+        run: node --test tests/automatic-preview.test.ts
 
       - name: Preview cleanup regressions
-        run: node --test tests/preview-cleanup.test.mjs
+        run: node --test tests/preview-cleanup.test.ts
 
       - name: Package static preview artifact
         if: >-
@@ -136,7 +136,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Illustration contact sheet regression
-        run: node --test tests/illustration-contact-sheet.test.mjs
+        run: node --test tests/illustration-contact-sheet.test.ts
 
       - name: Run Playwright suite
         run: npm run test:e2e

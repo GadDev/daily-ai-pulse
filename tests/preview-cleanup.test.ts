@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { cleanupPolicy, resolveCleanup } from '../scripts/preview-cleanup.mjs';
+import type { RepositoryMetadata } from '../scripts/automatic-preview.ts';
+import { cleanupPolicy, resolveCleanup } from '../scripts/preview-cleanup.ts';
 
 function fixture() {
   const repository = {
@@ -12,10 +13,10 @@ function fixture() {
     action: 'closed',
     repository,
     pull_request: {
-      number: 166,
+      number: 166 as number | string,
       state: 'closed',
-      base: { ref: 'main', repo: repository },
-      head: { repo: repository },
+      base: { ref: 'main', repo: repository as RepositoryMetadata },
+      head: { repo: repository as RepositoryMetadata },
     },
   };
 }
@@ -28,7 +29,7 @@ test('closed same-repository PR resolves its generated channel', () => {
   });
 });
 
-const rejections = {
+const rejections: Record<string, (event: ReturnType<typeof fixture>) => void> = {
   'non-close action': (event) => {
     event.action = 'reopened';
   },

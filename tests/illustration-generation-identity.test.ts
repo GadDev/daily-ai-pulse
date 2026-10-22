@@ -17,7 +17,7 @@ import {
   sha256,
   sha256File,
   sha256Json,
-} from '../scripts/lib/illustration-generation-identity.mjs';
+} from '../scripts/lib/illustration-generation-identity.ts';
 
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 
@@ -25,7 +25,7 @@ function fixture() {
   return mkdtempSync(join(tmpdir(), 'pulse-generation-identity-'));
 }
 
-function write(root, path, content) {
+function write(root: string, path: string, content: string | Uint8Array) {
   const target = join(root, path);
 
   mkdirSync(dirname(target), {

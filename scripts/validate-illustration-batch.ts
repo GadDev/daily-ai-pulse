@@ -1,22 +1,23 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
+import type { EditorialLedger, IllustrationReview } from './lib/editorial-types.ts';
 
 import {
   buildGenerationIdentityFromRepository,
   sha256File,
-} from './lib/illustration-generation-identity.mjs';
+} from './lib/illustration-generation-identity.ts';
 
 const root = process.cwd();
 const ledgersDir = join(root, 'docs/editorial/ledgers');
 const reviewsDir = join(root, 'docs/editorial/illustrations/reviews');
 const publicDir = join(root, 'public');
-const errors = [];
+const errors: string[] = [];
 
 const supportedSystemVersions = new Set(['1.2', '1.3']);
 
 const generationIdentitySystemVersion = '1.3';
 
-const placementContract = {
+const placementContract: Record<string, { layoutReferences: string[]; outputCrop: string }> = {
   'home-hero': {
     layoutReferences: ['docs/reference-layouts/index.html'],
     outputCrop: 'square',
@@ -67,15 +68,15 @@ const prohibitedElements = [
   'unsupported_visual_claim',
 ];
 
-function fail(message) {
+function fail(message: string) {
   errors.push(message);
 }
 
-function readJson(path) {
+function readJson<T>(path: string): T | null {
   try {
     return JSON.parse(readFileSync(path, 'utf8'));
   } catch (error) {
-    fail(`${path}: invalid JSON (${error.message})`);
+    fail(`${path}: invalid JSON (${error instanceof Error ? error.message : String(error)})`);
     return null;
   }
 }
@@ -85,10 +86,10 @@ function latestLedger() {
   const names = readdirSync(ledgersDir)
     .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
     .sort();
-  return names.length ? join(ledgersDir, names.at(-1)) : null;
+  return names.length ? join(ledgersDir, names.at(-1)!) : null;
 }
 
-function storySourcePath(storyId) {
+function storySourcePath(storyId: string) {
   const candidates = [`src/content/stories/${storyId}.md`, `src/content/stories/${storyId}.mdx`];
 
   for (const candidate of candidates) {
@@ -100,11 +101,11 @@ function storySourcePath(storyId) {
   return null;
 }
 
-function uint24le(buffer, offset) {
+function uint24le(buffer: Uint8Array, offset: number) {
   return buffer[offset] | (buffer[offset + 1] << 8) | (buffer[offset + 2] << 16);
 }
 
-function webpDimensions(path) {
+function webpDimensions(path: string) {
   const buffer = readFileSync(path);
   if (
     buffer.length < 30 ||
@@ -158,7 +159,12 @@ function webpDimensions(path) {
   throw new Error(`unsupported WebP chunk type: ${chunk}`);
 }
 
-function validateCrop(storyId, placement, outputCrop, dimensions) {
+function validateCrop(
+  storyId: string,
+  placement: string,
+  outputCrop: string,
+  dimensions: { width: number; height: number },
+) {
   const ratio = dimensions.width / dimensions.height;
 
   if (outputCrop === 'square') {
@@ -204,7 +210,7 @@ function validateCrop(storyId, placement, outputCrop, dimensions) {
   fail(`${storyId}: unsupported output_crop for placement ${placement}: ${outputCrop}`);
 }
 
-function illustrationReviewIdsForDate(editorialDate) {
+function illustrationReviewIdsForDate(editorialDate: string) {
   if (!existsSync(reviewsDir)) return [];
 
   return readdirSync(reviewsDir)
@@ -212,7 +218,7 @@ function illustrationReviewIdsForDate(editorialDate) {
     .map((name) => name.replace(/\.json$/, ''));
 }
 
-function illustrationAssetIdsForDate(editorialDate) {
+function illustrationAssetIdsForDate(editorialDate: string) {
   const storiesImageDir = join(publicDir, 'images/stories');
 
   if (!existsSync(storiesImageDir)) return [];
@@ -222,7 +228,7 @@ function illustrationAssetIdsForDate(editorialDate) {
     .map((name) => name.replace(/\.webp$/, ''));
 }
 
-function validateGenerationIdentity(storyId, review) {
+function validateGenerationIdentity(storyId: string, review: IllustrationReview) {
   if (review.system_version !== generationIdentitySystemVersion) {
     return;
   }
@@ -272,7 +278,9 @@ function validateGenerationIdentity(storyId, review) {
       modelSnapshot: identity.model_snapshot,
     });
   } catch (error) {
-    fail(`${storyId}: cannot recompute generation identity (${error.message})`);
+    fail(
+      `${storyId}: cannot recompute generation identity (${error instanceof Error ? error.message : String(error)})`,
+    );
 
     return;
   }
@@ -343,7 +351,7 @@ if (!existsSync(ledgerPath)) {
   process.exit(1);
 }
 
-const ledger = readJson(ledgerPath);
+const ledger = readJson<EditorialLedger>(ledgerPath);
 if (!ledger) process.exit(1);
 
 // These articles predate the illustration review workflow. Their images remain
@@ -386,7 +394,7 @@ for (const storyId of storyIds ?? []) {
     continue;
   }
 
-  const review = readJson(reviewPath);
+  const review = readJson<IllustrationReview>(reviewPath);
   if (!review) continue;
 
   if (!supportedSystemVersions.has(review.system_version)) {
@@ -557,7 +565,9 @@ for (const storyId of storyIds ?? []) {
     try {
       actualAssetSha256 = sha256File(assetPath);
     } catch (error) {
-      fail(`${storyId}: cannot compute final illustration SHA-256 (${error.message})`);
+      fail(
+        `${storyId}: cannot compute final illustration SHA-256 (${error instanceof Error ? error.message : String(error)})`,
+      );
     }
 
     if (actualAssetSha256 && review.asset_integrity?.sha256 !== actualAssetSha256) {
@@ -569,7 +579,9 @@ for (const storyId of storyIds ?? []) {
   try {
     dimensions = webpDimensions(assetPath);
   } catch (error) {
-    fail(`${storyId}: cannot read WebP dimensions (${error.message})`);
+    fail(
+      `${storyId}: cannot read WebP dimensions (${error instanceof Error ? error.message : String(error)})`,
+    );
     continue;
   }
 

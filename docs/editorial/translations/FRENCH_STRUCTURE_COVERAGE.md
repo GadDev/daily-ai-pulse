@@ -46,7 +46,7 @@ No fresh source-claim/security reproduction was performed for this translation.
 
 ## Controlled bilingual coverage
 
-[french-editorial-sample.mjs](../../../tests/helpers/french-editorial-sample.mjs)
+[french-editorial-sample.ts](../../../tests/helpers/french-editorial-sample.ts)
 contains an explicitly synthetic English/French article used only in temporary
 builds. Its reviewer and quotation are fictional test data, visibly labeled in
 both languages. This exercises translation and rendering structures absent from

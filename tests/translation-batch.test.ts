@@ -3,16 +3,17 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
+import type { TestContext } from 'node:test';
 import { execFileSync, spawnSync } from 'node:child_process';
 import process from 'node:process';
-import { inspectTranslationBatch } from '../scripts/translation-batch.mjs';
+import { inspectTranslationBatch } from '../scripts/translation-batch.ts';
 import { fingerprintStorySource } from '../src/lib/translations.ts';
 
 const storyId = '2026-10-14-example';
 const source = '---\ntitle: Example\n---\n\nA source paragraph.\n';
 const ledger = { editorial_date: '2026-10-14', publication: { story_ids: [storyId] } };
 
-function fixture(t, status) {
+function fixture(t: TestContext, status?: string) {
   const root = mkdtempSync(join(tmpdir(), 'pulse-bilingual-batch-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   const sourceDir = join(root, 'src/content/stories');
@@ -38,7 +39,7 @@ test('reports missing French without changing English or the ledger', (t) => {
   assert.equal(report.stories[0].state, 'absent');
   assert.equal(report.needsAttention, 1);
   assert.equal(readFileSync(sourcePath, 'utf8'), source);
-  assert.deepEqual(JSON.parse(readFileSync(join(root, 'ledger.json'))), ledger);
+  assert.deepEqual(JSON.parse(readFileSync(join(root, 'ledger.json'), 'utf8')), ledger);
 });
 
 test('retry reports the same reviewed file and source edit makes it stale', (t) => {
@@ -77,7 +78,7 @@ test('rejects duplicate, missing, unsafe and MDX sources', (t) => {
 });
 
 test('CLI strict mode fails on missing French and passes on reviewed French', (t) => {
-  const script = join(import.meta.dirname, '../scripts/translation-batch.mjs');
+  const script = join(import.meta.dirname, '../scripts/translation-batch.ts');
   const missing = fixture(t);
   const result = spawnSync(process.execPath, [script, 'ledger.json', '--require-current'], {
     cwd: missing.root,

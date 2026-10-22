@@ -5,14 +5,33 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import test from 'node:test';
+import type { IllustrationReview } from '../scripts/lib/editorial-types.ts';
+
+type FixtureReview = IllustrationReview & { prohibited_elements: Record<string, boolean> };
+type Write = (path: string, content: string | Uint8Array) => void;
+interface ValidateOptions {
+  mutate?: (review: FixtureReview) => void;
+  afterIdentity?: (context: {
+    review: FixtureReview;
+    write: Write;
+    storyPath: string;
+    referencePaths: string[];
+    fixture: string;
+  }) => void;
+  image?: Buffer;
+  storyIds?: string[];
+  includeReview?: boolean;
+  includeAsset?: boolean;
+  systemVersion?: string;
+}
 import {
   buildGenerationIdentityFromRepository,
   sha256,
-} from '../scripts/lib/illustration-generation-identity.mjs';
+} from '../scripts/lib/illustration-generation-identity.ts';
 
 const root = process.cwd();
 
-const validator = resolve(root, 'scripts/validate-illustration-batch.mjs');
+const validator = resolve(root, 'scripts/validate-illustration-batch.ts');
 
 const system = readFileSync(join(root, 'docs/editorial/ILLUSTRATION_SYSTEM_V1.md'), 'utf8');
 
@@ -48,10 +67,10 @@ function validate({
   includeReview = true,
   includeAsset = true,
   systemVersion = '1.2',
-} = {}) {
+}: ValidateOptions = {}) {
   const fixture = mkdtempSync(join(tmpdir(), 'pulse-illustration-validator-'));
 
-  const write = (path, content) => {
+  const write: Write = (path, content) => {
     const target = join(fixture, path);
 
     mkdirSync(dirname(target), {
@@ -62,7 +81,7 @@ function validate({
   };
 
   try {
-    const review = JSON.parse(JSON.stringify(example));
+    const review: FixtureReview = JSON.parse(JSON.stringify(example));
 
     review.system_version = systemVersion;
 
@@ -314,7 +333,7 @@ test('forged generation key fails validation', () => {
     systemVersion: '1.3',
 
     afterIdentity({ review }) {
-      review.generation_identity.generation_key = '0'.repeat(64);
+      review.generation_identity!.generation_key = '0'.repeat(64);
     },
   });
 
@@ -369,7 +388,7 @@ test('1.3 generation identity requires model_snapshot to be explicit', () => {
     systemVersion: '1.3',
 
     afterIdentity({ review }) {
-      delete review.generation_identity.model_snapshot;
+      delete review.generation_identity!.model_snapshot;
     },
   });
 

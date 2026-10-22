@@ -3,13 +3,27 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import process from 'node:process';
+import type { VisualBrief } from './lib/illustration-generation-identity.ts';
+import type { IllustrationReview } from './lib/editorial-types.ts';
+
+interface CliOptions {
+  storyId: string | null;
+  briefPath: string | null;
+  storyPath: string | null;
+  candidateCount: number;
+  generatorSurface: string;
+  modelSnapshot: string | null;
+  json: boolean;
+  help: boolean;
+}
+type GenerationIdentity = ReturnType<typeof buildGenerationIdentityFromRepository>;
 
 import {
   buildGenerationIdentityFromRepository,
   evaluateGenerationReuse,
   resolveRepositoryPath,
   sha256File,
-} from './lib/illustration-generation-identity.mjs';
+} from './lib/illustration-generation-identity.ts';
 
 const ILLUSTRATION_SYSTEM_VERSION = '1.3';
 const VISUAL_CONSTITUTION_VERSION = '1.1';
@@ -18,7 +32,8 @@ const DEFAULT_GENERATOR_SURFACE = 'chatgpt-image-tool';
 const LEGACY_SYSTEM_VERSION = '1.2';
 
 class CliError extends Error {
-  constructor(code, message) {
+  code: string;
+  constructor(code: string, message: string) {
     super(message);
     this.name = 'CliError';
     this.code = code;
@@ -47,7 +62,7 @@ Exit codes:
 `;
 }
 
-function requireValue(argv, index, flag) {
+function requireValue(argv: string[], index: number, flag: string) {
   const value = argv[index + 1];
 
   if (!value || value.startsWith('--')) {
@@ -57,7 +72,7 @@ function requireValue(argv, index, flag) {
   return value;
 }
 
-function parsePositiveInteger(value, flag) {
+function parsePositiveInteger(value: string, flag: string) {
   const parsed = Number(value);
 
   if (!Number.isInteger(parsed) || parsed <= 0) {
@@ -67,8 +82,8 @@ function parsePositiveInteger(value, flag) {
   return parsed;
 }
 
-function parseArguments(argv) {
-  const options = {
+function parseArguments(argv: string[]) {
+  const options: CliOptions = {
     storyId: null,
     briefPath: null,
     storyPath: null,
@@ -153,7 +168,7 @@ function parseArguments(argv) {
   return options;
 }
 
-function isPlainObject(value) {
+function isPlainObject(value: unknown): value is Record<string, unknown> {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) {
     return false;
   }
@@ -162,30 +177,36 @@ function isPlainObject(value) {
   return prototype === Object.prototype || prototype === null;
 }
 
-function readJson(path, errorCode) {
+function readJson<T>(path: string, errorCode: string): T {
   let raw;
 
   try {
     raw = readFileSync(path, 'utf8');
   } catch (error) {
-    throw new CliError(errorCode, `${path}: ${error.message}`);
+    throw new CliError(
+      errorCode,
+      `${path}: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   try {
     return JSON.parse(raw);
   } catch (error) {
-    throw new CliError(errorCode, `${path}: ${error.message}`);
+    throw new CliError(
+      errorCode,
+      `${path}: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 }
 
-function readVisualBrief(root, storyId, briefPath) {
+function readVisualBrief(root: string, storyId: string, briefPath: string) {
   const absoluteBriefPath = resolve(briefPath);
 
   if (!existsSync(absoluteBriefPath)) {
     throw new CliError('visual-brief-missing', `Visual brief does not exist: ${briefPath}`);
   }
 
-  const visualBrief = readJson(absoluteBriefPath, 'visual-brief-invalid');
+  const visualBrief = readJson<VisualBrief>(absoluteBriefPath, 'visual-brief-invalid');
 
   if (!isPlainObject(visualBrief)) {
     throw new CliError('visual-brief-invalid', 'Visual brief must be a JSON object');
@@ -227,7 +248,10 @@ function readVisualBrief(root, storyId, briefPath) {
     try {
       absoluteReference = resolveRepositoryPath(root, reference);
     } catch (error) {
-      throw new CliError('visual-brief-invalid', error.message);
+      throw new CliError(
+        'visual-brief-invalid',
+        error instanceof Error ? error.message : String(error),
+      );
     }
 
     if (!existsSync(absoluteReference)) {
@@ -241,7 +265,7 @@ function readVisualBrief(root, storyId, briefPath) {
   return visualBrief;
 }
 
-function resolveStorySourcePath(root, storyId, explicitStoryPath) {
+function resolveStorySourcePath(root: string, storyId: string, explicitStoryPath: string | null) {
   const candidates = explicitStoryPath
     ? [explicitStoryPath]
     : [`src/content/stories/${storyId}.md`, `src/content/stories/${storyId}.mdx`];
@@ -252,7 +276,10 @@ function resolveStorySourcePath(root, storyId, explicitStoryPath) {
     try {
       absolutePath = resolveRepositoryPath(root, candidate);
     } catch (error) {
-      throw new CliError('story-source-invalid', error.message);
+      throw new CliError(
+        'story-source-invalid',
+        error instanceof Error ? error.message : String(error),
+      );
     }
 
     if (existsSync(absolutePath)) {
@@ -266,7 +293,7 @@ function resolveStorySourcePath(root, storyId, explicitStoryPath) {
   );
 }
 
-function readReview(root, storyId) {
+function readReview(root: string, storyId: string) {
   const reviewRepositoryPath = `docs/editorial/illustrations/reviews/${storyId}.json`;
   const reviewPath = resolveRepositoryPath(root, reviewRepositoryPath);
 
@@ -274,10 +301,10 @@ function readReview(root, storyId) {
     return null;
   }
 
-  return readJson(reviewPath, 'review-json-invalid');
+  return readJson<IllustrationReview>(reviewPath, 'review-json-invalid');
 }
 
-function currentReviewIssue(review, storyId) {
+function currentReviewIssue(review: IllustrationReview, storyId: string) {
   if (!isPlainObject(review)) {
     return 'review-must-be-an-object';
   }
@@ -317,7 +344,19 @@ function currentReviewIssue(review, storyId) {
   return null;
 }
 
-function buildBaseResult({ decision, reason, storyId, expectedIdentity, review = null }) {
+function buildBaseResult({
+  decision,
+  reason,
+  storyId,
+  expectedIdentity,
+  review = null,
+}: {
+  decision: 'REUSE' | 'GENERATE' | 'LEGACY';
+  reason: string;
+  storyId: string;
+  expectedIdentity: GenerationIdentity;
+  review?: IllustrationReview | null;
+}) {
   return {
     decision,
     reason,
@@ -328,7 +367,9 @@ function buildBaseResult({ decision, reason, storyId, expectedIdentity, review =
   };
 }
 
-function resolveDecision(options) {
+function resolveDecision(options: CliOptions) {
+  if (!options.storyId || !options.briefPath)
+    throw new CliError('invalid-arguments', '--story and --brief are required');
   const root = process.cwd();
   const visualBrief = readVisualBrief(root, options.storyId, options.briefPath);
   const storyPath = resolveStorySourcePath(root, options.storyId, options.storyPath);
@@ -348,7 +389,10 @@ function resolveDecision(options) {
       modelSnapshot: options.modelSnapshot,
     });
   } catch (error) {
-    throw new CliError('generation-identity-unavailable', error.message);
+    throw new CliError(
+      'generation-identity-unavailable',
+      error instanceof Error ? error.message : String(error),
+    );
   }
 
   const review = readReview(root, options.storyId);
@@ -427,7 +471,10 @@ function resolveDecision(options) {
     try {
       actualAssetSha256 = sha256File(assetPath);
     } catch (error) {
-      throw new CliError('asset-integrity-unavailable', error.message);
+      throw new CliError(
+        'asset-integrity-unavailable',
+        error instanceof Error ? error.message : String(error),
+      );
     }
   }
 
@@ -472,7 +519,7 @@ function resolveDecision(options) {
   };
 }
 
-function writeDecision(result, json) {
+function writeDecision(result: ReturnType<typeof resolveDecision>, json: boolean) {
   if (json) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     return;
@@ -489,14 +536,14 @@ function writeDecision(result, json) {
     lines.push(`stored_generation_key: ${result.stored_generation_key}`);
   }
 
-  if (result.asset) {
+  if ('asset' in result && result.asset) {
     lines.push(`asset: ${result.asset}`);
   }
 
   process.stdout.write(`${lines.join('\n')}\n`);
 }
 
-function writeError(error, json) {
+function writeError(error: unknown, json: boolean) {
   const payload = {
     error: error instanceof CliError ? error.code : 'unexpected-error',
     message: error instanceof Error ? error.message : String(error),
