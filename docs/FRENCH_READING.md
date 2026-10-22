@@ -10,6 +10,7 @@ translation preparation within the daily PR; scheduler configuration is separate
 | Surface | Contract |
 | --- | --- |
 | `/fr/` | Curated selection of current, reviewed French translations; explicit empty state before any is approved. It is not an equivalent translation of the full English daily homepage. |
+| `/fr/<category>/`, `/fr/<category>/2/` | Category archives of current, reviewed translations only; 12 articles per page, localized navigation and empty states. |
 | `/fr/stories/<English-id>/` — current | French title, description, Markdown body, image alt and translated correction notes; canonical source image, date, category, evidence, difficulty, signal, tags and source URLs. |
 | Same URL — stale or withdrawn | French unavailable notice with a link to the English original; no translated body, title or correction notes. `noindex, follow`; omitted from sitemap and Pagefind. |
 | Missing or draft translation; draft source | No French article route, listing or language alternate. |
@@ -33,12 +34,12 @@ Français accessible link names (visually EN / FR in the masthead) require no Ja
 French translation is current. Otherwise English articles display “No current
 French translation” in article content and offer a separate French selection link.
 The unavailable FR state stays non-interactive in the header. Other English
-pages link to the French selection rather than inventing translated equivalents.
+pages link to the French selection. Category archives instead retain the category and sort order, clamping the destination page to the last available page in the other language.
 French notices always offer their canonical English story.
 
 French pages translate navigation, footer, accessibility labels, article labels
 and UTC dates. Original bibliographic source names and English source URLs are
-retained. Search, subscription, categories, daily editions, legal pages and RSS
+retained. Category navigation is available in both languages. Search, subscription, daily editions, legal pages and RSS
 remain English destinations, explicitly labelled on the French shell. There is
 no French search interface or French feed in M2.
 
@@ -188,3 +189,31 @@ highlighted on French reading pages, while `aria-current="page"` describes only
 the actual selection URL. The synthetic reading fixture uses the proposal's
 long title; browser checks cover containment, truncation and desktop line count.
 The complete site footer and publication attribution remain in place.
+
+
+## Category pagination
+
+Category archives use 12 articles per page: two illustrated lead rows and ten
+compact rows keep each page scannable without loading the complete archive.
+English category roots stay unchanged. Later pages use `/<category>/2/`;
+French uses `/fr/<category>/2/`. Oldest-first archives use
+`/<category>/oldest/` and `/<category>/oldest/2/`, with the same French prefix.
+Changing sort order starts at page one and sorts the entire eligible archive
+before slicing. Equal dates use the canonical story ID as a deterministic tie-break.
+
+`getStaticPaths` emits only valid page paths for both sort orders, including a
+root for empty archives. Invalid pages and explicit `/1/` aliases have no built
+route and follow Hosting's normal 404 behavior. This small shared path generator
+handles both order prefixes and empty archives without runtime JavaScript.
+Each URL is self-canonical and included by the existing sitemap integration;
+archive language links are navigation, not equivalent-content hreflang claims.
+As with any numbered static archive, publishing new stories can shift page boundaries
+on the next deployment. Navigation remains consistent within a deployed build.
+
+The pager uses native links, a bounded first/current/last page window, 44px link
+targets and two rows on small screens. Single-page and empty archives omit it.
+`tests/pagination.test.ts` covers boundaries, ties, URLs and long ranges;
+`tests/french-pages.test.ts` builds a synthetic 25-translation archive and checks
+publication gates, isolation, 12/12/1 partitioning, reverse order and metadata.
+`tests/e2e/pagination.spec.ts` covers navigation, history, refresh, 404s, language
+clamping, accessibility and layout at 1280, 960, 375 and 320px.

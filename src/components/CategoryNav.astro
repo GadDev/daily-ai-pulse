@@ -1,4 +1,5 @@
 ---
+import { frenchCategories, type Locale } from '../lib/i18n';
 const categories = [
   ['Research', 'research'],
   ['Models', 'models'],
@@ -12,26 +13,27 @@ const categories = [
 
 interface Props {
   active?: string;
+  locale?: Locale;
 }
 
-const { active } = Astro.props;
+const { active, locale = 'en' } = Astro.props;
 ---
 
-<nav class="category-nav" aria-label="Categories" tabindex="0">
+<nav class="category-nav" aria-label={locale === 'fr' ? 'Rubriques' : 'Categories'} tabindex="0">
   <a
     class:list={{ active: !active }}
-    href={`${import.meta.env.BASE_URL}categories/`}
+    href={`${import.meta.env.BASE_URL}${locale === 'fr' ? 'fr/' : 'categories/'}`}
     aria-current={!active ? 'page' : undefined}
   >
-    All
+    {locale === 'fr' ? 'Sélection' : 'All'}
   </a>
   {categories.map(([label, slug]) => (
     <a
       class:list={{ active: active === slug }}
-      href={`${import.meta.env.BASE_URL}${slug}/`}
+      href={`${import.meta.env.BASE_URL}${locale === 'fr' ? 'fr/' : ''}${slug}/`}
       aria-current={active === slug ? 'page' : undefined}
     >
-      {label}
+      {locale === 'fr' ? frenchCategories[slug] : label}
     </a>
   ))}
 </nav>

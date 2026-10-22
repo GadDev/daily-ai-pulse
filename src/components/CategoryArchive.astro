@@ -1,26 +1,52 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryIllustration from './CategoryIllustration.astro';
 import CategoryNav from './CategoryNav.astro';
 import StoryListRow from './StoryListRow.astro';
-import StorySortControl from './StorySortControl.astro';
-import { isPublishedStory } from '../lib/stories';
+import Pagination from './Pagination.astro';
+import { categoryContent } from '../lib/category-content';
+import {
+  CATEGORY_PAGE_SIZE,
+  archivePath,
+  pageCount,
+  sortArchive,
+  type ArchiveOrder,
+} from '../lib/pagination';
+import { frenchCategories, frenchLabels, type Locale } from '../lib/i18n';
 import type { CategoryConfig } from '../lib/categories';
 
 type Story = CollectionEntry<'stories'>;
 
 interface Props {
   config: CategoryConfig;
+  locale?: Locale;
+  currentPage?: number;
+  order?: ArchiveOrder;
 }
 
-const { config } = Astro.props;
+const { config, locale = 'en', currentPage = 1, order = 'latest' } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const stories = (await getCollection('stories', isPublishedStory))
-  .filter((story) => story.data.category === config.key)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const storyCount = `${stories.length} ${stories.length === 1 ? 'story' : 'stories'}`;
+const fr = locale === 'fr';
+const title = fr ? frenchCategories[config.key] : config.title;
+const allStories = sortArchive(await categoryContent(config.key, locale), order);
+const totalPages = pageCount(allStories.length);
+const stories = allStories.slice(
+  (currentPage - 1) * CATEGORY_PAGE_SIZE,
+  currentPage * CATEGORY_PAGE_SIZE,
+);
+const href = (page: number) => archivePath(base, config.key, locale, page, order);
+// Language changes keep the category and order, clamping to the last available page.
+const otherLocale = fr ? 'en' : 'fr';
+const otherPages = pageCount((await categoryContent(config.key, otherLocale)).length);
+const otherHref = archivePath(
+  base,
+  config.key,
+  otherLocale,
+  Math.min(currentPage, otherPages),
+  order,
+);
+const storyCount = `${allStories.length} ${fr ? (allStories.length === 1 ? 'article' : 'articles') : allStories.length === 1 ? 'story' : 'stories'}`;
 const mediaRows = 2;
 
 const imageFor = (story: Story) =>
@@ -34,7 +60,7 @@ const evidenceLabels: Record<Story['data']['evidence'], string> = {
   unverified: 'Unverified claim',
 };
 
-const dateFormat = new Intl.DateTimeFormat('en-US', {
+const dateFormat = new Intl.DateTimeFormat(fr ? 'fr-FR' : 'en-US', {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
@@ -42,7 +68,7 @@ const dateFormat = new Intl.DateTimeFormat('en-US', {
 });
 
 const tagCounts = new Map<string, number>();
-for (const story of stories) {
+for (const story of allStories) {
   for (const tag of story.data.tags) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
 }
 const topTags = [...tagCounts.entries()]
@@ -51,46 +77,106 @@ const topTags = [...tagCounts.entries()]
   .map(([tag]) => tag.replaceAll('-', ' '));
 ---
 
-<BaseLayout title={`${config.title} — Pulse`} description={config.description}>
-  <CategoryNav active={config.key} />
+<BaseLayout
+  locale={locale}
+  title={`${title}${currentPage > 1 ? ` — Page ${currentPage}` : ''}${order === 'oldest' ? (fr ? ' — Les plus anciens' : ' — Oldest') : ''} — Pulse`}
+  description={
+    fr ? `Les articles de la rubrique ${title}, traduits et relus en français.` : config.description
+  }
+  archiveLanguageHref={otherHref}
+>
+  <CategoryNav active={config.key} locale={locale} />
 
   <section class="category-head" aria-labelledby="category-title">
     <div class="category-copy">
-      <p class="eyebrow">{config.eyebrow}</p>
-      <h1 id="category-title">{config.title}</h1>
-      <p class="dek">{config.dek}</p>
+      <p class="eyebrow">{fr ? `ARCHIVES / ${title}` : config.eyebrow}</p>
+      <h1 id="category-title">{title}</h1>
+      <p class="dek">
+        {fr ? 'Une sélection d’articles traduits et relus en français.' : config.dek}
+      </p>
       <p class="count">{storyCount}</p>
     </div>
     <CategoryIllustration
-      title={`Network diagram of connected nodes representing ${config.title.toLowerCase()} topics`}
-      labels={topTags}
+      title={
+        fr
+          ? `Réseau de sujets : ${title}`
+          : `Network diagram of connected nodes representing ${title.toLowerCase()} topics`
+      }
+      labels={fr ? [] : topTags}
     />
   </section>
 
   <section class="archive-list" aria-labelledby="archive-title">
     <div class="list-header">
-      <h2 id="archive-title">{config.sectionTitle}</h2>
-      <StorySortControl />
+      <h2 id="archive-title">
+        {fr ? `Articles : ${title}` : order === 'oldest' ? `${title} archive` : config.sectionTitle}
+      </h2>
+      <nav class="archive-sort" aria-label={fr ? 'Ordre des articles' : 'Story order'}>
+        <a
+          href={archivePath(base, config.key, locale)}
+          aria-current={order === 'latest' ? 'true' : undefined}
+        >
+          {fr ? 'Les plus récents' : 'Latest'}
+        </a>
+        <a
+          href={archivePath(base, config.key, locale, 1, 'oldest')}
+          aria-current={order === 'oldest' ? 'true' : undefined}
+        >
+          {fr ? 'Les plus anciens' : 'Oldest'}
+        </a>
+      </nav>
     </div>
+    {!allStories.length && (
+      <p>
+        {fr
+          ? 'Aucun article en français n’est encore disponible dans cette rubrique.'
+          : 'No stories have been published in this category yet.'}
+      </p>
+    )}
     <div data-story-rows>
       {stories.map((story, index) => (
         <StoryListRow
           title={story.data.title}
           description={story.data.description}
-          href={`${base}stories/${story.id}/`}
+          href={`${base}${fr ? 'fr/' : ''}stories/${story.id}/`}
           date={dateFormat.format(story.data.date)}
           dateTime={story.data.date.toISOString().slice(0, 10)}
-          desk={config.title}
+          desk={title}
           image={index < mediaRows ? imageFor(story) : undefined}
           imageAlt={index < mediaRows ? story.data.imageAlt : undefined}
-          evidenceLabel={evidenceLabels[story.data.evidence]}
+          evidenceLabel={
+            fr ? frenchLabels[story.data.evidence] : evidenceLabels[story.data.evidence]
+          }
         />
       ))}
     </div>
+    <Pagination current={currentPage} total={totalPages} href={href} locale={locale} />
   </section>
 </BaseLayout>
 
 <style>
+  .archive-sort {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .archive-sort a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .archive-sort a[aria-current] {
+    text-decoration: underline;
+    text-decoration-color: var(--terracotta);
+    text-underline-offset: 0.4rem;
+  }
+  .archive-sort a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
   .category-head {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -109,6 +195,7 @@ const topTags = [...tagCounts.entries()]
     color: var(--terracotta);
   }
   h1 {
+    overflow-wrap: anywhere;
     margin: 0.3rem 0 0.6rem;
     font:
       400 clamp(3.4rem, 8vw, 5.75rem) / 0.95 Georgia,

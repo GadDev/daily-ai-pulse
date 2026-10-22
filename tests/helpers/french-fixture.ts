@@ -53,7 +53,22 @@ export const draftSentinels = [
 ];
 
 /** Synthetic approval lives only in an isolated temporary checkout. Never edit the pilot. */
-export function buildFrenchFixture({ emptySelection = false, reviewStage = 'initial' } = {}) {
+export function buildFrenchFixture({
+  emptySelection = false,
+  reviewStage = 'initial',
+  categoryPagination = false,
+} = {}) {
+  const selectionSamples = [
+    ...frenchSelectionSamples,
+    ...(categoryPagination
+      ? Array.from({ length: 25 }, (_, i) => ({
+          state: `pagination-${String(i).padStart(2, '0')}`,
+          category: 'curious',
+          title: `Article français de pagination ${i}`,
+          description: 'Description synthétique pour vérifier les pages.',
+        }))
+      : []),
+  ];
   if (!['initial', 'stale', 'updated-draft', 'reviewed'].includes(reviewStage))
     throw new Error(`Unknown fixture review stage: ${reviewStage}`);
   const repo = resolve(import.meta.dirname, '../..');
@@ -90,9 +105,9 @@ export function buildFrenchFixture({ emptySelection = false, reviewStage = 'init
       'stale',
       'withdrawn',
       'source-draft',
-      ...frenchSelectionSamples.map((sample) => sample.state),
+      ...selectionSamples.map((sample) => sample.state),
     ]) {
-      const selectionSample = frenchSelectionSamples.find((sample) => sample.state === state);
+      const selectionSample = selectionSamples.find((sample) => sample.state === state);
       const id = fixtureId(state);
       const correction = { date: '2026-10-05', note: 'English correction.' };
       const draft = state === 'source-draft';
