@@ -9,8 +9,12 @@ test('Tools & Guides landing exposes three formats without fictional reviews', a
   await expect(
     page.getByLabel('Explore by format').getByRole('heading', { name: 'Tutorials' }),
   ).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Technical reviews' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Toolkits' })).toBeVisible();
+  await expect(
+    page.getByLabel('Explore by format').getByRole('heading', { name: 'Technical reviews' }),
+  ).toBeVisible();
+  await expect(
+    page.getByLabel('Explore by format').getByRole('heading', { name: 'Toolkits' }),
+  ).toBeVisible();
   await expect(
     page
       .getByRole('navigation', { name: 'Primary navigation' })
