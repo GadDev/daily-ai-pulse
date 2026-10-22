@@ -12,12 +12,13 @@
 - [ ] Any commercial relationship is disclosed prominently and truthfully.
 - [ ] References, commands and links have been reviewed; sensitive data is absent.
 - [ ] Translation state is correct and publication follows human PR review.
+- [ ] New guide stays `draft` in the orchestrator PR. Only after real editorial authorization set `status: published` with real `publishedAt`, `verifiedAt`, author/publisher and sources; reviewer name is optional. After merge and deployment, verify the live `/guides/` card and article route.
 
 ## Tutorial visuals and code checklist
 
-- [ ] Editorial cover obeys the publication's visual constitution; no fake UI, numbers, logos or textual diagrams in generated cover artwork.
-- [ ] Technical architecture diagram is **separately** accurate and labeled, with accessible prose describing nodes and directions.
-- [ ] Every code sample has a language identifier, complete prerequisites and copyable commands.
+- [ ] Genuine high-resolution **WebP editorial cover** obeys the visual constitution: one physical metaphor, no fake UI, numbers, logos or diagrams; compare two production references, inspect card/hero/mobile crops, record honest generation provenance and check actual binary asset plus `imageAlt`.
+- [ ] **Separate rendered technical diagram** (prefer desktop/mobile SVG variants) shows accurate labels, arrows and relationships, with alt text and explanatory prose; an ASCII code fence or unsupported Mermaid block is not a rendered diagram.
+- [ ] Every code sample has a language identifier, complete prerequisites and copyable commands **inside the article**; no `examples/` app or per-article CI test job for routine content.
 - [ ] Code runs in the stated environment **or** is explicitly marked unexecuted; any expected output is labeled illustrative.
 - [ ] Primary references are linked where relevant and listed in guide `sources` metadata.
 - [ ] No separate `examples/` folder is created for an ordinary article.
