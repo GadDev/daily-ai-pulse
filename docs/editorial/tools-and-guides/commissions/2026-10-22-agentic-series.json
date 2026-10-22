@@ -3,8 +3,8 @@
   "editorial_date": "2026-10-22",
   "authorization": "Maintainer approved Editorial Voice v2 and continuation with the commissioned four article drafts in conversation.",
   "scheduled_run": false,
-  "state": "drafts-prepared",
-  "publication_authorized": false,
+  "state": "publication-prepared",
+  "publication_authorized": true,
   "review_record": "docs/editorial/tools-and-guides/reviews/agentic-series-2026-10-22.md",
   "pr_number": 199,
   "guides": [
@@ -66,5 +66,11 @@
       "item": "Four selected candidates in a scheduled daily ledger",
       "reason": "This authorized manual batch is recorded here, leaving the existing one-selection scheduled contract intact."
     }
-  ]
+  ],
+  "publication_authorization": {
+    "quote": "I authorize the publication",
+    "authorized_at": "2026-10-22",
+    "scope": "All four commissioned guides; publication metadata included in PR #197."
+  },
+  "publication_pr_number": 197
 }

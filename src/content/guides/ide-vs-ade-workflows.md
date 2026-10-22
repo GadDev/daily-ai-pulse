@@ -1,7 +1,8 @@
 ---
 title: 'IDE vs ADE: What Changes When Your Tools Start Acting for You?'
 description: Follow one API endpoint through manual, AI-assisted and delegated development to see how execution, verification, permissions and recovery change.
-status: draft
+status: published
+publishedAt: 2026-10-22
 format: review
 verification: researched
 difficulty: beginner

@@ -1,10 +1,10 @@
-# Coding assistants and agentic environments — commissioned draft-series review
+# Coding assistants and agentic environments — commissioned series review
 
-**Draft PR:** [#199](https://github.com/GadDev/daily-ai-pulse/pull/199), stacked on [#197](https://github.com/GadDev/daily-ai-pulse/pull/197).
+**Initial draft PR:** [#199](https://github.com/GadDev/daily-ai-pulse/pull/199), stacked on [#197](https://github.com/GadDev/daily-ai-pulse/pull/197).
 
 **Editorial date and source cutoff:** 2026-10-22, Europe/Luxembourg.
 
-**Authorization:** The maintainer approved the Editorial Voice v2 direction in conversation after PR #197 was prepared. This authorizes the four draft articles and assets; it does not authorize publication or merging. The article PR is stacked on #197 while that PR remains open.
+**Initial draft authorization (superseded below):** The maintainer approved the Editorial Voice v2 direction in conversation after PR #197 was prepared. This authorizes the four draft articles and assets; it does not authorize publication or merging. The article PR is stacked on #197 while that PR remains open.
 
 ## Scope and durable decisions
 
@@ -97,7 +97,7 @@ The explainer has separate accessible desktop/mobile SVG diagrams with titles/de
 | Product reviewing | Removed numerical rankings; declared evidence/method before judgments; dated prices and distinguished account/provider paths. | No installed version, observed latency, success rate or measured total cost. |
 | Editing | Four different openings, heading sequences and reader outcomes; cross-links replace repeated deep explanations. | Human publication review and a fresh volatile-claim check still required. |
 
-## Verification and publication readiness
+## Initial draft verification and publication readiness
 
 - `npm run verify`: passed on Node 24.19.0 with the current main content and approved direction materialized. Lint, repository formatting, content/evergreen-ledger/translation/editorial/illustration checks, Astro diagnostics, static build and Pagefind completed. Astro reported 0 errors, 0 warnings and 3 existing deprecation hints. The draft series adds no public routes; the build retains 186 pages.
 - `npm run guides:assets:test`: all 6 existing regressions passed, including Astro collection rejection of a missing cover. No article-specific executable test suite or CI job was added.
@@ -106,4 +106,22 @@ The explainer has separate accessible desktop/mobile SVG diagrams with titles/de
 - Local visual review used the installed Astro Markdown processor and the existing built guide template/CSS, replacing only the in-memory DOM for review. The source entries remained drafts. This is layout evidence, not proof that unpublished routes exist. The [desktop](agentic-series-2026-10-22-diagram-desktop.webp) and [mobile](agentic-series-2026-10-22-diagram-mobile.webp) diagram captures document that inspection.
 - Actual draft-route requests returned 404 for all four guides. Generated listing, homepage, feed, sitemap and a real Pagefind query contained no new guide URLs. These checks used the untouched production build, not the in-memory review DOM.
 
-Human editorial publication authorization is still required. Recheck volatile prices, migration notices, access/retention terms and source links before publishing; assess whether the researched comparison is sufficient or whether product trials are desired. The commissioned deliverables are complete as researched drafts, not hands-on reviews. A separately authorized publication change must supply real `publishedAt` metadata and verify the deployed routes after CI/merge/deployment. No article publication, external deployment or automatic merge was performed here. GitHub CI status is reported in the PR for its actual final commit.
+At the initial draft handoff, human editorial publication authorization and a fresh volatile-claim check were still required. The commissioned deliverables were complete as researched drafts, not hands-on reviews. The draft phase did not publish, deploy or merge the articles. The later authorization and publication preparation are recorded below.
+
+
+## Authorized publication preparation — 2026-10-22
+
+After merging draft PR #199 into #197, the maintainer explicitly authorized all four articles in conversation: “I authorize the publication”. This subsequent authorization supersedes the initial draft-only boundary above. Publication metadata is included directly in the still-open [PR #197](https://github.com/GadDev/daily-ai-pulse/pull/197).
+
+All four series entries now have `status: published` and `publishedAt: 2026-10-22`. They retain `verifiedAt: 2026-10-22`, `verification: researched`, the existing publication byline and source references. No product trial, human reviewer identity or hands-on verification is invented. The manual commission records the authorization and publication PR while retaining #199 as the initial draft PR.
+
+The publication check reopened the official [Copilot plans](https://docs.github.com/en/copilot/get-started/plans), [Cursor pricing](https://cursor.com/pricing), [Claude pricing](https://claude.com/pricing), [Gemini CLI migration notice](https://github.com/google-gemini/gemini-cli), [Codex approvals/security](https://learn.chatgpt.com/docs/agent-approvals-security) and [Warp security overview](https://docs.warp.dev/enterprise/security-and-compliance/security-overview) on October 22. The dated plan examples, account-specific migration notice and qualified separation of approval, execution isolation and data handling remain supported. This is a focused refresh of volatile claims; it does not represent newly executed product experiments or a repeat of every source-matrix row.
+
+Publication validation on the materialized PR head plus this change:
+
+- `npm run verify`: passed on Node 24.19.0. Existing lint, formatting, content/ledger/translation/editorial/illustration checks, Astro diagnostics, build and Pagefind completed. Astro: 0 errors, 0 warnings, 3 existing deprecation hints. The build now contains 190 pages, including the four newly enabled guide routes.
+- Chromium requested the actual, unchanged generated publication pages: all four returned HTTP 200, appeared in `/guides/`, appeared in the sitemap and were returned by a real Pagefind query for `agentic`. The existing draft regression route still returned 404.
+- All six internal series links returned HTTP 200 and their fragments resolved. Sixteen layout checks across 1280, 960, 375 and 320 pixels found no document overflow. All article images decoded with meaningful alt text; the explainer selected its desktop/mobile SVG correctly.
+- Axe scans of the four generated pages found no serious or critical WCAG A/AA violations. This is automated accessibility evidence, not independent human review.
+
+These results verify the publication build locally. They do not establish a production deployment. PR #197 still requires merging and deployment before the articles become visible on the live site; the deployed listing and detail routes should then be checked. Exact-head GitHub CI status is reported in the PR description.

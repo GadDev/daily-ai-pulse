@@ -1,7 +1,8 @@
 ---
 title: 'AI Coding Assistants Compared: Choose the Workflow Before the Subscription'
 description: A researched comparison of Copilot, Cursor, Claude Code, Codex, Google's coding tools and Aider, with explicit limits on what documentation can prove.
-status: draft
+status: published
+publishedAt: 2026-10-22
 format: review
 verification: researched
 difficulty: intermediate

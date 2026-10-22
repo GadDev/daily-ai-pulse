@@ -1,7 +1,8 @@
 ---
 title: 'Comparing Agentic Development Environments: Follow the Permissions'
 description: Compare delegated engineering workflows in Warp, Cursor Cloud Agents, Claude Code, Codex, Copilot cloud agent and OpenHands through execution, recovery and review controls.
-status: draft
+status: published
+publishedAt: 2026-10-22
 format: review
 verification: researched
 difficulty: advanced

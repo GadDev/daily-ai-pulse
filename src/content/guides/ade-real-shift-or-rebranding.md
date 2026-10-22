@@ -1,7 +1,8 @@
 ---
 title: 'Agentic Development Environments: Real Shift or Clever Rebranding?'
 description: Trace ADE from a dated vendor category claim to the engineering changes behind delegated work, and examine what the evidence still cannot establish.
-status: draft
+status: published
+publishedAt: 2026-10-22
 format: review
 verification: researched
 difficulty: intermediate
