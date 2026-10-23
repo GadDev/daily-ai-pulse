@@ -60,7 +60,7 @@ The last question is deliberately paraphrased: it asks about *permissions* and *
 
 Create a file called `evaluate_retrieval.py` and copy the **complete** script:
 
-~~~python
+~~~python title="evaluate_retrieval.py · Python · Complete file"
 """Minimal RAG retrieval benchmark using fictional operational runbooks."""
 import re
 from statistics import mean
@@ -134,14 +134,14 @@ The `retrieve` function is intentionally primitive: it counts overlapping non-st
 
 ## 3. Run the benchmark
 
-~~~bash
+~~~bash title="Terminal · Bash · Run the benchmark"
 python3 --version
 python3 evaluate_retrieval.py
 ~~~
 
 The following output was **observed** for the exact script above using Python 3.13.5 on Linux:
 
-~~~text
+~~~text title="Observed output · Plain text"
 Recall@2: 0.80
 MRR@2:    0.80
 Missed questions:
@@ -171,7 +171,7 @@ Keep the `metrics` function and replace the sample `retrieve` call with an adapt
 
 For example, your integration boundary should behave like:
 
-~~~python
+~~~python title="Retriever interface · Python · Unimplemented example"
 def retrieve_ids(question: str, k: int) -> list[str]:
     """Replace with your actual retrieval API; return ordered stable IDs."""
     raise NotImplementedError("Connect and verify your retriever before scoring")

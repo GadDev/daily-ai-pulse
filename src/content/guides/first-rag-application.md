@@ -47,7 +47,7 @@ A relevant question with **no matching words** abstains without contacting the m
 
 Use Python 3.13 in a fresh folder:
 
-~~~bash
+~~~bash title="Terminal · Bash · Install dependencies"
 mkdir first-rag && cd first-rag
 python3.13 -m venv .venv
 source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -56,7 +56,7 @@ python -m pip install fastapi==0.128.2 uvicorn==0.48.0 httpx==0.28.1
 
 For live generation, install [Ollama](https://docs.ollama.com/) separately, ensure its local service runs, and download a modest model:
 
-~~~bash
+~~~bash title="Terminal · Bash · Download the model"
 ollama pull llama3.2:1b
 ~~~
 
@@ -66,7 +66,7 @@ The model requires a download and local RAM/disk; performance varies by machine.
 
 The following runbooks are **fabricated instructional content**; they do not describe a real organization. Keep personal and confidential data out of this exercise.
 
-~~~bash
+~~~bash title="Terminal · Bash · Create knowledge files"
 mkdir knowledge
 cat > knowledge/releases.md <<'EOF'
 # Acme release guide (fictional)
@@ -89,7 +89,7 @@ The source heading and filename travel along with each excerpt, so the API can r
 
 Create **`app.py`** with the following code. There are no hidden source files or library wrappers.
 
-~~~python
+~~~python title="app.py · Python · Complete file"
 """Local RAG teaching sample: fictional docs, lexical search, local Ollama."""
 import math
 import os
@@ -209,13 +209,13 @@ The model is explicitly told not to execute instructions found in retrieved text
 
 Start FastAPI from the same folder, after starting Ollama separately:
 
-~~~bash
+~~~bash title="Terminal 1 · Bash · Start the server"
 uvicorn app:app --host 127.0.0.1 --port 8000
 ~~~
 
 Use another terminal:
 
-~~~bash
+~~~bash title="Terminal 2 · Bash · Send requests"
 curl -sS http://127.0.0.1:8000/health
 curl -sS http://127.0.0.1:8000/ask \
   -H 'content-type: application/json' \
@@ -224,7 +224,7 @@ curl -sS http://127.0.0.1:8000/ask \
 
 When Ollama is available and its answer contains a valid `[1]` reference, the JSON response has the following **illustrative shape**, not a recorded live-model output:
 
-~~~json
+~~~json title="Illustrative response · JSON"
 {
   "answer": "Restore the previous image digest and record an incident [1].",
   "citations": [{ "ref": 1, "document": "releases.md", "section": "Rollback" }]
@@ -237,7 +237,7 @@ Ask about an unrelated topic, such as penguins orbiting planets: the API should 
 
 You can run a short self-contained smoke check against the FastAPI application using a deterministic mocked answer. Install no test framework; Python's `unittest.mock` and the already installed HTTPX are sufficient:
 
-~~~bash
+~~~bash title="Terminal 2 · Bash · Run smoke checks"
 python - <<'PY'
 import asyncio
 from unittest.mock import AsyncMock, patch
