@@ -4,7 +4,7 @@
 
 ![Daily AI Pulse daily news orchestrator — research, editorial preparation, draft PR, human merge and Firebase deployment](https://raw.githubusercontent.com/GadDev/daily-ai-pulse/main/docs/diagrams/daily-ai-pulse-orchestrator.svg)
 
-*The diagram is available as an editable [SVG](https://github.com/GadDev/daily-ai-pulse/blob/main/docs/diagrams/daily-ai-pulse-orchestrator.svg). The wiki diagram link becomes live after the companion documentation PR is merged into `main`.*
+_The diagram is available as an editable [SVG](https://github.com/GadDev/daily-ai-pulse/blob/main/docs/diagrams/daily-ai-pulse-orchestrator.svg). The wiki diagram link becomes live after the companion documentation PR is merged into `main`._
 
 ## At a glance
 
@@ -63,6 +63,14 @@ explicit research completion criteria. Reading contracts is initialization;
 unfinished research requires continuing the work. A real blocker identifies an
 observed failure, attempted recovery, saved work and the next action.
 
+Research now follows a candidate queue: verify, search prior coverage, classify,
+save, then move to the next candidate or desk. Retries consume the saved queue
+before repeating discovery. A successful checkpoint write requires its next
+action immediately. Structured checkpoint metadata and
+`npm run editorial:run:check -- YYYY-MM-DD --handoff` reject an unfinished final
+handoff or a blocker without observed failure/recovery evidence. This validates
+records; it cannot force scheduler continuation or prove research quality.
+
 Each run checkpoints actual phase progress in
 `docs/editorial/runs/YYYY-MM-DD.md` on the same dated branch, including discovery
 window, queries, sources, archive coverage and gaps. A partial checkpoint is
@@ -93,19 +101,19 @@ After the human merges to `main`, [the production workflow](https://github.com/G
 
 ## Operational ownership and sources of truth
 
-| Concern | Source of truth |
-| --- | --- |
-| Schedule and trigger | ChatGPT **Daily AI Pulse Orchestrator** scheduled task (outside GitHub) |
-| Evidence, scoring and selections | `docs/editorial/DECISION_ENGINE_V1.md`, `EDITORIAL_SCHEMA_V1.md` |
-| Full decisions, including rejected/watch | `docs/editorial/ledgers/YYYY-MM-DD.json` |
+| Concern                                    | Source of truth                                                                                        |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| Schedule and trigger                       | ChatGPT **Daily AI Pulse Orchestrator** scheduled task (outside GitHub)                                |
+| Evidence, scoring and selections           | `docs/editorial/DECISION_ENGINE_V1.md`, `EDITORIAL_SCHEMA_V1.md`                                       |
+| Full decisions, including rejected/watch   | `docs/editorial/ledgers/YYYY-MM-DD.json`                                                               |
 | Bounded execution, completion and recovery | `docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md`; phase evidence in `docs/editorial/runs/YYYY-MM-DD.md` |
-| Publication preparation | `docs/editorial/PR_PREPARATION_V1.md` and `.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md` |
-| Illustration reuse, integrity and review | `docs/editorial/ILLUSTRATION_SYSTEM_V1.md` and illustration skill |
-| French review and staleness | `docs/editorial/translations/DAILY_BILINGUAL_WORKFLOW.md` |
-| Article and issue source | `src/content/stories/` and `src/content/pulse/` |
-| Automated checks | `.github/workflows/ci.yml` |
-| Deployment | `.github/workflows/deploy.yml`, Firebase Hosting |
-| Final editorial approval | **Human PR review and merge** |
+| Publication preparation                    | `docs/editorial/PR_PREPARATION_V1.md` and `.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md`      |
+| Illustration reuse, integrity and review   | `docs/editorial/ILLUSTRATION_SYSTEM_V1.md` and illustration skill                                      |
+| French review and staleness                | `docs/editorial/translations/DAILY_BILINGUAL_WORKFLOW.md`                                              |
+| Article and issue source                   | `src/content/stories/` and `src/content/pulse/`                                                        |
+| Automated checks                           | `.github/workflows/ci.yml`                                                                             |
+| Deployment                                 | `.github/workflows/deploy.yml`, Firebase Hosting                                                       |
+| Final editorial approval                   | **Human PR review and merge**                                                                          |
 
 ## Separate workflow: Tools & Guides
 
