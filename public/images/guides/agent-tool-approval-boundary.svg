@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="390" viewBox="0 0 1100 390" role="img" aria-labelledby="title desc">
+<title id="title">Tool approval boundary for an AI agent</title>
+<desc id="desc">Untrusted model proposal goes through validation. A separate authenticated reviewer approves the exact request fingerprint. The approval gate consumes a matching token before calling a mock log. Rejected requests stop before any action.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L9 3 L0 6" fill="none" stroke="#171B1A" stroke-width="1.5"/></marker></defs>
+<rect width="1100" height="390" rx="16" fill="#FAF6EE"/>
+<text x="32" y="43" fill="#171B1A" font-size="23" font-family="Arial, sans-serif" font-weight="700">Proposed action ≠ permission to act</text>
+<g font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#171B1A">
+<rect x="30" y="90" width="205" height="112" rx="10" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<text x="132" y="129" font-weight="700">Model proposal</text><text x="132" y="159" font-size="14">Untrusted tool + args</text><text x="132" y="181" font-size="14">No approval authority</text>
+<rect x="286" y="90" width="205" height="112" rx="10" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/>
+<text x="389" y="127" font-weight="700">Validate</text><text x="389" y="155" font-size="14">Tool allowlist</text><text x="389" y="178" font-size="14">Argument constraints</text>
+<rect x="548" y="90" width="240" height="112" rx="10" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<text x="668" y="126" font-weight="700">Approval gate</text><text x="668" y="153" font-size="14">Requester + fingerprint</text><text x="668" y="178" font-size="14">Consume token once</text>
+<rect x="844" y="90" width="220" height="112" rx="10" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<text x="954" y="126" font-weight="700">Mock action</text><text x="954" y="154" font-size="14">Append fictional notice</text><text x="954" y="178" font-size="14">No external side effect</text>
+<rect x="362" y="262" width="276" height="90" rx="10" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<text x="500" y="297" font-weight="700">Independent reviewer</text><text x="500" y="324" font-size="14">Approves exact proposal</text>
+</g>
+<g fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M236 146 H282"/><path d="M492 146 H544"/><path d="M790 146 H839"/><path d="M638 307 H667 V206"/>
+</g>
+<g font-family="Arial, sans-serif" font-size="14" fill="#8A4B35"><text x="294" y="233">Invalid → stop</text><text x="700" y="236">Missing approval → stop</text></g>
+<text x="32" y="374" fill="#575D5B" font-family="Arial, sans-serif" font-size="13">Conceptual teaching diagram. Real authentication, durable storage and idempotency are not implemented.</text>
+</svg>
