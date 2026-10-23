@@ -24,8 +24,8 @@ Scores below are subjective assistant visual judgments, not measurements. Column
 
 | Candidate | Story | Brand | Composition | Crop | Meaning | Cleanliness | References | Weighted |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| A revised — separate key | 92 | 92 | 90 | 91 | 88 | 95 | 92 | 91.35 |
-| B — press and lever | 84 | 88 | 84 | 76 | 81 | 94 | 85 | 84.00 |
+| A revised — separate key | 92 | 92 | 90 | 91 | 88 | 95 | 92 | 91.30 |
+| B — press and lever | 84 | 88 | 84 | 76 | 81 | 94 | 85 | 83.80 |
 | C — turnstile | 88 | 88 | 84 | 81 | 87 | 94 | 87 | 86.35 |
 
 Selected A revised. B is too close to a product object and crops its upper press; C has more visual machinery and weaker small-scale hierarchy. A's first version placed the key near the card crop edge, so a real image-generation edit pulled the assembly back before acceptance. A exceeds total 85/reference 80 thresholds.
