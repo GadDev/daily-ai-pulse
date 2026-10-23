@@ -1,5 +1,7 @@
 # Tools & Guides — editorial decision ledger v1
 
+**Schema:** `1.1` for new runs; historical `1.0` records remain valid.
+
 **Status:** Canonical ledger contract for the separate evergreen editorial orchestrator. This is **not** a news candidate ledger.
 
 ## Purpose and location
@@ -16,7 +18,7 @@ The date is the **Europe/Luxembourg editorial date**, not the UTC commit date. U
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "editorial_date": "2026-10-23",
   "run_status": "draft-pr",
   "run_note": "Selected an unaddressed engineer learning objective.",
@@ -43,7 +45,23 @@ The date is the **Europe/Luxembourg editorial date**, not the UTC commit date. U
   ],
   "handoff": {
     "guide_id": "rag-retrieval-evaluation",
-    "pr_number": null
+    "pr_number": null,
+    "completion": "blocked",
+    "blockers": ["Artwork generation unavailable; resume the same draft PR."]
+  },
+  "artwork": {
+    "state": "blocked",
+    "capabilities": {
+      "generation": { "status": "unavailable", "evidence": "No supported image tool is exposed in this illustrative runtime." },
+      "inspection": { "status": "unverified", "evidence": "Reference image viewer has not been exercised." },
+      "webp_conversion": { "status": "unverified", "evidence": "Codec round trip has not been exercised." },
+      "binary_upload": { "status": "unverified", "evidence": "Binary Git route has not been confirmed." }
+    },
+    "blocker": {
+      "stage": "generation",
+      "message": "No supported image-generation tool is exposed.",
+      "recovery": "Resume the same PR in a runtime with supported image generation; keep status draft."
+    }
   }
 }
 ```
@@ -54,7 +72,7 @@ This sample is **illustrative only**. The source URL is a placeholder and MUST N
 
 | Field | Contract |
 | --- | --- |
-| `schema_version` | Exact string `1.0` |
+| `schema_version` | `1.1` for new runs; `1.0` accepted for historical records |
 | `editorial_date` | Real ISO calendar date, matching filename |
 | `run_status` | `draft-pr`, `ledger-only`, or `blocked` |
 | `run_note` | Non-empty explanation of the actual run outcome |
@@ -74,7 +92,31 @@ A `duplicate` decision requires `related_guide_id` or `related_pr_number`; link 
 
 **At most one** candidate can be `selected` or `material-update` per execution. A `draft-pr` must have exactly one such candidate. For `selected`, `handoff.guide_id` must match `topic_key`; for `material-update`, it must match `related_guide_id`, even when the topic key differs. `ledger-only` and `blocked` have null handoff fields. A `blocked` ledger may retain a selected candidate if drafting failed; this is **not** proof of publication.
 
+**`run_status: draft-pr` records persistence, not completion.** An incomplete PR retains this status and its real handoff IDs; use `handoff.completion: blocked` rather than erasing the PR by switching to `run_status: blocked`. The latter remains the pre-guide/pre-PR outcome with null handoff IDs.
+
 Record research decisions and downstream preparation separately. The ledger's `selected` decision never means `status: published`, and the PR may still be a draft. `pr_number` can remain null while a draft PR is being created; update it after GitHub confirms the PR number. Never invent branch names, review evidence, links or test results.
+
+## Artwork state and handoff (schema 1.1)
+
+Every handoff has `completion` (`complete`, `blocked`, `not-applicable`) and `blockers` (non-empty concrete strings when blocked, otherwise an empty array). `not-applicable` is only for runs without a guide PR. A selected topic requires an `artwork` record, including when blocked before drafting. No-selection ledger-only runs may omit artwork. Historical schema 1.0 records do not acquire evidence retrospectively; if recovery adds artwork fields, those fields receive the same validation as 1.1.
+
+Before drafting, populate all four `artwork.capabilities` entries: `generation`, `inspection`, `webp_conversion`, `binary_upload`. Each has `status` (`available`, `unavailable`, `unverified`) and non-empty `evidence` describing the observed tool, operation or missing capability. Do not manufacture error messages or claim invocation from tool discovery alone.
+
+| `artwork.state` | Required evidence |
+| --- | --- |
+| `pending` | Four capability observations; no generated asset claimed. Handoff blocked. |
+| `generated` | `generation: {tool, prompt, source}` with actual source output identifier and full prompt. Handoff blocked. |
+| `reviewed` | Generation plus `review: {record, outcome: "pass", references, crops}`. Record points to checked-in guide review Markdown/JSON; at least two distinct production-reference paths; crops contains `desktop-hero`, `mobile-hero`, `card`. Handoff remains blocked until upload. |
+| `uploaded` | Generation and review plus `upload: {path, sha256, git_blob_sha, width, height}`. Path `/images/guides/<guide_id>.webp`, SHA-256 of final bytes, Git blob SHA-1, decoded dimensions at least 1600×900. Record actual read-back confirmation in review evidence. |
+| `blocked` | `blocker: {stage, message, recovery}`; stage identifies one of the four capability keys, message is the exact observed error or missing capability, recovery is actionable and identifies the existing PR when available. Retain any earlier successful generation/review/upload evidence. |
+
+`blocker` is explicitly null in other states. A failed crop/provenance review belongs to `inspection`; encoding errors to `webp_conversion`; upload/read-back errors to `binary_upload`. Stages are evidence checkpoints, not permission to skip constitution or reference review. Review records retain real prompts, output identifiers, candidate comparison, crop observations and integrity results; never claim the news-only identity validator accepted a guide.
+
+`handoff.completion: complete` requires uploaded artwork, all four capabilities available, no blockers, matching `image`/`imageAlt` in the actual guide, and all other source/code/diagram/CI preparation gates passed. It does not authorize publication. `uploaded` artwork with unfinished code/diagram checks still has a **blocked handoff**. If CI is pending, record that blocker, then update the same PR after observing its result. The scheduler's infrastructure `completed` status is outside this ledger and cannot prove editorial completion.
+
+The validator checks record consistency and, for a claimed complete handoff, the checkout's WebP signature, byte hashes, guide metadata and review-file existence. It does not decode the image, prove visual judgment, execute article snippets or query GitHub CI: those observations must be made and recorded by the orchestrator. A missing cover is allowed in an incomplete draft; it is never allowed in a claimed complete handoff.
+
+On retries (including later editorial dates), recheck current capabilities and continue the original open PR/branch and its unmerged dated ledger. Keep valid existing generated assets when meaningful inputs are unchanged. Preserve the topic reservation of every existing `draft-pr`, including blocked handoffs. Do not turn a blocked handoff into a new selection or ledger-only run. For already merged incomplete guides, use one explicit recovery PR and reference the original ledger without rewriting it.
 
 ## Deduplication before topic selection
 

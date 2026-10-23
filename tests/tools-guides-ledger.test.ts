@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -40,6 +41,131 @@ function ledger(patch = {}) {
 
 const filename = `${LEDGER_DIRECTORY}/${date}.json`;
 const check = (value: unknown) => validateGuideLedger(value, filename);
+
+function artworkLedger(state = 'blocked', completion = 'blocked') {
+  return {
+    ...ledger(),
+    schema_version: '1.1',
+    handoff: {
+      guide_id: 'rag-retrieval-evaluation',
+      pr_number: 223,
+      completion,
+      blockers: completion === 'blocked' ? ['Cover production incomplete; resume PR #223.'] : [],
+    },
+    artwork: {
+      state,
+      capabilities: Object.fromEntries(
+        ['generation', 'inspection', 'webp_conversion', 'binary_upload'].map((key) => [
+          key,
+          { status: 'available', evidence: `Observed ${key} tool.` },
+        ]),
+      ),
+      blocker:
+        state === 'blocked'
+          ? {
+              stage: 'generation',
+              message: 'Generator returned a tool error.',
+              recovery: 'Retry generation on the existing PR #223.',
+            }
+          : null,
+      ...(['generated', 'reviewed', 'uploaded'].includes(state)
+        ? {
+            generation: {
+              tool: 'Test generator',
+              prompt: 'Synthetic prompt',
+              source: 'candidate.png',
+            },
+          }
+        : {}),
+      ...(['reviewed', 'uploaded'].includes(state)
+        ? {
+            review: {
+              record: 'docs/editorial/tools-and-guides/reviews/fixture.md',
+              outcome: 'pass',
+              references: ['reference-a.webp', 'reference-b.webp'],
+              crops: ['desktop-hero', 'mobile-hero', 'card'],
+            },
+          }
+        : {}),
+    },
+  };
+}
+
+test('artwork stages remain blocked handoffs until uploaded and all other blockers cleared', () => {
+  for (const state of ['pending', 'generated', 'reviewed', 'blocked']) {
+    assert.deepEqual(check(artworkLedger(state)), []);
+    assert.match(check(artworkLedger(state, 'complete')).join(' '), /complete requires uploaded/);
+  }
+});
+
+test('schema 1.1 cannot hide missing artwork or vague capability and failure evidence', () => {
+  const value = artworkLedger();
+  assert.match(check({ ...value, artwork: undefined }).join(' '), /artwork/);
+  const artwork = value.artwork as Record<string, unknown>;
+  for (const patch of [
+    { capabilities: {} },
+    { blocker: null },
+    { blocker: { stage: 'generation', message: 'Unavailable' } },
+  ]) {
+    assert.match(check({ ...value, artwork: { ...artwork, ...patch } }).join(' '), /artwork/);
+  }
+  assert.match(
+    check({ ...value, handoff: { ...value.handoff, blockers: [] } }).join(' '),
+    /blockers/,
+  );
+});
+
+test('incomplete guide drafts stay reserved across dates and cannot be reselected', () => {
+  assert.match(
+    validateLedgerHistory([
+      { filename, ledger: artworkLedger() },
+      {
+        filename: `${LEDGER_DIRECTORY}/2026-10-27.json`,
+        ledger: ledger({ editorial_date: '2026-10-27' }),
+      },
+    ]).join(' '),
+    /already selected for a draft PR/,
+  );
+});
+
+test('complete artwork is checked against binary, guide metadata and review in the checkout', (t) => {
+  const root = mkdtempSync(join(tmpdir(), 'guides-complete-artwork-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const value = artworkLedger('uploaded', 'complete');
+  // Small container fixture tests identity and metadata; visual decoding is an editorial check.
+  const bytes = Buffer.from('RIFF0000WEBPfixture');
+  const image = '/images/guides/rag-retrieval-evaluation.webp';
+  const artwork = value.artwork as Record<string, unknown>;
+  artwork.upload = {
+    path: image,
+    sha256: createHash('sha256').update(bytes).digest('hex'),
+    git_blob_sha: createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'),
+    width: 1600,
+    height: 900,
+  };
+  for (const directory of [
+    LEDGER_DIRECTORY,
+    'public/images/guides',
+    'src/content/guides',
+    'docs/editorial/tools-and-guides/reviews',
+  ])
+    mkdirSync(join(root, directory), { recursive: true });
+  writeFileSync(join(root, filename), JSON.stringify(value));
+  writeFileSync(join(root, 'public', image.slice(1)), bytes);
+  const guide = join(root, 'src/content/guides/rag-retrieval-evaluation.md');
+  writeFileSync(guide, `---\nimage: ${image}\nimageAlt: Synthetic fixture\n---\n`);
+  const review = join(root, 'docs/editorial/tools-and-guides/reviews/fixture.md');
+  writeFileSync(review, 'Synthetic review fixture.');
+  assert.deepEqual(validateLedgerDirectory(root), []);
+  writeFileSync(guide, '---\nstatus: draft\n---\n');
+  assert.match(validateLedgerDirectory(root).join(' '), /image and imageAlt/);
+  writeFileSync(guide, `---\nimage: ${image}\nimageAlt: Synthetic fixture\n---\n`);
+  rmSync(review);
+  assert.match(validateLedgerDirectory(root).join(' '), /complete artwork/);
+  writeFileSync(review, 'Synthetic review fixture.');
+  writeFileSync(join(root, 'public', image.slice(1)), Buffer.from('RIFF0000WEBPtampered'));
+  assert.match(validateLedgerDirectory(root).join(' '), /integrity/);
+});
 
 test('valid selected guide with a pending PR number', () => {
   assert.deepEqual(check(ledger()), []);

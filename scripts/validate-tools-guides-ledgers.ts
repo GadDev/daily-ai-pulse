@@ -1,6 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { basename, join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
+import { parse } from 'yaml';
 
 export const LEDGER_DIRECTORY = 'docs/editorial/tools-and-guides/ledgers';
 const DECISIONS = new Set(['selected', 'watch', 'rejected', 'duplicate', 'material-update']);
@@ -8,6 +10,8 @@ const FORMATS = new Set(['tutorial', 'review', 'toolkit']);
 const STATUSES = new Set(['draft-pr', 'ledger-only', 'blocked']);
 const KEY = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
+const CAPABILITIES = ['generation', 'inspection', 'webp_conversion', 'binary_upload'];
+const ART_STATES = ['pending', 'generated', 'reviewed', 'uploaded', 'blocked'];
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -35,6 +39,105 @@ function isSourceUrl(value: unknown) {
   }
 }
 
+/** Record observable production stages; a valid blocked record is not a complete handoff. */
+function validateArtwork(
+  ledger: Record<string, unknown>,
+  fail: (field: string, reason: string) => void,
+) {
+  const handoff = isObject(ledger.handoff) ? ledger.handoff : {};
+  const artwork = ledger.artwork;
+  if (!isObject(artwork)) {
+    fail('artwork', 'required for a selected topic in schema 1.1');
+    return;
+  }
+  const state = typeof artwork.state === 'string' ? artwork.state : '';
+  if (!ART_STATES.includes(state)) fail('artwork.state', 'invalid artwork state');
+  const capabilities = isObject(artwork.capabilities) ? artwork.capabilities : {};
+  for (const key of CAPABILITIES) {
+    const capability = capabilities[key];
+    if (
+      !isObject(capability) ||
+      !['available', 'unavailable', 'unverified'].includes(String(capability.status)) ||
+      !hasText(capability.evidence)
+    )
+      fail(`artwork.capabilities.${key}`, 'requires status and observed evidence');
+  }
+  if (state === 'blocked') {
+    const blocker = artwork.blocker;
+    if (
+      !isObject(blocker) ||
+      !CAPABILITIES.includes(String(blocker.stage)) ||
+      !hasText(blocker.message) ||
+      !hasText(blocker.recovery)
+    )
+      fail(
+        'artwork.blocker',
+        'requires exact stage, observed error/missing capability and recovery',
+      );
+  } else if (artwork.blocker !== null) {
+    fail('artwork.blocker', 'must be null unless blocked');
+  }
+  // A blocked retry may retain evidence of earlier successful stages.
+  if (['generated', 'reviewed', 'uploaded'].includes(state) || artwork.generation !== undefined) {
+    const generation = artwork.generation;
+    if (
+      !isObject(generation) ||
+      !hasText(generation.tool) ||
+      !hasText(generation.prompt) ||
+      !hasText(generation.source)
+    )
+      fail('artwork.generation', 'requires real tool, prompt and source');
+  }
+  if (['reviewed', 'uploaded'].includes(state) || artwork.review !== undefined) {
+    const review = artwork.review;
+    if (
+      !isObject(review) ||
+      !hasText(review.record) ||
+      review.outcome !== 'pass' ||
+      !Array.isArray(review.references) ||
+      review.references.length < 2 ||
+      !review.references.every(hasText) ||
+      new Set(review.references).size < 2 ||
+      !Array.isArray(review.crops) ||
+      !['desktop-hero', 'mobile-hero', 'card'].every((crop) =>
+        (review.crops as unknown[]).includes(crop),
+      )
+    )
+      fail(
+        'artwork.review',
+        'requires review record, two distinct references and passed hero/mobile/card crops',
+      );
+  }
+  if (state === 'uploaded' || artwork.upload !== undefined) {
+    const upload = artwork.upload;
+    if (
+      !isObject(upload) ||
+      upload.path !== `/images/guides/${handoff.guide_id}.webp` ||
+      !/^[a-f0-9]{64}$/.test(String(upload.sha256)) ||
+      !/^[a-f0-9]{40}$/.test(String(upload.git_blob_sha)) ||
+      !Number.isInteger(upload.width) ||
+      Number(upload.width) < 1600 ||
+      !Number.isInteger(upload.height) ||
+      Number(upload.height) < 900
+    )
+      fail(
+        'artwork.upload',
+        'requires matching WebP path, checksums and high-resolution dimensions',
+      );
+  }
+  if (handoff.completion === 'complete') {
+    if (handoff.pr_number === null)
+      fail('handoff.pr_number', 'complete requires a confirmed PR number');
+    if (state !== 'uploaded') fail('handoff.completion', 'complete requires uploaded artwork');
+    if (
+      CAPABILITIES.some(
+        (key) => !isObject(capabilities[key]) || capabilities[key].status !== 'available',
+      )
+    )
+      fail('handoff.completion', 'complete requires all four capabilities available');
+  }
+}
+
 /**
  * Validate one run's recorded editorial decisions.
  * Returns diagnostic messages instead of exiting, to enable isolated tests.
@@ -45,7 +148,8 @@ export function validateGuideLedger(ledger: unknown, filename: string) {
   const expectedDate = basename(filename, '.json');
 
   if (!isObject(ledger)) return [`${filename}: ledger must be an object`];
-  if (ledger.schema_version !== '1.0') fail('schema_version', 'must be 1.0');
+  if (!['1.0', '1.1'].includes(String(ledger.schema_version)))
+    fail('schema_version', 'must be 1.0 or 1.1');
   if (!realDate(ledger.editorial_date) || ledger.editorial_date !== expectedDate)
     fail('editorial_date', 'must be a real date matching YYYY-MM-DD.json');
   if (!STATUSES.has(typeof ledger.run_status === 'string' ? ledger.run_status : ''))
@@ -149,6 +253,77 @@ export function validateGuideLedger(ledger: unknown, filename: string) {
   } else if (guideId !== null || prNumber !== null) {
     fail('handoff', 'non-draft outcomes cannot claim a guide PR handoff');
   }
+  if (ledger.schema_version === '1.1' || ledger.artwork !== undefined) {
+    const { completion, blockers } = ledger.handoff;
+    if (!['complete', 'blocked', 'not-applicable'].includes(String(completion)))
+      fail('handoff.completion', 'must be complete, blocked or not-applicable');
+    if (
+      !Array.isArray(blockers) ||
+      !blockers.every(hasText) ||
+      (completion === 'blocked' ? blockers.length === 0 : blockers.length !== 0)
+    )
+      fail(
+        'handoff.blockers',
+        'blocked needs concrete blockers; other outcomes need an empty array',
+      );
+    if (ledger.run_status === 'draft-pr' && completion === 'not-applicable')
+      fail('handoff.completion', 'a guide PR must be complete or blocked');
+    if (ledger.run_status !== 'draft-pr' && completion === 'complete')
+      fail('handoff.completion', 'complete requires a guide draft PR');
+    if (chosen.length || ledger.artwork !== undefined) validateArtwork(ledger, fail);
+  }
+  return errors;
+}
+
+/** Cross-check completion claims against the actual checkout, not just JSON declarations. */
+function validateCompletedArtwork(ledger: unknown, filename: string, root: string) {
+  if (
+    !isObject(ledger) ||
+    (ledger.schema_version !== '1.1' && ledger.artwork === undefined) ||
+    !isObject(ledger.handoff) ||
+    ledger.handoff.completion !== 'complete' ||
+    !isObject(ledger.artwork)
+  )
+    return [];
+  const errors: string[] = [];
+  try {
+    const { upload, review } = ledger.artwork;
+    if (
+      !isKey(ledger.handoff.guide_id) ||
+      !isObject(upload) ||
+      typeof upload.path !== 'string' ||
+      upload.path !== `/images/guides/${ledger.handoff.guide_id}.webp`
+    )
+      throw new Error('invalid artwork upload path');
+    const bytes = readFileSync(join(root, 'public', upload.path.slice(1)));
+    if (bytes.toString('ascii', 0, 4) !== 'RIFF' || bytes.toString('ascii', 8, 12) !== 'WEBP')
+      throw new Error('asset is not a WebP binary');
+    if (
+      createHash('sha256').update(bytes).digest('hex') !== upload.sha256 ||
+      createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex') !==
+        upload.git_blob_sha
+    )
+      throw new Error('asset integrity does not match upload evidence');
+    const guideBase = join(root, 'src/content/guides', String(ledger.handoff.guide_id));
+    const guide = readFileSync(
+      existsSync(`${guideBase}.md`) ? `${guideBase}.md` : `${guideBase}.mdx`,
+      'utf8',
+    );
+    const metadata = parse(guide.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '');
+    if (metadata?.image !== upload.path || !hasText(metadata?.imageAlt))
+      throw new Error('guide must supply matching image and imageAlt');
+    if (
+      !isObject(review) ||
+      typeof review.record !== 'string' ||
+      !/^docs\/editorial\/tools-and-guides\/reviews\/[a-z0-9-]+\.(md|json)$/.test(review.record)
+    )
+      throw new Error('invalid guide review record path');
+    readFileSync(join(root, review.record));
+  } catch (error) {
+    errors.push(
+      `${filename}: complete artwork: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
   return errors;
 }
 
@@ -200,7 +375,11 @@ export function validateLedgerDirectory(root = process.cwd()) {
       );
     }
   }
-  return [...errors, ...validateLedgerHistory(records)];
+  return [
+    ...errors,
+    ...validateLedgerHistory(records),
+    ...records.flatMap(({ filename, ledger }) => validateCompletedArtwork(ledger, filename, root)),
+  ];
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
