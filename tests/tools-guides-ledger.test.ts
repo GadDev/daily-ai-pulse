@@ -128,6 +128,28 @@ test('incomplete guide drafts stay reserved across dates and cannot be reselecte
   );
 });
 
+test('schema 1.0 completion claims cannot bypass the artwork contract', () => {
+  const value = ledger();
+  assert.match(
+    check({ ...value, handoff: { ...value.handoff, completion: 'complete', blockers: [] } }).join(
+      ' ',
+    ),
+    /artwork/,
+  );
+  const blocked = artworkLedger();
+  assert.deepEqual(check({ ...blocked, schema_version: '1.0' }), []);
+});
+
+test('complete handoffs require all four capabilities and a confirmed PR number', () => {
+  const value = artworkLedger('uploaded', 'complete');
+  value.artwork.capabilities.inspection.status = 'unverified';
+  assert.match(check(value).join(' '), /all four capabilities/);
+  assert.match(
+    check({ ...value, handoff: { ...value.handoff, pr_number: null } }).join(' '),
+    /confirmed PR/,
+  );
+});
+
 test('complete artwork is checked against binary, guide metadata and review in the checkout', (t) => {
   const root = mkdtempSync(join(tmpdir(), 'guides-complete-artwork-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));

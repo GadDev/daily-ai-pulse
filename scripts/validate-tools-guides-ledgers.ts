@@ -253,7 +253,11 @@ export function validateGuideLedger(ledger: unknown, filename: string) {
   } else if (guideId !== null || prNumber !== null) {
     fail('handoff', 'non-draft outcomes cannot claim a guide PR handoff');
   }
-  if (ledger.schema_version === '1.1' || ledger.artwork !== undefined) {
+  if (
+    ledger.schema_version === '1.1' ||
+    ledger.artwork !== undefined ||
+    ledger.handoff.completion !== undefined
+  ) {
     const { completion, blockers } = ledger.handoff;
     if (!['complete', 'blocked', 'not-applicable'].includes(String(completion)))
       fail('handoff.completion', 'must be complete, blocked or not-applicable');
@@ -279,7 +283,6 @@ export function validateGuideLedger(ledger: unknown, filename: string) {
 function validateCompletedArtwork(ledger: unknown, filename: string, root: string) {
   if (
     !isObject(ledger) ||
-    (ledger.schema_version !== '1.1' && ledger.artwork === undefined) ||
     !isObject(ledger.handoff) ||
     ledger.handoff.completion !== 'complete' ||
     !isObject(ledger.artwork)
