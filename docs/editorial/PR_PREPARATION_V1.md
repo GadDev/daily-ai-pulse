@@ -160,6 +160,16 @@ The daily batch must never write editorial changes directly to `main`.
 
 ### Execution progress and blockers
 
+Process and persist candidates individually before advancing discovery. On retry,
+consume the saved pending queue before new searches. After each successful
+checkpoint write/readback, perform its next action in the same invocation.
+Use the execution contract's `run_schema: "1.1"` YAML frontmatter in the existing
+Markdown checkpoint. Before reporting a terminal outcome, run
+`npm run editorial:run:check -- YYYY-MM-DD --handoff` when available; an
+`in-progress` result requires continuation. Without execution, apply the same
+metadata/evidence gate manually and disclose the command as not executed.
+This check does not substitute for editorial/source verification or remote CI.
+
 The [daily news execution contract](DAILY_NEWS_ORCHESTRATION_V1.md) defines the
 research completion boundary and operational checkpoint at
 `docs/editorial/runs/YYYY-MM-DD.md`. This checkpoint records actual progress and
