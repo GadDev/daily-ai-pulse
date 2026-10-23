@@ -2,11 +2,10 @@
   "record_type": "manual-commission",
   "editorial_date": "2026-10-23",
   "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/212",
-  "authorization": "Maintainer requested work on issue #212 in conversation. Draft preparation only; no publication authorization.",
+  "authorization": "Initial commission authorized draft preparation. The maintainer follow-up requested \"review ready to be published\"; interpreted as readiness review and publication preparation in the existing PR. Actual release remains the maintainer-controlled merge.",
   "scheduled_run": false,
   "topic_key": "agent-security-control-toolkit",
-  "state": "draft-prepared",
-  "publication_authorized": false,
+  "state": "publication-prepared",
   "guide_id": "agent-security-control-toolkit",
   "pr_number": 231,
   "deduplication": {
@@ -242,7 +241,7 @@
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Exact-head GitHub CI pending; local article/browser checks passed."
+      "Final publication-metadata commit needs GitHub CI. See the PR description for the exact final-head result; merge remains the publication boundary."
     ]
   },
   "evidence_matrix": [
@@ -403,12 +402,14 @@
       "limits": "Automated WCAG-tagged axe scan and selected visual/keyboard checks, not a complete accessibility audit or human editorial approval."
     },
     "ci": {
-      "status": "pending-final-head",
-      "prior_head": "4c4d1626708ead3949b9a4ecc39a73b986f6fb11",
-      "prior_run": 40020278879,
-      "prior_verify_job": "passed",
-      "prior_browser_job": "Still installing Chromium when checked; no success inferred.",
-      "note": "CI is asynchronous; check exact final PR head and linked run in PR description. Local verify, asset/ledger regressions, guide e2e and draft layout/keyboard/axe checks passed; do not treat that as a GitHub CI pass."
+      "reviewed_head": "9fa9ff9657fdfa6d0d00ab8b4714a58bdcb6e2ff",
+      "reviewed_run_id": 40021926556,
+      "conclusion": "success",
+      "jobs": {
+        "Verify project": "success",
+        "Browser smoke and accessibility": "success"
+      },
+      "publication_metadata_head": "pending new PR CI; final result belongs in PR description to avoid self-referential evidence commits."
     },
     "guide_e2e": {
       "status": "passed",
@@ -418,6 +419,70 @@
       "hosting": "Unchanged final dist served by Python stdlib HTTP server on loopback; repository config/dependencies not modified.",
       "recovery": "Astro preview subprocess ended early in this runtime. Initial serverless single-process browser crashed between test contexts; removing that fallback-only launch flag yielded all three tests passing in one run (2.5 seconds).",
       "scope": "Existing landing/accessibility, draft invisibility/feed/search and published RAG visual smoke checks. Separate ad hoc browser inspection covers the new unpublished toolkit."
+    }
+  },
+  "publication_preparation_authorized": true,
+  "merge_authorized": false,
+  "publication_preparation": {
+    "request_quote": "review ready to be published",
+    "prepared_on": "2026-10-23",
+    "metadata_changes": {
+      "status": [
+        "draft",
+        "published"
+      ],
+      "publishedAt": "2026-10-23"
+    },
+    "actual_deployment": "Not merged or deployed by this assistant; publication is prepared in PR #231.",
+    "article_body_sha256": "fbc962acd6b64589f01a9ef48d7c7666b13f8a4803834c5e42cf6796227f9924",
+    "body_changed": false,
+    "review_findings": [
+      "No blocking editorial or technical content issue found.",
+      "The isolated Ajv example and suggested end-to-end tests are distinguished truthfully.",
+      "Source/edition/data-flow limitations are present for all seven resources.",
+      "Current head 9fa9ff9657fdfa6d0d00ab8b4714a58bdcb6e2ff passed Verify project and Browser smoke and accessibility in CI run 40021926556.",
+      "Fixed publication gate in the same PR: draft status would otherwise prevent route/listing generation."
+    ],
+    "cover_handling": "Existing reviewed cover bytes, brief and factual context preserved. Original generation identity remains the truthful pre-publication source snapshot; the release-only metadata transition is recorded separately, without inventing a generation or retroactively rewriting generation inputs. Publication status is excluded execution metadata in Generation Identity V1 section 13.",
+    "current_article_sha256": "7944cdf317682b6dac0480b1905cd00048cd7f5acc7b0d9d03fcb693640d5221",
+    "release_note": "Date is prepared for the 23 October 2026 release; if maintainer merge is delayed, adjust the publication date to the actual release date.",
+    "verification": {
+      "build": "npm run verify passed on Node 22.22.3 with published frontmatter; 241 pages generated.",
+      "visibility": "Actual guide detail page, /guides/ card, sitemap and Pagefind search discover the toolkit in the built artifact. English-only notice, curated evidence label, byline and Published 23 October 2026 verified.",
+      "browser_runtime": "Node 22.22.3, Playwright 1.64.0, isolated Chromium 153.0.8010.0; static dist served locally.",
+      "browser_viewports": [
+        1440,
+        768,
+        375,
+        320
+      ],
+      "page_overflow": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "serious_critical_axe": 0,
+      "keyboard_scroll": [
+        {
+          "table": 1,
+          "scrolled": 40
+        },
+        {
+          "table": 2,
+          "scrolled": 40
+        },
+        {
+          "table": 3,
+          "scrolled": 40
+        },
+        {
+          "table": 4,
+          "scrolled": 40
+        }
+      ],
+      "cover": "Existing 1600x900 WebP bytes and SHA-256 reverified unchanged.",
+      "result": "No outstanding content, source, metadata, layout or asset issue found; final GitHub CI required before merge."
     }
   }
 }

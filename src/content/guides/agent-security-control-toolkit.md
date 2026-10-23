@@ -1,11 +1,12 @@
 ---
 title: 'An Agent Security Starter Kit: Choose Controls by Failure Mode'
 description: 'Seven resources for a document-reading agent, with a threat-to-control matrix, a copyable preflight worksheet, and a small local authorization check.'
-status: draft
+status: published
 format: toolkit
 verification: curated
 difficulty: intermediate
 author: The Daily AI Pulse
+publishedAt: 2026-10-23
 verifiedAt: 2026-10-23
 image: /images/guides/agent-security-control-toolkit.webp
 imageAlt: 'Blank paper held in a fitted stone cradle by a dark metal retaining band, an editorial metaphor for constraints around a document agent.'
