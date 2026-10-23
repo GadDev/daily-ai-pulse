@@ -29,7 +29,8 @@
       "editorial_score": {"significance": 5, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 91},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The deep dive can define microVM isolation and credential brokering inline."},
       "related_content": {"previous_story_ids": ["2026-09-24-agentcore-policy-session-agentcore-evaluations"]},
-      "deduplication": {"status": "new", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive|Agent Compute Engine|hardware-isolated persistent agent runtime", "canonical_event": "Google discloses Agent Compute Engine architecture and planned Cloud preview.", "previous_coverage": "Pulse has covered other agent runtimes and policy systems, but not this Google architecture.", "material_delta": "A new hardware-isolated runtime design with off-guest identity and snapshot economics."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive|Agent Compute Engine|hardware-isolated persistent agent runtime", "canonical_event": "Google discloses Agent Compute Engine architecture and planned Cloud preview.", "previous_coverage": "Pulse has covered other agent runtimes and policy systems, but not this Google architecture.", "material_delta": "A new hardware-isolated runtime design with off-guest identity and snapshot economics."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
     },
     {
       "id": "2026-10-23-openai-models-google-cloud",
@@ -52,12 +53,13 @@
         {"url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers", "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers", "publisher": "Google Cloud", "source_type": "official", "role": "primary", "publication_date": "2026-10-21"},
         {"url": "https://openai.com/index/openai-models-google-cloud/", "canonical_url": "https://openai.com/index/openai-models-google-cloud/", "publisher": "OpenAI", "source_type": "official", "role": "supporting", "publication_date": "2026-10-21"}
       ],
-      "evidence": {"level": "strong", "rationale": "Both counterparties published matching announcements and availability scope.", "independent_validation": "No independent integration test is claimed.", "claim_scope": "The announcement establishes private-preview distribution, not universal availability or API parity."},
+      "evidence": {"level": "primary", "rationale": "Both counterparties published matching announcements and availability scope.", "independent_validation": "No independent integration test is claimed; the two sources are the counterparties rather than independent evaluators.", "claim_scope": "The announcement establishes private-preview distribution, not universal availability or API parity."},
       "signal": {"level": "high", "rationale": "The distribution and billing change can materially affect enterprise model-platform choices."},
       "editorial_score": {"significance": 5, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 92},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "A briefing can distinguish distribution, billing and model capability directly."},
       "related_content": {"previous_story_ids": ["2026-09-24-openai-airbnb-enterprise-model-access"]},
-      "deduplication": {"status": "new", "candidate_key": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers|OpenAI models on Google Cloud|private preview Model Garden distribution", "canonical_event": "Google Cloud and OpenAI announce private-preview Model Garden distribution.", "previous_coverage": "The September Airbnb story concerns enterprise adoption and OpenAI/Amazon access, not Google Cloud distribution.", "material_delta": "A new distribution, billing and cloud-commit route for OpenAI models."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers|OpenAI models on Google Cloud|private preview Model Garden distribution", "canonical_event": "Google Cloud and OpenAI announce private-preview Model Garden distribution.", "previous_coverage": "The September Airbnb story concerns enterprise adoption and OpenAI/Amazon access, not Google Cloud distribution.", "material_delta": "A new distribution, billing and cloud-commit route for OpenAI models."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
     },
     {
       "id": "2026-10-23-llm-d-1-0",
@@ -82,7 +84,8 @@
       "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 95},
       "learning_gap": {"exists": true, "concepts": ["disaggregated serving", "tiered KV cache"], "existing_explainer_status": "Define the concepts briefly in the story; a separate explainer is optional."},
       "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference|llm-d|1.0 distributed inference release", "canonical_event": "llm-d 1.0 is released at the PyTorch Conference.", "previous_coverage": null, "material_delta": "First Pulse coverage of the project's v1 release and hardened serving path."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference|llm-d|1.0 distributed inference release", "canonical_event": "llm-d 1.0 is released at the PyTorch Conference.", "previous_coverage": null, "material_delta": "First Pulse coverage of the project's v1 release and hardened serving path."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
     },
     {
       "id": "2026-10-23-metr-openai-monitoring-red-team",
@@ -107,7 +110,8 @@
       "editorial_score": {"significance": 5, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 96},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "Prior Pulse coverage already establishes out-of-band monitoring and tamper-resistant audit boundaries."},
       "related_content": {"previous_story_ids": ["2026-10-21-openai-agents-weaken-monitoring", "2026-09-27-agent-trace-tampering"]},
-      "deduplication": {"status": "material-update", "candidate_key": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/|OpenAI internal monitoring|external high-access red-team findings", "canonical_event": "METR and Redwood publish an external red-team assessment of OpenAI's historical agent-monitoring stack.", "previous_coverage": "The October 21 story covered OpenAI's own disclosure of two incidents.", "material_delta": "Independent high-access evaluation adds architecture-level coverage and bypass findings and explicitly scopes unverified remediation claims."}
+      "deduplication": {"status": "material-update", "publication_status": "material-update-confirmed", "candidate_key": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/|OpenAI internal monitoring|external high-access red-team findings", "canonical_event": "METR and Redwood publish an external red-team assessment of OpenAI's historical agent-monitoring stack.", "previous_coverage": "The October 21 story covered OpenAI's own disclosure of two incidents.", "material_delta": "Independent high-access evaluation adds architecture-level coverage and bypass findings and explicitly scopes unverified remediation claims."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
     },
     {
       "id": "2026-10-23-openai-distributed-biological-reasoning",
@@ -126,13 +130,18 @@
       "engineer_takeaway": "Partition work into independently inspectable units, preserve source provenance through aggregation, and keep expert review and real-world experiments as the final validation boundary.",
       "prerequisites": ["multi-agent orchestration", "hypothesis generation"],
       "primary_source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
-      "sources": [{"url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "canonical_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "publisher": "OpenAI", "source_type": "paper", "role": "primary", "publication_date": "2026-10-21"}],
+      "sources": [
+        {"url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "canonical_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "publisher": "OpenAI", "source_type": "official", "role": "primary", "publication_date": "2026-10-21"},
+        {"url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1", "canonical_url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1", "publisher": "bioRxiv", "source_type": "paper", "role": "supporting", "publication_date": "2026-10-15"},
+        {"url": "https://github.com/jinlabneurogenomics/distributed_agent", "canonical_url": "https://github.com/jinlabneurogenomics/distributed_agent", "publisher": "Jin Lab Neurogenomics", "source_type": "repository", "role": "supporting", "publication_date": "2026-10-21"}
+      ],
       "evidence": {"level": "preliminary", "rationale": "The announcement links a preprint, dataset and public reasoning atlas, but the reported outcomes come from the participating organizations.", "independent_validation": "No independent wet-lab validation or replication is claimed.", "claim_scope": "The system produced and prioritized hypotheses from existing mouse data; it did not establish clinical effects or validate proposed mechanisms."},
       "signal": {"level": "high", "rationale": "The experiment provides an unusually concrete, inspectable example of wide multi-agent fan-out applied to scientific analysis."},
       "editorial_score": {"significance": 4, "evidence": 4, "novelty": 5, "relevance": 3, "durability": 4, "weighted_total": 81},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The orchestration pattern can be explained in the story without a separate explainer."},
       "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "candidate_key": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/|GPT-Rosalind|distributed biological reasoning atlas", "canonical_event": "OpenAI, PerturbAI and Scripps publish a distributed-agent analysis of a whole-brain CRISPR atlas.", "previous_coverage": null, "material_delta": "First Pulse coverage of the experiment and its public reasoning atlas."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/|GPT-Rosalind|distributed biological reasoning atlas", "canonical_event": "OpenAI, PerturbAI and Scripps publish a distributed-agent analysis of a whole-brain CRISPR atlas.", "previous_coverage": null, "material_delta": "First Pulse coverage of the experiment and its public reasoning atlas."},
+      "publication_verification": {"status": "verified-with-claim-scope"}
     },
     {
       "id": "2026-10-23-copilot-visual-studio-september-update",
@@ -157,7 +166,8 @@
       "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 3, "weighted_total": 86},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The migration requirements can be handled in a focused briefing."},
       "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "candidate_key": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/|Copilot Visual Studio|BYOM agent harness and MCP integrations", "canonical_event": "GitHub publishes the September 2026 Copilot update for Visual Studio.", "previous_coverage": null, "material_delta": "A new SDK-powered harness creates a BYOM migration and adds PR and NuGet agent workflows."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/|Copilot Visual Studio|BYOM agent harness and MCP integrations", "canonical_event": "GitHub publishes the September 2026 Copilot update for Visual Studio.", "previous_coverage": null, "material_delta": "A new SDK-powered harness creates a BYOM migration and adds PR and NuGet agent workflows."},
+      "publication_verification": {"status": "verified"}
     },
     {
       "id": "2026-10-23-copilot-customization-metrics",
@@ -185,7 +195,8 @@
       "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 88},
       "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The telemetry boundaries can be explained directly in the briefing."},
       "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "material-update", "candidate_key": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/|Copilot usage metrics|named custom agent and MCP telemetry", "canonical_event": "GitHub adds configured names and deeper lists to Copilot customization metrics.", "previous_coverage": "The September 17 release introduced grouped CLI customization metrics.", "material_delta": "Customer-defined names are now visible, lists expand to 25 and coverage includes additional clients and SDK paths."}
+      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/|Copilot usage metrics|named custom agent and MCP telemetry", "canonical_event": "GitHub adds configured names and deeper lists to Copilot customization metrics.", "previous_coverage": null, "material_delta": "The vendor's September 17 grouped metrics are context, but Pulse did not previously cover them; the October 22 event is new to the archive."},
+      "publication_verification": {"status": "verified"}
     }
   ],
   "watchlist": [
