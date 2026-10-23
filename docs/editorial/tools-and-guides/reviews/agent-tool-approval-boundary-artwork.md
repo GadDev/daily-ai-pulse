@@ -42,7 +42,7 @@ Final path: `public/images/guides/agent-tool-approval-boundary.webp`.
 - Git blob SHA: `775d08922d6bd88e83d96f2a4a7bda439138c014`
 - Matching guide `image` and descriptive `imageAlt` supplied.
 
-Binary-safe Git blob creation returned matching content-addressed identities for the cover and two review sheets. Branch attachment and post-commit binary read-back are pending. No UTF-8 text-file API is used for WebP.
+Binary-safe Git blob creation returned matching content-addressed identities for the cover and two review sheets. Contents API base64 read-back from commit `e5906904457743ad3ba40741d3ce30d551b501f2` matched the cover byte-for-byte against the local decoded WebP; both review-sheet blob identities were independently checked remotely. The generic blob readers rejected binary as UTF-8, so the supported Contents API with `encoding: base64` was used successfully. No UTF-8 text-file API is used for WebP.
 
 ## Limits and remaining handoff
 

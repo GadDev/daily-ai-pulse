@@ -70,7 +70,7 @@
     ]
   },
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -86,7 +86,7 @@
       },
       "binary_upload": {
         "status": "available",
-        "evidence": "Binary-safe GitHub create_blob/base64 returned the expected cover Git blob SHA. Branch attachment and post-commit binary read-back remain pending."
+        "evidence": "GitHub create_blob/base64 returned cover blob 775d08922d6bd88e83d96f2a4a7bda439138c014. Contents API base64 read-back from commit e5906904457743ad3ba40741d3ce30d551b501f2 matched the local decoded WebP byte-for-byte; both review-sheet blob identities were also checked remotely."
       }
     },
     "blocker": null,
