@@ -1,15 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="790" viewBox="0 0 420 790" role="img" aria-labelledby="title desc">
-<title id="title">Mobile: agent tool approval boundary</title><desc id="desc">An untrusted model proposal is validated. A separate reviewer approves its fingerprint. The gate consumes approval once before recording a mock notice; rejected proposals stop.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="840" viewBox="0 0 360 840" role="img" aria-labelledby="title desc">
+<title id="title">Mobile approval boundary</title>
+<desc id="desc">An untrusted model proposal is validated. A separate reviewer approves its exact fingerprint. The gate matches the requester and consumes approval once before a mock notice is recorded. Invalid and unapproved requests stop.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#171B1A" stroke-width="1.5"/></marker></defs>
-<rect width="420" height="790" rx="12" fill="#FAF6EE"/>
-<text x="22" y="35" fill="#171B1A" font-family="Arial, sans-serif" font-size="19" font-weight="700">Model proposal ≠ permission</text>
-<g font-family="Arial, sans-serif" fill="#171B1A" text-anchor="middle">
-<rect x="38" y="61" width="344" height="95" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/><text x="210" y="99" font-size="19" font-weight="700">Model proposal</text><text x="210" y="126" font-size="15">Untrusted tool + arguments</text>
-<rect x="38" y="194" width="344" height="95" rx="9" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/><text x="210" y="232" font-size="19" font-weight="700">Validate</text><text x="210" y="259" font-size="15">Tool + arguments; invalid → stop</text>
-<rect x="38" y="327" width="344" height="95" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/><text x="210" y="365" font-size="19" font-weight="700">Independent reviewer</text><text x="210" y="392" font-size="15">Approve exact proposal fingerprint</text>
-<rect x="38" y="460" width="344" height="95" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/><text x="210" y="498" font-size="19" font-weight="700">Approval gate</text><text x="210" y="525" font-size="15">Match requester; consume once</text>
-<rect x="38" y="593" width="344" height="95" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/><text x="210" y="631" font-size="19" font-weight="700">Mock action</text><text x="210" y="658" font-size="15">Record fictional notice; no network</text>
-</g>
-<g fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"><path d="M210 158 V189"/><path d="M210 291 V322"/><path d="M210 424 V455"/><path d="M210 557 V588"/></g>
-<text x="22" y="732" font-family="Arial, sans-serif" font-size="14" fill="#575D5B">Conceptual only: no real authentication,</text><text x="22" y="751" font-family="Arial, sans-serif" font-size="14" fill="#575D5B">durable storage, or idempotent delivery.</text>
+<rect width="360" height="840" rx="12" fill="#FAF6EE"/>
+<text x="18" y="34" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#171B1A">A proposal is not permission</text>
+<rect x="20" y="62" width="320" height="110" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="180" y="93" font-size="22" font-weight="700">Model proposal</text><text x="180" y="126" font-size="19">Untrusted tool + arguments</text><text x="180" y="152" font-size="19">No approval authority</text></g>
+<path d="M180 175 V199" fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="20" y="205" width="320" height="110" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="180" y="236" font-size="22" font-weight="700">Validate</text><text x="180" y="269" font-size="19">Tool + argument checks</text><text x="180" y="295" font-size="19">Invalid → stop</text></g>
+<path d="M180 318 V342" fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="20" y="348" width="320" height="110" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="180" y="379" font-size="22" font-weight="700">Independent reviewer</text><text x="180" y="412" font-size="19">Approve the exact</text><text x="180" y="438" font-size="19">proposal fingerprint</text></g>
+<path d="M180 461 V485" fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="20" y="491" width="320" height="110" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="180" y="522" font-size="22" font-weight="700">Approval gate</text><text x="180" y="555" font-size="19">Match requester + proposal</text><text x="180" y="581" font-size="19">Consume approval once</text></g>
+<path d="M180 604 V628" fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="20" y="634" width="320" height="110" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="180" y="665" font-size="22" font-weight="700">Mock action</text><text x="180" y="698" font-size="19">Record fictional notice</text><text x="180" y="724" font-size="19">No network or external action</text></g>
+<g font-family="Arial,sans-serif" font-size="17" fill="#575D5B"><text x="18" y="783">Conceptual mock: authentication and</text><text x="18" y="808">durable storage are not implemented.</text></g>
 </svg>
