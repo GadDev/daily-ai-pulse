@@ -65,11 +65,16 @@ observed failure, attempted recovery, saved work and the next action.
 
 Research now follows a candidate queue: verify, search prior coverage, classify,
 save, then move to the next candidate or desk. Retries consume the saved queue
-before repeating discovery. A successful checkpoint write requires its next
-action immediately. Structured checkpoint metadata and
+before repeating discovery. Continue after checkpoint writes whenever possible.
+The same scheduled task now owns the 08:00 kickoff and hourly continuation checks
+through 23:00 Europe/Luxembourg. Partial passes save honest in-progress state for
+the next check; routine progress stays quiet and needs no manual rerun. This can
+add up to an hour between attempts; exact execution/completion is not guaranteed.
+Structured checkpoint metadata and
 `npm run editorial:run:check -- YYYY-MM-DD --handoff` reject an unfinished final
 handoff or a blocker without observed failure/recovery evidence. This validates
-records; it cannot force scheduler continuation or prove research quality.
+records; the configured recurrence supplies later invocations. The checker
+cannot force another tool call in the current invocation or prove research quality.
 
 Each run checkpoints actual phase progress in
 `docs/editorial/runs/YYYY-MM-DD.md` on the same dated branch, including discovery
