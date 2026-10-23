@@ -52,6 +52,14 @@ Responsibilities:
 Output: a raw candidate set, then the structured ledger from Stage B. The
 scheduled task does not write directly to the live publication.
 
+Follow the [daily news execution contract](DAILY_NEWS_ORCHESTRATION_V1.md) for
+bounded discovery, research completion evidence, checkpoints and stop rules.
+Reading the dependencies completes initialization, not the editorial run.
+Research that has not yet been attempted is the next authorized action, not a
+reason to return `Blocked before PR`. Record actual source/archive access
+failures and continue independent work; never turn incomplete research into a
+zero-story ledger.
+
 ### Stage B — Structured candidate ledger
 
 Purpose: normalize candidates into the canonical schema.
