@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "editorial_date": "2026-10-23",
+  "run_status": "draft-pr",
+  "run_note": "Independent scheduled evergreen run. Reviewed all merged Tools & Guides guides and the 2026-10-21 ledger, checked current open PRs and confirmed #189 merged. Selected a new, self-contained application approval-boundary tutorial distinct from existing agent-environment permission comparisons. Python execution and production approval integration unavailable; article remains draft. No reviewed WebP cover or provenance yet.",
+  "candidates": [
+    {
+      "topic_key": "agent-tool-approval-boundary",
+      "title": "Give AI Agents a Real Approval Boundary Before They Call Tools",
+      "format": "tutorial",
+      "decision": "selected",
+      "reader_outcome": "Implement and test a narrow Python gate that validates proposed tool calls and binds one-time approval to a requester and exact action.",
+      "reason": "Existing ADE/agent comparison guides explain product-level permissions but do not teach a self-contained application-enforced approval boundary. Primary tool-use and OWASP guidance support the architecture. Distinct from RAG deployment and retrieval evaluation.",
+      "sources": [
+        "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+        "https://developers.openai.com/api/docs/guides/function-calling",
+        "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/2_0_vulns/LLM06_ExcessiveAgency.md",
+        "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "topic_key": "rag-first-application-deployment",
+      "title": "Deploying Your First RAG Application",
+      "format": "tutorial",
+      "decision": "duplicate",
+      "reader_outcome": "Run a local RAG API with FastAPI and Ollama.",
+      "reason": "Already published in main and merged from PR #189; not a new learning outcome.",
+      "sources": [],
+      "related_guide_id": "first-rag-application",
+      "related_pr_number": 189
+    },
+    {
+      "topic_key": "rag-retrieval-evaluation",
+      "title": "Evaluate RAG Retrieval Quality with a Golden Question Set",
+      "format": "tutorial",
+      "decision": "duplicate",
+      "reader_outcome": "Measure Recall@k and MRR@k with a labeled retrieval set.",
+      "reason": "Already published in main and selected in the merged 2026-10-21 evergreen ledger.",
+      "sources": [],
+      "related_guide_id": "rag-retrieval-evaluation",
+      "related_pr_number": 191
+    },
+    {
+      "topic_key": "agentic-development-permission-comparison",
+      "title": "Comparing Agentic Development Environments: Follow the Permissions",
+      "format": "review",
+      "decision": "duplicate",
+      "reader_outcome": "Compare documented execution and permission controls across agentic development tools.",
+      "reason": "Already published in main; a separate tutorial implementing an application-side gate is more useful than another comparison.",
+      "sources": [],
+      "related_guide_id": "agentic-development-environments-compared"
+    },
+    {
+      "topic_key": "rag-answer-grounding-evaluation",
+      "title": "Checking whether generated RAG claims are supported",
+      "format": "tutorial",
+      "decision": "watch",
+      "reader_outcome": "Evaluate claim-to-passage support rather than only retrieval rank.",
+      "reason": "Still requires a defensible labeled support-judgment set and protocol; avoid confusing reference presence with factual support.",
+      "sources": []
+    }
+  ],
+  "handoff": {
+    "guide_id": "agent-tool-approval-boundary",
+    "pr_number": null
+  }
+}
