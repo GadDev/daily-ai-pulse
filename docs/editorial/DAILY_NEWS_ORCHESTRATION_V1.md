@@ -61,11 +61,11 @@ new batch from a different invocation ID.
    research is awaiting review/CI, not a reason to redo research. Preserve merged
    and intentionally human-closed batches. Disclose any older known unresolved
    interval instead of silently claiming catch-up coverage.
-3. Consume saved leads first. For 23 October, continue Google Cloud/OpenAI
-   distribution, llm-d 1.0 and ZenteiQ. Retain the two recorded decisions; the
-   Agent Compute Engine score/deduplication is provisional and must pass the full
-   decision/publication contracts before publication. Do not turn its indexed
-   search caveat into a claim of exhaustive archive coverage.
+3. Consume saved leads first. Use the current checkpoint and normalized ledger to identify the actual
+   unfinished stage. Once research is complete, advance stories, artwork,
+   translations and handoff; never repeat a fixed recovery queue from an older
+   prompt. Preserve completed decisions and source-verification evidence. Do not
+   turn indexed-search limitations into a claim of exhaustive archive coverage.
 4. Work candidate by candidate: verify primary evidence/dates, compare normalized
    URLs AND entity/event/change terms against stories/ledgers/issues and open
    daily PRs, classify and persist supported decisions. Use `rg` over the complete
@@ -173,7 +173,7 @@ Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md 
 
 Reconcile canonical branches/checkpoints/PRs for today and the preceding seven local dates. Resume the oldest structurally valid in-progress checkpoint first, retaining its original editorial date, cutoff, observations and human edits. Do not reopen a human-closed or merged batch. Do not resume a completed draft PR's research. If none is in progress, start today's batch only if its canonical batch has not already been finalized. Otherwise inspect any pending current-head CI; when nothing needs action, do not notify.
 
-Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. For 23 October, resume the three queued sources; the saved Agent Compute Engine selection is provisional until full scoring/deduplication/publication gates pass.
+Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. Use the current checkpoint and ledger phase, never a dated recovery hint from an earlier prompt. When research is complete, advance drafting, artwork, translations and handoff without repeating completed discovery.
 
 Use the existing docs/editorial/runs/YYYY-MM-DD.md and run_schema 1.1 metadata. Preserve real decisions and failures, exact next_action, pending_candidates and original cutoff. Verify remote checkpoint writes. Continue immediately after a write whenever possible. If the invocation returns with safe work remaining, leave status: in-progress and blocker: null, with the saved next action. The next configured hourly check resumes it automatically. This is a continuing batch, never Blocked before PR, complete, or a ledger-only result. Do not ask the user to rerun. Do not claim you scheduled a wake yourself or guarantee a completion time.
 

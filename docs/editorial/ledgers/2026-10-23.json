@@ -10,27 +10,87 @@
       "desk": "engineering",
       "format": "deep-dive",
       "depth": "practitioner",
-      "topics": ["agents", "agent-runtime", "sandboxing", "permissions", "infrastructure"],
-      "entities": ["Google Cloud", "Agent Compute Engine", "Agent Gateway"],
+      "topics": [
+        "agents",
+        "agent-runtime",
+        "sandboxing",
+        "permissions",
+        "infrastructure"
+      ],
+      "entities": [
+        "Google Cloud",
+        "Agent Compute Engine",
+        "Agent Gateway"
+      ],
       "event_date": "2026-10-22",
       "source_publication_date": "2026-10-22",
       "summary": "Google disclosed the architecture and planned preview of Agent Compute Engine, a dedicated runtime for persistent and untrusted agent workloads.",
       "what_changed": "The design uses hardware-isolated microVMs, off-guest credential brokering through Agent Gateway, snapshot and restore for idle workloads, and shared copy-on-write memory; Google says Cloud preview is expected in coming months.",
       "why_it_matters": "The design moves identity, network policy and durable session economics outside an agent's guest environment, addressing trust boundaries that ordinary containers do not fully solve.",
       "engineer_takeaway": "Keep agent sandboxes credential-free, enforce egress and identity outside the guest, and model snapshot, restore and idle-session costs before adopting the preview.",
-      "prerequisites": ["tool-using agents", "virtual-machine isolation", "workload identity"],
+      "prerequisites": [
+        "tool-using agents",
+        "virtual-machine isolation",
+        "workload identity"
+      ],
       "primary_source_url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive",
       "sources": [
-        {"url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive", "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive", "publisher": "Google Cloud", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-22"},
-        {"url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance", "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance", "publisher": "Google Cloud", "source_type": "official", "role": "supporting", "publication_date": "2026-10-22"}
+        {
+          "url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive",
+          "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive",
+          "publisher": "Google Cloud",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-10-22"
+        },
+        {
+          "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance",
+          "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance",
+          "publisher": "Google Cloud",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-10-22"
+        }
       ],
-      "evidence": {"level": "primary", "rationale": "Google's architecture report documents the runtime and planned preview.", "independent_validation": "No independent deployment or reproduction is claimed.", "claim_scope": "The architecture and preview plan are vendor-reported; the service is not described as generally available."},
-      "signal": {"level": "high", "rationale": "The design directly addresses agent isolation, credential exposure, network policy and long-running session economics."},
-      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 91},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The deep dive can define microVM isolation and credential brokering inline."},
-      "related_content": {"previous_story_ids": ["2026-09-24-agentcore-policy-session-agentcore-evaluations"]},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive|Agent Compute Engine|hardware-isolated persistent agent runtime", "canonical_event": "Google discloses Agent Compute Engine architecture and planned Cloud preview.", "previous_coverage": "Pulse has covered other agent runtimes and policy systems, but not this Google architecture.", "material_delta": "A new hardware-isolated runtime design with off-guest identity and snapshot economics."},
-      "publication_verification": {"status": "verified-with-claim-scope"}
+      "evidence": {
+        "level": "primary",
+        "rationale": "Google's architecture report documents the runtime and planned preview.",
+        "independent_validation": "No independent deployment or reproduction is claimed.",
+        "claim_scope": "The architecture and preview plan are vendor-reported; the service is not described as generally available."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The design directly addresses agent isolation, credential exposure, network policy and long-running session economics."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 91
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The deep dive can define microVM isolation and credential brokering inline."
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-09-24-agentcore-policy-session-agentcore-evaluations"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive|Agent Compute Engine|hardware-isolated persistent agent runtime",
+        "canonical_event": "Google discloses Agent Compute Engine architecture and planned Cloud preview.",
+        "previous_coverage": "Pulse has covered other agent runtimes and policy systems, but not this Google architecture.",
+        "material_delta": "A new hardware-isolated runtime design with off-guest identity and snapshot economics."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
     },
     {
       "id": "2026-10-23-openai-models-google-cloud",
@@ -39,27 +99,88 @@
       "desk": "business",
       "format": "briefing",
       "depth": "practitioner",
-      "topics": ["model-releases", "api", "pricing", "infrastructure"],
-      "entities": ["Google Cloud", "OpenAI", "GPT-6 Astra", "GPT-6.1 Sol", "GPT-6 Luna", "Model Garden"],
+      "topics": [
+        "model-releases",
+        "api",
+        "pricing",
+        "infrastructure"
+      ],
+      "entities": [
+        "Google Cloud",
+        "OpenAI",
+        "GPT-6 Astra",
+        "GPT-6.1 Sol",
+        "GPT-6 Luna",
+        "Model Garden"
+      ],
       "event_date": "2026-10-21",
       "source_publication_date": "2026-10-21",
       "summary": "Google Cloud and OpenAI announced private-preview distribution of three OpenAI frontier models to selected enterprise customers through Model Garden.",
       "what_changed": "The route adds Google Cloud Marketplace billing and eligible cloud-commit drawdown; both companies describe current access as private preview, while OpenAI says general availability is planned in coming weeks.",
       "why_it_matters": "A new cloud distribution route can change procurement, identity, audit and data-perimeter decisions even when the underlying models are unchanged.",
       "engineer_takeaway": "Verify preview eligibility, API compatibility, regional and data-boundary terms, identity integration and portability before treating the route as equivalent to OpenAI's direct API.",
-      "prerequisites": ["managed model APIs", "cloud procurement"],
+      "prerequisites": [
+        "managed model APIs",
+        "cloud procurement"
+      ],
       "primary_source_url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
       "sources": [
-        {"url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers", "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers", "publisher": "Google Cloud", "source_type": "official", "role": "primary", "publication_date": "2026-10-21"},
-        {"url": "https://openai.com/index/openai-models-google-cloud/", "canonical_url": "https://openai.com/index/openai-models-google-cloud/", "publisher": "OpenAI", "source_type": "official", "role": "supporting", "publication_date": "2026-10-21"}
+        {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
+          "canonical_url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
+          "publisher": "Google Cloud",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-21"
+        },
+        {
+          "url": "https://openai.com/index/openai-models-google-cloud/",
+          "canonical_url": "https://openai.com/index/openai-models-google-cloud/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-10-21"
+        }
       ],
-      "evidence": {"level": "primary", "rationale": "Both counterparties published matching announcements and availability scope.", "independent_validation": "No independent integration test is claimed; the two sources are the counterparties rather than independent evaluators.", "claim_scope": "The announcement establishes private-preview distribution, not universal availability or API parity."},
-      "signal": {"level": "high", "rationale": "The distribution and billing change can materially affect enterprise model-platform choices."},
-      "editorial_score": {"significance": 5, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 92},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "A briefing can distinguish distribution, billing and model capability directly."},
-      "related_content": {"previous_story_ids": ["2026-09-24-openai-airbnb-enterprise-model-access"]},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers|OpenAI models on Google Cloud|private preview Model Garden distribution", "canonical_event": "Google Cloud and OpenAI announce private-preview Model Garden distribution.", "previous_coverage": "The September Airbnb story concerns enterprise adoption and OpenAI/Amazon access, not Google Cloud distribution.", "material_delta": "A new distribution, billing and cloud-commit route for OpenAI models."},
-      "publication_verification": {"status": "verified-with-claim-scope"}
+      "evidence": {
+        "level": "primary",
+        "rationale": "Both counterparties published matching announcements and availability scope.",
+        "independent_validation": "No independent integration test is claimed; the two sources are the counterparties rather than independent evaluators.",
+        "claim_scope": "The announcement establishes private-preview distribution, not universal availability or API parity."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The distribution and billing change can materially affect enterprise model-platform choices."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 5,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 92
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "A briefing can distinguish distribution, billing and model capability directly."
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-09-24-openai-airbnb-enterprise-model-access"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers|OpenAI models on Google Cloud|private preview Model Garden distribution",
+        "canonical_event": "Google Cloud and OpenAI announce private-preview Model Garden distribution.",
+        "previous_coverage": "The September Airbnb story concerns enterprise adoption and OpenAI/Amazon access, not Google Cloud distribution.",
+        "material_delta": "A new distribution, billing and cloud-commit route for OpenAI models."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
     },
     {
       "id": "2026-10-23-llm-d-1-0",
@@ -68,24 +189,82 @@
       "desk": "engineering",
       "format": "deep-dive",
       "depth": "advanced",
-      "topics": ["inference", "serving", "orchestration", "model-routing", "performance", "infrastructure"],
-      "entities": ["llm-d", "Google Cloud", "Kubernetes", "PyTorch Conference"],
+      "topics": [
+        "inference",
+        "serving",
+        "orchestration",
+        "model-routing",
+        "performance",
+        "infrastructure"
+      ],
+      "entities": [
+        "llm-d",
+        "Google Cloud",
+        "Kubernetes",
+        "PyTorch Conference"
+      ],
       "event_date": "2026-10-20",
       "source_publication_date": "2026-10-20",
       "summary": "The llm-d project released version 1.0 of its Kubernetes-native distributed inference stack.",
       "what_changed": "Version 1.0 establishes v1 APIs and a hardened request path with high-availability routing, zero-downtime upgrades, agent and session-aware routing, priority flow control, tiered KV-cache handling, disaggregated serving, asynchronous processing and expanded TPU integration.",
       "why_it_matters": "The release packages several difficult serving concerns into a versioned stack that teams can evaluate independently rather than rebuilding routing, cache and upgrade controls from scratch.",
       "engineer_takeaway": "Reproduce the published recipes on your workload and test cache-aware routing, multi-tenant flow control, failure recovery and rolling upgrades as separate adoption layers.",
-      "prerequisites": ["Kubernetes", "distributed model serving", "KV caches"],
+      "prerequisites": [
+        "Kubernetes",
+        "distributed model serving",
+        "KV caches"
+      ],
       "primary_source_url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference",
-      "sources": [{"url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference", "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference", "publisher": "Google Cloud", "source_type": "engineering-blog", "role": "primary", "publication_date": "2026-10-20"}],
-      "evidence": {"level": "primary", "rationale": "The release report links the project repositories and benchmark recipes and enumerates the versioned changes.", "independent_validation": "Performance and deployment claims have not been independently reproduced for this story.", "claim_scope": "The article reports the release and architecture; workload-specific gains remain first-party claims."},
-      "signal": {"level": "high", "rationale": "The release changes the operational baseline for teams evaluating open distributed inference on Kubernetes."},
-      "editorial_score": {"significance": 5, "evidence": 4, "novelty": 5, "relevance": 5, "durability": 5, "weighted_total": 95},
-      "learning_gap": {"exists": true, "concepts": ["disaggregated serving", "tiered KV cache"], "existing_explainer_status": "Define the concepts briefly in the story; a separate explainer is optional."},
-      "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference|llm-d|1.0 distributed inference release", "canonical_event": "llm-d 1.0 is released at the PyTorch Conference.", "previous_coverage": null, "material_delta": "First Pulse coverage of the project's v1 release and hardened serving path."},
-      "publication_verification": {"status": "verified-with-claim-scope"}
+      "sources": [
+        {
+          "url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference",
+          "canonical_url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference",
+          "publisher": "Google Cloud",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-10-20"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The release report links the project repositories and benchmark recipes and enumerates the versioned changes.",
+        "independent_validation": "Performance and deployment claims have not been independently reproduced for this story.",
+        "claim_scope": "The article reports the release and architecture; workload-specific gains remain first-party claims."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The release changes the operational baseline for teams evaluating open distributed inference on Kubernetes."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "disaggregated serving",
+          "tiered KV cache"
+        ],
+        "existing_explainer_status": "Define the concepts briefly in the story; a separate explainer is optional."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference|llm-d|1.0 distributed inference release",
+        "canonical_event": "llm-d 1.0 is released at the PyTorch Conference.",
+        "previous_coverage": null,
+        "material_delta": "First Pulse coverage of the project's v1 release and hardened serving path."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
     },
     {
       "id": "2026-10-23-metr-openai-monitoring-red-team",
@@ -94,24 +273,82 @@
       "desk": "research",
       "format": "deep-dive",
       "depth": "advanced",
-      "topics": ["agents", "agent-security", "observability", "sandboxing", "verification", "safety"],
-      "entities": ["METR", "Redwood Research", "OpenAI", "Codex"],
+      "topics": [
+        "agents",
+        "agent-security",
+        "observability",
+        "sandboxing",
+        "verification",
+        "safety"
+      ],
+      "entities": [
+        "METR",
+        "Redwood Research",
+        "OpenAI",
+        "Codex"
+      ],
       "event_date": "2026-10-22",
       "source_publication_date": "2026-10-22",
       "summary": "METR published a high-level account of a three-week high-access red-team exercise on OpenAI's internal agent-monitoring system as it existed on or before July 21, 2026.",
       "what_changed": "External evaluators disclosed historical coverage gaps and possible bypasses involving compaction, sandboxing and Auto-Review, monitor-input serialization, client-controlled headers and tool permissions; METR did not evaluate OpenAI's later remediation claims.",
       "why_it_matters": "The report turns abstract monitoring guidance into concrete failure modes across accounting, trigger timing, isolation and incident response.",
       "engineer_takeaway": "Maintain independent accounting of monitored traffic, run monitors periodically rather than only at turn boundaries, isolate monitors from agent actions and red-team known bypass paths repeatedly.",
-      "prerequisites": ["agent trajectories", "out-of-band monitoring", "sandboxing"],
+      "prerequisites": [
+        "agent trajectories",
+        "out-of-band monitoring",
+        "sandboxing"
+      ],
       "primary_source_url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-      "sources": [{"url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/", "canonical_url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/", "publisher": "METR", "source_type": "independent-analysis", "role": "primary", "publication_date": "2026-10-22"}],
-      "evidence": {"level": "strong", "rationale": "METR and Redwood evaluators received internal code, configuration and documentation access and interviewed OpenAI staff.", "independent_validation": "The assessment was conducted by external researchers, but the public post is a brief, OpenAI-redacted subset of a private report.", "claim_scope": "Findings apply to the historical system assessed on or before July 21; current coverage and remediation effectiveness were not evaluated."},
-      "signal": {"level": "high", "rationale": "The disclosed bypass classes materially change how teams should design and audit agent monitoring."},
-      "editorial_score": {"significance": 5, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 5, "weighted_total": 96},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "Prior Pulse coverage already establishes out-of-band monitoring and tamper-resistant audit boundaries."},
-      "related_content": {"previous_story_ids": ["2026-10-21-openai-agents-weaken-monitoring", "2026-09-27-agent-trace-tampering"]},
-      "deduplication": {"status": "material-update", "publication_status": "material-update-confirmed", "candidate_key": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/|OpenAI internal monitoring|external high-access red-team findings", "canonical_event": "METR and Redwood publish an external red-team assessment of OpenAI's historical agent-monitoring stack.", "previous_coverage": "The October 21 story covered OpenAI's own disclosure of two incidents.", "material_delta": "Independent high-access evaluation adds architecture-level coverage and bypass findings and explicitly scopes unverified remediation claims."},
-      "publication_verification": {"status": "verified-with-claim-scope"}
+      "sources": [
+        {
+          "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
+          "canonical_url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
+          "publisher": "METR",
+          "source_type": "independent-analysis",
+          "role": "primary",
+          "publication_date": "2026-10-22"
+        }
+      ],
+      "evidence": {
+        "level": "strong",
+        "rationale": "METR and Redwood evaluators received internal code, configuration and documentation access and interviewed OpenAI staff.",
+        "independent_validation": "The assessment was conducted by external researchers, but the public post is a brief, OpenAI-redacted subset of a private report.",
+        "claim_scope": "Findings apply to the historical system assessed on or before July 21; current coverage and remediation effectiveness were not evaluated."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The disclosed bypass classes materially change how teams should design and audit agent monitoring."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 5,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 96
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "Prior Pulse coverage already establishes out-of-band monitoring and tamper-resistant audit boundaries."
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-10-21-openai-agents-weaken-monitoring",
+          "2026-09-27-agent-trace-tampering"
+        ]
+      },
+      "deduplication": {
+        "status": "material-update",
+        "publication_status": "material-update-confirmed",
+        "candidate_key": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/|OpenAI internal monitoring|external high-access red-team findings",
+        "canonical_event": "METR and Redwood publish an external red-team assessment of OpenAI's historical agent-monitoring stack.",
+        "previous_coverage": "The October 21 story covered OpenAI's own disclosure of two incidents.",
+        "material_delta": "Independent high-access evaluation adds architecture-level coverage and bypass findings and explicitly scopes unverified remediation claims."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
     },
     {
       "id": "2026-10-23-openai-distributed-biological-reasoning",
@@ -120,28 +357,93 @@
       "desk": "curious",
       "format": "deep-dive",
       "depth": "practitioner",
-      "topics": ["multi-agent", "orchestration", "reasoning", "data", "verification"],
-      "entities": ["OpenAI", "PerturbAI", "Scripps Research", "GPT-Rosalind"],
+      "topics": [
+        "multi-agent",
+        "orchestration",
+        "reasoning",
+        "data",
+        "verification"
+      ],
+      "entities": [
+        "OpenAI",
+        "PerturbAI",
+        "Scripps Research",
+        "GPT-Rosalind"
+      ],
       "event_date": "2026-10-21",
       "source_publication_date": "2026-10-21",
       "summary": "OpenAI, PerturbAI and Scripps Research report distributing analysis of a whole-brain CRISPR atlas across thousands of agents and aggregating the results into a public reasoning atlas.",
       "what_changed": "The partners report analyzing existing data from millions of mouse brain cells in 32 minutes, recovering known findings and proposing additional hypotheses whose novelty and value were assessed by blinded experts.",
       "why_it_matters": "The work demonstrates a concrete fan-out and structured-aggregation pattern for using agents on a large scientific corpus while keeping outputs inspectable by domain experts.",
       "engineer_takeaway": "Partition work into independently inspectable units, preserve source provenance through aggregation, and keep expert review and real-world experiments as the final validation boundary.",
-      "prerequisites": ["multi-agent orchestration", "hypothesis generation"],
+      "prerequisites": [
+        "multi-agent orchestration",
+        "hypothesis generation"
+      ],
       "primary_source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
       "sources": [
-        {"url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "canonical_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/", "publisher": "OpenAI", "source_type": "official", "role": "primary", "publication_date": "2026-10-21"},
-        {"url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1", "canonical_url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1", "publisher": "bioRxiv", "source_type": "paper", "role": "supporting", "publication_date": "2026-10-15"},
-        {"url": "https://github.com/jinlabneurogenomics/distributed_agent", "canonical_url": "https://github.com/jinlabneurogenomics/distributed_agent", "publisher": "Jin Lab Neurogenomics", "source_type": "repository", "role": "supporting", "publication_date": "2026-10-21"}
+        {
+          "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+          "canonical_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-21"
+        },
+        {
+          "url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1",
+          "canonical_url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1",
+          "publisher": "bioRxiv",
+          "source_type": "paper",
+          "role": "supporting",
+          "publication_date": "2026-10-15"
+        },
+        {
+          "url": "https://github.com/jinlabneurogenomics/distributed_agent",
+          "canonical_url": "https://github.com/jinlabneurogenomics/distributed_agent",
+          "publisher": "Jin Lab Neurogenomics",
+          "source_type": "repository",
+          "role": "supporting",
+          "publication_date": "2026-10-21"
+        }
       ],
-      "evidence": {"level": "preliminary", "rationale": "The announcement links a preprint, dataset and public reasoning atlas, but the reported outcomes come from the participating organizations.", "independent_validation": "No independent wet-lab validation or replication is claimed.", "claim_scope": "The system produced and prioritized hypotheses from existing mouse data; it did not establish clinical effects or validate proposed mechanisms."},
-      "signal": {"level": "high", "rationale": "The experiment provides an unusually concrete, inspectable example of wide multi-agent fan-out applied to scientific analysis."},
-      "editorial_score": {"significance": 4, "evidence": 4, "novelty": 5, "relevance": 3, "durability": 4, "weighted_total": 81},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The orchestration pattern can be explained in the story without a separate explainer."},
-      "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/|GPT-Rosalind|distributed biological reasoning atlas", "canonical_event": "OpenAI, PerturbAI and Scripps publish a distributed-agent analysis of a whole-brain CRISPR atlas.", "previous_coverage": null, "material_delta": "First Pulse coverage of the experiment and its public reasoning atlas."},
-      "publication_verification": {"status": "verified-with-claim-scope"}
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "The announcement links a preprint, dataset and public reasoning atlas, but the reported outcomes come from the participating organizations.",
+        "independent_validation": "No independent wet-lab validation or replication is claimed.",
+        "claim_scope": "The system produced and prioritized hypotheses from existing mouse data; it did not establish clinical effects or validate proposed mechanisms."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The experiment provides an unusually concrete, inspectable example of wide multi-agent fan-out applied to scientific analysis."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 81
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The orchestration pattern can be explained in the story without a separate explainer."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/|GPT-Rosalind|distributed biological reasoning atlas",
+        "canonical_event": "OpenAI, PerturbAI and Scripps publish a distributed-agent analysis of a whole-brain CRISPR atlas.",
+        "previous_coverage": null,
+        "material_delta": "First Pulse coverage of the experiment and its public reasoning atlas."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
     },
     {
       "id": "2026-10-23-copilot-visual-studio-september-update",
@@ -150,24 +452,79 @@
       "desk": "tools",
       "format": "briefing",
       "depth": "practitioner",
-      "topics": ["coding-agents", "ide", "mcp", "model-routing", "sdk", "security"],
-      "entities": ["GitHub Copilot", "Visual Studio 2026", "NuGet", "Ollama"],
+      "topics": [
+        "coding-agents",
+        "ide",
+        "mcp",
+        "model-routing",
+        "sdk",
+        "security"
+      ],
+      "entities": [
+        "GitHub Copilot",
+        "Visual Studio 2026",
+        "NuGet",
+        "Ollama"
+      ],
       "event_date": "2026-10-22",
       "source_publication_date": "2026-10-22",
       "summary": "GitHub's September update for Copilot in Visual Studio 2026 adds PR exploration, migrates BYOM to a new SDK-powered agent harness and connects NuGet audit fixes to an MCP-backed agent flow.",
       "what_changed": "BYOM no longer works through the former Ask and Agent modes, Ollama configurations must be re-added after upgrading, and the new agent can consume PR context or invoke the NuGet MCP server for vulnerable-package fixes.",
       "why_it_matters": "The update changes model-provider configuration and tool-enablement requirements rather than merely adding visible IDE features.",
       "engineer_takeaway": "Plan BYOM migration, re-register local models, review MCP permissions and test PR and NuGet flows before broad rollout.",
-      "prerequisites": ["GitHub Copilot", "Visual Studio", "MCP"],
+      "prerequisites": [
+        "GitHub Copilot",
+        "Visual Studio",
+        "MCP"
+      ],
       "primary_source_url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/",
-      "sources": [{"url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/", "canonical_url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-22"}],
-      "evidence": {"level": "primary", "rationale": "GitHub's dated changelog specifies availability, migration requirements and integration dependencies.", "independent_validation": "No independent compatibility test is claimed.", "claim_scope": "The story reports documented product behavior and preview status, not performance gains."},
-      "signal": {"level": "high", "rationale": "The breaking BYOM migration and MCP-backed remediation path require concrete rollout work."},
-      "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 3, "weighted_total": 86},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The migration requirements can be handled in a focused briefing."},
-      "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/|Copilot Visual Studio|BYOM agent harness and MCP integrations", "canonical_event": "GitHub publishes the September 2026 Copilot update for Visual Studio.", "previous_coverage": null, "material_delta": "A new SDK-powered harness creates a BYOM migration and adds PR and NuGet agent workflows."},
-      "publication_verification": {"status": "verified"}
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/",
+          "canonical_url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-22"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's dated changelog specifies availability, migration requirements and integration dependencies.",
+        "independent_validation": "No independent compatibility test is claimed.",
+        "claim_scope": "The story reports documented product behavior and preview status, not performance gains."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The breaking BYOM migration and MCP-backed remediation path require concrete rollout work."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 5,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 3,
+        "weighted_total": 86
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The migration requirements can be handled in a focused briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2/|Copilot Visual Studio|BYOM agent harness and MCP integrations",
+        "canonical_event": "GitHub publishes the September 2026 Copilot update for Visual Studio.",
+        "previous_coverage": null,
+        "material_delta": "A new SDK-powered harness creates a BYOM migration and adds PR and NuGet agent workflows."
+      },
+      "publication_verification": {
+        "status": "verified"
+      }
     },
     {
       "id": "2026-10-23-copilot-customization-metrics",
@@ -176,45 +533,268 @@
       "desk": "workflows",
       "format": "briefing",
       "depth": "practitioner",
-      "topics": ["skills", "agents", "mcp", "observability", "developer-experience"],
-      "entities": ["GitHub Copilot", "Copilot CLI", "Copilot SDK", "Agent Client Protocol"],
+      "topics": [
+        "skills",
+        "agents",
+        "mcp",
+        "observability",
+        "developer-experience"
+      ],
+      "entities": [
+        "GitHub Copilot",
+        "Copilot CLI",
+        "Copilot SDK",
+        "Agent Client Protocol"
+      ],
       "event_date": "2026-10-22",
       "source_publication_date": "2026-10-22",
       "summary": "GitHub's usage metrics API now reports configured names for customer-defined skills, custom agents, MCP servers, slash commands and plugins.",
       "what_changed": "Organization and enterprise reports expose named entries instead of grouping customizations under generic labels and expand each list from five to 25 entries; GitHub cautions that client telemetry can undercount usage and excludes built-in IDE chat telemetry.",
       "why_it_matters": "Platform teams can finally measure which internal agent customizations are adopted, but the collection boundaries prevent exact accounting.",
       "engineer_takeaway": "Use the metrics for adoption trends and enablement decisions, document client-version and telemetry coverage, and review configured names before sharing reports.",
-      "prerequisites": ["Copilot usage metrics API", "internal agent customization"],
+      "prerequisites": [
+        "Copilot usage metrics API",
+        "internal agent customization"
+      ],
       "primary_source_url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/",
       "sources": [
-        {"url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/", "canonical_url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/", "publisher": "GitHub", "source_type": "official", "role": "primary", "publication_date": "2026-10-22"},
-        {"url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api/", "canonical_url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api/", "publisher": "GitHub", "source_type": "official", "role": "context", "publication_date": "2026-09-17"}
+        {
+          "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/",
+          "canonical_url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-22"
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api/",
+          "canonical_url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "context",
+          "publication_date": "2026-09-17"
+        }
       ],
-      "evidence": {"level": "primary", "rationale": "GitHub documents the API fields, coverage, limits, access and known undercount conditions.", "independent_validation": "No independent telemetry audit is claimed.", "claim_scope": "The metrics describe recorded client telemetry and should not be treated as complete usage accounting."},
-      "signal": {"level": "high", "rationale": "Named customization metrics enable evidence-based rollout decisions for internal agent tooling."},
-      "editorial_score": {"significance": 4, "evidence": 5, "novelty": 4, "relevance": 5, "durability": 4, "weighted_total": 88},
-      "learning_gap": {"exists": false, "concepts": [], "existing_explainer_status": "The telemetry boundaries can be explained directly in the briefing."},
-      "related_content": {"previous_story_ids": []},
-      "deduplication": {"status": "new", "publication_status": "new-confirmed", "candidate_key": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/|Copilot usage metrics|named custom agent and MCP telemetry", "canonical_event": "GitHub adds configured names and deeper lists to Copilot customization metrics.", "previous_coverage": null, "material_delta": "The vendor's September 17 grouped metrics are context, but Pulse did not previously cover them; the October 22 event is new to the archive."},
-      "publication_verification": {"status": "verified"}
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub documents the API fields, coverage, limits, access and known undercount conditions.",
+        "independent_validation": "No independent telemetry audit is claimed.",
+        "claim_scope": "The metrics describe recorded client telemetry and should not be treated as complete usage accounting."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Named customization metrics enable evidence-based rollout decisions for internal agent tooling."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 5,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 88
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The telemetry boundaries can be explained directly in the briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/|Copilot usage metrics|named custom agent and MCP telemetry",
+        "canonical_event": "GitHub adds configured names and deeper lists to Copilot customization metrics.",
+        "previous_coverage": null,
+        "material_delta": "The vendor's September 17 grouped metrics are context, but Pulse did not previously cover them; the October 22 event is new to the archive."
+      },
+      "publication_verification": {
+        "status": "verified"
+      }
     }
   ],
   "watchlist": [
-    {"id": "2026-10-23-evaluation-scarcity-experience-report", "decision": "watch", "title": "When Code Gets Cheap, Evaluation Gets Scarce", "desk": "practice", "event_date": "2026-10-22", "summary": "A single-developer experience report argues that evaluation and engineering judgment become the bottlenecks in AI-assisted delivery.", "what_changed": "The authors document a deployed exam-grading system, boundary defects missed by mocks and an assistant bypassing process checkpoints until gates were enforced.", "sources": [{"url": "https://arxiv.org/abs/2610.30916", "canonical_url": "https://arxiv.org/abs/2610.30916", "publisher": "arXiv", "source_type": "paper", "role": "primary", "publication_date": "2026-10-22"}], "evidence": {"level": "anecdotal"}, "signal": {"level": "medium"}, "editorial_score": {"significance": 3, "evidence": 2, "novelty": 3, "relevance": 5, "durability": 4, "weighted_total": 65}, "deduplication": {"status": "new", "candidate_key": "https://arxiv.org/abs/2610.30916|AI-assisted agile software engineering|evaluation scarcity experience report"}, "reason": "The empirical base is too narrow to generalize the productivity or evaluation-scarcity claims.", "promote_when": ["a methodology review establishes auditable artifacts and tightly scoped evidence", "an independent multi-team study reproduces the evaluation-bottleneck pattern"]},
-    {"id": "2026-10-23-gemini-minecraft-secondary-only", "decision": "watch", "title": "Reported Gemini multi-agent Minecraft experiment", "desk": "curious", "event_date": "2026-10-22", "summary": "Secondary reports describe surprising behavior in a Gemini multi-agent Minecraft experiment.", "what_changed": "No first-party protocol, traces or dataset could be located during bounded discovery.", "sources": [], "evidence": {"level": "unverified"}, "signal": {"level": "watch"}, "editorial_score": {"significance": 3, "evidence": 1, "novelty": 4, "relevance": 2, "durability": 2, "weighted_total": 49}, "deduplication": {"status": "new", "candidate_key": "Gemini|Minecraft multi-agent experiment|reported Ender Dragon behavior"}, "reason": "The lead lacks a verifiable primary technical source.", "promote_when": ["DeepMind or the researchers publish the protocol, agent traces and outcome analysis"]},
-    {"id": "2026-10-23-tencent-agent-browsing-secondary-only", "decision": "watch", "title": "Reported unintended Tencent agent browsing behavior", "desk": "curious", "event_date": "2026-10-22", "summary": "Secondary reporting describes unintended agent browsing behavior associated with Tencent.", "what_changed": "No first-party incident or research account was located during bounded discovery.", "sources": [], "evidence": {"level": "unverified"}, "signal": {"level": "watch"}, "editorial_score": {"significance": 3, "evidence": 1, "novelty": 3, "relevance": 3, "durability": 2, "weighted_total": 48}, "deduplication": {"status": "new", "candidate_key": "Tencent|agent browsing behavior|secondary-only report"}, "reason": "The event date and technical evidence cannot be verified from a primary source.", "promote_when": ["Tencent publishes a technical account with reproducible evidence and a clear event date"]}
+    {
+      "id": "2026-10-23-evaluation-scarcity-experience-report",
+      "decision": "watch",
+      "title": "When Code Gets Cheap, Evaluation Gets Scarce",
+      "desk": "practice",
+      "event_date": "2026-10-22",
+      "summary": "A single-developer experience report argues that evaluation and engineering judgment become the bottlenecks in AI-assisted delivery.",
+      "what_changed": "The authors document a deployed exam-grading system, boundary defects missed by mocks and an assistant bypassing process checkpoints until gates were enforced.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2610.30916",
+          "canonical_url": "https://arxiv.org/abs/2610.30916",
+          "publisher": "arXiv",
+          "source_type": "paper",
+          "role": "primary",
+          "publication_date": "2026-10-22"
+        }
+      ],
+      "evidence": {
+        "level": "anecdotal"
+      },
+      "signal": {
+        "level": "medium"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 2,
+        "novelty": 3,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 65
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "https://arxiv.org/abs/2610.30916|AI-assisted agile software engineering|evaluation scarcity experience report"
+      },
+      "reason": "The empirical base is too narrow to generalize the productivity or evaluation-scarcity claims.",
+      "promote_when": [
+        "a methodology review establishes auditable artifacts and tightly scoped evidence",
+        "an independent multi-team study reproduces the evaluation-bottleneck pattern"
+      ]
+    },
+    {
+      "id": "2026-10-23-gemini-minecraft-secondary-only",
+      "decision": "watch",
+      "title": "Reported Gemini multi-agent Minecraft experiment",
+      "desk": "curious",
+      "event_date": "2026-10-22",
+      "summary": "Secondary reports describe surprising behavior in a Gemini multi-agent Minecraft experiment.",
+      "what_changed": "No first-party protocol, traces or dataset could be located during bounded discovery.",
+      "sources": [],
+      "evidence": {
+        "level": "unverified"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 1,
+        "novelty": 4,
+        "relevance": 2,
+        "durability": 2,
+        "weighted_total": 49
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "Gemini|Minecraft multi-agent experiment|reported Ender Dragon behavior"
+      },
+      "reason": "The lead lacks a verifiable primary technical source.",
+      "promote_when": [
+        "DeepMind or the researchers publish the protocol, agent traces and outcome analysis"
+      ]
+    },
+    {
+      "id": "2026-10-23-tencent-agent-browsing-secondary-only",
+      "decision": "watch",
+      "title": "Reported unintended Tencent agent browsing behavior",
+      "desk": "curious",
+      "event_date": "2026-10-22",
+      "summary": "Secondary reporting describes unintended agent browsing behavior associated with Tencent.",
+      "what_changed": "No first-party incident or research account was located during bounded discovery.",
+      "sources": [],
+      "evidence": {
+        "level": "unverified"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 1,
+        "novelty": 3,
+        "relevance": 3,
+        "durability": 2,
+        "weighted_total": 48
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "Tencent|agent browsing behavior|secondary-only report"
+      },
+      "reason": "The event date and technical evidence cannot be verified from a primary source.",
+      "promote_when": [
+        "Tencent publishes a technical account with reproducible evidence and a clear event date"
+      ]
+    }
   ],
   "exclusions": [
-    {"id": "2026-10-23-zenteiq-llm-d-overlap", "decision": "rejected", "title": "ZenteiQ scales physical-AI inference with GKE and llm-d", "reason": "The same first-party case and metrics appear in the selected llm-d 1.0 announcement, so this is supporting evidence rather than a separate event.", "source_url": "https://cloud.google.com/blog/products/containers-kubernetes/zenteiq-scales-physical-ai-inference-4x-with-gke-and-llm-d"},
-    {"id": "2026-10-23-anthropic-employment-repeat", "decision": "rejected", "title": "Anthropic reports agent-heavy changes to its workforce", "reason": "Already recorded as watch candidate on October 19; no new independent replication or implementation detail was found.", "previous_candidate_id": "2026-10-19-anthropic-employment-agent-hours", "source_url": "https://www.anthropic.com/research/employment-at-anthropic"},
-    {"id": "2026-10-23-nvidia-sentry-repeat", "decision": "rejected", "title": "NVIDIA Sentry agent-safety platform", "reason": "Already covered on September 29; no distinct technical delta was found.", "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform", "source_url": "https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/"},
-    {"id": "2026-10-23-claude-sdk-notes-repeat", "decision": "rejected", "title": "Claude Platform SDK and release-note updates", "reason": "The notes continue the October 22 Anthropic API-version event without a separate material development.", "previous_story_id": "2026-10-22-anthropic-api-version-2026-10-21", "source_url": "https://platform.claude.com/docs/en/release-notes/overview"},
-    {"id": "2026-10-23-gemini-enterprise-single-user-quota", "decision": "rejected", "title": "Gemini Enterprise adds single-user quota limits", "reason": "The narrow administrative control does not clear the daily significance gate.", "source_url": "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"},
-    {"id": "2026-10-23-copilot-global-default-enforcement", "decision": "rejected", "title": "GitHub begins enforcing the global default for Copilot features", "reason": "This is the scheduled enforcement of the policy announced September 24 and adds no separate engineering implementation detail.", "source_url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/"}
+    {
+      "id": "2026-10-23-zenteiq-llm-d-overlap",
+      "decision": "rejected",
+      "title": "ZenteiQ scales physical-AI inference with GKE and llm-d",
+      "reason": "The same first-party case and metrics appear in the selected llm-d 1.0 announcement, so this is supporting evidence rather than a separate event.",
+      "source_url": "https://cloud.google.com/blog/products/containers-kubernetes/zenteiq-scales-physical-ai-inference-4x-with-gke-and-llm-d"
+    },
+    {
+      "id": "2026-10-23-anthropic-employment-repeat",
+      "decision": "rejected",
+      "title": "Anthropic reports agent-heavy changes to its workforce",
+      "reason": "Already recorded as watch candidate on October 19; no new independent replication or implementation detail was found.",
+      "previous_candidate_id": "2026-10-19-anthropic-employment-agent-hours",
+      "source_url": "https://www.anthropic.com/research/employment-at-anthropic"
+    },
+    {
+      "id": "2026-10-23-nvidia-sentry-repeat",
+      "decision": "rejected",
+      "title": "NVIDIA Sentry agent-safety platform",
+      "reason": "Already covered on September 29; no distinct technical delta was found.",
+      "previous_story_id": "2026-09-29-nvidia-open-agent-safety-platform",
+      "source_url": "https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/"
+    },
+    {
+      "id": "2026-10-23-claude-sdk-notes-repeat",
+      "decision": "rejected",
+      "title": "Claude Platform SDK and release-note updates",
+      "reason": "The notes continue the October 22 Anthropic API-version event without a separate material development.",
+      "previous_story_id": "2026-10-22-anthropic-api-version-2026-10-21",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview"
+    },
+    {
+      "id": "2026-10-23-gemini-enterprise-single-user-quota",
+      "decision": "rejected",
+      "title": "Gemini Enterprise adds single-user quota limits",
+      "reason": "The narrow administrative control does not clear the daily significance gate.",
+      "source_url": "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"
+    },
+    {
+      "id": "2026-10-23-copilot-global-default-enforcement",
+      "decision": "rejected",
+      "title": "GitHub begins enforcing the global default for Copilot features",
+      "reason": "This is the scheduled enforcement of the policy announced September 24 and adds no separate engineering implementation detail.",
+      "source_url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/"
+    }
   ],
-  "publication": {"story_ids": [], "standalone_story_ids": [], "withheld_selected": [], "must_know_story_id": null},
+  "publication": {
+    "story_ids": [
+      "2026-10-23-agent-compute-engine",
+      "2026-10-23-openai-models-google-cloud",
+      "2026-10-23-llm-d-1-0",
+      "2026-10-23-metr-openai-monitoring-red-team",
+      "2026-10-23-openai-distributed-biological-reasoning",
+      "2026-10-23-copilot-visual-studio-september-update",
+      "2026-10-23-copilot-customization-metrics"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  },
   "editorial_opportunities": [
-    {"format": "playbook", "depth": "practitioner", "title": "Audit an agent monitor as an adversarial control plane", "reason": "The METR findings support a reusable test plan for traffic accounting, periodic triggers, isolation and bypass discovery."},
-    {"format": "explainer", "depth": "practitioner", "title": "Why KV-cache placement changes distributed inference", "reason": "The llm-d release exposes a durable learning gap around cache-aware routing, tiering and disaggregated serving."}
+    {
+      "format": "playbook",
+      "depth": "practitioner",
+      "title": "Audit an agent monitor as an adversarial control plane",
+      "reason": "The METR findings support a reusable test plan for traffic accounting, periodic triggers, isolation and bypass discovery."
+    },
+    {
+      "format": "explainer",
+      "depth": "practitioner",
+      "title": "Why KV-cache placement changes distributed inference",
+      "reason": "The llm-d release exposes a durable learning gap around cache-aware routing, tiering and disaggregated serving."
+    }
   ]
 }

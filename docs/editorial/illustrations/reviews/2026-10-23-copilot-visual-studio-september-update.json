@@ -1,0 +1,175 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-23-copilot-visual-studio-september-update",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-10-23-copilot-visual-studio-september-update",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Visual Studio moves BYOM onto Copilot's new agent harness",
+    "verified_context": [
+      "GitHub's October 22 Visual Studio roundup includes a migration detail worth checking before an IDE update: Bring Your Own Model (BYOM) remains a preview, but now requires the Copilot SDK-based Agent (Preview).",
+      "Previously configured Ollama models must be added again."
+    ],
+    "editorial_idea": "Plan BYOM migration, re-register local models, review MCP permissions and test PR and NuGet flows before broad rollout.",
+    "visual_metaphor": "an interchangeable precision fitting beside a differently shaped housing",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "an interchangeable precision fitting beside a differently shaped housing",
+      "one clear central physical metaphor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-23-copilot-visual-studio-september-update",
+    "story_source_sha256": "48e5fd4b7cc13bb267379c7f47c42e29f7f02c22d8c8ddc8c1c3fde5663f9602",
+    "visual_brief_sha256": "8d8fa2e4fcaf96e15f2fd1b1f43e8f8eee779ee70b9dc2b608fe10cac9fca267",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "17c0f4f11adabe4969b84fb081a99e3963867345cea0e152ed59874fb25e4582"
+  },
+  "candidate_notes": {
+    "A": "The denser housing supports the migration metaphor but competes for attention.",
+    "B": "The articulated joint is clean but the change between interfaces is less distinct.",
+    "C": "Selected: a terracotta coupling between different housings makes the integration boundary legible at thumbnail size."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 94,
+    "composition": 93,
+    "crop_quality": 94,
+    "technical_meaning": 94,
+    "cleanliness": 96,
+    "golden_reference_fit": 92,
+    "weighted_total": 93.75
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 92,
+      "brand_fit": 91,
+      "composition": 88,
+      "crop_quality": 90,
+      "technical_meaning": 91,
+      "cleanliness": 92,
+      "golden_reference_fit": 88,
+      "weighted_total": 90.05
+    },
+    "B": {
+      "story_specific": 87,
+      "brand_fit": 89,
+      "composition": 89,
+      "crop_quality": 90,
+      "technical_meaning": 86,
+      "cleanliness": 95,
+      "golden_reference_fit": 87,
+      "weighted_total": 88.35
+    },
+    "C": {
+      "story_specific": 95,
+      "brand_fit": 94,
+      "composition": 93,
+      "crop_quality": 94,
+      "technical_meaning": 94,
+      "cleanliness": 96,
+      "golden_reference_fit": 92,
+      "weighted_total": 93.75
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "Both housings and the central terracotta coupling survive the wide crop.",
+    "article_mobile": "The mobile crop retains the coupling and the two contrasting interfaces.",
+    "thumbnail": "The coupling remains distinct at listing size."
+  },
+  "golden_reference_comparison": "Compared side by side with the Claude plugin ecosystem and Copilot review controls golden images. The selected candidate shares their warm paper field, restrained stone/metal materiality, terracotta emphasis and substantial architectural forms. Selected: a terracotta coupling between different housings makes the integration boundary legible at thumbnail size.",
+  "final_asset": "/images/stories/2026-10-23-copilot-visual-studio-september-update.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 164954,
+    "sha256": "3263a572a34063e2c4ff3b53dfd162cd448837e240162a8f8c19d707c336cd27",
+    "git_blob_sha": "11d56b59d01f7fb26064591fb9c5dc9477dc66d7",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-23T15:43:33.211Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Contact sheets with both golden references and actual center-cover crop sheets inspected by model self-review. Pillow fallback used after Chromium download failed; no browser screenshot review is claimed.",
+    "candidate_source_sha256": {
+      "A": "c932824df25505b1b3a6655918eb590c69d642aaae8b9c436d22b1e9b0c2161d",
+      "B": "3b659b6f4e3291f0cf203329e19e8b189498ce452ab85f72f1c281c3b73843d0",
+      "C": "fac7b3381c340422d968fdd12491f768aaa4afba1bea380f0f97bb24a70164c3"
+    },
+    "candidate_prompts": {
+      "A": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Visual Studio moves BYOM onto Copilot's new agent harness. Verified context: GitHub's October 22 Visual Studio roundup includes a migration detail worth checking before an IDE update: Bring Your Own Model (BYOM) remains a preview, but now requires the Copilot SDK-based Agent (Preview). Previously configured Ollama models must be added again. Visual idea: an interchangeable precision fitting beside a differently shaped housing. Candidate A composition: A substantial ivory precision housing beside a detached terracotta coupling that requires a differently shaped socket. One compatible replacement rests alongside it; elegant technical still life, no symbols or interface. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "B": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Visual Studio moves BYOM onto Copilot's new agent harness. Verified context: GitHub's October 22 Visual Studio roundup includes a migration detail worth checking before an IDE update: Bring Your Own Model (BYOM) remains a preview, but now requires the Copilot SDK-based Agent (Preview). Previously configured Ollama models must be added again. Visual idea: an interchangeable precision fitting beside a differently shaped housing. Candidate B composition: A sculptural mechanical joint being re-seated in a newly shaped stone collar, with the old fitting visibly set aside. Quiet lateral composition and tactile brushed material. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "C": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Visual Studio moves BYOM onto Copilot's new agent harness. Verified context: GitHub's October 22 Visual Studio roundup includes a migration detail worth checking before an IDE update: Bring Your Own Model (BYOM) remains a preview, but now requires the Copilot SDK-based Agent (Preview). Previously configured Ollama models must be added again. Visual idea: an interchangeable precision fitting beside a differently shaped housing. Candidate C composition: Two open pale-stone housings with a single terracotta interchangeable core bridging the small space between them. Distinct physical fit, clear central silhouette, no schematic connectors. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+    }
+  }
+}

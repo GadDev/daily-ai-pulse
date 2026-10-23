@@ -1,0 +1,175 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-23-llm-d-1-0",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-10-23-llm-d-1-0",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "llm-d 1.0 hardens Kubernetes-native distributed inference",
+    "verified_context": [
+      "In a catch-up from October 20, llm-d released version 1.0 of its Kubernetes-native distributed-inference stack.",
+      "Google's release report describes a versioned serving foundation spanning routing, cached context, traffic priorities and coordinated upgrades."
+    ],
+    "editorial_idea": "Reproduce the published recipes on your workload and test cache-aware routing, multi-tenant flow control, failure recovery and rolling upgrades as separate adoption layers.",
+    "visual_metaphor": "a central sculptural distributor preserving pieces near their matching shelves",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": [
+      "a central sculptural distributor preserving pieces near their matching shelves",
+      "one clear central physical metaphor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-23-llm-d-1-0",
+    "story_source_sha256": "6e931beefaa2a52b83e69a444581aa0cd3be14320ced2f44afce0bcbc46236c7",
+    "visual_brief_sha256": "e162f201e2351ba333ee7452e11c4a3f270758c57896c13ceb3f7e56b3e4fe3b",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "8c54dd74a277af72cba6ce7c8980eaa72f51cb2b47e9490b73a2a794359158c0"
+  },
+  "candidate_notes": {
+    "A": "The busier receiving area competes with the central routing metaphor.",
+    "B": "Selected: the central brass distributor and separate shelves express routing and locality with a clear tactile silhouette.",
+    "C": "The static shelving communicates storage more strongly than distribution."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 94,
+    "composition": 93,
+    "crop_quality": 94,
+    "technical_meaning": 93,
+    "cleanliness": 96,
+    "golden_reference_fit": 92,
+    "weighted_total": 93.65
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 90,
+      "brand_fit": 89,
+      "composition": 87,
+      "crop_quality": 87,
+      "technical_meaning": 92,
+      "cleanliness": 91,
+      "golden_reference_fit": 86,
+      "weighted_total": 88.4
+    },
+    "B": {
+      "story_specific": 95,
+      "brand_fit": 94,
+      "composition": 93,
+      "crop_quality": 94,
+      "technical_meaning": 93,
+      "cleanliness": 96,
+      "golden_reference_fit": 92,
+      "weighted_total": 93.65
+    },
+    "C": {
+      "story_specific": 88,
+      "brand_fit": 90,
+      "composition": 88,
+      "crop_quality": 89,
+      "technical_meaning": 88,
+      "cleanliness": 94,
+      "golden_reference_fit": 88,
+      "weighted_total": 88.75
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The central distributor and receiving shelves survive the wide crop.",
+    "article_mobile": "The distributor and separated storage forms remain distinct on mobile.",
+    "thumbnail": "The brass central form remains recognizable at listing size."
+  },
+  "golden_reference_comparison": "Compared side by side with the Claude plugin ecosystem and Copilot review controls golden images. The selected candidate shares their warm paper field, restrained stone/metal materiality, terracotta emphasis and substantial architectural forms. Selected: the central brass distributor and separate shelves express routing and locality with a clear tactile silhouette.",
+  "final_asset": "/images/stories/2026-10-23-llm-d-1-0.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 175562,
+    "sha256": "09adf5b389c0af2ee1c7d4e9944abf34bd190a9d05bbca6ebcb2ec2ff02da690",
+    "git_blob_sha": "48c6ec2ee27ac197bb1c60dbb9a4d484b5809f83",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-23T15:43:33.165Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Contact sheets with both golden references and actual center-cover crop sheets inspected by model self-review. Pillow fallback used after Chromium download failed; no browser screenshot review is claimed.",
+    "candidate_source_sha256": {
+      "A": "1a37f661d9adf0afc3d5378ca4a03e273b0090e8bf8ce145acfa8f7c51625f16",
+      "B": "34a61ccd8b055d82bea5f500504dfd9e50bd502f4345605e0137bba06d3fb05d",
+      "C": "d517aca2d815b794bbe05845c0b74d1253bad22ee88cdc7c7988b0650f77b857"
+    },
+    "candidate_prompts": {
+      "A": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: llm-d 1.0 hardens Kubernetes-native distributed inference. Verified context: In a catch-up from October 20, llm-d released version 1.0 of its Kubernetes-native distributed-inference stack. Google's release report describes a versioned serving foundation spanning routing, cached context, traffic priorities and coordinated upgrades. Visual idea: a central sculptural distributor preserving pieces near their matching shelves. Candidate A composition: A substantial circular stone reading room with a central physical distributor and a few matching sculptural blocks resting close to their carved niches; spare and spatial, not machinery stock art. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "B": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: llm-d 1.0 hardens Kubernetes-native distributed inference. Verified context: In a catch-up from October 20, llm-d released version 1.0 of its Kubernetes-native distributed-inference stack. Google's release report describes a versioned serving foundation spanning routing, cached context, traffic priorities and coordinated upgrades. Visual idea: a central sculptural distributor preserving pieces near their matching shelves. Candidate B composition: An elegant compact stone cabinet with nested terracotta carriers holding matching pieces beside corresponding recesses. A central hinge suggests coordinated routing; no conveyor belt or diagram. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "C": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: llm-d 1.0 hardens Kubernetes-native distributed inference. Verified context: In a catch-up from October 20, llm-d released version 1.0 of its Kubernetes-native distributed-inference stack. Google's release report describes a versioned serving foundation spanning routing, cached context, traffic priorities and coordinated upgrades. Visual idea: a central sculptural distributor preserving pieces near their matching shelves. Candidate C composition: A sculptural tiered circular shelf surrounding one central terracotta pivot, with three matched objects carefully retained near their alcoves. Deep material relief and restrained rhythm. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+    }
+  }
+}
