@@ -111,9 +111,10 @@ class ApprovalGate:
     ) -> dict[str, str]:
         # Reject malformed or unauthorized proposals before any side effect.
         digest = fingerprint(proposal)
-        approved = self._approvals.pop(approval_token, None)
+        approved = self._approvals.get(approval_token)
         if approved != (requester_id, digest):
             raise PermissionError("Missing, reused, or mismatched approval")
+        del self._approvals[approval_token]
         # Mock-only effect: NO email, filesystem write, HTTP request or shell.
         entry = {
             "recipient": proposal.arguments["recipient"],
