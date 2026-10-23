@@ -393,6 +393,10 @@ Code blocks should:
 - avoid excessive chrome
 - clearly distinguish code from prose
 
+Markdown and MDX fences use `astro-expressive-code`, with a light theme and warm editorial frames. Add `title="app.py · Python · Complete file"` for source files, `title="Terminal 1 · Bash · Start the server"` for commands, and an explicit observed/illustrative label for output. Essential examples stay expanded; line numbers, tabs and collapsible sections are not enabled by default.
+
+The shared configuration in `src/lib/code-presentation.ts` preserves tabs and comments when copying, including Markdown headings inside shell heredocs. Keep code outside captions and labels so the copy action returns only the original source. Do not enable terminal comment removal or automatic filename extraction from source comments.
+
 Technical diagrams should share the same restrained editorial language: thin lines, concise labels, neutral backgrounds, and minimal decoration.
 
 ## Design reference assets

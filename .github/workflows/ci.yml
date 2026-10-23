@@ -36,6 +36,9 @@ jobs:
       - name: Tools & Guides cover asset regressions
         run: npm run guides:assets:test
 
+      - name: Daily news continuation and handoff regressions
+        run: npm run editorial:run:test
+
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.ts
 

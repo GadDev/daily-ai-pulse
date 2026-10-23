@@ -72,7 +72,7 @@ The diagram's shared beginning is the requirement, and its shared end is review.
 
 “Add bookmarks” leaves the agent to guess authentication, data ownership and the meaning of done. A useful brief removes those guesses. You could adapt the following plain-text task contract; it is **not vendor configuration or an enforced security policy**.
 
-```yaml
+```yaml title="Task brief · YAML · Example"
 task: Add POST /bookmarks using existing repository conventions
 acceptance:
   - Require the existing authentication middleware

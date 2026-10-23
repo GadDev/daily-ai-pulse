@@ -578,6 +578,7 @@ test('French editorial structures preserve literal code, attributed test quotati
   await expect(prose).toContainText('citation inventée pour les tests');
   const code = prose.locator('pre code');
   await expect(code).toHaveCount(2);
+  await expect(prose.getByRole('button', { name: /^Copier — / })).toHaveText(['Copier', 'Copier']);
   expect((await code.nth(0).innerText()).trim()).toBe(editorialCode);
   expect((await code.nth(1).innerText()).trim()).toBe(editorialCommand);
   await expect(prose.locator('a[href="https://example.com/reference#policy"]')).toHaveCount(1);

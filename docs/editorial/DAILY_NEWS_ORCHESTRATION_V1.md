@@ -1,117 +1,185 @@
-# Daily news orchestration — execution contract v1
+# Daily news orchestration — execution contract v1.2
 
-- **Version:** 1.0
-- **Prepared:** 23 October 2026
-- **Scope:** Daily news only; the independent Tools & Guides task is unchanged.
+- **Version:** 1.2
+- **Updated:** 23 October 2026
+- **Scope:** Daily news; Tools & Guides is unchanged.
 
-## Why this contract exists
+## Failure and execution boundary
 
-The recorded 23 October run read the repository contracts, then returned
-`Blocked before PR` because research and scoring had not been completed. It
-reported no failed research operation. The task invocation was recorded as
-completed after approximately 37 seconds, with no ledger or PR. This evidence
-establishes a premature handoff; it does not establish an internal runtime or
-provider failure.
+After #226 and #227, the 23 October retry still returned normally after 43.2
+seconds (13:48:36.636–13:49:19.855 UTC), at checkpoint `a1b367d`. It recorded one
+provisional selected candidate, one watch candidate and three pending sources.
+The checkpoint correctly has `status: in-progress` and `blocker: null`, while
+the delivered report incorrectly calls unfinished work `Blocked before PR`.
+No external failure or runtime limit is established by that evidence.
 
-Reading contracts is initialization. Unfinished authorized work requires the
-next action. A blocker requires an observed failure or unavailable capability,
-an attempted safe recovery, and a specific consequence.
+The checker introduced by #227 validates records; it does not control the model's
+next tool call or the scheduler. Repeating a single daily invocation leaves
+continuation dependent on a human rerun. Version 1.2 changes the actual task
+recurrence: the same task owns an 08:00 kickoff and hourly continuation checks
+through 23:00 Europe/Luxembourg. This uses the existing connected task, with no
+new API/provider, paid service, worker installation or second writer.
 
-The decision engine still owns selection and scoring. The PR-preparation
-contract still owns publication gates. This contract defines bounded execution,
-progress evidence and termination; it does not lower either editorial gate.
+An invocation can finish while the **batch** continues. A durable, honest
+in-progress state is resumed by the next scheduled check; it is not a blocker,
+quiet day, complete ledger or completed PR handoff. Checks are hourly, not
+immediate retries, and no edition completion time is guaranteed.
 
-## Research completion and recovery
+## Driver configuration and ownership
 
-The task prompt below defines the discovery window and finite search passes.
-The limits apply to inspected discovery results, not to evidence standards.
-Every substantive inspected candidate is classified; unseen results and
-coverage gaps are disclosed. A desk may produce no candidates. No story quota
-or mandatory Must Know is introduced.
-
-The operational checkpoint is `docs/editorial/runs/YYYY-MM-DD.md` on the
-canonical daily branch. It contains actual observations, source/archive refs,
-phase state and recovery instructions. It is Markdown, not a new ledger schema,
-and existing validators do not prove its research claims. A reviewer must inspect
-its evidence. Preserve earlier attempt history and human edits on recovery.
-
-Persist the checkpoint after safe startup, after research, before artwork, and
-before final handoff. Commit the real normalized ledger after decisions are
-complete. A transient publication state must be identified as incomplete; do not
-open a valid-batch PR until its structural and editorial gates pass. The
-checkpoint is never a substitute for the ledger. Never write an empty ledger to
-disguise a run that did not perform research.
-
-Only global failures that prevent trustworthy decisions or safe persistence
-block the whole batch. A candidate-level source or artwork failure uses the
-existing watch/withheld rules; it does not erase independent completed work.
-Missing local npm execution is disclosed and handed to PR CI under the
-PR-preparation contract. An actual runtime interruption may still prevent
-checkpointing; this contract does not promise a new scheduler retry mechanism.
-
-## Acceptance scenarios
-
-These are manual behavioral acceptance cases, not executable guarantees about
-the scheduled model.
-
-| Observation                                                                     | Required next action or outcome                                                                                                      |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| All contracts readable; no research or dated branch yet                         | Reconcile/create the canonical branch, save startup checkpoint, execute discovery.                                                   |
-| A historical implementation path moved from JavaScript to TypeScript            | Resolve the current implementation from tree/package scripts; continue if the actual contract is available.                          |
-| One primary source cannot be read                                               | Record the access error, try the permitted fallback, watch/withhold that candidate as appropriate and continue independent research. |
-| Bounded research finishes with only watch/rejected candidates                   | Persist the full real ledger and open the canonical ledger-only draft PR.                                                            |
-| Research-selected candidate fails publication deduplication or required artwork | Preserve selection; record the withholding reason; continue the surviving story set or ledger-only batch.                            |
-| Source/archive access globally prevents trustworthy decisions                   | Save actual partial research in the checkpoint; identify the failed operation and recovery; do not claim a quiet day.                |
-| No local npm execution; editorial/structural gates pass                         | Open the draft PR, disclose unrun checks and inspect PR CI.                                                                          |
-| Today's batch already has a branch or PR                                        | Resume it, retaining valid assets and human work.                                                                                    |
-| Today's canonical PR is already merged                                          | Report it; do not reopen it or create a second batch.                                                                                |
-| CI is queued or failing at the current head                                     | Report the observed state; keep the PR draft and repair when possible.                                                               |
-
-## Scheduled-task prompt
-
-The ChatGPT task configuration remains outside GitHub. Updating this file alone
-does not update the live task. Keep its prompt synchronized explicitly; retain
-the task's existing enabled state, Europe/Luxembourg timezone and recurrence
-unless separately authorized to change them. The inline prompt works before
-this file reaches main; reading this additional contract is conditional on its
-existence.
+Task: `6aa3b7923820819191652334254f11f2` (Daily AI Pulse Orchestrator).
+Keep the existing enabled state and timezone. The following recurrence preserves
+the 08:00 kickoff and adds the continuation window:
 
 ```text
-Run the complete DAILY NEWS editorial workflow for today's Europe/Luxembourg date in GadDev/daily-ai-pulse. This is an execution request: finish the authorized work through one canonical DRAFT PR, or demonstrate a concrete blocker. Reading contracts and discovering that research is not yet done are starting steps, never terminal outcomes. Do not ask for another instruction to continue.
-
-AUTHORITY AND IDENTITY
-Read current main: docs/editorial/EDITORIAL_SCHEMA_V1.md, DECISION_ENGINE_V1.md, TOPICS_V1.yml, PR_PREPARATION_V1.md, docs/editorial/ledgers/README.md, .agents/skills/daily-ai-pulse-pr-preparation/SKILL.md, .agents/skills/daily-ai-pulse-illustration/SKILL.md, docs/CONTENT_MODEL.md, docs/DAILY_ISSUE.md, src/content.config.ts, package.json and .github/workflows/ci.yml; follow their required dependencies. If present, also read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md. Resolve renamed implementation paths through current tree/package scripts (currently scripts/validate-content.ts), not stale historical extensions. Never invent policy when a real required contract is inaccessible.
-Find content/daily-ai-pulse-YYYY-MM-DD and its PR in all states, plus today's main ledger/issue. Reuse the dated branch and at most one PR titled "content: prepare Daily AI Pulse for YYYY-MM-DD". If today's canonical PR is already merged, report its actual outcome; do not reopen or duplicate it. Preserve intentional human closure of an unmerged PR; report it rather than reopening it without instruction. Preserve unrelated edits, human work and merged historical ledgers.
-
-EXECUTION AND CHECKPOINTS
-Proceed automatically through startup -> research/decisions -> publication verification -> stories/artwork/French/issue -> validation -> draft PR/CI. After each completed phase, take the next available action rather than ending with a recovery suggestion.
-Keep docs/editorial/runs/YYYY-MM-DD.md as an operational checkpoint separate from the candidate ledger. After contracts and safe branch reconciliation, commit an initial checkpoint on the canonical branch before slow work. Update it after research, before artwork, and before final handoff; verify remote writes. Record actual UTC times, base/head refs, completed/next phase, discovery window, desk/query/source/date evidence, archive coverage, real candidate decisions, capability results and exact failures/recovery. Preserve prior attempt evidence on retry. Never treat a partial checkpoint as a completed ledger or quiet day. Do not commit credentials, invented observations or placeholder candidates.
-
-BOUNDED RESEARCH: DO THIS WORK NOW
-Set and record a cutoff at run start. Search the preceding 48 hours, extending back to a known missed research cutoff for catch-up up to seven days; disclose any older unscreened interval. Distinguish event date from source publication date.
-Perform one discovery pass covering ALL eight desks: research, models, engineering, tools, practice, workflows, business, curious. Use at least one targeted query per desk; batch independent queries. Cover research papers, official releases/repositories/technical reports, and practitioner/deployment evidence rather than vendor announcements alone. Inspect up to five relevant results per desk, following primary references; merge repeated events. Record queries, URLs, dates and actual coverage gaps. Empty results are valid observations, not invented candidates. Make at most one targeted follow-up pass per desk to close evidence/date gaps, then classify the inspected candidates; do not loop indefinitely trying to find a story.
-Read recent merged ledgers/stories/issues and open dated editorial PRs. For each substantive inspected candidate, search earlier ledger/story history by normalized URL AND entity/project/event/actual change, following all relevant matches. Record inspected paths/refs, prior coverage and any archive limitations. A different URL is not novelty; a material update needs an explicit delta. Do not claim complete historical deduplication from a branch search or a few filenames.
-For every substantive inspected candidate, verify central claims/dates, apply current evidence/signal/scoring/topic rules, and assign selected/watch/rejected with reasons. Keep unresolved source/date/novelty items on watch with promotion conditions; reject repeats with prior coverage. Never fabricate evidence or weaken selection gates.
-Research is complete for this bounded run when all eight desks have recorded search attempts/results or precise access failures, every inspected candidate has a supported decision, and deduplication is evidenced for every selected candidate. Report limited coverage honestly; research completion does not mean exhausting the internet. A failed source/query blocks that item's verification, not independent desks. If global research/archive access prevents trustworthy decisions, save real partial work and report the exact failed operation.
-
-LEDGER AND PUBLICATION
-On research completion, persist the full normalized selected/watch/rejected ledger at docs/editorial/ledgers/YYYY-MM-DD.json. Preserve research decisions; publication verification/deduplication adds separate outcomes. Check artwork capabilities (generation, inspection, WebP conversion and binary-safe upload) before drafting, and record observed availability without claiming untested success. Missing artwork capability does not stop research or ledger persistence.
-Continue into the repository PR-preparation and illustration workflows in this same run. Draft only selected candidates passing publication verification and duplicate gates. Resolve REUSE or GENERATE through the illustration skill; one final reviewed WebP per publishable story, with actual review/crop/hash evidence and binary-safe upload. Do not invent successful image states. Withhold an individual selected candidate when required evidence/artwork cannot be resolved, retaining its decision and explicit publication.withheld_selected reason. Preserve completed valid work on retries; do not regenerate valid artwork automatically.
-Prepare reviewed French translations under the linked skill after English bytes/image alt are final; report French blockers separately without suppressing valid English. Create a daily issue only for the publishable story set and follow the current manifest contract.
-If no candidate is selected OR none survives publication gates, open/update the canonical ledger-only DRAFT PR with the complete real ledger and withheld/watch/rejected evidence. Never relabel unfinished or failed research as zero selected, and never invent a story/issue to fill desks.
-
-VALIDATION AND STOP RULE
-Run available editorial/structural preflight, npm run editorial:check -- docs/editorial/ledgers/YYYY-MM-DD.json, repository illustration checks, translations:batch and npm run verify. Record exact commands/results; unavailable local execution alone does not prevent a draft PR once structural/editorial gates pass. Show not-run checks truthfully. Use the repository PR body contract with evidence, counts, deduplication, withheld/watch/rejected, artwork/French outcomes, operational checkpoint and remaining actions.
-Inspect PR-triggered GitHub Actions for the current head; distinguish Verify project and Browser smoke and accessibility. Keep pending/failed work draft, repair actionable failures in the same branch when safe, and never claim CI passed without observations.
-Before returning, either provide the existing/created PR and actual state, or list a concrete failed tool operation/capability/contract, observed error (or absent capability), attempted safe fallback, saved work path/ref and exact next action. Retry a transient failed operation once or use an available equivalent read path; do not retry indefinitely. Ordinary unfinished work, no ledger yet, no branch yet, or checks not yet run are NEXT ACTIONS, not blockers. If a genuine execution limit is reported, checkpoint partial work and report research incomplete, never success or a quiet day.
-Never write directly to main, merge, enable auto-merge, mark ready for review, fabricate sources/metrics/dates, or bypass human approval. Report exactly one observed status: Draft PR ready for human review; Draft PR opened; CI pending; Ledger-only draft PR; Blocked before PR; or Existing daily batch already merged. Include PR/checkpoint links, selected/drafted/withheld/watch/rejected counts (unknown when undecided), checks/CI and precise remaining blockers. A completed scheduler invocation is not proof of editorial completion.
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Luxembourg:20260912T080000
+RRULE:FREQ=HOURLY;BYHOUR=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23;BYMINUTE=0;BYSECOND=0
+END:VEVENT
 ```
 
-## Verification limits
+The live task remains outside GitHub. Only an explicitly authorized repair may
+change it. Ordinary editorial invocations never edit scheduler configuration,
+create follow-up tasks, launch recursive run-now calls or change publication
+policy. Read back the saved task after a repair; a saved schedule is evidence of
+configuration, not proof a future check has executed. Retain the existing
+flexible timing mode: exact execution at the top of each hour is not promised.
 
-Read back the task after updating it and compare the complete prompt, task ID,
-enabled state, timezone and schedule. Repository checks validate the companion
-change; they do not execute this ChatGPT task. Record a subsequent full run's
-actual research, ledger, PR and current-head CI before claiming the scheduled
-workflow has recovered end to end. Neither a saved prompt nor a scheduler
-`completed` status proves that recovery.
+There is one recurring writer. Reconcile remote state before every write, use
+current blob/branch preconditions, and re-read on a conflict. Manual and scheduled
+runs reuse the same branch/PR and never overwrite human edits. Do not infer a
+new batch from a different invocation ID.
+
+## Each scheduled pass
+
+1. Resolve current main and read core execution/schema/decision/topic contracts.
+   Read remaining dependencies before their stages. Record real refs; do not
+   substitute invented policy when required editorial contracts are unavailable.
+2. Inspect today's and the preceding seven dates' canonical branches/checkpoints
+   and PRs. Resume the oldest valid structured `in-progress` checkpoint before
+   starting a new date. Keep its original date/cutoff. A draft PR with finished
+   research is awaiting review/CI, not a reason to redo research. Preserve merged
+   and intentionally human-closed batches. Disclose any older known unresolved
+   interval instead of silently claiming catch-up coverage.
+3. Consume saved leads first. For 23 October, continue Google Cloud/OpenAI
+   distribution, llm-d 1.0 and ZenteiQ. Retain the two recorded decisions; the
+   Agent Compute Engine score/deduplication is provisional and must pass the full
+   decision/publication contracts before publication. Do not turn its indexed
+   search caveat into a claim of exhaustive archive coverage.
+4. Work candidate by candidate: verify primary evidence/dates, compare normalized
+   URLs AND entity/event/change terms against stories/ledgers/issues and open
+   daily PRs, classify and persist supported decisions. Use `rg` over the complete
+   local tree when available; disclose GitHub index limits otherwise. Continue
+   after writes whenever possible. Preserve all completed work across passes.
+5. Finish one bounded discovery pass across research, models, engineering, tools,
+   practice, workflows, business and curious. Record exact queries, inspected
+   sources, event/publication dates, refs and coverage gaps. Inspect at most five
+   relevant leads per desk and make at most one targeted follow-up pass per desk.
+   Recover missing exact earlier queries or perform only the missing searches.
+6. Use the original frozen 48-hour window, catch up from known missed cutoffs up
+   to seven days, and disclose older unscreened intervals. Every substantive
+   inspected candidate needs a supported selected/watch/rejected decision; every
+   selected item needs evidenced deduplication and scoring. No quota or mandatory
+   feature. Missing candidate evidence/novelty can yield watch only after actual
+   attempts, with explicit promotion conditions.
+7. Persist the full normalized ledger, then continue publication verification and
+   deduplication, English, illustration capability checks/resolution, French,
+   issue, preflight, one draft PR and current-head CI. Follow existing contracts;
+   preserve selection and record publication withholding separately. An artwork
+   failure affects that candidate; French failure does not suppress valid English.
+   A complete real zero-survivor ledger can produce a ledger-only PR; incomplete
+   research never can. Publication and merge remain human actions.
+
+When no batch needs work, or today's finalized batch already exists, do not
+produce another batch or routine notification. Check pending current-head CI
+without committing heartbeat-only edits. Put CI observations in the PR body so
+recording a success does not invalidate that same revision's CI.
+
+## Checkpoint and validation semantics
+
+Use `docs/editorial/runs/YYYY-MM-DD.md` on the canonical dated branch. Preserve
+prior prose and observations. Keep version 1.1 YAML metadata; no new file/schema
+migration is needed:
+
+```yaml
+---
+run_schema: '1.1'
+editorial_date: '2026-10-23'
+branch: content/daily-ai-pulse-2026-10-23
+status: in-progress
+research_complete: false
+next_action: Verify and classify the next actual saved source.
+pending_candidates: [] # actual id/source_url/next_step objects; never placeholders
+blocker: null
+continuation:
+  task_id: 6aa3b7923820819191652334254f11f2
+  consecutive_no_progress: 0
+  stall_reported: false
+---
+```
+
+The illustration-independent queue stores actual candidate `id`, `source_url`
+and `next_step` (`verify`, `deduplicate` or `classify`). Remove an entry only after
+its supported decision/evidence is saved. An empty queue alone does not establish
+complete desk research or publication preparation.
+
+- During a partial pass: `npm run editorial:run:check -- YYYY-MM-DD` accepts honest
+  ongoing state. Verify remote persistence and keep a specific next action.
+- For a terminal PR/merged/closed/blocker report only:
+  `npm run editorial:run:check -- YYYY-MM-DD --handoff`. This still rejects an
+  in-progress **handoff**. Never translate that expected rejection into a batch
+  blocker merely because the current invocation is ending.
+- If execution is absent, manually audit equivalent fields and report commands
+  as not executed. Existing editorial, illustration, translation and current-head
+  CI gates still apply. The checker cannot prove source truth or remote PR state.
+
+Existing `pr-opened`, `merged`, `closed` and evidenced `blocked` validation rules
+remain in `scripts/check-daily-news-run.ts`. A true global blocker needs actual
+operation/observation/evidence/fallback and why no independent action remains.
+A runtime-limit claim requires an external signal. Keep `blocker: null` when the
+only fact is unfinished work. Preserve the last valid in-progress checkpoint if
+an invocation is interrupted before a write.
+
+## Progress, stalls and notifications
+
+The driver owns future invocations through the saved recurrence. A partial pass
+does not ask the user to rerun or claim it scheduled a separate wake. Notify only
+for a new draft PR, changed terminal CI result, evidenced batch blocker or the
+first stalled-execution alert. Routine partial and idle passes remain quiet.
+
+Count substantive progress: supported classification, new inspected source or
+archive evidence, completed preparation/validation stage, or observed CI change.
+A timestamp/heartbeat edit is not progress. Maintain `continuation` counters from
+actual before/after refs and observations. After two consecutive non-progress
+invocations, notify once with those refs/errors and exact unresolved action.
+Call it **stalled execution**, not a guessed source/provider failure; keep future
+safe attempts enabled. Reset the counter/alert flag on real progress. Do not
+invent missing historical attempt counts during recovery.
+
+These counters are audit evidence, not a second scheduler or proof that a model
+will classify correctly. The native recurrence supplies automatic continuation;
+a full edition's ledger/PR/CI must still be observed before claiming completion.
+
+## Saved task prompt
+
+Synchronize this text with the live task explicitly and verify readback. Its
+inline continuation rules work before v1.2 is merged; earlier repository stop
+wording is superseded only for partial-pass continuation, never evidence gates.
+
+```prompt
+Advance the Daily AI Pulse DAILY NEWS workflow in GadDev/daily-ai-pulse. This task is the recurring driver: the existing 08:00 Europe/Luxembourg kickoff now has hourly continuation checks through 23:00. Continue saved work without waiting for another user rerun. Never edit task configuration from an editorial invocation.
+
+Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md plus the required current schema/decision/topic contracts. Load publication, illustration and French translation dependencies before their stages. If main still has v1.1, the automatic-continuation rules in this prompt supersede its single-invocation stop rule; the editorial/evidence gates remain unchanged.
+
+Reconcile canonical branches/checkpoints/PRs for today and the preceding seven local dates. Resume the oldest structurally valid in-progress checkpoint first, retaining its original editorial date, cutoff, observations and human edits. Do not reopen a human-closed or merged batch. Do not resume a completed draft PR's research. If none is in progress, start today's batch only if its canonical batch has not already been finalized. Otherwise inspect any pending current-head CI; when nothing needs action, do not notify.
+
+Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. For 23 October, resume the three queued sources; the saved Agent Compute Engine selection is provisional until full scoring/deduplication/publication gates pass.
+
+Use the existing docs/editorial/runs/YYYY-MM-DD.md and run_schema 1.1 metadata. Preserve real decisions and failures, exact next_action, pending_candidates and original cutoff. Verify remote checkpoint writes. Continue immediately after a write whenever possible. If the invocation returns with safe work remaining, leave status: in-progress and blocker: null, with the saved next action. The next configured hourly check resumes it automatically. This is a continuing batch, never Blocked before PR, complete, or a ledger-only result. Do not ask the user to rerun. Do not claim you scheduled a wake yourself or guarantee a completion time.
+
+During an unfinished pass use npm run editorial:run:check -- YYYY-MM-DD when available; reserve --handoff for a genuinely terminal batch report. Without shell, manually audit the same evidence fields and disclose checks as not executed. Missing local execution alone does not stop safe GitHub work. A global blocker requires an observed failed operation/missing capability, safe fallback result, evidence reference and why no independent action can advance. Candidate-level source/artwork failures use watch/withholding and do not stop independent work.
+
+Track substantive progress in checkpoint.continuation: task_id 6aa3b7923820819191652334254f11f2, consecutive_no_progress and stall_reported. Advance means a supported candidate decision, new inspected source/archive evidence, a completed preparation/validation stage, or observed CI transition; timestamp/heartbeat-only edits do not count. After two consecutive non-progress invocations notify once with the observed refs/failures and exact unresolved action; call it stalled execution, not an invented external failure. Keep future safe retries enabled. On real progress reset the counter and stall_reported.
+
+Notify only for a new draft PR, a changed terminal CI result, an evidenced whole-batch blocker, or the first stalled-execution alert. Routine partial progress and idle checks produce no user notification. Never merge, enable auto-merge, mark ready or write editorial work to main. Keep one branch/PR per edition and preserve Tools & Guides independence. Never modify the checkpoint merely to restamp a successful CI observation: update the PR body so current-head CI stays valid.
+```

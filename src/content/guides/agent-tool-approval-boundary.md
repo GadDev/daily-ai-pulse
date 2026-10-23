@@ -60,7 +60,7 @@ We will allow exactly one tool, `record_notice`, and one fictional destination, 
 
 Create a temporary directory and save the following as `gate.py`. Use Python 3.11 or newer; no packages or API keys are required.
 
-```python
+```python title="gate.py · Python · Complete file"
 # gate.py — educational in-memory mock, NOT a production auth service
 from dataclasses import dataclass
 from hashlib import sha256
@@ -141,7 +141,7 @@ class ApprovalGate:
 
 Save the next complete snippet as `test_gate.py` in the same directory.
 
-```python
+```python title="test_gate.py · Python · Complete file"
 # test_gate.py
 import unittest
 from gate import ApprovalGate, Proposal
@@ -212,7 +212,7 @@ if __name__ == "__main__":
 
 Run:
 
-```bash
+```bash title="Terminal · Bash · Run approval tests"
 python --version
 python -m unittest -v test_gate.py
 ```
