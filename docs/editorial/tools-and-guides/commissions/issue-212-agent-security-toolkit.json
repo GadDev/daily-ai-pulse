@@ -1,0 +1,361 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-23",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/212",
+  "authorization": "Maintainer requested work on issue #212 in conversation. Draft preparation only; no publication authorization.",
+  "scheduled_run": false,
+  "topic_key": "agent-security-control-toolkit",
+  "state": "draft-prepared",
+  "publication_authorized": false,
+  "guide_id": "agent-security-control-toolkit",
+  "pr_number": null,
+  "deduplication": {
+    "checked_on": "2026-10-23",
+    "base_commit": "47619f8",
+    "open_prs_checked": [
+      185,
+      182,
+      159
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23"
+    ],
+    "commission_checked": "2026-10-22-agentic-series.json",
+    "existing_guides_checked": [
+      "first-rag-application",
+      "rag-retrieval-evaluation",
+      "ai-coding-assistants-compared",
+      "agentic-development-environments-compared",
+      "ade-real-shift-or-rebranding",
+      "ide-vs-ade-workflows",
+      "agent-tool-approval-boundary",
+      "draft-route-regression"
+    ],
+    "distinct_outcome": "Select and assemble controls for a reader-built document agent by threat and enforcement layer; do not repeat the approval gate implementation or product environment comparison.",
+    "related_commissions": [
+      211,
+      210,
+      214
+    ],
+    "scope_boundaries": "#211 owns a read-only MCP tutorial; #210 owns Promptfoo/CI setup; #214 owns observability comparison. This toolkit selects controls and supplies a local policy check, without those implementations.",
+    "history_note": "The existing 2026-10-23 scheduled ledger is merged and immutable. This explicit issue commission follows the existing manual-commission precedent; it does not rewrite that ledger or create a second scheduled selection."
+  },
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in tools.image_gen__imagegen exposed; no generation success claimed at preflight."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Opened and visually inspected real rag-retrieval-evaluation.webp and agentic-development-environments-compared.webp production references with view_image."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and decoded a synthetic 16x16 WebP via BytesIO; format WEBP and dimensions confirmed."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Git CLI push failed with could not read Username for https://github.com. Recovered with GitHub connector create_blob(base64): accepted WebP blob 5d1014d3d29f20350ddfa855dca4ada78cd99091, exactly matching local git hash-object. Independent public-Git read-back pending."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "visual_brief": {
+      "story_id": "agent-security-control-toolkit",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "An Agent Security Starter Kit: Choose Controls by Failure Mode",
+      "verified_context": [
+        "Archive Clerk is a fictional document-reading agent with one authorized read tool and no mail, shell, URL or write tool.",
+        "The toolkit separates planning and detection resources from application and runtime controls that enforce limits.",
+        "The local example checks a model-proposed call's shape and document authorization before allowing an in-memory read."
+      ],
+      "editorial_idea": "A document's contents cannot change the external constraints governing its use.",
+      "visual_metaphor": "Blank paper held in a fitted stone cradle by a dark metal retaining band, expressing constraints around a document rather than a detector inside it.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "wide 16:9 master, safe for centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card",
+      "must_show": [
+        "blank cream paper",
+        "fitted terracotta stone cradle",
+        "dark metal retaining band",
+        "quiet physical presence"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/guides/rag-retrieval-evaluation.webp",
+        "public/images/guides/agentic-development-environments-compared.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "agent-security-control-toolkit",
+      "story_source_sha256": "ab47cbfcd0480edef5db7efc4b910c2965925844823f8edf570f1af69c7364ec",
+      "visual_brief_sha256": "163e84448b9f830dbeb2fd021803017f91b8a8d271e0556c8d9492534af6b0ab",
+      "reference_inputs_sha256": "8ae79026279d617a5c2fbe8fa96d17c63ad95ce273b97cd00c16d9deaa5754c3",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "524fb67f8a60b32ae1d67df23b63369728534395103c985dce2f8064d628cded"
+    },
+    "identity_scope": "The repository decision CLI returned GENERATE using an explicit genuine guide source path. Canonical library key matched before generation. This guide review is retained here; no fabricated news-story review or acceptance by the news-only illustration batch validator is claimed.",
+    "generation": {
+      "tool": "built-in image_gen.imagegen",
+      "model_snapshot": null,
+      "selected_candidate": "C",
+      "source": "exec-98ffd22c-b9c8-43f9-ab16-f68da42d7111.png",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, using docs/reference-layouts/story.html and the existing GuideCard/article layout.\nSubject: An Agent Security Starter Kit: Choose Controls by Failure Mode.\nVerified context: Archive Clerk is a fictional document-reading agent with one authorized read tool and no mail, shell, URL or write tool. The toolkit separates planning and detection resources from application and runtime controls that enforce limits. The local example checks a model-proposed call's shape and document authorization before allowing an in-memory read.\nOutput crop: Wide landscape 16:9 master at high resolution, intended for a centered 21:9 desktop hero, 16:9 mobile hero, and 3:2 card crop. Keep the entire important assembly in the central 72% of the width and central 58% of the height.\nVisual idea: Blank cream paper held in a fitted terracotta stone cradle by a dark metal retaining band. A sculptural metaphor for external constraints around a document; no claim that this is a literal security mechanism.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Tactile stone, paper, and metal, controlled perspective, asymmetry and subtle depth. Reference character: the publication's existing tactile stone bookend-and-cube sculpture and paper/magnifying-glass architectural scene. Do not add their exact subjects to this image.\nEditorial-presence requirement: The physical metaphor must have substantial spatial presence, quiet depth and purposeful material detail. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself.\nAllow the subject to survive object-fit: cover on desktop and mobile.\nDepict only what verified context supports; this is an abstract editorial metaphor.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Paper must be completely blank, no pseudo-writing.\nDeliver a clean high-resolution artwork asset, not a webpage.\nCandidate C \u2014 alternate: Slightly elevated view of an elongated shallow terracotta stone tray with sculpted ends. A folded blank cream document sits precisely within it, held by a single dark metal retaining band set obliquely across the middle. The diagonal sweep of the folded paper is the central visual tension. Spacious editorial still life with subtle charcoal hatching in material shadows, no diagram language.",
+      "revision_prompt": "Change only the framing: pull the camera back significantly so the entire existing paper, fitted terracotta stone cradle and dark metal retaining band occupy at most the central 65% of image width and central 55% of image height. Keep the same composition, object relationships, materials, texture, palette and light; add generous continuous cream negative space around the entire object. The entire paper/cradle/band must survive centered 21:9 desktop hero and 3:2 card crops of the 16:9 image. Do not add any objects. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Keep paper blank.",
+      "candidates": [
+        {
+          "id": "A",
+          "source": "exec-6393b433-fd13-416d-aacb-422f668ad697.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, using docs/reference-layouts/story.html and the existing GuideCard/article layout.\nSubject: An Agent Security Starter Kit: Choose Controls by Failure Mode.\nVerified context: Archive Clerk is a fictional document-reading agent with one authorized read tool and no mail, shell, URL or write tool. The toolkit separates planning and detection resources from application and runtime controls that enforce limits. The local example checks a model-proposed call's shape and document authorization before allowing an in-memory read.\nOutput crop: Wide landscape 16:9 master at high resolution, intended for a centered 21:9 desktop hero, 16:9 mobile hero, and 3:2 card crop. Keep the entire important assembly in the central 72% of the width and central 58% of the height.\nVisual idea: Blank cream paper held in a fitted terracotta stone cradle by a dark metal retaining band. A sculptural metaphor for external constraints around a document; no claim that this is a literal security mechanism.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Tactile stone, paper, and metal, controlled perspective, asymmetry and subtle depth. Reference character: the publication's existing tactile stone bookend-and-cube sculpture and paper/magnifying-glass architectural scene. Do not add their exact subjects to this image.\nEditorial-presence requirement: The physical metaphor must have substantial spatial presence, quiet depth and purposeful material detail. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself.\nAllow the subject to survive object-fit: cover on desktop and mobile.\nDepict only what verified context supports; this is an abstract editorial metaphor.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Paper must be completely blank, no pseudo-writing.\nDeliver a clean high-resolution artwork asset, not a webpage.\nCandidate A \u2014 canonical: One low horizontal terracotta cradle with two subtly stepped stone shoulders, cradling a short stack of softly curved blank cream paper. A single dark metal band bridges the shoulders and visibly holds the papers. Three-quarter architectural still life, generous cream space around it, softly directional warm light. The paper and band must remain clearly visible within the crop-safe center.",
+          "revision_source": null,
+          "revision_prompt": null,
+          "hard_failure_gate": "pass after framing edits where noted",
+          "scores": {
+            "story_specific_idea": 91,
+            "brand_fit": 92,
+            "composition": 90,
+            "placement_crop": 90,
+            "technical_meaning": 89,
+            "cleanliness": 96,
+            "golden_reference_fit": 91
+          },
+          "weighted_total": 90.9,
+          "observation": "Canonical low cradle, strongest paper stack detail; large but survives intended centered crops."
+        },
+        {
+          "id": "B",
+          "source": "exec-55f34368-295f-4d62-b04b-a22f8bb07b73.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, using docs/reference-layouts/story.html and the existing GuideCard/article layout.\nSubject: An Agent Security Starter Kit: Choose Controls by Failure Mode.\nVerified context: Archive Clerk is a fictional document-reading agent with one authorized read tool and no mail, shell, URL or write tool. The toolkit separates planning and detection resources from application and runtime controls that enforce limits. The local example checks a model-proposed call's shape and document authorization before allowing an in-memory read.\nOutput crop: Wide landscape 16:9 master at high resolution, intended for a centered 21:9 desktop hero, 16:9 mobile hero, and 3:2 card crop. Keep the entire important assembly in the central 72% of the width and central 58% of the height.\nVisual idea: Blank cream paper held in a fitted terracotta stone cradle by a dark metal retaining band. A sculptural metaphor for external constraints around a document; no claim that this is a literal security mechanism.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Tactile stone, paper, and metal, controlled perspective, asymmetry and subtle depth. Reference character: the publication's existing tactile stone bookend-and-cube sculpture and paper/magnifying-glass architectural scene. Do not add their exact subjects to this image.\nEditorial-presence requirement: The physical metaphor must have substantial spatial presence, quiet depth and purposeful material detail. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself.\nAllow the subject to survive object-fit: cover on desktop and mobile.\nDepict only what verified context supports; this is an abstract editorial metaphor.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Paper must be completely blank, no pseudo-writing.\nDeliver a clean high-resolution artwork asset, not a webpage.\nCandidate B \u2014 editorial: An asymmetrical diagonal stone cradle with a curved inner depression, one large blank sheet curling slightly up from the fitted recess but restrained by a broad slender dark metal retaining band. Side light reveals the contrast between flexible paper and rigid stone. Strong low silhouette, avoid resembling a common office stapler or hole punch. Broad cream negative space.",
+          "revision_source": "exec-79d5a02f-1187-4a22-8fc1-9aebc363cbde.png",
+          "revision_prompt": "Change only the framing: pull the camera back significantly so the entire existing paper, fitted terracotta stone cradle and dark metal retaining band occupy at most the central 65% of image width and central 55% of image height. Keep the same composition, object relationships, materials, texture, palette and light; add generous continuous cream negative space around the entire object. The entire paper/cradle/band must survive centered 21:9 desktop hero and 3:2 card crops of the 16:9 image. Do not add any objects. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Keep paper blank.",
+          "hard_failure_gate": "pass after framing edits where noted",
+          "scores": {
+            "story_specific_idea": 88,
+            "brand_fit": 91,
+            "composition": 89,
+            "placement_crop": 94,
+            "technical_meaning": 88,
+            "cleanliness": 96,
+            "golden_reference_fit": 89
+          },
+          "weighted_total": 90.1,
+          "observation": "Initial paper height failed crop margin; framing edit preserved the rising-paper composition and added safe negative space."
+        },
+        {
+          "id": "C",
+          "source": "exec-52a32a7f-a930-4002-929b-b55113a6f054.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, using docs/reference-layouts/story.html and the existing GuideCard/article layout.\nSubject: An Agent Security Starter Kit: Choose Controls by Failure Mode.\nVerified context: Archive Clerk is a fictional document-reading agent with one authorized read tool and no mail, shell, URL or write tool. The toolkit separates planning and detection resources from application and runtime controls that enforce limits. The local example checks a model-proposed call's shape and document authorization before allowing an in-memory read.\nOutput crop: Wide landscape 16:9 master at high resolution, intended for a centered 21:9 desktop hero, 16:9 mobile hero, and 3:2 card crop. Keep the entire important assembly in the central 72% of the width and central 58% of the height.\nVisual idea: Blank cream paper held in a fitted terracotta stone cradle by a dark metal retaining band. A sculptural metaphor for external constraints around a document; no claim that this is a literal security mechanism.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Tactile stone, paper, and metal, controlled perspective, asymmetry and subtle depth. Reference character: the publication's existing tactile stone bookend-and-cube sculpture and paper/magnifying-glass architectural scene. Do not add their exact subjects to this image.\nEditorial-presence requirement: The physical metaphor must have substantial spatial presence, quiet depth and purposeful material detail. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself.\nAllow the subject to survive object-fit: cover on desktop and mobile.\nDepict only what verified context supports; this is an abstract editorial metaphor.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Paper must be completely blank, no pseudo-writing.\nDeliver a clean high-resolution artwork asset, not a webpage.\nCandidate C \u2014 alternate: Slightly elevated view of an elongated shallow terracotta stone tray with sculpted ends. A folded blank cream document sits precisely within it, held by a single dark metal retaining band set obliquely across the middle. The diagonal sweep of the folded paper is the central visual tension. Spacious editorial still life with subtle charcoal hatching in material shadows, no diagram language.",
+          "revision_source": "exec-98ffd22c-b9c8-43f9-ab16-f68da42d7111.png",
+          "revision_prompt": "Change only the framing: pull the camera back significantly so the entire existing paper, fitted terracotta stone cradle and dark metal retaining band occupy at most the central 65% of image width and central 55% of image height. Keep the same composition, object relationships, materials, texture, palette and light; add generous continuous cream negative space around the entire object. The entire paper/cradle/band must survive centered 21:9 desktop hero and 3:2 card crops of the 16:9 image. Do not add any objects. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Keep paper blank.",
+          "hard_failure_gate": "pass after framing edits where noted",
+          "scores": {
+            "story_specific_idea": 92,
+            "brand_fit": 93,
+            "composition": 94,
+            "placement_crop": 95,
+            "technical_meaning": 90,
+            "cleanliness": 97,
+            "golden_reference_fit": 93
+          },
+          "weighted_total": 93.15,
+          "observation": "Initial diagonal composition too close to edges; framing edit gives safe margins and the clearest restrained silhouette. Selected."
+        }
+      ]
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/commissions/issue-212-agent-security-toolkit.json",
+      "outcome": "pass",
+      "review_type": "assistant visual review; no human publication approval",
+      "references": [
+        "public/images/guides/rag-retrieval-evaluation.webp",
+        "public/images/guides/agentic-development-environments-compared.webp"
+      ],
+      "reference_comparison": "Reviewed both production references individually and above all three final candidates at comparable size. Tactile terracotta, cream paper, dark metal, controlled depth, paper texture and negative space intentionally belong to the same publication. Artwork is an abstract constraint metaphor, not a factual software schematic.",
+      "contact_sheet": "Temporary /tmp/issue-212-contact-sheet.png inspected; Pillow fallback after canonical Playwright contact-sheet command lacked browser.",
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ],
+      "crop_observations": {
+        "desktop-hero": "Centered 21:9: complete cradle, paper and retaining band remain visible.",
+        "mobile-hero": "375px wide 16:9: object silhouette and dark band remain clear.",
+        "card": "320px wide 3:2: paper, cradle and band survive centered object-fit cover."
+      },
+      "prohibitions": "No visible text, pseudo-text, numbers, logos, UI, charts, robots, glow, schematic, border or frame.",
+      "limits": "Subjective editorial scores, not objective or human sign-off."
+    },
+    "asset_integrity": {
+      "path": "/images/guides/agent-security-control-toolkit.webp",
+      "width": 1600,
+      "height": 900,
+      "byte_length": 125282,
+      "sha256": "4cfb37cf89c97a7105d7e805579c863c985f449e150bd467605ebe45b629f034",
+      "git_blob_sha": "5d1014d3d29f20350ddfa855dca4ada78cd99091",
+      "riff_container_complete": true,
+      "decode": "Pillow decoded full WebP and confirmed dimensions."
+    },
+    "upload": {
+      "path": "/images/guides/agent-security-control-toolkit.webp",
+      "sha256": "4cfb37cf89c97a7105d7e805579c863c985f449e150bd467605ebe45b629f034",
+      "git_blob_sha": "5d1014d3d29f20350ddfa855dca4ada78cd99091",
+      "width": 1600,
+      "height": 900,
+      "readback": "pending independent clone after branch creation; fetch_blob/fetch reject binary as UTF-8."
+    }
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Remote WebP push/read-back and exact-head GitHub CI pending.",
+      "New draft article still needs human browser layout/editorial review; local browser runtime unavailable."
+    ]
+  },
+  "evidence_matrix": [
+    {
+      "claim": "OWASP supplies threat guidance rather than runtime enforcement.",
+      "source": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+      "evidence_type": "primary documentation",
+      "checked_on": "2026-10-23",
+      "version": "2026 Agentic Top 10; live page",
+      "limitations": "Our application mapping is editorial interpretation, not endorsement or certification."
+    },
+    {
+      "claim": "Prompt-injection screening, model guardrails and approvals require execution-side controls.",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "evidence_type": "primary guidance",
+      "checked_on": "2026-10-23",
+      "version": "unpinned live cheat sheet",
+      "limitations": "No effectiveness measurement or guarantee."
+    },
+    {
+      "claim": "Ajv rejects additional properties/types with the configured trusted schema; authorization remains separate.",
+      "source": "https://ajv.js.org/json-schema.html",
+      "evidence_type": "primary documentation plus isolated execution",
+      "checked_on": "2026-10-23",
+      "version": "Ajv 8.17.1 executed; v8 documentation and options researched",
+      "limitations": "No model, real authentication, filesystem access, concurrency or network tool tested."
+    },
+    {
+      "claim": "Docker supports the discussed filesystem, capability, privilege and network restrictions.",
+      "source": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "evidence_type": "primary documentation",
+      "checked_on": "2026-10-23",
+      "version": "unpinned live Docker Engine docs",
+      "limitations": "No Docker command executed; no container/host security claim; Desktop licensing is separate."
+    },
+    {
+      "claim": "Inspector lists/exercises MCP tools, can launch processes and holds credentials; stdio launches inherit user access.",
+      "source": "https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector/security",
+      "evidence_type": "primary documentation",
+      "checked_on": "2026-10-23",
+      "version": "2026-07-28 documentation; no Inspector release tested",
+      "limitations": "No server connection or scanner testing; current LICENSE has Apache-2.0 transition and retained MIT contributions."
+    },
+    {
+      "claim": "Gitleaks CLI detects secret patterns in Git history, directories and stdin; CLI is MIT.",
+      "source": "https://github.com/gitleaks/gitleaks",
+      "evidence_type": "primary README and LICENSE",
+      "checked_on": "2026-10-23",
+      "version": "live v8-style CLI README; no binary version tested",
+      "limitations": "No scan, accuracy, recall or clean-repository claim; Action licensing excluded."
+    },
+    {
+      "claim": "OSV V2 matches known vulnerabilities, has documented outbound data and full offline mode.",
+      "source": "https://github.com/google/osv-scanner#data-sources-and-privacy",
+      "evidence_type": "primary README, V2 usage/offline docs and Apache-2.0 LICENSE",
+      "checked_on": "2026-10-23",
+      "version": "V2 documentation; no binary version tested",
+      "limitations": "No dependency scan, provenance proof or exploitability result; live README still uses beta wording, so no latest-release assertion."
+    },
+    {
+      "claim": "Promptfoo red-team evaluation has hosted generation/grading paths and telemetry separate from local CLI execution.",
+      "source": "https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/",
+      "evidence_type": "primary vendor documentation and MIT LICENSE",
+      "checked_on": "2026-10-23",
+      "version": "unpinned live docs checked; no CLI tested",
+      "limitations": "No adversarial execution, bypass rate, pricing or efficacy endorsement; remote-generation switches alone are not network isolation."
+    }
+  ],
+  "verification": {
+    "snippet": {
+      "date": "2026-10-23",
+      "runtime": "Node.js 22.22.3, Linux x64",
+      "dependency": "Ajv 8.17.1 (MIT; npm metadata checked)",
+      "source": "The exact js fence titled preflight.mjs was extracted from the article into a disposable directory.",
+      "source_sha256": "53115154743a382c22bb66e6f5d5ae129a58cc2229ba888e77b0dac99b3f222f",
+      "commands": [
+        "npm install --prefix /tmp/pulse-issue-212-demo --save-exact --ignore-scripts --no-audit --no-fund ajv@8.17.1",
+        "npx --yes --package node@22.22.3 node /tmp/pulse-issue-212-demo/preflight.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: allowed read; tool, parameter, policy and budget denials",
+      "observed": [
+        "Permitted ID returns its fixture and increments reads.",
+        "Unknown tool and extra field fail shape validation with zero reads.",
+        "Well-formed but forbidden document ID fails server policy with zero reads.",
+        "Three rejected attempts consume budget; fourth permitted proposal fails budget, still zero reads."
+      ],
+      "not_executed": [
+        "Model/document injection",
+        "End-to-end dummy canary leakage",
+        "OS isolation and network controls",
+        "Gitleaks",
+        "OSV-Scanner",
+        "MCP Inspector",
+        "Promptfoo",
+        "Hosted model/API integration",
+        "Production authentication and budget service"
+      ]
+    },
+    "repository": {
+      "status": "passed",
+      "runtime": "Node 22.22.3",
+      "commands": [
+        "npm run verify",
+        "npm run guides:assets:test",
+        "npm run guides:ledger:test"
+      ],
+      "results": "verify passed; 6 cover-asset and 19 ledger tests passed.",
+      "draft_render": "Temporary local-only preview route rendered through the unchanged production GuidePage component; checked compiled HTML for 4 tables, 5 code blocks, title, filename, observed output and matching cover path. Preview source removed before commit; final build removes its output.",
+      "draft_visibility": "Final verify rebuilt 240 pages; temporary review route and draft guide excluded."
+    },
+    "browser": {
+      "status": "unavailable-locally",
+      "initial_error": "Standard Playwright Chromium 156 download: End of central directory record signature not found.",
+      "fallback": "Isolated @sparticuz/chromium 153.0.0 package installed outside repository, but decompressed /tmp/chromium was empty; browser launch exited.",
+      "limits": "No claim of local browser layout/axe/e2e success. Cover crops were actually viewed with view_image. GitHub CI and human draft-layout review remain separate gates."
+    }
+  }
+}
