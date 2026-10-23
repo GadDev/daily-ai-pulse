@@ -1,9 +1,13 @@
 ---
 title: "Give AI Agents a Real Approval Boundary Before They Call Tools"
 description: "Build a small, testable Python approval gate that treats model-proposed actions as untrusted requests—not permission to act."
-status: draft
+status: published
 format: tutorial
 verification: researched
+author: The Daily AI Pulse
+publishedAt: 2026-10-23
+verifiedAt: 2026-10-23
+testEnvironment: "Python 3.12.14 on Linux; exact article snippets executed with standard-library unittest (8 tests), plus 6 isolated boundary checks; in-memory mock only, no model API or authenticated production integration."
 difficulty: intermediate
 affiliateLinks: false
 image: /images/guides/agent-tool-approval-boundary.webp
@@ -40,10 +44,13 @@ Our example has two inputs with different trust levels:
 
 The diagram shows the sequence. The reviewer authorizes a particular proposal fingerprint; the model cannot grant its own approval.
 
+<figure class="guide-technical-diagram">
 <picture>
   <source media="(max-width: 640px)" srcset="/images/guides/agent-tool-approval-boundary-mobile.svg">
   <img src="/images/guides/agent-tool-approval-boundary.svg" alt="Model proposes an untrusted tool call. The application validates the tool and arguments. A separate reviewer approves a fingerprint bound to the requester. The gate consumes the approval once, then writes only to a mock notification log; rejected requests stop before execution." loading="lazy">
 </picture>
+<figcaption>Conceptual approval boundary for the local Python mock. Authentication and durable approval storage are production responsibilities.</figcaption>
+</figure>
 
 The same diagram is provided in a stacked mobile layout. It is an explanatory schematic, **not** a screenshot or evidence of a deployed agent.
 
@@ -210,7 +217,7 @@ python --version
 python -m unittest -v test_gate.py
 ```
 
-**Expected, not observed in this editorial run:** eight passing tests ending in `OK`. The authoring environment for this draft did not provide working Python execution; these tests are **not claimed as passed**. A reviewer must run them before publication, check the Python version, and fix any defects revealed.
+**Observed on 23 October 2026:** the exact two Python snippets above passed all eight tests with Python 3.12.14 on Linux, ending in `OK`. Six additional isolated checks rejected invalid lengths and types, preserved approval after a requester mismatch, and refused a mutated proposal. These checks exercised only the in-memory mock; no model API, authentication service or notification delivery was tested.
 
 Try changing `message` after approval. The digest changes, and the gate refuses the operation. Try changing the tool name or recipient. Those requests are refused even before approval. Notice that the tests exercise application controls, **not** whether a real language model follows instructions.
 
@@ -247,4 +254,4 @@ If you want to compare agent products' documented permission controls rather tha
 
 Run the tests in a clean Python environment. Review the code for malformed inputs and race conditions. Replace the simulated identities with real server-side authentication, the in-memory approvals with an atomic durable store, and the mock log with an idempotent, least-privileged adapter. Add integration tests for concurrent approvals, expired tokens, partial failures, compromised tool responses and real user permissions. Verify the exact model API's tool-call parsing against its current documentation.
 
-**Editorial verification (23 October 2026):** Official tool-use documentation and OWASP guidance were reviewed. The included Python examples and SVG architecture were prepared as a **draft**; Python execution, provider integration, authenticated approval and production behavior have **not** been verified. Cover artwork was subsequently generated, visually reviewed and added in the PR #223 recovery; its prompts, crop comparisons and binary integrity are recorded in the accompanying editorial review. This guide must remain unpublished until those gates receive real evidence and human approval.
+**Editorial verification (23 October 2026):** Primary tool-use documentation and OWASP guidance were rechecked. The exact Python snippets passed eight unit tests plus six isolated boundary checks. Desktop and mobile diagrams and cover crops were visually checked in a local browser; artwork prompts and binary integrity are recorded in the accompanying editorial review. Provider integration, authenticated approval, concurrency, persistence and production behavior have **not** been verified. The verification label remains **researched**: successful mock execution is not evidence that a real agent or production authorization service is secure.
