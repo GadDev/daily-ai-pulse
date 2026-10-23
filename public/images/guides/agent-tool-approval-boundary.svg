@@ -1,24 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="390" viewBox="0 0 1100 390" role="img" aria-labelledby="title desc">
-<title id="title">Tool approval boundary for an AI agent</title>
-<desc id="desc">Untrusted model proposal goes through validation. A separate authenticated reviewer approves the exact request fingerprint. The approval gate consumes a matching token before calling a mock log. Rejected requests stop before any action.</desc>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L9 3 L0 6" fill="none" stroke="#171B1A" stroke-width="1.5"/></marker></defs>
-<rect width="1100" height="390" rx="16" fill="#FAF6EE"/>
-<text x="32" y="43" fill="#171B1A" font-size="23" font-family="Arial, sans-serif" font-weight="700">Proposed action ≠ permission to act</text>
-<g font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#171B1A">
-<rect x="30" y="90" width="205" height="112" rx="10" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
-<text x="132" y="129" font-weight="700">Model proposal</text><text x="132" y="159" font-size="14">Untrusted tool + args</text><text x="132" y="181" font-size="14">No approval authority</text>
-<rect x="286" y="90" width="205" height="112" rx="10" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/>
-<text x="389" y="127" font-weight="700">Validate</text><text x="389" y="155" font-size="14">Tool allowlist</text><text x="389" y="178" font-size="14">Argument constraints</text>
-<rect x="548" y="90" width="240" height="112" rx="10" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
-<text x="668" y="126" font-weight="700">Approval gate</text><text x="668" y="153" font-size="14">Requester + fingerprint</text><text x="668" y="178" font-size="14">Consume token once</text>
-<rect x="844" y="90" width="220" height="112" rx="10" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
-<text x="954" y="126" font-weight="700">Mock action</text><text x="954" y="154" font-size="14">Append fictional notice</text><text x="954" y="178" font-size="14">No external side effect</text>
-<rect x="362" y="262" width="276" height="90" rx="10" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
-<text x="500" y="297" font-weight="700">Independent reviewer</text><text x="500" y="324" font-size="14">Approves exact proposal</text>
-</g>
-<g fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)">
-<path d="M236 146 H282"/><path d="M492 146 H544"/><path d="M790 146 H839"/><path d="M638 307 H667 V206"/>
-</g>
-<g font-family="Arial, sans-serif" font-size="14" fill="#8A4B35"><text x="294" y="233">Invalid → stop</text><text x="700" y="236">Missing approval → stop</text></g>
-<text x="32" y="374" fill="#575D5B" font-family="Arial, sans-serif" font-size="13">Conceptual teaching diagram. Real authentication, durable storage and idempotency are not implemented.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="690" viewBox="0 0 640 690" role="img" aria-labelledby="title desc">
+<title id="title">Application-side approval boundary</title>
+<desc id="desc">The untrusted model proposal is validated, then requires separate reviewer approval bound to the requester and exact proposal. The gate consumes approval once before a mock in-memory action. Invalid or unapproved requests stop.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#171B1A" stroke-width="1.5"/></marker></defs>
+<rect width="640" height="690" rx="12" fill="#FAF6EE"/>
+<text x="24" y="38" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#171B1A">A proposal is not permission</text>
+<rect x="20" y="72" width="350" height="115" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#171B1A"><text x="195" y="104" font-size="22" font-weight="700">Model proposal</text><text x="195" y="137" font-size="17">Untrusted tool + arguments</text><text x="195" y="163" font-size="17">No approval authority</text></g>
+<rect x="20" y="222" width="350" height="115" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#171B1A"><text x="195" y="254" font-size="22" font-weight="700">Validate</text><text x="195" y="287" font-size="17">Tool allowlist + argument checks</text><text x="195" y="313" font-size="17">Invalid requests stop here</text></g>
+<rect x="20" y="372" width="350" height="115" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#171B1A"><text x="195" y="404" font-size="22" font-weight="700">Approval gate</text><text x="195" y="437" font-size="17">Match requester + exact proposal</text><text x="195" y="463" font-size="17">Consume approval once</text></g>
+<rect x="20" y="522" width="350" height="115" rx="9" fill="#E8EFEC" stroke="#51796E" stroke-width="2"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#171B1A"><text x="195" y="554" font-size="22" font-weight="700">Mock action</text><text x="195" y="587" font-size="17">Record fictional notice in memory</text><text x="195" y="613" font-size="17">No network or external side effect</text></g>
+<rect x="408" y="358" width="210" height="143" rx="9" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#171B1A" text-anchor="middle"><text x="513" y="391" font-size="21" font-weight="700">Independent</text><text x="513" y="418" font-size="21" font-weight="700">reviewer</text><text x="513" y="452" font-size="17">Approve the exact</text><text x="513" y="477" font-size="17">proposal fingerprint</text></g>
+<g fill="none" stroke="#171B1A" stroke-width="2.5" marker-end="url(#arrow)"><path d="M195 189 V216"/><path d="M195 339 V366"/><path d="M195 489 V516"/><path d="M406 430 H376"/></g>
+<g font-family="Arial,sans-serif" font-size="17" fill="#8A4B35"><text x="408" y="258">Invalid → stop</text><text x="408" y="548">No approval → stop</text></g>
+<g font-family="Arial,sans-serif" font-size="16" fill="#575D5B"><text x="24" y="664">Conceptual mock: authentication and durable storage are not implemented.</text></g>
 </svg>
