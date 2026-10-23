@@ -158,6 +158,25 @@ duplicate PR.
 
 The daily batch must never write editorial changes directly to `main`.
 
+### Execution progress and blockers
+
+The [daily news execution contract](DAILY_NEWS_ORCHESTRATION_V1.md) defines the
+research completion boundary and operational checkpoint at
+`docs/editorial/runs/YYYY-MM-DD.md`. This checkpoint records actual progress and
+failed operations separately from the normalized candidate ledger. It does not
+authorize drafting before selection or bypass any publication gate.
+
+An unavailable source or illustration withholds the affected candidate under
+the existing rules; continue independent candidates and persist the full ledger.
+Use `Blocked before PR` for a concrete failure that prevents a trustworthy batch
+or safe branch/PR handoff, with observed error or missing capability, attempted
+recovery, saved work and next action. Merely not having performed research,
+created the branch or run checks is unfinished work, not a blocker.
+
+Do not present a partial checkpoint as a completed ledger-only batch. When a
+canonical daily PR is already merged, report its outcome without creating a
+second batch. Preserve any intentional human closure or edits.
+
 ## Authority boundary
 
 The candidate ledger owns:

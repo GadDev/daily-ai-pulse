@@ -1,6 +1,6 @@
 # Daily AI Pulse — Daily News Orchestrator
 
-> **Workflow reference · checked 22 October 2026** against the current `GadDev/daily-ai-pulse` repository contracts, GitHub Actions workflows and ChatGPT scheduled-task configuration. This documents how the **daily news** publication workflow operates; it is not an instruction to trigger a run.
+> **Workflow reference · checked 23 October 2026** against the current `GadDev/daily-ai-pulse` repository contracts, GitHub Actions workflows and ChatGPT scheduled-task configuration. This documents how the **daily news** publication workflow operates; it is not an instruction to trigger a run.
 
 ![Daily AI Pulse daily news orchestrator — research, editorial preparation, draft PR, human merge and Firebase deployment](https://raw.githubusercontent.com/GadDev/daily-ai-pulse/main/docs/diagrams/daily-ai-pulse-orchestrator.svg)
 
@@ -57,6 +57,19 @@ flowchart TD
 
 **No publishable story?** That is legitimate. Persist the ledger and open a **ledger-only draft PR**. Do not invent a story, daily issue or illustration merely to fill a quota.
 
+The [daily news execution contract](https://github.com/GadDev/daily-ai-pulse/blob/main/docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md)
+defines a bounded search across all eight desks, source/archive evidence and
+explicit research completion criteria. Reading contracts is initialization;
+unfinished research requires continuing the work. A real blocker identifies an
+observed failure, attempted recovery, saved work and the next action.
+
+Each run checkpoints actual phase progress in
+`docs/editorial/runs/YYYY-MM-DD.md` on the same dated branch, including discovery
+window, queries, sources, archive coverage and gaps. A partial checkpoint is
+never a completed candidate ledger or evidence of a quiet day. A failure for
+one candidate does not stop independent work. Retries preserve prior evidence
+and resume the existing branch/PR; an already merged batch is not recreated.
+
 ## 2. Prepare stories, illustrations, translations and issue
 
 For selected candidates that still pass **publication-time verification** and deduplication:
@@ -85,6 +98,7 @@ After the human merges to `main`, [the production workflow](https://github.com/G
 | Schedule and trigger | ChatGPT **Daily AI Pulse Orchestrator** scheduled task (outside GitHub) |
 | Evidence, scoring and selections | `docs/editorial/DECISION_ENGINE_V1.md`, `EDITORIAL_SCHEMA_V1.md` |
 | Full decisions, including rejected/watch | `docs/editorial/ledgers/YYYY-MM-DD.json` |
+| Bounded execution, completion and recovery | `docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md`; phase evidence in `docs/editorial/runs/YYYY-MM-DD.md` |
 | Publication preparation | `docs/editorial/PR_PREPARATION_V1.md` and `.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md` |
 | Illustration reuse, integrity and review | `docs/editorial/ILLUSTRATION_SYSTEM_V1.md` and illustration skill |
 | French review and staleness | `docs/editorial/translations/DAILY_BILINGUAL_WORKFLOW.md` |
