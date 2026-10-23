@@ -1,0 +1,175 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-23-agent-compute-engine",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-23-agent-compute-engine",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Google details a hardware-isolated runtime for long-running agents",
+    "verified_context": [
+      "Google's October 22 architecture report puts a concrete boundary around autonomous work: a hardware-isolated microVM for each agent session, with long-lived credentials kept outside the guest.",
+      "Agent Compute Engine's public-cloud preview is expected in the coming months; this is an architecture disclosure, not a generally available service."
+    ],
+    "editorial_idea": "Keep agent sandboxes credential-free, enforce egress and identity outside the guest, and model snapshot, restore and idle-session costs before adopting the preview.",
+    "visual_metaphor": "a stone chamber with the key kept outside",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "a stone chamber with the key kept outside",
+      "one clear central physical metaphor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-23-agent-compute-engine",
+    "story_source_sha256": "1a1592eb7b258c32ef2b0bb1079a51cdf0580ff4e53dad7e2418490a0877557d",
+    "visual_brief_sha256": "1fdabde8ffcb3ea17a6f856b105e7b98a16a0508fe27e44f3e40e3f85efa1874",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "ff89d9b7a7a909037c1697c2941238818b60c127834d0d7149f3cc2463bf82e7"
+  },
+  "candidate_notes": {
+    "A": "Selected: the sheltered terracotta workpiece and exterior key express a credential boundary without depicting a product architecture.",
+    "B": "The vault is tactile but its heavier enclosure makes the external authorization idea less immediate.",
+    "C": "The broader courtyard introduces more peripheral detail and weakens small-size focus."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 89,
+    "composition": 91,
+    "crop_quality": 89,
+    "technical_meaning": 94,
+    "cleanliness": 95,
+    "golden_reference_fit": 85,
+    "weighted_total": 90.3
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 94,
+      "brand_fit": 89,
+      "composition": 91,
+      "crop_quality": 89,
+      "technical_meaning": 94,
+      "cleanliness": 95,
+      "golden_reference_fit": 85,
+      "weighted_total": 90.3
+    },
+    "B": {
+      "story_specific": 88,
+      "brand_fit": 87,
+      "composition": 87,
+      "crop_quality": 87,
+      "technical_meaning": 86,
+      "cleanliness": 92,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.75
+    },
+    "C": {
+      "story_specific": 86,
+      "brand_fit": 86,
+      "composition": 84,
+      "crop_quality": 84,
+      "technical_meaning": 88,
+      "cleanliness": 89,
+      "golden_reference_fit": 83,
+      "weighted_total": 85.15
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The stone chamber, terracotta payload and exterior key remain in the wide crop.",
+    "article_mobile": "The chamber and separate authorization object remain legible in the mobile crop.",
+    "thumbnail": "The dark chamber and terracotta payload retain a clear silhouette. The unused square crop clips the key; this asset is not the home feature."
+  },
+  "golden_reference_comparison": "Compared side by side with the Claude plugin ecosystem and Copilot review controls golden images. The selected candidate shares their warm paper field, restrained stone/metal materiality, terracotta emphasis and substantial architectural forms. Selected: the sheltered terracotta workpiece and exterior key express a credential boundary without depicting a product architecture.",
+  "final_asset": "/images/stories/2026-10-23-agent-compute-engine.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 177096,
+    "sha256": "f3360bc7f89a5862a13a220b633b9d16b4eb72bdea6e244600f6e9c619900fc7",
+    "git_blob_sha": "c404196561d27262669dc912508c3a76c4fdb1e8",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-23T15:43:33.129Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Contact sheets with both golden references and actual center-cover crop sheets inspected by model self-review. Pillow fallback used after Chromium download failed; no browser screenshot review is claimed.",
+    "candidate_source_sha256": {
+      "A": "8a1f3652e3ae7dfd71976e59c05997b31392b148f8b1199446233dd70f26f3a3",
+      "B": "2f21938cba01a09dbe607033a86a472b7899b23e991dc454f595b90cf1df84a9",
+      "C": "3aee4a49a44157e443e2714c3fcbbe161bf856483337f12fb88d2752decdb29e"
+    },
+    "candidate_prompts": {
+      "A": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Google details a hardware-isolated runtime for long-running agents. Verified context: Google's October 22 architecture report puts a concrete boundary around autonomous work: a hardware-isolated microVM for each agent session, with long-lived credentials kept outside the guest. Agent Compute Engine's public-cloud preview is expected in the coming months; this is an architecture disclosure, not a generally available service. Visual idea: a stone chamber with the key kept outside. Candidate A composition: An open stone chamber cutaway, one compact terracotta workpiece sheltered inside; a separate iron key kept on a small exterior plinth. Strong three-quarter architectural perspective. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "B": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Google details a hardware-isolated runtime for long-running agents. Verified context: Google's October 22 architecture report puts a concrete boundary around autonomous work: a hardware-isolated microVM for each agent session, with long-lived credentials kept outside the guest. Agent Compute Engine's public-cloud preview is expected in the coming months; this is an architecture disclosure, not a generally available service. Visual idea: a stone chamber with the key kept outside. Candidate B composition: A heavy stone vault suspended just above its foundation with a narrow entry slit; the only terracotta key remains visibly outside, separated by a generous empty interval. Bold monumental silhouette. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "C": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Google details a hardware-isolated runtime for long-running agents. Verified context: Google's October 22 architecture report puts a concrete boundary around autonomous work: a hardware-isolated microVM for each agent session, with long-lived credentials kept outside the guest. Agent Compute Engine's public-cloud preview is expected in the coming months; this is an architecture disclosure, not a generally available service. Visual idea: a stone chamber with the key kept outside. Candidate C composition: A miniature courtyard formed by concentric pale-stone walls, with a single terracotta object in the inner room and a detached external keeper mechanism. Intimate aerial oblique still life, not a diagram. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+    }
+  }
+}

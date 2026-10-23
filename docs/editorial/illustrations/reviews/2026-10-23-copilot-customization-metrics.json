@@ -1,0 +1,175 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-23-copilot-customization-metrics",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-10-23-copilot-customization-metrics",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Copilot metrics now name internal skills, agents and MCP servers",
+    "verified_context": [
+      "GitHub's October 22 metrics update makes internal agent customizations easier to distinguish.",
+      "Usage reports now expose configured names for custom skills, agents, MCP servers, slash commands and plugins, with up to 25 entries in each customization list instead of five."
+    ],
+    "editorial_idea": "Use the metrics for adoption trends and enablement decisions, document client-version and telemetry coverage, and review configured names before sharing reports.",
+    "visual_metaphor": "distinct sculptural tools retained in individually shaped compartments",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "distinct sculptural tools retained in individually shaped compartments",
+      "one clear central physical metaphor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-23-copilot-customization-metrics",
+    "story_source_sha256": "cb6c0e48c4f3a5676cfe2dcab2c67252ad8816edd33bec20d258606b759c632e",
+    "visual_brief_sha256": "978a02a4eae671af3d30f81505c9f9c2c72202b403812f65790e354d8fdcaae4",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "4ff46e8a497b69564a6b66f7ed2b18c8c47f7945b7cdb5710989112f24dcfabf"
+  },
+  "candidate_notes": {
+    "A": "The tools are tactile but the crowded grouping loses hierarchy when reduced.",
+    "B": "The physical tray approaches an icon collection and is too generic for selection.",
+    "C": "Selected: distinct abstract forms in individual niches express named customizations with restrained materiality and no invented telemetry chart."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 92,
+    "brand_fit": 90,
+    "composition": 91,
+    "crop_quality": 91,
+    "technical_meaning": 90,
+    "cleanliness": 95,
+    "golden_reference_fit": 87,
+    "weighted_total": 90.35
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 86,
+      "brand_fit": 86,
+      "composition": 83,
+      "crop_quality": 83,
+      "technical_meaning": 87,
+      "cleanliness": 87,
+      "golden_reference_fit": 82,
+      "weighted_total": 84.45
+    },
+    "B": {
+      "story_specific": 79,
+      "brand_fit": 83,
+      "composition": 85,
+      "crop_quality": 88,
+      "technical_meaning": 78,
+      "cleanliness": 94,
+      "golden_reference_fit": 79,
+      "weighted_total": 82.5
+    },
+    "C": {
+      "story_specific": 92,
+      "brand_fit": 90,
+      "composition": 91,
+      "crop_quality": 91,
+      "technical_meaning": 90,
+      "cleanliness": 95,
+      "golden_reference_fit": 87,
+      "weighted_total": 90.35
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The niches and individual physical forms remain visible in the wide crop.",
+    "article_mobile": "The mobile crop retains the central grouping and its distinct forms.",
+    "thumbnail": "The restrained alcove silhouettes remain distinguishable at listing size."
+  },
+  "golden_reference_comparison": "Compared side by side with the Claude plugin ecosystem and Copilot review controls golden images. The selected candidate shares their warm paper field, restrained stone/metal materiality, terracotta emphasis and substantial architectural forms. Selected: distinct abstract forms in individual niches express named customizations with restrained materiality and no invented telemetry chart.",
+  "final_asset": "/images/stories/2026-10-23-copilot-customization-metrics.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 191436,
+    "sha256": "56feb36be388dd9b87979ad5c5884a6d879655e120be2e2af496bcf2c89582fd",
+    "git_blob_sha": "c0a4d6f148e6c73b2595975a2bdfd3be4adf3b10",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-23T15:43:33.229Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Contact sheets with both golden references and actual center-cover crop sheets inspected by model self-review. Pillow fallback used after Chromium download failed; no browser screenshot review is claimed.",
+    "candidate_source_sha256": {
+      "A": "000205ee2236caa53327ac7a42217873adc1e67184dce25905611ce25552d843",
+      "B": "1ecc63827bd9d55a0d68cc72f2ac856fa8cb5f433cec949a89d3fc2d4be3c5e6",
+      "C": "9ff7c769990ffb37f318f6eb0974811c47a0f3f3afd10d56a2e8f9c7d2f20c2b"
+    },
+    "candidate_prompts": {
+      "A": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Copilot metrics now name internal skills, agents and MCP servers. Verified context: GitHub's October 22 metrics update makes internal agent customizations easier to distinguish. Usage reports now expose configured names for custom skills, agents, MCP servers, slash commands and plugins, with up to 25 entries in each customization list instead of five. Visual idea: distinct sculptural tools retained in individually shaped compartments. Candidate A composition: A carved stone cabinet holding several distinct sculptural tools in individually shaped recesses; one terracotta form stands out. Physical identities are legible without any labels or quantitative chart. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "B": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Copilot metrics now name internal skills, agents and MCP servers. Verified context: GitHub's October 22 metrics update makes internal agent customizations easier to distinguish. Usage reports now expose configured names for custom skills, agents, MCP servers, slash commands and plugins, with up to 25 entries in each customization list instead of five. Visual idea: distinct sculptural tools retained in individually shaped compartments. Candidate B composition: A low pale-stone sorting tray with separate fitted alcoves for three contrasting substantial objects, replacing an adjacent undifferentiated stack. Tactile editorial still life, no graphic dashboard. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.",
+      "C": "Create one editorial illustration for The Daily AI Pulse. Placement: article hero, also used as an edition/listing image. Output crop: wide 16:9, high-resolution landscape. Subject: Copilot metrics now name internal skills, agents and MCP servers. Verified context: GitHub's October 22 metrics update makes internal agent customizations easier to distinguish. Usage reports now expose configured names for custom skills, agents, MCP servers, slash commands and plugins, with up to 25 entries in each customization list instead of five. Visual idea: distinct sculptural tools retained in individually shaped compartments. Candidate C composition: An architectural specimen shelf with a few markedly different forms retained in precisely fitting niches, one in terracotta and the rest charcoal and ivory. Strong depth and spacious negative space, not an icon row. Keep the focal metaphor in the central 55 percent so it survives desktop wide cover, a mobile near-square cover and a 320px thumbnail. The website renders all text separately.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper grain, warm stone/plaster and brushed metal, controlled depth, spacious negative space and strong contrast. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Match the visual family of tactile engraved architectural editorial illustrations, not a glossy 3D product render. The subject must survive object-fit: cover. Physical/spatial presence and a memorable silhouette are essential. Treat the scene as an abstract metaphor, not a claimed engineering architecture or biological result.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+    }
+  }
+}

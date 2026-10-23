@@ -130,3 +130,18 @@ test('withheld selected candidate cannot retain a story file', () => {
   assert.equal(result.status, 1);
   assert.match(result.output, /withheld selected candidate has a story file in this batch/);
 });
+
+test('standard YAML indentless tags are read without swallowing the next field', () => {
+  const id = '2099-01-02-indentless-tags';
+  const result = validate({
+    ledger: ledger({
+      candidates: [{ id, decision: 'selected', topics: ['coding-agents', 'security'] }],
+      publication: { story_ids: [id], withheld_selected: [], must_know_story_id: null },
+    }),
+    stories: {
+      [id]: '---\ntitle: Example\ncategory: tools\ntags:\n- coding-agents\ncompanies:\n- security\nimage: /images/missing.webp\n---\n\nSynthetic fixture.\n',
+    },
+  });
+  assert.doesNotMatch(result.output, /ledger topic not present in story tags: coding-agents/);
+  assert.match(result.output, /ledger topic not present in story tags: security/);
+});

@@ -81,8 +81,8 @@ function blockArray(fm: string, key: string) {
   const result = [];
   for (let i = start + 1; i < lines.length; i += 1) {
     const line = lines[i];
-    if (/^[^\s]/.test(line)) break;
-    const item = line.match(/^\s+-\s*["']?([^"'\n]+)["']?\s*$/);
+    if (/^[^\s]/.test(line) && !/^-\s+/.test(line)) break;
+    const item = line.match(/^\s*-\s*["']?([^"'\n]+)["']?\s*$/);
     if (item) result.push(item[1].trim());
   }
   return result;

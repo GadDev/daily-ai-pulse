@@ -1,0 +1,178 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-23-metr-openai-monitoring-red-team",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-23-metr-openai-monitoring-red-team",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "External red-team finds gaps in OpenAI's historical agent monitoring stack",
+    "verified_context": [
+      "METR's October 22 report adds an external assessment to the recent discussion of agent monitoring.",
+      "METR and Redwood Research examined OpenAI's internal system as it existed on or before July 21, during a three-week exercise."
+    ],
+    "editorial_idea": "Maintain independent accounting of monitored traffic, run monitors periodically rather than only at turn boundaries, isolate monitors from agent actions and red-team known bypass paths repeatedly.",
+    "visual_metaphor": "an independent observation tower looking into an enclosed work yard",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "an independent observation tower looking into an enclosed work yard",
+      "one clear central physical metaphor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-23-metr-openai-monitoring-red-team",
+    "story_source_sha256": "f68662c7b5fc6a9448395cb5b10833437688b34d17c2af48a2e2ee5dbae4de86",
+    "visual_brief_sha256": "a91d19cb532117a27f6065eb94073385141163ed37beb601a05ac6568589045b",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "c1456c203f7e497381cce55f7f3206924dcaebaa8ab1a3b6a676a9b01839a42e"
+  },
+  "candidate_notes": {
+    "A": "Selected: the compact observation tower and enclosed work yard preserve the historical external-monitoring metaphor and match the source alt text.",
+    "B": "The stacked circular aperture has strong reference fit, but reads as an optical instrument more than the stated tower and yard.",
+    "C": "The wider viewing aperture and courtyard are legible at wide size but lose more peripheral context under the square crop."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 94,
+    "composition": 94,
+    "crop_quality": 92,
+    "technical_meaning": 94,
+    "cleanliness": 96,
+    "golden_reference_fit": 93,
+    "weighted_total": 93.8
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 95,
+      "brand_fit": 94,
+      "composition": 94,
+      "crop_quality": 92,
+      "technical_meaning": 94,
+      "cleanliness": 96,
+      "golden_reference_fit": 93,
+      "weighted_total": 93.8
+    },
+    "B": {
+      "story_specific": 91,
+      "brand_fit": 95,
+      "composition": 95,
+      "crop_quality": 95,
+      "technical_meaning": 91,
+      "cleanliness": 97,
+      "golden_reference_fit": 94,
+      "weighted_total": 93.7
+    },
+    "C": {
+      "story_specific": 92,
+      "brand_fit": 92,
+      "composition": 91,
+      "crop_quality": 86,
+      "technical_meaning": 92,
+      "cleanliness": 95,
+      "golden_reference_fit": 90,
+      "weighted_total": 90.7
+    }
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The tower and enclosed courtyard remain visible in the desktop wide crop.",
+    "article_mobile": "The mobile cover keeps the tower, courtyard walls and central work form together.",
+    "thumbnail": "The tower and work yard retain distinct silhouettes at 320 by 164.",
+    "home_square": "The 320 by 320 center cover crop retains the complete tower and the enclosed work area; the outer right wall reaches the edge without losing the monitoring relationship."
+  },
+  "golden_reference_comparison": "Compared side by side with the Claude plugin ecosystem and Copilot review controls golden images. The selected candidate shares their warm paper field, restrained stone/metal materiality, terracotta emphasis and substantial architectural forms. Selected: the compact observation tower and enclosed work yard preserve the historical external-monitoring metaphor and match the source alt text.",
+  "final_asset": "/images/stories/2026-10-23-metr-openai-monitoring-red-team.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 86472,
+    "sha256": "55de4b39849eaa4cf46287445310333e7dd4fe2eca01946556206e21fbc883b9",
+    "git_blob_sha": "d256d0a6858957c920398d21c12fe20500fcea93",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-23T15:43:33.182Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Contact sheets with both golden references and actual center-cover crop sheets inspected by model self-review. Pillow fallback used after Chromium download failed; no browser screenshot review is claimed.",
+    "candidate_source_sha256": {
+      "A": "6bbca344653b48c0a8b4947906ceed8d461f1a369d3fe7ae68b6bea9e9a68f3f",
+      "B": "5396315cfa9e1cf24bd388b577d8c08c08bbbcc068a644310d8f79b6188febff",
+      "C": "a9795fa8405fe960bcce8a54f8cdd679d173e80627874a43585382a62c97e472"
+    },
+    "candidate_prompts": "Three compact tower/courtyard replacement compositions generated to improve the home square crop."
+  },
+  "rejected_attempts": [
+    {
+      "candidate_count": 3,
+      "reason": "Original landscape set reviewed and rejected for the featured home-square role: selected original B lost the external observer under center square cropping. Three new compact compositions generated and reviewed instead."
+    }
+  ]
+}
