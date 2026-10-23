@@ -6,6 +6,8 @@ format: tutorial
 verification: researched
 difficulty: intermediate
 affiliateLinks: false
+image: /images/guides/agent-tool-approval-boundary.webp
+imageAlt: "A blank folded proposal rests before a terracotta partition, with a separate key on the far side, symbolizing approval controlled outside the proposal."
 sources:
   - label: Anthropic — Tool use with Claude
     url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
@@ -245,4 +247,4 @@ If you want to compare agent products' documented permission controls rather tha
 
 Run the tests in a clean Python environment. Review the code for malformed inputs and race conditions. Replace the simulated identities with real server-side authentication, the in-memory approvals with an atomic durable store, and the mock log with an idempotent, least-privileged adapter. Add integration tests for concurrent approvals, expired tokens, partial failures, compromised tool responses and real user permissions. Verify the exact model API's tool-call parsing against its current documentation.
 
-**Editorial verification (23 October 2026):** Official tool-use documentation and OWASP guidance were reviewed. The included Python examples and SVG architecture were prepared as a **draft**; Python execution, provider integration, authenticated approval, cover-art provenance and production behavior have **not** been verified. This guide must remain unpublished until those gates receive real evidence and human approval.
+**Editorial verification (23 October 2026):** Official tool-use documentation and OWASP guidance were reviewed. The included Python examples and SVG architecture were prepared as a **draft**; Python execution, provider integration, authenticated approval and production behavior have **not** been verified. Cover artwork was subsequently generated, visually reviewed and added in the PR #223 recovery; its prompts, crop comparisons and binary integrity are recorded in the accompanying editorial review. This guide must remain unpublished until those gates receive real evidence and human approval.

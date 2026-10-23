@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "editorial_date": "2026-10-23",
   "run_status": "draft-pr",
-  "run_note": "Independent scheduled evergreen run. Reviewed all merged Tools & Guides guides and the 2026-10-21 ledger, checked current open PRs and confirmed #189 merged. Selected a new, self-contained application approval-boundary tutorial distinct from existing agent-environment permission comparisons. Python execution and production approval integration unavailable; article remains draft. No reviewed WebP cover or provenance yet.",
+  "run_note": "Independent scheduled evergreen run. Reviewed all merged Tools & Guides guides and the 2026-10-21 ledger, checked current open PRs and confirmed #189 merged. Selected a new, self-contained application approval-boundary tutorial distinct from existing agent-environment permission comparisons. Python execution and production approval integration unavailable; article remains draft. Recovery on the same PR added an original reviewed WebP cover, matching image/imageAlt and provenance. Overall handoff remains blocked for Python execution and rendered diagram/browser review; no publication approval is claimed.",
   "candidates": [
     {
       "topic_key": "agent-tool-approval-boundary",
@@ -62,6 +62,58 @@
   ],
   "handoff": {
     "guide_id": "agent-tool-approval-boundary",
-    "pr_number": 223
+    "pr_number": 223,
+    "completion": "blocked",
+    "blockers": [
+      "Execute the Python snippets and record actual results before completing editorial handoff.",
+      "Verify desktop/mobile diagram rendering in a working browser; local Chromium installation failed with: End of central directory record signature not found."
+    ]
+  },
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in image_gen.imagegen produced three candidates and one framing revision in this recovery session."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image inspected two production references, the contact sheet and simulated 21:9/16:9/3:2/thumbnail crops. Live browser rendering remains a separate blocked check."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded the selected PNG as WebP quality 88/method 6; reopened and decoded 1672x941 RGB bytes successfully."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Binary-safe GitHub create_blob/base64 returned the expected cover Git blob SHA. Branch attachment and post-commit binary read-back remain pending."
+      }
+    },
+    "blocker": null,
+    "generation": {
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Give AI Agents a Real Approval Boundary Before They Call Tools.\nVerified context: The tutorial treats model-proposed tool calls as untrusted proposals. Application code validates the requested tool and arguments and binds independent approval to the exact proposal and requester. The example records fictional notices in memory; it does not implement a production authorization service.\nVisual idea: A folded blank cream task slip stopped just before a narrow slit in a solid terracotta stone partition. A single dark metal removable key rests clearly on the far side on a separate low stone plinth. The keyed mechanism belongs to the partition, the paper cannot open it. Low sculptural architectural assembly, three-quarter view, large negative space; not a workflow diagram.\nOutput crop: wide landscape 16:9 high resolution. Keep ALL essential objects within central 65 percent of image height so they survive centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card crops.\nUse docs/reference-layouts/story.html and actual guide layouts as source of truth. Artwork asset inside existing HTML, not generated webpage.\nArt direction: restrained contemporary editorial illustration with quiet scientific/architectural sensibility. Deliberate geometry, fine lines, subtle paper texture, one clear focal idea legible at thumbnail size. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious, strong contrast. Substantial tactile stone, paper and dark metal materiality, subtle spatial depth, controlled perspective, asymmetrical commissioned editorial still life; not a bare schematic or flowchart. Fine technical linework supports substantial forms, never the whole composition. Only abstract metaphor, no claim of deployed security or actual software.\nNo words, letters, numbers, labels, logos, interface elements, buttons, badges, charts, watermark, neon, robots, generic AI brains, diagram, icons, border or frame. No writing on paper.\nDeliver a clean high-resolution illustration.\n\nRevision: Revise this Daily AI Pulse editorial cover only by pulling the camera back and reducing the entire sculptural assembly's scale. Preserve the blank folded cream paper, terracotta stone partition with narrow slit, and dark metal key on its separate far-side plinth, and preserve palette, tactile materials and lighting. Keep the ENTIRE folded paper, slit, key and plinth within the central 75% of WIDTH and central 60% of HEIGHT, with generous cream space all around. Low horizontal sculptural composition suitable for centered 21:9 hero crop and 3:2 card crop. The partition can remain larger but all meaningful details must remain within those bounds. No text, letters, numbers, logos, UI, arrows, diagrams, border or frame. Wide landscape 16:9. This is an editorial metaphor for independent approval, not a real security mechanism.",
+      "source": "exec-df36093d-0205-482d-a5a7-aa80fa8865eb.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-artwork.md",
+      "outcome": "pass",
+      "references": [
+        "public/images/guides/agentic-development-environments-compared.webp",
+        "public/images/guides/rag-retrieval-evaluation.webp"
+      ],
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ]
+    },
+    "upload": {
+      "path": "/images/guides/agent-tool-approval-boundary.webp",
+      "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+      "git_blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+      "width": 1672,
+      "height": 941
+    }
   }
 }
