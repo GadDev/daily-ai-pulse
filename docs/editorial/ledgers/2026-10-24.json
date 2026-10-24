@@ -69,6 +69,7 @@
       },
       "related_content": {
         "previous_story_ids": [
+          "2026-09-28-openai-dns-sandbox",
           "2026-10-23-metr-openai-monitoring-red-team"
         ]
       },
@@ -76,9 +77,14 @@
         "status": "material-update",
         "candidate_key": "https://openai.com/index/securing-our-frontier-model-training-environment/|OpenAI frontier training containment|offline training after DNS escape and high-compute red-team",
         "canonical_event": "OpenAI discloses a September 20 frontier-training containment incident and the controls used before October 1 resumption.",
-        "previous_coverage": "The October 23 METR story covered weaknesses in a monitoring prototype, not OpenAI's training-environment architecture or incident chronology.",
-        "material_delta": "A new first-party incident account, offline-training policy, defense-in-depth design and high-compute red-team results."
-      }
+        "previous_coverage": "Pulse covered the September DNS incident on September 28 and METR's monitor evaluation on October 23; neither covered OpenAI's broader containment architecture, pause-and-resume decision or high-compute red-team campaign.",
+        "material_delta": "A new first-party incident account, offline-training policy, defense-in-depth design and high-compute red-team results.",
+        "publication_status": "material-update-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-24-openai-frontier-training-containment.webp"
     },
     {
       "id": "2026-10-24-openai-habitat-storage-part-two",
@@ -162,8 +168,13 @@
         "candidate_key": "https://openai.com/index/scaling-storage-one-billion-users-part-two/|Habitat|Cosmos DB multi-tenancy, QoS and CDC at global scale",
         "canonical_event": "OpenAI publishes Part II of Habitat's storage architecture and operating model.",
         "previous_coverage": null,
-        "material_delta": "The archive contains no prior Pulse story on Habitat; Part II adds the storage-layer design beyond September's service-layer article."
-      }
+        "material_delta": "The archive contains no prior Pulse story on Habitat; Part II adds the storage-layer design beyond September's service-layer article.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-24-openai-habitat-storage-part-two.webp"
     },
     {
       "id": "2026-10-24-claude-anthropic-managed-google-cloud",
@@ -240,8 +251,13 @@
         "candidate_key": "https://platform.claude.com/docs/en/release-notes/overview|Claude Models on Google Cloud Anthropic managed|Anthropic-operated API with Google IAM and Marketplace billing",
         "canonical_event": "Anthropic launches its managed Claude API route through Google Cloud projects.",
         "previous_coverage": "October 22 covered an Anthropic API-version migration; October 23 covered Google distribution of OpenAI models. Neither covered this Anthropic-operated route.",
-        "material_delta": "A distinct operator, identity and billing boundary for Claude on Google Cloud."
-      }
+        "material_delta": "A distinct operator, identity and billing boundary for Claude on Google Cloud.",
+        "publication_status": "material-update-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-24-claude-anthropic-managed-google-cloud.webp"
     },
     {
       "id": "2026-10-24-rescale-ai-triage-agent",
@@ -319,8 +335,13 @@
         "candidate_key": "https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/|Rescale test triage|MCP-backed CI agent with human and evaluation gates",
         "canonical_event": "AWS and Rescale publish the architecture and process for a production test-triage agent.",
         "previous_coverage": null,
-        "material_delta": "No archived Pulse candidate or story covers this deployment."
-      }
+        "material_delta": "No archived Pulse candidate or story covers this deployment.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-24-rescale-ai-triage-agent.webp"
     }
   ],
   "watchlist": [
@@ -377,10 +398,15 @@
     }
   ],
   "publication": {
-    "story_ids": [],
+    "story_ids": [
+      "2026-10-24-openai-frontier-training-containment",
+      "2026-10-24-openai-habitat-storage-part-two",
+      "2026-10-24-claude-anthropic-managed-google-cloud",
+      "2026-10-24-rescale-ai-triage-agent"
+    ],
     "standalone_story_ids": [],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-10-24-openai-frontier-training-containment"
   },
   "editorial_opportunities": [
     {
