@@ -1,0 +1,133 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-24-claude-anthropic-managed-google-cloud",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-24-claude-anthropic-managed-google-cloud",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Anthropic adds a first-party Claude API route through Google Cloud projects",
+    "verified_context": [
+      "Anthropic launched an Anthropic-operated Claude API route reached through a Google Cloud project.",
+      "Google Cloud IAM controls access and Google Cloud Marketplace handles billing while Anthropic remains the API operator."
+    ],
+    "editorial_idea": "Separate identity and procurement gateways from the independently operated model service.",
+    "visual_metaphor": "two gateways sharing one identity checkpoint before an independent terracotta service chamber",
+    "archetype": "architectural-landscape",
+    "output_crop": "wide",
+    "must_show": [
+      "two gateways sharing one identity checkpoint before an independent terracotta service chamber",
+      "one clear physical focal idea"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface_elements",
+      "page_header",
+      "page_footer",
+      "buttons",
+      "badges",
+      "invented_charts",
+      "watermark",
+      "neon_effects",
+      "robots",
+      "glowing_ai_brains",
+      "screenshot_imitation",
+      "bare_schematic_or_diagram",
+      "border",
+      "frame",
+      "unsupported_visual_claim"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-24-claude-anthropic-managed-google-cloud",
+    "story_source_sha256": "d84fa63d2984bf589a03ed01546057c4971062d140b3b3b9e57068d8d27ba0f6",
+    "visual_brief_sha256": "3337b8652364f448f8ca463b53a719a0f431d54ec17cd13b47a788de3e767a93",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "3bbb70ab65a23b2e3bf56f7fb48e9d77fff27b19a5340153a4634c73db98909e"
+  },
+  "candidate_notes": {
+    "A": "Selected: the paired entry routes, shared checkpoint and distinct service chamber communicate the operator boundary without brand marks.",
+    "B": "The cloud pavilions are dramatic, but the identity-versus-operator distinction is less immediate.",
+    "C": "The three-part landscape is accurate as a metaphor but the marketplace colonnade weakens the single focal idea."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 93,
+    "composition": 92,
+    "crop_quality": 92,
+    "technical_meaning": 92,
+    "cleanliness": 96,
+    "golden_reference_fit": 89,
+    "weighted_total": 91.95
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "Both entry routes, the checkpoint and the service chamber fit within the wide composition.",
+    "article_mobile": "The checkpoint and independent chamber remain visible in the center-right crop.",
+    "thumbnail": "The paired routes converging at the checkpoint remain distinct."
+  },
+  "golden_reference_comparison": "Compared with the two declared repository references for warm paper texture, restrained stone materiality, sparing terracotta emphasis, physical depth and thumbnail legibility. Candidate A was selected after full-size and small-size visual inspection.",
+  "final_asset": "/images/stories/2026-10-24-claude-anthropic-managed-google-cloud.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 44074,
+    "sha256": "fcb7d4e3abe4db7c7efc45cd4747429df0629d9352ded2d1e3361018b94e1dd8",
+    "git_blob_sha": "ef56dc9ee4f91322c1f32c48519cb9c70d90c48a",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-24T06:02:00.000Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Three candidates generated per story. Candidate A was inspected at full size and thumbnail scale; cover-crop safety and prohibited elements were reviewed by Codex model self-review. Candidate C for the Rescale story was rejected for pseudo-text-like paper marks."
+  }
+}
