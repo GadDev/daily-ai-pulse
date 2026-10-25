@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-25",
   "run_status": "draft-pr",
-  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork generation unavailable in this runtime; handoff blocked pending illustration.",
+  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork recovered on the same PR #236: selected cover generated, visually reviewed, normalized to WebP and uploaded with verified binary integrity. Guide remains a draft; handoff awaits current CI.",
   "candidates": [
     {
       "topic_key": "agent-observability-langfuse-phoenix",
@@ -54,36 +54,53 @@
   ],
   "handoff": {
     "guide_id": "agent-observability-langfuse-phoenix",
-    "pr_number": null,
+    "pr_number": 236,
     "completion": "blocked",
     "blockers": [
-      "Artwork generation unavailable; resume the same draft PR when a supported image tool is exposed."
+      "Current PR checks must pass after the artwork recovery commit."
     ]
   },
   "artwork": {
-    "state": "blocked",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
-        "status": "unavailable",
-        "evidence": "No supported image-generation tool is exposed in this illustrative runtime."
+        "status": "available",
+        "evidence": "Built-in image_gen.imagegen produced three PNG candidates in ChatGPT; selected source exec-8c05eaa5-537d-4198-a584-71c151236fd8.png."
       },
       "inspection": {
-        "status": "unverified",
-        "evidence": "Reference image viewer has not been exercised."
+        "status": "available",
+        "evidence": "Inspected all three candidates, comparison sheet with two production references, and final WebP center crops at desktop 21:9, mobile 16:9 and card 3:2 ratios."
       },
       "webp_conversion": {
-        "status": "unverified",
-        "evidence": "Codec round trip has not been exercised."
+        "status": "available",
+        "evidence": "Pillow encoded a 1600x900 WebP at quality 88; reopened and fully decoded it, verified RIFF length and computed byte hashes."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Binary Git route has not been confirmed."
+        "status": "available",
+        "evidence": "GitHub base64 blob upload returned baa2d4f54b5bb3c518b391d6aa89a2ae46cb83ad, matching local Git blob SHA-1; raw commit asset read back and compared byte-for-byte before updating the PR branch."
       }
     },
-    "blocker": {
-      "stage": "generation",
-      "message": "No supported image-generation tool is exposed.",
-      "recovery": "Resume the same PR in a runtime with supported image generation; keep status draft."
+    "blocker": null,
+    "generation": {
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero.\nSubject: Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review.\nVerified context: Agent observability here means capturing every LLM call, tool invocation, retrieval step, and control-flow decision as a structured trace. The review compares Langfuse and Phoenix using documented capabilities and operating trade-offs, with no universal winner declared.\nVisual idea: A single folded terracotta ribbon representing an agent's path is inspected through two equally weighted translucent mineral-glass planes; folds and seams become visible under each plane.\nOutput crop: wide 16:9 landscape, high-resolution editorial cover, approximately 1600 by 900 proportions.\n\nUse the article-hero role from the inspected story layout: full-width art below the article introduction, object-fit cover on desktop and mobile. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nMatch the inspected publication references' material editorial grammar: chalky off-white architectural forms, muted terracotta, etched charcoal fine lines, controlled oblique depth, subtle warm lithographic paper grain, purposeful spatial tension, soft directional shadows, restrained translucent mineral glass. Preserve that commissioned magazine-illustration feeling. Neither glossy product photography nor flat vector art.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The central folded ribbon and glass need real illustrated material presence, overlapping planes, controlled spatial depth and strong hierarchy. Fine lines support the material forms; they do not carry the whole composition. Treat the ribbon and inspection planes as an abstract metaphor, never as a literal product architecture.\n\nDepict only what the verified context supports. If mechanism or data is uncertain, keep the image an abstract metaphor rather than a purported technical diagram. Do not suggest a measured result, an outperforming product, or a universal winner. The two inspection planes have equal editorial importance.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\n\nDeliver a clean, high-resolution image with no border or frame. Use a generous perimeter of warm paper. Keep essential meaning in the central 60 percent so square/mobile cover crops work.\n\nComposition for this image: Oblique architectural study: a low folded ribbon crossing two upright translucent planes with the material folded path visible between them.\nCreate a single coherent editorial image, not a multi-panel comparison or a contact sheet.",
+      "source": "exec-8c05eaa5-537d-4198-a584-71c151236fd8.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/agent-observability-langfuse-phoenix-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "crops": ["desktop-hero", "mobile-hero", "card"]
+    },
+    "upload": {
+      "path": "/images/guides/agent-observability-langfuse-phoenix.webp",
+      "sha256": "c6f6a2eb32f22505b2a138f50a49c8e4e1d6f6f731fe0a41fbd5f6c57fc80b22",
+      "git_blob_sha": "baa2d4f54b5bb3c518b391d6aa89a2ae46cb83ad",
+      "width": 1600,
+      "height": 900
     }
   }
 }
