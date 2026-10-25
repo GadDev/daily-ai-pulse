@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1280" viewBox="0 0 440 1280" role="img" aria-labelledby="title desc">
+<title id="title">Northstar evidence, correction and review</title>
+<desc id="desc">Source preflight sends missing or contradictory evidence to review with zero model attempts. Clear evidence permits extraction. Provider stops go to review. Shape and semantic errors permit one targeted correction, with remaining errors reviewed. Valid records pass confidence and audit policy before acceptance. Batch API failures are joined by custom ID and only transient failures enter one replay wave.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#575D5B"/></marker></defs>
+<rect width="440" height="1280" rx="16" fill="#FAF6EE"/>
+<g fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)">
+<path d="M220 131V166"/><path d="M220 288V323"/><path d="M220 430V465"/><path d="M220 580V615"/><path d="M220 744V779"/><path d="M220 897V932"/>
+</g>
+<g font-family="system-ui, sans-serif" font-size="21" text-anchor="middle" fill="#171B1A">
+<text x="220" y="39" font-size="24" font-weight="700">Evidence before acceptance</text>
+<rect x="24" y="63" width="392" height="68" rx="10" fill="#F3EBDD" stroke="#575D5B"/>
+<text x="220" y="91" font-weight="700">Source text + trusted anchors</text><text x="220" y="118" font-size="19">Gold labels stay in evaluation</text>
+<rect x="24" y="166" width="392" height="122" rx="10" fill="#F3EBDD" stroke="#575D5B"/>
+<text x="220" y="196" font-weight="700">1. Check source evidence</text><text x="220" y="226">Missing or contradictory?</text><text x="220" y="255" fill="#8A4B35" font-weight="700">Review · zero model attempts</text><text x="220" y="279" font-size="18">Continue only with clear evidence</text>
+<rect x="24" y="323" width="392" height="107" rx="10" fill="#F3EBDD" stroke="#575D5B"/>
+<text x="220" y="352" font-weight="700">2. Extract a candidate</text><text x="220" y="381">Refusal, truncation or transport?</text><text x="220" y="410" fill="#8A4B35">Review · no automatic retry</text>
+<rect x="24" y="465" width="392" height="115" rx="10" fill="#F3EBDD" stroke="#575D5B"/>
+<text x="220" y="495" font-weight="700">3. Check shape and meaning</text><text x="220" y="525">Compare fields with evidence</text><text x="220" y="554">Check line values and their sum</text>
+<rect x="24" y="615" width="392" height="129" rx="10" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2"/>
+<text x="220" y="645" font-weight="700">Fixable output error?</text><text x="220" y="674">One retry: source + prior output</text><text x="220" y="702">+ specific feedback → check again</text><text x="220" y="731" fill="#8A4B35" font-weight="700">Still wrong → review</text>
+<rect x="24" y="779" width="392" height="118" rx="10" fill="#F3EBDD" stroke="#575D5B"/>
+<text x="220" y="809" font-weight="700">4. Valid record: apply policy</text><text x="220" y="839">Low confidence or audit sample?</text><text x="220" y="868" fill="#8A4B35">Review · do not inflate confidence</text><text x="220" y="889" font-size="17">Otherwise continue</text>
+<rect x="24" y="932" width="392" height="79" rx="10" fill="#E2E8E0" stroke="#575D5B"/>
+<text x="220" y="963" font-weight="700">Accepted case record</text><text x="220" y="992">No customer action authorized</text>
+<path d="M24 1044H416" stroke="#575D5B"/>
+<text x="220" y="1080" font-size="24" font-weight="700">Batch recovery is separate</text>
+<text x="220" y="1117">Join results by custom ID</text><text x="220" y="1151">API success ≠ trusted case</text><text x="220" y="1185">Replay transient failures only</text><text x="220" y="1219">One wave; keep successful work</text><text x="220" y="1253" font-size="18">Missing download? Retrieve again</text>
+</g></svg>

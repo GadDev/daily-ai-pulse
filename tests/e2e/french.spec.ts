@@ -598,6 +598,18 @@ test('French editorial structures preserve literal code, attributed test quotati
   );
   for (const width of [1280, 375, 320]) {
     await page.setViewportSize({ width, height: 900 });
+    // Expressive Code updates keyboard access asynchronously after a resize.
+    await expect
+      .poll(
+        () =>
+          prose
+            .locator('pre')
+            .evaluateAll((nodes) =>
+              nodes.every((node) => node.scrollWidth <= node.clientWidth || node.tabIndex >= 0),
+            ),
+        { message: 'Overflowing code blocks enter the keyboard tab order after resize' },
+      )
+      .toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(
       false,
     );
