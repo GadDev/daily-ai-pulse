@@ -1,0 +1,134 @@
+{
+  "date_checked": "2026-10-25",
+  "scope": "Artwork recovery on PR #236. Assistant visual review against production references and actual guide cover ratios; no human editorial approval, product testing, or news-only identity-validator acceptance claimed.",
+  "guide_id": "agent-observability-langfuse-phoenix",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "model_snapshot": null,
+    "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero.\nSubject: Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review.\nVerified context: Agent observability here means capturing every LLM call, tool invocation, retrieval step, and control-flow decision as a structured trace. The review compares Langfuse and Phoenix using documented capabilities and operating trade-offs, with no universal winner declared.\nVisual idea: A single folded terracotta ribbon representing an agent's path is inspected through two equally weighted translucent mineral-glass planes; folds and seams become visible under each plane.\nOutput crop: wide 16:9 landscape, high-resolution editorial cover, approximately 1600 by 900 proportions.\n\nUse the article-hero role from the inspected story layout: full-width art below the article introduction, object-fit cover on desktop and mobile. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nMatch the inspected publication references' material editorial grammar: chalky off-white architectural forms, muted terracotta, etched charcoal fine lines, controlled oblique depth, subtle warm lithographic paper grain, purposeful spatial tension, soft directional shadows, restrained translucent mineral glass. Preserve that commissioned magazine-illustration feeling. Neither glossy product photography nor flat vector art.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The central folded ribbon and glass need real illustrated material presence, overlapping planes, controlled spatial depth and strong hierarchy. Fine lines support the material forms; they do not carry the whole composition. Treat the ribbon and inspection planes as an abstract metaphor, never as a literal product architecture.\n\nDepict only what the verified context supports. If mechanism or data is uncertain, keep the image an abstract metaphor rather than a purported technical diagram. Do not suggest a measured result, an outperforming product, or a universal winner. The two inspection planes have equal editorial importance.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\n\nDeliver a clean, high-resolution image with no border or frame. Use a generous perimeter of warm paper. Keep essential meaning in the central 60 percent so square/mobile cover crops work.\n\nComposition for this image: Oblique architectural study: a low folded ribbon crossing two upright translucent planes with the material folded path visible between them.\nCreate a single coherent editorial image, not a multi-panel comparison or a contact sheet.",
+    "source": "exec-8c05eaa5-537d-4198-a584-71c151236fd8.png"
+  },
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "candidates": [
+    {
+      "id": "A",
+      "source": "exec-8c05eaa5-537d-4198-a584-71c151236fd8.png",
+      "constitution_passed": true,
+      "observations": "Strongest balanced inspection-plane silhouette, tactile terracotta folds, warm paper space and material depth. Both planes remain readable in guide hero and card crops.",
+      "scores": {
+        "story_specific": 87,
+        "brand_fit": 91,
+        "composition": 90,
+        "crop_quality": 90,
+        "technical_meaning": 86,
+        "cleanliness": 94,
+        "golden_reference_fit": 88,
+        "weighted_total": 88.95
+      }
+    },
+    {
+      "id": "B",
+      "source": "exec-8c29ee58-5d3f-4f87-981b-c0b550e1d69a.png",
+      "constitution_passed": true,
+      "observations": "Materiality and palette fit; composition remained oblique rather than the requested overhead arrangement. Surface linework is busier than A.",
+      "scores": {
+        "story_specific": 86,
+        "brand_fit": 89,
+        "composition": 88,
+        "crop_quality": 89,
+        "technical_meaning": 86,
+        "cleanliness": 90,
+        "golden_reference_fit": 87,
+        "weighted_total": 87.6
+      }
+    },
+    {
+      "id": "C",
+      "source": "exec-42f831ce-3363-4e94-b1ba-b5f820892253.png",
+      "constitution_passed": true,
+      "observations": "Stronger central ribbon loop but inspection planes sit farther apart, reducing crop resilience and the emphasis on inspection.",
+      "scores": {
+        "story_specific": 86,
+        "brand_fit": 89,
+        "composition": 88,
+        "crop_quality": 84,
+        "technical_meaning": 85,
+        "cleanliness": 91,
+        "golden_reference_fit": 86,
+        "weighted_total": 86.6
+      }
+    }
+  ],
+  "references": [
+    "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+    "public/images/stories/2026-09-22-copilot-review-controls.webp"
+  ],
+  "reference_comparison": "Compared two production references above all three candidates on an equal-scale contact sheet. A shares their restrained architectural materiality, lithographic grain, terracotta accents, depth, shadows and spacious paper ground. Contact sheet assembled with Pillow because the repository script's @playwright/test dependency was unavailable.",
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "crops": [
+    {
+      "id": "desktop-hero",
+      "ratio": "21:9",
+      "outcome": "pass",
+      "observation": "Final WebP center crop retains the ribbon and both inspection planes; only peripheral plane tips are trimmed."
+    },
+    {
+      "id": "mobile-hero",
+      "ratio": "16:9",
+      "outcome": "pass",
+      "observation": "Final WebP retains the entire primary composition at the mobile guide ratio."
+    },
+    {
+      "id": "card",
+      "ratio": "3:2",
+      "outcome": "pass",
+      "observation": "Center crop retains both planes and continuous ribbon at small card scale."
+    }
+  ],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "hard_failures": [],
+  "output": {
+    "format": "WebP",
+    "normalization": "Pillow ImageOps.fit with LANCZOS, 1600x900, quality 88, method 6; no stretching.",
+    "verification": "Reopened and fully decoded the exact final WebP; complete RIFF length; SHA-256 and Git blob SHA-1 computed from final bytes."
+  },
+  "asset": {
+    "path": "/images/guides/agent-observability-langfuse-phoenix.webp",
+    "sha256": "c6f6a2eb32f22505b2a138f50a49c8e4e1d6f6f731fe0a41fbd5f6c57fc80b22",
+    "git_blob_sha": "baa2d4f54b5bb3c518b391d6aa89a2ae46cb83ad",
+    "width": 1600,
+    "height": 900,
+    "bytes": 183994
+  },
+  "upload_verification": {
+    "method": "GitHub create_blob with base64; returned SHA matches locally computed Git blob SHA-1. Raw asset downloaded from the created commit before updating the PR branch and compared byte-for-byte.",
+    "sha256": "c6f6a2eb32f22505b2a138f50a49c8e4e1d6f6f731fe0a41fbd5f6c57fc80b22"
+  }
+}
