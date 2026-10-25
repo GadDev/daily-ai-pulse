@@ -3,6 +3,8 @@ import '../styles/global.css';
 import SearchButton from '../components/SearchButton.astro';
 import EnglishDestination from '../components/EnglishDestination.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import ThemeScript from '../components/ThemeScript.astro';
 import { messages, type Locale } from '../lib/i18n';
 
 interface Props {
@@ -126,6 +128,7 @@ const structuredData =
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
+    <ThemeScript />
   </head>
   <body data-pagefind-ignore={noindex ? 'all' : undefined}>
     <header class:list={['site-header', { 'site-header--fr': locale === 'fr' }]}>
@@ -187,6 +190,7 @@ const structuredData =
             frenchAvailable={frenchAvailable}
             englishOnly={englishOnly}
           />
+          <ThemeToggle locale={locale} />
           <a class="subscribe-button" href={`${base}subscribe/`}>
             {locale === 'fr' ? <EnglishDestination label="S’abonner" /> : 'Subscribe'}
           </a>
@@ -216,6 +220,7 @@ const structuredData =
           <section>
             <h2>Explorer</h2>
             <a href={home}>Sélection en français</a>
+            <a href={`${base}fr/settings/`}>{text.settings}</a>
             <a href={base}>
               <EnglishDestination label="Édition" />
             </a>
@@ -287,6 +292,7 @@ const structuredData =
             <a href={`${base}categories/`}>Categories</a>
             <a href={`${base}guides/`}>Tools &amp; Guides</a>
             <a href={`${base}about/`}>About</a>
+            <a href={`${base}settings/`}>{text.settings}</a>
             <a href={`${base}methodology/`}>Methodology</a>
             <a href={`${base}rss.xml`}>RSS feed</a>
           </section>
@@ -459,6 +465,11 @@ const structuredData =
       padding-inline: 0.8rem;
     }
   }
+  @media (max-width: 959px) {
+    .site-header .subscribe-button {
+      display: none;
+    }
+  }
   @media (max-width: 859px) {
     .site-header .site-header__inner {
       grid-template-columns: minmax(0, 1fr) auto;
@@ -477,9 +488,6 @@ const structuredData =
       gap: 1.25rem;
       overflow-x: auto;
     }
-    .site-header .subscribe-button {
-      display: none;
-    }
   }
   @media (max-width: 640px) {
     .site-header .brand {
@@ -494,6 +502,20 @@ const structuredData =
     .site-header .site-nav {
       font-size: 0.85rem;
       gap: 1.2rem;
+    }
+  }
+  @media (max-width: 379px) {
+    .site-header .site-header__inner {
+      position: relative;
+    }
+    .site-header :global([data-theme-toggle]) {
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block-end: 0;
+    }
+    .site-header .site-nav {
+      margin-inline-end: 3.25rem;
+      gap: 0.5rem;
     }
   }
 </style>

@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+  /* Light theme (default) */
   --canvas: #f3ebdd;
   --surface: #f8f3ea;
   --surface-alt: #eee4d5;
@@ -10,6 +12,31 @@
   --font-deck: Georgia, 'Times New Roman', serif;
   --accent: #1d2528;
   --accent-soft: #d8e0dd;
+
+  /* Header variables for light theme */
+  --header-bg: rgba(248, 243, 234, 0.96);
+  --header-border: var(--line);
+
+  /* Button variables for light theme */
+  --button-primary-bg: var(--ink);
+  --button-primary-text: var(--surface);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--ink);
+  --button-secondary-border: var(--ink);
+  --focus-ring: var(--accent);
+
+  /* SFEIR brand colors for dark mode */
+  --noir-carbone: #000000;
+  --blanc-craie: #f9f9f9;
+  --cuivre-poli: #845400;
+  --cuivre-clair: #ffb95c;
+  --cuivre-container: #e5a040;
+  --sable: #ffddb7;
+  --charcoal: #1b1b1b;
+  --on-surface-variant: #514536;
+  --outline-variant: #d6c3b1;
+  --inverse-on-surface: #f1f1f1;
+
   font-family:
     Inter,
     ui-sans-serif,
@@ -20,6 +47,37 @@
     sans-serif;
   color: var(--ink);
   background: var(--canvas);
+}
+
+/* Dark theme */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --canvas: var(--noir-carbone);
+  --surface: #1a1a1a;
+  --surface-alt: #2a2a2a;
+  --ink: var(--inverse-on-surface);
+  --muted: #a8a8a8;
+  --ink-muted: var(--muted);
+  --line: #3a3a3a;
+  --terracotta: var(--cuivre-clair);
+  --accent: var(--cuivre-clair);
+  --accent-soft: #3a2d1a;
+
+  /* Header background for dark mode */
+  --header-bg: rgba(26, 26, 26, 0.96);
+  --header-border: var(--line);
+
+  /* Card and component backgrounds */
+  --card-bg: var(--surface);
+  --card-border: var(--line);
+  --input-bg: var(--surface-alt);
+  --input-border: var(--line);
+  --button-primary-bg: var(--cuivre-clair);
+  --button-primary-text: var(--noir-carbone);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--ink);
+  --button-secondary-border: var(--ink);
+  --focus-ring: var(--cuivre-clair);
 }
 * {
   box-sizing: border-box;
@@ -45,8 +103,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(248, 243, 234, 0.96);
-  border-bottom: 1px solid var(--line);
+  background: var(--header-bg, rgba(248, 243, 234, 0.96));
+  border-bottom: 1px solid var(--header-border, var(--line));
   backdrop-filter: blur(10px);
 }
 .site-header__inner {
@@ -92,10 +150,10 @@ a {
 .subscribe-button,
 .footer-rss-button {
   display: inline-block;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--button-secondary-border);
   border-radius: 999px;
-  background: var(--ink);
-  color: var(--surface);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
   padding: 0.62rem 1rem;
   text-decoration: none;
   font-size: 0.78rem;
@@ -104,8 +162,8 @@ a {
 }
 .subscribe-button:hover,
 .footer-rss-button:hover {
-  background: transparent;
-  color: var(--ink);
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
 }
 .subscribe-button:focus-visible,
 .site-nav a:focus-visible,
@@ -113,7 +171,7 @@ a {
 .site-footer a:focus-visible,
 input:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 main {

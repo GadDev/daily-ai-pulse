@@ -9,6 +9,13 @@ export const messages = {
     searchLabel: 'Search Pulse',
     homeLabel: 'The Daily AI Pulse home',
     tagline: 'Ideas Tools People Impact',
+    themeToggleLabel: 'Dark theme',
+    settings: 'Settings',
+    appearance: 'Appearance',
+    themeMode: 'Theme mode',
+    themeLight: 'Light',
+    themeDark: 'Dark',
+    themeSystem: 'System',
   },
   fr: {
     languages: 'Langue de lecture',
@@ -18,6 +25,13 @@ export const messages = {
     searchLabel: 'Rechercher dans les articles en anglais',
     homeLabel: 'The Daily AI Pulse — sélection en français',
     tagline: 'Idées Outils Équipes Impact',
+    themeToggleLabel: 'Thème sombre',
+    settings: 'Paramètres',
+    appearance: 'Apparence',
+    themeMode: 'Mode de thème',
+    themeLight: 'Clair',
+    themeDark: 'Sombre',
+    themeSystem: 'Système',
   },
 } satisfies Record<Locale, Record<string, string>>;
 export const frenchCategories: Record<CategoryKey, string> = {
