@@ -1,0 +1,188 @@
+---
+import { messages, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = messages[locale];
+---
+
+<fieldset class="theme-mode-toggle" aria-labelledby="theme-mode-label">
+  <legend id="theme-mode-label" class="theme-mode-toggle__label">
+    {text.themeMode}
+  </legend>
+  <div class="theme-mode-toggle__options">
+    <label class="theme-mode-toggle__option">
+      <input
+        type="radio"
+        name="theme-mode"
+        value="light"
+        class="theme-mode-toggle__input"
+        data-theme-mode="light"
+      />
+      <span class="theme-mode-toggle__option-text">{text.themeLight}</span>
+    </label>
+    <label class="theme-mode-toggle__option">
+      <input
+        type="radio"
+        name="theme-mode"
+        value="dark"
+        class="theme-mode-toggle__input"
+        data-theme-mode="dark"
+      />
+      <span class="theme-mode-toggle__option-text">{text.themeDark}</span>
+    </label>
+    <label class="theme-mode-toggle__option">
+      <input
+        type="radio"
+        name="theme-mode"
+        value="system"
+        class="theme-mode-toggle__input"
+        data-theme-mode="system"
+      />
+      <span class="theme-mode-toggle__option-text">{text.themeSystem}</span>
+    </label>
+  </div>
+</fieldset>
+
+<style>
+  .theme-mode-toggle {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .theme-mode-toggle__label {
+    display: block;
+    font:
+      600 0.85rem/1.3 ui-sans-serif,
+      system-ui,
+      sans-serif;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .theme-mode-toggle__options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .theme-mode-toggle__option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--surface);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .theme-mode-toggle__option:hover {
+    border-color: var(--muted);
+    background: var(--surface-alt);
+  }
+
+  .theme-mode-toggle__option:has(:focus-visible) {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-color: var(--focus-ring);
+  }
+
+  .theme-mode-toggle__input {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--terracotta);
+    flex: 0 0 auto;
+  }
+
+  .theme-mode-toggle__option-text {
+    font:
+      400 0.95rem/1.3 Georgia,
+      'Times New Roman',
+      serif;
+    color: var(--ink);
+  }
+
+  .theme-mode-toggle__option:has(:checked) {
+    border-color: var(--terracotta);
+    background: var(--accent-soft);
+  }
+
+  [data-theme="dark"] .theme-mode-toggle__option:has(:checked) {
+    background: var(--cuivre-container);
+    border-color: var(--cuivre-clair);
+  }
+
+  @media (min-width: 640px) {
+    .theme-mode-toggle__options {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .theme-mode-toggle__option {
+      flex: 1;
+      min-width: 0;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const inputs = document.querySelectorAll<HTMLInputElement>('[data-theme-mode]');
+    if (!inputs.length) return;
+
+    const updateSelection = () => {
+      const storedTheme = localStorage.getItem('theme') || 'system';
+
+      inputs.forEach((input) => {
+        const value = input.getAttribute('data-theme-mode');
+        if (value) {
+          input.checked = value === storedTheme;
+        }
+      });
+    };
+
+    updateSelection();
+
+    inputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        if (!input.checked) return;
+
+        const value = input.getAttribute('data-theme-mode');
+        if (!value) return;
+        let newTheme = value;
+
+        if (value === 'system') {
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          newTheme = systemDark ? 'dark' : 'light';
+        }
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', value);
+        updateSelection();
+
+        // Dispatch event for other components (like ThemeToggle) to update
+        window.dispatchEvent(new CustomEvent('theme-change', { detail: { theme: value } }));
+      });
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme === 'system') {
+        const newTheme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        updateSelection();
+      }
+    });
+
+    // Listen for theme changes from other components
+    window.addEventListener('theme-change', () => {
+      updateSelection();
+    });
+  });
+</script>

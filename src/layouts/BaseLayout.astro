@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SearchButton from '../components/SearchButton.astro';
 import EnglishDestination from '../components/EnglishDestination.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { messages, type Locale } from '../lib/i18n';
 
 interface Props {
@@ -126,6 +127,17 @@ const structuredData =
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
+    <script is:inline>
+      (function() {
+        try {
+          var theme = localStorage.getItem('theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (theme === 'dark' || (!theme && systemDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body data-pagefind-ignore={noindex ? 'all' : undefined}>
     <header class:list={['site-header', { 'site-header--fr': locale === 'fr' }]}>
@@ -187,6 +199,7 @@ const structuredData =
             frenchAvailable={frenchAvailable}
             englishOnly={englishOnly}
           />
+          <ThemeToggle locale={locale} />
           <a class="subscribe-button" href={`${base}subscribe/`}>
             {locale === 'fr' ? <EnglishDestination label="S’abonner" /> : 'Subscribe'}
           </a>
