@@ -1,0 +1,862 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-25",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/211",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "typescript-read-only-mcp-server",
+  "guide_id": "typescript-read-only-mcp-server",
+  "pr_number": null,
+  "state": "prepared",
+  "authorization": "Prepare Part 3 article and one draft publication-review PR. Previous publication approval applied to Part 2; no merge or deployment of this new article authorized.",
+  "deduplication": {
+    "base_commit": "82043cba5633ecb210aa94d77fc1fa57adc22fff",
+    "issue_comments": 0,
+    "open_prs_checked": [
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "related_issues_checked": [
+      211,
+      222,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      212,
+      203
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "existing_guides_checked": [
+      "agent-observability-langfuse-phoenix",
+      "agentic-development-environments-compared",
+      "claude-foundations-extraction-review",
+      "rag-retrieval-evaluation",
+      "claude-foundations-first-api-prompt",
+      "ai-coding-assistants-compared",
+      "ide-vs-ade-workflows",
+      "ade-real-shift-or-rebranding",
+      "first-rag-application",
+      "agent-tool-approval-boundary",
+      "agent-security-control-toolkit",
+      "draft-route-regression"
+    ],
+    "notes": "No existing MCP implementation article or overlapping open PR. The security toolkit and deferred MCP security topic are adjacent; this commission owns the beginner local read-only implementation, not a general security audit. Do not alter merged scheduled ledgers.",
+    "final_main_recheck": {
+      "commit": "82043cba5633ecb210aa94d77fc1fa57adc22fff",
+      "result": "Still current main at final preparation. PR #242 edits four other published articles, story corrections and existing tests; no Part 3 overlap. PR #241 shared-policy changes remain open, not silently applied as merged policy."
+    }
+  },
+  "duplication_matrix": [
+    {
+      "part": "1",
+      "owns": "Messages API, prompt and response shape",
+      "part3": "Link the API foundation; do not repeat first request."
+    },
+    {
+      "part": "2",
+      "owns": "Semantic validation, bounded extraction correction and batch replay",
+      "part3": "Reuse synthetic order IDs and explicit failure routing; teach MCP transport and contracts."
+    },
+    {
+      "part": "3",
+      "owns": "Local bounded MCP backend, tool/resource discovery, structured failures and scoped host configuration",
+      "excludes": "Arbitrary filesystem/shell/HTTP interfaces, real authentication, paid-model claims, RAG, simulated writes, coordinator."
+    },
+    {
+      "part": "4-7",
+      "owns": "Agent actions/hooks, Claude Code maintenance, two specialists and CI capstone",
+      "part3": "Only conceptual role-specific tool sets; no agent framework or workflow platform."
+    }
+  ],
+  "requirement_map": [
+    {
+      "requirement": "Pinned local TypeScript stdio server and MCP vocabulary",
+      "implementation": "Fixed corpus/map, v2 server factory and typed narrow tools/resource",
+      "verification": "Typecheck, real stdio client and Inspector CLI"
+    },
+    {
+      "requirement": "Validated inputs and distinct empty/error outcomes",
+      "implementation": "Bounded schemas, domain validation, explicit error codes/retry policy, no automatic transport retry",
+      "verification": "Success, empty, malformed/schema, permission and transient observations; bounded retry fixtures"
+    },
+    {
+      "requirement": "Scoped client configuration and read-only boundary",
+      "implementation": "Claude Code local/project/user examples, fixed role sets, server-side policy guards, advisory annotations",
+      "verification": "Isolated non-model CLI configuration and discovery; absence of write/FS/shell/fetch surfaces"
+    },
+    {
+      "requirement": "Independent delivery tool variation, seeded retry bug, original assessment",
+      "implementation": "Description discrimination exercise and explained scenarios/self-check",
+      "verification": "Scratch variation checks; editorial requirements review"
+    },
+    {
+      "requirement": "Truthful costs, access, compatibility and evidence",
+      "implementation": "No-inference main route; optional bounded Claude Code call; distinguish SDK/Inspector/CLI/live/CI",
+      "verification": "Official sources and actual tool versions; live marked unexecuted without authorization"
+    },
+    {
+      "requirement": "Publication/editorial assets and checks",
+      "implementation": "English draft, genuine reviewed WebP with provenance, responsive SVG, one commission record",
+      "verification": "Browser/crop/accessibility checks, integrity/readback, content/link/build and exact PR CI"
+    }
+  ],
+  "artwork": {
+    "state": "uploaded",
+    "capability_preflight": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in image tool successfully generated all three Part 3 candidates after source/brief identity freeze."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Opened the actual published Part 1 and Part 2 WebP production references with view_image in this Part 3 preflight."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and decoded a new 16×16 WebP successfully in this Part 3 preflight."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Part 3 genuine WebP uploaded with GitHub create_blob base64 encoding, then independently fetched/decoded through the GitHub blob API. Exact 169134-byte SHA-256 match."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_date": "2026-10-25",
+    "candidate_count": 3,
+    "selected_candidate": "C",
+    "visual_brief": {
+      "story_id": "typescript-read-only-mcp-server",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Build a Read-Only MCP Server for Northstar Helpdesk",
+      "verified_context": [
+        "Northstar needs the amount charged for order NS-2001 and the returns policy. We will give it a small interface for those questions, then inspect every operation ourselves.",
+        "The server exposes no refund, arbitrary file, shell or network-fetch operation.",
+        "Calling a tool read-only supplies a useful label; the server's code must still enforce the boundary."
+      ],
+      "editorial_idea": "A small viewing opening presents a limited set of records.",
+      "visual_metaphor": "A pale stone archive block exposes a few blank paper cards through a narrow opening lined with terracotta.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "wide 16:9 master, center-safe for 21:9 desktop hero, 16:9 mobile hero and 3:2 cards",
+      "must_show": [
+        "pale stone archive block",
+        "narrow terracotta-lined opening",
+        "a few visibly blank paper cards",
+        "physical depth and spacious composition"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/guides/claude-foundations-first-api-prompt.webp",
+        "public/images/guides/claude-foundations-extraction-review.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "typescript-read-only-mcp-server",
+      "story_source_sha256": "8084838bd89a403b34e103f59bbca59a69f962d8d2f6c882415e59ad9ccd704c",
+      "visual_brief_sha256": "82ccbc8d3e6a5edb6368c2fb69b3095b29950e36836e5de2fe2fe4575667a43f",
+      "reference_inputs_sha256": "70e38bdea85142d0e03a43b32fdfbab2844640d414f32ac238bf8af453178ab0",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "7bbdf158ac31aa07ad1bebe47b64423c7d17f2b1454c2a7e127caf85e93278c2"
+    },
+    "generation_decision": {
+      "decision": "GENERATE",
+      "reason": "review-missing",
+      "expected_generation_key": "7bbdf158ac31aa07ad1bebe47b64423c7d17f2b1454c2a7e127caf85e93278c2",
+      "requires_batch_validation": false,
+      "note": "Manual guide review lives in this commission; do not claim the news-only illustration review validator covers this guide."
+    },
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Candidate A. Create one editorial illustration for The Daily AI Pulse. Placement article-hero, wide horizontal 16:9 master. Subject Build a Read-Only MCP Server for Northstar Helpdesk. Verified context: a fictional local MCP server exposes narrow order lookup and bounded policy search, plus a fixed policy catalog; the implementation exposes no refund, arbitrary file, shell or network-fetch tool. The read-only annotation is advisory and the code enforces the interface. Visual idea: a pale limestone archive block exposes a few blank cream paper cards through one narrow terracotta-lined opening. A concrete physical metaphor of a small viewing window into a limited set of records, not a literal computer sandbox. The block is a sculptural archival object, with thick stone mass surrounding a shallow horizontal viewing aperture; two or three blank paper leaves sit just behind the aperture, their curled edges clearly visible, no text on them. Single central object, three-quarter elevated view, tactile mineral grain and subtle paper texture, soft light and fine edges. Restrained contemporary editorial illustration with quiet scientific/architectural sensibility. Warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious background, deliberate geometry, strong thumbnail silhouette, subtle physical depth, refined illustration quality. Central complete object inside the middle 55 percent of the composition, generous negative space so 21:9 desktop and 3:2 card crops preserve the aperture and cards. Match the production archive's tactile paper/terracotta/stone materiality and compositional confidence. This is an artwork asset inside an existing page, never a generated webpage. Not a bare schematic, flowchart, wireframe, icon system or minimalist architecture diagram. NO words, letters, numbers, labels, logos, interface elements, buttons, badges, charts, watermark, neon, robots, AI brains, page parts, screenshot imitation, border or frame. High resolution, clean wordless horizontal artwork.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-8ab7ecc0-d831-4bb2-9e9e-53b33d5908ce.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-8ab7ecc0-d831-4bb2-9e9e-53b33d5908ce.png",
+        "source_sha256": "eba8ab06586fd220c473235b6ab1b6baf18bc08ee441524ed4524bcac5072569",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "prompt": "Candidate B. Create one editorial illustration for The Daily AI Pulse. Article-hero placement; wide horizontal 16:9 image. Subject: Build a Read-Only MCP Server for Northstar Helpdesk. Verified context: the tutorial exposes a fixed fictional order map and policy corpus through a narrow MCP interface, then inspects the calls without a paid model. It teaches code-enforced read boundaries and advisory annotations. Visual metaphor: one compact pale stone archival block, with a narrow vertical recess lined in matte terracotta. The recess reveals just the visible edges of a small fan of blank cream paper cards, like a limited reading aperture into a much larger closed stone mass. The papers must be visibly blank and tactile; the stone object remains substantial and sculptural, not a flat icon, safe, padlock, display or building. Low oblique still-life viewpoint, warm ivory background, subtle cast shadows, mineral grain, folded paper edges, fine architectural lines. Restrained contemporary editorial illustration, quiet scientific sensibility, strong focal hierarchy and generous negative space. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terra-cotta #8A4B35. Keep the whole central artifact and viewing opening compact within the middle 55 percent of the image for 21:9 desktop, 16:9 mobile and 3:2 card cover crops. The production references use cream paper and terracotta physical forms, precise geometric restraint and real material depth; match that quality without copying their exact forms. No words, letters, numbers, labels, logos, UI, buttons, page header/footer, badges, invented charts, watermarks, neon, robots, brains, screenshot imitation, border or frame. Never a diagram, flowchart, wireframe or icon composition. High resolution editorial artwork.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-75601116-513a-4d7f-83d6-d4258200c938.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-75601116-513a-4d7f-83d6-d4258200c938.png",
+        "source_sha256": "2b01558833c74b6f8489cab89c07b4415df5c571f639200f0161d6a916ddab50",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "prompt": "Candidate C. Create one clean, high-resolution editorial illustration for The Daily AI Pulse. Placement article-hero, wide horizontal 16:9 master. Subject Build a Read-Only MCP Server for Northstar Helpdesk. Verified context: the tutorial builds a local server that exposes only narrow reads into synthetic orders and policies, with a fixed content catalog. Read-only labels do not enforce permissions; the implementation defines the actual interface. One physical metaphor: a thick pale limestone archive block has a small terracotta-lined viewing opening, through which a few blank off-white paper cards can be seen. The cards are partly concealed inside the block, with lightly curved edges emerging into the aperture; no card carries marks or text. The opening is the clear focal idea, the rest of the stone volume is closed and solid. Keep it an illustrated sculptural still life with subtle physical depth, not a literal machine, safe, padlock or digital interface. Slightly elevated three-quarter perspective, quiet asymmetry, soft directional light, fine edges and mineral/paper grain, generous warm negative space. Palette #F3EBDD canvas, #FAF6EE paper, #171B1A ink, #575D5B gray, restrained #8A4B35 terracotta accent. Deliberate geometry, quiet scientific/architectural sensibility, confident thumbnail silhouette, publication-quality tactile materiality. Central artifact fits within the middle 55 percent, safely cropped to 21:9 desktop hero and 3:2 thumbnail while preserving the opening and blank cards. Match the warm paper/stone/terracotta production archive. Absolutely no words, letters, numbers, labels, logos, UI, page sections, buttons, badges, charts, watermark, neon, robots, brains, screenshots, border or frame. Never a bare schematic, flowchart, architecture diagram or icon composition.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-2c3d0962-9b3e-4fb4-9fc6-875bc3b5876d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-2c3d0962-9b3e-4fb4-9fc6-875bc3b5876d.png",
+        "source_sha256": "cf75cd3ad58887bce217726f2319036c3aa4cd006ab70ff8924a72fd85105088",
+        "error": null
+      }
+    ],
+    "review": {
+      "reviewer": "Codex (model self-review; no human sign-off invented)",
+      "method": "Inspected every generated image individually for prohibited elements before scoring. Compared a Pillow contact sheet containing all three candidates and the two actual published references. Selected C inspected at native size and in desktop/mobile/card/thumbnail crops.",
+      "hard_failures": [],
+      "constitution_check": {
+        "passed": true,
+        "text_or_pseudotext": false,
+        "logos_or_ui": false,
+        "diagram_first": false,
+        "unsupported_visual_claim": false,
+        "physical_depth": true,
+        "warm_material_palette": true
+      },
+      "score_weights": {
+        "story_specific": 0.2,
+        "brand_fit": 0.15,
+        "composition": 0.15,
+        "crop_quality": 0.15,
+        "technical_meaning": 0.1,
+        "cleanliness": 0.05,
+        "golden_reference_fit": 0.2
+      },
+      "candidate_scores": {
+        "A": {
+          "story_specific": 91,
+          "brand_fit": 91,
+          "composition": 87,
+          "crop_quality": 90,
+          "technical_meaning": 89,
+          "cleanliness": 95,
+          "golden_reference_fit": 89,
+          "weighted_total": 89.85
+        },
+        "B": {
+          "story_specific": 88,
+          "brand_fit": 90,
+          "composition": 87,
+          "crop_quality": 83,
+          "technical_meaning": 87,
+          "cleanliness": 96,
+          "golden_reference_fit": 88,
+          "weighted_total": 87.7
+        },
+        "C": {
+          "story_specific": 94,
+          "brand_fit": 92,
+          "composition": 92,
+          "crop_quality": 89,
+          "technical_meaning": 92,
+          "cleanliness": 97,
+          "golden_reference_fit": 92,
+          "weighted_total": 92.2
+        }
+      },
+      "candidate_notes": {
+        "A": "Compliant narrow horizontal archive slot; loose tilted cards are less immediately recognizable at thumbnail scale.",
+        "B": "Compliant vertical recess; reads more like a split block and loses more of its aperture under a wide hero crop.",
+        "C": "Selected: nested blank cards and terracotta-lined opening remain clear at small sizes, with tactile pale stone consistent with both prior parts."
+      },
+      "golden_reference_comparison": "Compared actual Part 1 and Part 2 covers for warm cream background, restrained terracotta, tactile physical material, fine edges and strong small-size silhouette. C keeps the series material language while presenting a distinct limited-access archive metaphor.",
+      "crop_review": {
+        "desktop_21_9": "Top/back and bottom stone edges crop slightly; the complete opening, terracotta lining and blank cards remain.",
+        "mobile_16_9": "Complete focal object remains at 375px.",
+        "card_3_2": "Opening and cards remain at 320px.",
+        "thumbnail": "At 160px the aperture/card relationship remains recognizable."
+      },
+      "cover_crop_approved": true,
+      "thumbnail_approved": true,
+      "contact_sheet_sha256": "b573762834d602514a26eaaeeacbabe8e376baf0bb9305218fd96c897238be54",
+      "crop_sheet_sha256": "0d430a9cc10390b5cef35ab14a3c93e71074180916d0080f206a1f71e2fc8e6d"
+    },
+    "asset_integrity": {
+      "path": "public/images/guides/typescript-read-only-mcp-server.webp",
+      "format": "WebP",
+      "width": 1600,
+      "height": 900,
+      "bytes": 169134,
+      "sha256": "3cb02edecbe352ead7e393a4097ca74f5ca6fa5f5fa85e7848e33870364a15c6",
+      "git_blob_sha": "60cdf797e393979fa01e088547a18fd6854473b6",
+      "conversion": "Selected C PNG converted with Pillow RGB, Lanczos fit, WebP quality 88/method 6; actual RIFF/WEBP signature and decoded dimensions checked.",
+      "remote_readback": "Exact byte length and SHA-256 match after base64 blob upload and independent GitHub blob API readback."
+    },
+    "diagram": {
+      "path": "public/images/guides/northstar-mcp-boundary.svg",
+      "sha256": "af9c4f8085660ddca79578aaa0b7a337a9055f2e7da0c95d970296c2b9c0cf9a",
+      "inspection": "Actual browser SVG rendering and 320/375px article figure inspected. Host paths merge before MCP connection; tools branch from server; fixed resource has an independent branch. All labels fit after shortening two labels and repairing arrow directions before freeze."
+    }
+  },
+  "handoff": {
+    "completion": "prepared-for-human-review",
+    "preparation_blockers": [],
+    "remaining_verification": [
+      "Optional live Claude query/usage/tool-selection trial not executed",
+      "Project-scope execution approval not completed in isolated verification"
+    ],
+    "exact_head_ci": "Actual final-head CI results will be recorded in PR description after completion.",
+    "publication_gate": "Draft PR and status:draft, no publishedAt. Part 3 has no publication/merge authorization yet; human review/merge remains the publication boundary.",
+    "recovery": "Optional live verification requires authenticated model access and an explicit budget; inspect project launch command before approving it. Neither limitation is concealed by fixture/CLI evidence."
+  },
+  "checked_on": "2026-10-25",
+  "source_verification": [
+    {
+      "claim": "Bounded tool schemas, registration, annotations and validation before handlers",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/tools.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "MCP server 2.4.0; pinned types and real stdio calls executed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "isError tool results versus protocol errors; SDK error results may omit the custom envelope",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/errors.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "MCP server/client 2.4.0; wrong-type/schema failure observed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "serveStdio(factory), child-process transport and stderr diagnostics",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/stdio.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "MCP server 2.4.0; stdout audit and real client calls executed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Legacy support with per-connection factory and modern/legacy protocol distinction",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/legacy-clients.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "SDK 2.4.0; real 2026-07-28 and 2025-11-25 client checks",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Fixed resource registration/read; host controls context attachment",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/resources.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "SDK 2.4.0; catalog listed/read, arbitrary URIs rejected",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Client lifecycle and stdio child process connection",
+      "url": "https://ts.sdk.modelcontextprotocol.io/v2/clients/connect.html",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "MCP client 2.4.0; discovery/calls/close executed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Tool annotations are advisory; input/result schemas and errors",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Protocol revision 2026-07-28, explicit modern client tested",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Inspector v2 command flags, modern protocol and exit codes",
+      "url": "https://github.com/modelcontextprotocol/inspector",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Inspector 2.12.0; eight CLI scenarios executed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "MCP local/project/user scope, environment expansion, timeout and project approval",
+      "url": "https://code.claude.com/docs/en/mcp",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Claude Code 2.1.310; isolated configuration commands executed",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Scope defaults and local/private versus shared configuration locations",
+      "url": "https://code.claude.com/docs/en/mcp-quickstart",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Claude Code 2.1.310; local/user connected, project pending approval",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Bare mode, strict explicit MCP config, allowedTools, turn/budget/output flags",
+      "url": "https://code.claude.com/docs/en/cli-reference",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Claude Code 2.1.310 help and docs checked; launcher process mocked only",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "API/MCP timeouts, retries/watchdog and output-token settings",
+      "url": "https://code.claude.com/docs/en/env-vars",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Unpinned current official docs; launcher environment mocked, managed-policy/account behavior untested",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "auto, any, named tool and none affect selection, not authorization or execution",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Unpinned current API docs; conceptual examples, no model call",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Haiku 4.5 snapshot active legacy, standard USD 1/5 per million input/output tokens",
+      "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "claude-haiku-4-5-20251001; account availability and actual spend not tested",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Pricing is a planning source, not a guaranteed cost ceiling",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Unpinned current pricing; estimate only, zero paid inference",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "Free course badges differ from paid partner-only proctored certification",
+      "url": "https://academy.claude.com/help/faq",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Unpinned current FAQ; no eligibility/access claim",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    },
+    {
+      "claim": "CCAR-F tasks 2.1/2.2/2.3/2.4 and typical six-month experience; no established mandatory prior-course completion",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+      "evidence_type": "official primary documentation",
+      "date_checked": "2026-10-25",
+      "product_version_plan": "Exam Guide v1.0 effective July 2026; public guide reviewed, no endorsement or pass guarantee",
+      "limitations": "Live documentation is not an immutable release snapshot unless a revision is named. Documentation review alone does not establish live model behavior."
+    }
+  ],
+  "links": {
+    "external": [
+      {
+        "url": "https://academy.claude.com/help/faq",
+        "status": 200,
+        "final_url": "https://academy.claude.com/help/faq"
+      },
+      {
+        "url": "https://code.claude.com/docs/en/cli-reference",
+        "status": 200,
+        "final_url": "https://code.claude.com/docs/en/cli-reference"
+      },
+      {
+        "url": "https://code.claude.com/docs/en/env-vars",
+        "status": 200,
+        "final_url": "https://code.claude.com/docs/en/env-vars"
+      },
+      {
+        "url": "https://code.claude.com/docs/en/mcp",
+        "status": 200,
+        "final_url": "https://code.claude.com/docs/en/mcp"
+      },
+      {
+        "url": "https://code.claude.com/docs/en/mcp-quickstart",
+        "status": 200,
+        "final_url": "https://code.claude.com/docs/en/mcp-quickstart"
+      },
+      {
+        "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+        "status": 200,
+        "final_url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf"
+      },
+      {
+        "url": "https://github.com/GadDev/daily-ai-pulse/issues/218",
+        "status": 200,
+        "final_url": "https://github.com/GadDev/daily-ai-pulse/issues/218"
+      },
+      {
+        "url": "https://github.com/modelcontextprotocol/inspector",
+        "status": 200,
+        "final_url": "https://github.com/modelcontextprotocol/inspector"
+      },
+      {
+        "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+        "status": 200,
+        "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/clients/connect.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/clients/connect.html"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/errors.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/errors.html"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/resources.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/resources.html"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/tools.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/servers/tools.html"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/legacy-clients.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/legacy-clients.html"
+      },
+      {
+        "url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/stdio.html",
+        "status": 200,
+        "final_url": "https://ts.sdk.modelcontextprotocol.io/v2/serving/stdio.html"
+      }
+    ],
+    "internal": [
+      "/guides/agent-tool-approval-boundary/",
+      "/guides/claude-foundations-extraction-review/",
+      "/guides/claude-foundations-first-api-prompt/"
+    ]
+  },
+  "verification": {
+    "date": "2026-10-25",
+    "environment": {
+      "os": "Linux",
+      "node": "22.22.3",
+      "typescript": "6.0.3",
+      "mcp_server": "2.4.0",
+      "mcp_client": "2.4.0",
+      "mcp_inspector": "2.12.0",
+      "zod": "4.6.7",
+      "node_types": "22.20.5",
+      "claude_code": "2.1.310"
+    },
+    "fixtures": {
+      "status": "passed",
+      "retry_counts": {
+        "malformed_broken": 2,
+        "malformed_repaired": 1,
+        "transient_repaired": 2
+      },
+      "backend": "Synthetic fixed orders, three policies, permission context and fault injection; not a real outage/customer system."
+    },
+    "local_cli": {
+      "status": "passed",
+      "commands": [
+        "npm run build",
+        "npm run inspect",
+        "node retry-exercise.mjs"
+      ],
+      "article_code_extracted_byte_for_byte": true,
+      "repeat_from_extracted_article_files": "Build, real stdio inspect and retry exercise passed in fresh scratch directory using exact copied article code."
+    },
+    "independent_scratch_checks": {
+      "status": "passed",
+      "count": 22,
+      "coverage": [
+        "known/empty/domain/denied outcomes",
+        "bounded search and injection-as-data",
+        "malformed envelope/error metadata and inconsistent flags",
+        "modern and legacy real stdio discovery",
+        "role-specific tools/resources",
+        "SDK rejection of type/extra/oversize arguments",
+        "one retry for explicit transient only",
+        "fixed resource read and arbitrary URI rejection",
+        "no shell/write/network-fetch interface"
+      ],
+      "committed_article_specific_suite": false
+    },
+    "inspector": {
+      "status": "passed",
+      "count": 8,
+      "evidence_type": "real Inspector CLI; synthetic backend; no model",
+      "scenarios": [
+        {
+          "case": "tools",
+          "exit_code": 0
+        },
+        {
+          "case": "order",
+          "exit_code": 0
+        },
+        {
+          "case": "missing",
+          "exit_code": 0
+        },
+        {
+          "case": "invalid",
+          "exit_code": 5
+        },
+        {
+          "case": "denied",
+          "exit_code": 5
+        },
+        {
+          "case": "resources",
+          "exit_code": 0
+        },
+        {
+          "case": "catalog",
+          "exit_code": 0
+        },
+        {
+          "case": "transient",
+          "exit_code": 5
+        }
+      ],
+      "result_note": "Successful/empty reads and discovery exit 0; invalid/denied/transient return isError and exit 5."
+    },
+    "protocol_stdout": {
+      "clean": {
+        "lines": 3,
+        "stdout": "Only JSON-RPC frames",
+        "stderr": "Readiness diagnostic present",
+        "protocol": "2025-11-25"
+      },
+      "seeded_stdout_contamination": "Rejected as expected; not part of server implementation"
+    },
+    "claude_code_configuration": {
+      "status": "passed-with-explicit-limit",
+      "isolation": "Fresh CLAUDE_CONFIG_DIR and temporary project; no real private config changed, no model prompt.",
+      "scopes_added_get_list_removed": [
+        "local",
+        "project",
+        "user"
+      ],
+      "observed": {
+        "local": "Connected",
+        "user": "Connected",
+        "project": "Pending approval; approval not completed"
+      },
+      "limit": "Connection health does not measure tool selection, inferred protocol version for this host, paid access or model behavior."
+    },
+    "independent_variation": {
+      "evidence": "real MCP client, synthetic variation; description/contract checks, no model selection measured",
+      "toolNames": [
+        "lookup_order",
+        "search_policies",
+        "get_delivery_status"
+      ],
+      "orderDescription": "Read currency, totalCents and paymentStatus for one exact Northstar order ID, such as NS-2001. Use for an order summary, not a policy search or delivery tracking. Cannot change orders or issue refunds.",
+      "deliveryDescription": "Read the synthetic carrier, delivery status and last event for an exact order ID. Use for where-is-my-parcel questions, not payment amounts or returns policy. Never invent tracking events.",
+      "result": {
+        "orderId": "NS-2001",
+        "delivery": {
+          "carrier": "Northstar Parcel",
+          "status": "in_transit",
+          "lastEventAt": "2026-10-20T10:00:00Z"
+        }
+      },
+      "denial": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "PERMISSION_DENIED",
+          "message": "This fixture identity cannot read that order.",
+          "retryable": false,
+          "retryAfterMs": null
+        }
+      }
+    },
+    "mock_cli_process": {
+      "evidence": "mocked CLI process only",
+      "status": "passed",
+      "checks": [
+        "three-turn limit",
+        "USD 0.05 CLI budget",
+        "file/shell/web tools disabled",
+        "narrow explicit orders MCP config",
+        "JSONL verbose transcript mode",
+        "API/MCP timeouts",
+        "API retries and watchdog disabled",
+        "output-token setting",
+        "labelled output"
+      ],
+      "live_queries": 0
+    },
+    "live_model": {
+      "status": "not-executed",
+      "reason": "Account access and spending authorization were not established; no ANTHROPIC_API_KEY observed, no credential value exposed or model query executed. Existing CLI authentication was not probed.",
+      "recovery": "Reader establishes authentication/model access and explicit spend budget, then optionally runs the single bounded launcher and inspects tool events, final status and usage. Do not rerun automatically."
+    },
+    "repository": {
+      "command": "npm run verify",
+      "node": "22.22.3",
+      "status": "passed",
+      "details": "Lint, formatting, content, evergreen ledger, translation, editorial batch/run, illustration checks, tooling/Astro checks, static build and Pagefind completed. Existing Zod url() deprecation diagnostics remain. Fresh dist/.astro build confirms draft route, listing and sitemap exclude Part 3."
+    },
+    "actual_ci": {
+      "status": "record-in-PR-description-after-exact-head-run",
+      "note": "Local checks are not claimed as remote CI."
+    },
+    "article_code_sha256": {
+      "tsconfig.json": "59dc44ec40497fc63063128fd653c57d316311e4516f03b875e3bce778b78c3b",
+      "contracts.ts": "7715ad5c69fc7f9a9d8766d9225a0c43b16132785c8741edc222cee827110113",
+      "backend.ts": "09f1fb7999e65dbe0e5eea00bec87d036d1e814e3fbde586e9280b787268ed12",
+      "server.ts": "052154f1d1508bf86c78a5b5806fd2b21e688fc31526f5d81cfffa3b035dbfcc",
+      "inspect.ts": "1e58378c25e88cea4d01956b74e43c5907bc163ffc465d113c23e231bf16fd3c",
+      "retry-exercise.mjs": "ac554b8e9ea158619da27272317f0f9f47a060ab5eb1553c7a40116d1e9b30b2",
+      "run-live.mjs": "834a861c138c3132c8411e1cc627f08b05c81280f9550079cb7db204dada2897"
+    },
+    "safe_local_evidence_sha256": {
+      "part3-verification.log": "eb5c9949816fdc299ec1fea718074f4fd9e54a98540cc53c73243a90764f265c",
+      "part3-inspector-evidence.json": "55fd893f71f65a5d0d3a1f2868c750051d7e0ba47bd65e0f874a3b6e0a8d85a6",
+      "part3-protocol-audit.json": "a31e161c7c3be1a3e166e6c82ab49dad23aee4cdc9ff957aba5c21e89bae44ba",
+      "part3-claude-scope-evidence.json": "f29f6a164abce65f1754c2c439ed70ca0d169848516221bb242947973bd60834",
+      "part3-variation-evidence.json": "e99294bad7e46e6bb6a94cabe371330b8849d45502b4988b3f4019ac3be3fb4e",
+      "part3-launcher-mock.json": "ad6d84eb7f7c7b27c6b0dc13c30128a61bd4c6c24cdecb0e017d66abd2e6fd5a",
+      "part3-link-check.json": "08b091766d421f5c3ab39b14894a6d62c54fa84557781a7bf24be39eb5f1866b",
+      "part3-browser-report.json": "833cc2ba51a87b2f88c75c9d87b6c02844927057f1838a796ebb3c450a292b4a"
+    }
+  },
+  "visual_review": {
+    "date": "2026-10-25",
+    "browser": "Chromium 131.0.6778.0 via Playwright 1.64.0",
+    "mode": "Actual local static Astro build rendered with temporary publication metadata; exact draft bytes restored. Browser routes fulfilled built HTML/assets from local disk; this is not public deployment. Final selected cover replaced the temporary preview placeholder and checks repeated.",
+    "viewports": [
+      1440,
+      375,
+      320
+    ],
+    "page_overflow": false,
+    "broken_images": 0,
+    "accessibility": "axe-core WCAG2A/WCAG2AA/WCAG21AA: zero violations at 375px",
+    "diagram": "Actual SVG browser rendering inspected, including all labels at 320px.",
+    "english_french": "English source only; no French translation or French alternate advertised; existing French lifecycle controls unchanged.",
+    "report": [
+      {
+        "width": 1440,
+        "http": 200,
+        "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 1440,
+        "viewport": 1440,
+        "brokenImages": [],
+        "diagram": {
+          "x": 487,
+          "y": 3093.9375,
+          "width": 646,
+          "height": 1644.359375,
+          "top": 3093.9375,
+          "right": 1133,
+          "bottom": 4738.296875,
+          "left": 487
+        },
+        "headings": 15,
+        "codeBlocks": 20,
+        "frenchAlternate": false
+      },
+      {
+        "width": 375,
+        "http": 200,
+        "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 375,
+        "viewport": 375,
+        "brokenImages": [],
+        "diagram": {
+          "x": 28,
+          "y": 4958.421875,
+          "width": 319,
+          "height": 812,
+          "top": 4958.421875,
+          "right": 347,
+          "bottom": 5770.421875,
+          "left": 28
+        },
+        "headings": 15,
+        "codeBlocks": 20,
+        "frenchAlternate": false,
+        "axeViolations": []
+      },
+      {
+        "width": 320,
+        "http": 200,
+        "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 320,
+        "viewport": 320,
+        "brokenImages": [],
+        "diagram": {
+          "x": 25.796875,
+          "y": 5333.859375,
+          "width": 268.390625,
+          "height": 683.171875,
+          "top": 5333.859375,
+          "right": 294.1875,
+          "bottom": 6017.03125,
+          "left": 25.796875
+        },
+        "headings": 15,
+        "codeBlocks": 20,
+        "frenchAlternate": false
+      }
+    ]
+  },
+  "editorial_self_review": {
+    "reviewer": "Codex (model self-review; no independent/human review fabricated)",
+    "contract": "Main-branch Editorial Voice v2 and Tools & Guides contract; issue #211 acceptance criteria and scope.",
+    "finding": "No unresolved preparation blocker after revisions; optional live model evidence and project approval remain explicitly unexecuted.",
+    "revisions": [
+      "Explain setup parent directory before mkdir/cd; keep a separate disposable mcp package.",
+      "Launch stdio with node, avoiding npm stdout banners.",
+      "Use current v2 split packages/factory and Inspector flags; explicitly test legacy as a separate protocol route.",
+      "Classify SDK-generated failures without inventing Northstar metadata or parsing English messages.",
+      "Separate project listing from approval; preserve actual Pending approval observation.",
+      "Describe tool choice separately from host permissions, role registration and backend authorization.",
+      "Add bounded one-call launcher, zero retries/watchdog, timeout and honest request/cost limits; mock only.",
+      "Repair diagram arrow directions/independent resource branch and overflowing text before source freeze."
+    ],
+    "fairness": "No product ranking, unsupported secure/sandbox claim or live selection claim. Maintained server versus custom adapter tradeoff stated. No affiliate or certification endorsement claim.",
+    "series_overlap": "Part 1 API/schema and Part 2 semantic/batch work cross-linked; read-only transport/contracts owned here; actions, hooks, coordinator and CI capstone deferred.",
+    "assessment": "Independent delivery variation, seeded retry bug, three original scenario questions with delayed explained answers, explain-without-looking and outcome-based self-assessment present."
+  }
+}
