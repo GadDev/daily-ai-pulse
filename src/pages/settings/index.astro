@@ -12,8 +12,9 @@ const text = messages[locale];
   title={`${text.settings} | The Daily AI Pulse`}
   description="Manage your preferences for The Daily AI Pulse."
   noindex={true}
+  archiveLanguageHref={`${import.meta.env.BASE_URL}fr/settings/`}
 >
-  <main class="settings-page">
+  <div class="settings-page">
     <header class="settings-header">
       <h1>{text.settings}</h1>
     </header>
@@ -24,7 +25,7 @@ const text = messages[locale];
       </h2>
       <ThemeModeToggle locale={locale} />
     </section>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
