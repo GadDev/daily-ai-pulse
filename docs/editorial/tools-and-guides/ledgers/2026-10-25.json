@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-25",
   "run_status": "draft-pr",
-  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork recovered on the same PR #236: selected cover generated, visually reviewed, normalized to WebP and uploaded with verified binary integrity. Guide remains a draft; handoff awaits current CI.",
+  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork recovered on the same PR #236: selected cover generated, visually reviewed, normalized to WebP and uploaded with verified binary integrity. Verify project and browser smoke/accessibility checks passed at 208306b7986d2e040d4fe2be6199976ebb684d56. Publication authorized by the user on 2026-10-25; the guide is marked published for the same PR #236.",
   "candidates": [
     {
       "topic_key": "agent-observability-langfuse-phoenix",
@@ -55,10 +55,8 @@
   "handoff": {
     "guide_id": "agent-observability-langfuse-phoenix",
     "pr_number": 236,
-    "completion": "blocked",
-    "blockers": [
-      "Current PR checks must pass after the artwork recovery commit."
-    ]
+    "completion": "complete",
+    "blockers": []
   },
   "artwork": {
     "state": "uploaded",

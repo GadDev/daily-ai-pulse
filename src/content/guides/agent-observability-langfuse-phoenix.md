@@ -1,12 +1,12 @@
 ---
 title: "Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review"
 description: "Compare trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Conditional recommendations for agent workflows."
-status: draft
+status: published
 format: review
 verification: researched
 difficulty: advanced
 author: The Daily AI Pulse
-publishedAt: null
+publishedAt: 2026-10-25
 verifiedAt: 2026-10-25
 affiliateLinks: false
 image: /images/guides/agent-observability-langfuse-phoenix.webp
