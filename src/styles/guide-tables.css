@@ -1,0 +1,88 @@
+.prose .guide-table-help {
+  margin-block: 1.5rem 0.5rem;
+  color: var(--muted);
+  font:
+    0.8125rem/1.5 ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+.guide-table-scroll {
+  max-width: 100%;
+  margin-block-end: 2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-block: 1px solid var(--line);
+  scrollbar-color: var(--muted) var(--surface);
+}
+
+.guide-table-scroll:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+.guide-table {
+  width: 100%;
+  min-width: var(--table-min-width);
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: var(--ink);
+  font:
+    0.9375rem/1.6 ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+.guide-table :is(th, td) {
+  padding: 1rem;
+  vertical-align: top;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+.guide-table thead {
+  background: var(--surface-alt);
+  border-block-end: 1px solid var(--ink);
+}
+
+.guide-table th {
+  font-weight: 700;
+}
+
+.guide-table tbody tr + tr {
+  border-block-start: 1px solid var(--line);
+}
+
+.guide-table tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+
+.guide-table :is(th, td) + :is(th, td) {
+  border-inline-start: 1px solid var(--line);
+}
+
+.guide-table code {
+  padding: 0.1em 0.25em;
+  background: var(--surface-alt);
+  font-size: 0.9em;
+  white-space: normal;
+}
+
+.guide-table a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+@media print {
+  .guide-table-help {
+    display: none;
+  }
+
+  .guide-table-scroll {
+    overflow: visible;
+  }
+
+  .guide-table {
+    min-width: 0;
+  }
+}
