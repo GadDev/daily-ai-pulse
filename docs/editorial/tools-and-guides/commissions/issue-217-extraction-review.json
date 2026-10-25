@@ -311,7 +311,7 @@
     "completion": "publication-prepared",
     "preparation_blockers": [],
     "live_verification_gap": "Live Claude/API/batch behavior not measured. Explicitly labelled throughout; optional live exercise, not a claimed completed check.",
-    "exact_head_ci": "Reviewed draft head 9f5026c348ee8cd2f5815d37f3412b45b126d792 passed run 40237977295 attempt 2 (66 browser tests); final publication-head CI and deployment will be recorded in PR description after actual completion.",
+    "exact_head_ci": "Reviewed draft 9f5026c passed run 40237977295 attempt 2 (66 browser tests). First publication head 42fc606f passed project checks but exposed a responsive code focus race in the existing French test; see publication.ci_failure_review. Final corrected-head CI and deployment will be recorded in PR description after actual completion.",
     "publication_gate": "Explicit maintainer publication authorization received. Merge PR #240 only after final publication checks pass, then verify the normal Firebase deployment and public endpoints.",
     "source_and_generation_identity": "The preserved identity describes the original reviewed draft source. The administrative publication delta and unchanged body/assets are documented under artwork.publication_metadata_update."
   },
@@ -633,6 +633,27 @@
     "live_api_verification": "Not executed; existing researched label and explicit limitation retained.",
     "visibility": "Verify live detail, guide listing, sitemap and assets after merge and normal Firebase deployment.",
     "human_merge_required": false,
-    "boundary_note": "Explicit maintainer publication authorization permits this merge after final checks; no human reviewer identity or prior personal review is invented."
+    "boundary_note": "Explicit maintainer publication authorization permits this merge after final checks; no human reviewer identity or prior personal review is invented.",
+    "ci_failure_review": {
+      "run_id": 40240808605,
+      "head": "42fc606f88a657e9e45bbe8ac40c52806a5596fa",
+      "project_check": "passed",
+      "browser_result": "65 passed, one French editorial accessibility test failed on both internal attempts.",
+      "failure": "scrollable-region-focusable on pre[data-language=\"sh\"] immediately after viewport changes in tests/e2e/french.spec.ts:567.",
+      "cause_evidence": "Installed Expressive Code core schedules tabindex/role updates with a debounced ResizeObserver and idle callback; the existing test did not await that responsive focus update.",
+      "fix": "The existing French test now polls that every overflowing code block has a nonnegative tabIndex after each viewport change. It retains all assertions, screenshots and the complete Axe scan. No product, tutorial, framework, or article-specific suite changes.",
+      "local_validation": {
+        "focused_existing_browser_test": "passed: 1 test, 17.1 seconds",
+        "browser": "Chromium 131.0.6778.0 via Playwright 1.64.0",
+        "viewports": [
+          1280,
+          375,
+          320
+        ],
+        "format": "Prettier passed",
+        "lint": "ESLint passed"
+      },
+      "final_head_ci": "Actual new-head CI results will be recorded in PR description."
+    }
   }
 }
