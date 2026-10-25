@@ -1,0 +1,605 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-25",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/217",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-extraction-review",
+  "guide_id": "claude-foundations-extraction-review",
+  "pr_number": null,
+  "state": "prepared-for-publication-review",
+  "authorization": "Prepare Part 2 and a complete publication-review PR. No publication or merge of this new article authorized yet.",
+  "deduplication": {
+    "base_commit": "8a2f5c4f09268d9fd6c2614090f567d73209246e",
+    "open_prs_checked": [
+      237,
+      185,
+      182,
+      159
+    ],
+    "issue_comments": 0,
+    "existing_guide_ids": [
+      "agent-observability-langfuse-phoenix",
+      "agentic-development-environments-compared",
+      "rag-retrieval-evaluation",
+      "claude-foundations-first-api-prompt",
+      "ai-coding-assistants-compared",
+      "ide-vs-ade-workflows",
+      "ade-real-shift-or-rebranding",
+      "first-rag-application",
+      "agent-tool-approval-boundary",
+      "agent-security-control-toolkit",
+      "draft-route-regression"
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "manual_commission_pattern": "Preserve immutable scheduled ledgers; follow issue-216 manual commission precedent.",
+    "duplication_matrix": [
+      {
+        "owner": "#216 / published Part 1",
+        "owns": "Messages, prompt examples, schema and tool choices",
+        "link": "/guides/claude-foundations-first-api-prompt/"
+      },
+      {
+        "owner": "#217 / this article",
+        "owns": "Evidence checks, bounded feedback, batch failure replay, segmented evaluation and review routing",
+        "excludes": "Parser, retrieval, agent framework or statistical certification study"
+      },
+      {
+        "owner": "#211 and #218–#221",
+        "owns": "MCP, controlled agents, Claude Code, coordination and CI",
+        "link": "https://github.com/GadDev/daily-ai-pulse/issues/211"
+      }
+    ]
+  },
+  "requirement_map": [
+    {
+      "requirement": "Absent facts, contradictory sources and multiple layouts",
+      "implementation": "Independently labelled synthetic email/invoice fixtures and trusted source maps",
+      "verification": "Inspect labels; deterministic outcomes with zero attempts for incomplete/contradictory source maps"
+    },
+    {
+      "requirement": "Semantic validation and targeted bounded retry",
+      "implementation": "Integer-cent comparisons, line sums, source facts and one corrective attempt",
+      "verification": "Exact code extraction, shape/error tests and bounded call counts"
+    },
+    {
+      "requirement": "Batch manifest and failed-only replay",
+      "implementation": "Stable IDs, unordered result reconciliation, terminal-state handling and attempt budget",
+      "verification": "Reordered results, duplicate/unknown/missing IDs, API-success/semantic-failure separation, no successful-item replay"
+    },
+    {
+      "requirement": "Accuracy segments and confidence review",
+      "implementation": "Per-field and per-layout exact-match counts, field-level confidence, reproducible stratified audit and false-positive worksheet",
+      "verification": "Independently recompute metrics and demonstrate high-confidence wrong amount"
+    },
+    {
+      "requirement": "Beginner practice and assessment",
+      "implementation": "Independent layout exercise, seeded failure, original questions and self-assessment",
+      "verification": "Editorial review against acceptance criteria and scope"
+    },
+    {
+      "requirement": "Publication assets, evidence and checks",
+      "implementation": "New reviewed WebP, responsive SVG and source/evidence record",
+      "verification": "Generation decision, references/crops, binary read-back, source/link/build checks and exact-head CI"
+    }
+  ],
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in image_gen.imagegen is available and successfully exercised earlier in this session; this guide generation not yet invoked."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image inspected actual published Part 1 and RAG evaluation cover references in this run."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and decoded an actual synthetic 16x16 WebP in this run."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Authenticated GitHub base64 blob/tree/commit route succeeded for Part 1; connector repository reads succeeded in this run. Final Part 2 asset upload/read-back remains to be performed."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_date": "2026-10-25",
+    "candidate_count": 3,
+    "selected_candidate": "C",
+    "visual_brief": {
+      "story_id": "claude-foundations-extraction-review",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Claude Extraction You Can Check: Validation, Batches and Human Review",
+      "verified_context": [
+        "An invoice says EUR 10.00. The extractor returns EUR 99.99, with 99% confidence. Every property has the right type. The amount is still wrong.",
+        "A schema accepts an integer 9999; a source check rejects it when the invoice says 1000 cents.",
+        "Persistent errors, low confidence and provider stops go to review."
+      ],
+      "editorial_idea": "An apparently finished object must still be checked against evidence before acceptance.",
+      "visual_metaphor": "A pale stone block rests beside a terracotta checking gauge whose opening does not match its shape.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "wide 16:9 master, center-safe for 21:9 desktop hero, 16:9 mobile hero and 3:2 cards",
+      "must_show": [
+        "pale stone block",
+        "terracotta checking gauge",
+        "visible mismatch between block and gauge opening",
+        "material depth and spacious composition"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/guides/claude-foundations-first-api-prompt.webp",
+        "public/images/guides/rag-retrieval-evaluation.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-extraction-review",
+      "story_source_sha256": "169dc19dbcb19ad55e9a431bea0437274c0d73904549f98de1fa16153098a196",
+      "visual_brief_sha256": "7e8c8a8fd88e0fdcd52e3732bb09f4e305d3efeb10309fe06f4ee4be06c65ca4",
+      "reference_inputs_sha256": "3d6e51c44bbb683f15e05919d6220fc732c70b36ef5a1c1f9a6afd20ca43e934",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "d80dcd57673ac07aa97e262c2d94fd05c1eb47a83104fe43f9256f119af25de8"
+    },
+    "generation_decision": {
+      "decision": "GENERATE",
+      "reason": "review-missing",
+      "expected_generation_key": "d80dcd57673ac07aa97e262c2d94fd05c1eb47a83104fe43f9256f119af25de8",
+      "requires_batch_validation": false,
+      "note": "Manual guide review belongs in this commission; news-only review validator is not claimed."
+    },
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Candidate A. Create one editorial illustration for The Daily AI Pulse. Placement: article-hero, wide 16:9 master. Subject: Claude Extraction You Can Check: Validation, Batches and Human Review. Verified context: A synthetic invoice extractor can return a well-shaped JSON record with a wrong amount and 99 percent claimed confidence. The application checks the record against independent source anchors and routes persistent errors to human review. Visual idea: a pale stone rectangular block rests beside an upright terracotta checking gauge with a circular opening visibly too small and the wrong shape for that block. One concrete physical metaphor for an apparently finished object failing an evidence check. The block is clearly outside the opening, never forced into it. Spacious three-quarter still life, subtle material depth, one sculptural terra-cotta gauge and one pale stone block, absolutely no other props. Center the relationship inside the central 55 percent so it survives 21:9 desktop and 3:2 card crops. Restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine edges, tactile paper and stone textures. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Background warm ivory, soft light, subtle depth, illustrated materiality, confident negative space. Publication references are physical folded paper in terracotta sorting form and stone inspection artifacts; keep their tactile editorial quality, do not copy their exact arrangement. This is artwork for an existing page, never a webpage. Not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. NO words, letters, numbers, labels, logos, interface elements, page header/footer, buttons, badges, charts, watermark, neon, robots, glowing brains, screenshots, border or frame. High resolution, horizontal wide image.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-81cb7be9-635f-4eae-b375-03defcc2bae3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "prompt": "Candidate B. Create one editorial illustration for The Daily AI Pulse. Placement article-hero; horizontal 16:9 master. Subject Claude Extraction You Can Check: Validation, Batches and Human Review. Verified context: A synthetic invoice extractor returns the wrong amount despite a 99 percent confidence claim. Application evidence checks and a bounded correction can send it to review. Visual metaphor: a substantial pale stone rectangular block sits in front and slightly to the right of a terracotta checking gauge. The gauge is a freestanding thick stone slab with one round opening visibly too small and differently shaped than the wide block. The block remains outside, with a small clear gap making the failed fit immediately legible. Single architectural still life, two objects only. Low oblique viewpoint, warm raking daylight, refined physical depth, understated fine edges and paper-print grain. Restrained contemporary editorial illustration, quiet scientific sensibility, geometric discipline without becoming a schematic. Warm ivory canvas #F3EBDD and paper #FAF6EE, charcoal #171B1A and muted gray #575D5B, terra-cotta #8A4B35 as the only accent. Keep both objects and their relationship centrally within the middle 55 percent of the image, generous negative space for safe object-fit cover cropping at 21:9 desktop, 16:9 mobile and 3:2 thumbnail. Match the publication's tactile cream paper / terracotta / pale stone production artwork in materiality and compositional confidence. No words, letters, numbers, labels, logos, UI, headings, footer, badges, buttons, invented charts, watermark, neon, robots or brains. No diagram, flowchart, icon system, screen imitation, border or frame. High-resolution clean editorial artwork.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-8393f52c-fb97-4a51-80d7-6f879aa53fd4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "prompt": "Candidate C. Create one editorial illustration for The Daily AI Pulse, article-hero placement, wide horizontal 16:9. Subject Claude Extraction You Can Check: Validation, Batches and Human Review. Verified context: Well-formed extracted case data can still contain a wrong amount; confidence is a claim and persistent errors require evidence-based human review. Visual idea: a pale stone block with an unmistakably square cross section lies beside a thick upright terracotta gauge with a small circular opening, which visibly cannot receive the block. Render as an illustrated sculptural object study with physical presence and subtle spatial depth. Slightly elevated architectural perspective, restrained asymmetric arrangement balanced at the center, square block in foreground and round-aperture checking stone just behind, one focal relationship, two objects only, no decorative extras. Soft sculptural shadows, subtly rough terra-cotta and fine-grained warm pale limestone, cream paper-like backdrop. Art direction is contemporary editorial illustration, quiet scientific, generous negative space, deliberate geometry, fine edges, strong thumbnail silhouette, subtle paper texture. Palette warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, gray #575D5B, restrained terracotta #8A4B35. Both objects together must fit comfortably within central 55 percent for 21:9 desktop and 3:2 card cover crops. Match tactile paper/stone materiality and editorial confidence of the publication, not a generic 3D icon pack. Never a bare schematic, diagram, wireframe or flowchart. No words, letters, numbers, labels, logos, UI, page parts, buttons, badges, charts, watermark, neon, robots, brains, border or frame. High resolution, no text anywhere.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-8f6ebb99-ef53-4fae-8d15-a8a9ad4ee5e0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null
+      }
+    ],
+    "asset_integrity": {
+      "path": "public/images/guides/claude-foundations-extraction-review.webp",
+      "format": "WebP",
+      "width": 1600,
+      "height": 900,
+      "bytes": 138678,
+      "sha256": "b790a6c404b7bf01093120e070ac93cb5104ae849dba12c27635c07d9424a5e8",
+      "git_blob_sha": "13905e2785ec76113d7da1ee9174e1b7595f662b",
+      "candidate_sources": [
+        {
+          "candidate": "A",
+          "path": "/workspace/scratch/bba3e387193b/generated_images/exec-81cb7be9-635f-4eae-b375-03defcc2bae3.png",
+          "sha256": "06cf546803b3b2672465461d5158206680fba01f21348ac8a49e80695bef96e1",
+          "size": [
+            1672,
+            941
+          ]
+        },
+        {
+          "candidate": "B",
+          "path": "/workspace/scratch/bba3e387193b/generated_images/exec-8393f52c-fb97-4a51-80d7-6f879aa53fd4.png",
+          "sha256": "6159b6a80b081272fbcf07c187a1f8b96e572df715196541fe927067e8d8cc55",
+          "size": [
+            1672,
+            941
+          ]
+        },
+        {
+          "candidate": "C",
+          "path": "/workspace/scratch/bba3e387193b/generated_images/exec-8f6ebb99-ef53-4fae-8d15-a8a9ad4ee5e0.png",
+          "sha256": "8e32bb2991ec7178bb5324d63ec4e0f6f811ffed83783be2dc9feb476eda8357",
+          "size": [
+            1672,
+            941
+          ]
+        }
+      ]
+    },
+    "candidate_scores": {
+      "A": {
+        "story_specific": 91,
+        "brand_fit": 90,
+        "composition": 85,
+        "crop_quality": 82,
+        "technical_meaning": 89,
+        "cleanliness": 98,
+        "golden_reference_fit": 88,
+        "weighted_total": 88.15,
+        "constitution_compliant": true
+      },
+      "B": {
+        "story_specific": 92,
+        "brand_fit": 90,
+        "composition": 86,
+        "crop_quality": 80,
+        "technical_meaning": 91,
+        "cleanliness": 98,
+        "golden_reference_fit": 88,
+        "weighted_total": 88.4,
+        "constitution_compliant": true
+      },
+      "C": {
+        "story_specific": 94,
+        "brand_fit": 92,
+        "composition": 92,
+        "crop_quality": 89,
+        "technical_meaning": 94,
+        "cleanliness": 98,
+        "golden_reference_fit": 92,
+        "weighted_total": 92.45,
+        "constitution_compliant": true
+      }
+    },
+    "selection_reason": "C keeps both objects compact and the square/round mismatch clear. A and B spread farther across the frame. All three are wordless physical still lifes; C has the best crop resilience.",
+    "golden_reference_review": "Compared three candidates side by side with Part 1 and retrieval-evaluation production covers. C matches tactile pale stone/terracotta, warm ground, material depth, restrained geometry and spacious focal hierarchy. Retrieval reference is denser; C deliberately follows Part 1 series restraint.",
+    "cover_crop_approved": true,
+    "thumbnail_legible": true,
+    "crop_notes": "Inspected 21:9 desktop, 16:9 mobile, 3:2 320px card and 160px thumbnail. The desktop crop slightly trims the upper edge of the gauge, preserving its opening and the whole block relationship.",
+    "conversion": "Pillow RGB fit to1600x900, WebP quality88 method6; decoded format/dimensions and RIFF/WEBP magic checked.",
+    "upload_verification": {
+      "status": "passed",
+      "remote_blob_sha": "13905e2785ec76113d7da1ee9174e1b7595f662b",
+      "readback_bytes": 138678,
+      "readback_sha256": "b790a6c404b7bf01093120e070ac93cb5104ae849dba12c27635c07d9424a5e8",
+      "method": "GitHub connector create_blob base64; independent GitHub REST blob readback decoded to exact source hash."
+    }
+  },
+  "handoff": {
+    "completion": "prepared",
+    "preparation_blockers": [],
+    "live_verification_gap": "Live Claude/API/batch behavior not measured. Explicitly labelled throughout; optional live exercise, not a claimed completed check.",
+    "exact_head_ci": "Required before final handoff; actual run/commit/results will be written in PR description.",
+    "publication_gate": "Draft source and draft PR require human editorial approval, publication metadata and human-controlled merge. No deployment authorized or performed.",
+    "source_and_generation_identity": "Article frozen before image generation; generation identity must match exact final Markdown bytes. Administrative PR/evidence metadata changes in this JSON do not change illustration inputs."
+  },
+  "checked_on": "2026-10-25",
+  "source_verification": [
+    {
+      "claim": "Schema-constrained text uses output_config.format; local application checks own numerical ranges and meaning",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Batches are asynchronous; unordered custom_id correlation, result lifecycle, retention, cancellation, deletion and current server-tool loops",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Task-specific labelled evaluations and representative segments",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "SDK client timeout and retry settings; actual pinned 1.3.0 types compile",
+      "url": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Haiku4.5 snapshot active legacy, standard $1/$5 and 50% batch discount, per million tokens",
+      "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Current token pricing source; planning assumptions are not spend guarantees",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Free Academy completion badges differ from paid partner-only proctored Pearson/Credly exams",
+      "url": "https://academy.claude.com/help/faq",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    },
+    {
+      "claim": "Task references 4.4/4.5/5.5 and typical six-month candidate; no official endorsement, pass guarantee or established mandatory course prerequisite",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+      "checked_on": "2026-10-25",
+      "status": "verified in official documentation; account access not tested"
+    }
+  ],
+  "links": {
+    "external": [
+      {
+        "url": "https://academy.claude.com/help/faq",
+        "status": 200,
+        "final_url": "https://academy.claude.com/help/faq"
+      },
+      {
+        "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+        "status": 200,
+        "final_url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf"
+      },
+      {
+        "url": "https://github.com/GadDev/daily-ai-pulse/issues/211",
+        "status": 200,
+        "final_url": "https://github.com/GadDev/daily-ai-pulse/issues/211"
+      },
+      {
+        "url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+        "status": 200,
+        "final_url": "https://github.com/GadDev/daily-ai-pulse/issues/222"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview"
+      },
+      {
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+        "status": 200,
+        "final_url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+      }
+    ],
+    "internal": [
+      "/guides/claude-foundations-first-api-prompt/",
+      "/guides/first-rag-application/"
+    ]
+  },
+  "verification": {
+    "date": "2026-10-25",
+    "environment": {
+      "os": "Linux",
+      "node": "22.22.3",
+      "typescript": "6.0.3",
+      "anthropic_sdk": "1.3.0",
+      "ajv": "8.20.0",
+      "tsx": "4.23.15",
+      "node_types": "22.20.5"
+    },
+    "local_cli": {
+      "status": "passed",
+      "commands": [
+        "npx tsc --noEmit",
+        "npm run part2"
+      ],
+      "seven_article_files_extracted_byte_for_byte": true,
+      "expected_attempts": [
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fixture_files": 10,
+      "metrics": {
+        "overall": "25/28",
+        "email": "12/12",
+        "invoice": "13/16",
+        "totalCents": "5/7",
+        "lineTotalsCents": "6/7",
+        "claimedConfidenceAtLeast95": "21/23"
+      },
+      "replay": "Only ns-invoice-line-fix-32ae2fb0d752 enters replay wave; three API successes excluded; second wave has one request and zero further replays"
+    },
+    "independent_scratch_assertions": {
+      "status": "passed",
+      "count": 32,
+      "coverage": [
+        "shape and numerical ranges",
+        "source preflight with zero calls",
+        "repeated evidence versus contradictions",
+        "wrong amount at 99% remains review",
+        "line mismatch despite correct sum",
+        "one correction bound",
+        "low confidence no score inflation",
+        "provider stops",
+        "stratified audits",
+        "stable parameter IDs",
+        "unordered join",
+        "no API success replay",
+        "attempt-two final",
+        "permanent/canceled/expired manual handling",
+        "missing/duplicate/unknown IDs fail closed"
+      ],
+      "committed_test_suite": false
+    },
+    "mock_http": {
+      "status": "passed",
+      "count": 11,
+      "coverage": [
+        "SDK request schema and fixed host",
+        "usage reporting",
+        "refusal",
+        "max_tokens",
+        "bounded malformed shape correction",
+        "transport with SDK retries disabled",
+        "source conflict zero inference",
+        "explicit two-request batch budget flag",
+        "timeout leaves reservation",
+        "existing reservation blocks resubmit",
+        "unconfirmed receipt blocks retrieval",
+        "exactly two batch requests"
+      ],
+      "real_anthropic_requests": 0,
+      "committed_test_suite": false,
+      "supplementary_batch_lifecycle": {
+        "count": 3,
+        "status": "passed",
+        "coverage": [
+          "SDK batch retrieve and unordered JSONL download joined to saved manifest",
+          "cancel endpoint",
+          "delete endpoint"
+        ]
+      }
+    },
+    "live_model": {
+      "status": "not-executed",
+      "reason": "No ANTHROPIC_API_KEY in the execution environment; no paid request made. Authored fixture responses and mock HTTP do not establish live behavior."
+    },
+    "repository": {
+      "command": "npm run verify",
+      "node": "22.22.3",
+      "status": "passed",
+      "details": "lint, formatting, content, evergreen ledger, translations, editorial batch/run, illustrations, tooling/Astro checks, static build and Pagefind completed; existing Zod .url() deprecation diagnostics unchanged."
+    },
+    "actual_ci": {
+      "status": "recorded-in-pr-description-after-exact-head-run",
+      "note": "No CI success inferred from local checks."
+    },
+    "article_code_sha256": {
+      "client.ts": "4e2fe2851d22911703b97daf0b7be9350db1edb37764cb55207014b9a83c3620",
+      "case-contract.ts": "34f633ad3faef64fd73685e1d08d7669604f44cf339214f628811b0d2858af4d",
+      "cases.ts": "6e5ac0c483f0f3d6737d208d60b93b0cf283afe3304b08d95c5a34c8fccd0d4d",
+      "review.ts": "4c3d4fca832ad9bb4d1e860ca988874faf5af0b09c2eb63c7db1490739673a12",
+      "batch.ts": "3ae5a092b33db577820631eb68d3f28826614a2bd7ff2fae5fdf0432097ced10",
+      "lab.ts": "db2377f9fdb8d1fbc67f31796c27cd7e1028f4c08afaa174ee950a6b215c78ec",
+      "live.ts": "aae333ab23f011a1565e64c43ab2fb17d3c18c3c8bd7ec4d66f8e271ac47ea8b"
+    }
+  },
+  "visual_review": {
+    "date": "2026-10-25",
+    "browser": "Chromium 131.0.6778.0 via Playwright 1.64.0",
+    "mode": "Local static Astro build with temporary publication metadata, exact draft bytes restored; Playwright fulfilled local asset bytes, no public deployment",
+    "viewports": [
+      1440,
+      375,
+      320
+    ],
+    "page_overflow": false,
+    "broken_images": 0,
+    "diagram": "Rendered SVG inspected independently and inside responsive guide figure; shortened one overflow label before final freeze. At 320px all labels stay inside diagram.",
+    "accessibility": "axe-core WCAG2A/WCAG2AA/WCAG21AA: zero violations at 375px",
+    "english_french": "English source only. No French translation or French alternate advertised; no invented human review or approval.",
+    "initial_browser_report": [
+      {
+        "width": 1440,
+        "http": 200,
+        "title": "Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 1440,
+        "viewport": 1440,
+        "brokenImages": [],
+        "diagram": {
+          "x": 487,
+          "y": 4434.6875,
+          "width": 646,
+          "height": 1879.265625,
+          "top": 4434.6875,
+          "right": 1133,
+          "bottom": 6313.953125,
+          "left": 487
+        },
+        "headings": 14,
+        "codeBlocks": 16,
+        "frenchAlternate": false
+      },
+      {
+        "width": 375,
+        "http": 200,
+        "title": "Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 375,
+        "viewport": 375,
+        "brokenImages": [],
+        "diagram": {
+          "x": 28,
+          "y": 6826.734375,
+          "width": 319,
+          "height": 928,
+          "top": 6826.734375,
+          "right": 347,
+          "bottom": 7754.734375,
+          "left": 28
+        },
+        "headings": 14,
+        "codeBlocks": 16,
+        "frenchAlternate": false,
+        "axeViolations": []
+      },
+      {
+        "width": 320,
+        "http": 200,
+        "title": "Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+        "bodyWidth": 320,
+        "viewport": 320,
+        "brokenImages": [],
+        "diagram": {
+          "x": 25.796875,
+          "y": 7645.421875,
+          "width": 268.390625,
+          "height": 780.765625,
+          "top": 7645.421875,
+          "right": 294.1875,
+          "bottom": 8426.1875,
+          "left": 25.796875
+        },
+        "headings": 14,
+        "codeBlocks": 16,
+        "frenchAlternate": false
+      }
+    ],
+    "final_cover_page_pass": "Repeated local static-page checks with final C WebP after rendering preview again; exact draft source restored."
+  }
+}
