@@ -53,7 +53,12 @@
         "owns": "MCP, controlled agents, Claude Code, coordination and CI",
         "link": "https://github.com/GadDev/daily-ai-pulse/issues/211"
       }
-    ]
+    ],
+    "final_main_recheck": {
+      "commit": "9d1fe1c14505c9d6291f51eee727e3a026a36674",
+      "change": "PR #237 merged: observability article and its table test only; no overlap with Part 2 or illustration identity inputs.",
+      "action": "Merge current main before final exact-head CI."
+    }
   },
   "requirement_map": [
     {

@@ -9,16 +9,22 @@ for (const width of [375, 768, 1280]) {
   }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(review);
+    const tables = page.locator('.prose table');
     const regions = page.locator('.guide-table-scroll');
-    await expect(regions).toHaveCount(3);
-    const table = page.getByRole('table', { name: 'Evidence matrix', exact: true });
-    await expect(table.getByRole('columnheader')).toHaveText([
-      'Criterion',
-      'Langfuse',
-      'Phoenix',
-      'Evidence notes',
-    ]);
-    await expect(table.getByRole('columnheader').first()).toHaveAttribute('scope', 'col');
+    expect(await tables.count()).toBeGreaterThan(0);
+    // Every article table needs one scroll container, even when editorial sections change.
+    await expect(regions).toHaveCount(await tables.count());
+    await expect(page.locator('.guide-table-scroll > table')).toHaveCount(await tables.count());
+    for (const name of ['Debugging and integration', 'Data handling and operation']) {
+      const table = page.getByRole('table', { name, exact: true });
+      await expect(table.getByRole('columnheader')).toHaveText([
+        'Criterion',
+        'Langfuse: sourced capability',
+        'Phoenix: sourced capability',
+        'Evidence/date and limitations',
+      ]);
+      await expect(table.locator('thead th[scope="col"]')).toHaveCount(4);
+    }
 
     for (const region of await regions.all()) {
       await expect(region).toHaveAttribute('role', 'region');
@@ -38,9 +44,12 @@ for (const width of [375, 768, 1280]) {
       expect(geometry.overflow).toBe(false);
     }
 
-    const matrix = page.getByRole('region', { name: 'Evidence matrix — table', exact: true });
+    const matrix = page.getByRole('region', {
+      name: 'Debugging and integration — table',
+      exact: true,
+    });
     // Reach the region through sequential keyboard navigation, then move across it.
-    await page.getByRole('link', { name: 'Evidence matrix', exact: true }).focus();
+    await page.getByRole('link', { name: 'Debugging and integration', exact: true }).focus();
     for (let step = 0; step < 30; step++) {
       await page.keyboard.press('Tab');
       if (await matrix.evaluate((element) => element === document.activeElement)) break;
@@ -68,7 +77,7 @@ for (const width of [375, 768, 1280]) {
     await matrix.evaluate((element) => {
       element.scrollLeft = 0;
     });
-    await page.locator('#evidence-matrix').evaluate((element) => {
+    await page.locator('#debugging-and-integration').evaluate((element) => {
       window.scrollTo({
         top: element.getBoundingClientRect().top + scrollY - 96,
         behavior: 'instant',
