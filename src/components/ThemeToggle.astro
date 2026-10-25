@@ -5,13 +5,17 @@ interface Props {
 }
 const { locale } = Astro.props;
 const text = messages[locale];
+
+// Compute initial theme for SSR - will be overridden by client script
+const isDark = Astro.cookies.has('theme') ? Astro.cookies.get('theme')?.value === 'dark' : false;
+const initialAriaPressed = isDark ? 'true' : 'false';
 ---
 
 <button
   class="theme-toggle"
   type="button"
   aria-label={text.themeToggleLabel}
-  aria-pressed={false}
+  aria-pressed={initialAriaPressed as 'true' | 'false'}
   data-theme-toggle
 >
   <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
@@ -75,21 +79,13 @@ const text = messages[locale];
     transform: rotate(-90deg) scale(0.8);
   }
 
-  [data-theme='dark'] .theme-toggle__icon--sun {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.8);
-  }
-
-  [data-theme='dark'] .theme-toggle__icon--moon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-  }
-
+  [data-theme='dark'] .theme-toggle__icon--sun,
   .theme-toggle[aria-pressed='true'] .theme-toggle__icon--sun {
     opacity: 0;
     transform: rotate(90deg) scale(0.8);
   }
 
+  [data-theme='dark'] .theme-toggle__icon--moon,
   .theme-toggle[aria-pressed='true'] .theme-toggle__icon--moon {
     opacity: 1;
     transform: rotate(0deg) scale(1);
@@ -97,33 +93,68 @@ const text = messages[locale];
 </style>
 
 <script>
+  // Initialize immediately (before page-load) to avoid flash
+  (function () {
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (!toggle) return;
+
+    const html = document.documentElement;
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = storedTheme ?? (prefersDark ? 'dark' : 'light');
+    html.setAttribute('data-theme', initialTheme);
+    toggle.setAttribute('aria-pressed', initialTheme === 'dark' ? 'true' : 'false');
+  })();
+
   document.addEventListener('astro:page-load', () => {
     const toggle = document.querySelector('[data-theme-toggle]');
     if (!toggle) return;
 
+    const html = document.documentElement;
+
     const updateAriaPressed = () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      toggle.setAttribute('aria-pressed', isDark.toString());
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     };
 
     updateAriaPressed();
 
     toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const isDark = html.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
 
-      document.documentElement.setAttribute('data-theme', newTheme);
+      html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+      localStorage.removeItem('theme-system');
       updateAriaPressed();
+
+      // Notify other components
+      window.dispatchEvent(new CustomEvent('theme-change', { detail: { theme: newTheme } }));
     });
 
     // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      const storedTheme = localStorage.getItem('theme');
-      if (!storedTheme) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      if (!localStorage.getItem('theme') && !localStorage.getItem('theme-system')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        html.setAttribute('data-theme', newTheme);
         updateAriaPressed();
       }
     });
+
+    // Listen for theme changes from ThemeModeToggle
+    window.addEventListener('theme-change', ((e: Event) => {
+      const ce = e as CustomEvent;
+      if (ce.detail?.theme) {
+        html.setAttribute(
+          'data-theme',
+          ce.detail.theme === 'system'
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : ce.detail.theme,
+        );
+        updateAriaPressed();
+      }
+    }) as EventListener);
   });
 </script>
