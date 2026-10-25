@@ -36,7 +36,9 @@ const text = messages[locale];
     color: var(--muted);
     cursor: pointer;
     flex: 0 0 auto;
-    transition: color 0.2s ease, background 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
   }
 
   .theme-toggle:hover {
@@ -57,7 +59,9 @@ const text = messages[locale];
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
     position: absolute;
   }
 
@@ -71,22 +75,22 @@ const text = messages[locale];
     transform: rotate(-90deg) scale(0.8);
   }
 
-  [data-theme="dark"] .theme-toggle__icon--sun {
+  [data-theme='dark'] .theme-toggle__icon--sun {
     opacity: 0;
     transform: rotate(90deg) scale(0.8);
   }
 
-  [data-theme="dark"] .theme-toggle__icon--moon {
+  [data-theme='dark'] .theme-toggle__icon--moon {
     opacity: 1;
     transform: rotate(0deg) scale(1);
   }
 
-  .theme-toggle[aria-pressed="true"] .theme-toggle__icon--sun {
+  .theme-toggle[aria-pressed='true'] .theme-toggle__icon--sun {
     opacity: 0;
     transform: rotate(90deg) scale(0.8);
   }
 
-  .theme-toggle[aria-pressed="true"] .theme-toggle__icon--moon {
+  .theme-toggle[aria-pressed='true'] .theme-toggle__icon--moon {
     opacity: 1;
     transform: rotate(0deg) scale(1);
   }

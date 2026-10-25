@@ -49,7 +49,7 @@
 }
 
 /* Dark theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --canvas: var(--noir-carbone);
   --surface: #1a1a1a;
   --surface-alt: #2a2a2a;

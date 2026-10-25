@@ -77,7 +77,9 @@ const text = messages[locale];
     border-radius: 0;
     background: var(--surface);
     cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease;
   }
 
   .theme-mode-toggle__option:hover {
@@ -111,7 +113,7 @@ const text = messages[locale];
     background: var(--accent-soft);
   }
 
-  [data-theme="dark"] .theme-mode-toggle__option:has(:checked) {
+  [data-theme='dark'] .theme-mode-toggle__option:has(:checked) {
     background: var(--cuivre-container);
     border-color: var(--cuivre-clair);
   }
