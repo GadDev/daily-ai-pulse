@@ -69,6 +69,14 @@ test('current French page preserves code, links, sources, image and canonical da
   assert.doesNotMatch(html, /name="robots"/);
 });
 
+test('English corrections remain visible on the canonical article', () => {
+  const html = english('current');
+  assert.match(html, /aria-labelledby="corrections-title"/);
+  assert.match(html, /<h2 id="corrections-title">Corrections<\/h2>/);
+  assert.match(html, /<time datetime="2026-10-05T00:00:00.000Z">05 October 2026<\/time>/);
+  assert.ok(html.includes(editorialCorrections.en[0].note));
+});
+
 test('a real source edit with a new correction withholds French routes, listing, alternates and search until review completes', () => {
   const id = fixtureId('current');
   // Initial state is already built above. Every subsequent stage rebuilds exact
@@ -85,6 +93,7 @@ test('a real source edit with a new correction withholds French routes, listing,
         ),
       );
       assert.match(source, /three retries/);
+      assert.ok(source.includes(addedCorrection.en.note), `English correction absent at ${stage}`);
       const route = join(candidate.dist, `fr/stories/${id}/index.html`);
       const current = stage === 'reviewed';
       assert.equal(selection.includes(`/fr/stories/${id}/`), current, stage);

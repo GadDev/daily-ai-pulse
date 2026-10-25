@@ -65,12 +65,14 @@ const base = import.meta.env.BASE_URL;
 const tocItems = headings
   .filter((heading) => heading.depth === 2 || heading.depth === 3)
   .map((heading) => ({ id: heading.slug, label: heading.text }));
-const publishedDate = story.data.date.toLocaleDateString('en-GB', {
-  day: '2-digit',
-  month: 'long',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+const formatArticleDate = (date: Date) =>
+  date.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+const publishedDate = formatArticleDate(story.data.date);
 const editionLabel = edition?.data.date.toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
@@ -164,6 +166,22 @@ const imageSrc = story.data.image.startsWith('/')
         <div class="prose">
           <Content components={{ PulseTake, Evidence, TryThis, EditorialQuote }} />
         </div>
+
+        {story.data.corrections.length > 0 && (
+          <section class="sources" aria-labelledby="corrections-title">
+            <h2 id="corrections-title">Corrections</h2>
+            <ul>
+              {story.data.corrections.map((correction) => (
+                <li>
+                  <time datetime={correction.date.toISOString()}>
+                    {formatArticleDate(correction.date)}
+                  </time>{' '}
+                  : {correction.note}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {story.data.sources.length > 0 && (
           <section class="sources" aria-labelledby="sources-title">
