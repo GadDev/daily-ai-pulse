@@ -54,7 +54,10 @@ You can finish the fixture exercises without an API key or paid inference. Insta
 | JSON Schema          | Describe allowed keys, types, categories and missing values                                | Whether an order number came from the message         |
 | Application          | Check configuration and output, record evidence and choose what may happen next            | Authorization cannot be delegated to model confidence |
 
-![The fixture path feeds local schema checks; the optional live path sends a synthetic ticket and rules to Claude, checks its stop reason and schema, then saves a labelled observation. Neither path contacts a helpdesk system.](/images/guides/claude-foundations-first-api-flow.svg)
+<figure class="guide-technical-diagram">
+  <img src="/images/guides/claude-foundations-first-api-flow.svg" alt="The fixture path feeds local schema checks; the optional live path sends a synthetic ticket and rules to Claude, checks its stop reason and schema, then saves a labelled observation. Neither path contacts a helpdesk system." width="440" height="1000" loading="lazy" decoding="async" />
+  <figcaption>Two separate routes through this lesson. A fixture pass does not establish live model behavior; neither route performs a customer action.</figcaption>
+</figure>
 
 The fixture path below goes straight to local checks. The live path adds a remote model response before those checks. A **stop reason** explains why a response ended; inspect it before treating response content as a completed result. A tool call will be another kind of returned content, not permission to execute a customer action.
 
@@ -92,7 +95,7 @@ Create `tsconfig.json`:
 
 Create `.gitignore` before adding a credential file:
 
-```gitignore title=".gitignore"
+```text title=".gitignore"
 node_modules/
 .env
 .env.*
