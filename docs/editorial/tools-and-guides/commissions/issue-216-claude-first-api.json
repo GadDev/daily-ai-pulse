@@ -3,12 +3,12 @@
   "editorial_date": "2026-10-25",
   "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/216",
   "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
-  "authorization": "Maintainer requested implementation, branch push and a new PR; no merge or deployment.",
+  "authorization": "Maintainer reported review and explicitly requested publication in the current conversation: \"let's published it I have reviewed it\". This authorizes the publication metadata, PR merge and normal production deployment.",
   "scheduled_run": false,
   "topic_key": "claude-foundations-first-api-prompt",
   "guide_id": "claude-foundations-first-api-prompt",
   "pr_number": 238,
-  "state": "draft-prepared",
+  "state": "publication-prepared",
   "deduplication": {
     "base_commit": "1ace8e946d3cfb63015b2556b8affdad386ff03e",
     "checked_on": "2026-10-25",
@@ -312,13 +312,19 @@
       "generation_key": "435cef2a96b008328fae6068909cbbca8cb35ea52374bae7f760815dedc51369",
       "former_asset_sha256": "9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6",
       "former_commit": "b42af312103a07316494fd24fdc8be2a618b4ec8"
+    },
+    "publication_preservation": {
+      "reviewed_source_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+      "reason": "Publication-only administrative frontmatter change; approved editorial subject, verified facts, prompt, references, crop and binary asset are unchanged. Preserve the reviewed artwork requested for publication.",
+      "identity_provenance": "generation_identity remains the original, truthful identity of the frozen draft source at the reviewed commit. It has not been rehashed or forged to claim regeneration against publication metadata.",
+      "published_markdown_sha256": "80454292e5dc952c2a89fde5cc1568ab1c774e43fa167abda066e24c7da7cdd6",
+      "asset_sha256_unchanged": "feb2757ddf1a9735771fdcc3be9c6757fc18d99619b053189f7f3892e09effb2"
     }
   },
   "handoff": {
-    "completion": "blocked",
-    "blockers": [
-      "Rendered article desktop/mobile review remains unexecuted: local Playwright download failed with End of central directory record signature not found; bundled Chromium launch failed with EACCES / SIGSEGV. Resume PR #238 in a working browser runtime. Keep source status draft; render a disposable local preview and inspect code-copy controls, full article flow and diagram/cover at 375px and desktop width. Cover crops and CairoSVG diagram inspection already passed."
-    ]
+    "completion": "human-reviewed",
+    "blockers": [],
+    "note": "The maintainer review resolves the outstanding article visual-review hold. Final publication-head CI is checked in PR #238 before the authorized merge; results live in the PR to avoid self-referential commit metadata."
   },
   "source_evidence": [
     {
@@ -584,7 +590,8 @@
       "draft_visibility": "Detail HTML absent, guide title absent from /guides/ listing and sitemap; English-only guide gate preserved.",
       "source_links": "Official Anthropic sources retrieved with web search/open; installed SDK verified with npm metadata; local guide asset/diagram references resolve.",
       "build_note": "After the responsive figure markup correction and supported text fence, npm run verify passed again on Node 22.22.3. Existing Zod deprecation hints remain; no new unsupported-language warning.",
-      "ci": "Exact final-head GitHub CI is tracked in PR #238 after this evidence update; no future result is asserted in this record."
+      "ci": "Exact final-head GitHub CI is tracked in PR #238 after this evidence update; no future result is asserted in this record.",
+      "publication_visibility": "Publication build must produce the guide detail route, listing card and sitemap entry. Original draft-visibility checks above describe the reviewed draft revision only."
     },
     "diagram": {
       "path": "/images/guides/claude-foundations-first-api-flow.svg",
@@ -596,10 +603,19 @@
     "localization": "Existing guides are English-only via englishOnly; no French translation, stale alternate or invented approval added."
   },
   "publication": {
-    "status": "draft",
-    "publishedAt": null,
-    "visible_publicly": false,
-    "human_merge_required": true,
-    "note": "This PR prepares the article; separate maintainer publication authorization is still required."
+    "status": "publication-prepared",
+    "publishedAt": "2026-10-25T20:57:06Z",
+    "authorization": "Explicit maintainer request after reported review, in the current conversation.",
+    "reviewed_source_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+    "source_delta": "Only status and publishedAt frontmatter changed; reviewed Markdown body and all code blocks remain byte-for-byte identical.",
+    "visible_publicly": "After the authorized PR merge and successful Firebase deployment; verify the actual listing and detail URL.",
+    "human_merge_required": false,
+    "note": "The maintainer explicitly authorized publication; the existing PR may be merged after its final checks pass."
+  },
+  "human_review": {
+    "reported_at": "2026-10-25T20:57:06Z",
+    "reviewed_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+    "evidence": "Maintainer statement in the current conversation: \"let's published it I have reviewed it\".",
+    "scope_note": "Record the maintainer-reported review without inventing a reviewer name, detailed test procedure, fresh automated browser observations, or a live API run."
   }
 }
