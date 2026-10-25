@@ -1,0 +1,621 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-25",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/216",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "authorization": "Maintainer reported review and explicitly requested publication in the current conversation: \"let's published it I have reviewed it\". This authorizes the publication metadata, PR merge and normal production deployment.",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-first-api-prompt",
+  "guide_id": "claude-foundations-first-api-prompt",
+  "pr_number": 238,
+  "state": "publication-prepared",
+  "deduplication": {
+    "base_commit": "1ace8e946d3cfb63015b2556b8affdad386ff03e",
+    "checked_on": "2026-10-25",
+    "open_prs_checked": [235, 185, 182, 159],
+    "merged_ledgers_checked": ["2026-10-21", "2026-10-23", "2026-10-25"],
+    "existing_guides_checked": [
+      "ade-real-shift-or-rebranding",
+      "agent-observability-langfuse-phoenix",
+      "agent-security-control-toolkit",
+      "agent-tool-approval-boundary",
+      "agentic-development-environments-compared",
+      "ai-coding-assistants-compared",
+      "draft-route-regression",
+      "first-rag-application",
+      "ide-vs-ade-workflows",
+      "rag-retrieval-evaluation"
+    ],
+    "history_note": "Explicit manual commission follows issue-212 precedent. Preserve merged scheduled ledgers, including 2026-10-25.",
+    "duplication_matrix": [
+      {
+        "owner": "#216",
+        "question": "How do API calls, instructions and response schemas turn one synthetic message into typed triage?",
+        "audience": "Programming/HTTP beginners to Claude",
+        "owns": "First Messages call, prompt examples, nullable/enum schema, tool choice, bounded response handling",
+        "excludes": "Semantic validation pipeline, batches, MCP, agents, Claude Code configuration",
+        "cross_links": ["#217", "#222"]
+      },
+      {
+        "owner": "#217",
+        "question": "Is extracted data trustworthy and how should uncertainty and batches be handled?",
+        "owns": "Semantic checks, retry feedback, calibration and batch replay"
+      },
+      {
+        "owner": "#211 and #218–#221",
+        "question": "How do tools, agents, development workflows and CI extend the project?",
+        "owns": "Read-only MCP, controlled agent, Claude Code, coordination, CI"
+      },
+      {
+        "owner": "Existing RAG, permission and observability guides",
+        "question": "How do retrieval, execution boundaries and tracing work?",
+        "owns": "Different reader outcomes; no overlap with a first API call"
+      }
+    ]
+  },
+  "requirement_map": [
+    {
+      "requirement": "Prerequisites and bridge",
+      "implementation": "Setup and first-call sections",
+      "verification": "Extract setup and files to disposable workspace; typecheck on pinned Node"
+    },
+    {
+      "requirement": "Rules and 2–4 examples",
+      "implementation": "Shared prompt with explicit routing and three contrasting examples",
+      "verification": "Inspect example decisions and nullable fields"
+    },
+    {
+      "requirement": "Schema vs tools; auto/any/forced",
+      "implementation": "JSON output CLI, extraction-tool modes and compatibility table",
+      "verification": "Compile against actual SDK and capture requests with local mock transport"
+    },
+    {
+      "requirement": "Config, refusal, truncation, usage, timeout, budget, no secrets",
+      "implementation": "Shared request/client guards, bounded calls, redacted errors",
+      "verification": "Missing config, mock responses and abort/errors; no paid calls"
+    },
+    {
+      "requirement": "Success/failure fixtures and saved response",
+      "implementation": "Deterministic fixture mode plus shape-valid invented-order exercise",
+      "verification": "Run exact article snippets and inspect saved JSON"
+    },
+    {
+      "requirement": "Practice, original questions and self-assessment",
+      "implementation": "Independent category exercise, debugging task, delayed answers and checklist",
+      "verification": "Editorial review against issue and roadmap"
+    },
+    {
+      "requirement": "Sources, versions, certification and spend",
+      "implementation": "Dated primary references, versions, compatibility and costing",
+      "verification": "Official docs plus npm metadata; no live evidence invented"
+    },
+    {
+      "requirement": "Cover, diagram, localization and publication",
+      "implementation": "Reviewed WebP, accessible SVG and English-only draft",
+      "verification": "Reference/crop inspection, hashes, content/build/browser checks; no draft route in public output"
+    }
+  ],
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Supported built-in image_gen.imagegen route exposed; generation not yet invoked, no success claimed."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image opened two production references: 2026-09-28-claude-plugin-ecosystem.webp and 2026-09-22-copilot-review-controls.webp."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow successfully encoded/decoded a synthetic 16x16 RGB WebP through BytesIO on 2026-10-25."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Authenticated GitHub create_blob(base64) returned final blob 36af4adc763d3b307e036dab9fde5a7f42aa35d4, equal to local exact-byte SHA-1. Earlier generation was independently read back byte-for-byte through Git; current final asset is verified again in the PR after commit."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "visual_brief": {
+      "story_id": "claude-foundations-first-api-prompt",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Your First Claude API Call: From a Support Message to Typed Triage",
+      "verified_context": [
+        "We will build Northstar Helpdesk, a fictional local support assistant, starting with one request and ending with a typed triage result.",
+        "Every key must exist; an unknown order uses JSON null.",
+        "The schema is a well-shaped envelope; it does not certify the letter inside."
+      ],
+      "editorial_idea": "A defined shape gives a message structure while leaving missing information visibly absent.",
+      "visual_metaphor": "A folded blank paper ribbon rests partly in a fitted terracotta sorting form with one deliberately empty recess.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "wide 16:9 master, center-safe for 21:9 desktop hero, 16:9 mobile hero and 3:2 cards",
+      "must_show": [
+        "folded blank cream paper",
+        "fitted terracotta sculptural form",
+        "one empty recess",
+        "subtle physical depth"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-first-api-prompt",
+      "story_source_sha256": "d5219b5311f419166c3c04e20530be0a5aba11e0e3d83c8e41aeae8bdd075c4b",
+      "visual_brief_sha256": "0d2382bcba09c4ab1b627361c4c0eea8575774ec6a51187c966b328c5b7858be",
+      "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "00569bb144b039bd60c5ddc66af88f2e6ee1f8435099fe3c0c03e5f9bebffc3e"
+    },
+    "identity_scope": "After adding the existing responsive diagram wrapper and using the supported text language for .gitignore, the repository CLI returned GENERATE with the genuine guide source path. Canonical library key matched 00569bb144b039bd60c5ddc66af88f2e6ee1f8435099fe3c0c03e5f9bebffc3e before the new three-candidate generation. No news-only validator acceptance is claimed.",
+    "generation": {
+      "tool": "built-in image_gen.imagegen",
+      "model_snapshot": null,
+      "candidate_count": 3,
+      "selected_candidate": "B",
+      "source": "exec-572e277e-fb62-425a-bb5e-211d7c1e6cdf.png",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero. Output crop: high-resolution wide 16:9 landscape, for a centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card crop. The existing story layout places this art below the introduction, not behind text.\nSubject: Your First Claude API Call: From a Support Message to Typed Triage.\nVerified context: We will build Northstar Helpdesk, a fictional local support assistant, starting with one request and ending with a typed triage result. Every key must exist; an unknown order uses JSON null. The schema is a well-shaped envelope; it does not certify the letter inside.\nVisual idea: A folded blank paper ribbon rests partly in a fitted terracotta sorting form with one deliberately empty recess. This is an abstract physical metaphor for defined shape and visibly missing information, not a literal technical mechanism.\nCandidate B, editorial: a sculptural terracotta form seen at a low three-quarter angle, with one broad curved recess occupied by the bend of a substantial folded blank cream sheet and a smaller clean empty recess beside it. An intentional offset between free paper and shaped recess creates compositional tension. Fine etched contour marks only on the material; no diagram lines.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Spacious composition and strong contrast.\nMatch the inspected publication references' chalky sculptural architectural materiality, etched fine charcoal lines, restrained terracotta, lithographic paper grain, overlapping planes and controlled oblique depth. These are grammar references, not subjects to copy.\nDo not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. The central metaphor must have physical presence, subtle depth, hierarchy and material detail. Fine technical lines may support the composition but must not be the composition itself.\nKeep the whole essential assembly in the central 65% of the width and central 55% of the height with generous warm paper negative space. It must survive object-fit cover on desktop/mobile and remain legible at 320px.\nDepict only what verified context supports. This is an abstract editorial metaphor, never a claim of measured accuracy or guaranteed correctness.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame.\nDeliver a clean high-resolution image, one coherent illustration, not a contact sheet. Paper must be completely blank.\nFinal production revision: the article now uses its verified responsive figure wrapper. Generate a new illustration against this frozen source. Preserve the requested wide negative space: all meaningful paper and terracotta elements in the central 65% width and 55% height.",
+      "candidates": [
+        {
+          "id": "A",
+          "source": "exec-cd2c88de-e312-4170-8402-a228e782fe54.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero. Output crop: high-resolution wide 16:9 landscape, for a centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card crop. The existing story layout places this art below the introduction, not behind text.\nSubject: Your First Claude API Call: From a Support Message to Typed Triage.\nVerified context: We will build Northstar Helpdesk, a fictional local support assistant, starting with one request and ending with a typed triage result. Every key must exist; an unknown order uses JSON null. The schema is a well-shaped envelope; it does not certify the letter inside.\nVisual idea: A folded blank paper ribbon rests partly in a fitted terracotta sorting form with one deliberately empty recess. This is an abstract physical metaphor for defined shape and visibly missing information, not a literal technical mechanism.\nCandidate A, canonical: an oblique artifact study of a low, asymmetrical terracotta stone form with three broad, softly stepped recesses. One folded cream paper ribbon bends into two of the recesses, while the third remains clearly empty. Quiet tactile depth, charcoal hatching in shadows. No objects other than the form and paper.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Spacious composition and strong contrast.\nMatch the inspected publication references' chalky sculptural architectural materiality, etched fine charcoal lines, restrained terracotta, lithographic paper grain, overlapping planes and controlled oblique depth. These are grammar references, not subjects to copy.\nDo not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. The central metaphor must have physical presence, subtle depth, hierarchy and material detail. Fine technical lines may support the composition but must not be the composition itself.\nKeep the whole essential assembly in the central 65% of the width and central 55% of the height with generous warm paper negative space. It must survive object-fit cover on desktop/mobile and remain legible at 320px.\nDepict only what verified context supports. This is an abstract editorial metaphor, never a claim of measured accuracy or guaranteed correctness.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame.\nDeliver a clean high-resolution image, one coherent illustration, not a contact sheet. Paper must be completely blank.\nFinal production revision: the article now uses its verified responsive figure wrapper. Generate a new illustration against this frozen source. Preserve the requested wide negative space: all meaningful paper and terracotta elements in the central 65% width and 55% height.",
+          "constitution_passed": true,
+          "observations": "Clear physical missing-value metaphor; longer ribbon and three pockets create more visual complexity than B.",
+          "scores": {
+            "story_specific": 89,
+            "brand_fit": 89,
+            "composition": 88,
+            "crop_quality": 89,
+            "technical_meaning": 88,
+            "cleanliness": 95,
+            "golden_reference_fit": 86,
+            "weighted_total": 88.45
+          }
+        },
+        {
+          "id": "B",
+          "source": "exec-572e277e-fb62-425a-bb5e-211d7c1e6cdf.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero. Output crop: high-resolution wide 16:9 landscape, for a centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card crop. The existing story layout places this art below the introduction, not behind text.\nSubject: Your First Claude API Call: From a Support Message to Typed Triage.\nVerified context: We will build Northstar Helpdesk, a fictional local support assistant, starting with one request and ending with a typed triage result. Every key must exist; an unknown order uses JSON null. The schema is a well-shaped envelope; it does not certify the letter inside.\nVisual idea: A folded blank paper ribbon rests partly in a fitted terracotta sorting form with one deliberately empty recess. This is an abstract physical metaphor for defined shape and visibly missing information, not a literal technical mechanism.\nCandidate B, editorial: a sculptural terracotta form seen at a low three-quarter angle, with one broad curved recess occupied by the bend of a substantial folded blank cream sheet and a smaller clean empty recess beside it. An intentional offset between free paper and shaped recess creates compositional tension. Fine etched contour marks only on the material; no diagram lines.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Spacious composition and strong contrast.\nMatch the inspected publication references' chalky sculptural architectural materiality, etched fine charcoal lines, restrained terracotta, lithographic paper grain, overlapping planes and controlled oblique depth. These are grammar references, not subjects to copy.\nDo not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. The central metaphor must have physical presence, subtle depth, hierarchy and material detail. Fine technical lines may support the composition but must not be the composition itself.\nKeep the whole essential assembly in the central 65% of the width and central 55% of the height with generous warm paper negative space. It must survive object-fit cover on desktop/mobile and remain legible at 320px.\nDepict only what verified context supports. This is an abstract editorial metaphor, never a claim of measured accuracy or guaranteed correctness.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame.\nDeliver a clean high-resolution image, one coherent illustration, not a contact sheet. Paper must be completely blank.\nFinal production revision: the article now uses its verified responsive figure wrapper. Generate a new illustration against this frozen source. Preserve the requested wide negative space: all meaningful paper and terracotta elements in the central 65% width and 55% height.",
+          "constitution_passed": true,
+          "observations": "Best occupied/empty relationship and compact silhouette, spacious center-safe placement and warm tactile materiality.",
+          "scores": {
+            "story_specific": 92,
+            "brand_fit": 91,
+            "composition": 92,
+            "crop_quality": 95,
+            "technical_meaning": 91,
+            "cleanliness": 96,
+            "golden_reference_fit": 88,
+            "weighted_total": 91.6
+          }
+        },
+        {
+          "id": "C",
+          "source": "exec-e019096e-9cb1-415d-8ff6-d7bd48ef9746.png",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero. Output crop: high-resolution wide 16:9 landscape, for a centered 21:9 desktop hero, 16:9 mobile hero and 3:2 card crop. The existing story layout places this art below the introduction, not behind text.\nSubject: Your First Claude API Call: From a Support Message to Typed Triage.\nVerified context: We will build Northstar Helpdesk, a fictional local support assistant, starting with one request and ending with a typed triage result. Every key must exist; an unknown order uses JSON null. The schema is a well-shaped envelope; it does not certify the letter inside.\nVisual idea: A folded blank paper ribbon rests partly in a fitted terracotta sorting form with one deliberately empty recess. This is an abstract physical metaphor for defined shape and visibly missing information, not a literal technical mechanism.\nCandidate C, alternate: a slightly elevated near-overhead still life of a short terracotta sorting form, turned diagonally. A continuous folded cream paper ribbon crosses and sits into its fitted central channel; one round-edged recessed pocket remains empty. The paper and empty pocket are the focal relationship. Physical depth, restrained paper grain, no schematic language.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B and sparing terracotta #8A4B35. Spacious composition and strong contrast.\nMatch the inspected publication references' chalky sculptural architectural materiality, etched fine charcoal lines, restrained terracotta, lithographic paper grain, overlapping planes and controlled oblique depth. These are grammar references, not subjects to copy.\nDo not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. The central metaphor must have physical presence, subtle depth, hierarchy and material detail. Fine technical lines may support the composition but must not be the composition itself.\nKeep the whole essential assembly in the central 65% of the width and central 55% of the height with generous warm paper negative space. It must survive object-fit cover on desktop/mobile and remain legible at 320px.\nDepict only what verified context supports. This is an abstract editorial metaphor, never a claim of measured accuracy or guaranteed correctness.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame.\nDeliver a clean high-resolution image, one coherent illustration, not a contact sheet. Paper must be completely blank.\nFinal production revision: the article now uses its verified responsive figure wrapper. Generate a new illustration against this frozen source. Preserve the requested wide negative space: all meaningful paper and terracotta elements in the central 65% width and 55% height.",
+          "constitution_passed": true,
+          "observations": "Several empty pockets and extended ribbon dilute the single missing-recess idea; weaker crop economy.",
+          "scores": {
+            "story_specific": 85,
+            "brand_fit": 88,
+            "composition": 84,
+            "crop_quality": 79,
+            "technical_meaning": 83,
+            "cleanliness": 94,
+            "golden_reference_fit": 85,
+            "weighted_total": 84.65
+          }
+        }
+      ]
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/commissions/issue-216-claude-first-api.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "reference_comparison": "Inspected two production references before generation, then the references-first contact sheet. B shares warm paper, restrained terracotta, etched material shadows, controlled physical depth and clear silhouette; no generated text or diagram-first composition. Scores are editorial judgments.",
+      "crops": ["desktop-hero", "mobile-hero", "card"],
+      "crop_observations": {
+        "desktop-hero": "21:9 preserves paper and both occupied/empty recesses; no focal element cut.",
+        "mobile-hero": "16:9 retains generous paper ground and the complete assembly.",
+        "card": "3:2 retains the form and empty recess; 320 px thumbnail still communicates the idea."
+      },
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "prohibited_elements": {
+        "words": false,
+        "letters": false,
+        "numbers": false,
+        "labels": false,
+        "logos": false,
+        "interface_elements": false,
+        "page_header": false,
+        "page_footer": false,
+        "buttons": false,
+        "badges": false,
+        "invented_charts": false,
+        "watermark": false,
+        "neon_effects": false,
+        "robots": false,
+        "glowing_ai_brains": false,
+        "screenshot_imitation": false,
+        "bare_schematic_or_diagram": false,
+        "border": false,
+        "frame": false
+      },
+      "cover_crop_approved": true,
+      "thumbnail_approved": true
+    },
+    "normalization": "Pillow ImageOps.fit/LANCZOS to 1600x900, WebP quality 88/method 6; reopened and fully decoded exact final bytes; complete RIFF size verified.",
+    "asset_integrity": {
+      "path": "/images/guides/claude-foundations-first-api-prompt.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 100942,
+      "sha256": "feb2757ddf1a9735771fdcc3be9c6757fc18d99619b053189f7f3892e09effb2",
+      "git_blob_sha": "36af4adc763d3b307e036dab9fde5a7f42aa35d4",
+      "riff_container_complete": true
+    },
+    "upload": {
+      "path": "/images/guides/claude-foundations-first-api-prompt.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 100942,
+      "sha256": "feb2757ddf1a9735771fdcc3be9c6757fc18d99619b053189f7f3892e09effb2",
+      "git_blob_sha": "36af4adc763d3b307e036dab9fde5a7f42aa35d4",
+      "riff_container_complete": true
+    },
+    "upload_verification": {
+      "method": "Final base64 GitHub blob SHA matches locally computed exact-byte Git blob SHA-1. Final commit byte read-back will be recorded in PR #238 after the branch update; previous generation read-back is retained under superseded_generation.",
+      "sha256": "feb2757ddf1a9735771fdcc3be9c6757fc18d99619b053189f7f3892e09effb2",
+      "git_blob_sha": "36af4adc763d3b307e036dab9fde5a7f42aa35d4"
+    },
+    "superseded_generation": {
+      "reason": "Article bytes changed for responsive diagram markup. Original three candidates were superseded; they are not reused against changed input.",
+      "generation_key": "435cef2a96b008328fae6068909cbbca8cb35ea52374bae7f760815dedc51369",
+      "former_asset_sha256": "9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6",
+      "former_commit": "b42af312103a07316494fd24fdc8be2a618b4ec8"
+    },
+    "publication_preservation": {
+      "reviewed_source_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+      "reason": "Publication-only administrative frontmatter change; approved editorial subject, verified facts, prompt, references, crop and binary asset are unchanged. Preserve the reviewed artwork requested for publication.",
+      "identity_provenance": "generation_identity remains the original, truthful identity of the frozen draft source at the reviewed commit. It has not been rehashed or forged to claim regeneration against publication metadata.",
+      "published_markdown_sha256": "80454292e5dc952c2a89fde5cc1568ab1c774e43fa167abda066e24c7da7cdd6",
+      "asset_sha256_unchanged": "feb2757ddf1a9735771fdcc3be9c6757fc18d99619b053189f7f3892e09effb2"
+    }
+  },
+  "handoff": {
+    "completion": "human-reviewed",
+    "blockers": [],
+    "note": "The maintainer review resolves the outstanding article visual-review hold. Final publication-head CI is checked in PR #238 before the authorized merge; results live in the PR to avoid self-referential commit metadata."
+  },
+  "source_evidence": [
+    {
+      "claim": "Messages request shape, retry and timeout controls",
+      "source": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "SDK 1.3.0; live documentation unpinned",
+      "limitations": "Actual SDK types compiled; no authentication tested."
+    },
+    {
+      "claim": "JSON response output_config.format; strict tools, nullable fields and refusal/truncation exceptions",
+      "source": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "Live documentation unpinned",
+      "limitations": "Remote constraint enforcement not exercised."
+    },
+    {
+      "claim": "auto/any/forced choice and model/thinking restrictions",
+      "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "Live documentation unpinned",
+      "limitations": "Mock validates request construction, not model selection."
+    },
+    {
+      "claim": "Pinned Haiku snapshot remains listed active legacy",
+      "source": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "claude-haiku-4-5-20251001",
+      "limitations": "No account-level access or future retirement guarantee."
+    },
+    {
+      "claim": "Haiku 4.5 base rates used for token arithmetic",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "USD $1 input / $5 output per MTok",
+      "limitations": "Assumptions only; actual usage, overhead, tax and account terms differ."
+    },
+    {
+      "claim": "Certification identity and objectives 4.1–4.3",
+      "source": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "CCAR-F, guide v1.0, July 2026",
+      "limitations": "Independent preparation; not full objective coverage or pass guarantee."
+    },
+    {
+      "claim": "Academy badges differ from partner-only paid proctored certification",
+      "source": "https://academy.claude.com/help/faq",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "Live FAQ unpinned",
+      "limitations": "Individual eligibility and mandatory prerequisites not established."
+    },
+    {
+      "claim": "Actual installed SDK release",
+      "source": "https://www.npmjs.com/package/@anthropic-ai/sdk/v/1.3.0",
+      "evidence_type": "package registry and installed package",
+      "checked_on": "2026-10-25",
+      "version": "1.3.0",
+      "limitations": "Pinned direct dependency and generated learner lockfile; no CLI or Agent SDK installed."
+    },
+    {
+      "claim": "Ajv runtime validator narrows successful values",
+      "source": "https://ajv.js.org/guide/typescript.html",
+      "evidence_type": "official documentation",
+      "checked_on": "2026-10-25",
+      "version": "Ajv 8.20.0",
+      "limitations": "Shape-only checks; type/schema duplication must be kept aligned."
+    }
+  ],
+  "verification": {
+    "date": "2026-10-25",
+    "environment": "Linux; Node 22.22.3; TypeScript 6.0.3; @anthropic-ai/sdk 1.3.0; Ajv 8.20.0; tsx 4.23.15",
+    "reproducibility": "Extracted the final article code blocks into a disposable workspace outside the publication repository; ran the article setup, typecheck and fixtures. No teaching app or per-article test suite committed.",
+    "local_cli": {
+      "typecheck": "pass",
+      "fixture_cases": 6,
+      "fixture_results": [
+        "nullable success",
+        "enum failure",
+        "missing key failure",
+        "extra key failure",
+        "JSON syntax failure",
+        "invented ID still passes shape"
+      ],
+      "missing_credentials": "exit 1 before network; key and raw errors not logged",
+      "script_recovery": "Initial tsx CLI hit EPERM creating /tmp/tsx-0/115.pipe; switched article scripts to node --import tsx and reran successfully."
+    },
+    "mock_http": {
+      "cases": 22,
+      "scenarios": [
+        {
+          "scenario": "plain",
+          "mode": null,
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.35
+        },
+        {
+          "scenario": "structured",
+          "mode": "live",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.38
+        },
+        {
+          "scenario": "tool-auto",
+          "mode": "tool-auto",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.36
+        },
+        {
+          "scenario": "tool-any",
+          "mode": "tool-any",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.35
+        },
+        {
+          "scenario": "tool-forced",
+          "mode": "tool-forced",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.36
+        },
+        {
+          "scenario": "tool-review",
+          "mode": "tool-any",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.36
+        },
+        {
+          "scenario": "auto-text",
+          "mode": "tool-auto",
+          "exit_code": 0,
+          "requests": 1,
+          "elapsed_seconds": 0.46
+        },
+        {
+          "scenario": "refusal",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.42
+        },
+        {
+          "scenario": "truncated",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.45
+        },
+        {
+          "scenario": "bad-json",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.42
+        },
+        {
+          "scenario": "bad-shape",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.46
+        },
+        {
+          "scenario": "unexpected-stop",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.54
+        },
+        {
+          "scenario": "missing-tool",
+          "mode": "tool-forced",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.44
+        },
+        {
+          "scenario": "unknown-tool",
+          "mode": "tool-any",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.42
+        },
+        {
+          "scenario": "multiple-tools",
+          "mode": "tool-any",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.39
+        },
+        {
+          "scenario": "bad-tool-shape",
+          "mode": "tool-any",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.4
+        },
+        {
+          "scenario": "http-401",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.44
+        },
+        {
+          "scenario": "http-429",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.39
+        },
+        {
+          "scenario": "http-500",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.39
+        },
+        {
+          "scenario": "connection",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.39
+        },
+        {
+          "scenario": "timeout",
+          "mode": "live",
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 20.4
+        },
+        {
+          "scenario": "no-text",
+          "mode": null,
+          "exit_code": 1,
+          "requests": 1,
+          "elapsed_seconds": 0.32
+        }
+      ],
+      "scope": "Intercepted fetch locally; asserted one request, model, output budget, schemas and tool choices, no automatic retries, controlled errors, no key marker in output, and preserved previous output on failures. Mock-created result.live.json files are test byproducts, not live evidence."
+    },
+    "live_model": {
+      "status": "not-executed",
+      "reason": "No ANTHROPIC_API_KEY available; no paid requests made.",
+      "optional": true
+    },
+    "repository": {
+      "command": "npm run verify",
+      "runtime": "Node 22.22.3",
+      "result": "pass; 254 static pages built; 0 type errors",
+      "draft_visibility": "Detail HTML absent, guide title absent from /guides/ listing and sitemap; English-only guide gate preserved.",
+      "source_links": "Official Anthropic sources retrieved with web search/open; installed SDK verified with npm metadata; local guide asset/diagram references resolve.",
+      "build_note": "After the responsive figure markup correction and supported text fence, npm run verify passed again on Node 22.22.3. Existing Zod deprecation hints remain; no new unsupported-language warning.",
+      "ci": "Exact final-head GitHub CI is tracked in PR #238 after this evidence update; no future result is asserted in this record.",
+      "publication_visibility": "Publication build must produce the guide detail route, listing card and sitemap entry. Original draft-visibility checks above describe the reviewed draft revision only."
+    },
+    "diagram": {
+      "path": "/images/guides/claude-foundations-first-api-flow.svg",
+      "review": "CairoSVG rasterizations inspected at 375 and 720 px. All labels fit; title/desc, alt text and adjacent prose explain routes and limitations.",
+      "renderer_note": "MuPDF did not honor inherited SVG text anchoring and produced a clipped preview; that rendering was rejected. CairoSVG renders the intended SVG correctly.",
+      "browser": "Not executed locally. Playwright browser download failed: End of central directory record signature not found. Bundled Chromium fallback launch failed with EACCES / SIGSEGV. Existing GitHub browser checks will be recorded in the PR; they do not constitute an article-specific visual review.",
+      "responsive_markup": "Uses the existing guide-technical-diagram figure class: width:100% and height:auto. Code/diagram paths and source dimensions were inspected."
+    },
+    "localization": "Existing guides are English-only via englishOnly; no French translation, stale alternate or invented approval added."
+  },
+  "publication": {
+    "status": "publication-prepared",
+    "publishedAt": "2026-10-25T20:57:06Z",
+    "authorization": "Explicit maintainer request after reported review, in the current conversation.",
+    "reviewed_source_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+    "source_delta": "Only status and publishedAt frontmatter changed; reviewed Markdown body and all code blocks remain byte-for-byte identical.",
+    "visible_publicly": "After the authorized PR merge and successful Firebase deployment; verify the actual listing and detail URL.",
+    "human_merge_required": false,
+    "note": "The maintainer explicitly authorized publication; the existing PR may be merged after its final checks pass."
+  },
+  "human_review": {
+    "reported_at": "2026-10-25T20:57:06Z",
+    "reviewed_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
+    "evidence": "Maintainer statement in the current conversation: \"let's published it I have reviewed it\".",
+    "scope_note": "Record the maintainer-reported review without inventing a reviewer name, detailed test procedure, fresh automated browser observations, or a live API run."
+  }
+}

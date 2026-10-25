@@ -6,6 +6,7 @@ import GuideDisclosure from '../../components/guides/GuideDisclosure.astro';
 import GuideVerification from '../../components/guides/GuideVerification.astro';
 import { formatGuideDate, guideFormats, isPublishedGuide } from '../../lib/guides';
 import '../../styles/article.css';
+import '../../styles/guide-tables.css';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides', isPublishedGuide);
