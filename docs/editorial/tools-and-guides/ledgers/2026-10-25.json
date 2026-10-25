@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-10-25",
+  "run_status": "draft-pr",
+  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork generation unavailable in this runtime; handoff blocked pending illustration.",
+  "candidates": [
+    {
+      "topic_key": "agent-observability-langfuse-phoenix",
+      "title": "Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review",
+      "format": "review",
+      "decision": "selected",
+      "reader_outcome": "Choose an observability backbone for agent workflows based on documented capabilities, architectural trade-offs, and conditional scenario recommendations.",
+      "reason": "Existing guides cover agent-environment permissions and RAG evaluation but not a dedicated comparison of observability platforms for agent tracing. Langfuse and Phoenix represent the two dominant architectural approaches (ClickHouse-backed full platform vs SQLite/Postgres lightweight OTel-native). This comparison fills a reader decision gap with no duplicate in published guides or open PRs.",
+      "sources": [
+        "https://langfuse.com/docs/observability/data-model",
+        "https://langfuse.com/docs/observability/features/observation-types",
+        "https://langfuse.com/docs/observability/features/token-and-cost-tracking",
+        "https://langfuse.com/docs/evaluation/scores/overview",
+        "https://langfuse.com/docs/api-and-data-platform/features/observations-api",
+        "https://langfuse.com/docs/api-and-data-platform/features/export-to-blob-storage",
+        "https://langfuse.com/self-hosting",
+        "https://langfuse.com/integrations/native/opentelemetry",
+        "https://langfuse.com/resources/engineering/pii-masking-llm-applications",
+        "https://arize.com/docs/phoenix/tracing/concepts-tracing/otel-openinference/semantic-conventions",
+        "https://arize.com/docs/phoenix/tracing/concepts-tracing/otel-openinference/span-kinds",
+        "https://arize.com/docs/phoenix/evaluation/llm-evals",
+        "https://arize.com/docs/phoenix/tracing/how-to-tracing/importing-and-exporting-traces/extract-data-from-spans",
+        "https://arize.com/docs/phoenix/self-hosting",
+        "https://arize.com/docs/phoenix/self-hosting/architecture",
+        "https://arize.com/docs/phoenix/sdk-api-reference",
+        "https://arize.com/docs/ax/instrument/mask-and-redact-data",
+        "https://github.com/open-telemetry/semantic-conventions-genai",
+        "https://arize-ai.github.io/openinference/spec/semantic_conventions.html"
+      ]
+    },
+    {
+      "topic_key": "rag-answer-grounding-evaluation",
+      "title": "Checking whether generated RAG claims are supported",
+      "format": "tutorial",
+      "decision": "watch",
+      "reader_outcome": "Evaluate claim-to-passage support rather than only retrieval rank.",
+      "reason": "Still requires a defensible labeled support-judgment set and protocol; avoid confusing reference presence with factual support.",
+      "sources": []
+    },
+    {
+      "topic_key": "mcp-security-control-patterns",
+      "title": "MCP server authorization and tool approval patterns",
+      "format": "review",
+      "decision": "watch",
+      "reader_outcome": "Compare MCP-level authorization approaches across implementations.",
+      "reason": "MCP authorization is emerging but documented patterns are thin; wait for more implementation evidence before a comparative review.",
+      "sources": []
+    }
+  ],
+  "handoff": {
+    "guide_id": "agent-observability-langfuse-phoenix",
+    "pr_number": null,
+    "completion": "blocked",
+    "blockers": [
+      "Artwork generation unavailable; resume the same draft PR when a supported image tool is exposed."
+    ]
+  },
+  "artwork": {
+    "state": "blocked",
+    "capabilities": {
+      "generation": {
+        "status": "unavailable",
+        "evidence": "No supported image-generation tool is exposed in this illustrative runtime."
+      },
+      "inspection": {
+        "status": "unverified",
+        "evidence": "Reference image viewer has not been exercised."
+      },
+      "webp_conversion": {
+        "status": "unverified",
+        "evidence": "Codec round trip has not been exercised."
+      },
+      "binary_upload": {
+        "status": "unverified",
+        "evidence": "Binary Git route has not been confirmed."
+      }
+    },
+    "blocker": {
+      "stage": "generation",
+      "message": "No supported image-generation tool is exposed.",
+      "recovery": "Resume the same PR in a runtime with supported image generation; keep status draft."
+    }
+  }
+}
