@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1000" viewBox="0 0 440 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Northstar Helpdesk: two practice routes</title>
+  <desc id="desc">The fixture route checks locally authored JSON using parseTriage and saves result.fixture.json without an API. The optional live route sends ticket and rules in one Messages request, checks its stop reason, validates JSON or tool input, and saves result.live.json. Auto tool choice may instead save a no-extraction observation. Neither route performs a customer action.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#575D5B"/>
+    </marker>
+  </defs>
+  <rect width="440" height="1000" rx="12" fill="#FAF6EE"/>
+  <g font-family="system-ui, sans-serif" text-anchor="middle" fill="#171B1A" font-size="20">
+    <text x="220" y="40" font-size="23" font-weight="700">Fixture route · no API</text>
+    <rect x="30" y="62" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="100">Locally authored JSON fixtures</text>
+    <path d="M220 126 V150" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="156" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="194">parseTriage · JSON + Ajv</text>
+    <path d="M220 220 V244" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="250" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="288">Save result.fixture.json</text>
+    <text x="220" y="345" font-size="18">Shape checks · no model-quality claim</text>
+    <path d="M30 371 H410" stroke="#575D5B"/>
+    <text x="220" y="416" font-size="23" font-weight="700">Optional live route</text>
+    <rect x="30" y="438" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="476">Synthetic ticket + rules / examples</text>
+    <path d="M220 502 V526" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="532" width="380" height="62" rx="8" fill="#8A4B35"/>
+    <text x="220" y="570" fill="#FAF6EE">Claude Messages · one request</text>
+    <path d="M220 596 V620" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="626" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="664">Check stop reason + response route</text>
+    <path d="M220 690 V714" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="720" width="380" height="88" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="754">JSON / tool input → parseTriage</text>
+    <text x="220" y="784" font-size="18">Auto text → no-extraction observation</text>
+    <path d="M220 810 V834" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="840" width="380" height="62" rx="8" fill="#F3EBDD" stroke="#575D5B"/>
+    <text x="220" y="878">Save result.live.json</text>
+    <text x="220" y="939" font-size="18">Failure stops · previous file stays intact</text>
+    <text x="220" y="970" font-size="18" font-weight="700">No customer action in either route</text>
+  </g>
+</svg>
