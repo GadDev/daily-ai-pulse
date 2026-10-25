@@ -6,7 +6,7 @@
   "scheduled_run": false,
   "topic_key": "typescript-read-only-mcp-server",
   "guide_id": "typescript-read-only-mcp-server",
-  "pr_number": null,
+  "pr_number": 243,
   "state": "prepared",
   "authorization": "Prepare Part 3 article and one draft publication-review PR. Previous publication approval applied to Part 2; no merge or deployment of this new article authorized.",
   "deduplication": {
@@ -858,5 +858,6 @@
     "fairness": "No product ranking, unsupported secure/sandbox claim or live selection claim. Maintained server versus custom adapter tradeoff stated. No affiliate or certification endorsement claim.",
     "series_overlap": "Part 1 API/schema and Part 2 semantic/batch work cross-linked; read-only transport/contracts owned here; actions, hooks, coordinator and CI capstone deferred.",
     "assessment": "Independent delivery variation, seeded retry bug, three original scenario questions with delayed explained answers, explain-without-looking and outcome-based self-assessment present."
-  }
+  },
+  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/243"
 }
