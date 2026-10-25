@@ -399,6 +399,12 @@ The shared configuration in `src/lib/code-presentation.ts` preserves tabs and co
 
 Technical diagrams should share the same restrained editorial language: thin lines, concise labels, neutral backgrounds, and minimal decoration.
 
+### Guide comparison tables
+
+Guide Markdown and MDX tables receive a named, keyboard-focusable scroll region at build time. Keep native table markup and column headers; respect explicit Markdown column alignment. Equal-width columns have a minimum readable measure, so wide comparisons scroll inside the article instead of squeezing words into narrow strips or widening the page. A nearby hint explains scrolling and arrow-key access.
+
+Use compact sans-serif text, top-aligned cells, generous padding, paper header surfaces, thin dividers and subtle alternating rows. Inline code and links wrap without truncation. Colors follow the existing tokens. The shared implementation is `src/lib/guide-tables.ts` and `src/styles/guide-tables.css`; it adds no client-side script. Print styles remove the scrolling constraint.
+
 ## Design reference assets
 
 Visual exploration files should live under:
