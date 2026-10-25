@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-10-25",
+  "run_status": "draft-pr",
+  "run_note": "Selected a comparative technical review of Langfuse vs Phoenix for agent observability. The review addresses a distinct engineer decision: choosing an observability backbone for agent workflows. Evidence covers trace hierarchy, tool/retrieval error visibility, retry handling, token/cost accounting, evaluation linkage, SDK support, export/portability, redaction, operating burden, and local/small-team deployment costs. Sources checked October 25, 2026. Artwork recovered on the same PR #236: selected cover generated, visually reviewed, normalized to WebP and uploaded with verified binary integrity. Verify project and browser smoke/accessibility checks passed at 208306b7986d2e040d4fe2be6199976ebb684d56. Publication authorized by the user on 2026-10-25; the guide is marked published for the same PR #236.",
+  "candidates": [
+    {
+      "topic_key": "agent-observability-langfuse-phoenix",
+      "title": "Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review",
+      "format": "review",
+      "decision": "selected",
+      "reader_outcome": "Choose an observability backbone for agent workflows based on documented capabilities, architectural trade-offs, and conditional scenario recommendations.",
+      "reason": "Existing guides cover agent-environment permissions and RAG evaluation but not a dedicated comparison of observability platforms for agent tracing. Langfuse and Phoenix represent the two dominant architectural approaches (ClickHouse-backed full platform vs SQLite/Postgres lightweight OTel-native). This comparison fills a reader decision gap with no duplicate in published guides or open PRs.",
+      "sources": [
+        "https://langfuse.com/docs/observability/data-model",
+        "https://langfuse.com/docs/observability/features/observation-types",
+        "https://langfuse.com/docs/observability/features/token-and-cost-tracking",
+        "https://langfuse.com/docs/evaluation/scores/overview",
+        "https://langfuse.com/docs/api-and-data-platform/features/observations-api",
+        "https://langfuse.com/docs/api-and-data-platform/features/export-to-blob-storage",
+        "https://langfuse.com/self-hosting",
+        "https://langfuse.com/integrations/native/opentelemetry",
+        "https://langfuse.com/resources/engineering/pii-masking-llm-applications",
+        "https://arize.com/docs/phoenix/tracing/concepts-tracing/otel-openinference/semantic-conventions",
+        "https://arize.com/docs/phoenix/tracing/concepts-tracing/otel-openinference/span-kinds",
+        "https://arize.com/docs/phoenix/evaluation/llm-evals",
+        "https://arize.com/docs/phoenix/tracing/how-to-tracing/importing-and-exporting-traces/extract-data-from-spans",
+        "https://arize.com/docs/phoenix/self-hosting",
+        "https://arize.com/docs/phoenix/self-hosting/architecture",
+        "https://arize.com/docs/phoenix/sdk-api-reference",
+        "https://arize.com/docs/ax/instrument/mask-and-redact-data",
+        "https://github.com/open-telemetry/semantic-conventions-genai",
+        "https://arize-ai.github.io/openinference/spec/semantic_conventions.html"
+      ]
+    },
+    {
+      "topic_key": "rag-answer-grounding-evaluation",
+      "title": "Checking whether generated RAG claims are supported",
+      "format": "tutorial",
+      "decision": "watch",
+      "reader_outcome": "Evaluate claim-to-passage support rather than only retrieval rank.",
+      "reason": "Still requires a defensible labeled support-judgment set and protocol; avoid confusing reference presence with factual support.",
+      "sources": []
+    },
+    {
+      "topic_key": "mcp-security-control-patterns",
+      "title": "MCP server authorization and tool approval patterns",
+      "format": "review",
+      "decision": "watch",
+      "reader_outcome": "Compare MCP-level authorization approaches across implementations.",
+      "reason": "MCP authorization is emerging but documented patterns are thin; wait for more implementation evidence before a comparative review.",
+      "sources": []
+    }
+  ],
+  "handoff": {
+    "guide_id": "agent-observability-langfuse-phoenix",
+    "pr_number": 236,
+    "completion": "complete",
+    "blockers": []
+  },
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in image_gen.imagegen produced three PNG candidates in ChatGPT; selected source exec-8c05eaa5-537d-4198-a584-71c151236fd8.png."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Inspected all three candidates, comparison sheet with two production references, and final WebP center crops at desktop 21:9, mobile 16:9 and card 3:2 ratios."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded a 1600x900 WebP at quality 88; reopened and fully decoded it, verified RIFF length and computed byte hashes."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "GitHub base64 blob upload returned baa2d4f54b5bb3c518b391d6aa89a2ae46cb83ad, matching local Git blob SHA-1; raw commit asset read back and compared byte-for-byte before updating the PR branch."
+      }
+    },
+    "blocker": null,
+    "generation": {
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero.\nSubject: Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review.\nVerified context: Agent observability here means capturing every LLM call, tool invocation, retrieval step, and control-flow decision as a structured trace. The review compares Langfuse and Phoenix using documented capabilities and operating trade-offs, with no universal winner declared.\nVisual idea: A single folded terracotta ribbon representing an agent's path is inspected through two equally weighted translucent mineral-glass planes; folds and seams become visible under each plane.\nOutput crop: wide 16:9 landscape, high-resolution editorial cover, approximately 1600 by 900 proportions.\n\nUse the article-hero role from the inspected story layout: full-width art below the article introduction, object-fit cover on desktop and mobile. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nMatch the inspected publication references' material editorial grammar: chalky off-white architectural forms, muted terracotta, etched charcoal fine lines, controlled oblique depth, subtle warm lithographic paper grain, purposeful spatial tension, soft directional shadows, restrained translucent mineral glass. Preserve that commissioned magazine-illustration feeling. Neither glossy product photography nor flat vector art.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The central folded ribbon and glass need real illustrated material presence, overlapping planes, controlled spatial depth and strong hierarchy. Fine lines support the material forms; they do not carry the whole composition. Treat the ribbon and inspection planes as an abstract metaphor, never as a literal product architecture.\n\nDepict only what the verified context supports. If mechanism or data is uncertain, keep the image an abstract metaphor rather than a purported technical diagram. Do not suggest a measured result, an outperforming product, or a universal winner. The two inspection planes have equal editorial importance.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\n\nDeliver a clean, high-resolution image with no border or frame. Use a generous perimeter of warm paper. Keep essential meaning in the central 60 percent so square/mobile cover crops work.\n\nComposition for this image: Oblique architectural study: a low folded ribbon crossing two upright translucent planes with the material folded path visible between them.\nCreate a single coherent editorial image, not a multi-panel comparison or a contact sheet.",
+      "source": "exec-8c05eaa5-537d-4198-a584-71c151236fd8.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/agent-observability-langfuse-phoenix-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "crops": ["desktop-hero", "mobile-hero", "card"]
+    },
+    "upload": {
+      "path": "/images/guides/agent-observability-langfuse-phoenix.webp",
+      "sha256": "c6f6a2eb32f22505b2a138f50a49c8e4e1d6f6f731fe0a41fbd5f6c57fc80b22",
+      "git_blob_sha": "baa2d4f54b5bb3c518b391d6aa89a2ae46cb83ad",
+      "width": 1600,
+      "height": 900
+    }
+  }
+}
