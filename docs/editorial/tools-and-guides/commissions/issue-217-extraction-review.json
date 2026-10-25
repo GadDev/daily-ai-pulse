@@ -7,8 +7,8 @@
   "topic_key": "claude-foundations-extraction-review",
   "guide_id": "claude-foundations-extraction-review",
   "pr_number": 240,
-  "state": "prepared-for-publication-review",
-  "authorization": "Prepare Part 2 and a complete publication-review PR. No publication or merge of this new article authorized yet.",
+  "state": "publication-prepared",
+  "authorization": "Maintainer explicitly requested review and publication in this conversation: \"review let's publish it\". This authorizes publication metadata, merge of PR #240 after checks, and the normal production deployment.",
   "deduplication": {
     "base_commit": "8a2f5c4f09268d9fd6c2614090f567d73209246e",
     "open_prs_checked": [
@@ -293,15 +293,27 @@
       "readback_bytes": 138678,
       "readback_sha256": "b790a6c404b7bf01093120e070ac93cb5104ae849dba12c27635c07d9424a5e8",
       "method": "GitHub connector create_blob base64; independent GitHub REST blob readback decoded to exact source hash."
+    },
+    "publication_metadata_update": {
+      "date": "2026-10-25",
+      "change": "Administrative publication frontmatter only; article body, visual brief, layout, reference inputs, cover and diagram unchanged.",
+      "identity_provenance": "Preserve the original generation identity as truthful provenance of the frozen reviewed draft; do not rehash it to claim image generation against publication metadata.",
+      "reviewed_source_commit": "9f5026c348ee8cd2f5815d37f3412b45b126d792",
+      "reviewed_source_sha256": "169dc19dbcb19ad55e9a431bea0437274c0d73904549f98de1fa16153098a196",
+      "publication_source_sha256": "6b28e98e5a1ce038ffec5e49b77785769d88c882336cadd8ffe5266abced89e3",
+      "reviewed_body_sha256": "8f8b47f182967bab6a4ffe3d0b7c8b228662d524cb348e262d10459115d70afd",
+      "publication_body_sha256": "8f8b47f182967bab6a4ffe3d0b7c8b228662d524cb348e262d10459115d70afd",
+      "cover_sha256": "b790a6c404b7bf01093120e070ac93cb5104ae849dba12c27635c07d9424a5e8",
+      "diagram_sha256": "a7bc535e4ae6d221744d00dfe3fdea0945066b76de8078ec69fa1806227e3b1b"
     }
   },
   "handoff": {
-    "completion": "prepared",
+    "completion": "publication-prepared",
     "preparation_blockers": [],
     "live_verification_gap": "Live Claude/API/batch behavior not measured. Explicitly labelled throughout; optional live exercise, not a claimed completed check.",
-    "exact_head_ci": "Required before final handoff; actual run/commit/results will be written in PR description.",
-    "publication_gate": "Draft source and draft PR require human editorial approval, publication metadata and human-controlled merge. No deployment authorized or performed.",
-    "source_and_generation_identity": "Article frozen before image generation; generation identity must match exact final Markdown bytes. Administrative PR/evidence metadata changes in this JSON do not change illustration inputs."
+    "exact_head_ci": "Reviewed draft head 9f5026c348ee8cd2f5815d37f3412b45b126d792 passed run 40237977295 attempt 2 (66 browser tests); final publication-head CI and deployment will be recorded in PR description after actual completion.",
+    "publication_gate": "Explicit maintainer publication authorization received. Merge PR #240 only after final publication checks pass, then verify the normal Firebase deployment and public endpoints.",
+    "source_and_generation_identity": "The preserved identity describes the original reviewed draft source. The administrative publication delta and unchanged body/assets are documented under artwork.publication_metadata_update."
   },
   "checked_on": "2026-10-25",
   "source_verification": [
@@ -607,5 +619,20 @@
     ],
     "final_cover_page_pass": "Repeated local static-page checks with final C WebP after rendering preview again; exact draft source restored."
   },
-  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/240"
+  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/240",
+  "publication": {
+    "status": "publication-prepared",
+    "publishedAt": "2026-10-25T22:33:26Z",
+    "authorization": "Maintainer explicitly requested review and publication in this conversation: \"review let's publish it\". This authorizes publication metadata, merge of PR #240 after checks, and the normal production deployment.",
+    "reviewed_source_commit": "9f5026c348ee8cd2f5815d37f3412b45b126d792",
+    "review_findings": "No blocking findings. Source, code, evidence labels, original question answers, bounded corrections, batch replay, review policy, cover/diagram integrity and publication requirements checked. No unresolved PR review threads or submitted change requests.",
+    "source_delta": "Only status and publishedAt frontmatter changed; Markdown body and all code blocks remain byte-for-byte identical.",
+    "body_sha256": "8f8b47f182967bab6a4ffe3d0b7c8b228662d524cb348e262d10459115d70afd",
+    "reviewed_source_sha256": "169dc19dbcb19ad55e9a431bea0437274c0d73904549f98de1fa16153098a196",
+    "publication_source_sha256": "6b28e98e5a1ce038ffec5e49b77785769d88c882336cadd8ffe5266abced89e3",
+    "live_api_verification": "Not executed; existing researched label and explicit limitation retained.",
+    "visibility": "Verify live detail, guide listing, sitemap and assets after merge and normal Firebase deployment.",
+    "human_merge_required": false,
+    "boundary_note": "Explicit maintainer publication authorization permits this merge after final checks; no human reviewer identity or prior personal review is invented."
+  }
 }
