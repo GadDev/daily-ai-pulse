@@ -10,6 +10,16 @@
 
 - **Story:** primary source; independent validation status; important claim boundary.
 
+### Claim, title and opening review
+
+Use the shared rubric in `docs/EDITORIAL.md`. Six scores: Accuracy / Evidence / Clarity / Reader value / Title quality / Voice.
+
+| Story | Assessed article blob/commit | Actual reviewer / type | Six scores / result | Issues / next action |
+| --- | --- | --- | --- | --- |
+| _Replace with assessed story_ |  |  |  |  |
+
+For a ledger-only batch, state not applicable. Identify self-review truthfully; update the assessment when article bytes change. This record does not authorize publication.
+
 ### Deduplication
 
 - **New:**

@@ -1,6 +1,6 @@
 # Daily AI Pulse — PR Preparation v1
 
-**Version:** 1.2
+**Version:** 1.3
 **Status:** Canonical automated publication handoff  
 **Agent skill:** `.agents/skills/daily-ai-pulse-pr-preparation/SKILL.md`
 
@@ -30,7 +30,8 @@ flowchart TD
     H -->|No| I["Withhold + record conflict"]
     H -->|Yes| J["Draft canonical story"]
 
-    J --> K["Generate illustration"]
+    J --> EDR["Review claims, title and opening"]
+    EDR --> K["Generate illustration"]
     K --> T["Finalize English + prepare reviewed French"]
     T --> L["Create daily issue manifest"]
     L --> M["Persist full ledger"]
@@ -49,6 +50,7 @@ flowchart TD
 Required:
 
 - structured candidate ledger produced by the research-and-decision phase
+- `docs/EDITORIAL.md` — shared voice and copy review, required before drafting
 - `EDITORIAL_SCHEMA_V1.md`
 - `DECISION_ENGINE_V1.md`
 - `TOPICS_V1.yml`
@@ -359,6 +361,12 @@ may proceed automatically to drafting.
 `watch` and `rejected` candidates must never be drafted unless a human
 explicitly records an editorial override.
 
+### Editorial copy review
+
+Before drafting, read the shared [editorial guide](../EDITORIAL.md). After substantive drafting and before artwork resolution, final English-source freeze and French translation, perform its [claim, title and opening review](../EDITORIAL.md#claim-title-and-opening-review): check claim scope, then edit for the reader and apply the shared rubric. Preserve the ledger's classification and existing publication-verification/withholding rules.
+
+Record the actual assessed article blob/commit, reviewer/type, six scores, result and remaining issues in the existing PR body after that content revision exists. A material unresolved claim blocks a complete copy handoff regardless of style or CI. Reassess later article-byte changes without restamping unrelated retries; preserve artwork identity and translation freshness. No new per-article review file, ledger schema or human approval is implied.
+
 ## Ledger-only batches
 
 A valid daily run may produce zero publishable stories.
@@ -493,6 +501,8 @@ Required reviewer visibility:
 - evidence / signal / score
 - publication verification status
 - primary and independent evidence notes
+- per-story claim/title/opening review: actual assessed article blob/commit, reviewer/type,
+  six shared rubric scores, result, significant fixes and remaining issues/next action
 - research and publication deduplication result
 - material delta when relevant
 - withheld selected candidates

@@ -14,8 +14,8 @@ Pulse exists to deliver **signal over noise** for engineers who want to understa
    - Explain what changed technically, why it matters, and what an engineer should do differently, if anything.
 
 3. **Separate fact from opinion**
-   - Factual reporting and interpretation should be visually and structurally distinct.
-   - Editorial commentary may use a `Pulse Take` section.
+   - Distinguish factual reporting, attributed claims and interpretation through explicit attribution and separate paragraphs or labeled treatment when otherwise ambiguous.
+   - Editorial commentary may use a `Pulse Take` section; a particular heading or an opinion is not compulsory.
 
 4. **Prefer fewer, stronger stories**
    - Quiet days are acceptable.
@@ -27,20 +27,58 @@ Pulse exists to deliver **signal over noise** for engineers who want to understa
 
 ## Editorial voice
 
-Pulse should feel authored, technically literate, and personal without becoming opinion-heavy.
+**Scope:** This guide owns shared voice, titles, descriptions, openings and editorial copy review for both daily news and Tools & Guides. Read it before drafting. The [evergreen foundation](editorial/TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) adds genre and evaluation requirements; news classification and selection remain with the [editorial schema](editorial/EDITORIAL_SCHEMA_V1.md) and [decision engine](editorial/DECISION_ENGINE_V1.md).
 
-Target balance:
+Write as a technically literate, independent editor talking to a curious developer. Be direct, approachable and practical. Explain an unfamiliar term when the reader needs it, then show its consequence through a concrete example or engineering decision. Match the declared depth; an advanced article need not reteach every prerequisite.
 
-- roughly **75% evidence and explanation**
-- roughly **25% editorial voice**
+Start with a verified development or a real reader problem. Examine identifiable claims: what changed, what supports the promise, who controls the decision, who benefits and who bears the cost or consequences. Investigate incentives, privacy, lock-in and recovery when they affect the story. Give credible counterarguments a fair reading and reach a position only as strong as the evidence permits. Useful technology can receive a positive assessment; a hostile angle is not required.
 
-Good editorial voice sounds like:
+Keep verified facts, our tested observations, attributed vendor claims, independent reporting, editorial interpretation and unresolved questions distinguishable in context. A working definition is our analytical tool, not an industry standard. Reading documentation is not product testing. A benchmark is not proof of everyday productivity.
 
-- "This is probably more important than the benchmark headline."
-- "I would not migrate a production stack yet."
-- "This is wonderfully boring engineering, which is exactly why it matters."
+Use connected paragraphs, concrete subjects and verbs, purposeful transitions and precise technical detail. Tables compare; diagrams explain relationships; lists collect parallel items. Humor may clarify a point. Avoid generic AI openings, unearned superlatives, rhetorical question barrages, fake experience, repeated conclusions and internal publishing-process commentary. Use first-person experience only for work actually performed. Develop an original Daily AI Pulse voice without imitating a named journalist's wording, persona or recurring devices.
 
-The tone should be confident but not absolute, curious but not breathless, and practical rather than corporate.
+There is no prose percentage, headline-length quota or required provocative conclusion. Clarity and supported reader value take priority.
+
+### Titles, descriptions and openings
+
+- **Title:** Name the concrete development, task or reader decision. Prefer a recognizable action over stacked acronyms or abstract claims. Retain material qualifications such as private preview, local scope or reported results. Remove a format label when the page already supplies it and it adds no meaning.
+- **Description:** Add the useful consequence, scope or material limit in concise prose. Do not repeat the title or turn comparison criteria into a feature inventory.
+- **Opening:** Advance the explanation. News introduces the event, actor and relevant qualification early; a tutorial establishes the achievable outcome; a review introduces the decision. Put technical vocabulary and stack details where they help explain the mechanism.
+- **Evidence:** Keep the promise of all three within the source material. Documentation-based reviews remain clearly labeled near the opening. Do not imply independent results, successful deployment or product use that did not occur.
+- **Structure and ending:** Cover the necessary reporting questions without imposing identical headings. End with this story's concrete implication, experiment, unresolved question or reason to wait. Keep caveats near the claims they qualify even when a final evidence note also helps.
+
+### Editing examples
+
+These are invented examples, not product findings, quotations or article excerpts.
+
+| Weak draft | Edit | Reason |
+| --- | --- | --- |
+| Agentic environments are revolutionizing software engineering. | An agent can edit your code and run commands. Before delegating a task, decide which files, credentials and network destinations it may reach. | Replace a grand claim with a mechanism and decision. |
+| Tool A is the best assistant for every developer. | If you need suggestions inside your current editor, start there. If you need an agent to finish a repository task, evaluate its execution and review controls separately. | Make the recommendation conditional; a real comparison needs product-specific evidence. |
+| We tested the sandbox and found it secure. | The documentation describes a sandbox. We did not test whether the boundary holds against malicious repository content. | Match confidence to the work actually performed. |
+| IDEs are dead. ADEs are the future. | The editor may stay. What changes is who chooses and executes the next action, and who reviews the result. | Explain responsibility without inventing replacement. |
+
+## Claim, title and opening review
+
+Apply these two passes to each article after substantive drafting and before artwork resolution, final English-source freeze and any French translation. Recheck later copy changes; preserve existing artwork-identity and translation-freshness rules. Record results in the existing PR body/handoff, not a new per-article review file or content-schema field.
+
+1. **Claim scope:** Check the title, description, opening, tables and recommendations against actual sources. For consequential price, safety, superiority, origin and popularity claims, retain the supporting URL, evidence type, checked date, applicable version/edition/plan and limitations. Link support near the claim or in its table row. A general source list or disclaimer does not establish a guarantee. Revise, remove or withhold unsupported claims before stylistic editing. Distinguish a source conflict from missing evidence; preserve the workflow's existing withholding/blocked-draft behavior.
+2. **Reader edit:** Compare a few supported title angles when useful and select one; make the description additive; introduce the concrete event/problem before unnecessary terminology or methodology. Check that interpretation is identifiable, paragraphs add information, and the ending serves this article. Preserve critical caveats, factual scope, code and verification labels. Do not change selection or evidence classification to improve the story's appeal.
+
+Use this compact rubric: **0 = blocking defect; 1 = adequate with a named nonblocking improvement; 2 = ready on this dimension.**
+
+| Dimension | Review question |
+| --- | --- |
+| Accuracy | Do the title, description, claims, numbers, mechanisms and code match the verified material? |
+| Evidence | Can readers trace consequential claims and distinguish attribution, observation, interpretation and uncertainty? |
+| Clarity | Can the intended reader explain the main point and understand essential terms? |
+| Reader value | Does the article support a specific decision, learning outcome or useful reason to wait? |
+| Title quality | Is the headline specific, understandable, interesting and supported, with a description that adds information? |
+| Voice | Is the writing direct, fair and natural, with a structure suited to its genre and no filler or invented experience? |
+
+For a complete editorial-copy handoff, Accuracy and Evidence must each score **2**, no dimension may score **0**, and the total must be at least **10/12**. Report unresolved material issues as blockers regardless of the total. This is an editorial review, not a deterministic truth/style test or permission to publish; all existing technical, artwork, translation, CI and human publication gates still apply.
+
+Keep the record compact: article path and exact assessed content blob/commit; actual reviewer and review type; six scores and result; significant issues fixed, remaining blockers/nonblocking improvements and next action. Identify same-model review as self-review, not independent review or human approval. Store it after the assessed content revision exists; later commits unrelated to that article do not require restamping an unchanged review. Reassess changed title, description or body bytes. For a ledger-only batch, state that copy review is not applicable.
 
 ## Story checklist
 
@@ -51,10 +89,10 @@ Every technical story should answer, where relevant:
 3. **What actually changed?**
 4. **Why does it matter?**
 5. **Who should care?**
-6. **Pulse Take**
+6. **What is our interpretation, if useful?**
 7. **What should you try?**
 
-Not every short Pulse needs all seven headings, but the reporting should cover the underlying questions.
+These are reporting questions, not a compulsory heading sequence. A short piece may answer several in one paragraph. Preserve material limitations without attaching the same closing checklist to every story.
 
 ## Evidence levels
 
@@ -150,7 +188,7 @@ The central editorial question remains:
 
 ## Evergreen Tools & Guides
 
-Tools & Guides uses the [Editorial Voice v2 and genre guidance](editorial/TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) in its existing evergreen contract. A shared voice does not require shared headings: comparisons, investigations and explainers should tell different stories. The news checklist above remains a set of reporting questions, not a compulsory evergreen outline.
+Tools & Guides applies this shared voice and [copy review](#claim-title-and-opening-review), with [genre-specific guidance](editorial/TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) in its evergreen contract. Comparisons, investigations and explainers should tell different stories.
 
 The **Tools & Guides** section extends these evidence-first and editorial-independence principles to tutorials, technical reviews and curated toolkits. Its [editorial foundation](editorial/TOOLS_AND_GUIDES_V1.md) specifies firsthand versus researched evidence, commercial disclosures, freshness and human review. Use the [authoring templates](editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) for draft outlines.
 

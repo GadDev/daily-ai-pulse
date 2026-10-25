@@ -238,6 +238,8 @@ Includes surprising agent behavior, unusual experiments, emergent dynamics, clev
 
 ## 7. Formats
 
+Read the shared [editorial guide](../EDITORIAL.md) before drafting and apply its [claim, title and opening review](../EDITORIAL.md#claim-title-and-opening-review). The structures below name reporting functions, not required headings or a uniform narrative. Preserve material evidence limits and identify interpretation; combine or rename sections when that serves the article.
+
 ### Briefing (`briefing`)
 
 **Question:** What happened?

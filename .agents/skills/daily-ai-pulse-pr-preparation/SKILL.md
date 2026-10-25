@@ -87,6 +87,7 @@ of:
 - `docs/editorial/DECISION_ENGINE_V1.md`
 - `docs/editorial/TOPICS_V1.yml`
 - `docs/editorial/PR_PREPARATION_V1.md`
+- `docs/EDITORIAL.md` — shared voice and claim/title/opening review, required before drafting
 - `docs/editorial/ILLUSTRATION_SYSTEM_V1.md`
 - `docs/editorial/ILLUSTRATION_GENERATION_IDENTITY_V1.md`
 - `docs/editorial/VISUAL_CONSTITUTION_V1.md`
@@ -495,33 +496,13 @@ If a different story ID is necessary, record the mapping in:
 
 Do not draft `watch` or `rejected` candidates.
 
-### Editorial writing rules
+### Editorial writing and review
 
-Preserve the publication mission:
+Read and apply the shared [editorial guide](../../../docs/EDITORIAL.md) before drafting. Use its reporting questions without forcing identical headings.
 
-> The Daily AI Pulse is an independent publication for software engineers who
-> want to understand what changed in AI, how strong the evidence is, and what
-> to do with it.
+After substantive drafting, perform its [claim, title and opening review](../../../docs/EDITORIAL.md#claim-title-and-opening-review): check claim scope first, then edit the title, additive description, opening and ending for the intended reader. Apply the shared rubric before proceeding to artwork resolution and final English-source freeze/French translation. Preserve the ledger's classification and evidence boundaries.
 
-A story should make clear:
-
-- what happened
-- what actually changed
-- how we know
-- why it matters
-- the evidence boundary
-- what an engineer should try, inspect, reconsider, or simply watch
-
-Prefer concrete technical detail over marketing wording.
-
-Use explicit uncertainty language when needed:
-
-- vendor-reported
-- not independently reproduced
-- preliminary evidence
-- small sample
-- implementation details were not disclosed
-- production data unavailable
+Record the actual assessed article blob/commit, reviewer/type, six scores, result and remaining issues in this PR's copy-review section after the content revision exists. Do not create per-article review files. Reassess changed article bytes; do not restamp unchanged work on retries. A self-review is not independent or human approval. Unresolved material claims keep the story incomplete/withheld under the existing publication gates.
 
 ### Format handling
 
@@ -1021,6 +1002,16 @@ Use this structure:
 ### Evidence notes
 
 - **Story:** primary source; independent validation status; important claim boundary.
+
+### Claim, title and opening review
+
+Use the shared rubric in `docs/EDITORIAL.md`. Six scores: Accuracy / Evidence / Clarity / Reader value / Title quality / Voice.
+
+| Story | Assessed article blob/commit | Actual reviewer / type | Six scores / result | Issues / next action |
+| --- | --- | --- | --- | --- |
+| ... | ... | model self-review / independent model review / human review, as actually performed | ... / pass or blocked | fixed issues; remaining blockers or nonblocking improvements |
+
+For a ledger-only batch, state not applicable. Update the record when assessed article bytes change; retain the existing human publication boundary.
 
 ### Deduplication
 

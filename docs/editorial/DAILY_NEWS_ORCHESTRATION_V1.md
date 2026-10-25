@@ -1,7 +1,7 @@
-# Daily news orchestration — execution contract v1.2
+# Daily news orchestration — execution contract v1.3
 
-- **Version:** 1.2
-- **Updated:** 23 October 2026
+- **Version:** 1.3
+- **Updated:** 25 October 2026
 - **Scope:** Daily news; Tools & Guides is unchanged.
 
 ## Failure and execution boundary
@@ -53,6 +53,8 @@ new batch from a different invocation ID.
 ## Each scheduled pass
 
 1. Resolve current main and read core execution/schema/decision/topic contracts.
+   Read `docs/EDITORIAL.md` before drafting and apply its claim/title/opening review
+   before artwork resolution and English-source freeze/French translation.
    Read remaining dependencies before their stages. Record real refs; do not
    substitute invented policy when required editorial contracts are unavailable.
 2. Inspect today's and the preceding seven dates' canonical branches/checkpoints
@@ -169,7 +171,7 @@ wording is superseded only for partial-pass continuation, never evidence gates.
 ```prompt
 Advance the Daily AI Pulse DAILY NEWS workflow in GadDev/daily-ai-pulse. This task is the recurring driver: the existing 08:00 Europe/Luxembourg kickoff now has hourly continuation checks through 23:00. Continue saved work without waiting for another user rerun. Never edit task configuration from an editorial invocation.
 
-Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md plus the required current schema/decision/topic contracts. Load publication, illustration and French translation dependencies before their stages. If main still has v1.1, the automatic-continuation rules in this prompt supersede its single-invocation stop rule; the editorial/evidence gates remain unchanged.
+Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md plus the required current schema/decision/topic contracts. Before drafting, read docs/EDITORIAL.md and apply its claim/title/opening review before artwork resolution and final English-source freeze/French translation; record the actual revision-linked copy review in the existing PR body. Load publication, illustration and French translation dependencies before their stages. If main still has v1.1, the automatic-continuation rules in this prompt supersede its single-invocation stop rule; the editorial/evidence gates remain unchanged.
 
 Reconcile canonical branches/checkpoints/PRs for today and the preceding seven local dates. Resume the oldest structurally valid in-progress checkpoint first, retaining its original editorial date, cutoff, observations and human edits. Do not reopen a human-closed or merged batch. Do not resume a completed draft PR's research. If none is in progress, start today's batch only if its canonical batch has not already been finalized. Otherwise inspect any pending current-head CI; when nothing needs action, do not notify.
 
