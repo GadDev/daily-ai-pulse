@@ -6,7 +6,7 @@
   "scheduled_run": false,
   "topic_key": "claude-foundations-extraction-review",
   "guide_id": "claude-foundations-extraction-review",
-  "pr_number": null,
+  "pr_number": 240,
   "state": "prepared-for-publication-review",
   "authorization": "Prepare Part 2 and a complete publication-review PR. No publication or merge of this new article authorized yet.",
   "deduplication": {
@@ -601,5 +601,6 @@
       }
     ],
     "final_cover_page_pass": "Repeated local static-page checks with final C WebP after rendering preview again; exact draft source restored."
-  }
+  },
+  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/240"
 }
