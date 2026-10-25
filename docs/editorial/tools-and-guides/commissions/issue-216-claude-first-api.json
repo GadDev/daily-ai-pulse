@@ -7,7 +7,7 @@
   "scheduled_run": false,
   "topic_key": "claude-foundations-first-api-prompt",
   "guide_id": "claude-foundations-first-api-prompt",
-  "pr_number": null,
+  "pr_number": 238,
   "state": "draft-prepared",
   "deduplication": {
     "base_commit": "1ace8e946d3cfb63015b2556b8affdad386ff03e",
@@ -96,7 +96,7 @@
     }
   ],
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -112,7 +112,7 @@
       },
       "binary_upload": {
         "status": "available",
-        "evidence": "Git CLI dry-run failed: could not read Username for https://github.com. Used authenticated GitHub create_blob(base64); returned f816aae0ae387d0f8b9733be6434a7fc8d267abb equals local exact-byte Git blob SHA. Commit read-back pending."
+        "evidence": "Git CLI dry-run lacked credentials. Authenticated GitHub create_blob(base64) returned f816aae0ae387d0f8b9733be6434a7fc8d267abb; committed via tree/commit/branch APIs. Git fetch and git show independently confirmed exact remote bytes and SHA-256 9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6."
       }
     },
     "blocker": null,
@@ -292,13 +292,27 @@
       "sha256": "9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6",
       "git_blob_sha": "f816aae0ae387d0f8b9733be6434a7fc8d267abb",
       "riff_container_complete": true
+    },
+    "upload": {
+      "path": "/images/guides/claude-foundations-first-api-prompt.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 106174,
+      "sha256": "9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6",
+      "git_blob_sha": "f816aae0ae387d0f8b9733be6434a7fc8d267abb",
+      "riff_container_complete": true
+    },
+    "upload_verification": {
+      "method": "Fetched the created remote commit through Git and read all four files with git show; compared byte-for-byte with local files. WebP fully decoded before upload, SHA-256 and Git blob SHA-1 matched.",
+      "commit": "b42af312103a07316494fd24fdc8be2a618b4ec8",
+      "sha256": "9f9ca9f9666b96b55096cf5554b4ab73d22d55a1b66db88deeb149d285cc38a6",
+      "git_blob_sha": "f816aae0ae387d0f8b9733be6434a7fc8d267abb"
     }
   },
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Commit asset read-back and exact-head GitHub CI pending.",
-      "Rendered article desktop/mobile review not executed locally; browser installation/launch errors recorded above. Cover crops and the SVG were separately rendered and inspected."
+      "Rendered article desktop/mobile review remains unexecuted: local Playwright download failed with End of central directory record signature not found; bundled Chromium launch failed with EACCES / SIGSEGV. Resume PR #238 in a working browser runtime. Keep source status draft; render a disposable local preview and inspect code-copy controls, full article flow and diagram/cover at 375px and desktop width. Cover crops and CairoSVG diagram inspection already passed."
     ]
   },
   "source_evidence": [
@@ -564,7 +578,8 @@
       "result": "pass; 254 static pages built; 0 type errors",
       "draft_visibility": "Detail HTML absent, guide title absent from /guides/ listing and sitemap; English-only guide gate preserved.",
       "source_links": "Official Anthropic sources retrieved with web search/open; installed SDK verified with npm metadata; local guide asset/diagram references resolve.",
-      "build_note": "Existing Zod deprecation hints remain. Expressive Code falls back to plain text for gitignore; snippet remains labelled and copyable."
+      "build_note": "Existing Zod deprecation hints remain. Expressive Code falls back to plain text for gitignore; snippet remains labelled and copyable.",
+      "ci": "Exact final-head GitHub CI is tracked in PR #238 after this evidence update; no future result is asserted in this record."
     },
     "diagram": {
       "path": "/images/guides/claude-foundations-first-api-flow.svg",
