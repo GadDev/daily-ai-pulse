@@ -1013,6 +1013,90 @@
         ]
       },
       "runtime_recovery": "Restored old browser binary was truncated and crashed. Fresh pinned Chromium 131.0.1 package installed; extracted without unsupported filesystem chown, with matching SwiftShader files. Actual final browser check passed; no publication code changed for runtime recovery."
+    },
+    "ci_failure_review": {
+      "run_id": 40290072891,
+      "head": "91650e15c95b70561163bab891dbdc2814a387f5",
+      "project_check": "passed",
+      "browser_result": "65 passed; the existing English draft-reference search test failed on both internal attempts.",
+      "failure": "tests/e2e/french.spec.ts:231 expected zero unquoted sentinel results, but all six fuzzy searches returned the newly published MCP guide.",
+      "cause_evidence": {
+        "date": "2026-10-26",
+        "evidence": "Actual Pagefind 1.5.2 browser searches on existing French fixture with published Part 3. Temporary leak mutation only; repository content not changed.",
+        "initial": {
+          "observations": [
+            {
+              "token": "zzdraftstorytitlezz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            },
+            {
+              "token": "zzdraftstorydescriptionzz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            },
+            {
+              "token": "zzdraftstorybodyzz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            },
+            {
+              "token": "zzdraftstoryimagealtzz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            },
+            {
+              "token": "zzdraftstorytagzz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            },
+            {
+              "token": "zzdraftstorycompanyzz",
+              "unquoted": 1,
+              "quoted": 0,
+              "unquotedUrls": [
+                "/guides/typescript-read-only-mcp-server/"
+              ]
+            }
+          ],
+          "positive": 1
+        },
+        "mutation": {
+          "count": 1,
+          "urls": [
+            "/stories/2026-10-04-i18n-fixture-source-draft/"
+          ]
+        },
+        "status": "passed"
+      },
+      "fix": "Use exact quoted sentinel searches for all six hidden markers and the published positive control. Keep every existing publication/404/absence assertion. No product search behavior, article text, metadata, test exclusion or per-article suite changed.",
+      "format_and_lint": "Prettier and ESLint passed for the existing test.",
+      "focused_existing_browser_test": {
+        "status": "passed",
+        "count": 1,
+        "duration": "39.4 seconds including fixture builds",
+        "test": "English draft references remain unavailable across publication and real search results",
+        "browser": "Chromium 131.0.6778.0 via Playwright 1.64.0",
+        "runtime": "Linux, Node 22.22.3",
+        "mode": "Existing Playwright test with its actual fixture HTTP servers, exact sentinel searches and all assertions retained.",
+        "log_sha256": "a40dd9a8b703893d0ee4599997959ef43e03f2071f65d4b1c235fe38564d1b77"
+      },
+      "new_head_ci": "Actual corrected-head CI will be recorded in PR description after completion."
     }
   }
 }
