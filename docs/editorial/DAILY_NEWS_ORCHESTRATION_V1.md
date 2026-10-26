@@ -52,6 +52,13 @@ new batch from a different invocation ID.
 
 ## Each scheduled pass
 
+Before selecting a Curious item, read curious-ai/CONFIG_V1.yml when present on pinned main.
+During pilot retain existing Curious treatment. During production still inspect that lane,
+but refer leads through external_referrals (candidate_key, source_url, owner_profile:
+curious-ai, reason) without a news selection/article. All writers honor the shared coverage
+reservation protocol in CURIOUS_AI_ORCHESTRATOR_V1.md before new production drafting.
+Other desks keep existing scoring; guide ownership and scheduling remain independent.
+
 1. Resolve current main and read core execution/schema/decision/topic contracts.
    Read remaining dependencies before their stages. Record real refs; do not
    substitute invented policy when required editorial contracts are unavailable.

@@ -118,9 +118,12 @@ Case studies should emphasize:
 
 ## Curious AI
 
-Curious AI is for stories that are genuinely surprising, strange, clever, funny, or counterintuitive while still being relevant to technically curious readers.
-
-It should not become filler. The same evidence standards apply.
+Curious AI explores the surprising, delightful, contentious and revealing ways AI intersects
+with everyday life. Its [dedicated profile](editorial/CURIOUS_AI_V1.md) permits human and cultural
+relevance without engineering usefulness, with separate eligibility and ranking. Shared evidence,
+attribution, independence and human publication review still apply. Its
+[orchestrator](editorial/CURIOUS_AI_ORCHESTRATOR_V1.md) starts with a text-only pilot,
+30 candidates per batch and a seven-story daily ceiling, with no minimum quota.
 
 ## Editorial scoring
 

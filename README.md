@@ -126,6 +126,26 @@ PR CI runs `npm run verify` and the Playwright suite. External source claims and
 URLs still require editorial review; automated checks cannot replace the human
 editorial gate.
 
+## Curious AI orchestration
+
+Curious AI has a [dedicated editorial profile](docs/editorial/CURIOUS_AI_V1.md) and
+[orchestrator](docs/editorial/CURIOUS_AI_ORCHESTRATOR_V1.md): up to 30 assessed candidates
+per batch and seven prepared stories per Luxembourg editorial day, with no minimum.
+Its scheduled rollout starts with one text-only pilot review PR and waits for assessment.
+Existing illustrations and visual-production policy are unchanged.
+
+For a local trial, run:
+
+```bash
+npm run curious:init -- 2026-10-26 pilot-01
+npm run curious:check -- docs/editorial/curious-ai/dry-runs/2026-10-26/pilot-01/ledger.json
+npm run curious:test
+```
+
+Initialization leaves research unfinished; it does not discover or publish stories.
+Use the repository skill to conduct the editorial work. Local uncommitted policy is
+fingerprinted and labeled working-tree; scheduled work always reads committed main.
+
 ## Contributing and licensing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. For help see
