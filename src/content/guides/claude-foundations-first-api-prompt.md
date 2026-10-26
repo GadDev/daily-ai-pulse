@@ -4,6 +4,11 @@ description: Build a small TypeScript CLI that separates routing instructions, J
 status: published
 publishedAt: 2026-10-25T20:57:06Z
 format: tutorial
+featured: true
+series:
+  id: claude-architecture
+  title: Claude architecture learning path
+  part: 1
 verification: researched
 difficulty: beginner
 author: The Daily AI Pulse

@@ -1,0 +1,35 @@
+---
+import { formatGuideDate, type Guide } from '../../lib/guides';
+interface Props {
+  guide: Guide;
+}
+const { guide } = Astro.props;
+const dates = [
+  { label: 'Published', value: guide.data.publishedAt },
+  { label: 'Updated', value: guide.data.updatedAt },
+  { label: 'Evidence checked', value: guide.data.verifiedAt },
+].filter((date) => date.value);
+---
+
+<ul class="guide-dates" aria-label="Guide dates">
+  {dates.map(({ label, value }) => (
+    <li>
+      {label} <time datetime={value!.toISOString()}>{formatGuideDate(value!)}</time>
+    </li>
+  ))}
+</ul>
+<style>
+  .guide-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.65rem 0 0;
+    color: var(--muted);
+    font:
+      0.82rem/1.55 ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+</style>

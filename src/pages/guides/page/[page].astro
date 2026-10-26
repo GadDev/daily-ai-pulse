@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import GuideArchive from '../../../components/guides/GuideArchive.astro';
+import { guidePageCount, isPublishedGuide } from '../../../lib/guides';
+export async function getStaticPaths() {
+  const guides = await getCollection('guides', isPublishedGuide);
+  return Array.from({ length: guidePageCount(guides.length) - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+    props: { guides, currentPage: i + 2 },
+  }));
+}
+const { guides, currentPage } = Astro.props;
+---
+
+<GuideArchive guides={guides} currentPage={currentPage} />

@@ -1,25 +1,42 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { categories } from '../../lib/categories';
+import { guideFormats, verificationLabels } from '../../lib/guides';
 
 const base = import.meta.env.BASE_URL;
 const categoryList = Object.values(categories).map(({ key, title }) => ({ key, title }));
 const exploreDefaults = categoryList.slice(0, 3);
+const guideLabels = Object.fromEntries(
+  Object.entries(guideFormats).map(([key, format]) => [key, format.label]),
+);
 ---
 
 <BaseLayout
   title="Search — The Daily AI Pulse"
-  description="Search Pulse stories and daily editions."
+  description="Search Pulse stories, daily editions and Tools & Guides."
 >
   <section class="search-page">
     <header class="search-head">
       <p class="eyebrow">Search the publication</p>
       <h1>Find the signal.</h1>
-      <p class="search-dek">Search stories and daily editions by topic, tool, or company.</p>
+      <p class="search-dek">
+        Search stories, daily editions and guides by topic, tool, or company.
+      </p>
     </header>
 
     <div class="search-controls">
-      <form id="search-form" class="search-form" role="search">
+      <form
+        id="search-form"
+        class="search-form"
+        role="search"
+        method="get"
+        action={`${base}search/`}
+      >
+        <label for="search-scope">Search in</label>
+        <select id="search-scope" name="scope">
+          <option value="all">All publication content</option>
+          <option value="guides">Tools &amp; Guides only</option>
+        </select>
         <label for="search-input">Search</label>
         <div class="search-row">
           <div class="search-field">
@@ -32,6 +49,10 @@ const exploreDefaults = categoryList.slice(0, 3);
           <button type="submit">Search</button>
         </div>
       </form>
+      <noscript>
+        Search requires JavaScript. You can{' '}
+        <a href={`${base}guides/`}>browse all guides by format</a>.
+      </noscript>
     </div>
 
     <p id="search-status" class="search-status" aria-live="polite"></p>
@@ -51,18 +72,21 @@ const exploreDefaults = categoryList.slice(0, 3);
     </nav>
   </section>
 
-  <script define:vars={{ base, categoryList }}>
+  <script define:vars={{ base, categoryList, guideLabels, verificationLabels }}>
     const form = document.querySelector('#search-form');
     const input = document.querySelector('#search-input');
     const status = document.querySelector('#search-status');
     const resultsRoot = document.querySelector('#search-results');
     const exploreList = document.querySelector('#search-explore ul');
+    const scopeInput = document.querySelector('#search-scope');
+    let searchRequest = 0;
 
     const categoryTitles = new Map(categoryList.map(({ key, title }) => [key, title]));
 
     const params = new URLSearchParams(window.location.search);
     const initialQuery = params.get('q') ?? '';
     input.value = initialQuery;
+    scopeInput.value = params.get('scope') === 'guides' ? 'guides' : 'all';
 
     function el(tag, className, text) {
       const node = document.createElement(tag);
@@ -92,28 +116,41 @@ const exploreDefaults = categoryList.slice(0, 3);
       );
     }
 
-    function formatDate(iso) {
+    function formatDate(iso, prefix = '') {
       const date = new Date(iso);
       if (Number.isNaN(date.valueOf())) return null;
       const time = el('time', 'result-date');
       time.dateTime = date.toISOString().slice(0, 10);
-      time.textContent = date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'UTC',
-      });
+      time.textContent =
+        prefix +
+        date.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          timeZone: 'UTC',
+        });
       return time;
     }
 
     function renderResult(item) {
       const meta = item.meta ?? {};
       const isEdition = meta.kind === 'edition';
+      const isGuide = meta.contentType === 'guide';
       const deskTitle = categoryTitles.get(meta.categoryKey) ?? meta.category;
 
       const article = el('article', 'search-result');
       const main = el('div', 'result-main');
-      main.append(el('p', 'result-desk', isEdition ? 'Pulse' : (deskTitle ?? 'Story')));
+      main.append(
+        el(
+          'p',
+          'result-desk',
+          isGuide
+            ? (guideLabels[meta.format] ?? 'Guide')
+            : isEdition
+              ? 'Pulse'
+              : (deskTitle ?? 'Story'),
+        ),
+      );
 
       const title = el('h2');
       const link = el('a', '', (meta.title ?? item.url).replace(/\s*[—|]\s*Pulse$/, ''));
@@ -124,7 +161,19 @@ const exploreDefaults = categoryList.slice(0, 3);
       article.append(main);
 
       const aside = el('div', 'result-meta');
-      if (isEdition) {
+      if (isGuide) {
+        aside.append(
+          el('p', 'result-meta-label', verificationLabels[meta.verification] ?? 'Guide'),
+        );
+        for (const [key, prefix] of [
+          ['date', 'Published '],
+          ['updatedAt', 'Updated '],
+          ['verifiedAt', 'Evidence checked '],
+        ]) {
+          const time = meta[key] ? formatDate(meta[key], prefix) : null;
+          if (time) aside.append(time);
+        }
+      } else if (isEdition) {
         aside.append(el('p', 'result-meta-label', 'Edition'));
       } else if (meta.evidence) {
         aside.append(
@@ -136,7 +185,7 @@ const exploreDefaults = categoryList.slice(0, 3);
           ),
         );
       }
-      const time = meta.date ? formatDate(meta.date) : null;
+      const time = !isGuide && meta.date ? formatDate(meta.date) : null;
       if (time) aside.append(time);
       if (aside.childElementCount > 0) article.append(aside);
 
@@ -144,12 +193,17 @@ const exploreDefaults = categoryList.slice(0, 3);
     }
 
     async function runSearch(query) {
+      const request = ++searchRequest;
+      const scope = scopeInput.value;
       const trimmed = query.trim();
       resultsRoot.replaceChildren();
       renderExplore([]);
 
       if (!trimmed) {
-        status.textContent = 'Enter a term to search the publication.';
+        status.textContent =
+          scope === 'guides'
+            ? 'Enter a term to search Tools & Guides.'
+            : 'Enter a term to search the publication.';
         return;
       }
 
@@ -158,18 +212,25 @@ const exploreDefaults = categoryList.slice(0, 3);
       try {
         const pagefind = await import(`${base}pagefind/pagefind.js`);
         await pagefind.init();
-        const search = await pagefind.search(trimmed);
+        const search = await pagefind.search(
+          trimmed,
+          scope === 'guides' ? { filters: { contentType: 'guide' } } : {},
+        );
         const items = await Promise.all(search.results.slice(0, 30).map((result) => result.data()));
         const count = search.results.length;
+        if (request !== searchRequest) return;
 
         status.replaceChildren(
-          document.createTextNode(`${count} result${count === 1 ? '' : 's'}`),
+          document.createTextNode(
+            `${count} result${count === 1 ? '' : 's'}${scope === 'guides' ? ' in Tools & Guides' : ''}${count > items.length ? ` · Showing the first ${items.length}` : ''}`,
+          ),
           el('span', 'sr-only', ` for “${trimmed}”`),
         );
 
         resultsRoot.append(...items.map(renderResult));
         renderExplore(items.map((item) => item.meta?.categoryKey));
       } catch (error) {
+        if (request !== searchRequest) return;
         console.error(error);
         status.textContent =
           'Search is unavailable in development until the Pagefind index has been built.';
@@ -182,12 +243,20 @@ const exploreDefaults = categoryList.slice(0, 3);
       const url = new URL(window.location.href);
       if (query) url.searchParams.set('q', query);
       else url.searchParams.delete('q');
-      history.replaceState({}, '', url);
+      if (scopeInput.value === 'guides') url.searchParams.set('scope', 'guides');
+      else url.searchParams.delete('scope');
+      if (url.href !== window.location.href) history.pushState({}, '', url);
       runSearch(query);
     });
 
-    if (initialQuery) runSearch(initialQuery);
-    else status.textContent = 'Enter a term to search the publication.';
+    scopeInput.addEventListener('change', () => form.requestSubmit());
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(window.location.search);
+      input.value = params.get('q') ?? '';
+      scopeInput.value = params.get('scope') === 'guides' ? 'guides' : 'all';
+      runSearch(input.value);
+    });
+    runSearch(initialQuery);
   </script>
 </BaseLayout>
 
@@ -234,6 +303,21 @@ const exploreDefaults = categoryList.slice(0, 3);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     font-weight: 500;
+  }
+  #search-scope {
+    display: block;
+    min-height: 44px;
+    max-width: 100%;
+    margin: 0 0 1rem;
+    padding: 0.5rem 0.7rem;
+    font: inherit;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--muted);
+  }
+  #search-scope:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
   }
   .search-row {
     display: grid;

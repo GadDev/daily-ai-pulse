@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
 import GuideDisclosure from '../../components/guides/GuideDisclosure.astro';
 import GuideVerification from '../../components/guides/GuideVerification.astro';
+import GuideSeriesNav from '../../components/guides/GuideSeriesNav.astro';
 import { formatGuideDate, guideFormats, isPublishedGuide } from '../../lib/guides';
 import '../../styles/article.css';
 import '../../styles/guide-tables.css';
@@ -18,6 +19,7 @@ interface Props {
 }
 
 const { guide } = Astro.props;
+const guides = await getCollection('guides', isPublishedGuide);
 const { Content, headings } = await render(guide);
 const base = import.meta.env.BASE_URL;
 const tocItems = headings
@@ -36,16 +38,27 @@ const tocItems = headings
 >
   <article
     class="article-shell"
-    data-pagefind-meta={`contentType:guide, format:${guide.data.format}, verification:${guide.data.verification}`}
+    data-pagefind-meta="contentType[data-content-type], format[data-guide-format], verification[data-verification]"
+    data-content-type="guide"
+    data-guide-format={guide.data.format}
+    data-verification={guide.data.verification}
+    data-pagefind-filter="contentType:guide"
   >
     <header class="article-header">
       <a class="back-link" href={`${base}guides/`}>
         ← All Tools & Guides
       </a>
-      <p class="eyebrow article-eyebrow">
+      <p class="eyebrow article-eyebrow" data-pagefind-filter={`format:${guide.data.format}`}>
         {guideFormats[guide.data.format].label} / {guide.data.difficulty}
       </p>
-      <h1>{guide.data.title}</h1>
+      <h1
+        data-pagefind-meta="title, date[data-published-at], updatedAt[data-updated-at], verifiedAt[data-verified-at]"
+        data-published-at={guide.data.publishedAt?.toISOString()}
+        data-updated-at={guide.data.updatedAt?.toISOString()}
+        data-verified-at={guide.data.verifiedAt?.toISOString()}
+      >
+        {guide.data.title}
+      </h1>
       <p class="dek">{guide.data.description}</p>
       <div class="article-meta">
         <ul class="meta-list" aria-label="Guide metadata">
@@ -67,6 +80,7 @@ const tocItems = headings
         </ul>
       </div>
       <GuideVerification guide={guide} />
+      {guide.data.series && <GuideSeriesNav guide={guide} guides={guides} />}
       {guide.data.affiliateLinks && guide.data.disclosure && (
         <GuideDisclosure disclosure={guide.data.disclosure} />
       )}

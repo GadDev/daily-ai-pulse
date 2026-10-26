@@ -16,7 +16,7 @@ const { guide } = Astro.props;
   </p>
   {guide.data.verifiedAt && (
     <p>
-      Verified{' '}
+      Evidence checked{' '}
       <time datetime={guide.data.verifiedAt.toISOString()}>
         {formatGuideDate(guide.data.verifiedAt)}
       </time>

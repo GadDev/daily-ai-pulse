@@ -420,6 +420,8 @@ Recommended naming:
 - `warm-editorial-variation-b.png`
 - `warm-editorial-variation-c.png`
 
+The Guides landing, format archives and learning paths follow the [Workbench layout decision](design/guides-workbench.md), including the updated alternative proposals, date semantics and search growth plan.
+
 ## Design non-goals
 
 Pulse should not look like:
