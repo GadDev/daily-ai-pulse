@@ -2,7 +2,7 @@
 title: "Teaching children about AI can start without giving them a chatbot"
 description: "Dubai classroom exercises and an earlier UAE policy show why learning about AI is different from using a chatbot independently."
 date: 2026-10-26
-draft: true
+draft: false
 category: curious
 tags:
   - "ai-literacy"

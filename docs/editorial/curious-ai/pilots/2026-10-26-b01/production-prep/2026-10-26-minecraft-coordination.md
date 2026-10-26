@@ -2,7 +2,7 @@
 title: "Four AI players defeated Minecraft's Ender Dragon; the tool access matters"
 description: "An October 15 preprint reports one agent-team victory, using a privileged programmatic interface on Easy difficulty."
 date: 2026-10-26
-draft: true
+draft: false
 category: curious
 tags:
   - "multi-agent"

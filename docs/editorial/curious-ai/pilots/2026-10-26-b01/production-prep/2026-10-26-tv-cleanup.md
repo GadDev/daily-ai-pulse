@@ -2,7 +2,7 @@
 title: "TV owners are using AI to remove the extras they never asked for"
 description: "Coding agents and community scripts can simplify certain smart TV menus, but compatibility and recovery depend on the device."
 date: 2026-10-26
-draft: true
+draft: false
 category: curious
 tags:
   - "smart-tv"

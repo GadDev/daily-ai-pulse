@@ -2,7 +2,7 @@
 title: "Botober's tiny racehorse-name AI leaves the drawing to people"
 description: "For Botober, Janelle Shane's small neural network supplies odd phrases from racehorse names; human artists decide what they become."
 date: 2026-10-26
-draft: true
+draft: false
 category: curious
 tags:
   - "generative-art"

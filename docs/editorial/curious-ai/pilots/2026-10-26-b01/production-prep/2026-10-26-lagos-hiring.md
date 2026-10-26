@@ -2,7 +2,7 @@
 title: "A Lagos makeup artist used ChatGPT to prepare for her first hire"
 description: "A small-business owner's reported use of ChatGPT for interview planning shows a human-centered use of AI at work."
 date: 2026-10-26
-draft: true
+draft: false
 category: curious
 tags:
   - "small-business"
