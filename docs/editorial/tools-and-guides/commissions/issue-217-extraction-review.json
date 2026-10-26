@@ -655,5 +655,16 @@
       },
       "final_head_ci": "Actual new-head CI results will be recorded in PR description."
     }
+  },
+  "series_title_numbering": {
+    "requested_on": "2026-10-26",
+    "part": 2,
+    "scope": "Add the requested series-number prefix to the title only. URLs, body/code, artwork/metaphor, alt text, publication and verification dates unchanged.",
+    "previous_title": "Claude Extraction You Can Check: Validation, Batches and Human Review",
+    "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+    "previous_source_sha256": "9940de66bf48d339e2f896f4c183450a461fdc3a4c489e8432df236a4c3289e4",
+    "numbered_source_sha256": "4992108a0ec4764be7b62694f94d6568030c60e61633a6e1003b3a9ac5f6f9f5",
+    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page.",
+    "main_integration": "Preserve PR #251 series/featured frontmatter from main 88b58482f947294542785b8a4ebed6adb211e3b5; this PR still changes only its title relative to that main."
   }
 }

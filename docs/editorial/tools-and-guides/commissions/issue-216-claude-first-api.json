@@ -617,5 +617,16 @@
     "reviewed_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
     "evidence": "Maintainer statement in the current conversation: \"let's published it I have reviewed it\".",
     "scope_note": "Record the maintainer-reported review without inventing a reviewer name, detailed test procedure, fresh automated browser observations, or a live API run."
+  },
+  "series_title_numbering": {
+    "requested_on": "2026-10-26",
+    "part": 1,
+    "scope": "Add the requested series-number prefix to the title only. URLs, body/code, artwork/metaphor, alt text, publication and verification dates unchanged.",
+    "previous_title": "Your First Claude API Call: From a Support Message to Typed Triage",
+    "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+    "previous_source_sha256": "f95a445c006b17c8f6d194d77d1cc296a9a20433c46fd238d9c4718b4614443c",
+    "numbered_source_sha256": "242e5e3978e7d4cf5e39b11e9443dc2216c1676a6602a14fda5c20b2dda3e75b",
+    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page.",
+    "main_integration": "Preserve PR #251 series/featured frontmatter from main 88b58482f947294542785b8a4ebed6adb211e3b5; this PR still changes only its title relative to that main."
   }
 }

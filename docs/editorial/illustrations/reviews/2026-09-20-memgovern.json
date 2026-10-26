@@ -1,0 +1,192 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-20-memgovern",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-09-20-memgovern",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "MemGovern gives coding agents reusable lessons from GitHub fixes",
+    "verified_context": [
+      "MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records.",
+      "The agent searches and reads those records while working; retrieval adds token overhead."
+    ],
+    "editorial_idea": "Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.",
+    "visual_metaphor": "Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one physical metaphor",
+      "warm paper field",
+      "central focal forms that survive cover cropping"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame",
+      "unsupported visual claims"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-09-20-memgovern",
+    "story_source_sha256": "908045d74c1349c7d514c1de67a79de61e6f5abc3557730aebcaa68074634740",
+    "visual_brief_sha256": "63be06053e567063e26b9ae828038b691c6d0d3668f7a62fd18793eea936f73a",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "19c0eb0999f1025397ab145e5bf5dd81ae9a5c9f232eae7b1ae5a0c7c697fdd5"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 91,
+    "brand_fit": 90,
+    "composition": 92,
+    "crop_quality": 90,
+    "technical_meaning": 89,
+    "cleanliness": 97,
+    "golden_reference_fit": 86,
+    "weighted_total": 89.95
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 90,
+      "brand_fit": 88,
+      "composition": 85,
+      "crop_quality": 82,
+      "technical_meaning": 88,
+      "cleanliness": 97,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.7
+    },
+    "B": {
+      "story_specific": 91,
+      "brand_fit": 90,
+      "composition": 92,
+      "crop_quality": 90,
+      "technical_meaning": 89,
+      "cleanliness": 97,
+      "golden_reference_fit": 86,
+      "weighted_total": 89.95
+    },
+    "C": {
+      "story_specific": 91,
+      "brand_fit": 88,
+      "composition": 88,
+      "crop_quality": 84,
+      "technical_meaning": 90,
+      "cleanliness": 97,
+      "golden_reference_fit": 85,
+      "weighted_total": 88.05
+    }
+  },
+  "candidate_notes": {
+    "A": "Viable loose-record-to-card relationship; the right-heavy stack is less balanced in a centered square crop.",
+    "B": "Selected: the central sculptural fold and card stack remain distinct at small sizes, with loose papers indicating the source material.",
+    "C": "Viable overhead compression metaphor; its expansive paper spiral competes with the small organized stack."
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-20-memgovern.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 514 centered 21:9 crop inspected. Desktop crop trims the upper stone tip while preserving cards and loose records. Square crop trims outer stone and paper edges; the focal card stack stays readable.",
+    "article_mobile": "359 x 202 centered 16:9 crop inspected; focal forms remain visible.",
+    "thumbnail": "320 x 164 centered cover crop inspected; focal silhouette remains distinct.",
+    "home_square": "260 x 260 centered square preview inspected; nonessential edges crop as noted above."
+  },
+  "golden_reference_comparison": "Warm paper, terracotta edges and tactile stone match the references, with fewer structural elements. The folded cradle gives the cards spatial editorial presence. This is an abstract retrieval-memory artifact, not a model-training or access-control mechanism.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-09-20-memgovern.webp",
+  "contact_sheet_renderer": "Pillow fallback with two golden references above three candidates. Canonical contact-sheet CLI was attempted and could not launch the missing Playwright Chromium. The official browser download had already failed with a truncated/non-ZIP payload during the previous batch; it was not retried. No repository code or validator was changed.",
+  "asset_integrity": {
+    "byte_length": 252560,
+    "sha256": "eefb74aa02629bd130a7ff280e076b95c1f8a518d9204260db352feb07abdefe",
+    "git_blob_sha": "356eaffa274b56c1a5d9890db732c4f2d2cf012e",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-26T11:50:56.934032+00:00",
+    "reviewed_at": "2026-10-26T11:55:53.776091+00:00",
+    "review_type": "Codex model visual self-review; no human sign-off",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Canonical: oblique still life of loose unmarked cream paper sheets gathered toward a compact stack of blank terracotta and pale index cards held between two sculptural stone bookends. One focal transition from loose sheets to organized cards.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-93d9ec70-99c5-4cbb-a98a-83a48cd8f3fd.png",
+        "source_png_sha256": "870107437ad0edff57fdf811a3ccb3eef49147fb735c290d4c5a0ca966c2db49",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Editorial: a single broad sculptural stone fold cradles a compact fan of blank cards, with a few loose unmarked papers caught beneath the fold; richly tactile, central and monumental rather than an office scene.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-79daaa76-41b5-4626-809a-74a94779b431.png",
+        "source_png_sha256": "b881b96dc7ab76f7f3fabd031f56cefab3186bc02c674a2d464762c904ae232e",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Alternate: top-down specimen still life, a loose spiral of blank paper sheets tightening into a small neat stack of blank index cards held in a pale stone cradle. Subtle terracotta card edges provide one focal accent.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-1c6e7ea7-814b-4de0-aa76-815d81867eb1.png",
+        "source_png_sha256": "4f73efa319abcb95df5d278da4707dddd006593178eb202abe77146882631eca",
+        "constitution_passed": true
+      }
+    ]
+  }
+}
