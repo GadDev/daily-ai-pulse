@@ -8,7 +8,7 @@
   "guide_id": "claude-foundations-code-workflows",
   "state": "review-prepared",
   "pr_number": 255,
-  "authorization": "Prepare Part 5 as a draft PR. Earlier publication approval applied to Part 4; no Part 5 merge or publication authorized.",
+  "authorization": "Part 5 was originally prepared as a draft. On 2026-10-26 the user explicitly reviewed and approved changing the article status to published; PR merge and production deployment remain separate steps.",
   "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
   "deduplication": {
     "issue_comments": 0,
@@ -416,7 +416,7 @@
     "remaining_verification": [
       "Optional live Claude planning/editing, account authentication/billing and actual model compaction were not executed without credentials and spending authorization; researched label and limitations retained."
     ],
-    "visibility": "Unpublished draft with no publishedAt; actual final draft build excluded detail/listing/series/sitemap/search. Published series remains Parts1-4."
+    "visibility": "Publication metadata changed to status published and publishedAt 2026-10-26 after human approval. Previous draft exclusion checks were for the pre-approval commit. Production visibility requires PR merge and deployment."
   },
   "preflight_environment": {
     "node_target": "22.22.3",
@@ -911,6 +911,6 @@
     "contract": "Current main Editorial Voice v2 / Tools & Guides practice v3 and issue #219. Updated current main #252 contract changes inspected; no overlapping event commission.",
     "result": "English-only beginner tutorial, concepts before use, complete article-contained code, explicit expected/observed labels, pre-live cost/access controls, recovery/cleanup, independent variation, three original delayed-answer scenarios, explain-without-looking and self-assessment. No fake reviewer or French approval.",
     "scope": "Four guide-specific files only; no sample application framework, per-article publication CI, editor ranking, multi-agent implementation, real customer system or deployment. Parts1-4 source unchanged.",
-    "publication": "status draft, no publishedAt; old publication authorization does not cover Part5. Local preview metadata restored byte-for-byte."
+    "publication": "Reviewed and approved by the user on 2026-10-26; status published and publishedAt 2026-10-26 committed on the PR branch. Earlier draft preview metadata checks were run before this publication change."
   }
 }
