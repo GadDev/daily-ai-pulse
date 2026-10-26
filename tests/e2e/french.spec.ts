@@ -52,6 +52,14 @@ async function serveFixture(dist: string) {
   return { server, origin: `http://127.0.0.1:${address.port}` };
 }
 
+async function closeFixtureServer(server: Server) {
+  await new Promise<void>((done) => {
+    server.close(() => done());
+    // Assertions are finished; browser preconnections must not hold fixture teardown open.
+    server.closeAllConnections();
+  });
+}
+
 // Include both sides of each masthead breakpoint and the inherited 960px rule.
 const mastheadWidths = [
   1280, 1101, 1100, 1099, 961, 960, 959, 861, 860, 859, 858, 641, 640, 639, 375, 320,
@@ -140,8 +148,8 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-  if (server) await new Promise<void>((done) => server.close(() => done()));
-  if (emptyServer) await new Promise<void>((done) => emptyServer.close(() => done()));
+  if (server) await closeFixtureServer(server);
+  if (emptyServer) await closeFixtureServer(emptyServer);
   fixture?.cleanup();
   emptyFixture?.cleanup();
 });
@@ -693,7 +701,7 @@ test('source editing and completed translation review remove and restore the sam
       }
     } finally {
       if (stage !== 'initial') {
-        await new Promise<void>((done) => hosted.server.close(() => done()));
+        await closeFixtureServer(hosted.server);
         candidate.cleanup();
       }
     }
