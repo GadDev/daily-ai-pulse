@@ -80,6 +80,13 @@ Human review
 
 ## Authoritative dependencies
 
+When docs/editorial/curious-ai/CONFIG_V1.yml exists on pinned main, read its rollout stage.
+Pilot leaves legacy Curious preparation unchanged. Production delegates new Curious articles
+to curious-ai-editorial; preserve referrals without drafting them here. Before new production
+event drafting, honor the shared reservation protocol in
+docs/editorial/CURIOUS_AI_ORCHESTRATOR_V1.md. Reuse only the same batch owner, record
+observed refs, preserve human edits and never force a competing ref update.
+
 Before doing publication work, read the current versions on the target branch
 of:
 

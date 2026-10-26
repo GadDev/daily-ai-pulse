@@ -6,12 +6,10 @@ type Edition = CollectionEntry<'pulse'>;
 /** Public English surfaces resolve stories only after this publication gate. */
 export const isPublishedStory = (story: Story) => !story.data.draft;
 
-export const readingTime = (story: Story) =>
-  story.data.type === 'deep-dive'
-    ? '8 min read'
-    : story.data.type === 'briefing'
-      ? '4 min read'
-      : '3 min read';
+export const readingTime = (story: Story) => {
+  const words = story.body?.trim().split(/\s+/u).filter(Boolean).length ?? 0;
+  return `${Math.max(1, Math.ceil(words / 225))} min read`;
+};
 
 // Prefers the edition that features the story, otherwise the earliest edition that lists it.
 export const findEditionForStory = (storyId: string, editions: Edition[]) => {

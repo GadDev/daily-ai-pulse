@@ -10,6 +10,30 @@ status: canonical
 # - prefer stable engineering concepts over temporary product marketing terms.
 
 topics:
+  ai-culture:
+    label: AI and Culture
+    description: AI in art, entertainment, creative practice, and online communities.
+
+  everyday-ai:
+    label: Everyday AI
+    description: Bounded AI uses, experiences, accessibility, and ingenuity in ordinary life.
+
+  ai-education:
+    label: AI and Education
+    description: AI in learning, teaching, schools, and learner experiences.
+
+  human-ai-relationships:
+    label: Human–AI Relationships
+    description: Social experiences, companionship, trust, and relationships involving AI.
+
+  ai-labor:
+    label: AI and Work
+    description: Human experiences, labor, and working conditions involving AI.
+
+  ai-media-authenticity:
+    label: AI and Media Authenticity
+    description: Provenance, synthetic media, labeling, and trust in public material.
+
   agents:
     label: Agents
     description: General agent systems, architectures, and behavior.

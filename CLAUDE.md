@@ -71,6 +71,12 @@ Ledgers are immutable once merged — a correction requires a separate correctio
 
 ### Where authority lives
 
+Curious AI has a dedicated [profile](docs/editorial/CURIOUS_AI_V1.md) and
+[orchestrator](docs/editorial/CURIOUS_AI_ORCHESTRATOR_V1.md), initially a text-only pilot.
+Use npm run curious:init/check/test and editorial:batches:check for local preparation and
+record validation. Its 30-candidate/seven-story limits do not change news or guide quotas.
+Shared reservation/ownership rules apply before concurrent production drafting.
+
 - The **candidate ledger** owns candidate identity, select/watch/reject decision, desk, format, depth, evidence level, signal level, dedup result, editorial contract versions.
 - **PR preparation** owns publication-time source re-verification, story wording/structure, and mapping the richer editorial schema onto the current Astro content schema (`docs/editorial/EDITORIAL_SCHEMA_V1.md#18-current-site-compatibility`).
 - PR preparation never silently overrides a ledger decision — if later verification conflicts with a selected item, it withholds that story and records the conflict instead of publishing or editing the ledger's decision.

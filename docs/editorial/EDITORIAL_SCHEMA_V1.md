@@ -213,6 +213,12 @@ Generic funding news does not qualify unless it materially changes the engineeri
 
 ### 08 — Curious AI (`curious`)
 
+The [dedicated Curious profile](CURIOUS_AI_V1.md) broadens this category to everyday life,
+culture and human consequences, with its own eligibility and ranking. The description below
+records the legacy engineering-news treatment; historical classifications remain unchanged.
+Shared content type/evidence/signal enums remain unchanged. Production routing follows
+[the Curious orchestrator](CURIOUS_AI_ORCHESTRATOR_V1.md#shared-ownership-and-reservations).
+
 **Question:** What unexpected behavior is worth understanding?
 
 Includes surprising agent behavior, unusual experiments, emergent dynamics, clever demonstrations, and counter-intuitive results that still teach something.

@@ -98,6 +98,12 @@ New images or revisions cannot falsely claim compliance with the news-specific i
 
 ## Durable evergreen history and duplicate protection
 
+When Curious AI is in production, inspect Curious ledgers/pilot commissions and active PRs
+alongside news and guides. A distinct tutorial outcome may justify a separate guide; do not
+duplicate the same reported event. Before a new overlapping event commission, use the shared
+reservation protocol in CURIOUS_AI_ORCHESTRATOR_V1.md with a distinct guide topic/outcome
+key when justified. Retain all guide paths, limits and publication boundaries.
+
 The Tools & Guides ledger records every significant topic decision, including duplicates and topics waiting for evidence; it is **not** a clone of the daily news decision engine. Keep the canonical `topic_key` stable for the same reader problem/outcome across runs. The deterministic validator blocks selecting the same key twice after a prior `draft-pr` selection, but semantic duplication under different keys still requires editorial comparison. Prior `blocked` and `ledger-only` outcomes can be retried after checking current GitHub state. A `material-update` requires a linked existing guide and a concrete reason for revising it.
 
 A guide PR must include its own ledger and can remain an unpublished draft after merge. An optional meaningful ledger-only PR may capture a research run without a guide, but avoid PR noise on no-op days. Unmerged PRs are part of the deduplication check; merged history alone is insufficient. If the run cannot persist decisions, disclose that explicitly.

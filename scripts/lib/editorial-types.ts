@@ -1,11 +1,12 @@
 import type { VisualBrief } from './illustration-generation-identity.ts';
 
 export interface EditorialCandidate {
+  reservation?: { owner: string; ref: string; commit: string };
   id: string;
   decision?: string;
   topics?: string[];
   primary_source_url?: string;
-  sources?: { url: string }[];
+  sources?: { url: string; role?: string }[];
   deduplication?: {
     status?: string;
     result?: string;
@@ -14,6 +15,8 @@ export interface EditorialCandidate {
   };
 }
 export interface EditorialLedger {
+  profile?: string;
+  batch_id?: string;
   editorial_date: string;
   schema_version?: string;
   decision_engine_version?: string;
