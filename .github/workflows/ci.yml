@@ -48,8 +48,8 @@ jobs:
       - name: Translation batch coverage regressions
         run: npm run translations:batch:test
 
-      - name: Category pagination regressions
-        run: node --test tests/pagination.test.ts
+      - name: Category and guide browsing regressions
+        run: node --test tests/pagination.test.ts tests/guides.test.ts
 
       - name: French page rendering and visibility regressions
         run: npm run translations:pages:test

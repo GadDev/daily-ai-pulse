@@ -97,8 +97,8 @@
     "result": "No open Part 4 implementation. Existing approval-boundary guide owns reviewer-bound exact-proposal approval in Python; Part 4 owns the TypeScript Messages/Agent SDK loop, simulated identity/policy controls, hook normalization, preserved case facts and escalation. Keep news files and immutable scheduled ledgers unchanged.",
     "final_main_recheck": {
       "date": "2026-10-26",
-      "commit": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
-      "result": "Main unchanged since preflight. No existing remote content/claude-controlled-support-agent branch."
+      "commit": "88b58482f947294542785b8a4ebed6adb211e3b5",
+      "result": "Preserve merged #246 dependency update and #251 Workbench. Integrate the existing three title prefixes with its series/featured metadata; register Part 4. No duplicate Part 4 article implementation."
     }
   },
   "duplication_matrix": [
@@ -685,7 +685,8 @@
         "Browser smoke and accessibility": "success"
       },
       "security": "GitGuardian Security Checks: success",
-      "final_record_note": "This follow-up changes only this commission record. Final exact-head CI must still pass before merge; actual result will be recorded in PR description to avoid a self-referential commit loop."
+      "final_record_note": "This follow-up changes only this commission record. Final exact-head CI must still pass before merge; actual result will be recorded in PR description to avoid a self-referential commit loop.",
+      "historical_note": "Successful run covers the pre-Workbench publication tree. Final cleanup/Workbench merge-head CI must pass before merge; actual result recorded in PR description."
     }
   },
   "primary_source_evidence": [
@@ -777,10 +778,10 @@
     "review_date": "2026-10-26",
     "reviewer": "Codex (model self-review; human authorization quoted separately, no invented GitHub review)",
     "review_findings": "No blocking findings after review of issue, article/code, dated learner/transport evidence, assets, scope, costs and certification caveats. GitHub reviews, discussion comments, inline comments and review threads empty. Main unchanged at c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12.",
-    "source_delta": "Only status and new publishedAt frontmatter change. Markdown body and every embedded code block remain byte-for-byte identical to reviewed draft.",
+    "source_delta": "Only status, publishedAt and current-main series frontmatter differ from reviewed draft. Markdown body, all embedded learner files, alt and both assets unchanged.",
     "body_sha256": "43922f957b794654c9c2520fdc5ccc8399500962a0ee1e193feef99adf9b6fce",
     "reviewed_source_sha256": "93d59bc1c6e4948fbdbbf32bed273d28abc8ee99409f2df64dc090eb129623a4",
-    "publication_source_sha256": "239f77ccca6da7269e30481682e639a5fcfd980457a7b194ba8c55ddc1720d0e",
+    "publication_source_sha256": "43d329561e6a71071c64790094d3cd756d9eb9429d2a5733354ebca51f4e6d4d",
     "artwork_provenance": "Original generation identity remains the exact draft-generation provenance. Publication metadata does not alter the visual brief, body, alt or either asset; no regenerated cover or false generation-key match claimed.",
     "live_verification": "No new inference, credentials or spending authorization. Existing researched label and live SDK/model limitations retained.",
     "official_source_recheck": {
@@ -970,7 +971,120 @@
         "log_sha256": "4ce9ba56961519cbdaf4383d56e61d62b282fc5789df69ece956fae7ef65234c"
       },
       "scope": "Adds only existing shared fixture cleanup to the original 10 content/provenance files; no article-specific CI suite or workflow change.",
-      "final_ci": "Actual new-head CI and final deployment are recorded in PR description; merge remains blocked until new-head CI passes."
+      "final_ci": "Actual new-head CI and final deployment are recorded in PR description; merge remains blocked until new-head CI passes.",
+      "fixed_head_ci": {
+        "head": "aaccdbbbd5d6c7cdc2f90412f87ff21dcbee629e",
+        "run_id": 40315086342,
+        "result": "success",
+        "browser": "74 passed, no retry/flaky/failure reported; 2.5 minutes",
+        "project": "success",
+        "note": "Final explicit Workbench merge/series metadata/navigation-label commit still requires its exact-head CI."
+      }
+    },
+    "initial_publication_source_sha256": "239f77ccca6da7269e30481682e639a5fcfd980457a7b194ba8c55ddc1720d0e",
+    "workbench_main_update": {
+      "from": "4905f2d66e12e9b4551b56b65107f076e1652818",
+      "to": "88b58482f947294542785b8a4ebed6adb211e3b5",
+      "pr": 251,
+      "change": "Guides Workbench archives, ordered series metadata/navigation, scoped search, browsing tests and preview ignore-lock. Preserve main frontend/schema/test changes; combine title-only updates with its Parts 1–3 metadata.",
+      "part4": "Register existing claude-architecture series, title Claude architecture learning path, part 4. No new framework or frontend implementation authored here.",
+      "validation": {
+        "npm_verify": "passed, exit 0; 270 static pages built, 268 indexed, 2 languages and 2 search filters.",
+        "log_sha256": "fd6886d9065050dbc00322536b918e8a0adcfc0f20b9a9e96ff653c0ff6a4b10",
+        "browser": {
+          "date": "2026-10-26",
+          "browser": "153.0.8010.0",
+          "mode": "Local human-authorized published Astro build; assets fulfilled from disk, not public deployment",
+          "report": [
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 1440,
+              "viewport": 1440,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16
+            },
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 375,
+              "viewport": 375,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16,
+              "axeViolations": []
+            },
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 320,
+              "viewport": 320,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16
+            }
+          ],
+          "titleChecks": [
+            {
+              "part": 1,
+              "slug": "claude-foundations-first-api-prompt",
+              "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+              "bodyWidth": 320
+            },
+            {
+              "part": 2,
+              "slug": "claude-foundations-extraction-review",
+              "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+              "bodyWidth": 320
+            },
+            {
+              "part": 3,
+              "slug": "typescript-read-only-mcp-server",
+              "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+              "bodyWidth": 320
+            }
+          ],
+          "navigation": [
+            {
+              "part": 1,
+              "prev": 0,
+              "next": 1,
+              "text": "Claude architecture learning path · Part 1Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review →"
+            },
+            {
+              "part": 2,
+              "prev": 1,
+              "next": 1,
+              "text": "Claude architecture learning path · Part 2Start at Part 1← Part 1: Your First Claude API Call: From a Support Message to Typed TriagePart 3: Build a Read-Only MCP Server for Northstar Helpdesk →"
+            },
+            {
+              "part": 3,
+              "prev": 1,
+              "next": 1,
+              "text": "Claude architecture learning path · Part 3Start at Part 1← Part 2: Claude Extraction You Can Check: Validation, Batches and Human ReviewPart 4: Control a Support Agent with Hooks and Human Handoffs →"
+            },
+            {
+              "part": 4,
+              "prev": 1,
+              "next": 0,
+              "text": "Claude architecture learning path · Part 4Start at Part 1← Part 3: Build a Read-Only MCP Server for Northstar Helpdesk"
+            }
+          ],
+          "seriesParts": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "seriesAxeViolations": []
+        },
+        "navigation_label": "Small compatibility fix in current-main GuideSeriesNav: avoid adding a second Part N: prefix when the article title already has its explicit matching number. Handles numbered and unnumbered titles; mobile labels inspected.",
+        "scope": "12 files versus current main: original 10 content/provenance files, existing shared French fixture cleanup and existing series navigation label compatibility. All Workbench/schema/search/page/workflow changes remain main-owned."
+      }
     }
   }
 }

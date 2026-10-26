@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import GuideArchive from '../../../components/guides/GuideArchive.astro';
+import {
+  guideFormats,
+  guidePageCount,
+  isPublishedGuide,
+  type GuideFormat,
+} from '../../../lib/guides';
+export async function getStaticPaths() {
+  const guides = await getCollection('guides', isPublishedGuide);
+  return (Object.keys(guideFormats) as GuideFormat[]).flatMap((format) =>
+    Array.from(
+      { length: guidePageCount(guides.filter((guide) => guide.data.format === format).length) },
+      (_, i) => ({
+        params: { format: guideFormats[format].slug, page: i ? `page/${i + 1}` : undefined },
+        props: { guides, format, currentPage: i + 1 },
+      }),
+    ),
+  );
+}
+const { guides, format, currentPage } = Astro.props;
+---
+
+<GuideArchive guides={guides} format={format} currentPage={currentPage} />

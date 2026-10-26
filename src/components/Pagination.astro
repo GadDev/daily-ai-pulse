@@ -6,13 +6,17 @@ interface Props {
   total: number;
   href: (page: number) => string;
   locale: Locale;
+  label?: string;
 }
-const { current, total, href, locale } = Astro.props;
+const { current, total, href, locale, label } = Astro.props;
 const fr = locale === 'fr';
 ---
 
 {total > 1 && (
-  <nav class="pagination" aria-label={fr ? 'Pagination des articles' : 'Story pagination'}>
+  <nav
+    class="pagination"
+    aria-label={label ?? (fr ? 'Pagination des articles' : 'Story pagination')}
+  >
     <p>
       {fr ? 'Page' : 'Page'} {current} {fr ? 'sur' : 'of'} {total}
     </p>

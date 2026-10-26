@@ -4,6 +4,10 @@ description: Build a TypeScript case runner that checks identity and policy befo
 status: published
 publishedAt: 2026-10-26T10:43:59Z
 format: tutorial
+series:
+  id: claude-architecture
+  title: Claude architecture learning path
+  part: 4
 verification: researched
 difficulty: beginner
 author: The Daily AI Pulse

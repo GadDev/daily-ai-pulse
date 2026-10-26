@@ -1119,8 +1119,9 @@
     "scope": "Add the requested series-number prefix to the title only. URLs, body/code, artwork/metaphor, alt text, publication and verification dates unchanged.",
     "previous_title": "Build a Read-Only MCP Server for Northstar Helpdesk",
     "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
-    "previous_source_sha256": "d18716d27c0a45fefeebf11128a358b2dc09a58ede2662fef477a111744815b7",
-    "numbered_source_sha256": "baf4fdb1434eeccec7f45c5a67c72340e61c9b78445eb137669fa29dc7aeca3e",
-    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page."
+    "previous_source_sha256": "7daa7de8f3bd30a0010b5e6c3904974306c32ab13e494b01e6f9b339e48a74b9",
+    "numbered_source_sha256": "62fe05061b038a8ac0dfde12b9188b3d205f87102cb57461748a68d13ab794c8",
+    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page.",
+    "main_integration": "Preserve PR #251 series/featured frontmatter from main 88b58482f947294542785b8a4ebed6adb211e3b5; this PR still changes only its title relative to that main."
   }
 }
