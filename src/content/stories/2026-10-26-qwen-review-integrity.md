@@ -2,7 +2,7 @@
 title: "An AI code reviewer can change the evidence and still leave Git clean"
 description: "A Qwen Code contributor reports temporary source edits in three of four review runs. Restoring the files does not establish what parallel reviewers read."
 date: 2026-10-26
-draft: true
+draft: false
 category: workflows
 tags:
   - coding-agents
@@ -16,8 +16,8 @@ evidence: anecdotal
 featured: false
 companies:
   - Qwen
-image: "/images/stories/2026-10-07-github-reviewbench.webp"
-imageAlt: "Three inspection lenses examining different flaws in a layered code-like material"
+image: "/images/stories/2026-10-26-qwen-review-integrity.webp"
+imageAlt: "A brass inspection lens examining a temporarily displaced layer of a pale source artifact with a terracotta interior"
 sources:
   - label: "yiliang114 — Qwen Code review-worktree mutation report, October 25"
     url: "https://github.com/QwenLM/qwen-code/issues/15507"
