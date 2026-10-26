@@ -3,7 +3,6 @@ title: "MemGovern gives coding agents reusable lessons from GitHub fixes"
 description: "The framework retrieves structured debugging records while an agent works. Its benchmark gains come with extra token use, and the paper's aggregate result needs qualification."
 date: 2026-09-20
 updatedAt: 2026-10-26
-correctionNote: "The earlier version presented a 4.65-point gain without qualifying the paper's inconsistent aggregate reporting. This version uses an individual result from Table 1 and explains the discrepancy."
 category: research
 tags: [memory, coding-agents, github, retrieval]
 type: briefing
@@ -14,6 +13,9 @@ featured: false
 companies: []
 image: "/images/stories/2026-09-20-memgovern.webp"
 imageAlt: "Loose blank paper records gathered into a compact stack of cards held by pale stone"
+corrections:
+  - date: 2026-10-26
+    note: "The earlier version presented a 4.65-point gain without qualifying the paper's inconsistent aggregate reporting. This version uses an individual result from Table 1 and explains the discrepancy."
 sources:
   - label: "MemGovern: Enhancing Code Agents through Learning from Governed Human Experiences"
     url: "https://arxiv.org/abs/2601.06789"

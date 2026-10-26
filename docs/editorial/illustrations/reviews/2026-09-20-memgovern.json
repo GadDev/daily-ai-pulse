@@ -54,7 +54,7 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-09-20-memgovern",
-    "story_source_sha256": "908045d74c1349c7d514c1de67a79de61e6f5abc3557730aebcaa68074634740",
+    "story_source_sha256": "3e4ce4f2ca3e7f44b914b8a4b1e9ec3f0f9ce48d3dd6a083c6a85402b7a2d5f1",
     "visual_brief_sha256": "63be06053e567063e26b9ae828038b691c6d0d3668f7a62fd18793eea936f73a",
     "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
     "illustration_system_version": "1.3",
@@ -63,7 +63,7 @@
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "19c0eb0999f1025397ab145e5bf5dd81ae9a5c9f232eae7b1ae5a0c7c697fdd5"
+    "generation_key": "3b5ec15acd64b8643795460cae2c25299f3d7848fac88df462186abb1d1cd264"
   },
   "constitution_check": {
     "passed": true,
@@ -93,13 +93,13 @@
   },
   "scores": {
     "story_specific": 91,
-    "brand_fit": 90,
+    "brand_fit": 91,
     "composition": 92,
     "crop_quality": 90,
     "technical_meaning": 89,
     "cleanliness": 97,
-    "golden_reference_fit": 86,
-    "weighted_total": 89.95
+    "golden_reference_fit": 87,
+    "weighted_total": 90.3
   },
   "candidate_scores": {
     "A": {
@@ -114,29 +114,29 @@
     },
     "B": {
       "story_specific": 91,
-      "brand_fit": 90,
+      "brand_fit": 91,
       "composition": 92,
       "crop_quality": 90,
       "technical_meaning": 89,
       "cleanliness": 97,
-      "golden_reference_fit": 86,
-      "weighted_total": 89.95
+      "golden_reference_fit": 87,
+      "weighted_total": 90.3
     },
     "C": {
       "story_specific": 91,
       "brand_fit": 88,
       "composition": 88,
-      "crop_quality": 84,
+      "crop_quality": 88,
       "technical_meaning": 90,
       "cleanliness": 97,
       "golden_reference_fit": 85,
-      "weighted_total": 88.05
+      "weighted_total": 88.65
     }
   },
   "candidate_notes": {
     "A": "Viable loose-record-to-card relationship; the right-heavy stack is less balanced in a centered square crop.",
-    "B": "Selected: the central sculptural fold and card stack remain distinct at small sizes, with loose papers indicating the source material.",
-    "C": "Viable overhead compression metaphor; its expansive paper spiral competes with the small organized stack."
+    "B": "Selected: central stone fold holds a clearly separated fan of cards with loose sheets beneath. The restrained terracotta disc and warm grain fit the references without claiming a benchmark result.",
+    "C": "Viable overhead compression metaphor; the broad spiral of loose sheets competes with the organized stack at thumbnail scale."
   },
   "hard_failures": [],
   "cover_crop_approved": true,
@@ -147,44 +147,45 @@
     "height": 900
   },
   "crop_review": {
-    "article_desktop": "1200 x 514 centered 21:9 crop inspected. Desktop crop trims the upper stone tip while preserving cards and loose records. Square crop trims outer stone and paper edges; the focal card stack stays readable.",
+    "article_desktop": "1200 x 514 centered 21:9 crop inspected. Outer upper stone and lower tip crop; the complete focal card fan and loose sheets remain readable.",
     "article_mobile": "359 x 202 centered 16:9 crop inspected; focal forms remain visible.",
     "thumbnail": "320 x 164 centered cover crop inspected; focal silhouette remains distinct.",
-    "home_square": "260 x 260 centered square preview inspected; nonessential edges crop as noted above."
+    "home_square": "260 x 260 centered square preview inspected. Outer stone, disc and paper edges crop; the central card fan remains visible."
   },
-  "golden_reference_comparison": "Warm paper, terracotta edges and tactile stone match the references, with fewer structural elements. The folded cradle gives the cards spatial editorial presence. This is an abstract retrieval-memory artifact, not a model-training or access-control mechanism.",
+  "golden_reference_comparison": "Warm paper, fine supporting arcs, tactile stone and restrained terracotta match the inspected references. The central fold gives the cards sculptural editorial presence. The image is simpler than the reference architectures and remains an abstract retrieval-memory artifact, not a model-training or access-control mechanism.",
   "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-09-20-memgovern.webp",
   "contact_sheet_renderer": "Pillow fallback with two golden references above three candidates. Canonical contact-sheet CLI was attempted and could not launch the missing Playwright Chromium. The official browser download had already failed with a truncated/non-ZIP payload during the previous batch; it was not retried. No repository code or validator was changed.",
   "asset_integrity": {
-    "byte_length": 252560,
-    "sha256": "eefb74aa02629bd130a7ff280e076b95c1f8a518d9204260db352feb07abdefe",
-    "git_blob_sha": "356eaffa274b56c1a5d9890db732c4f2d2cf012e",
+    "byte_length": 289892,
+    "sha256": "6f03bca08964e0e973acdf5bf5277bf97b07cb4a908c725e3f89c76a9667565e",
+    "git_blob_sha": "9fef15ff3ea7e50d1405bed3581aa0c13066db6c",
     "riff_container_complete": true
   },
   "generation_metadata": {
-    "generated_at": "2026-10-26T11:50:56.934032+00:00",
-    "reviewed_at": "2026-10-26T11:55:53.776091+00:00",
+    "generated_at": "2026-10-26T12:06:52.467914+00:00",
+    "reviewed_at": "2026-10-26T12:09:42.296884+00:00",
     "review_type": "Codex model visual self-review; no human sign-off",
+    "regeneration_reason": "The preview exposed an unsupported correctionNote field. Converting it to the existing corrections array changed story bytes; the decision CLI returned GENERATE / generation-key-mismatch. Three new candidates were generated against the corrected source.",
     "candidate_provenance": [
       {
         "candidate": "A",
         "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Canonical: oblique still life of loose unmarked cream paper sheets gathered toward a compact stack of blank terracotta and pale index cards held between two sculptural stone bookends. One focal transition from loose sheets to organized cards.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
-        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-93d9ec70-99c5-4cbb-a98a-83a48cd8f3fd.png",
-        "source_png_sha256": "870107437ad0edff57fdf811a3ccb3eef49147fb735c290d4c5a0ca966c2db49",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-330f5ba2-127d-4542-b094-cdb6fd79dffa.png",
+        "source_png_sha256": "fa0c4514442b6c2e3cbcc7c5b91ba064cc0d51d173a90b5473ebdf07525cce24",
         "constitution_passed": true
       },
       {
         "candidate": "B",
         "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Editorial: a single broad sculptural stone fold cradles a compact fan of blank cards, with a few loose unmarked papers caught beneath the fold; richly tactile, central and monumental rather than an office scene.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
-        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-79daaa76-41b5-4626-809a-74a94779b431.png",
-        "source_png_sha256": "b881b96dc7ab76f7f3fabd031f56cefab3186bc02c674a2d464762c904ae232e",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-ef2551b3-238a-4b28-a334-67e601765b52.png",
+        "source_png_sha256": "7b72342b83ef2fafcbc511603200501880fb560ddf9eb0f4fd7edd451ad5efb7",
         "constitution_passed": true
       },
       {
         "candidate": "C",
         "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset inside an existing layout, not a generated webpage.\nOutput crop: wide high-resolution landscape, 16:9 composition suitable for a 1600 by 900 asset.\nSubject: MemGovern gives coding agents reusable lessons from GitHub fixes\nVerified context: MemGovern turns GitHub issues, pull requests and patches into roughly 135,000 structured debugging records. The agent searches and reads those records while working; retrieval adds token overhead.\nVisual idea: Loose blank paper records gathered into a compact stack of cards held by pale stone, an abstract compression and retrieval metaphor. Condensed reference records make past repairs retrievable; the image makes no claim about benchmark gains or guaranteed correctness.\nComposition: Alternate: top-down specimen still life, a loose spiral of blank paper sheets tightening into a small neat stack of blank index cards held in a pale stone cradle. Subtle terracotta card edges provide one focal accent.\nArt direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, one clear focal idea, physical materiality, spatial depth and hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Match the inspected golden references: tactile stone, architectural depth, warm print-like grain. Not glossy stock photography.\nEditorial presence is required: not a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine technical lines may support the image but cannot carry it.\nObject-fit cover requirement: keep all essential relationships in the central 60 percent, leave generous surrounding negative space so desktop, mobile and thumbnail crops preserve the idea.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDepict only the abstract metaphor, no unsupported technical mechanism or performance claim.",
-        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-1c6e7ea7-814b-4de0-aa76-815d81867eb1.png",
-        "source_png_sha256": "4f73efa319abcb95df5d278da4707dddd006593178eb202abe77146882631eca",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-d61cb875-9710-48b7-bb16-97542acc710d.png",
+        "source_png_sha256": "d1a696c9aa3adc086cf5229633b743a070c2b340081a923f89cae73b8ce25bab",
         "constitution_passed": true
       }
     ]
