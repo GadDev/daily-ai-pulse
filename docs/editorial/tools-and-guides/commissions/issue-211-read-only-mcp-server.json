@@ -7,8 +7,8 @@
   "topic_key": "typescript-read-only-mcp-server",
   "guide_id": "typescript-read-only-mcp-server",
   "pr_number": 243,
-  "state": "prepared",
-  "authorization": "Prepare Part 3 article and one draft publication-review PR. Previous publication approval applied to Part 2; no merge or deployment of this new article authorized.",
+  "state": "publication-prepared",
+  "authorization": "Maintainer requested review and publication in this conversation: \"review ready to be published\". This authorizes publication metadata, merge of PR #243 after successful final checks, and the normal production deployment.",
   "deduplication": {
     "base_commit": "82043cba5633ecb210aa94d77fc1fa57adc22fff",
     "issue_comments": 0,
@@ -318,17 +318,28 @@
       "path": "public/images/guides/northstar-mcp-boundary.svg",
       "sha256": "af9c4f8085660ddca79578aaa0b7a337a9055f2e7da0c95d970296c2b9c0cf9a",
       "inspection": "Actual browser SVG rendering and 320/375px article figure inspected. Host paths merge before MCP connection; tools branch from server; fixed resource has an independent branch. All labels fit after shortening two labels and repairing arrow directions before freeze."
+    },
+    "publication_metadata_update": {
+      "reason": "Human-authorized administrative publication change only. Original draft generation identity and provenance retained; body, code, brief, illustration inputs and both assets unchanged.",
+      "reviewed_source_commit": "f2947ccc7e35d0684fba8d554e58f8e979398cf7",
+      "reviewed_source_sha256": "8084838bd89a403b34e103f59bbca59a69f962d8d2f6c882415e59ad9ccd704c",
+      "publication_source_sha256": "d18716d27c0a45fefeebf11128a358b2dc09a58ede2662fef477a111744815b7",
+      "body_sha256": "b42570ca1bc17a46f1acf7b9b0d068675e063f921d02773717e522da40af04be",
+      "changed_fields": [
+        "status",
+        "publishedAt"
+      ]
     }
   },
   "handoff": {
-    "completion": "prepared-for-human-review",
+    "completion": "publication-prepared",
     "preparation_blockers": [],
     "remaining_verification": [
       "Optional live Claude query/usage/tool-selection trial not executed",
       "Project-scope execution approval not completed in isolated verification"
     ],
-    "exact_head_ci": "Actual final-head CI results will be recorded in PR description after completion.",
-    "publication_gate": "Draft PR and status:draft, no publishedAt. Part 3 has no publication/merge authorization yet; human review/merge remains the publication boundary.",
+    "exact_head_ci": "Reviewed draft f2947cc passed run 40246140815. Final publication-head CI and deployment results will be recorded in PR description after actual completion.",
+    "publication_gate": "Maintainer publication authorization received; merge PR #243 only after final publication-head CI passes, then verify normal Firebase deployment and public endpoints.",
     "recovery": "Optional live verification requires authenticated model access and an explicit budget; inspect project launch command before approving it. Neither limitation is concealed by fixture/CLI evidence."
   },
   "checked_on": "2026-10-25",
@@ -859,5 +870,149 @@
     "series_overlap": "Part 1 API/schema and Part 2 semantic/batch work cross-linked; read-only transport/contracts owned here; actions, hooks, coordinator and CI capstone deferred.",
     "assessment": "Independent delivery variation, seeded retry bug, three original scenario questions with delayed explained answers, explain-without-looking and outcome-based self-assessment present."
   },
-  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/243"
+  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/243",
+  "publication": {
+    "status": "publication-prepared",
+    "publishedAt": "2026-10-26T07:59:46Z",
+    "authorization": "Maintainer requested review and publication in this conversation: \"review ready to be published\". This authorizes publication metadata, merge of PR #243 after successful final checks, and the normal production deployment.",
+    "reviewed_source_commit": "f2947ccc7e35d0684fba8d554e58f8e979398cf7",
+    "review_date": "2026-10-26",
+    "reviewer": "Codex (model self-review; no human review identity fabricated)",
+    "review_findings": "No blocking findings. Read issue/comments, full article/code, recorded execution evidence, scope/compatibility/cost and certification caveats. Verified cover/diagram hashes and WebP decode; no submitted reviews, change requests, inline threads or discussion comments at review. Main unchanged at 82043cba5633ecb210aa94d77fc1fa57adc22fff.",
+    "source_delta": "Only status and publishedAt frontmatter change; Markdown body and every code block remain byte-for-byte identical to reviewed draft.",
+    "body_sha256": "b42570ca1bc17a46f1acf7b9b0d068675e063f921d02773717e522da40af04be",
+    "reviewed_source_sha256": "8084838bd89a403b34e103f59bbca59a69f962d8d2f6c882415e59ad9ccd704c",
+    "publication_source_sha256": "d18716d27c0a45fefeebf11128a358b2dc09a58ede2662fef477a111744815b7",
+    "official_source_recheck": {
+      "date": "2026-10-26",
+      "urls": [
+        "https://ts.sdk.modelcontextprotocol.io/v2/serving/stdio.html",
+        "https://code.claude.com/docs/en/mcp",
+        "https://platform.claude.com/docs/en/models/haiku-4-5/overview"
+      ],
+      "result": "Official SDK/Claude documentation re-opened; no conflicting publication-blocking change found. Haiku snapshot remains active legacy at USD 1/5 per million input/output tokens; no account availability test or paid query."
+    },
+    "live_verification": "No new live inference or project-scope execution approval; existing limitations remain explicit and verification: researched remains unchanged.",
+    "draft_ci": "Run 40246140815 succeeded, including 66 browser tests and GitGuardian; final publication-head CI will be recorded in PR description after actual completion.",
+    "visibility": "Verify live detail, guide listing, sitemap and both assets after normal production deployment.",
+    "human_merge_required": false,
+    "boundary_note": "Explicit maintainer publication authorization permits merge after final checks. No autonomous scheduled publication or invented sign-off.",
+    "local_validation": {
+      "date": "2026-10-26",
+      "node": "22.22.3",
+      "repository_verify": "npm run verify passed",
+      "external_links": {
+        "checked": 18,
+        "status": "all HTTP 200",
+        "sha256": "ecf2055e716280808e391615cfcb8b3fbc5e6af0ffaf908d3f4e9dfe20fac7d6"
+      },
+      "browser": {
+        "date": "2026-10-26",
+        "browser": "131.0.6778.0",
+        "mode": "Local published Astro build; HTML and assets fulfilled from disk, not public deployment",
+        "visibility": {
+          "detail": true,
+          "listing": true,
+          "sitemap": true
+        },
+        "report": [
+          {
+            "width": 1440,
+            "http": 200,
+            "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+            "viewport": 1440,
+            "bodyWidth": 1440,
+            "brokenImages": [],
+            "published": [
+              {
+                "datetime": "2026-10-26T07:59:46.000Z",
+                "text": "Published 26 October 2026"
+              },
+              {
+                "datetime": "2026-10-25T00:00:00.000Z",
+                "text": "25 October 2026"
+              }
+            ],
+            "frenchAlternate": false,
+            "codeBlocks": 20,
+            "diagram": {
+              "x": 487,
+              "y": 2988.09375,
+              "width": 646,
+              "height": 1644.359375,
+              "top": 2988.09375,
+              "right": 1133,
+              "bottom": 4632.453125,
+              "left": 487
+            },
+            "heroAlt": "A pale stone archive block exposes a few blank paper cards through a narrow opening lined with terracotta."
+          },
+          {
+            "width": 375,
+            "http": 200,
+            "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+            "viewport": 375,
+            "bodyWidth": 375,
+            "brokenImages": [],
+            "published": [
+              {
+                "datetime": "2026-10-26T07:59:46.000Z",
+                "text": "Published 26 October 2026"
+              },
+              {
+                "datetime": "2026-10-25T00:00:00.000Z",
+                "text": "25 October 2026"
+              }
+            ],
+            "frenchAlternate": false,
+            "codeBlocks": 20,
+            "diagram": {
+              "x": 28,
+              "y": 4641.484375,
+              "width": 319,
+              "height": 812,
+              "top": 4641.484375,
+              "right": 347,
+              "bottom": 5453.484375,
+              "left": 28
+            },
+            "heroAlt": "A pale stone archive block exposes a few blank paper cards through a narrow opening lined with terracotta.",
+            "axeViolations": []
+          },
+          {
+            "width": 320,
+            "http": 200,
+            "title": "Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+            "viewport": 320,
+            "bodyWidth": 320,
+            "brokenImages": [],
+            "published": [
+              {
+                "datetime": "2026-10-26T07:59:46.000Z",
+                "text": "Published 26 October 2026"
+              },
+              {
+                "datetime": "2026-10-25T00:00:00.000Z",
+                "text": "25 October 2026"
+              }
+            ],
+            "frenchAlternate": false,
+            "codeBlocks": 20,
+            "diagram": {
+              "x": 25.796875,
+              "y": 5032.9375,
+              "width": 268.390625,
+              "height": 683.171875,
+              "top": 5032.9375,
+              "right": 294.1875,
+              "bottom": 5716.109375,
+              "left": 25.796875
+            },
+            "heroAlt": "A pale stone archive block exposes a few blank paper cards through a narrow opening lined with terracotta."
+          }
+        ]
+      },
+      "runtime_recovery": "Restored old browser binary was truncated and crashed. Fresh pinned Chromium 131.0.1 package installed; extracted without unsupported filesystem chown, with matching SwiftShader files. Actual final browser check passed; no publication code changed for runtime recovery."
+    }
+  }
 }
