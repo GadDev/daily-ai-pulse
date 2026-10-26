@@ -1,0 +1,165 @@
+{
+  "date_checked": "2026-10-26",
+  "scope": "Assistant visual review of three existing generated preparation candidates; no human sign-off. Guide-specific artwork record; not a news publication ledger.",
+  "guide_id": "prompt-regression-ci",
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "visual_brief": {
+    "story_id": "prompt-regression-ci",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Build a Prompt Regression Gate with Promptfoo and GitHub Actions",
+    "verified_context": [
+      "The tutorial versions 12 fictional support-triage cases and checks JSON structure plus expected category, priority and action labels.",
+      "A synthetic fixture run passes all 12 cases, while deliberately downgrading the account-compromise case fails one behavioral assertion despite valid JSON and schema.",
+      "Fixture results validate gate mechanics, not model quality; optional live local inference and the reader GitHub Actions workflow were not executed."
+    ],
+    "editorial_idea": "An apparently well-formed result can still fail an independent behavioral check.",
+    "visual_metaphor": "A precision inspection gauge catches one misaligned terracotta tile among matching cream tiles.",
+    "archetype": "mechanical-physical-metaphor",
+    "output_crop": "wide 16:9 master; central 21:9 desktop hero, 16:9 mobile hero and 3:2 card safe",
+    "must_show": [
+      "physical dark metal inspection gauge",
+      "cream ceramic tiles",
+      "one raised terracotta tile",
+      "quiet warm material presence"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/rag-retrieval-evaluation.webp",
+      "public/images/guides/agent-security-control-toolkit.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity_at_generation": {
+    "identity_version": "1",
+    "story_id": "prompt-regression-ci",
+    "story_source_sha256": "da33f1ab1e0eb8164b9f5c3b437f84318f80fe064a7775814607dc52660d113d",
+    "visual_brief_sha256": "f09b691c94d843bef2a6e708ee0810ada8519997ef4cbafa87314d94b24faa3d",
+    "reference_inputs_sha256": "39b6cf63caef539310938d74e1676bf6a8ee409dccb90a82471214c1adfbea5b",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "7fed081922ad86bff243952e1fbc61cea1f0172ad0cd990966bbeb4cab2d5f97"
+  },
+  "post_generation_copy_edit": "Clarified that inherited environment variables can override default .env values. No visual brief or depicted claims changed. Original generation identity retained as historical provenance; no matching-identity reuse decision is claimed.",
+  "final_guide_sha256": "939fcf537d0a2eddceb00da95c0a2c12521f4fcb5454226faebc6242a19522fd",
+  "generation": {
+    "tool": "image_gen.imagegen (preparation output files)",
+    "model_snapshot": null,
+    "prompts": {
+      "A": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Build a Prompt Regression Gate with Promptfoo and GitHub Actions\nVerified context: The tutorial versions 12 fictional support-triage cases and checks JSON structure plus expected category, priority and action labels. A synthetic fixture run passes all 12 cases, while deliberately downgrading the account-compromise case fails one behavioral assertion despite valid JSON and schema. Fixture results validate gate mechanics, not model quality; optional live local inference and the reader GitHub Actions workflow were not executed.\nVisual idea: A precision inspection gauge catches one misaligned terracotta tile among matching cream tiles.\nOutput crop: wide landscape 16:9, high resolution 1600x900 or greater\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical and spatial presence with subtle depth, illustrated stone and metal textures, restrained material detail and a confident silhouette. Match the quiet warm architectural materiality of the two inspected production references: cream stone, matte dark metal, restrained terracotta, soft directional shadows and spacious composition. The gauge has no markings or text. The metaphor is abstract and must not suggest a measured model-quality improvement. Keep the entire crucial gauge-and-raised-tile relationship in the middle 55 percent, with generous negative space on all sides for 21:9 and 3:2 crops. Create one coherent image, not a contact sheet.\n\nComposition for this candidate: Low oblique view across three cream ceramic tiles set in a cream stone ledge. One terracotta tile stands slightly proud, catching the underside of an unmarked matte dark metal straightedge. A small contact shadow makes the mismatch unmistakable. The gauge and raised tile are the single focal idea.\n",
+      "B": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Build a Prompt Regression Gate with Promptfoo and GitHub Actions\nVerified context: The tutorial versions 12 fictional support-triage cases and checks JSON structure plus expected category, priority and action labels. A synthetic fixture run passes all 12 cases, while deliberately downgrading the account-compromise case fails one behavioral assertion despite valid JSON and schema. Fixture results validate gate mechanics, not model quality; optional live local inference and the reader GitHub Actions workflow were not executed.\nVisual idea: A precision inspection gauge catches one misaligned terracotta tile among matching cream tiles.\nOutput crop: wide landscape 16:9, high resolution 1600x900 or greater\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical and spatial presence with subtle depth, illustrated stone and metal textures, restrained material detail and a confident silhouette. Match the quiet warm architectural materiality of the two inspected production references: cream stone, matte dark metal, restrained terracotta, soft directional shadows and spacious composition. The gauge has no markings or text. The metaphor is abstract and must not suggest a measured model-quality improvement. Keep the entire crucial gauge-and-raised-tile relationship in the middle 55 percent, with generous negative space on all sides for 21:9 and 3:2 crops. Create one coherent image, not a contact sheet.\n\nComposition for this candidate: A compact scientific specimen study: an unmarked charcoal metal U-shaped caliper gently straddles a stepped stack of cream stone tiles; one central terracotta tile protrudes and meets the caliper. More sculptural abstraction, asymmetric balance and clearly overlapping planes. No numerical scale or markings.\n",
+      "C": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Build a Prompt Regression Gate with Promptfoo and GitHub Actions\nVerified context: The tutorial versions 12 fictional support-triage cases and checks JSON structure plus expected category, priority and action labels. A synthetic fixture run passes all 12 cases, while deliberately downgrading the account-compromise case fails one behavioral assertion despite valid JSON and schema. Fixture results validate gate mechanics, not model quality; optional live local inference and the reader GitHub Actions workflow were not executed.\nVisual idea: A precision inspection gauge catches one misaligned terracotta tile among matching cream tiles.\nOutput crop: wide landscape 16:9, high resolution 1600x900 or greater\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical and spatial presence with subtle depth, illustrated stone and metal textures, restrained material detail and a confident silhouette. Match the quiet warm architectural materiality of the two inspected production references: cream stone, matte dark metal, restrained terracotta, soft directional shadows and spacious composition. The gauge has no markings or text. The metaphor is abstract and must not suggest a measured model-quality improvement. Keep the entire crucial gauge-and-raised-tile relationship in the middle 55 percent, with generous negative space on all sides for 21:9 and 3:2 crops. Create one coherent image, not a contact sheet.\n\nComposition for this candidate: Close architectural sectional still life: a row of three thick cream paper-ceramic tiles nestles into a shallow stone channel. A single terracotta tile is tilted against a substantial black metal checking rail that crosses the row. Stronger diagonals and material tension; quiet, warm, tactile illustration.\n"
+    }
+  },
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "candidates": [
+    {
+      "id": "A",
+      "source": "exec-4517e93a-170a-41a6-a9b3-a8f90f02a3a6.png",
+      "constitution_passed": true,
+      "observations": "Unmarked straightedge and offset tiles fit the palette, but the mismatch is subtler at thumbnail size.",
+      "scores": {
+        "story_specific": 86,
+        "brand_fit": 90,
+        "composition": 87,
+        "crop_quality": 86,
+        "technical_meaning": 85,
+        "cleanliness": 94,
+        "golden_reference_fit": 88,
+        "weighted_total": 87.45
+      }
+    },
+    {
+      "id": "B",
+      "source": "exec-ae14311d-65bf-4e3d-af46-db691fc861aa.png",
+      "constitution_passed": true,
+      "observations": "Strongest self-contained gauge silhouette; raised terracotta tile expresses an independent check with tactile depth.",
+      "scores": {
+        "story_specific": 91,
+        "brand_fit": 92,
+        "composition": 91,
+        "crop_quality": 90,
+        "technical_meaning": 89,
+        "cleanliness": 95,
+        "golden_reference_fit": 91,
+        "weighted_total": 91.0
+      }
+    },
+    {
+      "id": "C",
+      "source": "exec-c1e56792-02e8-4a39-8db3-8a0c679f55d2.png",
+      "constitution_passed": true,
+      "observations": "Tilted tile is clear, but a cropped press shaft and busy close framing weaken the cover silhouette.",
+      "scores": {
+        "story_specific": 88,
+        "brand_fit": 89,
+        "composition": 85,
+        "crop_quality": 83,
+        "technical_meaning": 86,
+        "cleanliness": 92,
+        "golden_reference_fit": 86,
+        "weighted_total": 86.55
+      }
+    }
+  ],
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "hard_failures": [],
+  "reference_comparison": "Pillow contact sheet placed both production references above A/B/C after the repository contact-sheet CLI could not launch missing Chromium. All share cream stone, matte dark material, restrained terracotta, soft shadows and spatial presence.",
+  "crops": [
+    {
+      "ratio": "21:9",
+      "outcome": "pass",
+      "observation": "Gauge contact and terracotta tile survive; top adjustment knob is trimmed."
+    },
+    {
+      "ratio": "16:9",
+      "outcome": "pass",
+      "observation": "Entire central gauge and raised tile remain visible."
+    },
+    {
+      "ratio": "3:2",
+      "outcome": "pass",
+      "observation": "320px-wide crop retains gauge silhouette and tile relationship."
+    }
+  ],
+  "asset": {
+    "path": "/images/guides/prompt-regression-ci.webp",
+    "width": 1600,
+    "height": 900,
+    "bytes": 183724,
+    "sha256": "4dacdd6998d35fd8cc3b148ec286e132382b934dc010da77f44e51d6bd8a8213",
+    "git_blob_sha": "d391196e6e722f664a89fa47f19fe34852958e6d",
+    "riff_container_complete": true
+  }
+}
