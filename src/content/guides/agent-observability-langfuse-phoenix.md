@@ -1,13 +1,13 @@
 ---
-title: "Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review"
-description: "Choose Langfuse or Phoenix using a shared retrieval/error/retry fixture, dated evidence, privacy controls, edition boundaries and explicit operating-cost assumptions."
+title: "Langfuse vs Phoenix: choose how to trace agent failures"
+description: "Compare tracing, data controls and operating costs using a shared timeout-and-retry example. Product behavior remains untested."
 status: published
 format: review
 verification: researched
 difficulty: advanced
 author: The Daily AI Pulse
 publishedAt: 2026-10-25
-updatedAt: 2026-10-25
+updatedAt: 2026-10-26
 verifiedAt: 2026-10-25
 affiliateLinks: false
 image: /images/guides/agent-observability-langfuse-phoenix.webp
@@ -79,11 +79,11 @@ sources:
     url: https://github.com/Arize-ai/openinference/blob/072322c9e34855b56e0fdcbed21e4c6ac3b1fa37/spec/semantic_conventions.md
 ---
 
-**Comparative technical review · Evidence checked 25 October 2026.** An agent retrieves the right policy, a tool times out, and a retry succeeds. The final answer looks fine. Can you still find the failed attempt, identify the retrieved document, and establish what data left the application?
+An agent retrieves the right policy, a tool times out, and a retry succeeds. The final answer looks fine. Can you still find the failed attempt, identify the retrieved document, and establish what data left the application?
 
 Those are the questions behind this comparison. Langfuse and Phoenix both offer structured tracing and evaluation. Their useful differences concern integration, data controls and the infrastructure your team must operate.
 
-**Method:** This is a documentation-based review. Neither platform was installed, no trace was imported, and no live model was called. The small JavaScript fixture below was executed locally; it produces an illustrative record, not a genuine Langfuse, Phoenix or OpenTelemetry trace. Product latency, ingestion reliability, UI behavior and deployment costs remain unmeasured. Recommendations are editorial judgments, conditional on the evidence and limits below.
+**Comparative technical review · Evidence checked 25 October 2026.** This is a documentation-based review. Neither platform was installed, no trace was imported, and no live model was called. The small JavaScript fixture below was executed locally; it produces an illustrative record, not a genuine Langfuse, Phoenix or OpenTelemetry trace. Product latency, ingestion reliability, UI behavior and deployment costs remain unmeasured. Recommendations are editorial judgments, conditional on the evidence and limits below.
 
 > **Correction, 25 October 2026:** The first edition understated Phoenix masking and cost tracking, overstated redaction guarantees, and omitted retention, telemetry and edition boundaries. This revision replaces those comparisons, refreshes release references and adds a shared debugging fixture. It remains researched rather than a hands-on product test.
 

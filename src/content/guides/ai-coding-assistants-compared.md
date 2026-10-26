@@ -1,8 +1,9 @@
 ---
-title: 'AI Coding Assistants Compared: Choose the Workflow Before the Subscription'
-description: A researched comparison of Copilot, Cursor, Claude Code, Codex, Google's coding tools and Aider, with explicit limits on what documentation can prove.
+title: Choose an AI coding assistant for the way you work
+description: Compare editor assistance, terminal agents and delegated repository work, then check permissions, data handling and the full usage bill.
 status: published
 publishedAt: 2026-10-22
+updatedAt: 2026-10-26
 format: review
 verification: researched
 difficulty: intermediate
@@ -58,9 +59,9 @@ sources:
     url: https://metr.org/blog/2026-02-24-uplift-update/
 ---
 
-You have a failing test, an unfamiliar service and several subscriptions offering to make the problem disappear. Buying all of them is an expensive way to discover that the bottleneck was understanding the requirement.
+Explaining an unfamiliar service and fixing a regression require different help. You may want suggestions while you work, or an agent that edits files, runs checks and returns a patch for review.
 
-The useful question is narrower: **which tool fits the way you want to work, and what evidence would justify keeping it?** Some developers want suggestions beside the cursor. Others want a repository task completed while they review another change. Those are different purchases, even when the same product offers both.
+Choose a tool for that workflow before comparing subscriptions. This review separates documented capabilities from results you would still need to measure: an accepted change, reviewer effort, regressions and the full usage bill. The same product may offer several workflows with different controls and account limits.
 
 **Comparative technical review · Research checked October 22, 2026.** This is a documentation-based comparison, not a hands-on benchmark. No comparable product sessions, completion times or defect rates were measured. Documentation establishes advertised mechanisms; recommendations below are editorial judgments about workflow fit. Live documentation was not pinned to installed releases. There are no affiliate links in this article.
 
@@ -95,7 +96,7 @@ For either approach, inspect the agent's evidence for codebase understanding. Di
 
 [Claude Code](https://code.claude.com/docs/en/overview) and [Codex CLI](https://github.com/openai/codex) deserve evaluation when your engineering work already revolves around searches, scripts, tests and Git. Their interface makes command execution central rather than something copied out of a chat answer.
 
-For a failing build, the useful loop is read the error, locate the cause, make a scoped edit, run the relevant check, and inspect the diff. The model can propose each step; the harness supplies the tools and decides what requires approval. That distinction matters more than which terminal theme looks most industrious.
+For a failing build, the useful loop is read the error, locate the cause, make a scoped edit, run the relevant check, and inspect the diff. The model can propose each step; the harness supplies the tools and decides what requires approval. Review those tool and approval settings before delegating access to a repository.
 
 Codex's [security documentation](https://learn.chatgpt.com/docs/agent-approvals-security) distinguishes sandbox restrictions from approval policy and documents local workspace/network controls. Treat those as configuration-specific mechanisms, not a certification that every Codex session is isolated. Other surfaces and external integrations have separate boundaries.
 
@@ -115,9 +116,9 @@ The following is a **public-page snapshot checked October 22, 2026**, not a quot
 
 | Offering | Verified price or billing mechanism | What to check before paying |
 | --- | --- | --- |
-| Copilot Pro | GitHub lists US$10/month and a plan allowance of AI credits. | Model/token consumption and additional usage; old premium-request assumptions may be stale. |
-| Cursor | Its current page lists Plus at US$8/month with Grok-only models and Premium at US$30/month; third-party model usage is separately billed. | Which model and cloud-agent access your plan includes; the subscription alone is not the total bill. |
-| Claude Code | Claude Pro lists US$20 when billed monthly and includes Claude Code; API-backed usage has separate consumption accounting. | Subscription limits, authentication path and any separately billed usage. |
+| Copilot Pro | [GitHub's plan page](https://docs.github.com/en/copilot/get-started/plans) lists US$10/month and a plan allowance of AI credits. | Model/token consumption and additional usage; old premium-request assumptions may be stale. |
+| Cursor | [Cursor's pricing page](https://cursor.com/pricing) lists Plus at US$8/month with Grok-only models and Premium at US$30/month; third-party model usage is separately billed. | Which model and cloud-agent access your plan includes; the subscription alone is not the total bill. |
+| Claude Code | [Claude's pricing page](https://claude.com/pricing) lists Pro at US$20 when billed monthly and includes Claude Code; API-backed usage has separate consumption accounting. | Subscription limits, authentication path and any separately billed usage. |
 | Codex | The CLI repository describes ChatGPT sign-in and API-key access. | The applicable plan allowance or API charges; this review does not quote a verified task price. |
 | Google offerings | Entry point and entitlement differ between Code Assist and Antigravity. | Current account eligibility, included usage and overage terms; no universal quota is asserted here. |
 | Aider | Backend/model choice determines inference charges or local-compute requirements. | Hosting, tokens, hardware and the time spent configuring the workflow. |

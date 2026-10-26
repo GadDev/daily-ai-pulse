@@ -1,0 +1,180 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-24-greedy-decoding-precision",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-09-24-greedy-decoding-precision",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Switching numeric precision can change an AI model's answer",
+    "verified_context": [
+      "Researchers report different model outputs on identical hardware when switching between BF16 and FP16 number formats.",
+      "The controlled runs were repeatable within each format; the comparison concerns agreement across formats."
+    ],
+    "editorial_idea": "Small differences in representation can produce different generated paths; no accuracy or product-security guarantee.",
+    "visual_metaphor": "One pale folded strip emerges in different shapes from two adjacent subtly different stone forming surfaces. A sculptural abstract metaphor for the same material taking different final shapes, never a literal computer diagram.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": [
+      "one physical metaphor",
+      "warm paper field",
+      "central focal forms that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-09-24-greedy-decoding-precision",
+    "story_source_sha256": "9dff4a23cbc4a27dfa609a99d7602ce34d9784946172799959166a90414bbb6a",
+    "visual_brief_sha256": "22c789101dcc60656c1c114845690cb3ca77454675cbf61f8eb3148b62061835",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "e8d724092b64cb248f43f04149a92eecb98440c126514ecbfb837f8cf096c109"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 92,
+    "brand_fit": 91,
+    "composition": 92,
+    "crop_quality": 89,
+    "technical_meaning": 90,
+    "cleanliness": 97,
+    "golden_reference_fit": 87,
+    "weighted_total": 90.45
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 88,
+      "brand_fit": 88,
+      "composition": 87,
+      "crop_quality": 85,
+      "technical_meaning": 87,
+      "cleanliness": 97,
+      "golden_reference_fit": 85,
+      "weighted_total": 87.15
+    },
+    "B": {
+      "story_specific": 88,
+      "brand_fit": 88,
+      "composition": 85,
+      "crop_quality": 83,
+      "technical_meaning": 88,
+      "cleanliness": 97,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.45
+    },
+    "C": {
+      "story_specific": 92,
+      "brand_fit": 91,
+      "composition": 92,
+      "crop_quality": 89,
+      "technical_meaning": 90,
+      "cleanliness": 97,
+      "golden_reference_fit": 87,
+      "weighted_total": 90.45
+    }
+  },
+  "candidate_notes": {
+    "A": "Clear twin forms and different folds; pale edges extend toward the frame, weakening the square crop.",
+    "B": "Viable tactile overhead study; tight crop and long strips reduce negative space and placement flexibility.",
+    "C": "Selected: terracotta and charcoal forms distinguish the two shaped outputs with a strong central silhouette, including small crops."
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-24-greedy-decoding-precision.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 514 centered 21:9 crop inspected; focal relationship remains readable.",
+    "article_mobile": "359 x 202 centered 16:9 crop inspected; primary forms remain visible.",
+    "thumbnail": "320 x 164 centered cover crop inspected; central silhouette remains distinct.",
+    "home_square": "260 x 260 centered square preview inspected; nonessential edges crop, focal relationship survives."
+  },
+  "golden_reference_comparison": "The selected tactile stone and paper forms share the references warm palette, spatial layering and editorial geometry. It is more photographic and less densely etched than the archive; golden fit 87. The metaphor reads without a headline and makes no measured-accuracy claim.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-09-24-greedy-decoding-precision.webp",
+  "contact_sheet_renderer": "Pillow fallback with two golden references above three candidates. Canonical contact-sheet CLI was attempted but could not launch its missing Playwright Chromium; official browser download returned a truncated/non-ZIP payload. No repository code was changed to bypass this.",
+  "asset_integrity": {
+    "byte_length": 203556,
+    "sha256": "390c939d1a736b721c2696b1c4f28a0bc3a4b0273c3b29f6c53c36bb620acae3",
+    "git_blob_sha": "fb6377d11175d7cece7d8c12afe214ad9bfc3f6d",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-26T10:59:52.603646+00:00",
+    "reviewed_at": "2026-10-26T11:07:42.982276+00:00",
+    "review_type": "Codex model visual self-review; no human sign-off",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Switching numeric precision can change an AI model's answer\nVerified context: Researchers report different model outputs on identical hardware when switching between BF16 and FP16 number formats. The controlled runs were repeatable within each format; the comparison concerns agreement across formats.\nVisual idea: One pale folded strip emerges in different shapes from two adjacent subtly different stone forming surfaces. A sculptural abstract metaphor for the same material taking different final shapes, never a literal computer diagram.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Canonical: broad oblique architectural still life with a low stone double-form and two pale strips emerging, restrained terracotta inserts and generous paper space.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-56185d54-40b7-4cc5-b7e9-e12f8ba2fcf6.png",
+        "source_png_sha256": "112032da02055395543650cee7d17e2a0432931d5e7b6d528bac7aaded2770d2",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Switching numeric precision can change an AI model's answer\nVerified context: Researchers report different model outputs on identical hardware when switching between BF16 and FP16 number formats. The controlled runs were repeatable within each format; the comparison concerns agreement across formats.\nVisual idea: One pale folded strip emerges in different shapes from two adjacent subtly different stone forming surfaces. A sculptural abstract metaphor for the same material taking different final shapes, never a literal computer diagram.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Editorial: overhead sculptural specimen study: two pale paper strips pressed along adjacent differently rounded stone ridges, one folded tighter; tactile paper and stone under warm directional light.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-70d2dc06-3572-4111-9ddb-ddb4a2596aea.png",
+        "source_png_sha256": "dae064c1d4525a5c5d08af8ea2ec277f2891d14e0120e5db025dedadf756c847",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Switching numeric precision can change an AI model's answer\nVerified context: Researchers report different model outputs on identical hardware when switching between BF16 and FP16 number formats. The controlled runs were repeatable within each format; the comparison concerns agreement across formats.\nVisual idea: One pale folded strip emerges in different shapes from two adjacent subtly different stone forming surfaces. A sculptural abstract metaphor for the same material taking different final shapes, never a literal computer diagram.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Alternate: low side-on cutaway still life: adjacent terracotta and charcoal forming masses with pale folded strips ending at visibly different angles, all focal forms in the central field.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-bcbdf51f-c0cb-4270-a38b-6696511d0eaa.png",
+        "source_png_sha256": "bbdc50373e6e0e6fb71892f07c7d9323240e633c5adf9d5b85214d9b57216f77",
+        "constitution_passed": true
+      }
+    ]
+  }
+}

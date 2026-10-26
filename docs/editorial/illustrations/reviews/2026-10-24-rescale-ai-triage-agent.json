@@ -3,19 +3,19 @@
   "constitution_version": "1.1",
   "story_id": "2026-10-24-rescale-ai-triage-agent",
   "candidate_count": 3,
-  "selected_candidate": "A",
+  "selected_candidate": "B",
   "visual_brief": {
     "story_id": "2026-10-24-rescale-ai-triage-agent",
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "Rescale puts an MCP-backed test-triage agent into its release gate",
+    "subject": "Rescale uses an AI agent to triage failed tests before engineers approve releases",
     "verified_context": [
-      "Rescale runs a production agent inside an Argo workflow to classify nightly Playwright failures and retrieve supporting operational evidence.",
-      "The agent queries CloudWatch logs through MCP and produces structured remediation reports for human review before production changes."
+      "Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases.",
+      "Engineers review its diagnosis and recommendations; deployment authority stays with people."
     ],
     "editorial_idea": "Show automated sorting and evidence gathering ending at a separate human-controlled release gate.",
     "visual_metaphor": "sorted failure channels, a terracotta evidence tray and a guarded release gate",
-    "archetype": "architectural-landscape",
+    "archetype": "tool-artifact-study",
     "output_crop": "wide",
     "must_show": [
       "sorted failure channels, a terracotta evidence tray and a guarded release gate",
@@ -52,8 +52,8 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-10-24-rescale-ai-triage-agent",
-    "story_source_sha256": "9a73a14056a1d3847631aed2bc7585c639c58724247ddec44b8348157da61d76",
-    "visual_brief_sha256": "711f86880e4e4a39711b907edcfb36acd9ba3ad905fec3c66b752f6021c52ff7",
+    "story_source_sha256": "9c648a2bdb219a19d015f4ed1dcfcb53bda9b29111d6ea7598d612f4bc5d72e5",
+    "visual_brief_sha256": "2a7c9ab4d9bbb4fd3a0ad0b3745e3ebe2aea63e8b4815f133c4755985eab1849",
     "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
     "illustration_system_version": "1.3",
     "visual_constitution_version": "1.1",
@@ -61,12 +61,12 @@
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "568dd3ea00cea1a32d969a3b71b77b0f8d28b25fe8a5f83d017e5e816a297c1a"
+    "generation_key": "b8a2d66f4304cf5aeed0723a62c928bcda204b7eb24b63a3c06b2fe65193825b"
   },
   "candidate_notes": {
-    "A": "Selected: three distinct queues, a tangible evidence tray and a separate gate preserve the human-control boundary at small size.",
-    "B": "The four-channel sorting court is clear but reads more like a schematic and gives the reviewer less visual presence.",
-    "C": "The library metaphor is too literal and contains pseudo-text-like marks on papers, so it was rejected from publication."
+    "A": "Constitution-compliant physical triage workbench; human hands make the composition busier at card size.",
+    "B": "Selected replacement: three stepped sorting/evidence areas and a separate latched gate form a clean, compact artifact study.",
+    "C": "Constitution-compliant but the literal reviewers and landscape weaken the abstract editorial focus."
   },
   "constitution_check": {
     "passed": true,
@@ -95,39 +95,103 @@
     "unsupported_visual_claim": false
   },
   "scores": {
-    "story_specific": 95,
-    "brand_fit": 91,
+    "story_specific": 93,
+    "brand_fit": 90,
     "composition": 92,
-    "crop_quality": 90,
-    "technical_meaning": 94,
-    "cleanliness": 94,
-    "golden_reference_fit": 87,
-    "weighted_total": 91.45
+    "crop_quality": 91,
+    "technical_meaning": 92,
+    "cleanliness": 96,
+    "golden_reference_fit": 89,
+    "weighted_total": 91.35
   },
   "hard_failures": [],
   "cover_crop_approved": true,
   "thumbnail_approved": true,
   "crop_review": {
-    "article_desktop": "The incoming queues, evidence tray and guarded gate all remain in the wide crop.",
-    "article_mobile": "The evidence tray and gate remain together in the center-right crop.",
-    "thumbnail": "The terracotta tray and large gate form a strong paired silhouette."
+    "article_desktop": "Centered 21:9 crop retains sorting recesses, terracotta tray and the separate gate latch; top edges may crop without losing the relationship.",
+    "article_mobile": "Full 16:9 crop retains the complete focal grouping.",
+    "thumbnail": "320px 3:2 crop retains tray, sorting areas and gated review boundary."
   },
-  "golden_reference_comparison": "Compared with the two declared repository references for warm paper texture, restrained stone materiality, sparing terracotta emphasis, physical depth and thumbnail legibility. Candidate A was selected after full-size and small-size visual inspection.",
+  "golden_reference_comparison": "Compared references-first with the declared plugin and review-control artwork. Selected B shares warm stone materiality, deliberate geometry, restrained brass/terracotta and a distinct small-scale silhouette. The metaphor is an artifact study, not a purported CI architecture.",
   "final_asset": "/images/stories/2026-10-24-rescale-ai-triage-agent.webp",
   "final_dimensions": {
     "width": 1600,
     "height": 900
   },
   "asset_integrity": {
-    "byte_length": 79754,
-    "sha256": "f5e14ac8732f2fd7f7ab8c350217e6c32c424c75f2d3233f6fa6ea24ce949bed",
-    "git_blob_sha": "f8d1cea6c1e7e5a2e9e18b90d0abf79a5ed26038",
+    "byte_length": 229792,
+    "sha256": "6e08f6f5a069e106769ae4991219900308a15a3b76055a302408a46a3376342f",
+    "git_blob_sha": "76fcd90594d82b6b3a03ebcf551b7233b1e6b688",
     "riff_container_complete": true
   },
   "generation_metadata": {
-    "generated_at": "2026-10-24T06:02:00.000Z",
+    "reviewed_at": "2026-10-25T23:05:00.863243Z",
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "visual_review": "Three candidates generated per story. Candidate A was inspected at full size and thumbnail scale; cover-crop safety and prohibited elements were reviewed by Codex model self-review. Candidate C for the Rescale story was rejected for pseudo-text-like paper marks."
-  }
+    "reason": "generation-key-mismatch after authorized article maintenance",
+    "reviewer": "Codex (model self-review)",
+    "candidate_provenance": {
+      "A": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-1fe5f7c6-1a70-443c-a11b-284035051a4d.png",
+        "source_sha256": "45e0f7080f87e525e0dca0caf697d8c0b11117dc63c33a4bc159a7f0bfa6b5af",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases. Engineers review its diagnosis and recommendations; deployment authority stays with people. Visual idea: a physical triage workbench sorts abstract failed-test signals into evidence-backed queues before a separate guarded release gate, a metaphor rather than system architecture. Composition A canonical: slightly elevated oblique view of a solid stone workbench with three shallow channels holding irregular dark tokens, a broad terracotta evidence tray in the central foreground, and a compact manually latched gate immediately behind the tray; one focal grouping, cream paper terrain, fine ink shading. No conveyor belts or generic gears. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      },
+      "B": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-5573d3fe-785b-434b-9bdc-2ac6eaf7aed8.png",
+        "source_sha256": "75b12b6e0fdc61c99eca165f2b29908d2ec8c00d65cb8b733398e9100fb1112b",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases. Engineers review its diagnosis and recommendations; deployment authority stays with people. Visual idea: a triage workbench sorting failed-test signals into evidence-backed queues before a guarded release gate. Composition B editorial: a sculptural tabletop cutaway with three stepped stone recesses holding dark specimen-like tokens, one removable terracotta evidence tray pulled forward toward the viewer, and a separate upright stone release gate with a small mechanical hand latch beyond it. Asymmetric large masses, tactile limestone and paper grain, central compact silhouette, no conveyor belts or generic gears. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame. Replacement of candidate B after a prohibited pseudo-letter appeared: the evidence tray must contain ONLY plain solid stone tokens. Absolutely NO sheets, documents, photographs, writing, pen marks or printed lines anywhere. The gate latch is a simple brass lever; do not sculpt a hand. Preserve the same metaphor, brief and composition family."
+      },
+      "C": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-4d86a96b-eaab-4166-9666-b8b48d592bc2.png",
+        "source_sha256": "678b6a2986640a6d52548d67025be4400ab2af3ce41729ccceddd1b1dc14cb41",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases. Engineers review its diagnosis and recommendations; deployment authority stays with people. Visual idea: a triage workbench sorts failed-test signals into evidence-backed queues before a guarded release gate. Composition C alternate: a wide low worktable carved from warm stone, seen almost from the side, with layered blank slate tokens arranged in recessed queues, a terracotta evidence tray on a shallow shelf at center, and a separate heavy hinged gate behind it to the right, visibly held by a physical latch. Restrained crosshatch and tactile print shading, no conveyor belts or gears. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      },
+      "B-initial-rejected": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-b349b5f4-b9d2-4372-a4ad-3fc8deedcdd0.png",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases. Engineers review its diagnosis and recommendations; deployment authority stays with people. Visual idea: a triage workbench sorting failed-test signals into evidence-backed queues before a guarded release gate. Composition B editorial: a sculptural tabletop cutaway with three stepped stone recesses holding dark specimen-like tokens, one removable terracotta evidence tray pulled forward toward the viewer, and a separate upright stone release gate with a small mechanical hand latch beyond it. Asymmetric large masses, tactile limestone and paper grain, central compact silhouette, no conveyor belts or generic gears. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      }
+    },
+    "visual_review": "Each candidate inspected individually for constitutional failures before scoring. Three viable compositions compared against two golden references and inspected in desktop, mobile and 320px crops. Initial Rescale B rejected for pseudo-text and replaced.",
+    "contact_sheet_method": "Repository Playwright CLI attempted but the browser executable was unavailable and its download returned truncated archives. Equivalent references-first contact sheets and crop sheets built with Pillow, then inspected directly."
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 92,
+      "brand_fit": 87,
+      "composition": 87,
+      "crop_quality": 86,
+      "technical_meaning": 91,
+      "cleanliness": 90,
+      "golden_reference_fit": 85,
+      "weighted_total": 88.0
+    },
+    "B": {
+      "story_specific": 93,
+      "brand_fit": 90,
+      "composition": 92,
+      "crop_quality": 91,
+      "technical_meaning": 92,
+      "cleanliness": 96,
+      "golden_reference_fit": 89,
+      "weighted_total": 91.35
+    },
+    "C": {
+      "story_specific": 83,
+      "brand_fit": 82,
+      "composition": 83,
+      "crop_quality": 82,
+      "technical_meaning": 86,
+      "cleanliness": 91,
+      "golden_reference_fit": 81,
+      "weighted_total": 83.0
+    }
+  },
+  "rejected_candidates": [
+    {
+      "candidate": "B-initial",
+      "reason": "Pseudo-text on the paper in the evidence tray; rejected before scoring.",
+      "replacement": "B",
+      "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-b349b5f4-b9d2-4372-a4ad-3fc8deedcdd0.png"
+    }
+  ]
 }

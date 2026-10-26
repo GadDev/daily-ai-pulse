@@ -1,10 +1,11 @@
 ---
-title: Evaluate RAG Retrieval Quality with a Golden Question Set
-description: Measure Recall@k and MRR@k for a tiny retrieval pipeline using fictional runbooks and Python's standard library.
+title: Find the passages your RAG retriever misses
+description: Build a five-question Python benchmark to measure retrieval coverage and the position of the first relevant result, without calling a language model.
 status: published
 format: tutorial
 verification: researched
 publishedAt: 2026-10-21
+updatedAt: 2026-10-26
 difficulty: intermediate
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
@@ -12,6 +13,8 @@ testEnvironment: "Python 3.13.5 on Linux; standard-library-only local script; fo
 sources:
   - label: Stanford Introduction to Information Retrieval — Evaluation of ranked results
     url: https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html
+  - label: Stanford CS276 — Ranked retrieval evaluation and mean reciprocal rank
+    url: https://web.stanford.edu/class/cs276/handouts/EvaluationNew-handout-1-per.pdf
   - label: Haystack — Evaluation
     url: https://docs.haystack.deepset.ai/docs/3.3/evaluation
   - label: Scikit-learn — Metrics and scoring
@@ -21,13 +24,11 @@ imageAlt: 'A magnifying lens examines documents on ascending stone plinths, repr
 affiliateLinks: false
 ---
 
-Your RAG API returns plausible answers. Does it retrieve the **right passages** in the first place?
+A plausible answer can hide a retrieval failure: the search step may have missed the document needed to answer the question. Test that step before changing a prompt or language model.
 
-That is a different engineering problem from getting a local RAG service running. Before tuning a prompt or changing a language model, you can test whether the search stage actually returns the documents needed to answer each question. This guide builds a small, inspectable evaluation harness using only Python's standard library.
+This tutorial builds a small Python benchmark for **retrieval-augmented generation (RAG)**, where retrieved documents supply context for a language model. You will compare ranked results with known relevant documents for five questions, calculate two metrics and list the misses. The example uses fictional runbooks and Python's standard library; it never calls a model. If you need the API first, start with [the local RAG tutorial](/guides/first-rag-application/).
 
-**By the end**, you will have a five-question *golden set*, a simple lexical retriever, two ranking metrics, and a way to list the questions your retrieval pipeline misses. We use fictional runbooks and deterministic results so you can understand what each score means before connecting a real document store.
-
-> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. No separate example application is committed; all code is below for copying. The results must not be extrapolated to a real RAG application.
+> **Verification boundary:** The code below was executed in a Linux container with Python 3.13.5. Its four assertions passed, and the displayed sample scores were observed. Those results describe **only this synthetic test corpus**, not a model benchmark, production RAG system or independently verified retrieval improvement. The results must not be extrapolated to a real RAG application.
 
 ## 1. What exactly are we evaluating?
 
@@ -48,7 +49,7 @@ Two useful measures:
 - **Recall@k:** the fraction of *all judged relevant IDs* present among the first `k` retrieved results. A question with two relevant passages and only one in the top two gets Recall@2 of 0.5.
 - **Reciprocal rank at k:** `1 / position` of the **first** relevant result in the top `k`; zero if there is none. **MRR@k** is the mean across questions. The first result matters more than later matches.
 
-These definitions follow standard ranked-retrieval evaluation principles described in [Stanford's *Introduction to Information Retrieval*](https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html). Unlike recall, MRR gives no additional credit when a second relevant document is found.
+[Stanford's *Introduction to Information Retrieval*](https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html) explains evaluation against relevance judgments; its [CS276 evaluation slides](https://web.stanford.edu/class/cs276/handouts/EvaluationNew-handout-1-per.pdf) define reciprocal rank using the first relevant result. Unlike recall, MRR gives no additional credit when a second relevant document is found.
 
 ## 2. Prepare a tiny golden set
 

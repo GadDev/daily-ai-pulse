@@ -1,10 +1,11 @@
 ---
-title: Deploying Your First RAG Application
+title: Build your first local RAG API with FastAPI and Ollama
 description: Build and run a small local RAG API with FastAPI, lexical document retrieval, Ollama, and inspectable citations—without a paid model API.
 status: published
 format: tutorial
 verification: researched
 publishedAt: 2026-10-21
+updatedAt: 2026-10-25
 difficulty: beginner
 author: The Daily AI Pulse
 verifiedAt: 2026-10-21
@@ -23,9 +24,9 @@ imageAlt: 'Paper runbooks pass through a terracotta arch toward a local computer
 affiliateLinks: false
 ---
 
-Retrieval-augmented generation (RAG) lets a language model answer using documents you supply, rather than relying only on its pretrained knowledge. This tutorial builds a **small, local-first RAG API** around fictional incident and release runbooks, with no cloud account, API key, vector database, or separate demo repository.
+Build a local API that retrieves passages from fictional incident and release runbooks, passes them to Ollama and returns answers with inspectable citation IDs. This is retrieval-augmented generation (RAG): giving a language model relevant documents to use when answering, rather than relying only on its pretrained knowledge.
 
-**Everything you need is in this guide.** You create two short Markdown documents and one Python file by copying the blocks below. The entire example fits in a disposable local folder; the Daily AI Pulse repository remains a publication, not a catalog of sample applications.
+You create two short Markdown documents and one Python file in a disposable local folder by copying the blocks below. No cloud account, API key, vector database or separate demo repository is required. The API logic has been checked with mocked responses; live Ollama generation remains unverified.
 
 > **Verification boundary (rechecked October 21, 2026):** The copied retrieval and FastAPI code passed Python 3.13.5 compilation and deterministic, in-process HTTP checks using mocked model responses. Live Ollama generation, actual model accuracy, external network deployment, and Docker packaging have **not** been verified. Citation IDs alone do **not** establish that an answer is factually supported.
 
@@ -289,7 +290,7 @@ print("Mocked-API smoke checks passed")
 PY
 ~~~
 
-These checks exercise retrieval, API integration, invalid/missing citation rejection, simulated model unavailability, and basic input validation. The `503` check mocks a connection error; it does not require a running Ollama server. They **do not** establish answer quality, model safety, or successful Ollama deployment. This distinction is part of the editorial contract.
+These checks exercise retrieval, API integration, invalid/missing citation rejection, simulated model unavailability, and basic input validation. The `503` check mocks a connection error; it does not require a running Ollama server. They **do not** establish answer quality, model safety, or successful Ollama deployment.
 
 ## 7. Deployment choices and their costs
 
@@ -303,4 +304,4 @@ Running a model on your computer avoids a hosted-model API bill, but requires me
 
 Start with a fixed evaluation set: straightforward questions, paraphrases, questions spanning multiple documents, and questions that should be refused. Compare lexical retrieval to an embedding-based or hybrid retriever **only after** measuring its failure modes. Then strengthen citation validation to check whether each factual claim is actually supported by a retrieved passage.
 
-The most important lesson: **a working answer with a numbered citation is not automatically a trustworthy answer.** A useful engineering guide should show its tests, unresolved risks, and reproducibility limits—not hide them behind a polished demo.
+**A working answer with a numbered citation is not automatically a trustworthy answer.** Inspect whether the cited passage supports the answer before treating it as reliable.
