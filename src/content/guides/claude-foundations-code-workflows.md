@@ -1,7 +1,8 @@
 ---
 title: 'Part 5: Give Claude Code Shared Rules, Then Verify Its Patch'
 description: Configure Northstar Helpdesk with shared instructions, a path-scoped rule and a project skill, then trace and repair a TypeScript policy regression with evidence.
-status: draft
+status: published
+publishedAt: 2026-10-26
 format: tutorial
 series:
   id: claude-architecture
