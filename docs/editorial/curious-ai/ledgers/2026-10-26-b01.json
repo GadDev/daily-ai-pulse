@@ -407,7 +407,7 @@
           "access": "full",
           "checked_at": "2026-10-26T13:16:13.338593Z",
           "publication_date": "2026-09-14",
-          "note": "Read complete public multi-profile article, especially Ogunmuyiwa section; interviewer credit Damilare Dosunmu, package Rest of World Staff."
+          "note": "Read the complete Ogunmuyiwa profile, including dependency concern and named reporting credit; other profiles are not used in the draft."
         }
       ],
       "deduplication": {
@@ -590,7 +590,7 @@
       "decision": "selected",
       "reason": "Recovered primary preprint resolves the earlier source gap for a narrowly attributed explainer, not new breaking news.",
       "kind": "evergreen",
-      "event_date": "2026-10-15",
+      "event_date": null,
       "sources": [
         {
           "url": "https://arxiv.org/abs/2610.22319",
@@ -682,7 +682,9 @@
         "rationale": "Source-bound account; no independent replication or population inference."
       },
       "signal": "low",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "event_date_note": "The preprint was submitted October 15; the calendar date of the game run is not established.",
+      "source_publication_date": "2026-10-15"
     },
     {
       "id": "2026-10-26-tencent-map-agents",
@@ -732,7 +734,22 @@
       },
       "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
       "promote_when": "Inspect the underlying Swarmchasers account and relevant Tencent response; reconcile event dates and attribution before drafting. No request for publication merely because reporting exists.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Fresh discovery exposes an October 16 acknowledgement in reporting, conflicting with the saved October 22 event date. Reuters body failed to open; no primary incident record inspected. Do not repeat the stronger old no-acknowledgement claim."
+        }
+      }
     },
     {
       "id": "2026-10-26-blue-planet-authenticity",
@@ -770,7 +787,22 @@
         "previous_coverage": []
       },
       "promote_when": "Read complete originating interview and production context; distinguish stated editing policy from proof that an image is real.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Potentially strong visual-culture story, but originating interview not inspected; Verge body repeatedly failed and BBC access was robots-blocked. Search summaries do not earn full-access status."
+        }
+      }
     },
     {
       "id": "2026-10-26-opensource-ban",
@@ -808,7 +840,32 @@
         "previous_coverage": []
       },
       "promote_when": "Inspect current and historical moderator rules, scope, timing and relevant responses; narrow title to documented changes.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Headline/discovery page available, full story failed to open and actual rules not inspected. Avoid repeating broader exclusion claims about language or nationality."
+        }
+      },
+      "score": {
+        "curiosity": 3,
+        "human_meaning": 4,
+        "tension": 4,
+        "distinctiveness": 3,
+        "relevance": 5,
+        "explanation": 4,
+        "weighted_total": 74,
+        "rationale": "Provisional editorial appeal only: a concrete community dispute could matter, but actual rules/fair framing are unverified. One point below select would still not fix the evidence gate."
+      }
     },
     {
       "id": "2026-10-26-character-economics",
@@ -847,7 +904,22 @@
       },
       "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
       "promote_when": "Read accessible relevant filings and complete reporting with responses; identify a distinct timely question. Never infer all AI economics from one company.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Paywalled original reporting excerpt; legal/financial generalizations require full record and relevant responses. Older report, no verified new event."
+        }
+      }
     },
     {
       "id": "2026-10-26-religion-ai",
@@ -885,7 +957,22 @@
         "previous_coverage": []
       },
       "promote_when": "Read complete AP reporting and primary descriptions of the consultation; preserve different viewpoints without flattening traditions.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Useful culture and power question; AP article failed to open. Search-generated summary cannot support attributed positions or generalizations about faith."
+        }
+      }
     },
     {
       "id": "2026-10-26-eko-island",
@@ -924,7 +1011,22 @@
       },
       "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
       "promote_when": "Inspect original experiment, instructions, selection of episodes and limitations; only promote a bounded observation.",
-      "review_after": "2026-10-27"
+      "review_after": "2026-10-27",
+      "claims": [
+        {
+          "text": "The proposed central framing remains unresolved until the recorded promotion condition is met.",
+          "central": true,
+          "confidence": "pending",
+          "support": [],
+          "limit": "No draft claim is authorized from the available excerpt or access gap."
+        }
+      ],
+      "gates": {
+        "claim_support": {
+          "passed": false,
+          "reason": "Discovery excerpt reports unusual behavior, but original study/protocol not inspected. Do not convert games or temples into evidence of sentience."
+        }
+      }
     },
     {
       "id": "2026-10-26-worm-zine",
@@ -941,7 +1043,7 @@
           "access": "full",
           "checked_at": "2026-10-26T13:16:13.338593Z",
           "publication_date": "2026-10-23",
-          "note": "Public creator post and homepage description inspected; not treated as an AI experiment."
+          "note": "Read complete public hand-drawn zine post and image descriptions; no meaningful AI mechanism in this item."
         }
       ],
       "deduplication": {
@@ -1013,9 +1115,86 @@
   },
   "handoff": {
     "pr_url": null,
-    "next_action": "Draft five source-bound samples outside Astro collections; perform exact-copy review, validate, then open canonical draft PR.",
-    "draft_ids": [],
-    "copy_reviews": []
+    "next_action": "Open canonical draft review PR, record its actual URL, run final repository validation and inspect exact-head CI; then await maintainer assessment.",
+    "draft_ids": [
+      "2026-10-26-tv-cleanup",
+      "2026-10-26-botober-racehorses",
+      "2026-10-26-lagos-hiring",
+      "2026-10-26-uae-ai-literacy",
+      "2026-10-26-minecraft-coordination"
+    ],
+    "copy_reviews": [
+      {
+        "id": "2026-10-26-tv-cleanup",
+        "path": "docs/editorial/curious-ai/pilots/2026-10-26-b01/drafts/2026-10-26-tv-cleanup.md",
+        "sha256": "a66fc0bad3f54c88c00ab56f4c13d25e72f1a78d94a1baad71597f3ee93c186a",
+        "reviewer": "Codex (model self-review)",
+        "reviewer_type": "model-self-review",
+        "reviewed_at": "2026-10-26T13:23:36.608021Z",
+        "claim_scope_passed": true,
+        "title_opening_passed": true,
+        "material_blockers": [],
+        "editing_minutes": null,
+        "editing_note": "Per-article active editing was not separately timed; see measured combined review/documentation window in REVIEW.md.",
+        "next_action": "Maintainer editorial assessment; no publication approval."
+      },
+      {
+        "id": "2026-10-26-botober-racehorses",
+        "path": "docs/editorial/curious-ai/pilots/2026-10-26-b01/drafts/2026-10-26-botober-racehorses.md",
+        "sha256": "37e70c3516f90fc549c250cfea484a9dc7951af4075dda1bd74ff5af90eba56e",
+        "reviewer": "Codex (model self-review)",
+        "reviewer_type": "model-self-review",
+        "reviewed_at": "2026-10-26T13:23:36.608021Z",
+        "claim_scope_passed": true,
+        "title_opening_passed": true,
+        "material_blockers": [],
+        "editing_minutes": null,
+        "editing_note": "Per-article active editing was not separately timed; see measured combined review/documentation window in REVIEW.md.",
+        "next_action": "Maintainer editorial assessment; no publication approval."
+      },
+      {
+        "id": "2026-10-26-lagos-hiring",
+        "path": "docs/editorial/curious-ai/pilots/2026-10-26-b01/drafts/2026-10-26-lagos-hiring.md",
+        "sha256": "03cab6fa7950fb62d6790c5ac06a757c64ecaf7e6e6e5be815fbbd8a474ec303",
+        "reviewer": "Codex (model self-review)",
+        "reviewer_type": "model-self-review",
+        "reviewed_at": "2026-10-26T13:23:36.608021Z",
+        "claim_scope_passed": true,
+        "title_opening_passed": true,
+        "material_blockers": [],
+        "editing_minutes": null,
+        "editing_note": "Per-article active editing was not separately timed; see measured combined review/documentation window in REVIEW.md.",
+        "next_action": "Maintainer editorial assessment; no publication approval."
+      },
+      {
+        "id": "2026-10-26-uae-ai-literacy",
+        "path": "docs/editorial/curious-ai/pilots/2026-10-26-b01/drafts/2026-10-26-uae-ai-literacy.md",
+        "sha256": "f01ad27aaef5da72bb73efe80f02a7d5e10516e02c9aac6a16e25e8a106a58b3",
+        "reviewer": "Codex (model self-review)",
+        "reviewer_type": "model-self-review",
+        "reviewed_at": "2026-10-26T13:23:36.608021Z",
+        "claim_scope_passed": true,
+        "title_opening_passed": true,
+        "material_blockers": [],
+        "editing_minutes": null,
+        "editing_note": "Per-article active editing was not separately timed; see measured combined review/documentation window in REVIEW.md.",
+        "next_action": "Maintainer editorial assessment; no publication approval."
+      },
+      {
+        "id": "2026-10-26-minecraft-coordination",
+        "path": "docs/editorial/curious-ai/pilots/2026-10-26-b01/drafts/2026-10-26-minecraft-coordination.md",
+        "sha256": "97930987d30237a4a98b3612b57270947e42b2680ec295048b57d1da106b58ed",
+        "reviewer": "Codex (model self-review)",
+        "reviewer_type": "model-self-review",
+        "reviewed_at": "2026-10-26T13:23:36.608021Z",
+        "claim_scope_passed": true,
+        "title_opening_passed": true,
+        "material_blockers": [],
+        "editing_minutes": null,
+        "editing_note": "Per-article active editing was not separately timed; see measured combined review/documentation window in REVIEW.md.",
+        "next_action": "Maintainer editorial assessment; no publication approval."
+      }
+    ]
   },
   "reconciliation": {
     "observed_at": "2026-10-26T13:16:13.338593Z",
@@ -1041,5 +1220,13 @@
       "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
       "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
     ]
+  },
+  "review_session": {
+    "started_at": "2026-10-26T13:19:06Z",
+    "completed_at": "2026-10-26T13:23:36.608021Z",
+    "elapsed_minutes": 4.51,
+    "scope": "Combined source/copy review, documentation and revision; not measured active editing per sample.",
+    "human_editing_minutes": null,
+    "independent_review": false
   }
 }
