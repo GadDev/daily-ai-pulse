@@ -377,12 +377,11 @@
     }
   },
   "handoff": {
-    "completion": "blocked",
-    "blockers": [
-      "Publication-head GitHub Actions CI pending."
-    ],
+    "completion": "complete",
+    "blockers": [],
     "human_publication_required": false,
-    "visibility": "Human-authorized publication metadata prepared; not merged/deployed yet."
+    "visibility": "Human-authorized published metadata validated locally and in actual CI. Final record-only commit requires exact-head CI before merge. Deployment/live verification will be recorded in PR description.",
+    "scope": "Preparation complete for validated source/asset tree; human approval already received in conversation."
   },
   "series_title_convention": "Use Part N: followed by the descriptive article title for all seven tutorials. This PR prefixes Parts 1–3 and authors Part 4 with that prefix. Keep stable guide URLs and original substantive verification dates.",
   "verification": {
@@ -675,7 +674,19 @@
       "scope": "ESLint, Prettier, content, guides ledger, translations, editorial/run, illustration, tooling/Astro type checks, static build and Pagefind. 262 pages built; 260 indexed across two languages. Astro: 0 errors, 0 warnings, 3 existing schema deprecation hints.",
       "draft_visibility": "Part 4 detail route absent; no rendered HTML link or sitemap entry. Numbered published Parts 1–3 present. Preview draft source restored exactly."
     },
-    "ci": "Actual final-head GitHub Actions results will be linked in PR description after completion; do not imply a local run is CI."
+    "ci": {
+      "date": "2026-10-26",
+      "head": "719e6aeb795d1a185f6935a14334ab27d803cf6f",
+      "run_id": 40310208648,
+      "url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/40310208648",
+      "result": "success",
+      "jobs": {
+        "Verify project": "success",
+        "Browser smoke and accessibility": "success"
+      },
+      "security": "GitGuardian Security Checks: success",
+      "final_record_note": "This follow-up changes only this commission record. Final exact-head CI must still pass before merge; actual result will be recorded in PR description to avoid a self-referential commit loop."
+    }
   },
   "primary_source_evidence": [
     {
@@ -855,7 +866,84 @@
       "from": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
       "to": "4905f2d66e12e9b4551b56b65107f076e1652818",
       "change": "Dependabot PR #246 updates repository @types/node 22.20.5→26.6.5 and undici-types in package/lock only. No guide, article dependency, source, artwork, schema or editorial policy overlap.",
-      "action": "Merge current main preserving both package files byte-for-byte; install current repository lock and rerun local verification and exact-head CI. Learner project retains independently pinned Node 22 @types/node 22.20.5."
+      "action": "Merge current main preserving both package files byte-for-byte; install current repository lock and rerun local verification and exact-head CI. Learner project retains independently pinned Node 22 @types/node 22.20.5.",
+      "local_validation": {
+        "npm_ci": "passed; exact current main repository lock installed",
+        "npm_verify": "passed, exit 0 on Node 22.22.3; 263 pages built, 261 indexed; 0 errors, 0 warnings, 3 existing schema deprecation hints.",
+        "log_sha256": "5e4cf75720ec8d9921f927a4f2fe01f19f29a0980c7e086daa5367a5d4baa379",
+        "browser": {
+          "date": "2026-10-26",
+          "browser": "153.0.8010.0",
+          "mode": "Local human-authorized published Astro build; assets fulfilled from disk, not public deployment",
+          "report": [
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 1440,
+              "viewport": 1440,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16
+            },
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 375,
+              "viewport": 375,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16,
+              "axeViolations": []
+            },
+            {
+              "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+              "bodyWidth": 320,
+              "viewport": 320,
+              "brokenImages": [],
+              "frenchAlternate": false,
+              "codeBlocks": 16
+            }
+          ],
+          "titleChecks": [
+            {
+              "part": 1,
+              "slug": "claude-foundations-first-api-prompt",
+              "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+              "bodyWidth": 320
+            },
+            {
+              "part": 2,
+              "slug": "claude-foundations-extraction-review",
+              "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+              "bodyWidth": 320
+            },
+            {
+              "part": 3,
+              "slug": "typescript-read-only-mcp-server",
+              "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+              "h1": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+              "bodyWidth": 320
+            }
+          ]
+        },
+        "scope": "Remote merged branch has exactly 10 intended content/provenance files relative to current main; both dependency files equal main byte-for-byte."
+      }
+    },
+    "validated_publication_ci": {
+      "date": "2026-10-26",
+      "head": "719e6aeb795d1a185f6935a14334ab27d803cf6f",
+      "run_id": 40310208648,
+      "url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/40310208648",
+      "result": "success",
+      "jobs": {
+        "Verify project": "success",
+        "Browser smoke and accessibility": "success"
+      },
+      "security": "GitGuardian Security Checks: success",
+      "final_record_note": "This follow-up changes only this commission record. Final exact-head CI must still pass before merge; actual result will be recorded in PR description to avoid a self-referential commit loop."
     }
   }
 }
