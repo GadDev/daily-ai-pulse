@@ -617,5 +617,15 @@
     "reviewed_commit": "8cbf0308ed914cb4bdb51a9cb118713e43114923",
     "evidence": "Maintainer statement in the current conversation: \"let's published it I have reviewed it\".",
     "scope_note": "Record the maintainer-reported review without inventing a reviewer name, detailed test procedure, fresh automated browser observations, or a live API run."
+  },
+  "series_title_numbering": {
+    "requested_on": "2026-10-26",
+    "part": 1,
+    "scope": "Add the requested series-number prefix to the title only. URLs, body/code, artwork/metaphor, alt text, publication and verification dates unchanged.",
+    "previous_title": "Your First Claude API Call: From a Support Message to Typed Triage",
+    "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+    "previous_source_sha256": "80454292e5dc952c2a89fde5cc1568ab1c774e43fa167abda066e24c7da7cdd6",
+    "numbered_source_sha256": "5a8ea913f5781b147339ef905522dbf73e165d65f36140933ab8bd057d0aa223",
+    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page."
   }
 }

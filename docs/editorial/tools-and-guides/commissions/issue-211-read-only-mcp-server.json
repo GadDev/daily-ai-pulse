@@ -1112,5 +1112,15 @@
       "scope": "Seven added daily-news files only. No editorial policy, article/code, artwork reference or shared test overlap.",
       "action": "Merge main without altering daily-news files; run final exact-head CI on the combined tree."
     }
+  },
+  "series_title_numbering": {
+    "requested_on": "2026-10-26",
+    "part": 3,
+    "scope": "Add the requested series-number prefix to the title only. URLs, body/code, artwork/metaphor, alt text, publication and verification dates unchanged.",
+    "previous_title": "Build a Read-Only MCP Server for Northstar Helpdesk",
+    "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+    "previous_source_sha256": "d18716d27c0a45fefeebf11128a358b2dc09a58ede2662fef477a111744815b7",
+    "numbered_source_sha256": "baf4fdb1434eeccec7f45c5a67c72340e61c9b78445eb137669fa29dc7aeca3e",
+    "artwork_provenance": "Retain original generation/review identities as historical provenance; this is series-label metadata maintenance, not a claim that old generation keys hash the new title bytes. Existing guide artwork remains meaningful and will be rechecked in its rendered page."
   }
 }

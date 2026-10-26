@@ -1,0 +1,760 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-26",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/218",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-controlled-agent",
+  "guide_id": "claude-foundations-controlled-agent",
+  "state": "review-prepared",
+  "pr_number": null,
+  "authorization": "Prepare Part 4 as a draft article PR and add series-number prefixes to Parts 1–3 titles. No Part 4 publication or merge authorized.",
+  "base_commit": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
+  "deduplication": {
+    "issue_comments": 0,
+    "guides_checked": [
+      {
+        "id": "ade-real-shift-or-rebranding",
+        "title": "'Agentic Development Environments: Real Shift or Clever Rebranding?'",
+        "status": "published"
+      },
+      {
+        "id": "agent-observability-langfuse-phoenix",
+        "title": "\"Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review\"",
+        "status": "published"
+      },
+      {
+        "id": "agent-security-control-toolkit",
+        "title": "'An Agent Security Starter Kit: Choose Controls by Failure Mode'",
+        "status": "published"
+      },
+      {
+        "id": "agent-tool-approval-boundary",
+        "title": "\"Give AI Agents a Real Approval Boundary Before They Call Tools\"",
+        "status": "published"
+      },
+      {
+        "id": "agentic-development-environments-compared",
+        "title": "'Comparing Agentic Development Environments: Follow the Permissions'",
+        "status": "published"
+      },
+      {
+        "id": "ai-coding-assistants-compared",
+        "title": "'AI Coding Assistants Compared: Choose the Workflow Before the Subscription'",
+        "status": "published"
+      },
+      {
+        "id": "claude-foundations-extraction-review",
+        "title": "'Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review'",
+        "status": "published"
+      },
+      {
+        "id": "claude-foundations-first-api-prompt",
+        "title": "'Part 1: Your First Claude API Call: From a Support Message to Typed Triage'",
+        "status": "published"
+      },
+      {
+        "id": "draft-route-regression",
+        "title": "Unpublished guide visibility fixture",
+        "status": "draft"
+      },
+      {
+        "id": "first-rag-application",
+        "title": "Deploying Your First RAG Application",
+        "status": "published"
+      },
+      {
+        "id": "ide-vs-ade-workflows",
+        "title": "'IDE vs ADE: What Changes When Your Tools Start Acting for You?'",
+        "status": "published"
+      },
+      {
+        "id": "rag-retrieval-evaluation",
+        "title": "Evaluate RAG Retrieval Quality with a Golden Question Set",
+        "status": "published"
+      },
+      {
+        "id": "typescript-read-only-mcp-server",
+        "title": "'Part 3: Build a Read-Only MCP Server for Northstar Helpdesk'",
+        "status": "published"
+      }
+    ],
+    "open_prs_checked": [
+      246,
+      245,
+      244,
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "result": "No open Part 4 implementation. Existing approval-boundary guide owns reviewer-bound exact-proposal approval in Python; Part 4 owns the TypeScript Messages/Agent SDK loop, simulated identity/policy controls, hook normalization, preserved case facts and escalation. Keep news files and immutable scheduled ledgers unchanged.",
+    "final_main_recheck": {
+      "date": "2026-10-26",
+      "commit": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
+      "result": "Main unchanged since preflight. No existing remote content/claude-controlled-support-agent branch."
+    }
+  },
+  "duplication_matrix": [
+    {
+      "owner": "Parts 1–2",
+      "scope": "API/prompt/schema and semantic/batch review; link rather than repeat extraction."
+    },
+    {
+      "owner": "Part 3",
+      "scope": "Reuse exact fixed read-only MCP server; no additional backend capabilities there."
+    },
+    {
+      "owner": "This Part 4",
+      "scope": "One controlled support agent and local simulated action, bounded progress and human handoff."
+    },
+    {
+      "owner": "Parts 5–7",
+      "scope": "Project instruction scopes, multiple agents/recovery, CI capstone are deferred."
+    },
+    {
+      "owner": "Existing approval-boundary guide",
+      "scope": "Link its exact-proposal human approval discussion; do not claim our toy identity check is production authorization."
+    }
+  ],
+  "requirement_map": [
+    {
+      "requirement": "Low-level Messages loop then SDK-owned loop",
+      "implementation": "Pair all tool_use IDs with tool_result blocks and distinguish interface stop reasons; consume query stream once",
+      "verification": "Deterministic Messages fixtures and captured paired request; actual pinned package typecheck"
+    },
+    {
+      "requirement": "Part 3 integration and simulated policy enforcement",
+      "implementation": "Bounded read bridge plus guarded in-process local resolution tool; identity/policy prerequisites cannot be tool arguments",
+      "verification": "Actual MCP inspection and guard bypass attempts without inference"
+    },
+    {
+      "requirement": "Hooks and retained facts",
+      "implementation": "Typed PreToolUse denial, PostToolUse normalization, authoritative facts/receipts outside summaries",
+      "verification": "Invoke callbacks explicitly; preserve exact IDs/amount/date and inspect hook evidence without claiming live dispatch"
+    },
+    {
+      "requirement": "Escalation and limits",
+      "implementation": "Human request, ambiguous identity, missing policy, no progress; caps/refusal/transport distinct from successful completion",
+      "verification": "Deterministic terminal fixtures and self-contained handoff record"
+    },
+    {
+      "requirement": "Independent practice and education",
+      "implementation": "Multi-concern variation, missing-guard debug exercise, three original scenarios and self-check",
+      "verification": "Scratch variation and editorial acceptance review"
+    },
+    {
+      "requirement": "Publication, assets and numbered titles",
+      "implementation": "New genuine WebP and responsive SVG; metadata-only series prefixes for published parts; retain dated original provenance",
+      "verification": "Crop/browser/hash/link/content/build checks and actual final-head CI"
+    }
+  ],
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Three actual built-in image tool generations completed on 2026-10-26 after source/brief freeze; original PNGs retained. No model snapshot exposed."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image opened actual Part 3 and approval-boundary production WebP references in this run."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and decoded a new 16×16 WebP in this run."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "GitHub create_blob base64 upload succeeded; independent public GitHub blob API download decoded and matched every final WebP byte. See integrity_readback."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generation_date": "2026-10-26",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "candidate_count": 3,
+    "selected_candidate": "B",
+    "visual_brief": {
+      "story_id": "claude-foundations-controlled-agent",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+      "verified_context": [
+        "Northstar Helpdesk gains one action: recording a local simulation receipt. There is no refund, customer message or external write.",
+        "The action handler checks again, so removing or bypassing the hook cannot make an unverified action succeed.",
+        "IDs, amounts and dates remain exact in retained state."
+      ],
+      "editorial_idea": "A retained case stays behind an application-owned physical stop.",
+      "visual_metaphor": "A blank folded case folder rests in a terracotta cradle behind a solid pale stone crossbar.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "wide 16:9 master, center-safe for 21:9 desktop hero, 16:9 mobile and 3:2 cards",
+      "must_show": [
+        "one blank folded case folder",
+        "one terracotta cradle",
+        "a solid pale stone crossbar stopping the folder",
+        "physical depth and spacious warm materiality"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/guides/typescript-read-only-mcp-server.webp",
+        "public/images/guides/agent-tool-approval-boundary.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-controlled-agent",
+      "story_source_sha256": "93d59bc1c6e4948fbdbbf32bed273d28abc8ee99409f2df64dc090eb129623a4",
+      "visual_brief_sha256": "6cce24eeef28da5438d1b8208e0e3d038e316dfdd3a30f52c24eb1148db6358d",
+      "reference_inputs_sha256": "651ba5f9ec848415a2d4da7f51b9d73b55397c25deb76bc6fab78d6012f87926",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "d7b6128af1d974625c1e7f851c4b4022cc9b8a8aeff72557128011ce2947ef47"
+    },
+    "generation_decision": {
+      "decision": "GENERATE",
+      "reason": "review-missing",
+      "story_id": "claude-foundations-controlled-agent",
+      "system_version": null,
+      "expected_generation_key": "d7b6128af1d974625c1e7f851c4b4022cc9b8a8aeff72557128011ce2947ef47",
+      "stored_generation_key": null,
+      "requires_batch_validation": false
+    },
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept, commissioned editorial artifact study. Placement: article hero. Subject: Part 4: Control a Support Agent with Hooks and Human Handoffs. Verified context: Northstar's only action records a local simulation receipt; no refund, customer message or external write occurs. An application guard inside the handler enforces prerequisites even when a pre-hook is bypassed. Exact case facts remain in retained application state. Visual idea: a completely blank folded cream case folder rests in a shallow terracotta cradle, retained behind one solid pale stone crossbar. A compact tactile sculptural object expressing a retained case behind a physical stop, an abstract metaphor, never a literal technical architecture or software feature. Output crop: wide horizontal 16:9, high resolution, central focal grouping inside middle 60 percent so the folder and crossbar survive 21:9 desktop hero, 16:9 mobile and 3:2 card cropping. Use the article-hero role from docs/reference-layouts/story.html: artwork below existing HTML headings, never a generated webpage. Art direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper texture, physical depth, material detail and one clear focal idea legible at thumbnail size. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, confident negative space, strong contrast, soft sculptural shadow and limestone/terracotta materiality. Match the publication's actual warm pale-stone archive and terracotta approval-boundary references in abstraction and material quality, without copying their arrangements or adding their key. The folder must be completely unprinted and unruled. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts, watermark, neon effects, robots, glowing AI brains, screenshots, border or frame. Do not produce a bare schematic, flowchart, wireframe, icon row or minimalist architecture diagram; this must have tangible illustrated presence. Candidate A: Slightly elevated three-quarter view of one horizontal terracotta desk cradle. One folded cream folder is safely retained inside; a substantial pale limestone crossbar seats across the near rim, clearly separate from the paper. Low, sculptural arrangement, all essential parts comfortably centered.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-bf7d55af-dbb2-48b1-82b6-1803256d9e4b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null,
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-bf7d55af-dbb2-48b1-82b6-1803256d9e4b.png",
+        "source_sha256": "8a92d3149afefb173f7c5803f35cde85ba83902a43fc417e6109af1ef5b94a52",
+        "dimensions": [
+          1672,
+          941
+        ]
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept, commissioned editorial artifact study. Placement: article hero. Subject: Part 4: Control a Support Agent with Hooks and Human Handoffs. Verified context: Northstar's only action records a local simulation receipt; no refund, customer message or external write occurs. An application guard inside the handler enforces prerequisites even when a pre-hook is bypassed. Exact case facts remain in retained application state. Visual idea: a completely blank folded cream case folder rests in a shallow terracotta cradle, retained behind one solid pale stone crossbar. A compact tactile sculptural object expressing a retained case behind a physical stop, an abstract metaphor, never a literal technical architecture or software feature. Output crop: wide horizontal 16:9, high resolution, central focal grouping inside middle 60 percent so the folder and crossbar survive 21:9 desktop hero, 16:9 mobile and 3:2 card cropping. Use the article-hero role from docs/reference-layouts/story.html: artwork below existing HTML headings, never a generated webpage. Art direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper texture, physical depth, material detail and one clear focal idea legible at thumbnail size. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, confident negative space, strong contrast, soft sculptural shadow and limestone/terracotta materiality. Match the publication's actual warm pale-stone archive and terracotta approval-boundary references in abstraction and material quality, without copying their arrangements or adding their key. The folder must be completely unprinted and unruled. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts, watermark, neon effects, robots, glowing AI brains, screenshots, border or frame. Do not produce a bare schematic, flowchart, wireframe, icon row or minimalist architecture diagram; this must have tangible illustrated presence. Candidate B: Low oblique viewpoint of a sculptural terracotta case holder with a blank folded cream folder inside. A pale stone crossbar spans the opening in front of the folder and visibly stops it moving forward. Restrained asymmetric object study, generous warm empty background, no extra props.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-28a48eff-d1fb-47d6-bcc1-d763cfb4b686.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null,
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-28a48eff-d1fb-47d6-bcc1-d763cfb4b686.png",
+        "source_sha256": "b4af593af4df542120b104b67f1a1534f934cd2cebe310ca7fcfd810039d0cf5",
+        "dimensions": [
+          1672,
+          941
+        ]
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept, commissioned editorial artifact study. Placement: article hero. Subject: Part 4: Control a Support Agent with Hooks and Human Handoffs. Verified context: Northstar's only action records a local simulation receipt; no refund, customer message or external write occurs. An application guard inside the handler enforces prerequisites even when a pre-hook is bypassed. Exact case facts remain in retained application state. Visual idea: a completely blank folded cream case folder rests in a shallow terracotta cradle, retained behind one solid pale stone crossbar. A compact tactile sculptural object expressing a retained case behind a physical stop, an abstract metaphor, never a literal technical architecture or software feature. Output crop: wide horizontal 16:9, high resolution, central focal grouping inside middle 60 percent so the folder and crossbar survive 21:9 desktop hero, 16:9 mobile and 3:2 card cropping. Use the article-hero role from docs/reference-layouts/story.html: artwork below existing HTML headings, never a generated webpage. Art direction: restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine lines supporting substantial forms, subtle paper texture, physical depth, material detail and one clear focal idea legible at thumbnail size. Warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, confident negative space, strong contrast, soft sculptural shadow and limestone/terracotta materiality. Match the publication's actual warm pale-stone archive and terracotta approval-boundary references in abstraction and material quality, without copying their arrangements or adding their key. The folder must be completely unprinted and unruled. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts, watermark, neon effects, robots, glowing AI brains, screenshots, border or frame. Do not produce a bare schematic, flowchart, wireframe, icon row or minimalist architecture diagram; this must have tangible illustrated presence. Candidate C: Architectural still life of one shallow terracotta cradle holding a folded blank paper case folder. One smooth pale limestone crossbar lies firmly across the front, retaining the folder. Slightly elevated perspective, strong compact silhouette, fine tactile edges and ample cream negative space.",
+        "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-5f4ac36a-8f85-4883-81ae-15e9de47912c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "error": null,
+        "source": "/workspace/scratch/bba3e387193b/generated_images/exec-5f4ac36a-8f85-4883-81ae-15e9de47912c.png",
+        "source_sha256": "6ab7d61f082cf5a7f41d2ae87e849981181bbd9e5384551f78ef77fdb742fc9b",
+        "dimensions": [
+          1672,
+          941
+        ]
+      }
+    ],
+    "integrity": {
+      "path": "public/images/guides/claude-foundations-controlled-agent.webp",
+      "format": "WebP",
+      "width": 1600,
+      "height": 900,
+      "bytes": 111464,
+      "sha256": "c6001259ee7bc6c205b3b6891fc0cb63d0fdb9783cf0d8102ef55eaf6783694a",
+      "git_blob_sha": "9af3ade80e88865c510520a636193a8216a7ed22"
+    },
+    "integrity_readback": {
+      "date": "2026-10-26",
+      "method": "Independent public GitHub blob API download and base64 decode; exact byte comparison with final local WebP",
+      "git_blob_sha": "9af3ade80e88865c510520a636193a8216a7ed22",
+      "bytes": 111464,
+      "sha256": "c6001259ee7bc6c205b3b6891fc0cb63d0fdb9783cf0d8102ef55eaf6783694a",
+      "match": true
+    },
+    "review": {
+      "reviewer": "Codex (model self-review; no human sign-off fabricated)",
+      "date": "2026-10-26",
+      "weights": {
+        "story_specificity": 0.2,
+        "brand_fit": 0.15,
+        "composition": 0.15,
+        "crop_safety": 0.15,
+        "technical_meaning": 0.1,
+        "cleanliness": 0.05,
+        "golden_reference_fit": 0.2
+      },
+      "candidate_scores": [
+        {
+          "candidate": "A",
+          "scores": {
+            "story_specificity": 89,
+            "brand_fit": 94,
+            "composition": 89,
+            "crop_safety": 90,
+            "technical_meaning": 86,
+            "cleanliness": 96,
+            "golden_reference_fit": 90
+          },
+          "weighted_total": 90.15,
+          "hard_fail": false
+        },
+        {
+          "candidate": "B",
+          "scores": {
+            "story_specificity": 93,
+            "brand_fit": 94,
+            "composition": 92,
+            "crop_safety": 89,
+            "technical_meaning": 92,
+            "cleanliness": 97,
+            "golden_reference_fit": 94
+          },
+          "weighted_total": 92.7,
+          "hard_fail": false
+        },
+        {
+          "candidate": "C",
+          "scores": {
+            "story_specificity": 90,
+            "brand_fit": 93,
+            "composition": 90,
+            "crop_safety": 86,
+            "technical_meaning": 90,
+            "cleanliness": 96,
+            "golden_reference_fit": 91
+          },
+          "weighted_total": 90.35,
+          "hard_fail": false
+        }
+      ],
+      "selected_reason": "B has the clearest physically seated crossbar and retained-folder relationship, a compact tactile silhouette and strong fit with both actual production references. A reads more like an open holder; C has a taller tab more vulnerable to wide cropping.",
+      "hard_fail_checks": "Inspected each generated image at native size, then a three-candidate/reference contact sheet. No text, logos, UI, badges, watermark, robots, false architecture, bare diagram or constitutional failure observed.",
+      "crop_checks": "Inspected final decoded 1600×900 WebP: centered 21:9 desktop, 16:9 mobile, 3:2 card and 160px thumbnail. Folder and crossbar remain complete; lower cradle edge is slightly clipped at 21:9 without losing the metaphor. Final actual 375px hero also inspected.",
+      "image_alt": "A blank folded case folder rests in a terracotta cradle behind a solid pale stone crossbar.",
+      "conversion": "Pillow RGB conversion; Lanczos resize to 1600×900, WebP quality 88/method 6; reopened as WEBP, validated RIFF/WEBP signature and RIFF length.",
+      "upload_recovery": {
+        "stage": "independent blob readback",
+        "initial_error": "GitHub Fetch HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)",
+        "resolution": "Recovered through read-only public GitHub blob REST JSON with urllib; base64 decoded and compared with local bytes. No regeneration or asset mutation."
+      }
+    }
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Exact-head GitHub Actions CI pending; article/assets/local preparation gates have passed."
+    ],
+    "human_publication_required": true,
+    "visibility": "Part 4 remains draft with no publishedAt; preview-only publication metadata restored byte-for-byte."
+  },
+  "series_title_convention": "Use Part N: followed by the descriptive article title for all seven tutorials. This PR prefixes Parts 1–3 and authors Part 4 with that prefix. Keep stable guide URLs and original substantive verification dates.",
+  "verification": {
+    "date": "2026-10-26",
+    "environment": {
+      "os": "Linux",
+      "node": "22.22.3",
+      "typescript": "6.0.3",
+      "anthropic_sdk": "1.3.0",
+      "claude_agent_sdk": "0.3.310",
+      "mcp_client": "2.4.0",
+      "mcp_peer_sdk": "1.29.0",
+      "zod": "4.6.7",
+      "browser": "Chromium 153.0.8010.0 / Playwright 1.64.0"
+    },
+    "learner": {
+      "fixtures": {
+        "checks": 25,
+        "result": "passed",
+        "artifact_sha256": "525ce1d5ce48a26d319c0f5d02e0b10bc24b29e77a07e10236ece1617754b48f"
+      },
+      "real_mcp": {
+        "result": "passed",
+        "evidence": "Real SDK-created in-memory MCP handlers plus unchanged Part 3 stdio server; direct unverified action denied, controlled sequence creates local sim:CASE-2001 receipt. Pre/Post callbacks explicitly invoked by probe, not live SDK dispatch.",
+        "artifact_sha256": "7afdde902f959d540bfd045303e3855b232f54960047729b4f8ea6d8317d52c7"
+      },
+      "fresh_article_extraction": {
+        "date": "2026-10-26",
+        "count": 10,
+        "source_sha256": "93d59bc1c6e4948fbdbbf32bed273d28abc8ee99409f2df64dc090eb129623a4",
+        "files": [
+          "tsconfig.json",
+          "case.ts",
+          "bridge.ts",
+          "messages-loop.ts",
+          "tools.ts",
+          "termination.ts",
+          "probe.ts",
+          "fixtures.ts",
+          "live.ts",
+          "run-live.mjs"
+        ],
+        "note": "Fresh extraction directory; reuses pinned installed dependencies and unchanged Part 3 server, separate compilation/output.",
+        "result": "All ten files matched tested lab byte-for-byte; fresh directory compiled, 25 fixtures passed and real MCP inspection passed. Dependencies reused from exact pinned install; no claim of a second clean network installation."
+      },
+      "independent_checks": {
+        "date": "2026-10-26",
+        "evidence": "scratch independent checks: mocked HTTP, actual MCP variation, configuration and mocked launcher; no live inference",
+        "results": [
+          {
+            "check": "actual Anthropic SDK with mocked HTTP",
+            "status": "passed",
+            "requests": 2,
+            "pairedIds": [
+              "call-a",
+              "call-b"
+            ],
+            "invalidExtraArgumentDenied": true,
+            "live_requests": 0
+          },
+          {
+            "check": "wrong case, missing policy and missing order independently deny",
+            "status": "passed"
+          },
+          {
+            "check": "typed SDK isolation and budget configuration only; no query",
+            "status": "passed"
+          },
+          {
+            "check": "actual registered action rejects policy exception with no hooks",
+            "status": "passed"
+          },
+          {
+            "check": "model-supplied verification and cap do not authorize a direct tool call",
+            "status": "passed"
+          },
+          {
+            "check": "seeded missing-handler-guard mutation makes the unverified-action assertion fail",
+            "status": "passed",
+            "mutation_unpublished": true
+          },
+          {
+            "check": "independent multi-concern variation over actual Part 3 MCP",
+            "status": "passed",
+            "record": {
+              "version": 1,
+              "facts": {
+                "caseId": "CASE-2001",
+                "orderId": "NS-2001",
+                "requestedCents": 1000,
+                "currency": "EUR",
+                "openedAt": "2026-10-20T10:00:00Z",
+                "sourceIds": [
+                  "ticket:T-2001",
+                  "orders:v1"
+                ],
+                "requestsHuman": false,
+                "identityUnique": true,
+                "policy": {
+                  "id": "P-SIM-1",
+                  "effectiveOn": "2026-10-01",
+                  "capCents": 500
+                },
+                "concerns": [
+                  "amount_question",
+                  "policy_exception"
+                ]
+              },
+              "termination": "natural_completion",
+              "status": "escalated",
+              "reason": "POLICY_EXCEPTION",
+              "verified": true,
+              "observedOrder": {
+                "orderId": "NS-2001",
+                "currency": "EUR",
+                "totalCents": 1000,
+                "paymentStatus": "paid"
+              },
+              "rejectedOrderEvidence": null,
+              "policyEvidence": {
+                "id": "P-SIM-1",
+                "effectiveOn": "2026-10-01",
+                "capCents": 500
+              },
+              "receipt": null,
+              "answeredConcerns": [
+                {
+                  "concern": "amount_question",
+                  "currency": "EUR",
+                  "amountCents": 1000,
+                  "sourceId": "orders:v1"
+                }
+              ],
+              "unresolvedConcerns": [
+                "policy_exception"
+              ],
+              "nextAction": "Human reviews the stated reason, evidence and any existing receipt before another attempt.",
+              "audit": [
+                {
+                  "event": "action_denied",
+                  "detail": "IDENTITY_UNVERIFIED"
+                },
+                {
+                  "event": "pre_allowed",
+                  "detail": "mcp__helpdesk__verify_identity"
+                },
+                {
+                  "event": "identity",
+                  "detail": "synthetic proof accepted; proof value omitted"
+                },
+                {
+                  "event": "post_normalized",
+                  "detail": "mcp__helpdesk__verify_identity"
+                },
+                {
+                  "event": "pre_allowed",
+                  "detail": "mcp__helpdesk__lookup_order"
+                },
+                {
+                  "event": "order_query",
+                  "detail": "NS-2001"
+                },
+                {
+                  "event": "post_normalized",
+                  "detail": "mcp__helpdesk__lookup_order"
+                },
+                {
+                  "event": "pre_allowed",
+                  "detail": "mcp__helpdesk__search_policies"
+                },
+                {
+                  "event": "policy_query",
+                  "detail": "returns"
+                },
+                {
+                  "event": "post_normalized",
+                  "detail": "mcp__helpdesk__search_policies"
+                },
+                {
+                  "event": "pre_denied",
+                  "detail": "POLICY_EXCEPTION"
+                },
+                {
+                  "event": "handoff",
+                  "detail": "POLICY_EXCEPTION"
+                }
+              ]
+            }
+          },
+          {
+            "check": "mocked launcher reservation prevents a second subprocess and omits credentials",
+            "status": "passed",
+            "live_requests": 0
+          }
+        ]
+      },
+      "code_hashes": {
+        "tsconfig.json": "d13f210cec54033eeb92761e240408ef9522b49302b072361265369a795260f2",
+        "case.ts": "744d8b2b610b873ec8b4ad107d2d72bb0bb9462f2a50aa276f0798c22e64f8f8",
+        "bridge.ts": "ce07d1b23e245d031f711f4ab524f6d6499fa880d38e95d72baa7f50d36532ec",
+        "messages-loop.ts": "4d2c1ea2883d73189deabff28a7e69aa773d888d62adcb33321d8a295846420a",
+        "tools.ts": "174428252dcf51b20dd3c3fb99af54735b3348477f350c04666210ee5ce1e425",
+        "termination.ts": "6cd0753161993f3677a0ae681cfdeddf72a99591a7c45c8650bcbaa5ebcb54a8",
+        "probe.ts": "ec3699f60f585161826f996cc4a71f0bf000fa3a173c9ac07cc6a41ef43ea551",
+        "fixtures.ts": "bd823deaddfc30f6d6a58b6f36e0db08cade15e95358fca28d6ab88c76b4f284",
+        "live.ts": "6d49ba8a2b619366a943258a00889e9f643951f56a81e6d2aff7ce2fbc672274",
+        "run-live.mjs": "5941a41dc53b6207b98711b0b0e5220cf082a4716e1522d0297c23bfaadcd829"
+      }
+    },
+    "live_model": {
+      "result": "not executed",
+      "reason": "No ANTHROPIC_API_KEY observed; spending authorization unavailable. No model request, live SDK hook dispatch, runtime model behavior or real compaction tested.",
+      "standalone_cli": "Not separately invoked/version-tested; Agent SDK bundled runtime pinned through package 0.3.310.",
+      "verification_label": "researched"
+    },
+    "links": {
+      "external": 15,
+      "result": "all HTTP 200",
+      "internal_guide_ids": "five existing guide IDs verified",
+      "artifact_sha256": "f8d9bcb67b346c11d3ffd339c9835271f469f2d412c65e8bc6fc8a5ccf9e59d5"
+    },
+    "browser": {
+      "date": "2026-10-26",
+      "browser": "153.0.8010.0",
+      "mode": "Local static Astro preview; temporary publication metadata restored; assets fulfilled from disk, not public deployment",
+      "report": [
+        {
+          "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+          "bodyWidth": 1440,
+          "viewport": 1440,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 16
+        },
+        {
+          "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+          "bodyWidth": 375,
+          "viewport": 375,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 16,
+          "axeViolations": []
+        },
+        {
+          "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+          "bodyWidth": 320,
+          "viewport": 320,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 16
+        }
+      ],
+      "titleChecks": [
+        {
+          "part": 1,
+          "slug": "claude-foundations-first-api-prompt",
+          "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+          "bodyWidth": 320
+        },
+        {
+          "part": 2,
+          "slug": "claude-foundations-extraction-review",
+          "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+          "bodyWidth": 320
+        },
+        {
+          "part": 3,
+          "slug": "typescript-read-only-mcp-server",
+          "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+          "bodyWidth": 320
+        }
+      ]
+    },
+    "diagram": {
+      "path": "public/images/guides/northstar-controlled-agent.svg",
+      "sha256": "ff806c24a07bfbd48193b7024f45fd50e45112a0e9fe5bbca3b19b7c5dfea3e7",
+      "result": "Final labeled 320×1280 SVG inspected at 320px viewport. Exact-state/early-handoff branches, SDK loop, pre-denial, independent action guard, post-normalization, terminal results and record correspond to code. Labels shortened before final render; no clipping. Accessible title/description, matching HTML alt and explanatory caption."
+    },
+    "repository_verify": {
+      "command": "npm run verify",
+      "date": "2026-10-26",
+      "node": "22.22.3",
+      "result": "passed, exit 0",
+      "scope": "ESLint, Prettier, content, guides ledger, translations, editorial/run, illustration, tooling/Astro type checks, static build and Pagefind. 262 pages built; 260 indexed across two languages. Astro: 0 errors, 0 warnings, 3 existing schema deprecation hints.",
+      "draft_visibility": "Part 4 detail route absent; no rendered HTML link or sitemap entry. Numbered published Parts 1–3 present. Preview draft source restored exactly."
+    },
+    "ci": "Actual final-head GitHub Actions results will be linked in PR description after completion; do not imply a local run is CI."
+  },
+  "primary_source_evidence": [
+    {
+      "claim": "Messages continuation and interface-specific stop reasons",
+      "urls": [
+        "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+        "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "Pair actual IDs, return all tool results, distinguish refusal/truncation/natural completion; server pause_turn not exposed here."
+    },
+    {
+      "claim": "SDK lifecycle, tool registration, permissions and hooks",
+      "urls": [
+        "https://code.claude.com/docs/en/agent-sdk/overview",
+        "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+        "https://code.claude.com/docs/en/agent-sdk/custom-tools",
+        "https://code.claude.com/docs/en/agent-sdk/hooks",
+        "https://code.claude.com/docs/en/agent-sdk/permissions"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "SDK owns loop. Pre-hook intercepts; post-hook normalizes and cannot undo. Installed 0.3.310 types corroborate updatedToolOutput and result subtypes. No parallel hook ordering dependency."
+    },
+    {
+      "claim": "Cost accounting and compatibility",
+      "urls": [
+        "https://code.claude.com/docs/en/agent-sdk/cost-tracking",
+        "https://code.claude.com/docs/en/agent-sdk/migration-guide"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "Keep latest cumulative final modelUsage/cost; exam-era labels are conceptual, pin current typed APIs. Standalone CLI not tested."
+    },
+    {
+      "claim": "Model and pricing",
+      "urls": [
+        "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+        "https://platform.claude.com/docs/en/about-claude/pricing"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "Haiku 4.5 snapshot active legacy; USD 1/5 per million input/output tokens on verification date, not a free-credit/account-availability claim."
+    },
+    {
+      "claim": "Read-only MCP integration",
+      "urls": [
+        "https://ts.sdk.modelcontextprotocol.io/v2/clients/connect.html"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "Reuse Part 3 server; modern split client externally and explicit legacy SDK peer for in-process Agent SDK server. Actual protocol calls pass."
+    },
+    {
+      "claim": "Certification tasks and caveats",
+      "urls": [
+        "https://academy.claude.com/help/faq",
+        "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf"
+      ],
+      "observed_on": "2026-10-26",
+      "status": "verified",
+      "implication": "July v1.0 tasks 1.1/1.4/1.5/5.1/5.2; typical 6+ months, no course prerequisite established, partner-only paid proctored credential distinct from free badges; no endorsement/full-coverage/pass guarantee."
+    }
+  ],
+  "source_lookup_limit": "SDK TypeScript reference page lookup returned InternalError; implementation types verified from actually installed pinned sdk.d.ts instead. Do not count the failed page as observed documentation.",
+  "editorial_self_review": {
+    "reviewer": "Codex (model self-review)",
+    "contract": "Current main Tools & Guides Editorial Voice v2, practice v3 and issue #218 acceptance criteria. English-only guide; no reviewer or French translation fabricated.",
+    "result": "Article teaches the loop/hook distinction before use, keeps application authorization independent, provides copyable commands/files, expected versus observed outputs, costs, failure recovery/cleanup and outcome-based assessment.",
+    "improvements": [
+      "Guard enforced within handler even without hook; model cannot supply verification/cap authority.",
+      "Separate abort/refusal/truncation/transport from natural completion and preserve prior receipt.",
+      "Bound no-progress by actual retained-state change, not parallel call completion.",
+      "Independent variation constructs multi-concern case; one answered amount and unresolved exception verified over actual Part 3 server.",
+      "Retain exact authoritative facts outside summaries; summary replacement is a fixture, not actual model compaction.",
+      "No live integration claim; optional launcher reserves one attempt and records uncertainty without auto replay."
+    ],
+    "scope": "One single-agent local simulation; no real payments, production auth, deployed service, multi-agent framework, sample app or article-specific CI suite. Existing exact-approval guide linked; Parts 5–7 deferred.",
+    "assessment": "Seeded missing-guard exercise, independent multi-concern variation, three original scenarios with delayed explanations, explain-without-looking and self-assessment."
+  }
+}

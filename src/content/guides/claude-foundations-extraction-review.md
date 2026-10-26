@@ -1,5 +1,5 @@
 ---
-title: 'Claude Extraction You Can Check: Validation, Batches and Human Review'
+title: 'Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review'
 description: Extend Northstar Helpdesk with evidence checks, one bounded correction, failed-item batch replay and a review queue that can challenge confident mistakes.
 status: published
 publishedAt: 2026-10-25T22:33:26Z

@@ -1,5 +1,5 @@
 ---
-title: 'Build a Read-Only MCP Server for Northstar Helpdesk'
+title: 'Part 3: Build a Read-Only MCP Server for Northstar Helpdesk'
 description: Expose narrow order and policy tools, inspect real MCP calls without paid inference, and distinguish empty results from errors before connecting Claude Code.
 status: published
 publishedAt: 2026-10-26T07:59:46Z
