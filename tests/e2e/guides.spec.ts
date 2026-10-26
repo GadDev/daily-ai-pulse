@@ -97,7 +97,7 @@ test('both RAG tutorials respect the editorial publication gate and expose their
     },
     {
       id: 'rag-retrieval-evaluation',
-      title: 'Evaluate RAG Retrieval Quality with a Golden Question Set',
+      title: 'Find the passages your RAG retriever misses',
       diagram: '/images/guides/rag-retrieval-evaluation-flow.svg',
     },
   ] as const;

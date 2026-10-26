@@ -1,8 +1,9 @@
 ---
-title: 'Comparing Agentic Development Environments: Follow the Permissions'
-description: Compare delegated engineering workflows in Warp, Cursor Cloud Agents, Claude Code, Codex, Copilot cloud agent and OpenHands through execution, recovery and review controls.
+title: 'Choose where coding agents run: access, isolation and recovery'
+description: Compare six documented setups, from local terminal agents to managed cloud workspaces, and identify the controls each pilot needs.
 status: published
 publishedAt: 2026-10-22
+updatedAt: 2026-10-26
 format: review
 verification: researched
 difficulty: advanced
@@ -44,7 +45,9 @@ sources:
     url: https://docs.openhands.dev/sdk/guides/security
 ---
 
-Ask an agent to migrate a dependency across a service. It needs to find the callers, change code, run checks and explain failures. Then the test runner asks for network access, a script discovers credentials in the environment, and another agent edits the same file. That is when “agentic development environment” stops being a feature label and becomes an engineering question.
+Before handing a dependency migration to a coding agent, decide where it can work. The task may involve editing callers, running test scripts and fetching packages. Its permissions determine whether those steps can also reach credentials, other projects or external services.
+
+A local terminal agent and a managed cloud workspace put different parts of that setup under your control. This comparison follows access, execution, review and recovery across six documented setups so you can choose a bounded pilot and identify what still needs testing.
 
 **Comparative technical review · Sources checked October 22, 2026.** This review compares documented operating models, not measured task success. No product was installed or subjected to an adversarial test for this article. Live documentation is unpinned; plan, operating system and execution surface can change the controls. Recommendations are conditional editorial judgments.
 
@@ -89,7 +92,7 @@ For a serious pilot, inspect four separate things: what reads/writes are possibl
 
 ## Context, parallel work and the cost of forgetting
 
-A plan is useful when it preserves acceptance criteria and dependencies. A long plan that quietly drops the compatibility requirement is decorative project management.
+A useful plan preserves acceptance criteria and dependencies. Check that compatibility requirements still appear after the agent summarizes context or hands work to another agent.
 
 Claude Code documents [project instructions/memory](https://code.claude.com/docs/en/memory) and [subagent configuration](https://code.claude.com/docs/en/sub-agents). Those mechanisms can organize context and delegation; they do not prove that a requirement will survive every compaction or handoff. Verify what the parent and subagent actually receive, which tools they inherit, and how results return.
 
@@ -99,7 +102,7 @@ This is a useful point to test a failure: introduce a requirement midway through
 
 ## Recovery must cover the side effects you allowed
 
-An undo button has a jurisdiction. [Claude Code's checkpoint documentation](https://code.claude.com/docs/en/checkpointing) explicitly excludes file changes made through Bash commands from rewind tracking. More generally, restoring repository files cannot unsend a message, revoke an exposed secret or roll back a database write.
+Check what an undo operation actually restores. [Claude Code's checkpoint documentation](https://code.claude.com/docs/en/checkpointing), rechecked on October 26, says rewind can undo later Bash changes to a file once Claude has edited it with its file-editing tools in the current conversation. A file changed only through Bash is not tracked and stays as it is; use version control to revert it. More generally, restoring repository files cannot unsend a message, revoke an exposed secret or roll back a database write.
 
 For a dependency migration, retain a clean starting revision and inspectable diff. Keep production credentials out of the workspace. Use disposable test resources where side effects are necessary. If a task cannot run a required check, the correct handoff is a precise blocker, not a green summary reconstructed from intention.
 
@@ -111,8 +114,10 @@ For a solo engineer who wants to supervise locally, a configured Claude Code, Co
 
 For GitHub-centered, well-specified maintenance work, Copilot cloud agent offers a natural issue-to-PR path. For remote work that benefits from an agent-oriented workspace and artifacts, consider Cursor Cloud Agents. Check the actual organizational controls, service terms and data-retention requirements before moving a private repository.
 
-For a platform team building a custom execution service, OpenHands exposes components and policies you can integrate. Choose it because you need that responsibility, not because “open source” sounds like a free operations department. [Confirmation policies](https://docs.openhands.dev/sdk/guides/security) are configurable; the policy you deploy matters.
+For a platform team building a custom execution service, OpenHands exposes components and policies you can integrate. Include the work of configuring, operating and updating that service in the adoption decision. [Confirmation policies](https://docs.openhands.dev/sdk/guides/security) are configurable; the policy you deploy matters.
 
 Costs follow the operating model: model usage, remote compute, idle environments, storage, integration maintenance and reviewer attention. The [assistant comparison](/guides/ai-coding-assistants-compared/#the-monthly-price-is-only-the-entrance-fee) contains dated plan examples. We have not measured cost per accepted migration, and a nominal subscription price cannot establish it.
 
 Delegate further when the task is bounded, the environment enforces the intended limits, and the output is cheap to verify. Keep closer supervision when any of those conditions fails. The best environment for your team is the one whose authority, evidence and recovery you can explain after the agent makes a mistake.
+
+> **Source refresh — 26 October 2026:** The earlier wording treated Bash changes as excluded from Claude Code rewind. The current documentation distinguishes files already tracked by Claude's file-editing tools from files changed only through Bash. The recovery section now reflects that distinction. We have not established when the documentation changed.

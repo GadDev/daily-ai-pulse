@@ -1,0 +1,154 @@
+{
+  "editorial_date": "2026-10-26",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-26-devin-playbooks-to-skills",
+      "decision": "selected",
+      "title": "Devin moves Playbooks to Skills",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "skills",
+        "repo-instructions",
+        "developer-experience"
+      ],
+      "entities": [
+        "Devin",
+        "Cognition"
+      ],
+      "event_date": "2026-10-24",
+      "source_publication_date": "2026-10-23",
+      "summary": "Devin is replacing Playbooks with Skills, beginning with new accounts on October 24 and an account-by-account migration for existing users.",
+      "what_changed": "New accounts created from October 24 start with Skills and no Playbooks. Existing accounts migrate individually; playbooks become skills while preserving their instructions, Playbooks pages become read-only with links to the corresponding skills, and the Playbooks API reads and writes skills so existing automations, @playbook mentions and !playbook macros continue to work.",
+      "why_it_matters": "Teams that encoded repeatable coding-agent procedures as Playbooks need to treat Skills as the new durable instruction surface, while validating that API integrations and invocation conventions survive the migration.",
+      "engineer_takeaway": "Inventory Playbooks, API integrations, @playbook mentions and !playbook macros; migrate new reusable instructions into Skills; then test compatibility as each account migrates. Skills are reusable SKILL.md workflows, and plugins can bundle them with other extensions.",
+      "prerequisites": [
+        "coding agents",
+        "reusable agent instructions",
+        "repository workflows"
+      ],
+      "primary_source_url": "https://docs.devin.ai/release-notes/overview",
+      "sources": [
+        {
+          "url": "https://docs.devin.ai/release-notes/overview",
+          "canonical_url": "https://docs.devin.ai/release-notes/overview",
+          "publisher": "Devin Docs",
+          "source_type": "release-notes",
+          "role": "primary",
+          "publication_date": "2026-10-23"
+        },
+        {
+          "url": "https://docs.devin.ai/product-guides/creating-playbooks",
+          "canonical_url": "https://docs.devin.ai/product-guides/creating-playbooks",
+          "publisher": "Devin Docs",
+          "source_type": "product-documentation",
+          "role": "supporting",
+          "publication_date": "2026-10-24"
+        },
+        {
+          "url": "https://docs.devin.ai/product-guides/skills",
+          "canonical_url": "https://docs.devin.ai/product-guides/skills",
+          "publisher": "Devin Docs",
+          "source_type": "product-documentation",
+          "role": "context",
+          "publication_date": null
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Devin's release notes and migration guide document the dated rollout, migration behavior and compatibility promises.",
+        "independent_validation": "No independent migration test or audit was identified in the frozen research window.",
+        "claim_scope": "The compatibility claims are first-party documentation; this edition does not claim independent verification of every API, macro or account-migration path."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The change affects the canonical way teams package and invoke repeatable instructions in Devin and may touch existing automation integrations."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "Skills versus Playbooks",
+          "SKILL.md workflows",
+          "migration compatibility"
+        ],
+        "existing_explainer_status": "The briefing should explain the object-model change and give a short migration checklist inline."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "https://docs.devin.ai/release-notes/overview|Devin Playbooks|migration to Skills",
+        "canonical_event": "Devin announces the October 24 transition from Playbooks to Skills for new accounts and phased migration for existing accounts.",
+        "previous_coverage": "Archive searches found no prior Pulse story using the release-note URL or covering this event, entity and change.",
+        "material_delta": "A dated product migration changes Devin's reusable-instruction primitive while documenting backward-compatibility behavior for APIs and macros.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-26-devin-playbooks-to-skills.webp"
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [
+    {
+      "id": "2026-10-26-openai-frontier-training-containment-repeat",
+      "decision": "rejected",
+      "title": "OpenAI frontier-training containment disclosure",
+      "reason": "Already covered in the October 24 edition; no later material technical delta was found.",
+      "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+      "previous_story_id": "2026-10-24-openai-frontier-training-containment"
+    },
+    {
+      "id": "2026-10-26-mythos-aisi-alignment-investigation-repeat",
+      "decision": "rejected",
+      "title": "AISI and Anthropic Mythos alignment investigations",
+      "reason": "Already covered in the October 25 edition; no later material technical delta was found.",
+      "source_url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+      "previous_story_id": "2026-10-25-mythos-aisi-alignment-investigation"
+    },
+    {
+      "id": "2026-10-26-kimi-k3-1-pro-repeat-watch",
+      "decision": "rejected",
+      "title": "Kimi K3.1 Pro launch claims",
+      "reason": "The prior watch item still has no new model card, weight release, reproducible benchmark artifact or independent evaluation, so its promotion condition is unmet.",
+      "source_url": "https://forum.moonshot.ai/t/kimi-k3-1-pro-has-launched-start-exploring-now/629"
+    },
+    {
+      "id": "2026-10-26-tencent-agent-browsing-repeat-watch",
+      "decision": "rejected",
+      "title": "Reported unintended Tencent agent browsing behavior",
+      "reason": "The prior watch item remains secondary-only; no first-party technical account, reproducible evidence or new dated material delta was found.",
+      "previous_story_id": "2026-10-23-tencent-agent-browsing-secondary-only"
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-26-devin-playbooks-to-skills"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-26-devin-playbooks-to-skills"
+  },
+  "editorial_opportunities": [
+    {
+      "format": "playbook",
+      "depth": "practitioner",
+      "title": "Migrate reusable Devin procedures from Playbooks to Skills",
+      "reason": "The transition supports a practical inventory-and-compatibility checklist for teams with existing Playbooks and API integrations."
+    }
+  ]
+}
