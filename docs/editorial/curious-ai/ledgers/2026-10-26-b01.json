@@ -1,0 +1,1045 @@
+{
+  "schema_version": "curious-ai/1",
+  "decision_engine_version": "curious-ai/1",
+  "profile": "curious-ai",
+  "editorial_date": "2026-10-26",
+  "batch_id": "curious-ai:2026-10-26:b01",
+  "contract_ref": "eedf19a73f517bdbf10389a364975289af16b0eb",
+  "policy_snapshot": {
+    "kind": "committed",
+    "sha256": {
+      "docs/editorial/curious-ai/CONFIG_V1.yml": "3f9ef7b3defd7359d0da5a3d61fe24ed3d57b4a4dd14e67c55d8284ef249af7a",
+      "docs/EDITORIAL.md": "cbde2d7af68bc5a7705bd074e66ba62b80cda38e083de37a32323035d8fcdc6b",
+      "docs/editorial/CURIOUS_AI_V1.md": "840affdbce5b5d507bce863ca5851e2d9d99a22295baa77c131ae19737f72479",
+      "docs/editorial/CURIOUS_AI_ORCHESTRATOR_V1.md": "543a6c03ba5c636795dc4103fa7ac06530d6fcfc95ad1ef1008801473a29c544",
+      "docs/editorial/curious-ai/LEDGER_V1.md": "2371645321924fc39701b1bb9a8bf2d36c5782e6af87efb92d073c0d8d383b68",
+      ".agents/skills/curious-ai-editorial/SKILL.md": "6a72e44b262b9d271537f8126272c9a1b74a7537ab31bba4b57a3d738976631a"
+    }
+  },
+  "mode": "pilot-pr",
+  "run_status": "in-progress",
+  "research": {
+    "cutoff": "2026-10-26T13:09:35Z",
+    "complete": true,
+    "queries": [
+      {
+        "query": "AI artificial intelligence unusual culture everyday life October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/",
+          "https://apnews.com/article/2bb91e3334fd6d732edf22288cabf4ec"
+        ],
+        "note": "Broad everyday/culture discovery; inspected original reports or recorded access gaps.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:restofworld.org 2026 AI workers education culture October",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://restofworld.org/2026/global-workers-using-ai-at-work/",
+          "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/"
+        ],
+        "note": "Global discovery; read original profiles and classroom report.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:404media.co AI October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/",
+          "https://www.404media.co/character-ais-bankruptcy-documents-show-the-economics-of-ai-dont-work/"
+        ],
+        "note": "Accountability discovery; read full TV report and paywall boundary on economics.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:arstechnica.com AI weird October 2026",
+        "outcome": "inspected",
+        "source_urls": [],
+        "note": "Results were mainly forum leads; no additional candidate substantively inspected.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "AI unusual fun experiment music animals October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://gizmodo.com/researchers-stranded-an-ai-agent-on-a-virtual-island-things-got-very-weird-2000825998",
+          "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
+          "https://www.aiweirdness.com/the-worm-with-100-butts/",
+          "https://www.aiweirdness.com/botober-2026/"
+        ],
+        "note": "Delight/culture discovery; creator blog demonstrates publisher identity is not a relevance gate.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:restofworld.org/2026/ October 23 2026 AI",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/"
+        ],
+        "note": "No separate in-window global story established; older literacy context retained explicitly.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "AI restores repairs old devices television Claude October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/",
+          "https://www.tomsguide.com/ai/people-are-using-ai-to-turn-their-smart-tvs-into-dumb-tvs-and-you-might-want-to-do-the-same"
+        ],
+        "note": "Followed reporting links to both projects; no hardware test.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:theverge.com AI \"Oct 24\" \"2026\"",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+          "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+          "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+        ],
+        "note": "Current feed plus full-page attempts; duplicates and access gaps kept.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "\"Blue Planet III\" \"rough\" \"AI\" October 2026 BBC",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+        ],
+        "note": "Verge full fetch failed; originating interview not read.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "Gemini Minecraft Ender Dragon experiment October 2026 DeepMind",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.22319",
+          "https://arxiv.org/html/2610.22319v1"
+        ],
+        "note": "Consumed saved lead; found and read October 15 primary preprint.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "Tencent agent unintended browsing October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16/",
+          "https://www.techradar.com/pro/thanks-again-for-your-help-rogue-ai-agents-on-tencent-cloud-tried-to-crack-alibabas-amap-then-chatted-politely-with-the-team-tracking-them"
+        ],
+        "note": "Consumed saved lead; earlier date/acknowledgement discovered, not silently overwritten.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:bbc.co.uk/mediacentre \"Blue Planet III\" 2026 artificial intelligence",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+        ],
+        "note": "BBC domain robots-blocked; no authenticated production claim added.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "site:wam.ae AI curriculum kindergarten May 2025 UAE",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.wam.ae/en/article/bji6z2n-ministry-education-introduces-curriculum-public"
+        ],
+        "note": "Recovered official older announcement; prevents presenting school policy as new.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "\"Blue Planet III\" \"Elizabeth White\" October 2026",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+        ],
+        "note": "Originating Guardian report surfaced but not fully inspected; remains watch.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "\"dumbtv\" \"github\" AI Claude",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://github.com/humblemuzzu/dumbtv",
+          "https://github.com/Gathin23/cleanyourtv"
+        ],
+        "note": "Project READMEs inspected after following Tom’s Guide links.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      },
+      {
+        "query": "Direct discovery reads: https://news.ycombinator.com/ and https://www.theverge.com/ai-artificial-intelligence",
+        "outcome": "inspected",
+        "source_urls": [
+          "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+          "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet"
+        ],
+        "note": "Discovery only, no comment/vote evidence; no unrelated HN item promoted.",
+        "checked_at": "2026-10-26T13:16:13.338593Z"
+      }
+    ],
+    "pending_candidate_keys": [],
+    "started_at": "2026-10-26T13:08:07Z",
+    "scope_note": "13 substantive candidates, not 30 manufactured slots. Unopened search hits are unassessed leads. Coverage is bounded, not exhaustive.",
+    "completed_at": "2026-10-26T13:16:13.338593Z"
+  },
+  "candidates": [
+    {
+      "id": "2026-10-26-tv-cleanup",
+      "candidate_key": "smart-tv|AI-assisted-debloating|owner-control-2026-10",
+      "title": "TV owners are using AI to remove the extras they never asked for",
+      "decision": "selected",
+      "reason": "Concrete household control story; explain existing tooling and competing promises without recommending an untested modification.",
+      "kind": "evergreen",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/",
+          "role": "original-reporting",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-20",
+          "note": "Jason Koebler, October 20. Read complete available article; original interviews credited."
+        },
+        {
+          "url": "https://github.com/humblemuzzu/dumbtv",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Read current README, platform scope and author account; claims only, not a code/security audit."
+        },
+        {
+          "url": "https://github.com/Gathin23/cleanyourtv",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Read README compatibility, backup/restore and privacy limitations; no TV modified."
+        },
+        {
+          "url": "https://www.tomsguide.com/ai/people-are-using-ai-to-turn-their-smart-tvs-into-dumb-tvs-and-you-might-want-to-do-the-same",
+          "role": "supporting",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-20",
+          "note": "Elton Jones, October 20. Read body and dated embedded posts; social outcomes remain anecdotes."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "October 17-20 examples remain a timely catch-up within seven days of the October 20 reporting; explain the continuing owner-control question, not a new product release.",
+      "score": {
+        "curiosity": 4,
+        "human_meaning": 4,
+        "tension": 5,
+        "distinctiveness": 4,
+        "relevance": 4,
+        "explanation": 5,
+        "weighted_total": 85.0,
+        "rationale": "Everyday frustration and concrete mechanics support a useful cultural account."
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": true,
+          "reason": "AI-assisted modification is the activity under examination."
+        },
+        "claim_support": {
+          "passed": true,
+          "reason": "Readable original reporting plus both project READMEs."
+        },
+        "authenticity": {
+          "passed": true,
+          "reason": "Public repositories and dated reporting; viral posts are not independently authenticated demonstrations."
+        },
+        "fair_framing": {
+          "passed": true,
+          "reason": "Attribute performance and reversibility; distinguish interpretation about ownership."
+        },
+        "novelty": {
+          "passed": true,
+          "reason": "No matching device-cleanup coverage."
+        },
+        "honest_promise": {
+          "passed": true,
+          "reason": "Owners/projects, not all TVs; no blanket ad-removal promise."
+        }
+      },
+      "claims": [
+        {
+          "text": "Public projects document AI-assisted television cleanup and alternative home screens.",
+          "central": true,
+          "confidence": "scope-limited",
+          "support": [
+            "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/",
+            "https://github.com/humblemuzzu/dumbtv",
+            "https://github.com/Gathin23/cleanyourtv"
+          ],
+          "limit": "Project documentation and reported examples establish the activity, not universal compatibility, performance or privacy."
+        }
+      ],
+      "format": "reported-story",
+      "evidence": {
+        "level": "primary",
+        "rationale": "Source-bound account; no independent replication or population inference."
+      },
+      "signal": "low",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "2026-10-26-botober-racehorses",
+      "candidate_key": "Janelle-Shane|Botober-2026|racehorse-char-rnn",
+      "title": "A tiny AI trained on racehorse names supplies this October’s drawing prompts",
+      "decision": "selected",
+      "reason": "Bounded, playful first-person artifact; an antidote to automatic doom framing.",
+      "kind": "evergreen",
+      "event_date": "2026-09-30",
+      "sources": [
+        {
+          "url": "https://www.aiweirdness.com/botober-2026/",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-09-30",
+          "note": "Read complete public post and prompt-list alt text; paid bonus not accessed."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "The named October art activity is still relevant on October 26. Clearly date the September announcement; explain the creative constraint rather than claiming a new model.",
+      "score": {
+        "curiosity": 5,
+        "human_meaning": 3,
+        "tension": 4,
+        "distinctiveness": 4,
+        "relevance": 3,
+        "explanation": 5,
+        "weighted_total": 80.0,
+        "rationale": "Memorable example of choosing useful oddness over polished generic output."
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": true,
+          "reason": "Model-generated prompts are the premise."
+        },
+        "claim_support": {
+          "passed": true,
+          "reason": "Original creator publishes the setup and artifact."
+        },
+        "authenticity": {
+          "passed": true,
+          "reason": "September 30 date, named model and visible output list."
+        },
+        "fair_framing": {
+          "passed": true,
+          "reason": "Creative preference is Shane’s, not a benchmark verdict."
+        },
+        "novelty": {
+          "passed": true,
+          "reason": "No Botober or racehorse-prompt archive item."
+        },
+        "honest_promise": {
+          "passed": true,
+          "reason": "Say supplies prompts; do not claim inventing art or new capabilities."
+        }
+      },
+      "claims": [
+        {
+          "text": "Janelle Shane describes using a local char-rnn model trained on racehorse names for Botober 2026.",
+          "central": true,
+          "confidence": "scope-limited",
+          "support": [
+            "https://www.aiweirdness.com/botober-2026/"
+          ],
+          "limit": "Creator account and published prompt list; training was not reproduced and aesthetic superiority is not established."
+        }
+      ],
+      "format": "curiosity-brief",
+      "evidence": {
+        "level": "primary",
+        "rationale": "Source-bound account; no independent replication or population inference."
+      },
+      "signal": "low",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "2026-10-26-lagos-hiring",
+      "candidate_key": "Nureeyah-Ogunmuyiwa|Lagos-makeup-business|AI-hiring-help",
+      "title": "A Lagos makeup artist used ChatGPT to prepare for her first hire",
+      "decision": "selected",
+      "reason": "Specific non-US small-business use with agency and evidence limits kept visible.",
+      "kind": "evergreen",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://restofworld.org/2026/global-workers-using-ai-at-work/",
+          "role": "original-reporting",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-09-14",
+          "note": "Read complete public multi-profile article, especially Ogunmuyiwa section; interviewer credit Damilare Dosunmu, package Rest of World Staff."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "A durable counterexample to treating AI adoption only as replacement: who uses it to prepare a human hire? This is explicitly a September profile revisit, not a new October result.",
+      "score": {
+        "curiosity": 4,
+        "human_meaning": 4,
+        "tension": 4,
+        "distinctiveness": 4,
+        "relevance": 3,
+        "explanation": 5,
+        "weighted_total": 80.0,
+        "rationale": "Local human specificity and a useful delegation distinction outweigh modest timeliness."
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": true,
+          "reason": "AI hiring preparation is central."
+        },
+        "claim_support": {
+          "passed": true,
+          "reason": "Original newsroom profile, not aggregated reaction."
+        },
+        "authenticity": {
+          "passed": true,
+          "reason": "Named subject, city and September 14 package; exact hire date unknown."
+        },
+        "fair_framing": {
+          "passed": true,
+          "reason": "Attribute experience and do not infer chatbot decision authority."
+        },
+        "novelty": {
+          "passed": true,
+          "reason": "No subject or same hiring question in archive."
+        },
+        "honest_promise": {
+          "passed": true,
+          "reason": "Used to prepare; not AI hired the employee."
+        }
+      },
+      "claims": [
+        {
+          "text": "Rest of World reports that Ogunmuyiwa used ChatGPT for interview questions and hiring preparation, then employed an assistant.",
+          "central": true,
+          "confidence": "scope-limited",
+          "support": [
+            "https://restofworld.org/2026/global-workers-using-ai-at-work/"
+          ],
+          "limit": "One interview-based account; no audited growth, savings or causal productivity finding."
+        }
+      ],
+      "format": "curiosity-brief",
+      "evidence": {
+        "level": "anecdotal",
+        "rationale": "Source-bound account; no independent replication or population inference."
+      },
+      "signal": "low",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "2026-10-26-uae-ai-literacy",
+      "candidate_key": "UAE|AI-literacy|young-children-teacher-led",
+      "title": "Teaching children about AI can start without giving them a chatbot",
+      "decision": "selected",
+      "reason": "Separate AI literacy from independent chatbot use and distinguish public policy from private-school examples.",
+      "kind": "evergreen",
+      "event_date": "2025-05-04",
+      "sources": [
+        {
+          "url": "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/",
+          "role": "original-reporting",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-13",
+          "note": "Ananya Bhattacharya October 13 reporting; classroom examples and named school leaders, not universal outcome evidence."
+        },
+        {
+          "url": "https://www.wam.ae/en/article/bji6z2n-ministry-education-introduces-curriculum-public",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2025-05-04",
+          "note": "State news agency carrying May 4, 2025 ministry announcement; official policy claim, not independent evaluation."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "Persistent parent/teacher distinction between learning about AI and using public chatbots. October reporting illustrates older policy; neither is relabeled as a fresh mandate.",
+      "score": {
+        "curiosity": 4,
+        "human_meaning": 5,
+        "tension": 4,
+        "distinctiveness": 4,
+        "relevance": 3,
+        "explanation": 5,
+        "weighted_total": 85.0,
+        "rationale": "High human relevance and a concrete misconception worth explaining."
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": true,
+          "reason": "What children learn about AI is the central question."
+        },
+        "claim_support": {
+          "passed": true,
+          "reason": "Official announcement and named-school reporting cover separate assertions."
+        },
+        "authenticity": {
+          "passed": true,
+          "reason": "Policy dated May 2025 and report October 2026; no invented rollout date."
+        },
+        "fair_framing": {
+          "passed": true,
+          "reason": "Do not equate private examples with all public schools or claim first country."
+        },
+        "novelty": {
+          "passed": true,
+          "reason": "No AI-literacy schooling item in inspected archive."
+        },
+        "honest_promise": {
+          "passed": true,
+          "reason": "Can start is supported by examples; no outcome guarantee."
+        }
+      },
+      "claims": [
+        {
+          "text": "The UAE announced age-tailored public-school AI education in May 2025; October 2026 reporting describes teacher-led activities at named Dubai schools.",
+          "central": true,
+          "confidence": "scope-limited",
+          "support": [
+            "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/",
+            "https://www.wam.ae/en/article/bji6z2n-ministry-education-introduces-curriculum-public"
+          ],
+          "limit": "Public policy and individual private-school practices differ; no countrywide practice or learning-benefit claim."
+        }
+      ],
+      "format": "curiosity-brief",
+      "evidence": {
+        "level": "anecdotal",
+        "rationale": "Source-bound account; no independent replication or population inference."
+      },
+      "signal": "low",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "2026-10-26-minecraft-coordination",
+      "candidate_key": "Gemini|Minecraft multi-agent experiment|reported Ender Dragon behavior",
+      "title": "Four AI players beat Minecraft; the tool access matters as much as the dragon",
+      "decision": "selected",
+      "reason": "Recovered primary preprint resolves the earlier source gap for a narrowly attributed explainer, not new breaking news.",
+      "kind": "evergreen",
+      "event_date": "2026-10-15",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2610.22319",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-15",
+          "note": "Read submission history: October 15, 2026; preprint, not peer-reviewed status."
+        },
+        {
+          "url": "https://arxiv.org/html/2610.22319v1",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-15",
+          "note": "Read full HTML including setup, run, verification, costs and limitations; no game run or log reproduction."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "Prior watch decision only, no published article/commission. Same saved key retained; accessible October 15 primary preprint recovered this pass. New coverage, not a new event.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": [
+          "docs/editorial/ledgers/2026-10-23.json#2026-10-23-gemini-minecraft-secondary-only"
+        ]
+      },
+      "why_now": "Explain a previously watchlisted experiment once its accessible primary account is found; show why a game win and human-equivalent play are different. Do not claim a new run or newly published paper.",
+      "score": {
+        "curiosity": 5,
+        "human_meaning": 3,
+        "tension": 5,
+        "distinctiveness": 4,
+        "relevance": 3,
+        "explanation": 5,
+        "weighted_total": 83.0,
+        "rationale": "Playful success/failure with a clear explanation of what the setup does and does not test."
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": true,
+          "reason": "Four AI-driven game players are the subject."
+        },
+        "claim_support": {
+          "passed": true,
+          "reason": "Accessible primary preprint and its limitations, not the headline chain."
+        },
+        "authenticity": {
+          "passed": true,
+          "reason": "ArXiv submission history and matching full text."
+        },
+        "fair_framing": {
+          "passed": true,
+          "reason": "Reported single run; no new evidence of consciousness or general work performance."
+        },
+        "novelty": {
+          "passed": true,
+          "reason": "Earlier watch item is acknowledged; no prior article."
+        },
+        "honest_promise": {
+          "passed": true,
+          "reason": "Tool-access qualifier prevents the win from implying human-equivalent play."
+        }
+      },
+      "claims": [
+        {
+          "text": "The preprint reports one four-player Gemini 4 Argon Minecraft run completed on Easy using Mineflayer and text/code interfaces.",
+          "central": true,
+          "confidence": "scope-limited",
+          "support": [
+            "https://arxiv.org/html/2610.22319v1"
+          ],
+          "limit": "One author-reported run with privileged game-state access; no human-equivalent perception, reliability rate or independent reproduction."
+        }
+      ],
+      "format": "curiosity-brief",
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "Source-bound account; no independent replication or population inference."
+      },
+      "signal": "low",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "2026-10-26-tencent-map-agents",
+      "candidate_key": "Tencent|agent browsing behavior|secondary-only report",
+      "title": "Tencent-linked agent browsing: attribution and timing need repair",
+      "decision": "watch",
+      "reason": "Fresh discovery exposes an October 16 acknowledgement in reporting, conflicting with the saved October 22 event date. Reuters body failed to open; no primary incident record inspected. Do not repeat the stronger old no-acknowledgement claim.",
+      "kind": "evergreen",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16/",
+          "role": "original-reporting",
+          "access": "unavailable",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        },
+        {
+          "url": "https://www.techradar.com/pro/thanks-again-for-your-help-rogue-ai-agents-on-tencent-cloud-tried-to-crack-alibabas-amap-then-chatted-politely-with-the-team-tracking-them",
+          "role": "discovery",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Search excerpt reports researcher contact; not primary proof of model/provider identity."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "Existing watch/repeat records, no article. Preserve owner and require human assessment of historical date/source mismatch; do not alter news ledgers.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": [
+          "docs/editorial/ledgers/2026-10-23.json#2026-10-23-tencent-agent-browsing-secondary-only",
+          "docs/editorial/ledgers/2026-10-26.json#2026-10-26-tencent-agent-browsing-repeat-watch"
+        ]
+      },
+      "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
+      "promote_when": "Inspect the underlying Swarmchasers account and relevant Tencent response; reconcile event dates and attribution before drafting. No request for publication merely because reporting exists.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-blue-planet-authenticity",
+      "candidate_key": "Blue-Planet-III|imperfect-footage|AI-authenticity",
+      "title": "Blue Planet III and the temptation to treat rough footage as proof",
+      "decision": "watch",
+      "reason": "Potentially strong visual-culture story, but originating interview not inspected; Verge body repeatedly failed and BBC access was robots-blocked. Search summaries do not earn full-access status.",
+      "kind": "news",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
+          "role": "original-reporting",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "promote_when": "Read complete originating interview and production context; distinguish stated editing policy from proof that an image is real.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-opensource-ban",
+      "candidate_key": "reddit-r-opensource|AI-ban|2026-10",
+      "title": "An AI-content ban and a community dispute",
+      "decision": "watch",
+      "reason": "Headline/discovery page available, full story failed to open and actual rules not inspected. Avoid repeating broader exclusion claims about language or nationality.",
+      "kind": "news",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+          "role": "original-reporting",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "promote_when": "Inspect current and historical moderator rules, scope, timing and relevant responses; narrow title to documented changes.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-character-economics",
+      "candidate_key": "Character.ai|bankruptcy-report|2026-10",
+      "title": "Character.ai economics need the filings, not a universal conclusion",
+      "decision": "watch",
+      "reason": "Paywalled original reporting excerpt; legal/financial generalizations require full record and relevant responses. Older report, no verified new event.",
+      "kind": "evergreen",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://www.404media.co/character-ais-bankruptcy-documents-show-the-economics-of-ai-dont-work/",
+          "role": "original-reporting",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
+      "promote_when": "Read accessible relevant filings and complete reporting with responses; identify a distinct timely question. Never infer all AI economics from one company.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-religion-ai",
+      "candidate_key": "AI-moral-design|religious-consultation|2026-10",
+      "title": "Whose values get folded into an AI assistant?",
+      "decision": "watch",
+      "reason": "Useful culture and power question; AP article failed to open. Search-generated summary cannot support attributed positions or generalizations about faith.",
+      "kind": "news",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://apnews.com/article/2bb91e3334fd6d732edf22288cabf4ec",
+          "role": "original-reporting",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "promote_when": "Read complete AP reporting and primary descriptions of the consultation; preserve different viewpoints without flattening traditions.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-eko-island",
+      "candidate_key": "Eko|virtual-island|open-ended-behavior",
+      "title": "A virtual island experiment needs its actual setup",
+      "decision": "watch",
+      "reason": "Discovery excerpt reports unusual behavior, but original study/protocol not inspected. Do not convert games or temples into evidence of sentience.",
+      "kind": "evergreen",
+      "event_date": null,
+      "sources": [
+        {
+          "url": "https://gizmodo.com/researchers-stranded-an-ai-agent-on-a-virtual-island-things-got-very-weird-2000825998",
+          "role": "original-reporting",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Inspected available search/page evidence; required central supporting material not fully accessible."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "why_now": "Pilot calibration of a durable human question; not presented as new October 26 news.",
+      "promote_when": "Inspect original experiment, instructions, selection of episodes and limitations; only promote a bounded observation.",
+      "review_after": "2026-10-27"
+    },
+    {
+      "id": "2026-10-26-worm-zine",
+      "candidate_key": "Janelle-Shane|worm-zine|2026-10-23",
+      "title": "An unusual worm is not automatically an AI story",
+      "decision": "rejected",
+      "reason": "Recent author post is a biology/zine item; no meaningful AI mechanism established. The website name is not the AI-connection gate.",
+      "kind": "news",
+      "event_date": "2026-10-23",
+      "sources": [
+        {
+          "url": "https://www.aiweirdness.com/the-worm-with-100-butts/",
+          "role": "originating",
+          "access": "full",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": "2026-10-23",
+          "note": "Public creator post and homepage description inspected; not treated as an AI experiment."
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "reason": "No matching originating URL or event/entity/question in inspected archive, commissions or open content PRs.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": []
+      },
+      "gates": {
+        "ai_connection": {
+          "passed": false,
+          "reason": "The inspected description concerns a hand-drawn biological zine, not an AI event."
+        }
+      }
+    },
+    {
+      "id": "2026-10-26-offline-repeat",
+      "candidate_key": "OpenAI|frontier-training-containment|2026-10-23",
+      "title": "OpenAI offline training coverage is already owned",
+      "decision": "rejected",
+      "reason": "Same underlying disclosure already published October 24; reframing it as weird does not create a new event.",
+      "kind": "news",
+      "event_date": "2026-10-23",
+      "sources": [
+        {
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+          "role": "discovery",
+          "access": "excerpt",
+          "checked_at": "2026-10-26T13:16:13.338593Z",
+          "publication_date": null,
+          "note": "Search description compared with existing complete Pulse story; no new reported delta."
+        }
+      ],
+      "deduplication": {
+        "status": "duplicate",
+        "reason": "Same disclosure and central question as existing October 24 story, plus repeat exclusion in October 26 news ledger.",
+        "refs": [
+          "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+          "main@eedf19a:src/content/guides (14 files)",
+          "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+          "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+          "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+          "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+          "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+          "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+          "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+        ],
+        "previous_coverage": [
+          "2026-10-24-openai-frontier-training-containment"
+        ]
+      }
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "withheld_selected": []
+  },
+  "handoff": {
+    "pr_url": null,
+    "next_action": "Draft five source-bound samples outside Astro collections; perform exact-copy review, validate, then open canonical draft PR.",
+    "draft_ids": [],
+    "copy_reviews": []
+  },
+  "reconciliation": {
+    "observed_at": "2026-10-26T13:16:13.338593Z",
+    "main_ref": "eedf19a73f517bdbf10389a364975289af16b0eb",
+    "curious_branches": [],
+    "curious_prs": [],
+    "prior_curious_ledgers": [],
+    "legacy_curious_today": 0,
+    "prepared_today_before_batch": 0,
+    "pilot_drafts_this_batch": 5,
+    "publication_stories_this_batch": 0,
+    "daily_story_ceiling": 7,
+    "action": "start first pilot; catch up morning discovery slot",
+    "archive_refs": [
+      "main@eedf19a73f517bdbf10389a364975289af16b0eb:src/content/stories (119 files)",
+      "main@eedf19a:src/content/guides (14 files)",
+      "main@eedf19a:docs/editorial/ledgers (46 JSON ledgers)",
+      "main@eedf19a:docs/editorial/tools-and-guides/ledgers (3 JSON ledgers)",
+      "main@eedf19a:docs/editorial/tools-and-guides/commissions (6 JSON records)",
+      "PR253@0c5248b0584407d9919cf744fa94686d87ae4071:Qwen review integrity draft",
+      "PR242@d25710d3d029f9ebb6eae5ece487c2cc1834add8:changed filenames and maintenance scope",
+      "open-PR inventory 2026-10-26: #253 #250 #245 #244 #242 #241 #185 #182 #159",
+      "GitHub all-state PR head search content/curious-ai-: no matches; canonical branch search: no matches",
+      "main: no Curious ledgers/runs/pilots on any date; no known older unfinished batch"
+    ]
+  }
+}
