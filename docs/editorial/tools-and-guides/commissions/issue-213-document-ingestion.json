@@ -1,0 +1,63 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-26",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/213",
+  "authorization": "Explicit maintainer request to implement issue #213 and open a new PR. Draft preparation; no publication authorization.",
+  "scheduled_run": false,
+  "topic_key": "rag-document-ingestion-toolkit",
+  "guide_id": "rag-document-ingestion-toolkit",
+  "state": "draft-prepared",
+  "pr_number": 256,
+  "deduplication": {
+    "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+    "open_prs_checked": [
+      254,
+      253,
+      250,
+      245,
+      244,
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "distinct_outcome": "Extraction and source provenance, separate from clean-runbook deployment, retrieval metrics and Claude case-field validation. No overlapping open ingestion PR.",
+    "history_note": "Manual commission precedent preserves scheduled ledgers; no second daily scheduled selection."
+  },
+  "evidence_record": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-2026-10-26.md",
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Supported image_gen invoked; generated three replacement candidates after rejecting printed pseudo-text in initial batch."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image exercised on both golden references, contact sheets, selected original and final desktop/mobile/card/square crops."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow 1600x900 BytesIO codec round trip passed before drafting; final 1600x900 WebP encoded and fully decoded."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "GitHub base64 blob upload matched local Git SHA b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae. Independent git fetch/show at 0ab819acb3411c788490c4dc8ebb4684db9db606 confirmed all 12 files byte-for-byte, including decoded WebP SHA-256 7d6aa1888d13a746f3670ef9ef45b3b0fa9b10873af38c0cc6f97c09e2f16c68."
+      }
+    },
+    "blocker": null,
+    "review_record": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-artwork.json"
+  },
+  "handoff": {
+    "preparation": "draft-prepared",
+    "publication": "Separate human editorial authorization required; status remains draft.",
+    "ci": "Current PR checks are authoritative: https://github.com/GadDev/daily-ai-pulse/pull/256/checks",
+    "note": "Manual commission; this is not a scheduled-run complete handoff claim."
+  }
+}

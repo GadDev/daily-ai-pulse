@@ -1,0 +1,41 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "pypdf": "6.10.0",
+    "python-docx": "1.2.0",
+    "beautifulsoup4": "4.14.3",
+    "reportlab": "4.4.9",
+    "Pillow": "12.3.0"
+  },
+  "digital_pdf": {
+    "default": [
+      "B1. Restart\nB2. Open the valve.\nA1. Shutdown\nA2. Close the valve.\nPrinted page 1\n",
+      "Section C. Limits\nPart\nValve\nPump\nLimit (bar)\n12\n8\nPrinted page 2\n"
+    ],
+    "layout": [
+      "A1. Shutdown                                                B1. Restart\n\nA2. Close the valve.                                        B2. Open the valve.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrinted page 1",
+      "Section C. Limits\n\n\nPart                                        Limit (bar)\n\nValve                                       12\n\nPump                                        8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrinted page 2"
+    ]
+  },
+  "scan_pdf_text": "",
+  "docx_blocks": [
+    "Limits",
+    "Close the valve.",
+    [
+      ["Part", "Limit (bar)"],
+      ["Valve", "12"]
+    ],
+    "End of section."
+  ],
+  "html_main_text": "Limits|Close the valve.|Part|Limit (bar)|Valve|12",
+  "ocr": {
+    "engine": "tesseract 5.3.4",
+    "renderer": "pdftoppm 26.05.0",
+    "dpi": 150,
+    "language": "eng",
+    "psm": 6,
+    "source": "scan.pdf, PDF index 0",
+    "observed_text": "Section D. Inspection\nInspect seal OOI1 before restart.\nPrinted page 3\n",
+    "expected_identifier": "O0I1"
+  }
+}
