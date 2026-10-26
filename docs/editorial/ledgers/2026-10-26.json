@@ -100,6 +100,91 @@
         "status": "verified-with-claim-scope"
       },
       "illustration_path": "/images/stories/2026-10-26-devin-playbooks-to-skills.webp"
+    },
+    {
+      "id": "2026-10-26-qwen-review-integrity",
+      "decision": "selected",
+      "title": "An AI code reviewer can change the evidence and still leave Git clean",
+      "desk": "workflows",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "multi-agent",
+        "verification",
+        "evals"
+      ],
+      "entities": [
+        "Qwen Code"
+      ],
+      "event_date": "2026-10-25",
+      "source_publication_date": "2026-10-25",
+      "summary": "A contributor reports temporary tracked-source edits in three of four controlled Qwen Code review runs, all ending with clean Git status.",
+      "what_changed": "The October 25 practitioner report describes mutation-and-restoration during shared-tree reviews; the discussion distinguishes mutation alarms from pinned-source read provenance.",
+      "why_it_matters": "Concurrent reviewers can read working bytes that differ from the nominal frozen commit, and final restoration cannot establish their earlier inputs.",
+      "engineer_takeaway": "Read source requiring frozen provenance from full pinned Git object IDs, route mutation probes to disposable trees, contain subprocess writes separately, and distinguish unmeasured reads from verified pinned reads.",
+      "primary_source_url": "https://github.com/QwenLM/qwen-code/issues/15507",
+      "sources": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/issues/15507",
+          "publisher": "Qwen Code contributor yiliang114",
+          "source_type": "practitioner-report",
+          "role": "primary",
+          "publication_date": "2026-10-25"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/issues/15507#issuecomment-6394107475",
+          "publisher": "Qwen code review bot",
+          "source_type": "automated-source-analysis",
+          "role": "context"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/issues/15507#issuecomment-6394240323",
+          "publisher": "Nakagawa-master",
+          "source_type": "technical-comment",
+          "role": "context"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/issues/15507#issuecomment-6394310565",
+          "publisher": "doudouOUC",
+          "source_type": "source-analysis",
+          "role": "context"
+        }
+      ],
+      "evidence": {
+        "level": "anecdotal",
+        "rationale": "Four controlled trials described by their original operator, with source-grounded mechanism analysis but no Pulse reproduction of the Qwen model runs.",
+        "independent_validation": "Static source inspection only; commenters do not supply an executed independent concurrency reproduction.",
+        "claim_scope": "Neither actual parallel consumption of mutated bytes, a compromised production merge, general incidence nor a shipped safeguard is established."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "A concrete review-provenance control for teams sharing checkouts, with narrowly bounded experimental evidence."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 2,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 75
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-10-07-github-reviewbench"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "https://github.com/QwenLM/qwen-code/issues/15507|Qwen Code review|temporary shared-tree mutation and read provenance",
+        "canonical_event": "October 25 contributor report of temporary tracked-source mutations during controlled Qwen review runs.",
+        "previous_coverage": "ReviewBench coverage discusses review-quality evaluation, not this reported experiment or its read-provenance gap. Stories, ledgers and open PRs were checked.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      },
+      "illustration_path": "/images/stories/2026-10-26-qwen-review-integrity.webp"
     }
   ],
   "watchlist": [],
@@ -137,9 +222,12 @@
   ],
   "publication": {
     "story_ids": [
-      "2026-10-26-devin-playbooks-to-skills"
+      "2026-10-26-devin-playbooks-to-skills",
+      "2026-10-26-qwen-review-integrity"
     ],
-    "standalone_story_ids": [],
+    "standalone_story_ids": [
+      "2026-10-26-qwen-review-integrity"
+    ],
     "withheld_selected": [],
     "must_know_story_id": "2026-10-26-devin-playbooks-to-skills"
   },

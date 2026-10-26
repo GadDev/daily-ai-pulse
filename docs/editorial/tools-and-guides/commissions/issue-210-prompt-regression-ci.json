@@ -1,0 +1,91 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-26",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/210",
+  "authorization": "Explicit maintainer request to implement issue #210 and open a new PR. Draft preparation only; publication requires separate authorization.",
+  "scheduled_run": false,
+  "topic_key": "prompt-regression-ci",
+  "state": "publication-authorized",
+  "guide_id": "prompt-regression-ci",
+  "pr_number": 254,
+  "deduplication": {
+    "checked_on": "2026-10-26",
+    "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+    "open_prs_checked": [
+      250,
+      245,
+      244,
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "manual_commissions_checked": [
+      "issue-218-controlled-support-agent.json",
+      "issue-211-read-only-mcp-server.json",
+      "issue-212-agent-security-toolkit.json",
+      "issue-217-extraction-review.json",
+      "2026-10-22-agentic-series.json",
+      "issue-216-claude-first-api.json"
+    ],
+    "distinct_outcome": "Evaluate generated structured triage responses and connect assertion failures to a release gate. Retrieval evaluation measures ranked IDs; the security toolkit only selects detection resources; extraction and controlled-agent tutorials do not implement Promptfoo/CI. No overlapping open guide commission was found.",
+    "history_note": "Explicit issue commission follows the manual-commission precedent; no scheduled ledger is added or rewritten.",
+    "open_prs_rechecked": [
+      253,
+      242,
+      241,
+      185,
+      182,
+      159
+    ]
+  },
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in tools.image_gen__imagegen is exposed; no generation success yet claimed."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Viewed and inspected real production rag-retrieval-evaluation.webp and agent-security-control-toolkit.webp through view_image before drafting."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded/decoded a 16x16 WebP BytesIO round trip; WEBP format and dimensions confirmed."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "GitHub connector exposes create_blob with base64 and tree/commit/ref writes. Main read and public Git clone succeeded; final upload/read-back remains a required gate."
+      }
+    },
+    "blocker": null,
+    "review_record": "docs/editorial/tools-and-guides/reviews/prompt-regression-ci-artwork.json",
+    "upload_verification": {
+      "method": "GitHub base64 create_blob returned the exact locally computed Git blob SHA-1",
+      "git_blob_sha": "d391196e6e722f664a89fa47f19fe34852958e6d"
+    }
+  },
+  "handoff": {
+    "completion": "publication-commit-prepared",
+    "blockers": [],
+    "prior_ci": {
+      "head": "0b6c9363b68472378b73ed534b05bc4e8e55ea34",
+      "run_id": 40328899370,
+      "conclusion": "success"
+    },
+    "note": "Await publication-head checks and merge; the prior draft-only handoff is superseded by maintainer authorization."
+  },
+  "publication_authorization": {
+    "date": "2026-10-26",
+    "source": "Explicit maintainer request in project conversation to publish PR #254.",
+    "scope": "Approve public publication by setting guide status to published and merging PR #254.",
+    "limits": "Does not assert human execution of model inference, CI exercise, or reviewed French translation."
+  }
+}
