@@ -7,7 +7,7 @@
   "topic_key": "claude-foundations-code-workflows",
   "guide_id": "claude-foundations-code-workflows",
   "state": "review-prepared",
-  "pr_number": null,
+  "pr_number": 255,
   "authorization": "Prepare Part 5 as a draft PR. Earlier publication approval applied to Part 4; no Part 5 merge or publication authorized.",
   "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
   "deduplication": {
@@ -308,7 +308,9 @@
           "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Part 5: Give Claude Code Shared Rules, Then Verify Its Patch\nVerified context: A convention in an ignored personal file never reached your teammate. We will configure Claude Code for the same Northstar Helpdesk project, extract a policy predicate, deliberately introduce an inclusive-boundary regression, and verify its repair. The result is a small, reviewable patch with shared instructions and evidence you can recover after a context boundary.\nVisual idea: A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface. This physical workshop metaphor conveys reproducible shared conventions and one precise change; it is not a literal software architecture.\nOutput crop: wide 16:9 article hero master, 1600×900 or higher. Compact central still life with all key forms in the middle 50% horizontally and middle 60% vertically so it survives centered 21:9, 16:9, 3:2 and 1:1 crops and a 76px thumbnail.\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image’s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\n\nCurrent publication composition/materiality requirement: retain a tactile editorial still life with physical depth, never a bare schematic, wireframe or icon composition. Reference layout is docs/reference-layouts/story.html. Golden visual grammar: the warm tactile Part 3 read-only MCP and Part 4 controlled-agent covers; preserve palette and restraint without copying their subjects.\n\nCandidate variation C: A compact warm terracotta guide aligns the edge of one cream strip to a pale stone template. Gently diagonal still life seen from above with shallow physical depth, delicate charcoal edgework, visible paper fibres and soft ambient shadows. One clear alignment relationship with no extra props or technical symbols. The entire compact motif stays in the center for square crops. No folded folder, barrier, ruler marks or text.",
           "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-3febec7d-b2f2-41fa-b699-e801ab145a30.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
         }
-      ]
+      ],
+      "source_commit_scope": "Local frozen source commit before generation; remote_equivalent_source_commit has byte-identical article and SVG.",
+      "remote_equivalent_source_commit": "f67a668cae6a0b139368a34ec8a27c8426a6d848"
     },
     "integrity": {
       "date": "2026-10-26",
@@ -406,15 +408,15 @@
     }
   },
   "handoff": {
-    "completion": "blocked",
-    "blockers": [
-      "Exact final PR-head GitHub Actions CI pending."
-    ],
+    "completion": "complete",
+    "blockers": [],
     "human_publication_required": true,
+    "preparation_evidence_head": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+    "final_head_ci": "Inspect PR #255 checks and description for this documentation follow-up; no article or asset changed.",
     "remaining_verification": [
-      "Optional live inference/plan/fix and actual compaction unavailable without credentials and spending authorization; article verification remains researched."
+      "Optional live Claude planning/editing, account authentication/billing and actual model compaction were not executed without credentials and spending authorization; researched label and limitations retained."
     ],
-    "visibility": "Draft absent from detail/listing/series/sitemap/search in actual final build; public series remains Parts1-4."
+    "visibility": "Unpublished draft with no publishedAt; actual final draft build excluded detail/listing/series/sitemap/search. Published series remains Parts1-4."
   },
   "preflight_environment": {
     "node_target": "22.22.3",
@@ -804,7 +806,42 @@
         }
       ]
     },
-    "ci": "Pending exact final PR head; record actual run URLs/results in PR description without heartbeat commits."
+    "ci": {
+      "validated_preparation_head": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+      "run_url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/40329762406",
+      "result": "success; Verify project and Browser smoke and accessibility jobs passed",
+      "metadata_followup": "This final documentation update records PR identity and the completed preparation run; it does not alter the article, cover or SVG. The follow-up exact-head run and current handoff status are reported in PR #255 checks/body rather than heartbeat commits.",
+      "browser_suite": "74 passed (2.5m), zero flaky/failed in completed preparation run"
+    },
+    "remote_file_integrity": {
+      "commit": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+      "files": [
+        {
+          "path": "src/content/guides/claude-foundations-code-workflows.md",
+          "bytes": 62756,
+          "sha256": "73af6c696c54162f34490476077fa093d79c53684158d61335f99bf1425c1ee9",
+          "byte_match": true
+        },
+        {
+          "path": "public/images/guides/northstar-code-workflows.svg",
+          "bytes": 4288,
+          "sha256": "600e4dec0ff807c3df9781223b5e853530708bb1b6889aac43bcd742d3386420",
+          "byte_match": true
+        },
+        {
+          "path": "public/images/guides/claude-foundations-code-workflows.webp",
+          "bytes": 151128,
+          "sha256": "03a2243654ca38002afa5681f75e6d2ccf2a3d807b324740fc61787747e30083",
+          "byte_match": true
+        },
+        {
+          "path": "docs/editorial/tools-and-guides/commissions/issue-219-code-workflows.json",
+          "bytes": 53957,
+          "sha256": "3405188ffe3cb803a5b333425f10a5a9e79301899f76c5396b13ef405ab99595",
+          "byte_match": true
+        }
+      ]
+    }
   },
   "source_evidence": [
     {
