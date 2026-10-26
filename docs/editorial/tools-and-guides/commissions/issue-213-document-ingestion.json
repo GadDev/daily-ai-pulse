@@ -1,0 +1,63 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-26",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/213",
+  "authorization": "Explicit maintainer request to implement issue #213 and open a new PR. Draft preparation; no publication authorization.",
+  "scheduled_run": false,
+  "topic_key": "rag-document-ingestion-toolkit",
+  "guide_id": "rag-document-ingestion-toolkit",
+  "state": "draft-prepared",
+  "pr_number": null,
+  "deduplication": {
+    "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+    "open_prs_checked": [
+      254,
+      253,
+      250,
+      245,
+      244,
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "distinct_outcome": "Extraction and source provenance, separate from clean-runbook deployment, retrieval metrics and Claude case-field validation. No overlapping open ingestion PR.",
+    "history_note": "Manual commission precedent preserves scheduled ledgers; no second daily scheduled selection."
+  },
+  "evidence_record": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-2026-10-26.md",
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Supported image_gen invoked; generated three replacement candidates after rejecting printed pseudo-text in initial batch."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "view_image exercised on both golden references, contact sheets, selected original and final desktop/mobile/card/square crops."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow 1600x900 BytesIO codec round trip passed before drafting; final 1600x900 WebP encoded and fully decoded."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "GitHub base64 create_blob returned b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae, exactly matching local Git blob SHA. Branch read-back pending."
+      }
+    },
+    "blocker": null,
+    "review_record": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-artwork.json"
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Branch asset read-back and current-head GitHub CI pending."
+    ]
+  }
+}

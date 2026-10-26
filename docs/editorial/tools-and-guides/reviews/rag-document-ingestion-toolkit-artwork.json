@@ -1,0 +1,111 @@
+{
+  "guide_id": "rag-document-ingestion-toolkit",
+  "review_date": "2026-10-26",
+  "tool": "image_gen.imagegen",
+  "constitution_version": "1.1",
+  "system_version": "1.3",
+  "placement": "article-hero",
+  "layout_reference": "docs/reference-layouts/story.html",
+  "references": [
+    "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+    "public/images/stories/2026-09-22-copilot-review-controls.webp"
+  ],
+  "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Choose document ingestion tools that preserve RAG source passages.\nVerified context: A PDF text extractor cannot recover text from an image-only scan. Reading order, table structure and source locations need inspection before retrieval. This toolkit selects small local parsers or layout/OCR pipelines according to document needs.\nVisual idea: A terracotta thread passes through a layered stack of chalky paper-like stone sheets, keeping separated fragments physically connected to their source.\nOutput crop: wide 16:9 article hero, high resolution.\nUse docs/reference-layouts/story.html as placement source: wide art below headline, object-fit cover, generous whitespace, essential central motif survives mobile and card crop. This is an artwork asset, not a webpage.\nArt direction: restrained contemporary editorial illustration, quiet scientific/architectural sensibility, deliberate geometry, fine supporting lines, subtle paper texture. Warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, gray #575D5B, sparing terracotta #8A4B35. Spacious strong hierarchy; chalky material presence, overlapping planes, oblique spatial depth, directional soft shadows, lithographic grain like the inspected production references. The thread and layered sheets are one physical metaphor, not a literal technical mechanism.\nNo bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine lines support material forms.\nDepict only supported context; no implied benchmark or perfect extraction.\nNo words, letters, numbers, labels, logos, interface elements, page header/footer, buttons, badges, charts, watermark, neon, robots, glowing brains, headline or screenshot. No border or frame. Clean high-resolution output.\nCRITICAL: All sheets are completely blank chalky stone slabs, with NO markings whatsoever, no printed pictures, no text-like lines, no maps, no grids, no diagrams or lines on their surfaces. Only stone texture. Keep horizontal landscape 16:9.",
+  "composition_prompts": [
+    "A: low horizontal fanned layers and a central loop of thread.",
+    "B: upright fanned slabs and a central draped thread.",
+    "C: diagonal stepped slabs pierced by one taut thread."
+  ],
+  "rejected_initial_batch": {
+    "sources": [
+      "exec-a5c50533-6144-49c1-8db8-8dead7269b13.png",
+      "exec-579a687c-ba80-4b08-84fc-5e827904532a.png",
+      "exec-3eec3e7d-dcde-4c8b-834d-406b4e03b385.png"
+    ],
+    "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Choose document ingestion tools that preserve RAG source passages.\nVerified context: A PDF text extractor cannot recover text from an image-only scan. Reading order, table structure and source locations need inspection before retrieval. This toolkit selects small local parsers or layout/OCR pipelines according to document needs.\nVisual idea: A terracotta thread passes through a layered stack of chalky paper-like stone sheets, keeping separated fragments physically connected to their source.\nOutput crop: wide 16:9 article hero, high resolution.\nUse docs/reference-layouts/story.html as placement source: wide art below headline, object-fit cover, generous whitespace, essential central motif survives mobile and card crop. This is an artwork asset, not a webpage.\nArt direction: restrained contemporary editorial illustration, quiet scientific/architectural sensibility, deliberate geometry, fine supporting lines, subtle paper texture. Warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, gray #575D5B, sparing terracotta #8A4B35. Spacious strong hierarchy; chalky material presence, overlapping planes, oblique spatial depth, directional soft shadows, lithographic grain like the inspected production references. The thread and layered sheets are one physical metaphor, not a literal technical mechanism.\nNo bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Fine lines support material forms.\nDepict only supported context; no implied benchmark or perfect extraction.\nNo words, letters, numbers, labels, logos, interface elements, page header/footer, buttons, badges, charts, watermark, neon, robots, glowing brains, headline or screenshot. No border or frame. Clean high-resolution output.",
+    "reason": "Simulated document printing and pseudo-text; rejected before scoring. Regenerated all candidates with completely unmarked stone surfaces."
+  },
+  "candidates": [
+    {
+      "id": "A",
+      "source": "exec-5a47968e-ae75-4567-bea9-f184256f8119.png",
+      "constitution": "pass",
+      "scores": [
+        88,
+        87,
+        87,
+        86,
+        90,
+        95,
+        86
+      ],
+      "weighted_total": 87.55
+    },
+    {
+      "id": "B",
+      "source": "exec-fb4fd04c-7eb4-4d3e-aec8-7251647afcfc.png",
+      "constitution": "pass",
+      "scores": [
+        92,
+        90,
+        92,
+        90,
+        91,
+        96,
+        89
+      ],
+      "weighted_total": 90.9
+    },
+    {
+      "id": "C",
+      "source": "exec-73c9305d-f610-49de-9832-95e935ea09d7.png",
+      "constitution": "pass",
+      "scores": [
+        89,
+        87,
+        88,
+        85,
+        90,
+        95,
+        86
+      ],
+      "weighted_total": 87.75
+    }
+  ],
+  "score_order": [
+    "story_specific",
+    "brand_fit",
+    "composition",
+    "crop_quality",
+    "technical_meaning",
+    "cleanliness",
+    "golden_reference_fit"
+  ],
+  "weights": [
+    0.2,
+    0.15,
+    0.15,
+    0.15,
+    0.1,
+    0.05,
+    0.2
+  ],
+  "selected_candidate": "B",
+  "review_outcome": "pass",
+  "crop_review": {
+    "desktop-hero": "21:9 center crop cuts upper slab tips slightly; threaded central relationship remains legible.",
+    "mobile-hero": "16:9 full motif and thread visible.",
+    "card": "3:2 cuts outer thread ends; central loop/stone relationship stays clear.",
+    "square": "Outer slabs crop; central threaded slabs remain distinct."
+  },
+  "comparison_sheet": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-contact.webp",
+  "review_note": "Model visual review, not human publication approval. Compared contact sheet with two real production references, selected original at full size and final decoded WebP crops.",
+  "upload": {
+    "path": "/images/guides/rag-document-ingestion-toolkit.webp",
+    "sha256": "7d6aa1888d13a746f3670ef9ef45b3b0fa9b10873af38c0cc6f97c09e2f16c68",
+    "git_blob_sha": "b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae",
+    "width": 1600,
+    "height": 900,
+    "read_back": "GitHub create_blob accepted exact local Git blob SHA; branch read-back pending."
+  }
+}
