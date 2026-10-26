@@ -1,7 +1,8 @@
 ---
 title: Build a Prompt Regression Gate with Promptfoo and GitHub Actions
 description: Version 12 support-triage cases, check JSON and behavior, and prove a CI gate fails before connecting an optional local model.
-status: draft
+status: published
+publishedAt: 2026-10-26
 format: tutorial
 verification: researched
 difficulty: intermediate
