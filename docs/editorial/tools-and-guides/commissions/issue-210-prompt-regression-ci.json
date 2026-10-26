@@ -5,9 +5,9 @@
   "authorization": "Explicit maintainer request to implement issue #210 and open a new PR. Draft preparation only; publication requires separate authorization.",
   "scheduled_run": false,
   "topic_key": "prompt-regression-ci",
-  "state": "draft-prepared",
+  "state": "publication-authorized",
   "guide_id": "prompt-regression-ci",
-  "pr_number": null,
+  "pr_number": 254,
   "deduplication": {
     "checked_on": "2026-10-26",
     "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
@@ -73,9 +73,19 @@
     }
   },
   "handoff": {
-    "completion": "blocked",
-    "blockers": [
-      "Current-head GitHub CI pending."
-    ]
+    "completion": "publication-commit-prepared",
+    "blockers": [],
+    "prior_ci": {
+      "head": "0b6c9363b68472378b73ed534b05bc4e8e55ea34",
+      "run_id": 40328899370,
+      "conclusion": "success"
+    },
+    "note": "Await publication-head checks and merge; the prior draft-only handoff is superseded by maintainer authorization."
+  },
+  "publication_authorization": {
+    "date": "2026-10-26",
+    "source": "Explicit maintainer request in project conversation to publish PR #254.",
+    "scope": "Approve public publication by setting guide status to published and merging PR #254.",
+    "limits": "Does not assert human execution of model inference, CI exercise, or reviewed French translation."
   }
 }
