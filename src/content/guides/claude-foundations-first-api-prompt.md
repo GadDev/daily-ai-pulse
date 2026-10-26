@@ -1,9 +1,14 @@
 ---
-title: 'Your First Claude API Call: From a Support Message to Typed Triage'
+title: 'Part 1: Your First Claude API Call: From a Support Message to Typed Triage'
 description: Build a small TypeScript CLI that separates routing instructions, JSON shape and application responsibility, with a no-inference practice route.
 status: published
 publishedAt: 2026-10-25T20:57:06Z
 format: tutorial
+featured: true
+series:
+  id: claude-architecture
+  title: Claude architecture learning path
+  part: 1
 verification: researched
 difficulty: beginner
 author: The Daily AI Pulse

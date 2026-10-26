@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pagination from '../Pagination.astro';
+import GuideCard from './GuideCard.astro';
+import {
+  GUIDE_PAGE_SIZE,
+  getGuideSeries,
+  guideArchivePath,
+  guideFormats,
+  guidePageCount,
+  guideSeriesPath,
+  sortGuides,
+  type Guide,
+  type GuideFormat,
+} from '../../lib/guides';
+interface Props {
+  guides: Guide[];
+  format?: GuideFormat;
+  currentPage?: number;
+}
+const { guides, format, currentPage = 1 } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const published = sortGuides(guides);
+const items = published.filter((guide) => !format || guide.data.format === format);
+const totalPages = guidePageCount(items.length);
+const visible = items.slice((currentPage - 1) * GUIDE_PAGE_SIZE, currentPage * GUIDE_PAGE_SIZE);
+const home = !format && currentPage === 1;
+const featured = home ? published.find((guide) => guide.data.featured) : undefined;
+const series =
+  currentPage === 1 && (!format || format === 'tutorial') ? getGuideSeries(published) : [];
+const label = format ? guideFormats[format].plural : 'Tools & Guides';
+const title = `${label}${currentPage > 1 ? ` — Page ${currentPage}` : ''} — The Daily AI Pulse`;
+---
+
+<BaseLayout
+  title={title}
+  description="Practical AI engineering tutorials, independent technical reviews and curated developer resources."
+  englishOnly
+>
+  <div class="guide-index" data-pagefind-ignore="all">
+    <header class="guide-index__header">
+      <p class="guide-index__eyebrow">Tools &amp; Guides / The AI Workbench</p>
+      <h1>{home ? 'Build better. Choose wisely.' : label}</h1>
+      <p class="guide-index__dek">
+        Practical tutorials, independent technical reviews and carefully chosen resources for people
+        who build with AI.
+      </p>
+      <p class="guide-index__language">
+        Currently published in English. Reviewed French translations will follow.
+      </p>
+    </header>
+    {featured && (
+      <section class="guide-index__feature" aria-label="Featured guide">
+        <GuideCard guide={featured} variant="feature" />
+      </section>
+    )}
+    {series.length > 0 && (
+      <section class="guide-index__series" aria-labelledby="learning-paths">
+        <h2 id="learning-paths">Learn in order</h2>
+        <ul>
+          {series.map((group) => (
+            <li>
+              <a href={guideSeriesPath(base, group.id)}>{group.title}</a>
+              <span>
+                {group.parts.length} published {group.parts.length === 1 ? 'part' : 'parts'}
+              </span>
+              {group.parts.find((guide) => guide.data.series?.part === 1) && (
+                <a
+                  href={`${base}guides/${group.parts.find((guide) => guide.data.series?.part === 1)!.id}/`}
+                >
+                  Start at Part 1 →
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+    <section class="guide-index__browse" aria-labelledby="browse-guides">
+      <h2 id="browse-guides">Browse the workbench</h2>
+      <nav class="guide-index__formats" aria-label="Explore by format">
+        <a href={guideArchivePath(base)} aria-current={!format ? 'page' : undefined}>
+          All guides <span>({published.length})</span>
+        </a>
+        {(Object.keys(guideFormats) as GuideFormat[]).map((key) => (
+          <a href={guideArchivePath(base, key)} aria-current={format === key ? 'page' : undefined}>
+            {guideFormats[key].plural}{' '}
+            <span>({published.filter((guide) => guide.data.format === key).length})</span>
+          </a>
+        ))}
+      </nav>
+      <div class="guide-index__result-head">
+        <p>
+          {items.length
+            ? `${(currentPage - 1) * GUIDE_PAGE_SIZE + 1}–${Math.min(currentPage * GUIDE_PAGE_SIZE, items.length)} of ${items.length}`
+            : '0'}{' '}
+          {format ? guideFormats[format].plural.toLowerCase() : 'guides'} · Newest published first
+        </p>
+        <a href={`${base}search/?scope=guides`}>Search guides →</a>
+      </div>
+      <p class="guide-index__date-key">
+        Updated dates mark article changes. Evidence checked dates refer to the supporting research
+        or tests.
+      </p>
+      {visible.length > 0 ? (
+        <div class="guide-index__rows" data-guide-rows>
+          {visible.map((guide) => (
+            <GuideCard guide={guide} variant="row" />
+          ))}
+        </div>
+      ) : (
+        <div class="guide-index__empty">
+          <h3>
+            {format
+              ? `No published ${guideFormats[format].plural.toLowerCase()} yet.`
+              : 'The workbench is being prepared.'}
+          </h3>
+          <p>
+            Explore <a href={`${base}engineering/`}>AI Engineering coverage</a> or choose another
+            format above.
+          </p>
+        </div>
+      )}
+      <Pagination
+        current={currentPage}
+        total={totalPages}
+        href={(page) => guideArchivePath(base, format, page)}
+        locale="en"
+        label="Guide pagination"
+      />
+    </section>
+  </div>
+</BaseLayout>
+<style>
+  .guide-index {
+    padding-bottom: 3rem;
+  }
+  .guide-index__header {
+    padding: clamp(2rem, 4vw, 3rem) 0 1.6rem;
+    max-width: 62rem;
+  }
+  .guide-index__eyebrow {
+    margin: 0;
+    color: var(--terracotta);
+    font:
+      0.78rem/1.5 ui-sans-serif,
+      system-ui,
+      sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  h1 {
+    font:
+      500 clamp(2.5rem, 5.3vw, 4.2rem)/1.06 Georgia,
+      'Times New Roman',
+      serif;
+    letter-spacing: -0.035em;
+    margin: 0.7rem 0 1rem;
+    overflow-wrap: anywhere;
+  }
+  .guide-index__dek {
+    font:
+      1.1rem/1.5 Georgia,
+      'Times New Roman',
+      serif;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 0.7rem;
+  }
+  .guide-index__language,
+  .guide-index__date-key {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .guide-index__series {
+    border-top: 1px solid var(--line);
+    padding: 1.2rem 0;
+  }
+  .guide-index__series h2 {
+    font:
+      500 1.35rem/1.2 Georgia,
+      serif;
+    margin: 0 0 0.6rem;
+  }
+  .guide-index__series ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .guide-index__series li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .guide-index__series span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .guide-index__series a,
+  .guide-index__result-head a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+  }
+  .guide-index__browse {
+    padding-top: 1.8rem;
+  }
+  .guide-index__browse > h2 {
+    font:
+      500 2rem/1.2 Georgia,
+      serif;
+    margin: 0 0 1rem;
+  }
+  .guide-index__formats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.7rem;
+    border-block: 1px solid var(--line);
+  }
+  .guide-index__formats a {
+    display: inline-flex;
+    gap: 0.3em;
+    align-items: center;
+    min-height: 48px;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    font-size: 0.92rem;
+  }
+  .guide-index__formats a[aria-current] {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    font-weight: 600;
+  }
+  .guide-index__formats a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+  .guide-index__result-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin: 0.7rem 0 0.4rem;
+  }
+  .guide-index__result-head p {
+    color: var(--muted);
+    margin: 0;
+  }
+  .guide-index__date-key {
+    margin: 0 0 1rem;
+    max-width: 76ch;
+  }
+  .guide-index__empty {
+    padding: 2rem 0;
+    line-height: 1.6;
+  }
+  .guide-index__empty h3 {
+    font:
+      500 1.7rem/1.2 Georgia,
+      serif;
+  }
+  @media (max-width: 540px) {
+    .guide-index__formats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 1rem;
+    }
+    .guide-index__formats a {
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+  }
+</style>

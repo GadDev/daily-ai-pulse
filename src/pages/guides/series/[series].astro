@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuideCard from '../../../components/guides/GuideCard.astro';
+import { getGuideSeries, isPublishedGuide } from '../../../lib/guides';
+export async function getStaticPaths() {
+  return getGuideSeries(await getCollection('guides', isPublishedGuide)).map((series) => ({
+    params: { series: series.id },
+    props: { series },
+  }));
+}
+const { series } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title={`${series.title} — Tools & Guides — The Daily AI Pulse`}
+  description={`Follow the published parts of ${series.title} in learning order.`}
+  englishOnly
+>
+  <section class="guide-series" data-pagefind-ignore="all" aria-labelledby="series-title">
+    <a class="guide-series__back" href={`${base}guides/tutorials/`}>
+      ← All tutorials
+    </a>
+    <p class="guide-series__eyebrow">Learning path</p>
+    <h1 id="series-title">{series.title}</h1>
+    <p>
+      Follow the part numbers, starting with Part 1. Only published parts are listed; later parts
+      will appear after publication.
+    </p>
+    <h2>Published parts</h2>
+    <ol class="guide-series__parts">
+      {series.parts.map((guide) => (
+        <li value={guide.data.series!.part} data-series-part={guide.data.series!.part}>
+          <p class="guide-series__part">Part {guide.data.series!.part}</p>
+          <GuideCard guide={guide} variant="row" />
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
+<style>
+  .guide-series {
+    padding: 2rem 0 3rem;
+  }
+  .guide-series__back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+  }
+  .guide-series__eyebrow,
+  .guide-series__part {
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    margin: 1rem 0 0.5rem;
+  }
+  h1 {
+    font:
+      500 clamp(2.3rem, 5vw, 4rem)/1.1 Georgia,
+      serif;
+    letter-spacing: -0.03em;
+    max-width: 24ch;
+    margin: 0.7rem 0 1rem;
+  }
+  h2 {
+    font:
+      500 1.8rem/1.2 Georgia,
+      serif;
+    margin: 2rem 0 1rem;
+  }
+  .guide-series > p:not(.guide-series__eyebrow) {
+    max-width: 65ch;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .guide-series__parts {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .guide-series__parts li {
+    margin-bottom: 1rem;
+  }
+  .guide-series__part {
+    font-weight: 600;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+</style>
