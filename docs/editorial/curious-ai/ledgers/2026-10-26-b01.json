@@ -17,7 +17,7 @@
     }
   },
   "mode": "pilot-pr",
-  "run_status": "in-progress",
+  "run_status": "awaiting-review",
   "research": {
     "cutoff": "2026-10-26T13:09:35Z",
     "complete": true,
@@ -1114,8 +1114,8 @@
     "withheld_selected": []
   },
   "handoff": {
-    "pr_url": null,
-    "next_action": "Open canonical draft review PR, record its actual URL, run final repository validation and inspect exact-head CI; then await maintainer assessment.",
+    "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/257",
+    "next_action": "Maintainer assesses pilot #257 and records findings; wait for explicit assessment and a reviewed production configuration change. Inspect exact-head CI without adding heartbeat commits. Do not start another pilot.",
     "draft_ids": [
       "2026-10-26-tv-cleanup",
       "2026-10-26-botober-racehorses",
