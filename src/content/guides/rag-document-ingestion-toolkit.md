@@ -1,7 +1,8 @@
 ---
 title: Choose Document Ingestion Tools That Keep RAG Passages Inspectable
 description: Select six local parsing and OCR tools using document shape, source locations and a tiny synthetic inspection set.
-status: draft
+status: published
+publishedAt: 2026-10-26
 format: toolkit
 verification: curated
 difficulty: intermediate
