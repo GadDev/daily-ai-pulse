@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="1200" viewBox="0 0 320 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Northstar: context, permissions and patch evidence</title>
+  <desc id="desc">Shared project instructions and a conditional agent rule enter context. The review skill is invoked manually. An explicit tool pool and actual permissions govern file operations. Tests, a diff and a dated note support the patch. The support action retains an independent handler guard.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#575D5B"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #171B1A; }
+      .heading { font-size: 17px; font-weight: 700; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #444B48; }
+      .card { fill: #FAF6EE; stroke: #575D5B; stroke-width: 1.4; }
+      .flow { fill: none; stroke: #575D5B; stroke-width: 1.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="320" height="1200" fill="#F3EBDD" rx="12"/>
+  <text class="heading" x="20" y="32">One patch, separate controls</text>
+  <text class="small" x="20" y="55">Northstar Helpdesk · Part 5</text>
+
+  <rect class="card" x="16" y="78" width="288" height="124" rx="9"/>
+  <text class="heading" x="30" y="105">Shared project context</text>
+  <text class="body" x="30" y="134">CLAUDE.md</text>
+  <text class="body" x="30" y="158">imports docs/conventions.md</text>
+  <text class="small" x="30" y="184">Tracked files follow the checkout.</text>
+  <path class="flow" d="M160 204V232"/>
+
+  <rect class="card" x="16" y="240" width="288" height="170" rx="9"/>
+  <text class="heading" x="30" y="267">Conditional rule</text>
+  <text class="body" x="30" y="296">.claude/rules/agent.md</text>
+  <text class="body" x="30" y="322">Read agent/case.ts → attach</text>
+  <text class="body" x="30" y="348">Read mcp/contracts.ts → absent</text>
+  <text class="small" x="30" y="377">Compare separate fresh sessions.</text>
+  <text class="small" x="30" y="398">Personal files stay personal.</text>
+  <path class="flow" d="M160 412V438"/>
+
+  <rect class="card" x="16" y="446" width="288" height="118" rx="9"/>
+  <text class="heading" x="30" y="473">Manual review skill</text>
+  <text class="body" x="30" y="502">/northstar-review</text>
+  <text class="body" x="30" y="528">Find paths, callers, source lines.</text>
+  <text class="small" x="30" y="551">Task instructions enter context.</text>
+  <path class="flow" d="M160 566V594"/>
+
+  <rect x="16" y="602" width="288" height="164" rx="9" fill="#FAF6EE" stroke="#8A4B35" stroke-width="2"/>
+  <text class="heading" x="30" y="629">File operation controls</text>
+  <text class="body" x="30" y="658">Explicit built-in tool pool</text>
+  <text class="body" x="30" y="684">Empty strict MCP configuration</text>
+  <text class="body" x="30" y="710">Actual allow / deny decision</text>
+  <text class="small" x="30" y="738">Skill probe: Edit denied;</text>
+  <text class="small" x="30" y="758">advertised schema still present.</text>
+  <path class="flow" d="M160 768V796"/>
+
+  <rect class="card" x="16" y="804" width="288" height="142" rx="9"/>
+  <text class="heading" x="30" y="831">Verify the changed source</text>
+  <text class="body" x="30" y="860">Policy checks: RED → GREEN</text>
+  <text class="body" x="30" y="886">8 policy + 25 original fixtures</text>
+  <text class="body" x="30" y="912">Review the diff and source lines.</text>
+  <text class="small" x="30" y="935">Local checks do not test reasoning.</text>
+  <path class="flow" d="M160 948V976"/>
+
+  <rect class="card" x="16" y="984" width="288" height="112" rx="9"/>
+  <text class="heading" x="30" y="1011">Evidence after a boundary</text>
+  <text class="body" x="30" y="1040">Commit, hashes, checks, limits</text>
+  <text class="body" x="30" y="1066">Read the note and source again.</text>
+  <text class="small" x="30" y="1086">Actual compaction: not executed.</text>
+
+  <path d="M24 1122H296" stroke="#8A4B35" stroke-width="2"/>
+  <text class="heading" x="24" y="1148">Support action authorization</text>
+  <text class="body" x="24" y="1174">Still enforced by its own handler.</text>
+</svg>
