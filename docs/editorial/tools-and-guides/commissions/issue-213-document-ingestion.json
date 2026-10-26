@@ -7,7 +7,7 @@
   "topic_key": "rag-document-ingestion-toolkit",
   "guide_id": "rag-document-ingestion-toolkit",
   "state": "draft-prepared",
-  "pr_number": null,
+  "pr_number": 256,
   "deduplication": {
     "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
     "open_prs_checked": [
@@ -48,16 +48,16 @@
       },
       "binary_upload": {
         "status": "available",
-        "evidence": "GitHub base64 create_blob returned b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae, exactly matching local Git blob SHA. Branch read-back pending."
+        "evidence": "GitHub base64 blob upload matched local Git SHA b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae. Independent git fetch/show at 0ab819acb3411c788490c4dc8ebb4684db9db606 confirmed all 12 files byte-for-byte, including decoded WebP SHA-256 7d6aa1888d13a746f3670ef9ef45b3b0fa9b10873af38c0cc6f97c09e2f16c68."
       }
     },
     "blocker": null,
     "review_record": "docs/editorial/tools-and-guides/reviews/rag-document-ingestion-toolkit-artwork.json"
   },
   "handoff": {
-    "completion": "blocked",
-    "blockers": [
-      "Branch asset read-back and current-head GitHub CI pending."
-    ]
+    "preparation": "draft-prepared",
+    "publication": "Separate human editorial authorization required; status remains draft.",
+    "ci": "Current PR checks are authoritative: https://github.com/GadDev/daily-ai-pulse/pull/256/checks",
+    "note": "Manual commission; this is not a scheduled-run complete handoff claim."
   }
 }

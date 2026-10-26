@@ -108,3 +108,9 @@ replacements reviewed against two golden references. Selected B scored 90.9/100
 (weighted model visual assessment), with 89 golden-reference fit. The final
 1600×900 WebP was decoded and reviewed at desktop, mobile, card and square crops.
 The artwork JSON and contact sheet preserve the comparison and prompts.
+
+Remote integrity: independent `git fetch` and `git show` at
+`0ab819acb3411c788490c4dc8ebb4684db9db606` matched all 12 changed files exactly.
+Cover SHA-256: `7d6aa1888d13a746f3670ef9ef45b3b0fa9b10873af38c0cc6f97c09e2f16c68`.
+PR #256 checks are authoritative for current-head CI; no stored CI pass is inferred
+from a prior head. This final record update changes provenance only.

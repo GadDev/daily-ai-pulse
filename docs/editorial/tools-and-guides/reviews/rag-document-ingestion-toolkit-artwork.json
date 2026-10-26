@@ -106,6 +106,6 @@
     "git_blob_sha": "b7ca2ab1ae0e8ac8b465d4711e0e84000ec459ae",
     "width": 1600,
     "height": 900,
-    "read_back": "GitHub create_blob accepted exact local Git blob SHA; branch read-back pending."
+    "read_back": "Independent git fetch/show at 0ab819acb3411c788490c4dc8ebb4684db9db606 matched all 12 files byte-for-byte; cover SHA-256, Git blob SHA and decoded 1600x900 dimensions confirmed."
   }
 }
