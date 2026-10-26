@@ -850,6 +850,12 @@
         ]
       },
       "log_sha256": "10fe40e1fd7cb7d784896dfbd75b9fdbf530e986090956531344e7a08a34adeb"
+    },
+    "main_update": {
+      "from": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
+      "to": "4905f2d66e12e9b4551b56b65107f076e1652818",
+      "change": "Dependabot PR #246 updates repository @types/node 22.20.5→26.6.5 and undici-types in package/lock only. No guide, article dependency, source, artwork, schema or editorial policy overlap.",
+      "action": "Merge current main preserving both package files byte-for-byte; install current repository lock and rerun local verification and exact-head CI. Learner project retains independently pinned Node 22 @types/node 22.20.5."
     }
   }
 }
