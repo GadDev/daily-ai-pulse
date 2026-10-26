@@ -75,17 +75,33 @@ test('a learning path starts at Part 1 and links only published neighbours', asy
 test('cards distinguish publication and evidence dates without inventing maintenance', async ({
   page,
 }) => {
-  await page.goto('/guides/');
-  const mcp = page.locator('[data-guide-rows] article').filter({
-    has: page.locator('h3 a[href="/guides/typescript-read-only-mcp-server/"]'),
-  });
+  // New publications can push a guide past the first archive page.
+  // Follow the format archive rather than assuming a fixed page position.
+  const findCard = async (format: 'tutorials' | 'reviews', slug: string) => {
+    await page.goto(`/guides/${format}/`);
+    const visited = new Set<string>();
+    while (!visited.has(page.url())) {
+      visited.add(page.url());
+      const card = page.locator('[data-guide-rows] > article').filter({
+        has: page.locator(`h3 a[href="/guides/${slug}/"]`),
+      });
+      if ((await card.count()) === 1) return card;
+      const next = page
+        .getByRole('navigation', { name: 'Guide pagination' })
+        .getByRole('link', { name: 'Next', exact: true });
+      if ((await next.count()) === 0) break;
+      await next.click();
+    }
+    throw new Error(`Published guide ${slug} not found in the ${format} archive`);
+  };
+
+  const mcp = await findCard('tutorials', 'typescript-read-only-mcp-server');
   await expect(mcp.locator('.guide-dates')).toContainText('Published 26 October 2026');
   await expect(mcp.locator('.guide-dates')).toContainText('Evidence checked 25 October 2026');
   await expect(mcp.locator('.guide-dates')).not.toContainText('Updated');
   await expect(mcp).toContainText('Documentation-based research');
-  const review = page
-    .locator('[data-guide-rows] article')
-    .filter({ has: page.locator('h3 a[href="/guides/agent-observability-langfuse-phoenix/"]') });
+
+  const review = await findCard('reviews', 'agent-observability-langfuse-phoenix');
   await expect(review.locator('.guide-dates')).toContainText('Updated');
   await expect(review.locator('.guide-dates')).toContainText('Evidence checked');
 });

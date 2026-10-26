@@ -1,0 +1,18 @@
+{
+  "created": "2026-10-26",
+  "provenance": "Synthetic fictional text and layouts authored for issue #213; no third-party document or customer data. Image-only scan simulated from generated text; not a physical scan.",
+  "rights": "Fixture text and layouts dedicated under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/",
+  "expected": {
+    "digital.pdf": "PDF index 0 / printed page 1: A1,A2 then B1,B2; index 1 / printed page 2: Section C table Part/Limit (bar), Valve/12, Pump/8.",
+    "scan.pdf": "PDF index 0 / printed page 3: Section D. Inspection; Inspect seal O0I1 before restart.",
+    "handbook.html": "main > heading #limits, paragraph, table Valve/12; navigation excluded.",
+    "handbook.docx": "Heading Limits, paragraph, table Valve/12, paragraph End of section; use section/block locations, no inferred page."
+  },
+  "files": {
+    "digital.pdf": "eddf3dcd828b01e0e69549b2a3506fe29fd0f1507292782640077cf8cf0ddd5c",
+    "handbook.docx": "538162f11fbb5572be07e9671f2034a59d41b622a5003f873886ea1c89027fe8",
+    "handbook.html": "478f74509556d7a49971c222b9e79848f7650fd2115de68bd07af3d950be57ee",
+    "observed.json": "7924ef46d2fe4070d597758b5ab233a2995c2df367a36a88f117be2a678754b8",
+    "scan.pdf": "05d8dc90153dac54018c5629144cede058df5aa673b5e8f9905a9775a53cae53"
+  }
+}
