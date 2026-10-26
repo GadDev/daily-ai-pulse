@@ -52,8 +52,9 @@
     ],
     "notes": "No existing MCP implementation article or overlapping open PR. The security toolkit and deferred MCP security topic are adjacent; this commission owns the beginner local read-only implementation, not a general security audit. Do not alter merged scheduled ledgers.",
     "final_main_recheck": {
-      "commit": "82043cba5633ecb210aa94d77fc1fa57adc22fff",
-      "result": "Still current main at final preparation. PR #242 edits four other published articles, story corrections and existing tests; no Part 3 overlap. PR #241 shared-policy changes remain open, not silently applied as merged policy."
+      "commit": "e2ad9d3fe83b4502b9bca07b09673a28175ea85b",
+      "change": "Daily AI Pulse — 26 October 2026 (#247): seven new daily-news files only; no overlap with Part 3, its shared test fix or illustration reference inputs.",
+      "action": "Merge current main into the publication branch, retain all seven news files unchanged, then require new exact-head CI."
     }
   },
   "duplication_matrix": [
@@ -1096,7 +1097,20 @@
         "mode": "Existing Playwright test with its actual fixture HTTP servers, exact sentinel searches and all assertions retained.",
         "log_sha256": "a40dd9a8b703893d0ee4599997959ef43e03f2071f65d4b1c235fe38564d1b77"
       },
-      "new_head_ci": "Actual corrected-head CI will be recorded in PR description after completion."
+      "new_head_ci": "Actual corrected-head CI will be recorded in PR description after completion.",
+      "corrected_head_ci": {
+        "head": "e79c3b7fc4cd87a3462875f4643fea875e61c725",
+        "run_id": 40291425046,
+        "status": "success",
+        "note": "Both Verify project and Browser smoke/accessibility passed. Main advanced during this run; the merge with current main still requires its own final exact-head CI."
+      }
+    },
+    "main_update": {
+      "from": "82043cba5633ecb210aa94d77fc1fa57adc22fff",
+      "to": "e2ad9d3fe83b4502b9bca07b09673a28175ea85b",
+      "reason": "New daily edition #247 merged during publication verification.",
+      "scope": "Seven added daily-news files only. No editorial policy, article/code, artwork reference or shared test overlap.",
+      "action": "Merge main without altering daily-news files; run final exact-head CI on the combined tree."
     }
   }
 }
