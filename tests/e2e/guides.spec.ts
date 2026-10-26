@@ -1,19 +1,19 @@
 import { AxeBuilder } from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { URL } from 'node:url';
-import { expect, test } from '@playwright/test';
+import { expect, test, type APIResponse } from '@playwright/test';
 
 test('Tools & Guides landing exposes three formats without fictional reviews', async ({ page }) => {
   await page.goto('/guides/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Build better. Choose wisely.');
   await expect(
-    page.getByLabel('Explore by format').getByRole('heading', { name: 'Tutorials' }),
+    page.getByLabel('Explore by format').getByRole('link', { name: /^Tutorials \(\d+\)$/ }),
   ).toBeVisible();
   await expect(
-    page.getByLabel('Explore by format').getByRole('heading', { name: 'Technical reviews' }),
+    page.getByLabel('Explore by format').getByRole('link', { name: /^Technical reviews \(\d+\)$/ }),
   ).toBeVisible();
   await expect(
-    page.getByLabel('Explore by format').getByRole('heading', { name: 'Toolkits' }),
+    page.getByLabel('Explore by format').getByRole('link', { name: /^Toolkits \(\d+\)$/ }),
   ).toBeVisible();
   await expect(
     page
@@ -109,9 +109,18 @@ test('both RAG tutorials respect the editorial publication gate and expose their
     );
     const published = /^status: published$/m.test(frontmatter);
     const response = await request.get(`/guides/${guide.id}/`);
-    const landing = await request.get('/guides/');
-    expect(landing.ok()).toBe(true);
-    const listing = await landing.text();
+    let listing = '';
+    let archive: string | undefined = '/guides/tutorials/';
+    const visited = new Set<string>();
+    while (archive) {
+      expect(visited.has(archive), 'archive pagination must not loop').toBe(false);
+      visited.add(archive);
+      const landing: APIResponse = await request.get(archive);
+      expect(landing.ok()).toBe(true);
+      const html: string = await landing.text();
+      listing += html;
+      archive = html.match(/rel="next" href="([^"]+)"/)?.[1];
+    }
 
     if (!published) {
       expect(response.status(), `${guide.id} must remain gated while draft`).toBe(404);

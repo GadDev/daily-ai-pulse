@@ -75,6 +75,14 @@ const guides = defineCollection({
       description: z.string().min(1),
       status: z.enum(['draft', 'published', 'withdrawn']).default('draft'),
       format: z.enum(['tutorial', 'review', 'toolkit']),
+      featured: z.boolean().default(false),
+      series: z
+        .object({
+          id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+          title: z.string().min(1),
+          part: z.number().int().positive(),
+        })
+        .optional(),
       verification: z.enum(['hands-on', 'researched', 'curated']),
       difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('intermediate'),
       author: z.string().min(1).optional(),

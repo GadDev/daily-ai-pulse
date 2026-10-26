@@ -4,6 +4,10 @@ description: Extend Northstar Helpdesk with evidence checks, one bounded correct
 status: published
 publishedAt: 2026-10-25T22:33:26Z
 format: tutorial
+series:
+  id: claude-architecture
+  title: Claude architecture learning path
+  part: 2
 verification: researched
 difficulty: beginner
 author: The Daily AI Pulse

@@ -1,0 +1,78 @@
+---
+import { getGuideSeries, guideSeriesPath, type Guide } from '../../lib/guides';
+interface Props {
+  guide: Guide;
+  guides: Guide[];
+}
+const { guide, guides } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const series = getGuideSeries(guides).find((group) => group.id === guide.data.series?.id);
+const index = series?.parts.findIndex((part) => part.id === guide.id) ?? -1;
+const first = series?.parts.find((part) => part.data.series?.part === 1);
+const previous = series && index > 0 ? series.parts[index - 1] : undefined;
+const next = series && index >= 0 ? series.parts[index + 1] : undefined;
+---
+
+{series && (
+  <nav class="guide-series-nav" aria-label="Tutorial series" data-pagefind-ignore>
+    <p>
+      <a href={guideSeriesPath(base, series.id)}>{series.title}</a> · Part {guide.data.series!.part}
+    </p>
+    <ul>
+      {first && first.id !== guide.id && (
+        <li>
+          <a href={`${base}guides/${first.id}/`}>Start at Part 1</a>
+        </li>
+      )}
+      {previous && (
+        <li>
+          <a rel="prev" href={`${base}guides/${previous.id}/`}>
+            ← Part {previous.data.series!.part}: {previous.data.title}
+          </a>
+        </li>
+      )}
+      {next && (
+        <li>
+          <a rel="next" href={`${base}guides/${next.id}/`}>
+            Part {next.data.series!.part}: {next.data.title} →
+          </a>
+        </li>
+      )}
+    </ul>
+  </nav>
+)}
+<style>
+  .guide-series-nav {
+    border-block: 1px solid var(--line);
+    padding: 1rem 0;
+    margin: 1.5rem 0 0;
+    font:
+      0.9rem/1.5 ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    list-style: none;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+</style>

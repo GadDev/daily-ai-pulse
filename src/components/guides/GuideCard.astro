@@ -1,104 +1,159 @@
 ---
 import type { Guide } from '../../lib/guides';
-import { formatGuideDate, guideFormats, verificationLabels } from '../../lib/guides';
-
+import { guideFormats, guideSeriesPath, verificationLabels } from '../../lib/guides';
+import GuideDates from './GuideDates.astro';
 interface Props {
   guide: Guide;
+  variant?: 'card' | 'row' | 'feature';
 }
-
-const { guide } = Astro.props;
+const { guide, variant = 'card' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const Heading = variant === 'feature' ? 'h2' : 'h3';
 ---
 
-<article class="guide-card">
+<article class:list={['guide-card', `guide-card--${variant}`]}>
   {guide.data.image && (
     <img
       class="guide-card__image"
       src={`${base}${guide.data.image.slice(1)}`}
       alt={guide.data.imageAlt ?? ''}
-      loading="lazy"
+      loading={variant === 'feature' ? 'eager' : 'lazy'}
+      width="600"
+      height="400"
     />
   )}
-  <p class="guide-card__eyebrow">
-    {guideFormats[guide.data.format].label} · {verificationLabels[guide.data.verification]}
-  </p>
-  <h3>
-    <a href={`${base}guides/${guide.id}/`}>{guide.data.title}</a>
-  </h3>
-  <p class="guide-card__description">{guide.data.description}</p>
-  <p class="guide-card__meta">
-    {guide.data.publishedAt && (
-      <time datetime={guide.data.publishedAt.toISOString()}>
-        {formatGuideDate(guide.data.publishedAt)}
-      </time>
+  <div class="guide-card__body">
+    <p class="guide-card__eyebrow">
+      {variant === 'feature' ? 'Featured / ' : ''}
+      {guideFormats[guide.data.format].label} · {guide.data.difficulty}
+    </p>
+    <Heading>
+      <a href={`${base}guides/${guide.id}/`}>{guide.data.title}</a>
+    </Heading>
+    <p class="guide-card__description">{guide.data.description}</p>
+    {guide.data.series && (
+      <a class="guide-card__series" href={guideSeriesPath(base, guide.data.series.id)}>
+        {guide.data.series.title} · Part {guide.data.series.part}
+      </a>
     )}
-    <span>{guide.data.difficulty}</span>
-  </p>
+    <p class="guide-card__verification">{verificationLabels[guide.data.verification]}</p>
+    <GuideDates guide={guide} />
+  </div>
 </article>
 <style>
   .guide-card {
-    position: relative;
-    border-top: 1px solid var(--line);
-    padding: 1.3rem 0 1.8rem;
     min-width: 0;
+    border-top: 1px solid var(--line);
+    padding: 1.35rem 0;
   }
   .guide-card__image {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: auto;
+    aspect-ratio: 3/2;
     object-fit: cover;
     background: var(--surface-alt);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .guide-card__body {
+    min-width: 0;
   }
   .guide-card__eyebrow {
     margin: 0;
+    color: var(--terracotta);
     font:
-      700 0.7rem/1.5 ui-sans-serif,
+      0.82rem/1.5 ui-sans-serif,
       system-ui,
       sans-serif;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--terracotta);
   }
+  h2,
   h3 {
-    margin: 0.65rem 0 0.6rem;
     font:
-      500 clamp(1.5rem, 2.5vw, 2rem)/1.12 Georgia,
+      500 clamp(1.45rem, 2.2vw, 1.8rem)/1.17 Georgia,
       'Times New Roman',
       serif;
+    letter-spacing: -0.02em;
+    margin: 0.5rem 0 0.65rem;
     overflow-wrap: anywhere;
   }
+  h2 a,
   h3 a {
+    display: inline-block;
+    min-height: 44px;
     text-decoration: none;
   }
-  h3 a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
+  h2 a:hover,
   h3 a:hover {
     text-decoration: underline;
     text-underline-offset: 0.15em;
   }
-  h3 a:focus-visible {
-    outline: none;
-  }
-  h3 a:focus-visible::after {
+  a:focus-visible {
     outline: 2px solid var(--terracotta);
-    outline-offset: 2px;
+    outline-offset: 3px;
   }
   .guide-card__description {
+    margin: 0;
     color: var(--muted);
     line-height: 1.55;
-    margin: 0 0 0.8rem;
   }
-  .guide-card__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
+  .guide-card__series {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    text-underline-offset: 0.2em;
+  }
+  .guide-card__verification {
+    font-size: 0.82rem;
+    margin: 0.6rem 0 0;
     color: var(--muted);
-    font-size: 0.7rem;
+  }
+  .guide-card--row {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .guide-card--row .guide-card__image {
+    margin: 0;
+  }
+  .guide-card--feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 2rem;
+    border-color: var(--ink);
+    padding: 1.5rem 0 2rem;
+  }
+  .guide-card--feature .guide-card__image {
+    margin: 0;
+  }
+  .guide-card--feature h2 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+  }
+  @media (max-width: 640px) {
+    .guide-card--row {
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .guide-card--row .guide-card__image {
+      aspect-ratio: 1;
+    }
+    .guide-card--feature {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .guide-card--feature .guide-card__image {
+      max-height: 190px;
+    }
+  }
+  @media (max-width: 390px) {
+    .guide-card--row {
+      grid-template-columns: 1fr;
+    }
+    .guide-card--row .guide-card__image {
+      width: 96px;
+      aspect-ratio: 3/2;
+    }
   }
 </style>
