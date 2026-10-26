@@ -4,6 +4,10 @@ description: Expose narrow order and policy tools, inspect real MCP calls withou
 status: published
 publishedAt: 2026-10-26T07:59:46Z
 format: tutorial
+series:
+  id: claude-architecture
+  title: Claude architecture learning path
+  part: 3
 verification: researched
 difficulty: beginner
 author: The Daily AI Pulse
