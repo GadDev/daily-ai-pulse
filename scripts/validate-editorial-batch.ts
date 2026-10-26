@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { URL } from 'node:url';
 import type { EditorialCandidate, EditorialLedger } from './lib/editorial-types.ts';
+import { asPublicationLedger, foreignStoryIds, isCuriousBatch } from './lib/editorial-batches.ts';
 
 const root = process.cwd();
 const storiesDir = join(root, 'src/content/stories');
@@ -156,7 +157,7 @@ function priorSourceIndex(currentStoryIds: Set<string>, editorialDate: string) {
   for (const name of readdirSync(storiesDir).filter((entry) => /\.mdx?$/.test(entry))) {
     const id = name.replace(/\.mdx?$/, '');
     if (currentStoryIds.has(id)) continue;
-    if (id.slice(0, 10) >= editorialDate) continue;
+    if (id.slice(0, 10) > editorialDate) continue;
     const fm = frontmatter(readFileSync(join(storiesDir, name), 'utf8'));
     for (const url of sourceUrls(fm)) {
       const canonical = canonicalUrl(url);
@@ -181,12 +182,23 @@ if (!existsSync(ledgerPath)) {
   process.exit(1);
 }
 
-const ledger = readJson(ledgerPath);
-if (!ledger) {
+const rawLedger = readJson(ledgerPath);
+if (!rawLedger) {
   console.error(`Editorial batch check failed with ${errors.length} error(s):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
+const curious = isCuriousBatch(root, ledgerPath, rawLedger);
+if (rawLedger.profile && !curious) fail('A Curious profile requires the canonical Curious path');
+const ledger = curious
+  ? asPublicationLedger({
+      path: ledgerPath,
+      profile: 'curious-ai',
+      ledger: rawLedger,
+      storyIds: rawLedger.publication?.story_ids ?? [],
+    })
+  : rawLedger;
+const foreignIds = foreignStoryIds(root, ledgerPath);
 
 const filenameDate = basename(ledgerPath, '.json');
 const retrospective =
@@ -194,7 +206,7 @@ const retrospective =
 if (!/^\d{4}-\d{2}-\d{2}$/.test(ledger.editorial_date ?? '')) {
   fail('ledger.editorial_date must be YYYY-MM-DD');
 }
-if (ledger.editorial_date !== filenameDate) {
+if (ledger.editorial_date !== (curious ? filenameDate.slice(0, 10) : filenameDate)) {
   fail(`ledger editorial_date (${ledger.editorial_date}) must match filename (${filenameDate})`);
 }
 if (!ledger.schema_version) fail('ledger.schema_version is required');
@@ -234,7 +246,10 @@ const withheld = ledger.publication?.withheld_selected ?? [];
 const withheldIds = new Set(withheld.map((item) => (typeof item === 'string' ? item : item.id)));
 
 if (!retrospective) {
-  const batchStoryIds = new Set(storyIdsForDate(ledger.editorial_date));
+  const batchStoryIds = new Set(
+    storyIdsForDate(ledger.editorial_date).filter((id) => !foreignIds.has(id)),
+  );
+  if (curious) for (const id of batchStoryIds) if (!ids.has(id)) batchStoryIds.delete(id);
 
   for (const id of withheldIds) {
     if (batchStoryIds.has(id)) {
@@ -352,7 +367,12 @@ for (const id of publishedStoryIds) {
     fail(`${id}: story sources do not include ledger primary source`);
   }
 
-  for (const url of urls) {
+  const dedupUrls = curious
+    ? (candidate?.sources
+        ?.filter((s) => ['originating', 'original-reporting'].includes(s.role ?? ''))
+        .map((s) => s.url) ?? [])
+    : urls;
+  for (const url of dedupUrls) {
     const canonical = canonicalUrl(url);
     const duplicates = priorSources.get(canonical) ?? [];
     if (duplicates.length === 0) continue;
@@ -384,9 +404,9 @@ const existingPulsePath = existsSync(pulsePath)
     ? pulseMdxPath
     : null;
 
-if (publishedStoryIds.size > 0 && !existingPulsePath) {
+if (!curious && publishedStoryIds.size > 0 && !existingPulsePath) {
   fail(`daily issue manifest is missing for ${ledger.editorial_date}`);
-} else if (existingPulsePath) {
+} else if (!curious && existingPulsePath) {
   const pulseText = readFileSync(existingPulsePath, 'utf8');
   for (const id of publishedStoryIds) {
     if (!standaloneStoryIds.has(id) && !pulseText.includes(id)) {

@@ -10,6 +10,14 @@ The decision engine is designed for both humans and automated research agents. I
 
 ## 1. Canonical pipeline
 
+This is the default daily-news profile. The [Curious AI profile](CURIOUS_AI_V1.md)
+has its own eligibility and ranking, retaining shared factual standards. While
+curious-ai/CONFIG_V1.yml has rollout_stage: pilot, daily news retains its existing
+Curious desk. In production, refer new Curious leads to the dedicated owner using
+external_referrals; do not select/draft them under this engineering score.
+Before new production drafting, honor the shared coverage reservation protocol in
+[CURIOUS_AI_ORCHESTRATOR_V1.md](CURIOUS_AI_ORCHESTRATOR_V1.md#shared-ownership-and-reservations).
+
 ```mermaid
 flowchart TD
     A["Scheduled research digest"] --> B["Structured candidate ledger"]

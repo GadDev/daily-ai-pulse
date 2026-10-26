@@ -397,6 +397,25 @@ test('1.3 generation identity requires model_snapshot to be explicit', () => {
   assert.match(result.output, /generation_identity\.model_snapshot is required and may be null/);
 });
 
+test('same-date foreign batch assets do not change illustration review rules', () => {
+  const result = validate({
+    afterIdentity({ write }) {
+      const foreignId = `${editorialDate}-foreign-curious`;
+      write(
+        `docs/editorial/curious-ai/ledgers/${editorialDate}-b01.json`,
+        JSON.stringify({
+          profile: 'curious-ai',
+          editorial_date: editorialDate,
+          publication: { story_ids: [foreignId] },
+        }),
+      );
+      write(`public/images/stories/${foreignId}.webp`, 'Foreign asset is checked by its owner');
+      write(`docs/editorial/illustrations/reviews/${foreignId}.json`, '{}');
+    },
+  });
+  assert.equal(result.status, 0, result.output);
+});
+
 test('ledger-only batch passes when no illustration artifacts exist', () => {
   const result = validate({
     storyIds: [],

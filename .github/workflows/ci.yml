@@ -39,6 +39,9 @@ jobs:
       - name: Daily news continuation and handoff regressions
         run: npm run editorial:run:test
 
+      - name: Curious AI selection, ownership and recovery regressions
+        run: npm run curious:test
+
       - name: Editorial validator regressions
         run: node --test tests/editorial-validator.test.ts
 

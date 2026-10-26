@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Curious AI Editorial'
+  short_description: 'Research and prepare Curious AI editorial batches'
+  default_prompt: 'Use $curious-ai-editorial to evaluate and prepare a Curious AI batch with verified claims.'

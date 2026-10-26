@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import type { EditorialLedger, IllustrationReview } from './lib/editorial-types.ts';
+import { foreignStoryIds, isCuriousBatch } from './lib/editorial-batches.ts';
 
 import {
   buildGenerationIdentityFromRepository,
@@ -370,8 +371,13 @@ if (!Array.isArray(storyIds)) {
 }
 
 const publishedStoryIds = new Set(storyIds ?? []);
+const foreignIds = foreignStoryIds(root, ledgerPath);
+const curious = isCuriousBatch(root, ledgerPath, ledger);
+const batchArtifact = (id: string) =>
+  !foreignIds.has(id) &&
+  (!curious || publishedStoryIds.has(id) || (ledger.candidates ?? []).some((c) => c.id === id));
 
-const orphanReviewIds = illustrationReviewIdsForDate(ledger.editorial_date);
+const orphanReviewIds = illustrationReviewIdsForDate(ledger.editorial_date).filter(batchArtifact);
 
 for (const id of orphanReviewIds) {
   if (!publishedStoryIds.has(id)) {
@@ -379,7 +385,7 @@ for (const id of orphanReviewIds) {
   }
 }
 
-const orphanAssetIds = illustrationAssetIdsForDate(ledger.editorial_date);
+const orphanAssetIds = illustrationAssetIdsForDate(ledger.editorial_date).filter(batchArtifact);
 
 for (const id of orphanAssetIds) {
   if (!publishedStoryIds.has(id)) {

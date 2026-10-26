@@ -1,0 +1,23 @@
+schema_version: "curious-ai/1"
+profile: curious-ai
+timezone: Europe/Luxembourg
+# The first scheduled batch is a text-only review bundle. A reviewed change to
+# production enables content preparation, never automatic merge/publication.
+rollout_stage: pilot
+candidate_limit: 30
+daily_story_ceiling: 7
+pilot_draft_target: 5
+news_window_hours: 72
+catchup_days: 7
+select_threshold: 75
+watch_threshold: 60
+weights:
+  curiosity: 25
+  human_meaning: 25
+  tension: 15
+  distinctiveness: 15
+  relevance: 10
+  explanation: 10
+discovery_hours: [9, 16]
+continuation_hours: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+reservation_ref: editorial/coverage-reservations

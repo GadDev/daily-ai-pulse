@@ -77,9 +77,9 @@ export const categories: Record<CategoryKey, CategoryConfig> = {
   curious: {
     key: 'curious',
     title: 'Curious AI',
-    description: 'The strange, surprising, and counterintuitive edge of AI engineering.',
+    description: 'The surprising ways AI intersects with everyday life.',
     eyebrow: 'ARCHIVE / CURIOUS AI',
-    dek: 'Unexpected agent behavior, clever experiments, emergent dynamics, and odd results that are still worth understanding.',
+    dek: 'Clever experiments, cultural shifts, everyday ingenuity, and the people living with AI.',
     sectionTitle: 'Latest curious AI',
   },
 };
