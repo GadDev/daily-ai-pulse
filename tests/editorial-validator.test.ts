@@ -131,6 +131,54 @@ test('withheld selected candidate cannot retain a story file', () => {
   assert.match(result.output, /withheld selected candidate has a story file in this batch/);
 });
 
+test('unrelated explicit draft can coexist with a daily ledger', () => {
+  const result = validate({
+    ledger: ledger(),
+    stories: { '2099-01-02-manual-draft': '---\ndraft: true\n---\n\nUnpublished draft.' },
+  });
+  assert.equal(result.status, 0, result.output);
+});
+
+test('removing the explicit draft boundary restores orphan rejection', () => {
+  for (const metadata of ['draft: false', 'title: No draft flag', 'draft: "true"', 'draft: [']) {
+    const result = validate({
+      ledger: ledger(),
+      stories: { '2099-01-02-manual-draft': `---\n${metadata}\n---\n\nStory.` },
+    });
+    assert.equal(result.status, 1, metadata);
+    assert.match(result.output, /not declared in publication\.story_ids/);
+  }
+});
+
+test('explicit draft does not exempt artifacts for candidates owned by the ledger', () => {
+  const id = '2099-01-02-owned-draft';
+  for (const decision of ['selected', 'watch', 'rejected']) {
+    const result = validate({
+      ledger: ledger({ candidates: [{ id, decision }] }),
+      stories: { [id]: '---\ndraft: true\n---\n\nMust not bypass the ledger.' },
+    });
+    assert.equal(result.status, 1, decision);
+    assert.match(result.output, /not declared in publication\.story_ids/);
+  }
+});
+
+test('withheld candidate cannot retain even an explicit draft', () => {
+  const id = '2099-01-02-withheld-draft';
+  const result = validate({
+    ledger: ledger({
+      candidates: [{ id, decision: 'selected' }],
+      publication: {
+        story_ids: [],
+        withheld_selected: [{ id, reason: 'withheld-validation-failure' }],
+        must_know_story_id: null,
+      },
+    }),
+    stories: { [id]: '---\ndraft: true\n---\n\nMust not bypass withholding.' },
+  });
+  assert.equal(result.status, 1);
+  assert.match(result.output, /withheld selected candidate has a story file/);
+});
+
 test('standard YAML indentless tags are read without swallowing the next field', () => {
   const id = '2099-01-02-indentless-tags';
   const result = validate({

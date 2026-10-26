@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { URL } from 'node:url';
+import { parse } from 'yaml';
 import type { EditorialCandidate, EditorialLedger } from './lib/editorial-types.ts';
 import { asPublicationLedger, foreignStoryIds, isCuriousBatch } from './lib/editorial-batches.ts';
 
@@ -259,6 +260,16 @@ if (!retrospective) {
 
   for (const id of batchStoryIds) {
     if (!publishedStoryIds.has(id)) {
+      // An issue-driven draft can coexist with the daily edition. Never exempt
+      // a candidate owned by this ledger: withheld/watch artifacts still fail.
+      const path = storyPath(id);
+      if (!ids.has(id) && path) {
+        try {
+          if (parse(frontmatter(readFileSync(path, 'utf8')))?.draft === true) continue;
+        } catch {
+          // Malformed metadata cannot establish that a story is unpublished.
+        }
+      }
       fail(
         `story file exists for editorial date but is not declared in publication.story_ids: ${id}`,
       );
