@@ -1,7 +1,8 @@
 ---
 title: 'Part 4: Control a Support Agent with Hooks and Human Handoffs'
 description: Build a TypeScript case runner that checks identity and policy before a local simulated action, preserves exact evidence, and hands off when it cannot safely finish.
-status: draft
+status: published
+publishedAt: 2026-10-26T10:43:59Z
 format: tutorial
 verification: researched
 difficulty: beginner

@@ -6,9 +6,9 @@
   "scheduled_run": false,
   "topic_key": "claude-foundations-controlled-agent",
   "guide_id": "claude-foundations-controlled-agent",
-  "state": "review-prepared",
-  "pr_number": null,
-  "authorization": "Prepare Part 4 as a draft article PR and add series-number prefixes to Parts 1–3 titles. No Part 4 publication or merge authorized.",
+  "state": "publication-prepared",
+  "pr_number": 249,
+  "authorization": "Maintainer explicitly reviewed and authorized publication in this conversation: \"I've reviewed this is ready to be published\". Authorizes publication metadata, merge of PR #249 after successful final checks, and normal production deployment.",
   "base_commit": "c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12",
   "deduplication": {
     "issue_comments": 0,
@@ -379,10 +379,10 @@
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Exact-head GitHub Actions CI pending; article/assets/local preparation gates have passed."
+      "Publication-head GitHub Actions CI pending."
     ],
-    "human_publication_required": true,
-    "visibility": "Part 4 remains draft with no publishedAt; preview-only publication metadata restored byte-for-byte."
+    "human_publication_required": false,
+    "visibility": "Human-authorized publication metadata prepared; not merged/deployed yet."
   },
   "series_title_convention": "Use Part N: followed by the descriptive article title for all seven tutorials. This PR prefixes Parts 1–3 and authors Part 4 with that prefix. Keep stable guide URLs and original substantive verification dates.",
   "verification": {
@@ -756,5 +756,100 @@
     ],
     "scope": "One single-agent local simulation; no real payments, production auth, deployed service, multi-agent framework, sample app or article-specific CI suite. Existing exact-approval guide linked; Parts 5–7 deferred.",
     "assessment": "Seeded missing-guard exercise, independent multi-concern variation, three original scenarios with delayed explanations, explain-without-looking and self-assessment."
+  },
+  "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/249",
+  "publication": {
+    "status": "publication-prepared",
+    "publishedAt": "2026-10-26T10:43:59Z",
+    "authorization": "Maintainer explicitly reviewed and authorized publication in this conversation: \"I've reviewed this is ready to be published\". Authorizes publication metadata, merge of PR #249 after successful final checks, and normal production deployment.",
+    "reviewed_source_commit": "5a74f07c79a61deddc070a65a4a7dbaac087285f",
+    "review_date": "2026-10-26",
+    "reviewer": "Codex (model self-review; human authorization quoted separately, no invented GitHub review)",
+    "review_findings": "No blocking findings after review of issue, article/code, dated learner/transport evidence, assets, scope, costs and certification caveats. GitHub reviews, discussion comments, inline comments and review threads empty. Main unchanged at c0935a4b99e6d3b9cd6ef061a0786aa1675e0a12.",
+    "source_delta": "Only status and new publishedAt frontmatter change. Markdown body and every embedded code block remain byte-for-byte identical to reviewed draft.",
+    "body_sha256": "43922f957b794654c9c2520fdc5ccc8399500962a0ee1e193feef99adf9b6fce",
+    "reviewed_source_sha256": "93d59bc1c6e4948fbdbbf32bed273d28abc8ee99409f2df64dc090eb129623a4",
+    "publication_source_sha256": "239f77ccca6da7269e30481682e639a5fcfd980457a7b194ba8c55ddc1720d0e",
+    "artwork_provenance": "Original generation identity remains the exact draft-generation provenance. Publication metadata does not alter the visual brief, body, alt or either asset; no regenerated cover or false generation-key match claimed.",
+    "live_verification": "No new inference, credentials or spending authorization. Existing researched label and live SDK/model limitations retained.",
+    "official_source_recheck": {
+      "date": "2026-10-26",
+      "urls": [
+        "https://code.claude.com/docs/en/agent-sdk/hooks",
+        "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+        "https://academy.claude.com/help/faq"
+      ],
+      "result": "Official pages reopened; current hook output and SDK loop/result documentation remain compatible with pinned typed implementation; certification caveats unchanged.",
+      "model_recheck": "Earlier full model-page lookup and link check succeeded on 2026-10-26. Publication re-open timed out twice; current official-domain search corroborates exact snapshot and USD 1/5 pricing. No new account/live inference claim."
+    },
+    "human_merge_required": false,
+    "boundary_note": "Explicit maintainer publication authorization permits merge after final checks. No autonomous scheduled publication or invented reviewer sign-off.",
+    "final_ci": "Record actual publication-head CI in PR description after completion.",
+    "visibility": "Publication build, then normal production deployment and live detail/listing/sitemap/assets verification required.",
+    "local_validation": {
+      "date": "2026-10-26",
+      "node": "22.22.3",
+      "repository_verify": "npm run verify passed, exit 0; 263 static pages built, 261 indexed across English/French; 0 errors, 0 warnings, 3 existing schema deprecation hints.",
+      "visibility": "Passed: detail route, /guides/ listing and sitemap include Part 4. Parts 1–3 numbered titles retained.",
+      "browser": {
+        "date": "2026-10-26",
+        "browser": "153.0.8010.0",
+        "mode": "Local human-authorized published Astro build; assets fulfilled from disk, not public deployment",
+        "report": [
+          {
+            "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "brokenImages": [],
+            "frenchAlternate": false,
+            "codeBlocks": 16
+          },
+          {
+            "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+            "bodyWidth": 375,
+            "viewport": 375,
+            "brokenImages": [],
+            "frenchAlternate": false,
+            "codeBlocks": 16,
+            "axeViolations": []
+          },
+          {
+            "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+            "bodyWidth": 320,
+            "viewport": 320,
+            "brokenImages": [],
+            "frenchAlternate": false,
+            "codeBlocks": 16
+          }
+        ],
+        "titleChecks": [
+          {
+            "part": 1,
+            "slug": "claude-foundations-first-api-prompt",
+            "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+            "bodyWidth": 320
+          },
+          {
+            "part": 2,
+            "slug": "claude-foundations-extraction-review",
+            "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+            "bodyWidth": 320
+          },
+          {
+            "part": 3,
+            "slug": "typescript-read-only-mcp-server",
+            "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+            "h1": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+            "bodyWidth": 320
+          }
+        ]
+      },
+      "log_sha256": "10fe40e1fd7cb7d784896dfbd75b9fdbf530e986090956531344e7a08a34adeb"
+    }
   }
 }
