@@ -9,22 +9,26 @@ and `signal: medium`. The engineering consequence is concrete, but four reported
 source analysis do not establish a general failure rate. The proposed title names a possibility;
 the opening immediately attributes the observed runs. No exploit or release announcement is implied.
 
-Canonical draft: [`2026-10-26-qwen-review-integrity.md`](../../../src/content/stories/2026-10-26-qwen-review-integrity.md).
-It remains `draft: true`, without an edition reference or publication-ledger entry. This is a
-manual issue-driven draft, not an additional daily-news run or a Curious production batch.
-Production coverage reservations do not apply to this unpublished draft; check ownership again
-before commissioning publication. No scheduling change is part of the work.
+Canonical article: [`2026-10-26-qwen-review-integrity.md`](../../../src/content/stories/2026-10-26-qwen-review-integrity.md).
+It now has `draft: false`, a dedicated reviewed cover and a source-matched reviewed French
+variant. It is prepared for publication by human-reviewed merge, not published by this work.
 
-The editorial validator now permits an unrelated same-date file only when YAML explicitly
-sets boolean `draft: true`. A file whose ID belongs to the ledger is never exempted. Tests
-cover draft removal, false/string/malformed values, owned candidates and withheld drafts.
-This permits manual editorial preparation without rewriting an already merged daily ledger.
+The validator and test changes from the first draft are removed: both files match `main`.
+Instead, this focused PR records a deliberate standalone publication addendum to the merged
+October 26 ledger, appending only this candidate and its publication/standalone IDs. All original
+candidate records, exclusions, the Must Know selection and the daily edition remain unchanged.
+This is a manual article commission from issue #233, not a new scheduled run or Curious batch.
+The 75/100 score requires editorial judgment; the Workflows/anecdotal framing and the user's
+commission justify selection without treating the four-run account as broad validation.
 
-The current story schema requires an image even for drafts. The file references the unchanged
-ReviewBench inspection-lens illustration as a provisional cover for this related subject. This
-does not constitute a new Generation Identity review or publication approval for reuse. No image
-is generated or changed. Resolve artwork/reuse approval when preparing publication. French
-translation is deferred while the English source is unpublished; no existing translation changes.
+The new artwork uses the standard illustration skill: three viable candidates, two golden
+references, constitutional review, comparative scoring and actual wide/mobile/square/small-size
+crop inspection. Candidate C scored 92.05/100 with golden-reference fit 91. Its 1600×900 WebP,
+comparison sheet and v1.3 review bind the exact English bytes to generation identity
+`c624ed50ba8ab94fda83279cb41fee678f806e54c15d5f7c779b5f7e5802e1bf`.
+The final decision recheck returned `REUSE / identity-match`, and the unchanged illustration
+batch gate passed. The contact-sheet CLI lacked Chromium; the reviewed Pillow fallback places
+the same golden references above all three candidates. No validator or renderer was modified.
 
 ## Verification record
 
@@ -79,7 +83,22 @@ reproduction nor human editorial approval. Assessed source identity is recorded 
 - Reader edit: define working tree and mutation probe; explain pinning before recommending it.
   Keep the four reporting sections and one short comprehension check.
 - Outcome: no material copy blocker identified. Evidence remains anecdotal. Human review,
-  publication-time source/duplicate checks, a deliberate draft-to-publication change and artwork
-  approval remain required before release.
+  final publication approval remain with the human reviewer before merge.
 
-Checks and rendering results belong in the PR handoff after they actually run.
+## French translation review
+
+Result: **reviewed**, by **Codex (model review)** at `2026-10-26T13:24:35.758845Z`. This is model self-review,
+not human bilingual approval or independent verification.
+
+- Final English source commit: `513fcd271f7b459d25f32b33a1b502353bb37759`.
+- Exact source SHA-256: `4684abba6fe42e7aa87352346ccad899c1bde9058a920d8b42e8fd9eba3328e3`.
+- Full bilingual-fidelity, French-editing and final-fidelity passes completed against all
+  paragraphs. Attributions, negation, the unexecuted proposed test and the lack of verified
+  end-user impact are preserved. “Gap” is rendered as “lacune”, avoiding a stronger security claim.
+- Executed integrity checks: identical link destinations and inline-code sequences, matching
+  numeric tokens, four section headings, matching Markdown-block count and current source hash.
+- No material unresolved translation issue identified. This article exercises inline commands,
+  relative links, dates and version strings; tables, fenced code, quoted speech and corrections
+  are absent and were not tested by this translation.
+
+Final build/route checks and current-head CI status are recorded in the PR handoff.
