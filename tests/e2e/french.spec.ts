@@ -252,8 +252,9 @@ test('English draft references remain unavailable across publication and real se
   const search = await page.evaluate(async (tokens) => {
     const moduleUrl = '/pagefind/pagefind.js';
     const pagefind = await import(/* @vite-ignore */ moduleUrl);
-    const results = await Promise.all(tokens.map((token) => pagefind.search(token)));
-    const published = await pagefind.search('zzpublishedstorybodyzz');
+    // Exact markers avoid fuzzy matches in unrelated published code examples.
+    const results = await Promise.all(tokens.map((token) => pagefind.search(`"${token}"`)));
+    const published = await pagefind.search('"zzpublishedstorybodyzz"');
     return {
       hiddenCounts: results.map((result) => result.results.length),
       published: published.results.length,
