@@ -795,7 +795,7 @@
     },
     "human_merge_required": false,
     "boundary_note": "Explicit maintainer publication authorization permits merge after final checks. No autonomous scheduled publication or invented reviewer sign-off.",
-    "final_ci": "Record actual publication-head CI in PR description after completion.",
+    "final_ci": "Require actual exact-head CI after the fixture cleanup change; record final result in PR description before merge, without a self-referential metadata commit loop.",
     "visibility": "Publication build, then normal production deployment and live detail/listing/sitemap/assets verification required.",
     "local_validation": {
       "date": "2026-10-26",
@@ -944,6 +944,33 @@
       },
       "security": "GitGuardian Security Checks: success",
       "final_record_note": "This follow-up changes only this commission record. Final exact-head CI must still pass before merge; actual result will be recorded in PR description to avoid a self-referential commit loop."
+    },
+    "ci_timeout_recovery": {
+      "date": "2026-10-26",
+      "failed_head": "b44d73c1d964eabe0690d92af6647dedbac47df5",
+      "run_id": 40312618185,
+      "browser_job": 121537403776,
+      "result": "65 passed; existing French source-edit/review/search lifecycle timed out at 180 seconds on both attempts. No content assertion failure.",
+      "trace_artifact_id": 12646061663,
+      "trace_zip_sha256": "770b07880c181e87cbc8e65735a9358ba6b3f97854e697e7b1815d2f6f79c66f",
+      "trace_observation": "Stale-stage content/search assertions and HTTP responses completed. The trace then waits between stages until test teardown closes the browser; the next stage goto fails because the page is already closed. This is consistent with fixture server.close waiting for a browser preconnection.",
+      "reproduction": {
+        "date": "2026-10-26",
+        "node": "v22.22.3",
+        "baseline": "server.close alone waits for a connected socket with no HTTP request",
+        "fixed": "Actual closeFixtureServer helper closes it before client destruction, under 1 second",
+        "assertions": "No content assertions, test timeout, retries or exclusions changed"
+      },
+      "fix": "Existing tests/e2e/french.spec.ts now calls server.closeAllConnections after server.close when retiring a fixture, including per-stage and final teardown. Stop accepting connections before closing remaining ones. All assertions, 180-second timeout, configured retries and test coverage retained. No product/runtime or article code change.",
+      "node_documentation": "https://r2.nodejs.org/docs/latest-jod/api/http.html",
+      "local_validation": {
+        "prettier": "passed",
+        "eslint": "passed",
+        "focused_existing_browser_test": "Passed first attempt, 44.7 seconds, retries disabled; all four real fixture stages, actual Pagefind and original assertions. Linux/Node 22.22.3, Chromium 153.0.8010.0, Playwright 1.64.0. Scratch config uses the actual test-owned fixture servers; unrelated global preview not required by this test.",
+        "log_sha256": "4ce9ba56961519cbdaf4383d56e61d62b282fc5789df69ece956fae7ef65234c"
+      },
+      "scope": "Adds only existing shared fixture cleanup to the original 10 content/provenance files; no article-specific CI suite or workflow change.",
+      "final_ci": "Actual new-head CI and final deployment are recorded in PR description; merge remains blocked until new-head CI passes."
     }
   }
 }
