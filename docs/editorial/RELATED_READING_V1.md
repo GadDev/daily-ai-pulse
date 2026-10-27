@@ -21,19 +21,19 @@ and evergreen guide to another guide. No automatic recommendation system.
 
 ## Audited journeys
 
-| Reader starts with | Reader's next question | Curated destination |
-| --- | --- | --- |
-| Visual Studio Copilot agent harness news | Which coding workflow or execution boundary should I choose? | AI coding assistants; agentic environments |
-| Long-running ADK coding-agent workflow | How do verification and recovery change under delegation? | IDE vs ADE; agentic environments |
-| Copilot review and model choice news | What should I compare beyond model names? | AI coding assistants |
-| Red Hat MCP gateway and exposed MCP secrets news | How do I scope tools and secure their authority? | Read-only MCP tutorial; agent-security toolkit |
-| OpenAI monitoring incidents and METR red-team | Where should traces and enforcement live? | Agent observability; agent-security toolkit; agentic environments |
-| Copilot trace capture controls | How do I choose tracing tools and data capture? | Langfuse vs Phoenix |
-| Agentic environment comparison | Is ADE a substantive distinction, and what actually changes in one task? | ADE investigation; IDE vs ADE explainer |
-| First local RAG API | How do I check retrieval and keep sources inspectable? | Retrieval evaluation; ingestion toolkit |
-| RAG retrieval evaluation | Are the source passages sound, and is a new storage layer warranted? | Ingestion toolkit; pgvector/Qdrant comparison |
-| Agent security toolkit | How do I enforce a specific action approval boundary? | Approval gate tutorial |
-| Claude API/tutorial series | How do I evaluate prompt behavior or control tool execution? | Prompt regression guide; approval gate |
+| Reader starts with                               | Reader's next question                                                   | Curated destination                                               |
+| ------------------------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Visual Studio Copilot agent harness news         | Which coding workflow or execution boundary should I choose?             | AI coding assistants; agentic environments                        |
+| Long-running ADK coding-agent workflow           | How do verification and recovery change under delegation?                | IDE vs ADE; agentic environments                                  |
+| Copilot review and model choice news             | What should I compare beyond model names?                                | AI coding assistants                                              |
+| Red Hat MCP gateway and exposed MCP secrets news | How do I scope tools and secure their authority?                         | Read-only MCP tutorial; agent-security toolkit                    |
+| OpenAI monitoring incidents and METR red-team    | Where should traces and enforcement live?                                | Agent observability; agent-security toolkit; agentic environments |
+| Copilot trace capture controls                   | How do I choose tracing tools and data capture?                          | Langfuse vs Phoenix                                               |
+| Agentic environment comparison                   | Is ADE a substantive distinction, and what actually changes in one task? | ADE investigation; IDE vs ADE explainer                           |
+| First local RAG API                              | How do I check retrieval and keep sources inspectable?                   | Retrieval evaluation; ingestion toolkit                           |
+| RAG retrieval evaluation                         | Are the source passages sound, and is a new storage layer warranted?     | Ingestion toolkit; pgvector/Qdrant comparison                     |
+| Agent security toolkit                           | How do I enforce a specific action approval boundary?                    | Approval gate tutorial                                            |
+| Claude API/tutorial series                       | How do I evaluate prompt behavior or control tool execution?             | Prompt regression guide; approval gate                            |
 
 The complete mapping (including reverse and next-step journeys) lives in
 `src/lib/related-reading.ts`, with a reason attached to each editorial choice. There is no
