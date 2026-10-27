@@ -6,7 +6,8 @@
  * Guide publication status is checked again when resolving links, so an unpublished
  * destination disappears without leaking its title or URL.
  *
- * This file is deliberately independent of the daily news and evergreen orchestrators.
+ * The mappings below backfill pre-existing articles. New drafts should specify
+ * their own relatedGuides in frontmatter to avoid concurrent edits to this shared file.
  */
 export interface RelatedGuideIndexEntry {
   id: string;
@@ -283,13 +284,15 @@ export function resolveRelatedGuides<T extends RelatedGuideIndexEntry>(
 export function relatedGuidesForStory<T extends RelatedGuideIndexEntry>(
   storyId: string,
   guides: readonly T[],
+  authoredLinks?: readonly EditorialGuideLink[],
 ) {
-  return resolveRelatedGuides(storyId, storyGuideLinks[storyId] ?? [], guides);
+  return resolveRelatedGuides(storyId, authoredLinks ?? storyGuideLinks[storyId] ?? [], guides);
 }
 
 export function relatedGuidesForGuide<T extends RelatedGuideIndexEntry>(
   guideId: string,
   guides: readonly T[],
+  authoredLinks?: readonly EditorialGuideLink[],
 ) {
-  return resolveRelatedGuides(guideId, guideGuideLinks[guideId] ?? [], guides);
+  return resolveRelatedGuides(guideId, authoredLinks ?? guideGuideLinks[guideId] ?? [], guides);
 }
