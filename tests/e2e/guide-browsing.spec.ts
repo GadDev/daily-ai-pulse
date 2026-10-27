@@ -38,7 +38,25 @@ test('guide pagination supports direct loads, history, format changes and canoni
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Technical reviews');
   for (const row of await rows.all())
     await expect(row.locator('.guide-card__eyebrow')).toContainText('Technical review');
-  await expect(pager).toHaveCount(0);
+  // A newly published review can push the format archive onto another page.
+  // Read the displayed count instead of assuming that reviews never paginate.
+  const reviewFormat = page
+    .getByRole('navigation', { name: 'Explore by format' })
+    .getByRole('link', { name: /^Technical reviews/ });
+  const totalReviews = Number((await reviewFormat.innerText()).match(/\\((\\d+)\\)/)?.[1]);
+  expect(totalReviews).toBeGreaterThan(0);
+  if (totalReviews > 6) {
+    await expect(pager).toBeVisible();
+    await pager.getByRole('link', { name: 'Next', exact: true }).click();
+    await expect(page).toHaveURL(/\\/guides\\/reviews\\/page\\/2\\/$/);
+    expect(await rows.count()).toBeGreaterThan(0);
+    for (const row of await rows.all())
+      await expect(row.locator('.guide-card__eyebrow')).toContainText('Technical review');
+    await page.goBack();
+    await expect(page).toHaveURL(/\\/guides\\/reviews\\/$/);
+  } else {
+    await expect(pager).toHaveCount(0);
+  }
   for (const url of [
     '/guides/page/0/',
     '/guides/page/1/',
