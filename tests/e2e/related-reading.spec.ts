@@ -28,9 +28,7 @@ test('news reader can follow a relevant published guide without changing languag
   ).toBeVisible();
 });
 
-test('unmatched stories have no panel; mobile links remain accessible', async ({
-  page,
-}) => {
+test('unmatched stories have no panel; mobile links remain accessible', async ({ page }) => {
   await page.goto('/stories/2026-09-28-openai-dns-sandbox/');
   await expect(page.getByRole('region', { name: 'Related guides' })).toHaveCount(0);
 
