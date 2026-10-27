@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" role="img" aria-labelledby="t d">
+<title id="t">Model routing workflow used in the tutorial</title>
+<desc id="d">A typed task passes to a deterministic routing policy. Routine tasks first call a low-cost model; reasoning tasks call the stronger model. The returned response is validated. Failed basic validation escalates from fast to strong once. Token and cost telemetry are recorded for each successful response. Timeout or transient server errors receive at most one retry on each model. The budget preflight runs before every call.</desc>
+<rect width="960" height="510" rx="20" fill="#FAF6EE"/>
+<g font-family="Arial, sans-serif" text-anchor="middle" fill="#171B1A">
+  <rect x="354" y="28" width="252" height="65" rx="12" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/>
+  <text x="480" y="54" font-size="20" font-weight="bold">Typed task</text>
+  <text x="480" y="76" font-size="15">prompt + kind</text>
+  <path d="M480 93 V126" stroke="#575D5B" stroke-width="2"/>
+  <path d="M473 117 L480 127 L487 117" fill="none" stroke="#575D5B" stroke-width="2"/>
+  <rect x="339" y="128" width="282" height="66" rx="12" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2.5"/>
+  <text x="480" y="152" font-size="20" font-weight="bold">Deterministic policy</text>
+  <text x="480" y="175" font-size="15">selection + budget preflight</text>
+  <path d="M480 194 V219 H221 V246 M480 219 H739 V246" fill="none" stroke="#575D5B" stroke-width="2"/>
+  <path d="M214 238 L221 248 L228 238 M732 238 L739 248 L746 238" stroke="#575D5B" stroke-width="2" fill="none"/>
+  <text x="339" y="212" font-size="14" fill="#575D5B">routine task</text>
+  <text x="634" y="212" font-size="14" fill="#575D5B">reasoning task</text>
+  <rect x="75" y="248" width="292" height="72" rx="13" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/>
+  <text x="221" y="276" font-size="20" font-weight="bold">Fast model</text>
+  <text x="221" y="301" font-size="15">simple tasks first</text>
+  <rect x="593" y="248" width="292" height="72" rx="13" fill="#F3EBDD" stroke="#575D5B" stroke-width="2"/>
+  <text x="739" y="276" font-size="20" font-weight="bold">Strong model</text>
+  <text x="739" y="301" font-size="15">hard tasks + escalation</text>
+  <path d="M221 320 V351 H480 M739 320 V351 H480 V373" fill="none" stroke="#575D5B" stroke-width="2"/>
+  <path d="M473 365 L480 375 L487 365" fill="none" stroke="#575D5B" stroke-width="2"/>
+  <rect x="310" y="375" width="340" height="66" rx="12" fill="#F3EBDD" stroke="#8A4B35" stroke-width="2.5"/>
+  <text x="480" y="400" font-size="19" font-weight="bold">Basic response validation</text>
+  <text x="480" y="422" font-size="15">format only — not factual correctness</text>
+  <path d="M310 408 H221 V337 M650 408 H739 V338" fill="none" stroke="#8A4B35" stroke-dasharray="5 5" stroke-width="2"/>
+  <text x="140" y="371" font-size="13" fill="#8A4B35">bounded retry</text>
+  <text x="826" y="370" font-size="13" fill="#8A4B35">retry or fail</text>
+  <text x="480" y="468" font-size="15">Accept response → return answer + latency, token and cost records</text>
+  <text x="480" y="491" font-size="13" fill="#575D5B">Invalid fast response → strong model at most once · Errors may incur charges</text>
+</g>
+</svg>
