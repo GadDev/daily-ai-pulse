@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-27",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual commission on issue #215 (not a claim of scheduled-task execution). Research-based storage comparison, evidence matrix and sample pgvector/Qdrant commands were drafted. Three real image-generation candidates reviewed: two rejected for violating no-text/no-logo rules; selected third converted to 1600x900 WebP, inspected against two production references and three crop modes, binary uploaded on original PR #258 and verified exact remote read-back. Qdrant Bash and seven HTTP/JSON requests passed a local shape-check mock; PostgreSQL and Qdrant real servers and measured benchmark were not executed. Review is researched. Exact-head CI and human publication approval are separately gated.",
+  "run_note": "Explicit manual commission on issue #215, not a scheduled-task execution. Research-based pgvector/Qdrant comparison, evidence matrix and clearly labelled illustrative code prepared on draft PR #258. Three actual image-generation candidates reviewed; two rejected for text/logo/diagram violations. Accepted original WebP uploaded after reference/crop review, with local hash and remote exact-byte readback confirmed. Qdrant Bash and seven HTTP/JSON requests executed against a local protocol mock; no real database execution or performance measurement claimed. Previous exact draft head 0d018455a837d6b05a870a8fc670e7fb3a3ddf51 completed both project verification and browser/accessibility CI successfully (run 40484055311); this final ledger completion update is separately CI-checked. Guide status remains draft until human-authorized publication.",
   "candidates": [
     {
       "topic_key": "small-rag-pgvector-qdrant-decision",
@@ -36,10 +36,8 @@
   "handoff": {
     "guide_id": "small-rag-pgvector-qdrant-decision",
     "pr_number": 258,
-    "completion": "blocked",
-    "blockers": [
-      "Exact-head CI must complete successfully after the final artwork, ledger and article metadata commits. Human publication approval remains separate; no live database benchmark is claimed."
-    ]
+    "completion": "complete",
+    "blockers": []
   },
   "artwork": {
     "state": "uploaded",
