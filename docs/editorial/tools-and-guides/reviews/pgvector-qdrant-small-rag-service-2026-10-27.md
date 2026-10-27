@@ -1,7 +1,7 @@
 # Editorial evidence review — pgvector vs Qdrant for a small RAG service
 
 **Commission:** [#215](https://github.com/GadDev/daily-ai-pulse/issues/215)  
-**Guide:** [pgvector-qdrant-small-rag-service.md](../../../src/content/guides/pgvector-qdrant-small-rag-service.md)  
+**Guide:** [pgvector-qdrant-small-rag-service.md](../../../src/content/guides/small-rag-pgvector-qdrant-decision.md)  
 **Editorial date / source inspection:** 2026-10-27 (Europe/Luxembourg)  
 **Genre / verification:** comparative technical review / researched  
 **Review state:** machine-assisted evidence and editorial pass; **no human approval, executed database benchmark or published asset**.
