@@ -23,10 +23,12 @@ test('news reader can follow a relevant published guide without changing languag
   const next = page.getByRole('region', { name: 'Related reading' });
   await expect(next).toBeVisible();
   await expect(next.getByRole('link')).toHaveCount(2);
-  await expect(next.getByRole('link', { name: /From coding assistance to agent delegation/ })).toBeVisible();
+  await expect(
+    next.getByRole('link', { name: /From coding assistance to agent delegation/ }),
+  ).toBeVisible();
 });
 
-test('unmatched stories render no empty related-guide panel; mobile related links stay accessible', async ({
+test('unmatched stories have no panel; mobile links remain accessible', async ({
   page,
 }) => {
   await page.goto('/stories/2026-09-28-openai-dns-sandbox/');
