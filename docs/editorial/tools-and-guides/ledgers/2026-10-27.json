@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-27",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual commission on issue #215 (not a claim that the scheduled Tools & Guides task ran). Chose a researched pgvector/Qdrant architecture comparison, checked current published RAG guides, all merged evergreen ledgers and active PRs, and drafted a standalone technical review with matching synthetic filter examples and an evaluation protocol. pgvector 0.8.7 and Qdrant 1.20.0 are official release references, not tested installations. No DB benchmarks, costs, model evaluations, illustration or live code execution claimed. PR #258 is intentionally blocked on original WebP cover generation/review/upload and exact-head CI; human publication authorization remains separate.",
+  "run_note": "Explicit manual commission on issue #215 (not a claim of scheduled-task execution). Research-based storage comparison, evidence matrix and sample pgvector/Qdrant commands were drafted. Three real image-generation candidates reviewed: two rejected for violating no-text/no-logo rules; selected third converted to 1600x900 WebP, inspected against two production references and three crop modes, binary uploaded on original PR #258 and verified exact remote read-back. Qdrant Bash and seven HTTP/JSON requests passed a local shape-check mock; PostgreSQL and Qdrant real servers and measured benchmark were not executed. Review is researched. Exact-head CI and human publication approval are separately gated.",
   "candidates": [
     {
       "topic_key": "small-rag-pgvector-qdrant-decision",
@@ -38,35 +38,53 @@
     "pr_number": 258,
     "completion": "blocked",
     "blockers": [
-      "No supported image-generation tool is available in this runtime to produce three original constitution-compliant candidates; final reviewed 1600x900 WebP and verified Git upload are missing.",
-      "Article SQL and Qdrant HTTP examples are researched but not executed against the pinned reference servers; retain honest researched label.",
-      "GitHub Actions checks for the exact final PR head have not yet finished, and human editorial approval/publication has not occurred."
+      "Exact-head CI must complete successfully after the final artwork, ledger and article metadata commits. Human publication approval remains separate; no live database benchmark is claimed."
     ]
   },
   "artwork": {
-    "state": "blocked",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
-        "status": "unavailable",
-        "evidence": "Runtime exposed no supported image_gen or other image-generation action; tool discovery via available functions showed GitHub file APIs but no generation tool. No generation call or candidate was produced."
+        "status": "available",
+        "evidence": "image_gen generated three independent images (IDs 7ceee0be-e331-446b-8ec0-f37f4a5dad0f, d923c8e1-e354-4cfb-8804-e6ab03356005, c6835a21-93b0-444a-b1d5-402fa6da4c0d); third was accepted after constitution review."
       },
       "inspection": {
-        "status": "unverified",
-        "evidence": "Container image viewer is exposed but two actual production-reference images and candidate crops were not downloaded or inspected; no crop review claimed."
+        "status": "available",
+        "evidence": "Opened production reference images 2026-09-28-claude-plugin-ecosystem.webp and 2026-09-22-copilot-review-controls.webp. Inspected selected WebP and locally rendered 21:9 desktop, 16:9 mobile and 3:2 card crops."
       },
       "webp_conversion": {
         "status": "available",
-        "evidence": "Executed Pillow WEBP encode/decode round trip on a local synthetic 12x12 RGB image in this runtime; decoded format WEBP and size (12,12). This verifies codec only, not editorial artwork."
+        "evidence": "Pillow 12.3.0 encoded selected 1672x941 PNG to 1600x900 quality-88 WebP and decoded/verified entire file; 185750 bytes, sha256 f987ba3a703ebb82f33529c04c39f4eda5b59009884d0b37fda8d182c63c23f5."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Connected GitHub create_blob supports base64, but no finished generated binary existed to upload and read back; no successful guide-image transfer or integrity evidence claimed."
+        "status": "available",
+        "evidence": "GitHub base64 Git blob ae2d114c49b96fc0cae21ed2a15cbb40a2fe6923 was committed directly to original branch via tree/commit/ref update; fetch_file read-back base64 matched every byte of local file."
       }
     },
-    "blocker": {
-      "stage": "generation",
-      "message": "No supported image-generation tool is exposed in this session; original image candidates do not exist.",
-      "recovery": "Resume draft PR #258 using supported image generation; create three distinct candidates, inspect against two real production references, approve crops, convert high-resolution WebP and upload via binary-safe Git route with read-back hashes. Then run exact-head CI and seek separate human publication approval."
+    "generation": {
+      "tool": "image_gen.text2im",
+      "prompt": "A serene, cinematic architectural still life unfolds in a warm, neutral gallery-like setting: a large ivory stone archive with classical arches and neatly arranged cream folios stands on the left, while a smaller, rough terracotta cabinet with a rounded alcove and stacked papers anchors the right. Between them, a curling parchment ribbon crosses the textured stone ledge, with soft sunlight, delicate shadows, plaster walls, and faint foliage and arch silhouettes enhancing the quiet, minimalist atmosphere.",
+      "source": "/mnt/data/a_minimalist_cinematic_architectural_still_life.png (image generation ID c6835a21-93b0-444a-b1d5-402fa6da4c0d)"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/small-rag-pgvector-qdrant-decision-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ]
+    },
+    "upload": {
+      "path": "/images/guides/small-rag-pgvector-qdrant-decision.webp",
+      "sha256": "f987ba3a703ebb82f33529c04c39f4eda5b59009884d0b37fda8d182c63c23f5",
+      "git_blob_sha": "ae2d114c49b96fc0cae21ed2a15cbb40a2fe6923",
+      "width": 1600,
+      "height": 900
     }
   }
 }
