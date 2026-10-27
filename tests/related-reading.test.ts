@@ -98,7 +98,7 @@ test('only editor-selected sources have related guides, never inferred from matc
   assert.deepEqual(relatedGuidesForGuide('unselected-guide', guides), []);
 });
 
-test('new story and guide frontmatter overrides legacy backfill; an empty choice stays quiet', () => {
+test('authored links override legacy fallback; zero matches keep the panel quiet', () => {
   const guides = [
     guide('ai-coding-assistants-compared'),
     guide('agentic-development-environments-compared'),
@@ -127,7 +127,10 @@ test('new story and guide frontmatter overrides legacy backfill; an empty choice
     relatedGuidesForStory('2026-10-23-copilot-visual-studio-september-update', guides, []),
     [],
   );
-  assert.deepEqual(relatedGuidesForGuide('agentic-development-environments-compared', guides, []), []);
+  assert.deepEqual(
+    relatedGuidesForGuide('agentic-development-environments-compared', guides, []),
+    [],
+  );
 });
 
 test('frontmatter-authored links in both collections target existing published guides', () => {
