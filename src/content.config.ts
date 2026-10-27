@@ -9,6 +9,20 @@ const correctionSchema = z.object({
   note: z.string().min(1),
 });
 
+// Optional editorial recommendations live alongside each new article, not in a
+// shared mapping file that both independent orchestrators would need to edit.
+const relatedGuidesSchema = z
+  .array(
+    z.object({
+      id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      reason: z.string().trim().min(24),
+    }),
+  )
+  .max(3)
+  .refine((links) => new Set(links.map((link) => link.id)).size === links.length, {
+    message: 'Related guide IDs must be unique.',
+  });
+
 const stories = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/stories' }),
   schema: z.object({
@@ -37,6 +51,7 @@ const stories = defineCollection({
     image: z.string().min(1),
     imageAlt: z.string().min(1),
     corrections: z.array(correctionSchema).default([]),
+    relatedGuides: relatedGuidesSchema.optional(),
     sources: z
       .array(
         z.object({
@@ -95,6 +110,7 @@ const guides = defineCollection({
       image: z.string().optional(),
       imageAlt: z.string().min(1).optional(),
       sources: z.array(z.object({ label: z.string().min(1), url: z.string().url() })).default([]),
+      relatedGuides: relatedGuidesSchema.optional(),
       affiliateLinks: z.boolean().default(false),
       disclosure: z.string().min(1).optional(),
     })
