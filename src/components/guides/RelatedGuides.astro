@@ -1,0 +1,52 @@
+---
+import type { Guide } from '../../lib/guides';
+import { guideFormats } from '../../lib/guides';
+import type { ResolvedGuideLink } from '../../lib/related-reading';
+
+interface Props {
+  links: ResolvedGuideLink<Guide>[];
+  heading: 'Related guides' | 'Related reading';
+}
+
+const { links, heading } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+{links.length > 0 && (
+  <section
+    class="related related-guides"
+    aria-labelledby="related-guides-title"
+    data-pagefind-ignore
+  >
+    <p class="eyebrow">KEEP EXPLORING</p>
+    <h2 id="related-guides-title">{heading}</h2>
+    <div class="related-grid">
+      {links.map(({ guide, reason }) => (
+        <article>
+          <p class="label">{guideFormats[guide.data.format].label}</p>
+          <h3>
+            <a href={`${base}guides/${guide.id}/`}>{guide.data.title}</a>
+          </h3>
+          <p>{reason}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-guides h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .related-guides h3 a {
+    display: inline-block;
+    min-height: 44px;
+    text-underline-offset: 0.15em;
+  }
+
+  .related-guides a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+</style>

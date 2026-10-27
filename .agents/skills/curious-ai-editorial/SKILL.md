@@ -74,6 +74,11 @@ read/append-child-commit/non-forced-ref-update/readback protocol in the orchestr
 On stale refs reread; on another owner stop that candidate. Preserve human edits; never
 force-push. Record real reservation commit/ref/owner. A local calculation is not a reservation.
 Use canonical story files with explicit draft:true and supported frontmatter classifications.
+In production only, review published guides for the article's reader outcome, then add zero
+or up to three optional `relatedGuides` (`id`, `reason`) in that story's frontmatter
+following `docs/editorial/RELATED_READING_V1.md`. Record the selection or no-match
+in its existing PR before English bytes are frozen for translation. No shared mapping edits,
+extra schedulers, ledger changes or draft publication.
 Invoke unchanged illustration workflow. Withhold missing/invalid artwork without blocking
 ready siblings. Freeze English/alt text, attempt reviewed French and record blockers.
 Do not change existing illustrations unless a later task authorizes it. Do not edit daily
