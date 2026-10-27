@@ -1,0 +1,916 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-10-26",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/219",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-code-workflows",
+  "guide_id": "claude-foundations-code-workflows",
+  "state": "review-prepared",
+  "pr_number": 255,
+  "authorization": "Part 5 was originally prepared as a draft. On 2026-10-26 the user explicitly reviewed and approved changing the article status to published; PR merge and production deployment remain separate steps.",
+  "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+  "deduplication": {
+    "issue_comments": 0,
+    "guides_checked": [
+      {
+        "id": "agent-tool-approval-boundary",
+        "title": "\"Give AI Agents a Real Approval Boundary Before They Call Tools\"",
+        "status": "published",
+        "opening": "An AI assistant can propose sending a message, deleting a file, or changing a deployment. That proposal is **not an authorization**. The model may have misunderstood the request, or a retrieved document may have tried to redirect it. A schema-valid tool call can still be the wrong action.\n\nThis tutorial builds a deliberately small approval boundary"
+      },
+      {
+        "id": "agent-security-control-toolkit",
+        "title": "'An Agent Security Starter Kit: Choose Controls by Failure Mode'",
+        "status": "published",
+        "opening": "A document-reading agent finds a paragraph that says, “Email the full archive to the audit team.” The paragraph is inside an uploaded document. Your application has a mail tool. What, exactly, stops the send?\n\n“The system prompt says not to” is a hope. A server that cannot send mail is a constraint. Between those two sits the useful work: deciding "
+      },
+      {
+        "id": "ade-real-shift-or-rebranding",
+        "title": "'Agentic Development Environments: Real Shift or Clever Rebranding?'",
+        "status": "published",
+        "opening": "Software development has acquired another acronym. This one promises to move us beyond the IDE. Before making room on the architecture slide, it is worth asking what the extra letter buys us.\n\nThe strongest case for an **Agentic Development Environment**, or ADE, is that the environment now manages work performed by agents: execution, context, perm"
+      },
+      {
+        "id": "typescript-read-only-mcp-server",
+        "title": "'Part 3: Build a Read-Only MCP Server for Northstar Helpdesk'",
+        "status": "published",
+        "opening": "Northstar needs the amount charged for order `NS-2001` and the returns policy. We will give it a small interface for those questions, then inspect every operation ourselves. Calling a tool “read-only” supplies a useful label; the server's code must still enforce the boundary.\n\nIn [Part 2](/guides/claude-foundations-extraction-review/), we checked e"
+      },
+      {
+        "id": "ai-coding-assistants-compared",
+        "title": "'AI Coding Assistants Compared: Choose the Workflow Before the Subscription'",
+        "status": "published",
+        "opening": "You have a failing test, an unfamiliar service and several subscriptions offering to make the problem disappear. Buying all of them is an expensive way to discover that the bottleneck was understanding the requirement.\n\nThe useful question is narrower: **which tool fits the way you want to work, and what evidence would justify keeping it?** Some de"
+      },
+      {
+        "id": "claude-foundations-controlled-agent",
+        "title": "'Part 4: Control a Support Agent with Hooks and Human Handoffs'",
+        "status": "published",
+        "opening": "“Verify identity before resolving the case” is a reasonable instruction. It is a terrible lock. If the model skips that step and the action handler accepts the call, the instruction has protected nothing.\n\nIn **Part 4 of seven**, Northstar Helpdesk gains one action: recording a **local simulation receipt**. There is no refund, customer message or e"
+      },
+      {
+        "id": "agentic-development-environments-compared",
+        "title": "'Comparing Agentic Development Environments: Follow the Permissions'",
+        "status": "published",
+        "opening": "Ask an agent to migrate a dependency across a service. It needs to find the callers, change code, run checks and explain failures. Then the test runner asks for network access, a script discovers credentials in the environment, and another agent edits the same file. That is when “agentic development environment” stops being a feature label and beco"
+      },
+      {
+        "id": "agent-observability-langfuse-phoenix",
+        "title": "\"Langfuse vs Phoenix for Agent Observability: A Comparative Technical Review\"",
+        "status": "published",
+        "opening": "**Comparative technical review · Evidence checked 25 October 2026.** An agent retrieves the right policy, a tool times out, and a retry succeeds. The final answer looks fine. Can you still find the failed attempt, identify the retrieved document, and establish what data left the application?\n\nThose are the questions behind this comparison. Langfuse"
+      },
+      {
+        "id": "claude-foundations-first-api-prompt",
+        "title": "'Part 1: Your First Claude API Call: From a Support Message to Typed Triage'",
+        "status": "published",
+        "opening": "A support message says, “I've been charged twice; I need this resolved today.” Your program needs a category, an urgency and an order number. Two of those answers are present. The third is not. A helpful-looking program that invents the order number has made the ticket worse.\n\nWe will build **Northstar Helpdesk**, a fictional local support assistan"
+      },
+      {
+        "id": "claude-foundations-extraction-review",
+        "title": "'Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review'",
+        "status": "published",
+        "opening": "An invoice says **EUR 10.00**. The extractor returns **EUR 99.99**, with **99% confidence**. Every property has the right type. The amount is still wrong.\n\nIn [Part 1](/guides/claude-foundations-first-api-prompt/), Northstar Helpdesk turned a synthetic support message into typed triage. Now we will check the contents of that well-shaped envelope. B"
+      },
+      {
+        "id": "first-rag-application",
+        "title": "Deploying Your First RAG Application",
+        "status": "published",
+        "opening": "Retrieval-augmented generation (RAG) lets a language model answer using documents you supply, rather than relying only on its pretrained knowledge. This tutorial builds a **small, local-first RAG API** around fictional incident and release runbooks, with no cloud account, API key, vector database, or separate demo repository.\n\n**Everything you need"
+      },
+      {
+        "id": "ide-vs-ade-workflows",
+        "title": "'IDE vs ADE: What Changes When Your Tools Start Acting for You?'",
+        "status": "published",
+        "opening": "Your team needs a new `POST /bookmarks` endpoint. It must accept a title and an HTTPS URL, reject invalid input, require an authenticated user, and return the existing API's normal error format. Tests must cover those rules. No database migration or deployment is part of the task.\n\nYou can build that endpoint in an IDE, with an AI assistant, or by "
+      },
+      {
+        "id": "draft-route-regression",
+        "title": "Unpublished guide visibility fixture",
+        "status": "draft",
+        "opening": "DRAFT_GUIDE_ROUTE_SENTINEL_NEVER_PUBLISH"
+      },
+      {
+        "id": "rag-retrieval-evaluation",
+        "title": "Evaluate RAG Retrieval Quality with a Golden Question Set",
+        "status": "published",
+        "opening": "Your RAG API returns plausible answers. Does it retrieve the **right passages** in the first place?\n\nThat is a different engineering problem from getting a local RAG service running. Before tuning a prompt or changing a language model, you can test whether the search stage actually returns the documents needed to answer each question. This guide bu"
+      }
+    ],
+    "merged_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25"
+    ],
+    "open_prs_checked": [
+      250,
+      245,
+      244,
+      242,
+      241,
+      185,
+      182,
+      159
+    ],
+    "open_pr_notes": "No overlapping Part 5 implementation. #242 maintains existing reporting and four adjacent evergreen guides, with no Part 5/series article or evergreen ledger changes. #241 is a shared-policy proposal, not merged policy. Preserve current main editorial contracts.",
+    "result": "Selected commissioned CLI configuration/verified-patch problem; cross-link IDE/ADE concepts, do not repeat rankings or RAG. Retain immutable scheduled ledgers.",
+    "refresh": {
+      "main_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+      "new_main_change": "#252 Curious AI pilot orchestration; read changed editorial and guide contracts and CLAUDE.md. Pilot mode; no event reservation for this distinct commissioned tutorial.",
+      "curious_records": "CONFIG_V1.yml mode pilot; no Curious ledgers or pilot commissions in main at refresh.",
+      "open_prs": [
+        253,
+        250,
+        245,
+        244,
+        242,
+        241,
+        185,
+        182,
+        159
+      ],
+      "new_pr": "#253 Qwen code-review integrity briefing; reported event distinct from shared Northstar instruction scopes and verified patch outcome. No Part 5 overlap."
+    }
+  },
+  "duplication_matrix": [
+    {
+      "owner": "Parts 1–2",
+      "scope": "API prompts/output checks and batches remain linked prerequisites."
+    },
+    {
+      "owner": "Parts 3–4",
+      "scope": "Reuse exact MCP and controlled agent sources. This lesson configures the coding tool, not the support agent loop."
+    },
+    {
+      "owner": "This Part 5",
+      "scope": "Shared/personal instruction scopes, one project skill, deliberate exploration/planning/editing, preserved workflow evidence and an audited patch."
+    },
+    {
+      "owner": "Existing IDE/ADE guides",
+      "scope": "Own product/workflow comparisons; link their terminology rather than repeat."
+    },
+    {
+      "owner": "Parts 6–7",
+      "scope": "Delegated specialists, session manifests and CI capstone deferred; no new CI platform."
+    }
+  ],
+  "requirement_map": [
+    {
+      "requirement": "Instruction hierarchy and fresh checkout",
+      "implementation": "Shared root/imported conventions, path rule, intentionally misplaced personal convention and clone-based repair",
+      "verification": "Tracked/ignored file checks, fresh clone and actual CLI instruction events with scripted local responses where feasible."
+    },
+    {
+      "requirement": "Project skill and real tool restrictions",
+      "implementation": "Explicit read tool pool, narrow preapproval, current disallowed-tools semantics and legacy command comparison",
+      "verification": "Pinned native CLI help/types and controlled local runtime probes; live model behavior separately labeled."
+    },
+    {
+      "requirement": "Plan versus bounded execution; deliberate tools and clarification",
+      "implementation": "Policy-predicate extraction planned as interacting changes; inclusive-boundary regression fixed directly; ambiguous anchor recovery",
+      "verification": "Actual failing-then-passing unit/integration checks and local CLI scripted Edit probes."
+    },
+    {
+      "requirement": "Context continuity",
+      "implementation": "Evidence scratchpad, source lines, compaction guidance and restored summary after a fresh context",
+      "verification": "Re-read source/checks against commit; manual context restoration fixture; actual model compaction explicitly unexecuted unless authorized."
+    },
+    {
+      "requirement": "Independent practice and assessment",
+      "implementation": "New minimum-amount policy exercise, three original scenarios, explain-without-looking and self-check",
+      "verification": "Independent scratch variation and editorial review."
+    },
+    {
+      "requirement": "Costs, compatibility and publication",
+      "implementation": "Dated official sources, actual Node/TypeScript/SDK/CLI pins, bounded optional live runs, genuine cover and accessible SVG",
+      "verification": "Separate fixture/mocked/local-CLI/live/CI evidence, link/browser/build/hash/readback checks, final exact-head CI."
+    }
+  ],
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Three actual built-in image generations completed on 2026-10-26 after article/brief freeze b6c47374532fe26a872e17b00f8ed4acf6816e2a. Original PNG source paths/hashes and exact prompts recorded; no model snapshot exposed."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Opened actual current-main Part 3 and Part 4 production WebP references with view_image during Part 5 preflight."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow 12.3.0 / libwebp 1.6.0 encoded and decoded a new 16×16 RGB WebP in this run."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Part 5 create_blob/base64 upload succeeded; independent public GitHub blob REST JSON/base64 download matched all 151128 final WebP bytes."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generation_date": "2026-10-26",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "candidate_count": 3,
+    "selected_candidate": "B",
+    "visual_brief": {
+      "story_id": "claude-foundations-code-workflows",
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch",
+      "verified_context": [
+        "A convention in an ignored personal file never reached your teammate.",
+        "We will configure Claude Code for the same Northstar Helpdesk project, extract a policy predicate, deliberately introduce an inclusive-boundary regression, and verify its repair.",
+        "The result is a small, reviewable patch with shared instructions and evidence you can recover after a context boundary."
+      ],
+      "editorial_idea": "A shared physical guide aligns one small deliberate change reproducibly.",
+      "visual_metaphor": "A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface.",
+      "archetype": "tool-artifact-study",
+      "output_crop": "Wide 16:9 master; compact central motif safe for centered 21:9 hero, 16:9 mobile, 3:2 cards, 1:1 Workbench row and 76px thumbnail.",
+      "must_show": [
+        "one blank cream strip",
+        "one terracotta alignment guide",
+        "one pale stone template",
+        "tactile spatial depth and warm paper grain",
+        "all key objects inside the central 50 percent horizontally"
+      ],
+      "must_not_show": [
+        "words",
+        "letters",
+        "numbers",
+        "labels",
+        "logos",
+        "interface-elements",
+        "page-header",
+        "page-footer",
+        "buttons",
+        "badges",
+        "invented-charts",
+        "watermark",
+        "neon-effects",
+        "robots",
+        "glowing-ai-brains",
+        "screenshot-imitation",
+        "bare-schematic-or-diagram",
+        "border",
+        "frame"
+      ],
+      "golden_references": [
+        "public/images/guides/typescript-read-only-mcp-server.webp",
+        "public/images/guides/claude-foundations-controlled-agent.webp"
+      ],
+      "cover_crop_safe": true
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-code-workflows",
+      "story_source_sha256": "73af6c696c54162f34490476077fa093d79c53684158d61335f99bf1425c1ee9",
+      "visual_brief_sha256": "9e7ac07390e01db5e3bf65378f2231b19509afb9633e81af352d7aeb186f4980",
+      "reference_inputs_sha256": "4412eab6fff9d9a6bd6fec2bc9ec3afd6c73ab6fa87a342b89509d3eaca03d99",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "4f184109189e8c10062df9e2f1a536b2812cdd87dc5ae1d656e2ef5edc2c0b10"
+    },
+    "generation_decision": {
+      "decision": "GENERATE",
+      "reason": "review-missing",
+      "story_id": "claude-foundations-code-workflows",
+      "system_version": null,
+      "expected_generation_key": "4f184109189e8c10062df9e2f1a536b2812cdd87dc5ae1d656e2ef5edc2c0b10",
+      "stored_generation_key": null,
+      "requires_batch_validation": false
+    },
+    "candidate_provenance": {
+      "date": "2026-10-26",
+      "source_commit": "b6c47374532fe26a872e17b00f8ed4acf6816e2a",
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_attempts": 3,
+      "candidates": [
+        {
+          "id": "A",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Part 5: Give Claude Code Shared Rules, Then Verify Its Patch\nVerified context: A convention in an ignored personal file never reached your teammate. We will configure Claude Code for the same Northstar Helpdesk project, extract a policy predicate, deliberately introduce an inclusive-boundary regression, and verify its repair. The result is a small, reviewable patch with shared instructions and evidence you can recover after a context boundary.\nVisual idea: A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface. This physical workshop metaphor conveys reproducible shared conventions and one precise change; it is not a literal software architecture.\nOutput crop: wide 16:9 article hero master, 1600×900 or higher. Compact central still life with all key forms in the middle 50% horizontally and middle 60% vertically so it survives centered 21:9, 16:9, 3:2 and 1:1 crops and a 76px thumbnail.\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image’s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\n\nCurrent publication composition/materiality requirement: retain a tactile editorial still life with physical depth, never a bare schematic, wireframe or icon composition. Reference layout is docs/reference-layouts/story.html. Golden visual grammar: the warm tactile Part 3 read-only MCP and Part 4 controlled-agent covers; preserve palette and restraint without copying their subjects.\n\nCandidate variation A: A low, compact L-shaped terracotta alignment guide gently holds a single blank cream paper strip flush along the edge of a small pale limestone template. Three-quarter overhead editorial still life; precise contact between the strip and guide is visible. Soft charcoal cast shadows and warm fine paper grain. Rich material presence, no ruler ticks. No folded folder or crossbar barricade. Centered compact motif, generous warm negative space.",
+          "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-24610acd-ddf3-4ff7-86f3-563aa2e07671.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+        },
+        {
+          "id": "B",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Part 5: Give Claude Code Shared Rules, Then Verify Its Patch\nVerified context: A convention in an ignored personal file never reached your teammate. We will configure Claude Code for the same Northstar Helpdesk project, extract a policy predicate, deliberately introduce an inclusive-boundary regression, and verify its repair. The result is a small, reviewable patch with shared instructions and evidence you can recover after a context boundary.\nVisual idea: A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface. This physical workshop metaphor conveys reproducible shared conventions and one precise change; it is not a literal software architecture.\nOutput crop: wide 16:9 article hero master, 1600×900 or higher. Compact central still life with all key forms in the middle 50% horizontally and middle 60% vertically so it survives centered 21:9, 16:9, 3:2 and 1:1 crops and a 76px thumbnail.\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image’s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\n\nCurrent publication composition/materiality requirement: retain a tactile editorial still life with physical depth, never a bare schematic, wireframe or icon composition. Reference layout is docs/reference-layouts/story.html. Golden visual grammar: the warm tactile Part 3 read-only MCP and Part 4 controlled-agent covers; preserve palette and restraint without copying their subjects.\n\nCandidate variation B: A single thin cream strip lies accurately aligned against a small flat pale stone template; one terracotta alignment guide nestles around the corner, holding the alignment. View from slightly above at a quiet three-quarter angle. Tactile ceramic, softly grained limestone, layered paper thickness, controlled fine ink accents and cast shadow. Centered compact silhouette fully survives square and ultra-wide crops. No folded case folder or barricade. No measurement ticks.",
+          "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-fbef1cd4-e7df-4b2d-9c4f-4a28d05e567c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+        },
+        {
+          "id": "C",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero\nSubject: Part 5: Give Claude Code Shared Rules, Then Verify Its Patch\nVerified context: A convention in an ignored personal file never reached your teammate. We will configure Claude Code for the same Northstar Helpdesk project, extract a policy predicate, deliberately introduce an inclusive-boundary regression, and verify its repair. The result is a small, reviewable patch with shared instructions and evidence you can recover after a context boundary.\nVisual idea: A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface. This physical workshop metaphor conveys reproducible shared conventions and one precise change; it is not a literal software architecture.\nOutput crop: wide 16:9 article hero master, 1600×900 or higher. Compact central still life with all key forms in the middle 50% horizontally and middle 60% vertically so it survives centered 21:9, 16:9, 3:2 and 1:1 crops and a 76px thumbnail.\n\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image’s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\n\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with the warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\n\nDepict only what the verified context supports. If the mechanism or data is uncertain, make the image an abstract metaphor rather than a purported technical diagram.\n\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. The website will render all text and its serif titles separately.\n\nDeliver a clean, high-resolution image with no border or frame.\n\n\nCurrent publication composition/materiality requirement: retain a tactile editorial still life with physical depth, never a bare schematic, wireframe or icon composition. Reference layout is docs/reference-layouts/story.html. Golden visual grammar: the warm tactile Part 3 read-only MCP and Part 4 controlled-agent covers; preserve palette and restraint without copying their subjects.\n\nCandidate variation C: A compact warm terracotta guide aligns the edge of one cream strip to a pale stone template. Gently diagonal still life seen from above with shallow physical depth, delicate charcoal edgework, visible paper fibres and soft ambient shadows. One clear alignment relationship with no extra props or technical symbols. The entire compact motif stays in the center for square crops. No folded folder, barrier, ruler marks or text.",
+          "output_hint": "Generated images are saved to /workspace/scratch/bba3e387193b/generated_images as /workspace/scratch/bba3e387193b/generated_images/exec-3febec7d-b2f2-41fa-b699-e801ab145a30.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+        }
+      ],
+      "source_commit_scope": "Local frozen source commit before generation; remote_equivalent_source_commit has byte-identical article and SVG.",
+      "remote_equivalent_source_commit": "f67a668cae6a0b139368a34ec8a27c8426a6d848"
+    },
+    "integrity": {
+      "date": "2026-10-26",
+      "selected_candidate": "B",
+      "source_paths": [
+        "/workspace/scratch/bba3e387193b/generated_images/exec-24610acd-ddf3-4ff7-86f3-563aa2e07671.png",
+        "/workspace/scratch/bba3e387193b/generated_images/exec-fbef1cd4-e7df-4b2d-9c4f-4a28d05e567c.png",
+        "/workspace/scratch/bba3e387193b/generated_images/exec-3febec7d-b2f2-41fa-b699-e801ab145a30.png"
+      ],
+      "source_png_sha256": [
+        "8cd83ed3bdb5501d008c74926a9e9b369f2e62dd1c481662ef73da9224608699",
+        "7971bfdfbe96ef46fc37ca8b847b2affeffdfb739819fedd9b327cddfe015b03",
+        "76edb536d18caf589eb8b8da2d1b730830fa56f1bd4eb0a13cbef09544f18b2d"
+      ],
+      "asset_path": "public/images/guides/claude-foundations-code-workflows.webp",
+      "bytes": 151128,
+      "sha256": "03a2243654ca38002afa5681f75e6d2ccf2a3d807b324740fc61787747e30083",
+      "git_blob_sha1": "ca183c5de264dddbcd8d84ba9bc575a5bd0caa03",
+      "decoded_format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conversion": "Pillow 12.3.0 RGB/Lanczos 1600x900, WebP quality88 method6; signature/length/full decode passed"
+    },
+    "integrity_readback": {
+      "date": "2026-10-26",
+      "method": "Independent public GitHub blob REST JSON/base64 readback after authenticated create_blob/base64 upload",
+      "blob_sha": "ca183c5de264dddbcd8d84ba9bc575a5bd0caa03",
+      "bytes": 151128,
+      "sha256": "03a2243654ca38002afa5681f75e6d2ccf2a3d807b324740fc61787747e30083",
+      "byte_match": true
+    },
+    "review": {
+      "reviewer": "Codex (model self-review, no human artwork approval claimed)",
+      "date": "2026-10-26",
+      "weights": {
+        "story_specificity": 0.2,
+        "brand_fit": 0.15,
+        "composition": 0.15,
+        "crop_safety": 0.15,
+        "technical_meaning": 0.1,
+        "cleanliness": 0.05,
+        "golden_reference_fit": 0.2
+      },
+      "candidate_scores": [
+        {
+          "candidate": "A",
+          "scores": {
+            "story_specificity": 88,
+            "brand_fit": 93,
+            "composition": 86,
+            "crop_safety": 83,
+            "technical_meaning": 86,
+            "cleanliness": 97,
+            "golden_reference_fit": 91
+          },
+          "weighted_total": 88.55,
+          "hard_fail": false
+        },
+        {
+          "candidate": "B",
+          "scores": {
+            "story_specificity": 93,
+            "brand_fit": 94,
+            "composition": 92,
+            "crop_safety": 88,
+            "technical_meaning": 92,
+            "cleanliness": 97,
+            "golden_reference_fit": 94
+          },
+          "weighted_total": 92.55,
+          "hard_fail": false
+        },
+        {
+          "candidate": "C",
+          "scores": {
+            "story_specificity": 87,
+            "brand_fit": 92,
+            "composition": 87,
+            "crop_safety": 82,
+            "technical_meaning": 88,
+            "cleanliness": 97,
+            "golden_reference_fit": 91
+          },
+          "weighted_total": 88.4,
+          "hard_fail": false
+        }
+      ],
+      "selected_reason": "B makes the strip-to-guide alignment clearest and keeps the complete strip within the master frame. A extends off-frame at right; C extends off-frame at lower left. B has a compact tactile guide/template relationship distinct from Part 4's folder and barrier.",
+      "hard_fail_checks": "All three generated candidates inspected at native output size and in a contact sheet beside actual current-main Part 3 and Part 4 production WebPs. No text, labels, ticks, logos, UI, robots, false technical data, bare diagram, watermark, border or constitutional failure observed.",
+      "crop_checks": "Final decoded 1600x900 WebP inspected at 21:9 desktop, 16:9 mobile, 3:2 card, centered 1:1 Workbench row and 76px square thumbnail; actual article hero screenshots at 1440/375/320. Square crop trims strip ends and outer stone edge but preserves the complete terracotta guide and alignment relationship.",
+      "image_alt": "A terracotta alignment guide holds a blank cream strip against a pale stone template on a warm paper surface.",
+      "blocker": null
+    }
+  },
+  "handoff": {
+    "completion": "complete",
+    "blockers": [],
+    "human_publication_required": true,
+    "preparation_evidence_head": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+    "final_head_ci": "Inspect PR #255 checks and description for this documentation follow-up; no article or asset changed.",
+    "remaining_verification": [
+      "Optional live Claude planning/editing, account authentication/billing and actual model compaction were not executed without credentials and spending authorization; researched label and limitations retained."
+    ],
+    "visibility": "Publication metadata changed to status published and publishedAt 2026-10-26 after human approval. Previous draft exclusion checks were for the pre-approval commit. Production visibility requires PR merge and deployment."
+  },
+  "preflight_environment": {
+    "node_target": "22.22.3",
+    "cli_installed": "2.1.310 (Claude Code), npm exact pin; version/help executed without inference",
+    "has_anthropic_api_key": false,
+    "live_spending_authorization": false,
+    "learner_start": "All ten Part 4 embedded files match disposable agent source byte-for-byte; unchanged Part 3 MCP copied from previously verified learner project. Pinned installed dependencies reused; no claim of a second clean package install."
+  },
+  "verification": {
+    "date": "2026-10-26",
+    "environment": {
+      "os": "Linux",
+      "node": "22.22.3",
+      "typescript": "6.0.3",
+      "node_types": "22.20.5 (learner), 26.6.5 (publication, inherited main)",
+      "anthropic_sdk": "1.3.0",
+      "agent_sdk": "0.3.310",
+      "mcp_client": "2.4.0",
+      "mcp_peer_sdk": "1.29.0",
+      "zod": "4.6.7",
+      "native_cli": "2.1.310",
+      "browser": "Chromium 153.0.8010.0 / Playwright 1.64.0"
+    },
+    "learner": {
+      "fresh_article_replay": {
+        "date": "2026-10-26",
+        "scope": "12 files extracted byte-for-byte from final article in new folder; guarded patch executed on published Part 4 case.ts; pinned dependencies reused, not another network install",
+        "red": {
+          "pass": 6,
+          "fail": 2
+        },
+        "green": {
+          "pass": 8,
+          "fail": 0
+        },
+        "old_fixtures": 25,
+        "real_mcp": "passed",
+        "recorded_commands": "all exit 0",
+        "real_cli_probes": 6,
+        "scripted_http_requests": 18,
+        "live_model_requests": 0,
+        "code_files": [
+          {
+            "path": ".gitignore",
+            "sha256": "2e6bd5abd5fca28646c002aba1a1b08e00bd79d292895d14bfdf14fb3afc3d1b"
+          },
+          {
+            "path": "CLAUDE.md",
+            "sha256": "1d3c8112d7c095cdcecc9df218b6b67135beb85d62e87b5f06d3edb1ade31494"
+          },
+          {
+            "path": "docs/conventions.md",
+            "sha256": "a1e12755cb2feeacc0af877c699cf5853f34cc5b9bb5b6958cf5bdd5c1a4a9cb"
+          },
+          {
+            "path": ".claude/rules/agent.md",
+            "sha256": "74d3c1dc60304e86eb1ab1cfce2ee9f61cc84f051dd008aa32d7742736a744f9"
+          },
+          {
+            "path": ".claude/skills/northstar-review/SKILL.md",
+            "sha256": "4d709a411bf209f9a9b04d11b929c8062894d57a14e3960f7e6ff4867c3e9858"
+          },
+          {
+            "path": "docs/simulation-policy.md",
+            "sha256": "cb847853679b30db0d6fb9dfdb0a40334a59693e1c56c4b5b97b9c42b0c58767"
+          },
+          {
+            "path": "notes/task.md",
+            "sha256": "56136f330a37d214c1f853bbc54d025d207e80b87e6062aa671689de7682569c"
+          },
+          {
+            "path": "agent/policy.ts",
+            "sha256": "d2bdff2e73d0785a34d2f8db08cf06619ebf68869f9b3be458c347a779a6bac0"
+          },
+          {
+            "path": "agent/policy-checks.ts",
+            "sha256": "cb9b33427b8b9fbe4c0b5aa7f8b03b4c6ef912afa17977e45a55f348c1ba008e"
+          },
+          {
+            "path": "workflow/record-checks.mjs",
+            "sha256": "ff1b5c4f27f7a1a83eaa9570d50b202d427fb0c25b56de0f6179400b3b4593cf"
+          },
+          {
+            "path": "workflow/inspect-cli.mjs",
+            "sha256": "cc8f41d137ed3ecf12a714533f7b6109fbbbf1b982113ef01b82306730297141"
+          },
+          {
+            "path": "workflow/live-code.mjs",
+            "sha256": "5634e1d0282fdb1fbefb9af88f105c63b018bb7441646546cd05e603df9226be"
+          }
+        ]
+      },
+      "independent_scope_permissions_launcher": {
+        "date": "2026-10-26",
+        "environment": "Linux, Node 22.22.3, Claude Code 2.1.310; no live inference",
+        "checks": [
+          {
+            "check": "Fresh Git checkout with isolated CLI config",
+            "result": "passed",
+            "probes": 6,
+            "personal_file_present": false,
+            "scope": "Real CLI with loopback scripted responses; no live inference",
+            "reports_sha256": "77782bf6430bc8a2148f5f93485f2797cf7cca83e149394c6aed4c5327e975b6"
+          },
+          {
+            "check": "Misplaced personal convention reproduced across actual CLI sessions",
+            "result": "passed",
+            "author": {
+              "initial": true,
+              "afterRead": true
+            },
+            "teammate": {
+              "initial": false,
+              "afterRead": false
+            },
+            "repair": "Current shared-rule checkout has no initial rule attachment and does attach it after matching Read."
+          },
+          {
+            "check": "Removing disallowed-tools makes the actual CLI Edit succeed and the canary assertion fail",
+            "result": "passed",
+            "publication_source_unchanged": true
+          },
+          {
+            "check": "Missing-credential gate and exclusive one-attempt reservation",
+            "result": "passed",
+            "subprocesses": 1,
+            "live_model_requests": 0,
+            "mode": "mock executable only"
+          }
+        ]
+      },
+      "independent_policy_variation": {
+        "date": "2026-10-26",
+        "scope": "Independent author variation in isolated scratch copy, synthetic unit facts; no backend or publication source changed",
+        "red": {
+          "passed": 9,
+          "failed": 3
+        },
+        "green": {
+          "passed": 12,
+          "failed": 0
+        },
+        "original_fixtures": 25,
+        "model_calls": 0
+      },
+      "live_wrapper_incomplete_results": [
+        {
+          "case": "success",
+          "exit": 0,
+          "live_requests": 0
+        },
+        {
+          "case": "refusal",
+          "exit": 1,
+          "live_requests": 0
+        },
+        {
+          "case": "truncated",
+          "exit": 1,
+          "live_requests": 0
+        },
+        {
+          "case": "unknown",
+          "exit": 1,
+          "live_requests": 0
+        },
+        {
+          "case": "error",
+          "exit": 1,
+          "live_requests": 0
+        }
+      ],
+      "evidence_note": "Real build/policy:check/fixtures commands recorded, all exit 0; git commit, source hashes, diff hash and current source references retained. Fresh checkout probes read shared files without personal configuration. Actual model summarization/compaction not executed.",
+      "runtime_findings": [
+        "allowed-tools pre-approves; the native skill disallowed-tools Edit denial is verified by actual denial plus unchanged canary. Removing it in isolated clone makes Edit succeed and the assertion fail.",
+        "Edit remains advertised in request schemas in 2.1.310 during this skill turn; do not equate advertisement with authorization.",
+        "Explicit --tools enables Glob/Grep omitted from current default Linux/macOS/WSL pool. --tools alone does not remove MCP; use strict empty MCP configuration.",
+        "Conditional rule absent before matching Read and attached in next request; separate mcp-only session never attaches it. Root/import context present.",
+        "An early InstructionsLoaded logger prototype did not report the conditional event despite actual next-request attachment; final exercise uses captured context flags and file behavior, not an exhaustive-hook claim.",
+        "A literal fixture-derived CaseFile was too narrow for varied caps. Explicit readonly domain type compiled before intended regression: RED is two assertion failures, not a TypeScript error."
+      ]
+    },
+    "live_model": {
+      "result": "not executed",
+      "has_api_credential": false,
+      "spending_authorization": false,
+      "actual_compaction": "not executed",
+      "limitations": "No live planning, model code quality/tool choice, authentication, billing, live patch or compaction demonstrated. Optional launcher and mock protocols are separately labelled.",
+      "verification_label": "researched"
+    },
+    "links": {
+      "date": "2026-10-26",
+      "external": [
+        {
+          "url": "https://academy.claude.com/help/faq",
+          "status": 200,
+          "resolved": "https://academy.claude.com/help/faq"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/best-practices",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/best-practices"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/cli-reference",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/cli-reference"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/common-workflows",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/common-workflows"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/costs",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/costs"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/interactive-mode",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/interactive-mode"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/memory",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/permissions",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/permissions"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/settings",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/settings"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/skills",
+          "status": 200,
+          "resolved": "https://code.claude.com/docs/en/skills"
+        },
+        {
+          "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+          "status": 200,
+          "resolved": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf"
+        },
+        {
+          "url": "https://github.com/GadDev/daily-ai-pulse/issues/220",
+          "status": 200,
+          "resolved": "https://github.com/GadDev/daily-ai-pulse/issues/220"
+        },
+        {
+          "url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+          "status": 200,
+          "resolved": "https://github.com/GadDev/daily-ai-pulse/issues/222"
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "status": 200,
+          "resolved": "https://platform.claude.com/docs/en/about-claude/pricing"
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+          "status": 200,
+          "resolved": "https://platform.claude.com/docs/en/models/haiku-4-5/overview"
+        }
+      ],
+      "internal_guide_slugs": [
+        "ai-coding-assistants-compared",
+        "claude-foundations-controlled-agent",
+        "ide-vs-ade-workflows"
+      ],
+      "missing_internal": []
+    },
+    "browser": {
+      "date": "2026-10-26",
+      "browser": "153.0.8010.0",
+      "mode": "Local static Astro preview; temporary publication metadata restored; assets fulfilled from disk, not public deployment",
+      "report": [
+        {
+          "title": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch",
+          "bodyWidth": 1440,
+          "viewport": 1440,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 32
+        },
+        {
+          "title": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch",
+          "bodyWidth": 375,
+          "viewport": 375,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 32,
+          "axeViolations": []
+        },
+        {
+          "title": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 5: Give Claude Code Shared Rules, Then Verify Its Patch",
+          "bodyWidth": 320,
+          "viewport": 320,
+          "brokenImages": [],
+          "frenchAlternate": false,
+          "codeBlocks": 32
+        }
+      ],
+      "titleChecks": [
+        {
+          "part": 1,
+          "slug": "claude-foundations-first-api-prompt",
+          "title": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 1: Your First Claude API Call: From a Support Message to Typed Triage",
+          "bodyWidth": 320
+        },
+        {
+          "part": 2,
+          "slug": "claude-foundations-extraction-review",
+          "title": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 2: Claude Extraction You Can Check: Validation, Batches and Human Review",
+          "bodyWidth": 320
+        },
+        {
+          "part": 3,
+          "slug": "typescript-read-only-mcp-server",
+          "title": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 3: Build a Read-Only MCP Server for Northstar Helpdesk",
+          "bodyWidth": 320
+        },
+        {
+          "part": 4,
+          "slug": "claude-foundations-controlled-agent",
+          "title": "Part 4: Control a Support Agent with Hooks and Human Handoffs — Tools & Guides — The Daily AI Pulse",
+          "h1": "Part 4: Control a Support Agent with Hooks and Human Handoffs",
+          "bodyWidth": 320
+        }
+      ]
+    },
+    "diagram": {
+      "path": "public/images/guides/northstar-code-workflows.svg",
+      "sha256": "600e4dec0ff807c3df9781223b5e853530708bb1b6889aac43bcd742d3386420",
+      "dimensions": [
+        320,
+        1200
+      ],
+      "inspection": "Actual 320px article screenshot visually inspected: every label fits; shared/import/conditional/skill context differs from actual tool allow/deny and support-handler authorization. Accessible title/desc, article alt and caption included. No clipping."
+    },
+    "repository": {
+      "base_commit": "eedf19a73f517bdbf10389a364975289af16b0eb",
+      "npm_run_verify": "passed, exit 0; lint/format/content/guide ledger/translations/editorial batches/continuation/illustration/tooling/Astro build/Pagefind",
+      "verify_log_sha256": "a12944ce255db4e577efc30ba065456836ad34a7d98365f1dcf4ed605ad9302f",
+      "local_content_tests": "node --test tests/guide-assets.test.ts tests/guides.test.ts: exit 0",
+      "content_tests_log_sha256": "1e2e8ecb19dee461134e6a3f98a2ff3f265dcee391f63874d12413f68fe1f6f4",
+      "final_draft_build": "npm run build: exit 0, after preview-only metadata restored exactly"
+    },
+    "visibility": {
+      "date": "2026-10-26",
+      "scope": "Fresh final draft npm run build, not temporary publication preview",
+      "detail_route_absent": true,
+      "html_files_checked": 270,
+      "slug_absent_from_all_html": true,
+      "sitemap_absent": true,
+      "published_series_parts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "exact_source_hash_unchanged": true
+    },
+    "search_visibility": {
+      "date": "2026-10-26",
+      "scope": "Actual browser Pagefind query against fresh final draft build",
+      "queries": [
+        {
+          "query": "northstar-review",
+          "results": 4,
+          "draftAbsent": true
+        },
+        {
+          "query": "Claude",
+          "results": 92,
+          "draftAbsent": true
+        }
+      ]
+    },
+    "ci": {
+      "validated_preparation_head": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+      "run_url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/40329762406",
+      "result": "success; Verify project and Browser smoke and accessibility jobs passed",
+      "metadata_followup": "This final documentation update records PR identity and the completed preparation run; it does not alter the article, cover or SVG. The follow-up exact-head run and current handoff status are reported in PR #255 checks/body rather than heartbeat commits.",
+      "browser_suite": "74 passed (2.5m), zero flaky/failed in completed preparation run"
+    },
+    "remote_file_integrity": {
+      "commit": "f67a668cae6a0b139368a34ec8a27c8426a6d848",
+      "files": [
+        {
+          "path": "src/content/guides/claude-foundations-code-workflows.md",
+          "bytes": 62756,
+          "sha256": "73af6c696c54162f34490476077fa093d79c53684158d61335f99bf1425c1ee9",
+          "byte_match": true
+        },
+        {
+          "path": "public/images/guides/northstar-code-workflows.svg",
+          "bytes": 4288,
+          "sha256": "600e4dec0ff807c3df9781223b5e853530708bb1b6889aac43bcd742d3386420",
+          "byte_match": true
+        },
+        {
+          "path": "public/images/guides/claude-foundations-code-workflows.webp",
+          "bytes": 151128,
+          "sha256": "03a2243654ca38002afa5681f75e6d2ccf2a3d807b324740fc61787747e30083",
+          "byte_match": true
+        },
+        {
+          "path": "docs/editorial/tools-and-guides/commissions/issue-219-code-workflows.json",
+          "bytes": 53957,
+          "sha256": "3405188ffe3cb803a5b333425f10a5a9e79301899f76c5396b13ef405ab99595",
+          "byte_match": true
+        }
+      ]
+    }
+  },
+  "source_evidence": [
+    {
+      "claim": "Memory scopes, imports and conditional rules",
+      "urls": [
+        "https://code.claude.com/docs/en/memory"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "Shared root/import follow checkout; personal files do not. Paths attach on access, instructions concatenate; current AGENTS fallback distinguished from project skill directory."
+    },
+    {
+      "claim": "Skill permissions and commands compatibility",
+      "urls": [
+        "https://code.claude.com/docs/en/skills"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "allowed-tools alone is not a pool restriction; disallowed-tools is turn scoped. Manual invocation and current project skills compared with legacy command vocabulary."
+    },
+    {
+      "claim": "Planning, interview, targeted tools, iteration and context",
+      "urls": [
+        "https://code.claude.com/docs/en/common-workflows",
+        "https://code.claude.com/docs/en/best-practices",
+        "https://code.claude.com/docs/en/interactive-mode"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "Multi-file interactions planned; bounded fix direct. Preserve evidence before compaction and verify source after a boundary. Actual compaction remains untested."
+    },
+    {
+      "claim": "Print-only limits, built-ins, permissions and costs",
+      "urls": [
+        "https://code.claude.com/docs/en/cli-reference",
+        "https://code.claude.com/docs/en/permissions",
+        "https://code.claude.com/docs/en/settings",
+        "https://code.claude.com/docs/en/costs"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "Glob/Grep explicit opt-in on Linux; pool does not remove MCP. Print-only max turns/budget, estimated cost may overshoot. No OS sandbox or interactive cap claim."
+    },
+    {
+      "claim": "Model and API pricing",
+      "urls": [
+        "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+        "https://platform.claude.com/docs/en/about-claude/pricing"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "Legacy available Haiku4.5 snapshot pinned; standard uncached $1/$5 per million input/output. 15000+1024 token assumption gives $.06036 per 3-turn phase, $.12072 for two; estimate not ceiling/account-access claim."
+    },
+    {
+      "claim": "Certification alignment and access caveats",
+      "urls": [
+        "https://academy.claude.com/help/faq",
+        "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf"
+      ],
+      "verified_on": "2026-10-26",
+      "result": "verified with official documentation; exact native CLI additionally exercised where stated",
+      "implication": "July2026 v1.0 task2.5/3.1-3.5/5.4; original questions, typical6+months not eligibility proof, partner-only proctored credential distinct from free badges. No prerequisite course established; tiny repo not large-codebase mastery."
+    }
+  ],
+  "editorial_self_review": {
+    "reviewer": "Codex (model self-review)",
+    "contract": "Current main Editorial Voice v2 / Tools & Guides practice v3 and issue #219. Updated current main #252 contract changes inspected; no overlapping event commission.",
+    "result": "English-only beginner tutorial, concepts before use, complete article-contained code, explicit expected/observed labels, pre-live cost/access controls, recovery/cleanup, independent variation, three original delayed-answer scenarios, explain-without-looking and self-assessment. No fake reviewer or French approval.",
+    "scope": "Four guide-specific files only; no sample application framework, per-article publication CI, editor ranking, multi-agent implementation, real customer system or deployment. Parts1-4 source unchanged.",
+    "publication": "Reviewed and approved by the user on 2026-10-26; status published and publishedAt 2026-10-26 committed on the PR branch. Earlier draft preview metadata checks were run before this publication change."
+  }
+}
