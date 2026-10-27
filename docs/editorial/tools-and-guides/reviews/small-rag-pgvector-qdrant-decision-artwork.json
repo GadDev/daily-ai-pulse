@@ -1,0 +1,81 @@
+{
+  "subject": "pgvector or Qdrant? Choose the storage layer for a small RAG service",
+  "review_date": "2026-10-27",
+  "reviewer": "AI-assisted visual preflight; not human publication approval",
+  "constitution": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "source": "image_gen output, not stock imagery",
+  "selection_method": "Three original image generations were visually compared for compliance. Two were rejected because diagrams, product branding and UI elements violated the no-text/no-logo/no-schematic rule. Third independent generated image accepted for wide editorial cover.",
+  "candidate_reviews": [
+    {
+      "generation_id": "7ceee0be-e331-446b-8ec0-f37f4a5dad0f",
+      "source_file": "wide_minimalist_abstract_editorial_illustration.png",
+      "decision": "reject",
+      "reason": "Contains pgvector/Qdrant logos, SQL/REST labels, arrows and technical UI panels; brand-heavy infographic contrary to visual constitution."
+    },
+    {
+      "generation_id": "d923c8e1-e354-4cfb-8804-e6ab03356005",
+      "source_file": "a_wide_minimalist_abstract_editorial_illustratio.png",
+      "decision": "reject",
+      "reason": "Contains large vendor labels, interface-like cards and a query/answer flowchart. Unacceptable as wordless editorial art."
+    },
+    {
+      "generation_id": "c6835a21-93b0-444a-b1d5-402fa6da4c0d",
+      "source_file": "a_minimalist_cinematic_architectural_still_life.png",
+      "decision": "accept",
+      "reason": "Single tangible metaphor of integrated archive and physically separate retrieval cabinet joined by paper; no readable text, brands, charts, or interface. Warm architectural materials, controlled focal area."
+    }
+  ],
+  "selected_generation": {
+    "generation_id": "c6835a21-93b0-444a-b1d5-402fa6da4c0d",
+    "source_file": "/mnt/data/a_minimalist_cinematic_architectural_still_life.png",
+    "generation_brief": "A serene, cinematic architectural still life in a warm neutral gallery: ivory stone archive with arched shelves on the left, a separate terracotta cabinet with stacked papers to the right, and one curling parchment ribbon linking them; soft shadows, plaster, restrained materials, no branding or text.",
+    "original_dimensions": [
+      1672,
+      941
+    ]
+  },
+  "reference_comparison": [
+    {
+      "path": "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "observation": "Warm architectural space, sculpted physical components, fine texture and disciplined terracotta accent. Selected art shares a tangible rather than diagrammatic metaphor."
+    },
+    {
+      "path": "public/images/stories/2026-09-22-copilot-review-controls.webp",
+      "observation": "Quiet paper canvas, physically constructed mechanism and restrained material palette. Selected art is visually distinct but uses related print-like tactility."
+    }
+  ],
+  "actual_crop_review": [
+    {
+      "crop": "desktop-hero",
+      "ratio": "21:9",
+      "result": "pass",
+      "note": "Both cabinets and bridging paper remain readable, although top and bottom surroundings are cropped."
+    },
+    {
+      "crop": "mobile-hero",
+      "ratio": "16:9",
+      "result": "pass",
+      "note": "Original wide crop preserves both cabinets."
+    },
+    {
+      "crop": "card",
+      "ratio": "3:2",
+      "result": "pass",
+      "note": "Inset side crop retains the two contrasting cabinets and link."
+    }
+  ],
+  "output": {
+    "path": "public/images/guides/small-rag-pgvector-qdrant-decision.webp",
+    "width": 1600,
+    "height": 900,
+    "format": "WebP",
+    "quality": 88,
+    "method": 6,
+    "size_bytes": 185750,
+    "sha256": "f987ba3a703ebb82f33529c04c39f4eda5b59009884d0b37fda8d182c63c23f5",
+    "git_blob_sha": "ae2d114c49b96fc0cae21ed2a15cbb40a2fe6923",
+    "verified": "Pillow encode and full decode, RIFF format/dimensions, independent local Git-blob hash, GitHub base64 blob creation and exact remote readback comparison; all passed."
+  },
+  "alt_text": "An ivory archive and a separate terracotta cabinet, linked by one unfolding paper ribbon, illustrate the choice between integrated and independent retrieval storage.",
+  "constraints": "No diagram, generated results, UI, logos, model/database benchmark claims or human review claim. This record covers visual production only; article publication remains human-controlled."
+}
