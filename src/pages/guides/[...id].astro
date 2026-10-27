@@ -22,7 +22,7 @@ interface Props {
 
 const { guide } = Astro.props;
 const guides = await getCollection('guides', isPublishedGuide);
-const relatedGuides = relatedGuidesForGuide(guide.id, guides);
+const relatedGuides = relatedGuidesForGuide(guide.id, guides, guide.data.relatedGuides);
 const { Content, headings } = await render(guide);
 const base = import.meta.env.BASE_URL;
 const tocItems = headings
