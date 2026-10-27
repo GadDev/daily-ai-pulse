@@ -1,7 +1,9 @@
 ---
 title: "Build Your Own AI Model Router: Cut LLM Costs Without Compromising Quality"
 description: "Build a TypeScript router that chooses between models, validates responses, escalates safely, and measures whether routing is worth the complexity."
-status: draft
+status: published
+publishedAt: 2026-10-27
+author: The Daily AI Pulse
 format: tutorial
 verification: researched
 difficulty: intermediate
