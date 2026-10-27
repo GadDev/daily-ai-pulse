@@ -21,13 +21,19 @@ const guide = (
 
 test('curated links have existing source articles and guide targets, with specific reasons', () => {
   for (const [source, links] of Object.entries(storyGuideLinks)) {
-    const body = readFileSync(new URL(`../src/content/stories/${source}.md`, import.meta.url), 'utf8');
+    const body = readFileSync(
+      new URL(`../src/content/stories/${source}.md`, import.meta.url),
+      'utf8',
+    );
     assert.match(body, /^title:/m, source);
     checkDestinations(source, links);
   }
 
   for (const [source, links] of Object.entries(guideGuideLinks)) {
-    const body = readFileSync(new URL(`../src/content/guides/${source}.md`, import.meta.url), 'utf8');
+    const body = readFileSync(
+      new URL(`../src/content/guides/${source}.md`, import.meta.url),
+      'utf8',
+    );
     assert.match(body, /^title:/m, source);
     checkDestinations(source, links);
   }
@@ -47,7 +53,7 @@ function checkDestinations(source: string, links: readonly EditorialGuideLink[])
   }
 }
 
-test('render-time publication gate drops draft, withdrawn, missing, duplicate and self-links', () => {
+test('publication gate drops draft, withdrawn, missing, duplicate and self-links', () => {
   const links = [
     { id: 'live', reason: 'Test published content' },
     { id: 'draft', reason: 'Test draft content' },
