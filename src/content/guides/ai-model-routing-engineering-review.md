@@ -95,14 +95,9 @@ Measure the totals using actual provider responses and reconciled prices where a
 
 A simplified accounting model is:
 
-\[
-C_{\mathrm{routed}} =
-C_{\mathrm{classification}} +
-C_{\mathrm{first\ attempts}} +
-C_{\mathrm{retries}} +
-C_{\mathrm{escalations}} +
-C_{\mathrm{gateway/operations}}
-\]
+```text
+Total routed cost = classifier + first attempts + retries + escalations + gateway/operations
+```
 
 That number still omits the cost of downstream mistakes. For applications with meaningful failure impact, report **cost per accepted task** alongside total provider spend. An accepted task must pass an external, task-specific assessment: compilation and tests for programming tasks, schema and ground-truth comparison for extraction, or a carefully designed human review for ambiguous work. “The model said it is confident” is not a quality test.
 

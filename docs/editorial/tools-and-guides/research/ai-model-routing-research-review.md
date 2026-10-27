@@ -4,7 +4,7 @@
 **Publication:** Daily AI Pulse — Tools & Guides  
 **Suggested guide slug:** `ai-model-routing-typescript`  
 **Repository:** https://github.com/GadDev/daily-ai-pulse  
-**Editorial status:** Research reference under editorial review, kept separate from the draft tutorial. No merge, scheduling or publication action performed. An original illustration has since been attached to this review in the draft PR.
+**Editorial status:** Historical research and engineering verification record. The separately edited public-facing review is at `/guides/ai-model-routing-engineering-review/` and is distinct from the hands-on tutorial at `/guides/ai-model-routing-typescript/`. Historical verification results below remain a snapshot of the original research; do not reinterpret them as live provider tests.
 
 ## Editorial pitch
 
