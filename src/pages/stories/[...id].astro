@@ -50,7 +50,7 @@ export async function getStaticPaths() {
         newerStory: index > 0 ? stories[index - 1] : undefined,
         olderStory: index < stories.length - 1 ? stories[index + 1] : undefined,
         related,
-        relatedGuides: relatedGuidesForStory(story.id, guides),
+        relatedGuides: relatedGuidesForStory(story.id, guides, story.data.relatedGuides),
       },
     };
   });
