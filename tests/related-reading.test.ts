@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { parse as parseYaml } from 'yaml';
 import test from 'node:test';
 import {
   guideGuideLinks,
@@ -95,4 +96,69 @@ test('only editor-selected sources have related guides, never inferred from matc
   );
   assert.deepEqual(relatedGuidesForStory('unselected-story', guides), []);
   assert.deepEqual(relatedGuidesForGuide('unselected-guide', guides), []);
+});
+
+test('new story and guide frontmatter overrides legacy backfill; an empty choice stays quiet', () => {
+  const guides = [
+    guide('ai-coding-assistants-compared'),
+    guide('agentic-development-environments-compared'),
+    guide('first-rag-application'),
+    guide('withdrawn-guide', 'withdrawn'),
+  ];
+  const authored = [
+    { id: 'first-rag-application', reason: 'A specific next step for this newly drafted article.' },
+    { id: 'withdrawn-guide', reason: 'An unpublished guide must never reach the page.' },
+  ];
+  assert.deepEqual(
+    relatedGuidesForStory(
+      '2026-10-23-copilot-visual-studio-september-update',
+      guides,
+      authored,
+    ).map(({ guide }) => guide.id),
+    ['first-rag-application'],
+  );
+  assert.deepEqual(
+    relatedGuidesForGuide('agentic-development-environments-compared', guides, authored).map(
+      ({ guide }) => guide.id,
+    ),
+    ['first-rag-application'],
+  );
+  assert.deepEqual(
+    relatedGuidesForStory('2026-10-23-copilot-visual-studio-september-update', guides, []),
+    [],
+  );
+  assert.deepEqual(relatedGuidesForGuide('agentic-development-environments-compared', guides, []), []);
+});
+
+test('frontmatter-authored links in both collections target existing published guides', () => {
+  const root = new URL('../src/content/', import.meta.url);
+  const readEntries = (collection: string) =>
+    readdirSync(new URL(`${collection}/`, root))
+      .filter((file) => /\.mdx?$/.test(file))
+      .map((file) => {
+        const body = readFileSync(new URL(`${collection}/${file}`, root), 'utf8');
+        const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(body);
+        assert.ok(match, `${collection}/${file} needs frontmatter`);
+        return { id: file.replace(/\.mdx?$/, ''), data: parseYaml(match[1]) };
+      });
+  const guides = readEntries('guides');
+  const published = new Set(
+    guides.filter(({ data }) => data.status === 'published').map(({ id }) => id),
+  );
+  for (const collection of ['stories', 'guides']) {
+    for (const { id, data } of readEntries(collection)) {
+      if (data.relatedGuides === undefined) continue;
+      assert.ok(Array.isArray(data.relatedGuides), `${collection}/${id}`);
+      assert.ok(data.relatedGuides.length <= 3, `${collection}/${id}: too many links`);
+      const seen = new Set<string>();
+      for (const link of data.relatedGuides) {
+        assert.match(link.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/, `${collection}/${id}`);
+        assert.ok(link.reason?.trim().length >= 24, `${collection}/${id}: explain next step`);
+        assert.notEqual(link.id, id, `${collection}/${id}: self-link`);
+        assert.ok(!seen.has(link.id), `${collection}/${id}: duplicate`);
+        assert.ok(published.has(link.id), `${collection}/${id}: unpublished target ${link.id}`);
+        seen.add(link.id);
+      }
+    }
+  }
 });
