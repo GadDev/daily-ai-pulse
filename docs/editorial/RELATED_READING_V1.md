@@ -3,6 +3,44 @@
 **Audited:** 2026-10-27 against `main`. **Scope:** English news article to evergreen guide,
 and evergreen guide to another guide. No automatic recommendation system.
 
+## Editorial selection during article drafting (new articles)
+
+**Timing:** After the English story or guide has a stable reader outcome and before its
+publication/translation handoff, the owning editorial orchestrator performs an optional
+related-reading review. The resulting selection lives **in that article's Markdown frontmatter**,
+not in the shared legacy map:
+
+```yaml
+relatedGuides:
+  - id: agentic-development-environments-compared
+    reason: Compare where the coding agent executes, what it can access, and how you recover.
+```
+
+Choose **zero to three** already-published English guides. For each, read the actual destination
+and write one clear reader benefit: which specific question the guide answers next. Shared
+keywords or companies are not sufficient. Do not duplicate series navigation, link to drafts
+or withdrawn guides, or force a recommendation just to fill a quota. If there is no relevant
+published guide, **omit the field** (an explicit `relatedGuides: []` suppresses the legacy
+fallback). Link only to stable guide IDs (not URLs, article titles or a French route).
+The public display uses each published guide's current title and description.
+
+The news orchestrator writes `relatedGuides` on each publishable **English news story**
+after drafting and before finalizing English bytes for French translation. Avoid mutating
+the English source *after* the translation's source hash was recorded; if an edit is
+needed, recheck translation freshness and review. The separate Tools & Guides orchestrator
+writes `relatedGuides` on its own draft guide, then **rechecks targets at the separate
+human-authorized publication transition**. For both, keep the decision and reason visible
+in the existing PR body; a deliberate zero-match decision is a valid outcome. No new
+ledger fields, scheduled runs, background recommender or central-file edits are needed.
+
+**At build time**, the publication gate checks the current target status again and silently
+omits links to draft, withdrawn or missing guides. CI validates explicit frontmatter links
+against current published guide files, rejecting unknown/unpublished IDs, duplicates,
+self-links and invalid shapes. Only published source stories/guides produce public routes.
+The original curated `storyGuideLinks` and `guideGuideLinks` maps remain a **legacy
+backfill** for older articles with no `relatedGuides` field; **do not add new articles to
+those maps**. Existing automatic news → news "Related stories" continues separately.
+
 ## Existing routes and publication gates
 
 - English news lives at `/stories/:id/`; `src/pages/stories/[...id].astro` excludes `draft`
@@ -45,15 +83,16 @@ requirement to fill every article or guide with three links.
    outcome**, not merely because tags, models or company names overlap.
 2. Add at most three deliberate links, each with a specific benefit. Avoid self-links, duplicate
    links and repeating the series part navigation.
-3. Curate identifiers, not hardcoded URLs or titles. On render, resolve them from the **currently
-   published** collection. If a guide becomes draft, withdrawn or missing, its link disappears.
-   Static tests also flag broken editorial references during normal maintenance.
+3. For new articles, curate identifiers and reasons in the article's own `relatedGuides`
+   frontmatter; the shared map only backs up older articles. Resolve only the **currently
+   published** guides. If a guide becomes draft, withdrawn or missing, its rendered link
+   disappears. CI rejects newly authored references to unpublished or missing targets.
 4. Keep the English-only disclosure, existing visual typography, visible keyboard focus and
    mobile layout. No script, tracking pixels, consent banner, personalization or external
    recommendation requests.
-5. Reconsider the mapping when a new relevant guide is published or a destination's conclusion
-   changes. A guide's publication timestamp or verification metadata must not be updated merely
-   because its related links changed.
+5. Review references when a guide is published, withdrawn or substantively updated.
+   Never refresh publication timestamps or verification metadata merely because related links
+   changed. Update existing article frontmatter only through a reviewed editorial change.
 
 ## Separate follow-ups on issue #201
 
