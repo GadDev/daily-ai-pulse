@@ -3,6 +3,10 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TranslationAvailability from '../../components/TranslationAvailability.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
+import RelatedGuides from '../../components/guides/RelatedGuides.astro';
+import type { Guide } from '../../lib/guides';
+import { isPublishedGuide } from '../../lib/guides';
+import { relatedGuidesForStory, type ResolvedGuideLink } from '../../lib/related-reading';
 import PulseTake from '../../components/editorial/PulseTake.astro';
 import Evidence from '../../components/editorial/Evidence.astro';
 import TryThis from '../../components/editorial/TryThis.astro';
@@ -17,6 +21,7 @@ export async function getStaticPaths() {
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
   );
   const editions = await getCollection('pulse');
+  const guides = await getCollection('guides', isPublishedGuide);
   const { lookup } = await getTranslationContent();
 
   return stories.map((story, index) => {
@@ -45,6 +50,7 @@ export async function getStaticPaths() {
         newerStory: index > 0 ? stories[index - 1] : undefined,
         olderStory: index < stories.length - 1 ? stories[index + 1] : undefined,
         related,
+        relatedGuides: relatedGuidesForStory(story.id, guides),
       },
     };
   });
@@ -57,9 +63,11 @@ interface Props {
   newerStory?: CollectionEntry<'stories'>;
   olderStory?: CollectionEntry<'stories'>;
   related: CollectionEntry<'stories'>[];
+  relatedGuides: ResolvedGuideLink<Guide>[];
 }
 
-const { story, frenchAvailable, edition, newerStory, olderStory, related } = Astro.props;
+const { story, frenchAvailable, edition, newerStory, olderStory, related, relatedGuides } =
+  Astro.props;
 const { Content, headings } = await render(story);
 const base = import.meta.env.BASE_URL;
 const tocItems = headings
@@ -214,6 +222,8 @@ const imageSrc = story.data.image.startsWith('/')
         )}
       </div>
     </div>
+
+    <RelatedGuides links={relatedGuides} heading="Related guides" />
 
     {related.length > 0 && (
       <section class="related" aria-labelledby="related-title">
