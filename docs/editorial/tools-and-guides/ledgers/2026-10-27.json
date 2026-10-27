@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-27",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual commission on issue #215 (not a claim that the scheduled Tools & Guides task ran). Chose a researched pgvector/Qdrant architecture comparison, checked current published RAG guides, all merged evergreen ledgers and active PRs, and drafted a standalone technical review with matching synthetic filter examples and an evaluation protocol. pgvector 0.8.7 and Qdrant 1.20.0 are official release references, not tested installations. No DB benchmarks, costs, model evaluations, illustration or live code execution claimed. The draft PR is intentionally blocked on original WebP cover generation/review/upload and exact-head CI; human publication authorization remains separate.",
+  "run_note": "Explicit manual commission on issue #215 (not a claim that the scheduled Tools & Guides task ran). Chose a researched pgvector/Qdrant architecture comparison, checked current published RAG guides, all merged evergreen ledgers and active PRs, and drafted a standalone technical review with matching synthetic filter examples and an evaluation protocol. pgvector 0.8.7 and Qdrant 1.20.0 are official release references, not tested installations. No DB benchmarks, costs, model evaluations, illustration or live code execution claimed. PR #258 is intentionally blocked on original WebP cover generation/review/upload and exact-head CI; human publication authorization remains separate.",
   "candidates": [
     {
       "topic_key": "small-rag-pgvector-qdrant-decision",
@@ -35,7 +35,7 @@
   ],
   "handoff": {
     "guide_id": "small-rag-pgvector-qdrant-decision",
-    "pr_number": null,
+    "pr_number": 258,
     "completion": "blocked",
     "blockers": [
       "No supported image-generation tool is available in this runtime to produce three original constitution-compliant candidates; final reviewed 1600x900 WebP and verified Git upload are missing.",
@@ -66,7 +66,7 @@
     "blocker": {
       "stage": "generation",
       "message": "No supported image-generation tool is exposed in this session; original image candidates do not exist.",
-      "recovery": "Resume this same issue #215 draft PR using supported image generation; create three distinct candidates, inspect against two real production references, approve crops, convert high-resolution WebP and upload via binary-safe Git route with read-back hashes. Then run exact-head CI and seek separate human publication approval."
+      "recovery": "Resume draft PR #258 using supported image generation; create three distinct candidates, inspect against two real production references, approve crops, convert high-resolution WebP and upload via binary-safe Git route with read-back hashes. Then run exact-head CI and seek separate human publication approval."
     }
   }
 }
