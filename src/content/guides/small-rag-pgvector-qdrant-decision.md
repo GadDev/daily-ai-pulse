@@ -7,6 +7,8 @@ verification: researched
 difficulty: intermediate
 author: The Daily AI Pulse
 verifiedAt: 2026-10-27
+image: /images/guides/small-rag-pgvector-qdrant-decision.webp
+imageAlt: "An ivory archive and a separate terracotta cabinet, linked by one unfolding paper ribbon, illustrate the choice between integrated and independent retrieval storage."
 affiliateLinks: false
 sources:
   - label: "pgvector — project README and query/index reference"
@@ -75,7 +77,7 @@ Qdrant's [indexing documentation](https://qdrant.tech/documentation/manage-data/
 
 ## The same fictional tenant filter, expressed two ways
 
-Suppose a retrieval request is allowed to read only **active** passages belonging to tenant <code>acme</code>. The three-dimensional vectors below are **invented teaching data**, not real embeddings. The following snippets are **documentation-derived examples, not commands executed for this review**; PostgreSQL must have the pgvector extension installed, and Qdrant must be running on its configured endpoint. Neither should be exposed without authentication.
+Suppose a retrieval request is allowed to read only **active** passages belonging to tenant <code>acme</code>. The three-dimensional vectors below are **invented teaching data**, not real embeddings. The following snippets are **documentation-derived examples, not commands executed against either real database**; PostgreSQL must have the pgvector extension installed, and Qdrant must be running on its configured endpoint. Neither should be exposed without authentication.
 
 ### PostgreSQL + pgvector: rows and permissions in one store
 
@@ -169,7 +171,7 @@ curl -fsS -X POST http://127.0.0.1:6333/collections/rag_passages/points/query \
 
 The exact filtered query supplies a baseline. To evaluate Qdrant's HNSW behavior, run a second query with <code>"params":{"exact":false,"hnsw_ef":100}</code>, then compare the IDs, timing and returned count on representative data. A tiny collection or query planner may choose a full scan; **neither query mode alone proves which physical path was used**. The vector values and cosine conventions are comparable, but **do not compare raw pgvector distance values with Qdrant similarity scores as though higher/lower meant the same thing**.
 
-The Qdrant examples deliberately omit source text, which could instead be fetched from PostgreSQL using the returned <code>source_id</code>. That adds a second network/read step; it also lets the primary store remain the source of truth. Source content and permission changes must be handled by a clear synchronization policy.
+The cURL examples' HTTP methods, paths, JSON request bodies and filter/update/delete shapes passed a local **mock protocol** smoke check on October 27, 2026; the commands were **not** exercised against Qdrant. The mock does not establish exact-search behavior, index performance, durability or safety. The Qdrant examples deliberately omit source text, which could instead be fetched from PostgreSQL using the returned <code>source_id</code>. That adds a second network/read step; it also lets the primary store remain the source of truth. Source content and permission changes must be handled by a clear synchronization policy.
 
 ## Revocation is a system-design test, not a filter syntax test
 
@@ -245,4 +247,4 @@ Report configurations and confidence intervals where measurable. A one-shot quer
 
 A migration trigger is not “we reached 100,000 chunks.” It is evidence: repeated failure at an agreed recall/latency target, unacceptable interference with transactional traffic, filtering behavior you cannot economically tune, or an independently needed retrieval lifecycle. Migrate with dual-read comparisons, measured permissions, rollback and source-ID reconciliation. Until then, **the less exciting architecture may be the more responsible one**.
 
-*Evidence note, October 27, 2026:* This researched comparison relies on the linked primary documentation and release notes, with no hands-on benchmark, execution of the example commands, managed price verification or human production validation. Recheck vendor docs and versions before implementing or publishing measured claims.
+*Evidence note, October 27, 2026:* This researched comparison relies on the linked primary documentation and release notes, with no hands-on database benchmark, live PostgreSQL or Qdrant execution, managed price verification or human production validation. The Qdrant cURL commands passed Bash syntax and seven HTTP/JSON-shape assertions against a local mock, not a real server. Recheck vendor docs and versions before implementing or publishing measured claims.
