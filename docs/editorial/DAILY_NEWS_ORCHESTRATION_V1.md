@@ -90,8 +90,11 @@ Other desks keep existing scoring; guide ownership and scheduling remain indepen
    feature. Missing candidate evidence/novelty can yield watch only after actual
    attempts, with explicit promotion conditions.
 7. Persist the full normalized ledger, then continue publication verification and
-   deduplication, English, illustration capability checks/resolution, French,
-   issue, preflight, one draft PR and current-head CI. Follow existing contracts;
+   deduplication, English, optional curated `relatedGuides` on each drafted
+   English story, illustration capability checks/resolution, French, issue,
+   preflight, one draft PR and current-head CI. Follow
+   `docs/editorial/RELATED_READING_V1.md` at this stage, before English source
+   bytes are pinned for translation; zero relevant matches is valid. Follow existing contracts;
    preserve selection and record publication withholding separately. An artwork
    failure affects that candidate; French failure does not suppress valid English.
    A complete real zero-survivor ledger can produce a ledger-only PR; incomplete
@@ -180,7 +183,7 @@ Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md 
 
 Reconcile canonical branches/checkpoints/PRs for today and the preceding seven local dates. Resume the oldest structurally valid in-progress checkpoint first, retaining its original editorial date, cutoff, observations and human edits. Do not reopen a human-closed or merged batch. Do not resume a completed draft PR's research. If none is in progress, start today's batch only if its canonical batch has not already been finalized. Otherwise inspect any pending current-head CI; when nothing needs action, do not notify.
 
-Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. Use the current checkpoint and ledger phase, never a dated recovery hint from an earlier prompt. When research is complete, advance drafting, artwork, translations and handoff without repeating completed discovery.
+Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, optional curated relatedGuides before translation-source freeze, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. Use the current checkpoint and ledger phase, never a dated recovery hint from an earlier prompt. When research is complete, advance drafting, artwork, translations and handoff without repeating completed discovery.
 
 Use the existing docs/editorial/runs/YYYY-MM-DD.md and run_schema 1.1 metadata. Preserve real decisions and failures, exact next_action, pending_candidates and original cutoff. Verify remote checkpoint writes. Continue immediately after a write whenever possible. If the invocation returns with safe work remaining, leave status: in-progress and blocker: null, with the saved next action. The next configured hourly check resumes it automatically. This is a continuing batch, never Blocked before PR, complete, or a ledger-only result. Do not ask the user to rerun. Do not claim you scheduled a wake yourself or guarantee a completion time.
 
