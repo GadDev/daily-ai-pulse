@@ -60,8 +60,11 @@ At every invocation:
    Do not invent scores for items failing that rubric's engineering gates. Perform exact-copy
    claim/title/opening review. Persist the checkpoint then continue safe work in the same invocation.
 7. In pilot mode, finish the review bundle. In production mode, reserve coverage before drafting,
-   resolve artwork via unchanged shared policy, freeze English/alt text, attempt French and
-   validate publication readiness. Withhold candidate failures without stopping ready siblings.
+   curate optional published-guide links per story following
+   `docs/editorial/RELATED_READING_V1.md` before English source freeze, resolve artwork
+   via unchanged shared policy, freeze English/alt text, attempt French and
+   validate publication readiness. Zero relevant matches is valid; do not alter
+   pilot review bundles or daily/guide ledgers. Withhold candidate failures without stopping ready siblings.
 8. Open/reuse one canonical draft PR per batch. Inspect exact-head CI. Store CI observations in
    the PR body, avoiding heartbeat commits that invalidate the head being checked.
 
