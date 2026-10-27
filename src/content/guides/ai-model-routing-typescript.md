@@ -7,6 +7,8 @@ verification: researched
 difficulty: intermediate
 featured: false
 verifiedAt: 2026-10-27
+image: /images/guides/ai-model-routing-typescript.webp
+imageAlt: "An architectural routing junction diverts small spheres between a light elevated track and a heavy lower mechanism before they rejoin."
 sources:
   - label: OpenRouter — List models and properties
     url: https://openrouter.ai/docs/api/api-reference/models/list-all-models-and-their-properties
