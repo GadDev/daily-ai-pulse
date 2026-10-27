@@ -4,7 +4,7 @@
 **Publication:** Daily AI Pulse — Tools & Guides  
 **Suggested guide slug:** `ai-model-routing-typescript`  
 **Repository:** https://github.com/GadDev/daily-ai-pulse  
-**Editorial status:** Research reference under editorial review, kept separate from the draft tutorial. No merge, scheduling, publication or image-generation action performed.
+**Editorial status:** Research reference under editorial review, kept separate from the draft tutorial. No merge, scheduling or publication action performed. An original illustration has since been attached to this review in the draft PR.
 
 ## Editorial pitch
 
@@ -66,20 +66,20 @@ Search of the repository's default-branch content located related *news* items o
 - Direct model fallback may change semantics, formatting and compliance controls. Production use needs capability and data-policy checks.
 - The benchmark baseline configurations have no local hard budget in the demonstration harness; account-level controls are mandatory before running it.
 
-## Cover illustration — proposed concept only
+## Editorial illustration — research review
 
-**Do not generate automatically.** The Daily AI Pulse art constitution and the guide template require a physical editorial metaphor, distinct from the labeled technical diagram.
+![A mechanical routing junction inspected through a brass-rimmed magnifying glass among paper studies and stone samples.](assets/ai-model-routing-research-review.webp)
 
-**Suggested visual:** one carefully engineered *mechanical railway point* seen from a slightly raised oblique angle, carved or assembled from matte stone and dark metal. Two pathways diverge, one compact and direct, the other wider, passing through a visibly more elaborate constructed segment. The switch element is the focal object; its physical shape expresses purposeful allocation rather than generic networks. Quiet laboratory palette: warm paper `#F3EBDD`, near-black ink `#171B1A`, restrained terracotta `#8A4B35`; delicate texture, clear silhouette and generous negative space. **No words, labels, digits, flowcharts, glowing brains, neon, robots, fake UI or logos.** Layout planned for crop-safe guide hero and card sizes; compare with two actual guide production references before artwork review. Final publisher gate requires a real WebP, matching `image` and `imageAlt`, and honest provenance. No WebP is created here.
+**Asset:** `docs/editorial/tools-and-guides/research/assets/ai-model-routing-research-review.webp` (1600 × 900 WebP). Created following the explicit request to illustrate PR #260, as a separate visual from the tutorial cover in PR #259. It depicts a physical routing hub under inspection—an editorial metaphor for examining routing decisions and evidence, not a measured benchmark or technical architecture diagram.
 
-**Technical diagram:** unlike the cover, the separate labeled SVG legitimately explains the current code's selection, validation and budget boundaries. The zip contains this SVG; copy to `public/images/guides/ai-model-router-architecture.svg` at eventual PR preparation time.
+The illustration is an **internal editorial research asset**, not a published Astro guide cover. Before repurposing it for a public guide, check production-reference comparisons and card, mobile and hero crops against the visual constitution. The labeled technical SVG associated with PR #259 serves a different, explanatory role.
 
 ## Publication boundary and blockers
 
 1. Read and approve the draft's editorial framing and actual code snippets.
 2. Confirm current live model IDs for a reproducible provider-backed test (opt-in billable calls only).
 3. Review the real gateway response and usage accounting; replace missing or stale details.
-4. Produce a constitution-compliant 1600×900 or other placement-appropriate WebP through the repository's approved illustration workflow; inspect crops and metadata.
-5. Place the source article in `src/content/guides/`, diagram in `public/images/guides/`, and only then run project verification and human-authorized publication process.
+4. Review the newly generated WebP assets against production references and inspect crops/metadata before authorizing any public reuse.
+5. Verify the tutorial already staged in `src/content/guides/` on PR #259 and its diagram in `public/images/guides/`; run project verification and follow the human-authorized publication process.
 
-**Not completed as of the research snapshot:** full Astro validation, article cover generation, live provider tests, remote CI, and publication. This review is proposed separately from the draft tutorial; the review does not authorize publication.
+**Still required before publication:** final visual crop/constitution review, full Astro validation, live provider tests, exact-head CI verification, and human publication approval. The original WebP illustrations were subsequently created and attached to the two draft PRs. This review is proposed separately from the draft tutorial; the review does not authorize publication.
