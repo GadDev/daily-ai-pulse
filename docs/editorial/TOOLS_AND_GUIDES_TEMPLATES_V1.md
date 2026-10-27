@@ -4,7 +4,8 @@
 
 ## Common preflight checklist
 
-- [ ] Read [Editorial Voice v2](TOOLS_AND_GUIDES_V1.md#editorial-voice-v2). Choose the editorial genre before outlining; these worksheets are optional prompts, not mandatory headings or a shared article formula.
+- [ ] Read the shared [editorial voice](../EDITORIAL.md#editorial-voice) and [Editorial Voice v2 genre extensions](TOOLS_AND_GUIDES_V1.md#editorial-voice-v2). Choose the genre before outlining; these worksheets are optional prompts, not mandatory headings or a shared article formula.
+- [ ] Perform the shared [claim, title and opening review](../EDITORIAL.md#claim-title-and-opening-review) before artwork resolution/final copy. Put the actual assessed article revision, reviewer/type, six scores, result and unresolved issues in the existing PR handoff.
 - [ ] For a series, record distinct questions and owned explanations in a duplication matrix. Introductions and endings cannot be swapped between pieces without changing their meaning.
 - [ ] Audience, reader problem and objective are specific.
 - [ ] Accurate title, identified author/publisher, actual draft/publication dates and last-verification dates; a named reviewer is optional.

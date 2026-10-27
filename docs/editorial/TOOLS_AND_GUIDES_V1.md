@@ -10,15 +10,7 @@ Use **tutorials**, **technical reviews**, and **curated toolkits** as the implem
 
 ## Editorial Voice v2
 
-**Revision:** v2, prepared 2026-10-22; takes effect for new Tools & Guides drafts after human merge. This section owns evergreen voice; templates provide optional worksheets and the orchestrator applies these rules. Existing published articles are not silently rewritten.
-
-Write as a technically literate, independent editor talking to a curious developer. Be direct, approachable and skeptical of corporate claims. Explain an unfamiliar term when the reader first needs it, then show its consequence through a concrete engineering decision. Develop an original Daily AI Pulse voice; do not imitate a named journalist's wording, persona or recurring devices.
-
-Start with a real problem, question or contradiction. Ask what changes, what evidence supports it, who controls execution, how failure is recovered and who benefits commercially. Skepticism must examine an identifiable claim, not turn every paragraph into a sneer. Give counterarguments their strongest fair reading; reach a position only as strong as the evidence permits.
-
-Keep six evidence categories distinguishable in context: verified facts, our tested observations, attributed vendor claims, independent reporting, editorial interpretation and unresolved questions. A working definition is our analytical tool, not an industry standard. Reading documentation is not product testing. A benchmark is not proof of everyday productivity.
-
-Use short, connected paragraphs, concrete examples and purposeful transitions. Tables compare; diagrams explain relationships; lists collect genuinely parallel items. Humor may clarify a technical point. Avoid generic AI openings, unearned superlatives, rhetorical question barrages, fake experience and conclusions that merely repeat the introduction. Clarity takes priority over sounding provocative.
+**Revision:** v2, prepared 2026-10-22; shared-policy consolidation 2026-10-25. The stable heading remains for existing links. Read the publication-wide [editorial voice](../EDITORIAL.md#editorial-voice), [title/description/opening rules](../EDITORIAL.md#titles-descriptions-and-openings) and [claim, title and opening review](../EDITORIAL.md#claim-title-and-opening-review) before drafting. Those shared rules and editing examples have one owner in docs/EDITORIAL.md; this section adds evergreen genre requirements. Templates are optional worksheets. Existing published articles are not silently rewritten.
 
 ### One identity, different genres
 
@@ -34,20 +26,9 @@ The Astro values remain `tutorial`, `review`, `toolkit`. Comparisons, investigat
 
 For a related series, create a duplication matrix before drafting: question, audience, owned explanation, excluded material and intended cross-links. Each introduction, section sequence and conclusion must fit that article. Cross-link a deep explanation instead of repeating it. Before submission, challenge whether openings could be swapped, whether claims outrun their evidence, and whether an experienced developer learns anything beyond a feature list.
 
-### Before and after
-
-These are invented editing examples, not product findings, quotations or article excerpts.
-
-| Weak draft | Voice v2 edit | Editorial reason |
-| --- | --- | --- |
-| Agentic environments are revolutionizing software engineering. | An agent can edit your code and run commands. Before delegating a task, decide which files, credentials and network destinations it may reach. | Replace a grand claim with a mechanism and a decision. |
-| Tool A is the best assistant for every developer. | If you need suggestions inside your current editor, start there. If you need an agent to finish a repository task, evaluate its execution and review controls separately. | Make the recommendation conditional; a real comparison must supply evidence for each product. |
-| We tested the sandbox and found it secure. | The documentation describes a sandbox. We did not test whether the boundary holds against malicious repository content. | Match confidence to the evidence actually obtained. |
-| IDEs are dead. ADEs are the future. | The editor may stay. What changes is who chooses and executes the next action, and who reviews the result. | Explain responsibility without inventing a technological replacement. |
-
 ### Evidence and editorial self-review
 
-For significant claims, retain a reviewable matrix with **claim, source URL, evidence type, date checked, product/version/plan and limitations**. Record an unpinned live document as such; never substitute the date checked for a tested release number. Set comparison criteria before conclusions. Investigations must examine counterarguments and incentives; explainers must validate mechanisms and diagram relationships. Research breadth should follow the question, without a claim of exhaustive coverage.
+Apply the shared [claim, title and opening review](../EDITORIAL.md#claim-title-and-opening-review). Use a reviewable claim matrix where it helps a comparison; it does not replace adjacent support for consequential conclusions. Record an unpinned live document as such; never substitute the date checked for a tested release number. Set comparison criteria before conclusions. Investigations must examine counterarguments and incentives; explainers must validate mechanisms and diagram relationships. Research breadth should follow the question, without a claim of exhaustive coverage.
 
 Review each article individually for software correctness, agent execution/permission behavior, reporting fairness, comparison methodology and narrative quality. Then review the series for overlap. Record substantive issues and revisions, unresolved questions and publication blockers. Report findings, not private reasoning transcripts. No fabricated interviews, quotations, testing, prices or personal experience.
 

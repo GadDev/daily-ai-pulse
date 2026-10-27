@@ -86,7 +86,7 @@ Shared reservation/ownership rules apply before concurrent production drafting.
 | Question | Read |
 | --- | --- |
 | Product direction / architecture | [docs/PRD.md](docs/PRD.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
-| Editorial voice and what's publishable | [docs/EDITORIAL.md](docs/EDITORIAL.md) |
+| Shared news/guide voice, claim/title/opening review and what's publishable | [docs/EDITORIAL.md](docs/EDITORIAL.md); [evergreen genre extensions](docs/editorial/TOOLS_AND_GUIDES_V1.md#editorial-voice-v2) |
 | Candidate classification and selection | [docs/editorial/EDITORIAL_SCHEMA_V1.md](docs/editorial/EDITORIAL_SCHEMA_V1.md), [DECISION_ENGINE_V1.md](docs/editorial/DECISION_ENGINE_V1.md), [TOPICS_V1.yml](docs/editorial/TOPICS_V1.yml) |
 | Ledger contract | [docs/editorial/ledgers/README.md](docs/editorial/ledgers/README.md) |
 | What the site currently renders | [src/content.config.ts](src/content.config.ts), [docs/CONTENT_MODEL.md](docs/CONTENT_MODEL.md), [docs/DAILY_ISSUE.md](docs/DAILY_ISSUE.md), [docs/EDITORIAL_COMPONENTS.md](docs/EDITORIAL_COMPONENTS.md) |
