@@ -1,7 +1,8 @@
 ---
 title: "pgvector or Qdrant? Choose the storage layer for a small RAG service"
 description: "Compare PostgreSQL and a dedicated vector service through filtering, updates, recovery and operating cost—without invented benchmarks."
-status: draft
+status: published
+publishedAt: 2026-10-27
 format: review
 verification: researched
 difficulty: intermediate
