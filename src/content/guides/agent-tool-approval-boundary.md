@@ -1,11 +1,12 @@
 ---
-title: "Give AI Agents a Real Approval Boundary Before They Call Tools"
-description: "Build a small, testable Python approval gate that treats model-proposed actions as untrusted requests—not permission to act."
+title: "Build a Python approval gate for agent tool calls"
+description: "Validate a proposed action and bind approval to its exact arguments in a local mock, with explicit limits on identity, storage and delivery."
 status: published
 format: tutorial
 verification: researched
 author: The Daily AI Pulse
 publishedAt: 2026-10-23
+updatedAt: 2026-10-26
 verifiedAt: 2026-10-23
 testEnvironment: "Python 3.12.14 on Linux; exact article snippets executed with standard-library unittest (8 tests), plus 6 isolated boundary checks; in-memory mock only, no model API or authenticated production integration."
 difficulty: intermediate
@@ -25,9 +26,9 @@ sources:
     url: https://docs.python.org/3/library/secrets.html
 ---
 
-An AI assistant can propose sending a message, deleting a file, or changing a deployment. That proposal is **not an authorization**. The model may have misunderstood the request, or a retrieved document may have tried to redirect it. A schema-valid tool call can still be the wrong action.
+A model proposes sending a notification to the operations team. Before the application acts, it needs to check the destination, message and approval. The proposal is **not an authorization**: a tool call can have the right structure and still request the wrong action. The model may have misunderstood the request, or a retrieved document may have tried to redirect it.
 
-This tutorial builds a deliberately small approval boundary between a model's suggested tool call and the application that would execute it. We'll use a **mock notification tool**: it records a fictional notice in memory and never sends email or touches a network. The example requires only Python's standard library.
+Build that check in Python with a **mock notification tool**. It records a fictional notice in memory and never sends email or touches a network. The example uses only Python's standard library, so you can inspect and test the approval flow without an account or API key.
 
 By the end, you can explain and test four decisions independently: which action is permitted, whether its arguments are allowed, who requested it, and whether an independent approval applies to **this exact proposal**. This is a teaching example, **not** a production authorization service or a claim that prompt injection has been solved.
 
@@ -248,10 +249,10 @@ The example makes **no API requests** and stores only fictional messages in memo
 
 A simpler alternative is to expose **read-only tools** and omit write tools entirely. Another is a queue of proposed actions that a human performs manually. For irreversible or high-impact actions, those designs may be safer than an automatic executor—even one with approval checks.
 
-If you want to compare agent products' documented permission controls rather than build a gate, see [Comparing Agentic Development Environments: Follow the Permissions](/guides/agentic-development-environments-compared/). This tutorial answers a different question: **how does your own application enforce a boundary around one proposed action?**
+If you want to compare agent products' documented permission controls rather than build a gate, see [the guide to coding-agent access, isolation and recovery](/guides/agentic-development-environments-compared/). This tutorial answers a different question: **how does your own application enforce a boundary around one proposed action?**
 
 ## Before you call it production-ready
 
 Run the tests in a clean Python environment. Review the code for malformed inputs and race conditions. Replace the simulated identities with real server-side authentication, the in-memory approvals with an atomic durable store, and the mock log with an idempotent, least-privileged adapter. Add integration tests for concurrent approvals, expired tokens, partial failures, compromised tool responses and real user permissions. Verify the exact model API's tool-call parsing against its current documentation.
 
-**Editorial verification (23 October 2026):** Primary tool-use documentation and OWASP guidance were rechecked. The exact Python snippets passed eight unit tests plus six isolated boundary checks. Desktop and mobile diagrams and cover crops were visually checked in a local browser; artwork prompts and binary integrity are recorded in the accompanying editorial review. Provider integration, authenticated approval, concurrency, persistence and production behavior have **not** been verified. The verification label remains **researched**: successful mock execution is not evidence that a real agent or production authorization service is secure.
+**Verification boundary (23 October 2026):** The exact Python snippets passed eight unit tests plus six isolated boundary checks. Provider integration, authenticated approval, concurrency, persistence and production behavior have **not** been verified. The verification label remains **researched**: successful mock execution is not evidence that a real agent or production authorization service is secure.

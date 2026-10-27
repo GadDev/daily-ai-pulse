@@ -1,28 +1,32 @@
 ---
 storyId: 2026-10-24-rescale-ai-triage-agent
 locale: fr
-sourceRef: f0bcffa68ecad4d5c39f861704ad50c2490ff9db
-sourceSha256: 9a73a14056a1d3847631aed2bc7585c639c58724247ddec44b8348157da61d76
+sourceRef: c2030d5aab4fe49ce6813130e60795d7fb1a6e00
+sourceSha256: 9c648a2bdb219a19d015f4ed1dcfcb53bda9b29111d6ea7598d612f4bc5d72e5
 status: reviewed
 reviewedBy: Codex (model self-review)
-reviewedAt: '2026-10-24T06:08:02.306Z'
-title: Rescale intègre un agent de triage fondé sur MCP à son critère de mise en production
-description: Une étude de cas en production présente un agent qui classe les échecs nocturnes, rassemble les preuves dans les journaux et recommande des correctifs, tandis que les personnes conservent l’autorité de déploiement.
+reviewedAt: '2026-10-25T23:01:36.042Z'
+title: Rescale confie le triage des tests en échec à un agent IA avant l’approbation des mises en production par les ingénieurs
+description: AWS et Rescale rapportent moins de temps bloqué par l’analyse des tests, mais l’accord avec le triage humain ne prouve pas que le diagnostic est correct.
 imageAlt: Un atelier de triage répartissant des signaux de tests en échec dans des files étayées avant un portail de mise en production protégé
-corrections: []
+corrections:
+- date: '2026-10-25'
+  note: 'Actualisation de la source : l’étude de cas d’AWS et de Rescale indique désormais que l’accord de classification est passé de 44 % à 68 % et que le temps bloquant le déploiement pendant l’analyse des tests a diminué de 20 %. Nous avons remplacé l’affirmation selon laquelle aucun résultat d’évaluation n’était publié et précisé les limites de ces chiffres rapportés par les parties concernées. Nous n’avons pas établi quand ces passages sont apparus dans la source.'
 ---
 
-Les tests de bout en bout nocturnes de Rescale conditionnent les mises en production hebdomadaires. Lorsqu’un test échoue, les ingénieurs doivent combiner son résultat, les journaux, l’historique et le contexte du code source avant de pouvoir classer la cause et orienter le problème vers la bonne équipe.
+Rescale utilise désormais un agent IA pour une première analyse des tests nocturnes en échec qui conditionnent ses mises en production hebdomadaires. Les ingénieurs examinent son diagnostic et ses recommandations ; l’autorité de déploiement reste humaine.
 
-Une étude de cas publiée le 22 octobre par AWS et Rescale décrit un agent en production qui réalise cette première analyse. Il s’exécute dans le workflow Argo existant de l’entreprise sur Amazon EKS, appelle Claude via Amazon Bedrock, récupère des schémas d’échec historiques, interroge les journaux CloudWatch par l’intermédiaire de MCP et produit un rapport de remédiation structuré pour revue par un ingénieur.
+Dans une [étude de cas du 22 octobre](https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/), AWS et Rescale rapportent une réduction de 20 % du temps bloquant le déploiement en production pendant l’analyse des tests en échec. Ce résultat est rapporté par les parties concernées et porte sur un seul déploiement. La question utile pour les ingénieurs est de savoir comment réunir assez de preuves pour la personne chargée de la revue sans donner à l’agent l’autorité de mise en production.
 
 ## Une file étroite, des preuves explicites
 
-L’agent classe les échecs dans un petit ensemble de catégories de causes racines, notamment les problèmes d’infrastructure, les bugs de code, les tests instables et les problèmes d’environnement. Son rapport renvoie vers des fichiers, des fonctions et des preuves issues de l’exécution, au lieu de se contenter d’attribuer une étiquette.
+L’agent s’exécute dans le workflow Argo existant de l’entreprise sur Amazon EKS et appelle Claude via Amazon Bedrock. Il combine les résultats des tests, les schémas d’échec historiques, le contexte du code source et les journaux CloudWatch récupérés par le Model Context Protocol (MCP), une interface qui relie l’agent à des outils et à des données.
+
+Il classe les échecs dans un petit ensemble de catégories de causes racines, notamment les problèmes d’infrastructure, les bugs de code, les tests instables et les problèmes d’environnement. Son rapport de remédiation structuré renvoie vers des fichiers, des fonctions et des preuves issues de l’exécution, au lieu de se contenter d’attribuer une étiquette.
 
 Cette conception est plus utile qu’un agent générique chargé de « déboguer ceci », car la file d’entrée, le schéma de sortie et la personne chargée de la revue sont connus à l’avance. MCP sert de frontière de récupération des preuves opérationnelles ; l’agent n’est pas présenté comme modifiant la production de manière autonome.
 
-L’équipe a également créé un banc d’évaluation pendant le développement. L’article ne publie pas ses résultats de précision, de sorte que l’existence d’un banc ne doit pas être confondue avec une qualité démontrée. Elle montre toutefois où placer le critère de non-régression dans le parcours de livraison.
+L’équipe a également créé un banc d’évaluation pendant le développement. Dans la section consacrée aux résultats en production de l’étude de cas, AWS et Rescale indiquent que l’accord de classification avec le triage humain est passé de 44 % au déploiement à 68 %. L’accord mesure si l’agent et le triage humain ont abouti à la même classification ; il n’établit pas que l’un ou l’autre diagnostic était correct. La source ne fournit ni audit indépendant ni analyse des faux positifs.
 
 ## L’architecture a évolué pendant la construction
 
@@ -38,7 +42,7 @@ La méthode de développement a placé les ingénieurs aux points de décision p
 
 ## Limites des éléments disponibles
 
-L’architecture et le calendrier proviennent d’AWS et de Rescale. La source ne publie ni audit indépendant, ni série de mesures d’exactitude, ni analyse des faux positifs. Pulse traite donc ce déploiement comme un élément anecdotique et n’en généralise pas les affirmations sur la productivité ou la qualité.
+L’architecture, le calendrier et les chiffres opérationnels proviennent d’AWS et de Rescale. Les chiffres d’accord de classification et la réduction rapportée du temps bloquant le déploiement n’ont pas été validés de manière indépendante ici. Pulse traite ce déploiement comme un élément anecdotique, et non comme une prévision de productivité ou de qualité pour une autre équipe.
 
 ## À retenir pour les ingénieurs
 

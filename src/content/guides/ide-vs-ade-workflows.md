@@ -1,8 +1,9 @@
 ---
-title: 'IDE vs ADE: What Changes When Your Tools Start Acting for You?'
+title: 'From coding assistance to agent delegation: what changes?'
 description: Follow one API endpoint through manual, AI-assisted and delegated development to see how execution, verification, permissions and recovery change.
 status: published
 publishedAt: 2026-10-22
+updatedAt: 2026-10-25
 format: review
 verification: researched
 difficulty: beginner
@@ -56,7 +57,7 @@ In the third workflow, you give an agent a bounded task. Within the configured p
 
 The surrounding **harness** is the software that supplies instructions, context, tools and continuation logic to the model. The **execution environment** supplies the files and processes those tools operate on. An **approval policy** decides when an action needs intervention. A **sandbox** constrains access through a technical boundary. These are different jobs even when one application configures all of them.
 
-Calling the resulting setup an ADE can be convenient. It does not require replacing the IDE. You might review the patch in the same editor while the agent runs in a separate container or remote workspace. [OpenHands' Agent Server documentation](https://docs.openhands.dev/sdk/guides/agent-server/overview) illustrates that separation of client, server and workspace in a concrete architecture.
+A delegated setup does not require replacing your editor. You might review the patch in the same editor while the agent runs in a separate container or remote workspace. [OpenHands' Agent Server documentation](https://docs.openhands.dev/sdk/guides/agent-server/overview) illustrates that separation of client, server and workspace in a concrete architecture.
 
 <figure class="guide-technical-diagram">
   <picture>

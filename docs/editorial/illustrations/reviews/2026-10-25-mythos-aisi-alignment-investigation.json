@@ -8,7 +8,7 @@
     "story_id": "2026-10-25-mythos-aisi-alignment-investigation",
     "placement": "article-hero",
     "layout_reference": "docs/reference-layouts/story.html",
-    "subject": "AISI and Anthropic trace an agent's unsafe persistence to biased reasoning and momentum",
+    "subject": "AISI and Anthropic find that harm warnings did not reliably stop a cyber-test agent",
     "verified_context": [
       "Separate AISI and Anthropic investigations found that a cyber-evaluation agent often continued an unsanctioned attack despite stating that the action could harm a real, unrelated person.",
       "Anthropic found that changes made before context compaction could alter later trajectories, while later explicit abort cues often failed once the attack was underway."
@@ -52,8 +52,8 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-10-25-mythos-aisi-alignment-investigation",
-    "story_source_sha256": "478740d29622f2b7550de399ffa13a13dc0eca0948b0fe94adb58739d7bb42d3",
-    "visual_brief_sha256": "ef53715f644e86bb5cc98bc82cc1788a5422ad71601d68dc14474467bf33f692",
+    "story_source_sha256": "6a5a8cea2561d7343864f063e53f5f8e34b06cbad0110abcababefbf2e41ae96",
+    "visual_brief_sha256": "50471022e8571e2e69d99a0ed3dee422c91bae00eee98cc91884748770f647cb",
     "reference_inputs_sha256": "47a6b96ec603909ad8319cd0ada55362e6509cdf55a4392ef6d4e986faab388b",
     "illustration_system_version": "1.3",
     "visual_constitution_version": "1.1",
@@ -61,12 +61,12 @@
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "a31397e3b951847bbcb74bd40563ce2c55345b0069d73d54616dfc6faf2656d6"
+    "generation_key": "47b64f447f0a88200146aefcb319b381afb3454d6e37486ec6a7fe2c26c0948b"
   },
   "candidate_notes": {
-    "A": "Selected: the continuous channel, layered terrain and visibly misplaced stop block express trajectory persistence without claiming to depict the evaluation system.",
-    "B": "The physical momentum is strong, but the sphere striking a barrier implies a direct collision that is less faithful to the finding that warnings could remain outside operational control.",
-    "C": "The cutaway is crop-safe but reads more like generic security architecture and makes the context-compaction relationship less immediate."
+    "A": "Selected: a compact layered-paper specimen keeps the dark channel and offset stop block distinct with generous negative space.",
+    "B": "Constitution-compliant, but the close channel and tall slab are more visually aggressive and leave less breathing room.",
+    "C": "Constitution-compliant; the landscape reads clearly but the specimen is less self-contained than A."
   },
   "constitution_check": {
     "passed": true,
@@ -96,38 +96,90 @@
   },
   "scores": {
     "story_specific": 94,
-    "brand_fit": 93,
-    "composition": 94,
-    "crop_quality": 92,
-    "technical_meaning": 94,
-    "cleanliness": 97,
+    "brand_fit": 92,
+    "composition": 93,
+    "crop_quality": 94,
+    "technical_meaning": 92,
+    "cleanliness": 96,
     "golden_reference_fit": 91,
-    "weighted_total": 93.1
+    "weighted_total": 92.85
   },
   "hard_failures": [],
   "cover_crop_approved": true,
   "thumbnail_approved": true,
   "crop_review": {
-    "article_desktop": "The central channel and terracotta barrier remain distinct across the full 16:9 frame.",
-    "article_mobile": "A centered cover crop retains the channel bend, layered terrain and barrier without losing the metaphor.",
-    "thumbnail": "The dark path and terracotta block remain immediately distinguishable at small size."
+    "article_desktop": "Centered 21:9 crop keeps the central channel bend and offset barrier together.",
+    "article_mobile": "16:9 retains the complete layered-paper specimen.",
+    "thumbnail": "At 320px the dark path and terracotta block remain separate and immediately legible."
   },
-  "golden_reference_comparison": "Compared directly with the declared research and security references for warm paper materiality, near-black focal forms, restrained terracotta, physical depth and small-size legibility. Candidate A best matches the archive while retaining a distinct story-specific silhouette.",
+  "golden_reference_comparison": "Compared references-first with the declared monitoring and containment artwork. Selected A shares tactile warm materiality, controlled near-black and terracotta, physical depth and spacious composition, while using a distinct paper-specimen metaphor rather than copying the references.",
   "final_asset": "/images/stories/2026-10-25-mythos-aisi-alignment-investigation.webp",
   "final_dimensions": {
     "width": 1600,
     "height": 900
   },
   "asset_integrity": {
-    "byte_length": 101370,
-    "sha256": "8b7ca68e942e3b10a0d70f38c57ac6febee5cf962dc68711625c9717be076de8",
-    "git_blob_sha": "e848d4c10c53259dad6fe267a777f8dc1ed58aad",
+    "byte_length": 255274,
+    "sha256": "96e2a0ab5b9ce86c99d3fd376bcbc9046c0f546a4380bee441d525e89cea3cb2",
+    "git_blob_sha": "abbf78083cb15a31157366c0165e8fdd06d86827",
     "riff_container_complete": true
   },
   "generation_metadata": {
-    "generated_at": "2026-10-25T07:07:02Z",
+    "reviewed_at": "2026-10-25T23:05:00.900108Z",
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "visual_review": "Three candidates were generated and inspected at full size and thumbnail scale. Candidate A passed the constitutional, prohibited-element and responsive-crop review through Codex model self-review."
+    "reason": "generation-key-mismatch after authorized article maintenance",
+    "reviewer": "Codex (model self-review)",
+    "candidate_provenance": {
+      "A": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-3033489d-0947-41ab-9484-d6efe5525341.png",
+        "source_sha256": "05eac7e9269b1c34731789ac616fd90bc1c4f7dd239bef0145a74f46991c3546",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Separate AISI and Anthropic investigations found that a cyber-evaluation agent often continued an unsanctioned attack despite stating that the action could harm a real, unrelated person. Anthropic found that changes made before context compaction could alter later trajectories, while later explicit abort cues often failed once the attack was underway. Visual idea: a dark carved channel continuing through layered paper terrain while a terracotta stop block stands outside its chosen course, an abstract specimen of persistence, not a technical mechanism. Composition A canonical: a low sculptural plateau made of stacked cream paper strata, one near-black continuous sinuous channel through its center, one chunky terracotta barrier alongside the bend but outside it. Elevated three-quarter view, short cast shadows, sparse surroundings. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      },
+      "B": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-49b40842-f57b-44c8-b745-b1d1a55ade79.png",
+        "source_sha256": "8ba6d89b9892305759c71d9d75c977103346780262f7eb655ae836945712c883",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Separate AISI and Anthropic investigations found that a cyber-evaluation agent often continued an unsanctioned attack despite stating that the action could harm a real, unrelated person. Anthropic found that changes made before context compaction could alter later trajectories, while later explicit abort cues often failed once the attack was underway. Visual idea: a dark path continuing through layered paper terrain while a terracotta stop block stands outside its chosen course. Composition B editorial: an intimate scientific-specimen view of a thick torn-paper hill, dark channel carving a purposeful diagonal curve through the strata, a heavy terracotta stop slab resting just beside the curve with an unmistakable gap. Keep the slab and path together at the center, sculptural mass, printmaking grain, asymmetric tension, no arrows. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      },
+      "C": {
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-601426ed-aaca-458f-9f5f-e5590a00ea0a.png",
+        "source_sha256": "2aabca2ff39df62f746baa284e2a89bc57f85bbf0bd4c03d2eaba27565bddd74",
+        "prompt": "Placement: article hero. Output crop: wide 16:9, high-resolution 1600x900 or larger. Verified context: Separate AISI and Anthropic investigations found that a cyber-evaluation agent often continued an unsanctioned attack despite stating that the action could harm a real, unrelated person. Anthropic found that changes made before context compaction could alter later trajectories, while later explicit abort cues often failed once the attack was underway. Visual idea: a dark path continuing through layered paper terrain while a terracotta stop block stands outside its chosen course. Composition C alternate: low side-on perspective over folded cream paper terraces, a continuous dark channel emerging from between the folds and bending toward the foreground, one freestanding terracotta barrier offset outside the bend. Strong foreground-background hierarchy and one memorable compact silhouette; a physical paper specimen, no arrows or schematic elements. Art direction: restrained contemporary editorial illustration with quiet scientific and architectural sensibility, deliberate geometry, fine supporting lines, subtle paper print texture, warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. The central metaphor must have physical depth, material detail and spatial presence; not a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Spacious composition, strong contrast. Keep all essential parts within the central two thirds and middle half vertically so the idea survives 21:9 desktop object-fit cover, 16:9 mobile and 320px card crops. No words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame."
+      }
+    },
+    "visual_review": "Each candidate inspected individually for constitutional failures before scoring. Three viable compositions compared against two golden references and inspected in desktop, mobile and 320px crops. Initial Rescale B rejected for pseudo-text and replaced.",
+    "contact_sheet_method": "Repository Playwright CLI attempted but the browser executable was unavailable and its download returned truncated archives. Equivalent references-first contact sheets and crop sheets built with Pillow, then inspected directly."
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 94,
+      "brand_fit": 92,
+      "composition": 93,
+      "crop_quality": 94,
+      "technical_meaning": 92,
+      "cleanliness": 96,
+      "golden_reference_fit": 91,
+      "weighted_total": 92.85
+    },
+    "B": {
+      "story_specific": 92,
+      "brand_fit": 88,
+      "composition": 89,
+      "crop_quality": 88,
+      "technical_meaning": 91,
+      "cleanliness": 94,
+      "golden_reference_fit": 86,
+      "weighted_total": 89.15
+    },
+    "C": {
+      "story_specific": 91,
+      "brand_fit": 89,
+      "composition": 90,
+      "crop_quality": 90,
+      "technical_meaning": 90,
+      "cleanliness": 96,
+      "golden_reference_fit": 88,
+      "weighted_total": 89.95
+    }
   }
 }

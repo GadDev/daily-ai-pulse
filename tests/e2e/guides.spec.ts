@@ -92,12 +92,12 @@ test('both RAG tutorials respect the editorial publication gate and expose their
   const guides = [
     {
       id: 'first-rag-application',
-      title: 'Deploying Your First RAG Application',
+      title: 'Build your first local RAG API with FastAPI and Ollama',
       diagram: '/images/guides/first-rag-architecture.svg',
     },
     {
       id: 'rag-retrieval-evaluation',
-      title: 'Evaluate RAG Retrieval Quality with a Golden Question Set',
+      title: 'Find the passages your RAG retriever misses',
       diagram: '/images/guides/rag-retrieval-evaluation-flow.svg',
     },
   ] as const;

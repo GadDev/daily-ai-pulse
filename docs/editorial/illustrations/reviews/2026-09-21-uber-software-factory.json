@@ -1,0 +1,190 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "constitution_source": "docs/editorial/VISUAL_CONSTITUTION_V1.md",
+  "story_id": "2026-09-21-uber-software-factory",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-09-21-uber-software-factory",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Uber attributes more than 70% of pull requests to coding agents",
+    "verified_context": [
+      "Uber reports that more than 70% of pull requests are attributed to local or cloud agents.",
+      "Its engineering account describes review, CI repair and maintenance alongside human review and escalation."
+    ],
+    "editorial_idea": "Agent adoption requires coordination and review; attributed activity is not proof of autonomous completion or productivity.",
+    "visual_metaphor": "A single terracotta workpiece sits on a shared warm stone bench beside several fitted sculptural stone tools, poised for coordinated work. No gears, conveyor belts or literal factory.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one physical metaphor",
+      "warm paper field",
+      "central focal forms that survive cover cropping"
+    ],
+    "must_not_show": [
+      "text",
+      "logos",
+      "UI",
+      "charts",
+      "robots",
+      "unsupported claims",
+      "bare schematic",
+      "border or frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-09-21-uber-software-factory",
+    "story_source_sha256": "c3b5b1b130b3900be0f64a588b5ab710c60acb732cc6657d4133b65d473a29ab",
+    "visual_brief_sha256": "25a13eebd151235a637477a80353b747f58c507fe9e1462a28edf1ce462e15e8",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "aa06cb8eed0bd8f1b8f4767ca3e5da1e6c4e6f4916eb7ea3192b325552b6b532"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 88,
+    "brand_fit": 89,
+    "composition": 89,
+    "crop_quality": 91,
+    "technical_meaning": 85,
+    "cleanliness": 97,
+    "golden_reference_fit": 85,
+    "weighted_total": 88.3
+  },
+  "candidate_scores": {
+    "A": {
+      "story_specific": 88,
+      "brand_fit": 89,
+      "composition": 89,
+      "crop_quality": 91,
+      "technical_meaning": 85,
+      "cleanliness": 97,
+      "golden_reference_fit": 85,
+      "weighted_total": 88.3
+    },
+    "B": {
+      "story_specific": 87,
+      "brand_fit": 88,
+      "composition": 87,
+      "crop_quality": 87,
+      "technical_meaning": 85,
+      "cleanliness": 97,
+      "golden_reference_fit": 84,
+      "weighted_total": 86.85
+    },
+    "C": {
+      "story_specific": 85,
+      "brand_fit": 87,
+      "composition": 85,
+      "crop_quality": 89,
+      "technical_meaning": 84,
+      "cleanliness": 97,
+      "golden_reference_fit": 83,
+      "weighted_total": 86.0
+    }
+  },
+  "candidate_notes": {
+    "A": "Selected replacement: loose solid tools around one central terracotta workpiece; no articulated robot-like assemblies. Strongest focal silhouette.",
+    "B": "Viable overhead material study; useful tool/workpiece relationship but more crowded with debris and small shapes.",
+    "C": "Viable recessed workpiece composition; larger bench surface and flatter central silhouette make the metaphor less immediate."
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "final_asset": "/images/stories/2026-09-21-uber-software-factory.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "crop_review": {
+    "article_desktop": "1200 x 514 centered 21:9 crop inspected; focal relationship remains readable.",
+    "article_mobile": "359 x 202 centered 16:9 crop inspected; primary forms remain visible.",
+    "thumbnail": "320 x 164 centered cover crop inspected; central silhouette remains distinct.",
+    "home_square": "260 x 260 centered square preview inspected; nonessential edges crop, focal relationship survives."
+  },
+  "golden_reference_comparison": "Warm stone, terracotta, architectural depth and restrained supporting lines match the two references. The craft still life is less systems-specific and more photographic, so golden fit is 85. It represents shared work without a literal factory, autonomous-completion claim or productivity statistic.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-09-21-uber-software-factory.webp",
+  "contact_sheet_renderer": "Pillow fallback with two golden references above three candidates. Canonical contact-sheet CLI was attempted but could not launch its missing Playwright Chromium; official browser download returned a truncated/non-ZIP payload. No repository code was changed to bypass this.",
+  "asset_integrity": {
+    "byte_length": 255454,
+    "sha256": "bc391366138af87a33c72318ff4c91b80ce071760f649437dceb98fac5a4723d",
+    "git_blob_sha": "993f817d918205159da505e30400b008c716da10",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-10-26T11:02:51.399762+00:00",
+    "reviewed_at": "2026-10-26T11:07:42.982276+00:00",
+    "review_type": "Codex model visual self-review; no human sign-off",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Uber attributes more than 70% of pull requests to coding agents\nVerified context: Uber reports that more than 70% of pull requests are attributed to local or cloud agents. Its engineering account describes review, CI repair and maintenance alongside human review and escalation.\nVisual idea: A single terracotta workpiece sits on a shared warm stone bench beside several fitted sculptural stone tools, poised for coordinated work. No gears, conveyor belts or literal factory.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Canonical: spacious three-quarter view of a shared architectural workbench, a central terracotta workpiece and several large fitted stone tools with purposeful negative space.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.\nReplacement for a rejected robot-like composition. ONLY loose unpowered solid stone wedges, a stone straightedge and a shaping block resting beside a central terracotta workpiece. Absolutely no articulated assemblies, arms, joints, robotic mechanisms, gears or automatic tools. Spacious sculptural magazine still life.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-1998cc21-a780-459b-941e-13b7062cf792.png",
+        "source_png_sha256": "dcfa35367b44d31ced3496593519af036c29b403ae0927dbb9b2118734e5d02a",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "B",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Uber attributes more than 70% of pull requests to coding agents\nVerified context: Uber reports that more than 70% of pull requests are attributed to local or cloud agents. Its engineering account describes review, CI repair and maintenance alongside human review and escalation.\nVisual idea: A single terracotta workpiece sits on a shared warm stone bench beside several fitted sculptural stone tools, poised for coordinated work. No gears, conveyor belts or literal factory.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Editorial: overhead editorial still life of a terracotta workpiece and interlocking pale stone hand tools arranged loosely around it, no diagram arrows or symmetry grid.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.\nImportant interpretation: ONLY loose unpowered sculptural hand tools resting on a bench. No articulated assemblies, no arms, no joints, no robotic mechanisms or automatic tools. Use simple solid stone wedges, a loose stone straightedge and a shallow shaping block.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-f89333ec-8b0c-4670-99a3-348b734c50a1.png",
+        "source_png_sha256": "683282ab9f6cf76a44b1fec272dc4190542ee0344221a0f9986e06e9aef99dfe",
+        "constitution_passed": true
+      },
+      {
+        "candidate": "C",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Uber attributes more than 70% of pull requests to coding agents\nVerified context: Uber reports that more than 70% of pull requests are attributed to local or cloud agents. Its engineering account describes review, CI repair and maintenance alongside human review and escalation.\nVisual idea: A single terracotta workpiece sits on a shared warm stone bench beside several fitted sculptural stone tools, poised for coordinated work. No gears, conveyor belts or literal factory.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Alternate: a low oblique sculptural cutaway bench with the terracotta workpiece recessed at center and two pale fitted stone tools resting at different heights beside it; strong central silhouette.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.\nImportant interpretation: ONLY loose unpowered sculptural hand tools resting on a bench. No articulated assemblies, no arms, no joints, no robotic mechanisms or automatic tools. Use simple solid stone wedges, a loose stone straightedge and a shallow shaping block.",
+        "source": "/workspace/scratch/f8582773cd1f/generated_images/exec-e45b59d7-cd6f-40ad-8170-52e2c57e58f9.png",
+        "source_png_sha256": "24e18a6771dd0183262e12fed1333b54e673edb6d5f731d35a6d570e98daa9d6",
+        "constitution_passed": true
+      }
+    ],
+    "rejected_attempts": [
+      {
+        "path": "/workspace/scratch/f8582773cd1f/generated_images/exec-8ede8792-76d3-4ee4-9105-f383c4c5f9f1.png",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero inside docs/reference-layouts/story.html. This is an artwork asset to place in an existing HTML layout, not a generated webpage.\nSubject: Uber attributes more than 70% of pull requests to coding agents\nVerified context: Uber reports that more than 70% of pull requests are attributed to local or cloud agents. Its engineering account describes review, CI repair and maintenance alongside human review and escalation.\nVisual idea: A single terracotta workpiece sits on a shared warm stone bench beside several fitted sculptural stone tools, poised for coordinated work. No gears, conveyor belts or literal factory.\nOutput crop: wide, high resolution 16:9 landscape, at least 1600 by 900.\nComposition: Canonical: spacious three-quarter view of a shared architectural workbench, a central terracotta workpiece and several large fitted stone tools with purposeful negative space.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Deliberate geometry, fine supporting lines, subtle paper texture, a single clear focal idea, physical materiality, spatial depth and clear hierarchy. Warm canvas #F3EBDD, paper #FAF6EE, near-black #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast and an object-fit cover safe central 60 percent for desktop, mobile and thumbnails. Match the inspected golden references: tactile stone, architectural depth, terracotta and warm print-like grain. Not glossy stock photography.\nDepict only the supported abstract metaphor, not a literal architecture, measured result or guarantee.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. Do not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not be the composition itself. No border or frame.\nDeliver a clean high-resolution image with no border or frame.",
+        "reason": "Articulated stone tools resemble robot arms; constitutional robot prohibition. Not scored.",
+        "source_png_sha256": "0c68bf4e6e168898735a981d1090a9d289de2f69696180e42906b140434502a6",
+        "constitution_passed": false,
+        "scored": false
+      }
+    ]
+  }
+}

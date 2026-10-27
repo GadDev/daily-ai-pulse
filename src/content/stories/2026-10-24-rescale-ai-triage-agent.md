@@ -1,7 +1,11 @@
 ---
-title: Rescale puts an MCP-backed test-triage agent into its release gate
-description: A production case study shows an agent classifying nightly failures, gathering log evidence and recommending fixes while people keep deployment authority.
+title: Rescale uses an AI agent to triage failed tests before engineers approve releases
+description: AWS and Rescale report less time blocked on test analysis, but agreement with human triage is not proof of correct diagnosis.
 date: '2026-10-24'
+updatedAt: '2026-10-25'
+corrections:
+- date: '2026-10-25'
+  note: 'Source refresh: the AWS and Rescale case study now reports classification agreement rising from 44% to 68% and a 20% reduction in time blocking deployment during test analysis. We replaced the claim that no evaluation results were published and clarified the limits of these first-party figures. We have not established when those passages appeared in the source.'
 category: practice
 tags:
 - agents
@@ -29,17 +33,19 @@ sources:
   url: https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/
 ---
 
-Rescale's nightly end-to-end tests gate weekly production releases. When one fails, engineers have to combine test output, logs, history and source context before they can classify the cause and route it to the right team.
+Rescale now uses an AI agent for the first pass on failed nightly tests that gate its weekly releases. Engineers review its diagnosis and recommendations; deployment authority stays with people.
 
-An October 22 AWS and Rescale case study describes a production agent that performs that first pass. It runs inside the company's existing Argo workflow on Amazon EKS, calls Claude through Amazon Bedrock, retrieves historical failure patterns, queries CloudWatch logs through MCP and emits a structured remediation report for engineer review.
+In an [October 22 case study](https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/), AWS and Rescale report a 20% reduction in time blocking production deployment while test failures are analyzed. That is a first-party result from one deployment. The useful engineering question is how to gather enough evidence for a reviewer without giving the agent release authority.
 
 ## Narrow queue, explicit evidence
 
-The agent classifies failures into a small set of root-cause categories, including infrastructure, code, flaky-test and environment problems. Its report points to files, functions and supporting runtime evidence instead of only assigning a label.
+The agent runs inside the company's existing Argo workflow on Amazon EKS and calls Claude through Amazon Bedrock. It combines test output, historical failure patterns, source context and CloudWatch logs retrieved through the Model Context Protocol (MCP), an interface for connecting the agent to tools and data.
+
+It classifies failures into a small set of root-cause categories, including infrastructure, code, flaky-test and environment problems. Its structured remediation report points to files, functions and supporting runtime evidence instead of only assigning a label.
 
 That design is more useful than a generic “debug this” agent because the input queue, output schema and reviewer are known in advance. MCP is used as a retrieval boundary for operational evidence; the agent is not described as autonomously changing production.
 
-The team also created an evaluation harness during the build. The article does not publish its accuracy results, so the existence of a harness should not be confused with proven quality. It does show where regression gating belongs in the delivery path.
+The team also created an evaluation harness during the build. In the case study's production-outcomes section, AWS and Rescale report that classification agreement with human triage rose from 44% at deployment to 68%. Agreement measures whether the agent and human triage matched; it does not establish that either diagnosis was correct. The source does not provide an independent audit or a false-positive analysis.
 
 ## The architecture changed during construction
 
@@ -55,7 +61,7 @@ The development method placed engineers at requirements, architecture and scope 
 
 ## Evidence boundary
 
-The architecture and timeline come from AWS and Rescale. No independent audit, accuracy series or false-positive analysis is published in the source. Pulse therefore treats the deployment as anecdotal evidence and does not generalize its productivity or quality claims.
+The architecture, timeline and operational figures come from AWS and Rescale. The classification-agreement figures and reported reduction in deployment-blocking time have not been independently validated here. Pulse treats this deployment as anecdotal evidence, not a productivity or quality forecast for another team.
 
 ## Engineer takeaway
 
