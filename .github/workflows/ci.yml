@@ -52,7 +52,7 @@ jobs:
         run: npm run translations:batch:test
 
       - name: Category and guide browsing regressions
-        run: node --test tests/pagination.test.ts tests/guides.test.ts
+        run: node --test tests/pagination.test.ts tests/guides.test.ts tests/related-reading.test.ts
 
       - name: French page rendering and visibility regressions
         run: npm run translations:pages:test

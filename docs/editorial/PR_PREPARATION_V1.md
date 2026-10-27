@@ -30,7 +30,8 @@ flowchart TD
     H -->|No| I["Withhold + record conflict"]
     H -->|Yes| J["Draft canonical story"]
 
-    J --> K["Generate illustration"]
+    J --> X["Curate related published guides"]
+    X --> K["Generate illustration"]
     K --> T["Finalize English + prepare reviewed French"]
     T --> L["Create daily issue manifest"]
     L --> M["Persist full ledger"]
@@ -344,6 +345,23 @@ without changing the research:
 deduplication.status
 ```
 
+## Editorial related-guide selection for each new story
+
+After the English draft is factually stable and **before** the English source
+bytes are committed for French translation, inspect published evergreen guides
+using `docs/editorial/RELATED_READING_V1.md`. If an existing guide answers a
+specific next reader question, add its stable `id` and a reader-facing `reason`
+to this **story's optional `relatedGuides` frontmatter** (0–3 links). Zero is
+valid; do not pad suggestions using tag or company matches. Never point at
+draft, withdrawn, unknown or French-translation routes.
+
+Include the selected destinations and reasons, or a recorded zero-match
+decision, in the same daily PR summary. Do not edit the legacy shared mapping
+for new articles, create a new ledger field or another schedule. Because
+translation integrity depends on the final English bytes, changing this
+frontmatter after source fingerprinting requires translation freshness
+verification and review. The Astro build also filters unavailable destinations.
+
 ## Drafting gate
 
 Only candidates with:
@@ -440,6 +458,8 @@ executing the full repository:
 - illustration references
 - daily issue references
 - duplicate story references
+- authored related guide links, when present, have 0–3 distinct published
+  destinations and a concrete next-reader-question reason
 - canonical daily branch and PR identity
 
 Blocking editorial, source, deduplication, or structural failures prevent the
@@ -499,6 +519,7 @@ Required reviewer visibility:
 - watchlist
 - rejected/already-covered candidates
 - editorial opportunities
+- per-new-story related-guide decisions and reasons (or intentional zero matches)
 - illustration paths
 - French coverage and per-story reviewed/reused/blocked outcomes, source fingerprints,
   actual review identity/type/time, and actionable blockers

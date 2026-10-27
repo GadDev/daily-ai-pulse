@@ -42,6 +42,7 @@ Daily AI Pulse Orchestrator
                  ├── re-verify selected evidence
                  ├── re-run publication deduplication
                  ├── draft selected stories
+                  ├── select optional published related guides per English story
                  ├── invoke illustration workflow
                  │       ├── REUSE
                  │       └── GENERATE
@@ -94,6 +95,7 @@ of:
 - `docs/editorial/DECISION_ENGINE_V1.md`
 - `docs/editorial/TOPICS_V1.yml`
 - `docs/editorial/PR_PREPARATION_V1.md`
+- `docs/editorial/RELATED_READING_V1.md` (when present)
 - `docs/editorial/ILLUSTRATION_SYSTEM_V1.md`
 - `docs/editorial/ILLUSTRATION_GENERATION_IDENTITY_V1.md`
 - `docs/editorial/VISUAL_CONSTITUTION_V1.md`
@@ -592,6 +594,18 @@ Rules:
 
 Do not finalize illustration-related frontmatter until Step 8 resolves the
 story's illustration.
+
+## Step 7a — Curate optional related reading before translation
+
+For each publication-eligible English story, compare the reader's next
+question with *actual already-published* guides. Follow
+`docs/editorial/RELATED_READING_V1.md`; write zero to three `relatedGuides`
+entries (`id` and explanatory `reason`) into that story's frontmatter.
+Do not choose by tags alone, reference drafts/withdrawn guides or touch the
+legacy central map. Record choices or an intentional no-match in the same
+daily PR. Finalize these source bytes before French translation; if changing
+them later, recheck source hash and translation freshness. This changes no
+selection, ledger schema, illustration rule, scheduler or publication authority.
 
 ## Step 8 — Resolve one illustration per drafted story
 
