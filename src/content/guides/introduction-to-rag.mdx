@@ -39,8 +39,6 @@ sources:
     url: https://nodejs.org/api/typescript.html
 ---
 
-import RagContextLab from '../../components/guides/RagContextLab.astro';
-
 Your company's AI assistant says the release manager approved Friday's deployment. Sounds useful. Except the policy changed yesterday: now it takes a security sign-off too. The answer is fluent, confident—and built from the wrong version of reality.
 
 The model may know how releases usually work. It does not necessarily know **your** release process. That's the gap **retrieval-augmented generation (RAG)** is designed to narrow: find relevant source material *before* asking a language model to answer.
@@ -103,7 +101,29 @@ That is RAG: **retrieve → augment → generate**. You can add query rewriting,
 
 Here is a simulated assistant answering **“Who can approve a production release?”** Pick which information reaches the assistant. The outcomes are fixed instructional examples, not a model's responses.
 
-<RagContextLab />
+<div class="rag-context-experiment">
+  <p><strong>Question:</strong> Who can approve a production release?</p>
+  <p>Choose a scenario to reveal the context and a cautious, illustrative answer.</p>
+  <details name="rag-example" open>
+    <summary><strong>Scenario A — No retrieved text</strong></summary>
+    <p><strong>Retrieved context:</strong> None.</p>
+    <blockquote>I cannot confirm who approves releases without the applicable policy.</blockquote>
+    <p>Without evidence, abstaining can be safer than guessing.</p>
+  </details>
+  <details name="rag-example">
+    <summary><strong>Scenario B — Current, relevant policy</strong></summary>
+    <p><strong>Retrieved context:</strong> Fictional policy: “Production deployment requires approval from the release manager and security reviewer after staging checks pass.”</p>
+    <blockquote>The release manager and security reviewer must both approve after staging checks pass. [Fictional release policy]</blockquote>
+    <p>Source IDs help readers inspect the claim, but permissions, freshness and actual source support still need checking.</p>
+  </details>
+  <details name="rag-example">
+    <summary><strong>Scenario C — Irrelevant incident note</strong></summary>
+    <p><strong>Retrieved context:</strong> Fictional incident note: “On-call staff notify the incident commander during an outage.”</p>
+    <blockquote>This document does not establish who approves releases.</blockquote>
+    <p>Retrieval happened, but the wrong document was retrieved. A citation cannot fix missing evidence.</p>
+  </details>
+  <p><em>All answers are deterministic teaching examples, not live model output. No data is sent to a service.</em></p>
+</div>
 
 Two lessons are easy to miss. First, a cautious **“I don't know”** is sometimes the best answer. Second, a source citation is useful only if it refers to an authorized, relevant, current document *and the answer follows it*. Citations are a route to verification, not a stamp of correctness.
 
