@@ -71,7 +71,10 @@ test('guide pagination supports direct loads, history, format changes and canoni
 
 test('a learning path starts at Part 1 and links only published neighbours', async ({ page }) => {
   await page.goto('/guides/tutorials/');
-  await page.getByRole('link', { name: 'Start at Part 1 →', exact: true }).click();
+  const claudePath = page.getByRole('listitem').filter({
+    has: page.locator('a[href="/guides/series/claude-architecture/"]'),
+  });
+  await claudePath.getByRole('link', { name: 'Start at Part 1 →', exact: true }).click();
   await expect(page).toHaveURL(/\/guides\/claude-foundations-first-api-prompt\/$/);
   await page.goto('/guides/series/claude-architecture/');
   const parts = await page
