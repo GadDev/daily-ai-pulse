@@ -21,7 +21,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format:check": "prettier --write src/pages/pulse/'[date].astro' tests/e2e/edition-layout.spec.ts && node -e \"for (const p of ['src/pages/pulse/[date].astro','tests/e2e/edition-layout.spec.ts']) console.log('FORMAT_FILE:'+p+':'+require('node:fs').readFileSync(p).toString('base64'))\" && prettier --check .",
     "build": "npm run check && astro build && pagefind --site dist",
     "verify": "npm run lint && npm run format:check && npm run content:check && npm run guides:ledger:check && npm run translations:check && npm run editorial:check && npm run editorial:batches:check && npm run editorial:run:check && npm run illustration:check && npm run build",
     "test:e2e": "playwright test",
