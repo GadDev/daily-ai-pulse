@@ -331,10 +331,7 @@
       "2026-10-28-gpt-6-1-terra",
       "2026-10-28-meta-privacylib-agent-controls"
     ],
-    "standalone_story_ids": [
-      "2026-10-28-gpt-6-1-terra",
-      "2026-10-28-meta-privacylib-agent-controls"
-    ],
+    "standalone_story_ids": [],
     "withheld_selected": [],
     "must_know_story_id": "2026-10-28-gpt-6-1-terra"
   },
