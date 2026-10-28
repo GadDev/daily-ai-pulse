@@ -21,7 +21,7 @@ interface RemainingSection {
 
 interface EditionLink {
   id: string;
-  date: Date;
+  data: Edition['data'];
 }
 
 export async function getStaticPaths() {
@@ -46,7 +46,8 @@ export async function getStaticPaths() {
     }
 
     // Respect the editor's featured selection, while tolerating an unpublished reference.
-    const lead = ordered.find(({ story }) => story.id === edition.data.featured) ?? ordered[0] ?? null;
+    const lead =
+      ordered.find(({ story }) => story.id === edition.data.featured) ?? ordered[0] ?? null;
     const following = ordered
       .filter(({ story }) => story.id !== lead?.story.id)
       .map((item, index) => ({ ...item, rank: index + 2 }));
@@ -123,12 +124,11 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
 ---
 
 <BaseLayout title={edition.data.title + ' | Pulse'} description={edition.data.summary}>
-  <header
-    class="edition-intro"
-    data-pagefind-meta={'kind:edition, date:' + edition.id}
-  >
+  <header class="edition-intro" data-pagefind-meta={'kind:edition, date:' + edition.id}>
     <div class="edition-topline">
-      <span>THE DAILY EDITION <span aria-hidden="true">/</span> SIGNAL OVER NOISE</span>
+      <span>
+        THE DAILY EDITION <span aria-hidden="true">/</span> SIGNAL OVER NOISE
+      </span>
       <time datetime={edition.id}>{issueDate}</time>
     </div>
 
@@ -141,8 +141,12 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     </div>
 
     <div class="edition-facts" aria-label="Edition details">
-      <span>{totalStories} {storyCountLabel}</span>
-      <span>{deskCount} {deskCount === 1 ? 'desk' : 'desks'}</span>
+      <span>
+        {totalStories} {storyCountLabel}
+      </span>
+      <span>
+        {deskCount} {deskCount === 1 ? 'desk' : 'desks'}
+      </span>
       <span>Evidence-first reporting</span>
     </div>
   </header>
@@ -150,7 +154,13 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
   {lead ? (
     <section class="lead-story" aria-labelledby="edition-lead-title">
       <div class="lead-copy">
-        <p class="story-kicker"><span class="kicker-mark" aria-hidden="true"></span> THE LEAD STORY <span class="kicker-divider" aria-hidden="true">/</span> {lead.desk}</p>
+        <p class="story-kicker">
+          <span class="kicker-mark" aria-hidden="true"></span> THE LEAD STORY{' '}
+          <span class="kicker-divider" aria-hidden="true">
+            /
+          </span>{' '}
+          {lead.desk}
+        </p>
         <h2 id="edition-lead-title">
           <a href={storyHref(lead.story)}>{lead.story.data.title}</a>
         </h2>
@@ -162,7 +172,9 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
           <span aria-hidden="true">·</span>
           <span>{readingTime(lead.story)}</span>
         </div>
-        <a class="read-story" href={storyHref(lead.story)}>Read the full story <span aria-hidden="true">→</span></a>
+        <a class="read-story" href={storyHref(lead.story)}>
+          Read the full story <span aria-hidden="true">→</span>
+        </a>
       </div>
       <figure class="lead-art">
         <img
@@ -200,15 +212,25 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
               />
             </div>
             <div class="highlight-copy">
-              <p class="story-kicker"><span class="story-number">{String(item.rank).padStart(2, '0')}</span> {item.desk} <span class="kicker-divider" aria-hidden="true">/</span> {item.story.data.type}</p>
-              <h3><a href={storyHref(item.story)}>{item.story.data.title}</a></h3>
+              <p class="story-kicker">
+                <span class="story-number">{String(item.rank).padStart(2, '0')}</span> {item.desk}{' '}
+                <span class="kicker-divider" aria-hidden="true">
+                  /
+                </span>{' '}
+                {item.story.data.type}
+              </p>
+              <h3>
+                <a href={storyHref(item.story)}>{item.story.data.title}</a>
+              </h3>
               <p class="highlight-dek">{item.story.data.description}</p>
               <div class="story-details">
                 <a href={base + 'methodology/'}>{evidenceText(item.story)}</a>
                 <span aria-hidden="true">·</span>
                 <span>{readingTime(item.story)}</span>
               </div>
-              <a class="read-story read-story--small" href={storyHref(item.story)}>Read story <span aria-hidden="true">→</span></a>
+              <a class="read-story read-story--small" href={storyHref(item.story)}>
+                Read story <span aria-hidden="true">→</span>
+              </a>
             </div>
           </article>
         ))}
@@ -227,10 +249,20 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
           <div class="coverage-list">
             {section.stories.map((item) => (
               <article class="coverage-row">
-                <span class="coverage-number" aria-hidden="true">{String(item.rank).padStart(2, '0')}</span>
+                <span class="coverage-number" aria-hidden="true">
+                  {String(item.rank).padStart(2, '0')}
+                </span>
                 <div class="coverage-copy">
-                  <p class="story-kicker">{item.story.data.type} <span class="kicker-divider" aria-hidden="true">/</span> {item.story.data.difficulty}</p>
-                  <h3><a href={storyHref(item.story)}>{item.story.data.title}</a></h3>
+                  <p class="story-kicker">
+                    {item.story.data.type}{' '}
+                    <span class="kicker-divider" aria-hidden="true">
+                      /
+                    </span>{' '}
+                    {item.story.data.difficulty}
+                  </p>
+                  <h3>
+                    <a href={storyHref(item.story)}>{item.story.data.title}</a>
+                  </h3>
                   <p>{item.story.data.description}</p>
                 </div>
                 <div class="coverage-meta">
@@ -248,24 +280,31 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
 
   <aside class="edition-note" aria-label="About this edition">
     <h2>About this edition</h2>
-    <p>Pulse favors consequential developments over volume. Evidence labels describe source quality; signal levels describe editorial importance.</p>
-    <a href={base + 'methodology/'}>Our methodology <span aria-hidden="true">→</span></a>
+    <p>
+      Pulse favors consequential developments over volume. Evidence labels describe source quality;
+      signal levels describe editorial importance.
+    </p>
+    <a href={base + 'methodology/'}>
+      Our methodology <span aria-hidden="true">→</span>
+    </a>
   </aside>
 
   <nav class="edition-navigation" aria-label="Browse daily editions">
     {older ? (
       <a class="edition-direction" href={editionHref(older.id)}>
         <span class="edition-direction-label">← Previous edition</span>
-        <span>{shortDate(older.date)}</span>
+        <span>{shortDate(older.data.date)}</span>
       </a>
     ) : (
       <span class="edition-navigation-spacer"></span>
     )}
-    <a class="all-editions" href={base + 'pulse/'}>All editions</a>
+    <a class="all-editions" href={base + 'pulse/'}>
+      All editions
+    </a>
     {newer ? (
       <a class="edition-direction edition-direction--next" href={editionHref(newer.id)}>
         <span class="edition-direction-label">Next edition →</span>
-        <span>{shortDate(newer.date)}</span>
+        <span>{shortDate(newer.data.date)}</span>
       </a>
     ) : (
       <span class="edition-navigation-spacer"></span>
@@ -303,7 +342,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     border-bottom: 1px solid var(--line);
     color: var(--muted);
   }
-  .edition-topline span span { margin: 0 0.45rem; color: var(--terracotta); }
+  .edition-topline span span {
+    margin: 0 0.45rem;
+    color: var(--terracotta);
+  }
 
   .edition-intro-grid {
     display: grid;
@@ -317,7 +359,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     margin: 0 0 0.7rem;
   }
   .edition-intro h1 {
-    font: 400 clamp(2rem, 3.7vw, 3.25rem)/1.04 Georgia, 'Times New Roman', serif;
+    font:
+      400 clamp(2rem, 3.7vw, 3.25rem)/1.04 Georgia,
+      'Times New Roman',
+      serif;
     letter-spacing: -0.045em;
     text-wrap: balance;
     margin: 0;
@@ -325,7 +370,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
   .edition-dek {
     margin: 0 0 0.15rem;
     max-width: 54ch;
-    font: 1.05rem/1.48 Georgia, 'Times New Roman', serif;
+    font:
+      1.05rem/1.48 Georgia,
+      'Times New Roman',
+      serif;
     color: var(--muted);
   }
   .edition-facts {
@@ -346,7 +394,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     padding: 2.1rem 0 clamp(2.6rem, 5vw, 4rem);
     border-bottom: 2px solid var(--ink);
   }
-  .lead-copy { grid-area: copy; min-width: 0; }
+  .lead-copy {
+    grid-area: copy;
+    min-width: 0;
+  }
   .story-kicker {
     display: flex;
     flex-wrap: wrap;
@@ -356,10 +407,21 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     margin: 0;
     color: var(--terracotta);
   }
-  .kicker-mark { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: currentColor; }
-  .kicker-divider { color: var(--muted); opacity: 0.7; }
+  .kicker-mark {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .kicker-divider {
+    color: var(--muted);
+    opacity: 0.7;
+  }
   .lead-story h2 {
-    font: 400 clamp(2.3rem, 4.8vw, 4.6rem)/1.02 Georgia, 'Times New Roman', serif;
+    font:
+      400 clamp(2.3rem, 4.8vw, 4.6rem)/1.02 Georgia,
+      'Times New Roman',
+      serif;
     letter-spacing: -0.048em;
     text-wrap: balance;
     margin: 1.2rem 0 1.1rem;
@@ -374,7 +436,9 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
   }
   .lead-story h2 a:hover,
   .highlight-card h3 a:hover,
-  .coverage-row h3 a:hover { text-decoration: underline; }
+  .coverage-row h3 a:hover {
+    text-decoration: underline;
+  }
   .lead-story h2 a:focus-visible,
   .highlight-card h3 a:focus-visible,
   .coverage-row h3 a:focus-visible,
@@ -399,8 +463,13 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     line-height: 1.6;
     letter-spacing: 0.035em;
   }
-  .story-details a { color: inherit; text-underline-offset: 0.22em; }
-  .story-details a:hover { color: var(--ink); }
+  .story-details a {
+    color: inherit;
+    text-underline-offset: 0.22em;
+  }
+  .story-details a:hover {
+    color: var(--ink);
+  }
   .read-story {
     display: inline-flex;
     align-items: center;
@@ -411,24 +480,36 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--terracotta);
-    font: 500 1rem/1.2 Georgia, 'Times New Roman', serif;
+    font:
+      500 1rem/1.2 Georgia,
+      'Times New Roman',
+      serif;
   }
-  .read-story:hover { color: var(--terracotta); }
-  .lead-art, .highlight-art {
+  .read-story:hover {
+    color: var(--terracotta);
+  }
+  .lead-art,
+  .highlight-art {
     overflow: hidden;
     margin: 0;
     background: var(--surface-alt);
     border-radius: 8px;
   }
-  .lead-art { grid-area: art; }
-  .lead-art img, .highlight-art img {
+  .lead-art {
+    grid-area: art;
+  }
+  .lead-art img,
+  .highlight-art img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
   }
 
-  .top-stories, .coverage-section { padding-top: 2rem; }
+  .top-stories,
+  .coverage-section {
+    padding-top: 2rem;
+  }
   .section-heading {
     display: flex;
     justify-content: space-between;
@@ -438,11 +519,17 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     border-bottom: 1px solid var(--ink);
   }
   .section-heading h2 {
-    font: 400 clamp(1.65rem, 2.7vw, 2.2rem)/1.15 Georgia, 'Times New Roman', serif;
+    font:
+      400 clamp(1.65rem, 2.7vw, 2.2rem)/1.15 Georgia,
+      'Times New Roman',
+      serif;
     letter-spacing: -0.02em;
     margin: 0;
   }
-  .section-heading > p { color: var(--muted); margin: 0; }
+  .section-heading > p {
+    color: var(--muted);
+    margin: 0;
+  }
   .highlight-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -457,7 +544,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     border-bottom: 1px solid var(--line);
   }
   .highlight-card h3 {
-    font: 400 clamp(1.7rem, 2.45vw, 2.35rem)/1.12 Georgia, 'Times New Roman', serif;
+    font:
+      400 clamp(1.7rem, 2.45vw, 2.35rem)/1.12 Georgia,
+      'Times New Roman',
+      serif;
     letter-spacing: -0.025em;
     margin: 0.7rem 0 0.7rem;
     text-wrap: balance;
@@ -468,18 +558,32 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     margin: 0 0 0.9rem;
     max-width: 62ch;
   }
-  .story-number { color: var(--ink); }
-  .read-story--small { margin-top: 0.55rem; font-size: 0.95rem; }
-  .highlight-grid--single { grid-template-columns: 1fr; }
+  .story-number {
+    color: var(--ink);
+  }
+  .read-story--small {
+    margin-top: 0.55rem;
+    font-size: 0.95rem;
+  }
+  .highlight-grid--single {
+    grid-template-columns: 1fr;
+  }
   .highlight-grid--single .highlight-card {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     align-items: center;
     gap: clamp(1.5rem, 4vw, 3rem);
   }
-  .highlight-grid--single .highlight-art { align-self: stretch; }
-  .highlight-grid--single .highlight-art img { height: 100%; min-height: 260px; }
-  .coverage-section { padding-top: 2.4rem; }
+  .highlight-grid--single .highlight-art {
+    align-self: stretch;
+  }
+  .highlight-grid--single .highlight-art img {
+    height: 100%;
+    min-height: 260px;
+  }
+  .coverage-section {
+    padding-top: 2.4rem;
+  }
   .coverage-row {
     display: grid;
     grid-template-columns: 2.5rem minmax(0, 1fr) minmax(9rem, 12rem);
@@ -488,10 +592,18 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     border-bottom: 1px solid var(--line);
     padding: 1.45rem 0;
   }
-  .coverage-number { color: var(--muted); padding-top: 0.2rem; }
-  .coverage-row .story-kicker { font-size: 0.67rem; }
+  .coverage-number {
+    color: var(--muted);
+    padding-top: 0.2rem;
+  }
+  .coverage-row .story-kicker {
+    font-size: 0.67rem;
+  }
   .coverage-row h3 {
-    font: 400 clamp(1.4rem, 2vw, 1.85rem)/1.15 Georgia, 'Times New Roman', serif;
+    font:
+      400 clamp(1.4rem, 2vw, 1.85rem)/1.15 Georgia,
+      'Times New Roman',
+      serif;
     letter-spacing: -0.02em;
     margin: 0.55rem 0 0.5rem;
   }
@@ -510,7 +622,10 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     line-height: 1.4;
     letter-spacing: 0.02em;
   }
-  .coverage-meta a { color: inherit; text-underline-offset: 0.22em; }
+  .coverage-meta a {
+    color: inherit;
+    text-underline-offset: 0.22em;
+  }
 
   .edition-note {
     display: grid;
@@ -523,7 +638,11 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     border-bottom: 1px solid var(--line);
   }
   .edition-note h2 {
-    font: 600 0.72rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    font:
+      600 0.72rem/1.5 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
     text-transform: uppercase;
     letter-spacing: 0.075em;
     margin: 0;
@@ -540,7 +659,9 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     white-space: nowrap;
     font-size: 0.9rem;
   }
-  .edition-note a:hover { text-decoration: underline; }
+  .edition-note a:hover {
+    text-decoration: underline;
+  }
 
   .edition-navigation {
     display: grid;
@@ -549,8 +670,14 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     align-items: center;
     padding-top: 2rem;
   }
-  .edition-navigation a { color: var(--ink); text-decoration: none; }
-  .edition-navigation a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .edition-navigation a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .edition-navigation a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .edition-direction {
     display: flex;
     flex-direction: column;
@@ -559,8 +686,14 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     line-height: 1.3;
     min-height: 44px;
   }
-  .edition-direction--next { align-items: flex-end; text-align: right; }
-  .edition-direction-label { color: var(--terracotta); font-size: 0.67rem; }
+  .edition-direction--next {
+    align-items: flex-end;
+    text-align: right;
+  }
+  .edition-direction-label {
+    color: var(--terracotta);
+    font-size: 0.67rem;
+  }
   .all-editions {
     display: inline-flex;
     align-items: center;
@@ -570,35 +703,68 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
     padding: 0.65rem 1rem;
     font-size: 0.85rem;
   }
-  .edition-empty { padding: 2rem 0; color: var(--muted); }
+  .edition-empty {
+    padding: 2rem 0;
+    color: var(--muted);
+  }
 
   @media (max-width: 900px) {
-    .edition-intro-grid { grid-template-columns: 1fr; gap: 0.85rem; }
-    .edition-dek { max-width: 68ch; }
-    .lead-story { gap: 1.6rem; }
-    .lead-story h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
-    .edition-note { grid-template-columns: 1fr 2fr; }
-    .edition-note a { grid-column: 2; }
+    .edition-intro-grid {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+    .edition-dek {
+      max-width: 68ch;
+    }
+    .lead-story {
+      gap: 1.6rem;
+    }
+    .lead-story h2 {
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+    }
+    .edition-note {
+      grid-template-columns: 1fr 2fr;
+    }
+    .edition-note a {
+      grid-column: 2;
+    }
   }
   @media (max-width: 700px) {
-    .edition-intro { padding-top: 1.1rem; }
-    .edition-topline { font-size: 0.66rem; }
-    .edition-intro h1 { font-size: clamp(1.9rem, 7vw, 2.65rem); }
-    .edition-dek { font-size: 1rem; }
+    .edition-intro {
+      padding-top: 1.1rem;
+    }
+    .edition-topline {
+      font-size: 0.66rem;
+    }
+    .edition-intro h1 {
+      font-size: clamp(1.9rem, 7vw, 2.65rem);
+    }
+    .edition-dek {
+      font-size: 1rem;
+    }
     .lead-story {
       grid-template-columns: minmax(0, 1fr);
       grid-template-areas: 'art' 'copy';
       gap: 1.5rem;
       padding: 1.4rem 0 2.4rem;
     }
-    .lead-story h2 { font-size: clamp(2.2rem, 8.5vw, 3.25rem); }
-    .highlight-grid { grid-template-columns: 1fr; }
+    .lead-story h2 {
+      font-size: clamp(2.2rem, 8.5vw, 3.25rem);
+    }
+    .highlight-grid {
+      grid-template-columns: 1fr;
+    }
     .highlight-grid--single .highlight-card {
       grid-template-columns: 1fr;
       gap: 1.2rem;
     }
-    .highlight-grid--single .highlight-art img { min-height: 0; height: auto; }
-    .highlight-card { padding: 1.2rem 0 1.8rem; }
+    .highlight-grid--single .highlight-art img {
+      min-height: 0;
+      height: auto;
+    }
+    .highlight-card {
+      padding: 1.2rem 0 1.8rem;
+    }
     .coverage-row {
       grid-template-columns: 2rem minmax(0, 1fr);
       gap: 0.55rem 0.75rem;
@@ -610,17 +776,42 @@ const storyCountLabel = totalStories === 1 ? 'story' : 'stories';
       gap: 0.35rem 0.9rem;
       font-size: 0.66rem;
     }
-    .edition-note { grid-template-columns: 1fr; gap: 0.6rem; }
-    .edition-note a { grid-column: 1; white-space: normal; }
-    .edition-navigation { gap: 0.6rem; }
-    .all-editions { padding: 0.5rem 0.6rem; text-align: center; }
-    .edition-direction { font-size: 0.82rem; }
+    .edition-note {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+    .edition-note a {
+      grid-column: 1;
+      white-space: normal;
+    }
+    .edition-navigation {
+      gap: 0.6rem;
+    }
+    .all-editions {
+      padding: 0.5rem 0.6rem;
+      text-align: center;
+    }
+    .edition-direction {
+      font-size: 0.82rem;
+    }
   }
   @media (max-width: 380px) {
-    .edition-topline { flex-direction: column; }
-    .edition-navigation { grid-template-columns: 1fr 1fr; }
-    .edition-navigation .all-editions { grid-column: 1 / -1; grid-row: 1; justify-self: stretch; }
-    .edition-direction--next { grid-column: 2; }
-    .edition-facts { font-size: 0.64rem; }
+    .edition-topline {
+      flex-direction: column;
+    }
+    .edition-navigation {
+      grid-template-columns: 1fr 1fr;
+    }
+    .edition-navigation .all-editions {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      justify-self: stretch;
+    }
+    .edition-direction--next {
+      grid-column: 2;
+    }
+    .edition-facts {
+      font-size: 0.64rem;
+    }
   }
 </style>
