@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-28",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual commission in chat: generate an illustration and open a new PR with the tutorial set to published. Maintainer authorization covers publication metadata in this PR; no merge or deployment performed. The article was researched and drafted earlier in the same session. Three original cover candidates compared; A selected after constitution/reference/crop review, encoded to WebP and uploaded. Exact-byte base64 readback at commit 28e797d939f61f06ea89076cfed189d6e7e4c548 confirmed. Local npm run verify passed on Node 22.22.3. Exact-head GitHub CI remains pending.",
+  "run_note": "Explicit manual commission in chat to generate an illustration and open a new PR with published tutorial metadata. Draft PR #263 is open and unmerged; no deployment performed. Article is status published with the real publication date 2026-10-28 and existing publisher The Daily AI Pulse, as requested. Three actual imagegen candidates were compared; A selected after constitution/reference/crop review, encoded to 1600x900 WebP, uploaded and confirmed by exact-byte remote base64 readback. npm run verify and 16 guide regressions passed locally. New article passed browser/axe/layout checks at 1440, 375 and 320px with observed Chromium 153.0.8010.0. Full local e2e: 75 passed and one French keyboard-tab-order assertion failed identically on unchanged main 8398a31d00d6a2bd9c76889bf2a507ddcdde771e. That local baseline issue is retained in PR evidence, not counted as passed. GitHub CI run 40696113029 for exact head 2ccdc21c314b0bb15667aa956bfc1278e3b54256 completed successfully, including full browser/accessibility and verification jobs. This final completion/evidence-only update preserves article and artwork bytes; its exact-head CI is separately observed in PR #263 before final handoff.",
   "candidates": [
     {
       "topic_key": "lean-prompts",
@@ -22,11 +22,9 @@
   ],
   "handoff": {
     "guide_id": "lean-prompts",
-    "pr_number": null,
-    "completion": "blocked",
-    "blockers": [
-      "Exact-head GitHub CI and final local browser checks remain pending."
-    ]
+    "pr_number": 263,
+    "completion": "complete",
+    "blockers": []
   },
   "artwork": {
     "state": "uploaded",
