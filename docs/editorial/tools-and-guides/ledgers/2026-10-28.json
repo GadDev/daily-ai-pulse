@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-10-28",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual commission in chat: generate the illustration and open a new PR containing the tutorial with published status. No merge or deployment is authorized by this PR action. The article was researched and drafted in this same session before this repository handoff. Three original cover candidates compared; A selected after constitution/reference/crop review. No existing guide or open guide PR covers this beginner editing-and-comparison outcome. Preparation remains blocked until upload readback and exact-head CI are observed.",
+  "run_note": "Explicit manual commission in chat: generate an illustration and open a new PR with the tutorial set to published. Maintainer authorization covers publication metadata in this PR; no merge or deployment performed. The article was researched and drafted earlier in the same session. Three original cover candidates compared; A selected after constitution/reference/crop review, encoded to WebP and uploaded. Exact-byte base64 readback at commit 28e797d939f61f06ea89076cfed189d6e7e4c548 confirmed. Local npm run verify passed on Node 22.22.3. Exact-head GitHub CI remains pending.",
   "candidates": [
     {
       "topic_key": "lean-prompts",
@@ -25,11 +25,11 @@
     "pr_number": null,
     "completion": "blocked",
     "blockers": [
-      "Binary upload/readback and exact-head GitHub CI remain pending."
+      "Exact-head GitHub CI and final local browser checks remain pending."
     ]
   },
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -44,8 +44,8 @@
         "evidence": "Pillow encoded and fully decoded a 1600x900 WebP; RIFF container length checked. SHA-256 f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "GitHub base64 blob write and exact-byte readback have not yet been executed for this final asset."
+        "status": "available",
+        "evidence": "Created GitHub base64 blob 2ca1f6ff48ea225846eff6838303aa89ab788faa, committed to the original preparation branch, and compared fetch_file base64 readback at 28e797d939f61f06ea89076cfed189d6e7e4c548 against all local bytes; exact match."
       }
     },
     "generation": {
@@ -66,6 +66,13 @@
         "card"
       ]
     },
-    "blocker": null
+    "blocker": null,
+    "upload": {
+      "path": "/images/guides/lean-prompts.webp",
+      "sha256": "f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb",
+      "git_blob_sha": "2ca1f6ff48ea225846eff6838303aa89ab788faa",
+      "width": 1600,
+      "height": 900
+    }
   }
 }

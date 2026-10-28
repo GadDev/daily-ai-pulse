@@ -219,6 +219,7 @@
     "riff_container_complete": true
   },
   "normalization": "Pillow center-fit to 1600x900; WebP quality 90 method 6; full decode and RIFF-length check passed.",
-  "remote_readback": "Pending exact-byte GitHub blob readback.",
-  "validator_scope": "Generation key constructed using canonical repository CLI/library with explicit guide source path. Review is guide-specific and is not falsely submitted to the news illustration batch validator; that validator and reuse asset route are news-specific."
+  "remote_readback": "GitHub fetch_file with encoding base64 at commit 28e797d939f61f06ea89076cfed189d6e7e4c548 returned blob 2ca1f6ff48ea225846eff6838303aa89ab788faa; decoded payload matched the complete local WebP bytes. Generic fetch_blob tried UTF-8 and failed on binary, so the supported base64 file route was used.",
+  "validator_scope": "Generation key constructed using canonical repository CLI/library with explicit guide source path. Review is guide-specific and is not falsely submitted to the news illustration batch validator; that validator and reuse asset route are news-specific.",
+  "contact_sheet_review": "Canonical scripts/build-illustration-contact-sheet.ts executed using a local launch override for observed Chromium 153.0.8010.0; reference-first result visually inspected. No repository browser configuration was changed."
 }
