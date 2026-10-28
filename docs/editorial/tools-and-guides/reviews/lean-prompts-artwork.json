@@ -1,0 +1,224 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "lean-prompts",
+  "review_date": "2026-10-28",
+  "reviewer": "Codex visual self-review; not independent human review",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "lean-prompts",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Lean Prompts: Cut Clutter, Keep the Instructions That Matter",
+    "verified_context": [
+      "A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output.",
+      "Extra detail is useful when it removes ambiguity or supplies evidence.",
+      "A shorter prompt must be compared with its original before claiming equivalent quality."
+    ],
+    "editorial_idea": "Remove excess while retaining what supports the task.",
+    "visual_metaphor": "A freestanding paperboard arch is pared around its outer edges while its supporting curve remains intact; trimmed offcuts rest nearby.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one materially present paperboard arch",
+      "an intact supporting curve",
+      "a few nearby offcuts",
+      "clear focal silhouette"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "lean-prompts",
+    "story_source_sha256": "b1e4010303cdbc4d31271aed64d0170dc7370d5e1a5f83f6012004e748d6b0e6",
+    "visual_brief_sha256": "0979aeda4a493d05e59cf14c185bfe3ca382fad36238609405dd7caa041a8893",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "1e5703b2c2b933fd60507d96d7f1db920fccf3e42120c1c25f2295e34379de9d"
+  },
+  "generation_metadata": {
+    "tool": "image_gen.imagegen",
+    "model_snapshot": null,
+    "source": "/workspace/scratch/b6cd12c268dd/generated_images/exec-8040c385-5dbf-46c5-9a1e-2633cb5e34f8.png"
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "candidate_reviews": [
+    {
+      "candidate": "A",
+      "source_file": "/workspace/scratch/b6cd12c268dd/generated_images/exec-8040c385-5dbf-46c5-9a1e-2633cb5e34f8.png",
+      "output_identifier": "exec-8040c385-5dbf-46c5-9a1e-2633cb5e34f8",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, also used in editorial guide cards.\nOutput crop: wide landscape, high resolution 2048 by 1152 or larger, no border.\nSubject: Lean Prompts: Cut Clutter, Keep the Instructions That Matter.\nVerified context: A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output. Extra detail is useful when it removes ambiguity or supplies evidence. A shorter prompt must be compared with its original before claiming equivalent quality.\nVisual idea: One freestanding paperboard arch is pared back around its outside edges while the central supporting curve stays intact. A few matching offcuts rest beside it. This is an abstract metaphor of editing excess while retaining what carries the load, not a factual diagram of AI.\nCanonical composition: one compact substantial ivory paperboard arch stands on a warm neutral surface in three-quarter perspective. Its curved silhouette and layered trimmed outer edges dominate the central half. Three irregular ivory and terracotta offcuts sit to one side. Architectural calm and spacious warm paper background.\nArt direction: A restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and one clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition, strong contrast, controlled perspective, layered paper edges and subtle physical shadows. Quiet editorial abstraction with material and spatial presence; no photorealistic workshop clutter.\nUse the role, wide crop and whitespace of the publication's story layout. The focal arch and offcuts must survive center-cover crops to 21:9 desktop, 16:9 mobile and 3:2 card, and read at 320 pixels wide. Keep the essential motif safely centered with generous room around it.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not carry the composition itself. The arch must feel materially illustrated, with depth and hierarchy.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame. Website text is rendered separately. No scissors, tools, people, hands, gears or conveyor belts.\n",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 92,
+        "composition": 90,
+        "crop_quality": 89,
+        "technical_meaning": 92,
+        "cleanliness": 97,
+        "golden_reference_fit": 90,
+        "weighted_total": 91.3
+      },
+      "review_note": "Selected: simple intact supporting arch, restrained terracotta layer and clear detached offcuts. The quiet material still life fits both production references. Wide hero retains the supporting curve; the uppermost scrap and lower offcuts can be trimmed without losing the metaphor."
+    },
+    {
+      "candidate": "B",
+      "source_file": "/workspace/scratch/b6cd12c268dd/generated_images/exec-ab639eb1-8ccc-4d91-8d83-7d187fb04274.png",
+      "output_identifier": "exec-ab639eb1-8ccc-4d91-8d83-7d187fb04274",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, also used in editorial guide cards.\nOutput crop: wide landscape, high resolution 2048 by 1152 or larger, no border.\nSubject: Lean Prompts: Cut Clutter, Keep the Instructions That Matter.\nVerified context: A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output. Extra detail is useful when it removes ambiguity or supplies evidence. A shorter prompt must be compared with its original before claiming equivalent quality.\nVisual idea: One freestanding paperboard arch is pared back around its outside edges while the central supporting curve stays intact. A few matching offcuts rest beside it. This is an abstract metaphor of editing excess while retaining what carries the load, not a factual diagram of AI.\nEditorial composition: a sculptural arch assembled from tightly layered ivory paperboard sheets stands on a low terracotta plinth; several outer layers peel away into broad offcuts resting at its foot, while the inner load-bearing curve stays continuous. The arch is the one dominant sculptural object. Low three-quarter viewpoint and deep visible layered edges; crop-safe central motif.\nArt direction: A restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and one clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition, strong contrast, controlled perspective, layered paper edges and subtle physical shadows. Quiet editorial abstraction with material and spatial presence; no photorealistic workshop clutter.\nUse the role, wide crop and whitespace of the publication's story layout. The focal arch and offcuts must survive center-cover crops to 21:9 desktop, 16:9 mobile and 3:2 card, and read at 320 pixels wide. Keep the essential motif safely centered with generous room around it.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not carry the composition itself. The arch must feel materially illustrated, with depth and hierarchy.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame. Website text is rendered separately. No scissors, tools, people, hands, gears or conveyor belts.\n",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 90,
+        "brand_fit": 90,
+        "composition": 88,
+        "crop_quality": 82,
+        "technical_meaning": 91,
+        "cleanliness": 96,
+        "golden_reference_fit": 87,
+        "weighted_total": 88.3
+      },
+      "review_note": "Eligible alternative: layered vault and detached strips remain legible, but greater height and plinth give less room in a 21:9 crop and a denser silhouette."
+    },
+    {
+      "candidate": "C",
+      "source_file": "/workspace/scratch/b6cd12c268dd/generated_images/exec-f866c709-40f9-4e15-abb5-3a9ed73a6dd8.png",
+      "output_identifier": "exec-f866c709-40f9-4e15-abb5-3a9ed73a6dd8",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, also used in editorial guide cards.\nOutput crop: wide landscape, high resolution 2048 by 1152 or larger, no border.\nSubject: Lean Prompts: Cut Clutter, Keep the Instructions That Matter.\nVerified context: A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output. Extra detail is useful when it removes ambiguity or supplies evidence. A shorter prompt must be compared with its original before claiming equivalent quality.\nVisual idea: One freestanding paperboard arch is pared back around its outside edges while the central supporting curve stays intact. A few matching offcuts rest beside it. This is an abstract metaphor of editing excess while retaining what carries the load, not a factual diagram of AI.\nAlternate composition: a broad, shallow paperboard vault lies diagonally on its side on a warm canvas plane, revealing the continuous curved inner channel. Cut-away outer strips lie beside its far edge, clearly detached. View from above at an oblique angle. This remains one intact arch-shaped object, tactile paperboard, with a few sculptural offcuts and generous negative space.\nArt direction: A restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and one clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition, strong contrast, controlled perspective, layered paper edges and subtle physical shadows. Quiet editorial abstraction with material and spatial presence; no photorealistic workshop clutter.\nUse the role, wide crop and whitespace of the publication's story layout. The focal arch and offcuts must survive center-cover crops to 21:9 desktop, 16:9 mobile and 3:2 card, and read at 320 pixels wide. Keep the essential motif safely centered with generous room around it.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not carry the composition itself. The arch must feel materially illustrated, with depth and hierarchy.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame. Website text is rendered separately. No scissors, tools, people, hands, gears or conveyor belts.\n",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 90,
+        "brand_fit": 91,
+        "composition": 88,
+        "crop_quality": 90,
+        "technical_meaning": 90,
+        "cleanliness": 97,
+        "golden_reference_fit": 89,
+        "weighted_total": 90.0
+      },
+      "review_note": "Eligible alternative: intact arch and long detached outer strips read clearly; somewhat more stone-like surface and stronger geometric symmetry than selected A."
+    }
+  ],
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 92,
+    "composition": 90,
+    "crop_quality": 89,
+    "technical_meaning": 92,
+    "cleanliness": 97,
+    "golden_reference_fit": 90,
+    "weighted_total": 91.3
+  },
+  "hard_failures": [],
+  "golden_reference_comparison": [
+    {
+      "path": "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "observation": "Shares quiet architectural geometry, warm paper material and disciplined terracotta accents; single-subject density is appropriate for this simpler guide."
+    },
+    {
+      "path": "public/images/stories/2026-09-22-copilot-review-controls.webp",
+      "observation": "Retains controlled perspective, tactile print-like materials and a strong focal silhouette, with less mechanism detail suited to an editing metaphor."
+    }
+  ],
+  "reference_fit_judgment": "Yes: the selected image reads as commissioned for the same publication without title or branding.",
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_reviews": [
+    {
+      "crop": "desktop-hero",
+      "ratio": "21:9",
+      "result": "pass",
+      "note": "Intact supporting curve and detached offcuts survive center cover; topmost edge is decoratively trimmed."
+    },
+    {
+      "crop": "mobile-hero",
+      "ratio": "16:9",
+      "result": "pass",
+      "note": "Whole supporting arch and nearby offcuts remain readable at 375px."
+    },
+    {
+      "crop": "card",
+      "ratio": "3:2",
+      "result": "pass",
+      "note": "Strong arch silhouette and at least two detached scraps remain clear at 320px."
+    }
+  ],
+  "final_asset": "/images/guides/lean-prompts.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 101722,
+    "sha256": "f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb",
+    "git_blob_sha": "2ca1f6ff48ea225846eff6838303aa89ab788faa",
+    "riff_container_complete": true
+  },
+  "normalization": "Pillow center-fit to 1600x900; WebP quality 90 method 6; full decode and RIFF-length check passed.",
+  "remote_readback": "Pending exact-byte GitHub blob readback.",
+  "validator_scope": "Generation key constructed using canonical repository CLI/library with explicit guide source path. Review is guide-specific and is not falsely submitted to the news illustration batch validator; that validator and reuse asset route are news-specific."
+}

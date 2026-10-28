@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-10-28",
+  "run_status": "draft-pr",
+  "run_note": "Explicit manual commission in chat: generate the illustration and open a new PR containing the tutorial with published status. No merge or deployment is authorized by this PR action. The article was researched and drafted in this same session before this repository handoff. Three original cover candidates compared; A selected after constitution/reference/crop review. No existing guide or open guide PR covers this beginner editing-and-comparison outcome. Preparation remains blocked until upload readback and exact-head CI are observed.",
+  "candidates": [
+    {
+      "topic_key": "lean-prompts",
+      "title": "Lean Prompts: Cut Clutter, Keep the Instructions That Matter",
+      "format": "tutorial",
+      "decision": "selected",
+      "reader_outcome": "Edit a prompt while preserving its requirements, and compare original and edited instructions on synthetic cases before claiming an improvement.",
+      "reason": "Distinct from the published prompt-regression CI tutorial (test infrastructure), first Claude API lesson (typed integration), and RAG deployment/retrieval tutorials. All four merged evergreen ledgers and current guide inventory checked. Open PRs 257, 241, 185, 182 and 159 contain no competing guide commission. Keep the existing Tutorials format; no new taxonomy.",
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+        "https://developers.openai.com/api/docs/guides/latency-optimization",
+        "https://developers.openai.com/api/docs/guides/prompt-caching",
+        "https://aclanthology.org/2025.acl-industry.64/"
+      ]
+    }
+  ],
+  "handoff": {
+    "guide_id": "lean-prompts",
+    "pr_number": null,
+    "completion": "blocked",
+    "blockers": [
+      "Binary upload/readback and exact-head GitHub CI remain pending."
+    ]
+  },
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "image_gen.imagegen generated three independent PNG candidates; actual paths and full prompts recorded in guide artwork review."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Viewed two production references, all three candidates, reference-first comparison sheet and selected desktop 21:9, mobile 16:9 and card 3:2 crops."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and fully decoded a 1600x900 WebP; RIFF container length checked. SHA-256 f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb."
+      },
+      "binary_upload": {
+        "status": "unverified",
+        "evidence": "GitHub base64 blob write and exact-byte readback have not yet been executed for this final asset."
+      }
+    },
+    "generation": {
+      "tool": "image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, also used in editorial guide cards.\nOutput crop: wide landscape, high resolution 2048 by 1152 or larger, no border.\nSubject: Lean Prompts: Cut Clutter, Keep the Instructions That Matter.\nVerified context: A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output. Extra detail is useful when it removes ambiguity or supplies evidence. A shorter prompt must be compared with its original before claiming equivalent quality.\nVisual idea: One freestanding paperboard arch is pared back around its outside edges while the central supporting curve stays intact. A few matching offcuts rest beside it. This is an abstract metaphor of editing excess while retaining what carries the load, not a factual diagram of AI.\nCanonical composition: one compact substantial ivory paperboard arch stands on a warm neutral surface in three-quarter perspective. Its curved silhouette and layered trimmed outer edges dominate the central half. Three irregular ivory and terracotta offcuts sit to one side. Architectural calm and spacious warm paper background.\nArt direction: A restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and one clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition, strong contrast, controlled perspective, layered paper edges and subtle physical shadows. Quiet editorial abstraction with material and spatial presence; no photorealistic workshop clutter.\nUse the role, wide crop and whitespace of the publication's story layout. The focal arch and offcuts must survive center-cover crops to 21:9 desktop, 16:9 mobile and 3:2 card, and read at 320 pixels wide. Keep the essential motif safely centered with generous room around it.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not carry the composition itself. The arch must feel materially illustrated, with depth and hierarchy.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame. Website text is rendered separately. No scissors, tools, people, hands, gears or conveyor belts.\n",
+      "source": "/workspace/scratch/b6cd12c268dd/generated_images/exec-8040c385-5dbf-46c5-9a1e-2633cb5e34f8.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/lean-prompts-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ]
+    },
+    "blocker": null
+  }
+}
