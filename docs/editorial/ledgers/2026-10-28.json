@@ -327,19 +327,16 @@
     }
   ],
   "publication": {
-    "story_ids": [],
-    "standalone_story_ids": [],
-    "withheld_selected": [
-      {
-        "id": "2026-10-28-gpt-6-1-terra",
-        "reason": "Publication preparation requires the repository illustration decision CLI before generation; no local repository execution surface is available in this invocation, so the candidate is withheld rather than bypassing the visual contract."
-      },
-      {
-        "id": "2026-10-28-meta-privacylib-agent-controls",
-        "reason": "Publication preparation requires the repository illustration decision CLI before generation; no local repository execution surface is available in this invocation, so the candidate is withheld rather than bypassing the visual contract."
-      }
+    "story_ids": [
+      "2026-10-28-gpt-6-1-terra",
+      "2026-10-28-meta-privacylib-agent-controls"
     ],
-    "must_know_story_id": null
+    "standalone_story_ids": [
+      "2026-10-28-gpt-6-1-terra",
+      "2026-10-28-meta-privacylib-agent-controls"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-28-gpt-6-1-terra"
   },
   "editorial_opportunities": []
 }

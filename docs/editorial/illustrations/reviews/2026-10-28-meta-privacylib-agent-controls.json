@@ -1,0 +1,67 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-28-meta-privacylib-agent-controls",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-10-28-meta-privacylib-agent-controls",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Meta puts agent data rules where the data is read",
+    "verified_context": [
+      "Meta describes PrivacyLib as a common client-side privacy layer used across many internal systems.",
+      "For supported internal-agent paths, AgentLib propagates agent-session and tool-call context to PrivacyLib, where policy modules can observe or deny data access.",
+      "The architecture and scale claims are first-party and do not prove that every internal system or agent path is covered."
+    ],
+    "editorial_idea": "The decisive control belongs at the stable data boundary, not inside the agent's instructions.",
+    "visual_metaphor": "A layered stone archive is crossed by one dark-metal access channel whose terracotta gate is physically anchored into the archive boundary.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": ["layered archive mass", "single access channel", "gate fixed at the data boundary"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-28-openai-dns-sandbox.webp", "public/images/stories/2026-09-26-mcp-secrets.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1", "story_id": "2026-10-28-meta-privacylib-agent-controls", "story_source_sha256": "93e482e5a1b7b8a6105af80f969cc6ac13ed08155e34fec1c5f3d2df8c000a7f", "visual_brief_sha256": "c78bc063e740e59b70e62586a300c5744ce481c00e588846e0169f79b4071469", "reference_inputs_sha256": "2c46283de4dadbdb5284996b0fd41091aabe7d459f21234c4de0747aa3163a2f", "illustration_system_version": "1.3", "visual_constitution_version": "1.1", "prompt_contract_version": "1", "candidate_count": 3, "generator_surface": "chatgpt-image-tool", "model_snapshot": null, "generation_key": "c0ad627b61e7d1c5dd4723e637b44300869a8d8d8eee6a61590531842e523b84"
+  },
+  "candidate_notes": {
+    "A": "The front cutaway clearly suggests an archive and enforcement point, but the bilateral channel can read as two flows rather than one access path.",
+    "B": "The three-quarter cutaway strongly shows a channel entering storage, though the large foreground rail dominates compact crops.",
+    "C": "Selected: one dark channel crosses one terracotta collar fixed exactly at the layered archive boundary. The relationship stays explicit and balanced in every required crop."
+  },
+  "candidate_scores": {
+    "A": {"story_specific": 91, "brand_fit": 90, "composition": 89, "crop_quality": 91, "technical_meaning": 91, "cleanliness": 98, "golden_reference_fit": 90, "weighted_total": 90.7},
+    "B": {"story_specific": 94, "brand_fit": 92, "composition": 92, "crop_quality": 88, "technical_meaning": 94, "cleanliness": 98, "golden_reference_fit": 92, "weighted_total": 92.3},
+    "C": {"story_specific": 97, "brand_fit": 94, "composition": 94, "crop_quality": 96, "technical_meaning": 97, "cleanliness": 98, "golden_reference_fit": 93, "weighted_total": 95.2}
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false},
+  "scores": {"story_specific": 97, "brand_fit": 94, "composition": 94, "crop_quality": 96, "technical_meaning": 97, "cleanliness": 98, "golden_reference_fit": 93, "weighted_total": 95.2},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The 21:9 center crop preserves the single channel, terracotta collar, boundary and layered archive interior.",
+    "article_mobile": "The complete control-at-boundary relationship remains visible in 16:9.",
+    "square": "The square crop removes empty approach space while retaining the channel, collar and archive layers.",
+    "thumbnail": "At approximately 320px wide, the dark channel and terracotta collar remain an unmistakable focal pair."
+  },
+  "golden_reference_comparison": "Compared all candidates with the declared references for architectural cutaway depth, matte pale-stone mass, restrained terracotta/charcoal contrast and compact silhouette. C provides the closest brand fit and clearest story-specific control boundary.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-28-meta-privacylib-agent-controls.webp",
+  "final_asset": "/images/stories/2026-10-28-meta-privacylib-agent-controls.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 101110, "sha256": "fdae45b26cbf4992671d7f96c715e114ef7fae2cef47701bd21f6708fdaa0cda", "git_blob_sha": "e006e42d3cbb4506cfea94f5ad660ff8c8f73e10", "riff_container_complete": true},
+  "generation_metadata": {
+    "generated_at": "2026-10-28T09:13:37Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Codex model self-review of three full-size candidates, two declared golden references, a reference-above-candidates comparison and desktop/mobile/square/thumbnail crops. The canonical Playwright contact-sheet renderer could not install Chromium in this environment, so ImageMagick produced the equivalent comparison sheet; repository validation remains authoritative.",
+    "candidate_provenance": {
+      "A": {"source_sha256": "e075e45c37cf192cd79911b5e1f2ffb45e5afb180029efe5a1f0f70c93e3f61f", "prompt": "Wide front-facing architectural cutaway: a layered stone archive crossed by one dark access channel with a terracotta gate anchored at the boundary; tactile editorial materiality and no prohibited elements."},
+      "B": {"source_sha256": "6da558afee6bf7adbfa8324dcb170b50043217dcf224c844fb4ffecc450f2681", "prompt": "Wide oblique cutaway of the same layered archive, single access channel and boundary-anchored terracotta gate; tactile editorial materiality and no prohibited elements."},
+      "C": {"source_sha256": "d31f2cc156b61e9ff2a8c93e5bbc1e63960bf383a4dbee55703a05bc9ad93ac1", "prompt": "Wide minimal side cutaway of one monolithic layered archive, one dark channel and a compact terracotta control collar embedded exactly at the boundary; no prohibited elements."}
+    }
+  }
+}

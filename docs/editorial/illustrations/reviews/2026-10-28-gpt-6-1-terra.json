@@ -1,0 +1,83 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-10-28-gpt-6-1-terra",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-10-28-gpt-6-1-terra",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "GPT-6.1 Terra makes computer-use routing a cost question",
+    "verified_context": [
+      "OpenAI released GPT-6.1 Terra in the API, ChatGPT Work and Codex with computer-use and visual-reasoning support.",
+      "Its posted standard API prices are lower than OpenAI's larger GPT-5.6 Terra and GPT-6.1 Sol options.",
+      "The article recommends comparing cost per accepted task, including validation, retries and review, rather than routing by token price alone."
+    ],
+    "editorial_idea": "A lower-priced route is useful only when it carries work through the same acceptance boundary.",
+    "visual_metaphor": "Two precise stone pathways pass through one compact routing gate, with the narrower terracotta path rejoining at a shared acceptance aperture.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": ["two distinct physical paths", "shared acceptance aperture", "terracotta emphasis on the narrower path"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-10-28-gpt-6-1-terra",
+    "story_source_sha256": "ee29cc63fcd1a011f63667d4afa37996ebd3741317241f37a941e7eb4edd73da",
+    "visual_brief_sha256": "ca463100b9153c1f3a70b604855736a4d7c9b1f7fac36763691e6a300af5ead1",
+    "reference_inputs_sha256": "8b523020839c04dbb47fca343a7b494ab31762f87d2f1548340e0cbd70a23e3c",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "ee1686e2630736126e649f2e1cd72df6443c91fb85bcc0d3a5154bf92c470bcb"
+  },
+  "candidate_notes": {
+    "A": "Selected: the overhead gate makes two approach paths and their shared aperture immediately legible. The terracotta route remains distinct in every required crop without turning the composition into a diagram.",
+    "B": "The oblique routing block has strong depth, but the two routes read less clearly as alternatives and the distant aperture competes with the central selector.",
+    "C": "The quiet side view has excellent materiality, but the white route overlaps the terracotta route near the aperture and weakens the two-path reading."
+  },
+  "candidate_scores": {
+    "A": {"story_specific": 96, "brand_fit": 92, "composition": 94, "crop_quality": 96, "technical_meaning": 95, "cleanliness": 98, "golden_reference_fit": 92, "weighted_total": 94.3},
+    "B": {"story_specific": 90, "brand_fit": 91, "composition": 92, "crop_quality": 90, "technical_meaning": 90, "cleanliness": 98, "golden_reference_fit": 90, "weighted_total": 90.85},
+    "C": {"story_specific": 88, "brand_fit": 90, "composition": 91, "crop_quality": 89, "technical_meaning": 86, "cleanliness": 98, "golden_reference_fit": 90, "weighted_total": 89.6}
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {
+    "words": false, "letters": false, "numbers": false, "labels": false, "logos": false, "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false, "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false, "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false, "bare_schematic_or_diagram": false, "border": false, "frame": false, "unsupported_visual_claim": false
+  },
+  "scores": {"story_specific": 96, "brand_fit": 92, "composition": 94, "crop_quality": 96, "technical_meaning": 95, "cleanliness": 98, "golden_reference_fit": 92, "weighted_total": 94.3},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The 21:9 center crop keeps both paths, the metal gate and the shared aperture visible.",
+    "article_mobile": "The full routing relationship remains legible in the 16:9 mobile crop.",
+    "square": "The centered square trims the approach ends but preserves both route colors, the gate and aperture.",
+    "thumbnail": "At approximately 320px wide, the split routes and circular acceptance opening retain a distinct silhouette."
+  },
+  "golden_reference_comparison": "Compared all candidates with the two declared references for matte pale-stone materiality, restrained terracotta and charcoal accents, depth, density and crop-safe silhouette. A best matches the commissioned architectural language while remaining story-specific.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-10-28-gpt-6-1-terra.webp",
+  "final_asset": "/images/stories/2026-10-28-gpt-6-1-terra.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {"byte_length": 177680, "sha256": "5fd1abc6395c3a807cfad9a2f1ce4cd8f810163ee1fd7b7d20eade16f4a6c3b5", "git_blob_sha": "703cf978619139fa1b97662445d77b0c11c40725", "riff_container_complete": true},
+  "generation_metadata": {
+    "generated_at": "2026-10-28T09:13:37Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Codex model self-review of three full-size candidates, two declared golden references, a reference-above-candidates comparison and desktop/mobile/square/thumbnail crops. The canonical Playwright contact-sheet renderer could not install Chromium in this environment, so ImageMagick produced the equivalent comparison sheet; repository validation remains authoritative.",
+    "candidate_provenance": {
+      "A": {"source_sha256": "805d9b39afe5f10a6f91470e0a160aa9b2ee5ec9e3625eac49889742468db645", "prompt": "Wide tactile editorial still life: two precise stone pathways pass through a compact routing gate and rejoin at one shared acceptance aperture; overhead symmetric composition, terracotta emphasis, no text, logos, interfaces, charts, borders or generic AI imagery."},
+      "B": {"source_sha256": "267e7fd1e0ff8e952a0b21d7e3f865069517aad863190f2f3fe9e4821d3ab40c", "prompt": "Wide tactile editorial still life of the same two-path routing metaphor in oblique three-quarter perspective with a compact central selector, terracotta emphasis and no prohibited elements."},
+      "C": {"source_sha256": "71dd2afb56e38a50d4fd01f46a2eca2dacba3d2879fed62f675754c4b172ec69", "prompt": "Wide tactile editorial still life of the same routing metaphor in a quiet side-on composition with the shared aperture as focal point, terracotta emphasis and no prohibited elements."}
+    }
+  }
+}
