@@ -5,8 +5,8 @@ timezone: Europe/Luxembourg
 # production enables content preparation, never automatic merge/publication.
 rollout_stage: pilot
 candidate_limit: 30
-daily_story_ceiling: 7
-pilot_draft_target: 5
+daily_story_ceiling: 10
+pilot_draft_target: 10
 news_window_hours: 72
 catchup_days: 7
 select_threshold: 75
@@ -21,3 +21,4 @@ weights:
 discovery_hours: [9, 16]
 continuation_hours: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 reservation_ref: editorial/coverage-reservations
+

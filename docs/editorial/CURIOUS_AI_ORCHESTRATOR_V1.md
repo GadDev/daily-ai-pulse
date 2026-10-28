@@ -16,15 +16,25 @@ policy. The runtime must actually have GitHub and research access.
 CONFIG_V1.yml starts at rollout_stage: pilot. This is deliberate first-use testing:
 
 - dry-run: local ledger and draft text outside Astro collections; no remote writes or artwork.
-- pilot-pr: one canonical remote review bundle, with up to five supported varied drafts if
+- pilot-pr: one canonical remote review bundle, with up to ten supported varied drafts if
   enough qualify; no site story, image, translation or daily manifest writes. This mode is the
   first scheduled run. Stop new topic selection after the pilot reaches human review, even on
   later dates. Do not change rollout stage yourself.
 - prepare-pr: available after a reviewed configuration change to production. Prepare up to
-  seven stories/day, reviewed assets through the existing illustration workflow and reviewed
+  ten stories/day, reviewed assets through the existing illustration workflow and reviewed
   French handoff; open/update a draft PR. Never merge, auto-merge, mark ready or publish.
 
 The candidate limit is 30 in every mode. It is a maximum, not a requirement to fabricate supply.
+For the next maintainer-authorized pilot, present ten qualifying story pitches before drafting.
+Each pitch records the new event and its date, a memorable verified detail, source links,
+Pulse's proposed contribution and unresolved questions. Prioritize fresh human consequences,
+distinctive tools and practices across countries; do not fill slots with old or ordinary uses.
+If fewer than ten qualify, report the shortfall. Save pitches in the pilot bundle's PITCHES.md
+and pending human pitch selection in the checkpoint. While that review is pending, wait on
+the same bundle without drafting or rediscovering. Keep the ledger in-progress with the exact
+next action; awaiting-review still requires the existing completed-copy checks. Draft only
+the pitches the maintainer selects, up to the configured pilot target. This does not reopen
+or replace an existing pilot automatically.
 A dry run initializes with npm run curious:init -- YYYY-MM-DD pilot-01 and is checked with
 npm run curious:check -- docs/editorial/curious-ai/dry-runs/YYYY-MM-DD/pilot-01/ledger.json.
 The initializer creates unfinished evidence fields, not a completed research result.
@@ -48,7 +58,7 @@ At every invocation:
    maintainer assessment/promotion. Use scripts/lib/curious-driver.ts for planning from observed
    state; derive finalized state from actual merged/closed PRs without rewriting merged ledgers.
 3. At an unused discovery slot, choose b01 or b02 for today. Refresh all date-specific ledgers
-   and active PR heads; count existing/reserved prepared Curious stories against seven. Stop
+   and active PR heads; count existing/reserved prepared Curious stories against ten. Stop
    when capacity is full. Never run two Curious batches concurrently.
 4. Consume saved leads first, then bounded discovery across profile lenses. Inspect at most
    30 substantive candidates, with at most two targeted verification follow-ups each. Record
@@ -147,3 +157,4 @@ Notify only for a new draft PR, a changed terminal CI result, an evidenced batch
 stall alert. Routine progress, idle slots, waiting-for-merge and unchanged awaiting-review states
 are silent. Ordinary editorial invocations never modify code, contracts, task configuration or
 rollout settings, and never publish automatically.
+

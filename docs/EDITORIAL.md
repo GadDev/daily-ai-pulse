@@ -123,7 +123,7 @@ with everyday life. Its [dedicated profile](editorial/CURIOUS_AI_V1.md) permits 
 relevance without engineering usefulness, with separate eligibility and ranking. Shared evidence,
 attribution, independence and human publication review still apply. Its
 [orchestrator](editorial/CURIOUS_AI_ORCHESTRATOR_V1.md) starts with a text-only pilot,
-30 candidates per batch and a seven-story daily ceiling, with no minimum quota.
+30 candidates per batch and a ten-story daily ceiling, with no minimum quota.
 
 ## Editorial scoring
 
@@ -158,3 +158,4 @@ Tools & Guides uses the [Editorial Voice v2 and genre guidance](editorial/TOOLS_
 The **Tools & Guides** section extends these evidence-first and editorial-independence principles to tutorials, technical reviews and curated toolkits. Its [editorial foundation](editorial/TOOLS_AND_GUIDES_V1.md) specifies firsthand versus researched evidence, commercial disclosures, freshness and human review. Use the [authoring templates](editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md) for draft outlines.
 
 The implementation provides a separate Astro collection and English-only `/guides/` routes, but does not change the existing news categories, news story schema or daily editorial automation. Real tutorials and reviews require separate human-reviewed content PRs. The independent [evergreen orchestrator contract](editorial/TOOLS_AND_GUIDES_ORCHESTRATOR_V1.md) governs research, tutorials with code and diagrams, constitution-compliant cover art, and no-merge draft PR handoff; the daily news workflow is unchanged.
+
