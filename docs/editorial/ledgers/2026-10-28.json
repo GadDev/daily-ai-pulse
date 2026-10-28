@@ -1,0 +1,339 @@
+{
+  "editorial_date": "2026-10-28",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-28-gpt-6-1-terra",
+      "decision": "selected",
+      "title": "GPT-6.1 Terra brings lower-cost computer use to the API",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "computer-use",
+        "inference",
+        "coding-agents"
+      ],
+      "entities": [
+        "OpenAI",
+        "GPT-6.1 Terra"
+      ],
+      "event_date": "2026-10-26",
+      "source_publication_date": "2026-10-26",
+      "summary": "OpenAI released GPT-6.1 Terra in the API, ChatGPT Work and Codex with computer use, visual reasoning and lower standard API prices than GPT-5.6 Terra and GPT-6.1 Sol.",
+      "what_changed": "The new gpt-6.1-terra model became available at $1 per million input tokens, $0.05 per million cached input tokens and $5 per million output tokens; OpenAI also published a safety-card addendum and first-party evaluation results.",
+      "why_it_matters": "Developers now have a materially cheaper model option for high-volume visual and computer-use workflows, but its benchmark, factuality and safety claims remain first-party.",
+      "engineer_takeaway": "Re-evaluate routing for visual and computer-use tasks against your own acceptance tests, latency and total task cost; do not treat vendor benchmarks as production guarantees.",
+      "prerequisites": [
+        "model routing",
+        "computer-use evaluation"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "canonical_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-26"
+        },
+        {
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-terra/mentalhealthbench",
+          "canonical_url": "https://deploymentsafety.openai.com/gpt-6-1-terra/mentalhealthbench",
+          "publisher": "OpenAI Deployment Safety",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-10-26"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+          "canonical_url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+          "publisher": "OpenAI Help Center",
+          "source_type": "documentation",
+          "role": "supporting",
+          "publication_date": "2026-10-26"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Launch, pricing, availability and safety-card evidence are first-party OpenAI publications.",
+        "independent_validation": "No independent production comparison was identified in the frozen window.",
+        "claim_scope": "Performance, factuality, safety and cost-per-task comparisons are OpenAI evaluations; only availability and posted prices are treated as established here."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A broadly available lower-cost computer-use model changes practical routing and automation choices."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 93
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "cost per accepted task",
+          "computer-use evaluation"
+        ],
+        "existing_explainer_status": "Explain why per-token price and vendor benchmark scores do not establish production cost."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|gpt-6-1-terra|2026-10-26-release-pricing-and-availability",
+        "canonical_event": "OpenAI releases GPT-6.1 Terra with API, Work and Codex availability and posted prices.",
+        "previous_coverage": "No matching URL, model-release event or story filename was found in the indexed repository archive through main 3ab499b; latest daily stories stop at October 26 and cover different events.",
+        "material_delta": "A new model and price point became available.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
+    },
+    {
+      "id": "2026-10-28-meta-privacylib-agent-controls",
+      "decision": "selected",
+      "title": "Meta enforces internal-agent data rules at the access boundary",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "agent-security",
+        "permissions",
+        "observability",
+        "security"
+      ],
+      "entities": [
+        "Meta",
+        "PrivacyLib",
+        "AgentLib"
+      ],
+      "event_date": "2026-10-27",
+      "source_publication_date": "2026-10-27",
+      "summary": "Meta described PrivacyLib, a common client-side privacy layer that observes or blocks data accesses across many internal systems, including supported internal-agent tool-call paths.",
+      "what_changed": "Meta disclosed how AgentLib propagates agent session and tool-call context through supported paths to PrivacyLib, where policy modules can observe or deny access at the data boundary; the company reports billions of checks per second.",
+      "why_it_matters": "The design moves agent authorization away from trusting the model or tool wrapper and toward enforceable policy at the system that owns the data.",
+      "engineer_takeaway": "Propagate caller and session context to stable data boundaries, keep enforcement separate from observation, simulate policy changes, and make rollback local to each module.",
+      "prerequisites": [
+        "authorization boundaries",
+        "agent tool calls",
+        "data lineage"
+      ],
+      "primary_source_url": "https://engineering.fb.com/2026/10/27/security/privacylib/",
+      "sources": [
+        {
+          "url": "https://engineering.fb.com/2026/10/27/security/privacylib/",
+          "canonical_url": "https://engineering.fb.com/2026/10/27/security/privacylib/",
+          "publisher": "Meta Engineering",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-10-27"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Meta's engineering team provides implementation details, scale claims, code examples and stated limitations.",
+        "independent_validation": "No independent audit of coverage, latency or enforcement correctness was identified.",
+        "claim_scope": "Architecture and scale are company-reported; unsupported paths, external products and universal policy completeness are not claimed."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The disclosed pattern directly addresses dynamic agent access with enforceable controls at the data boundary."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 91
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "policy enforcement point",
+          "context propagation",
+          "observation versus denial"
+        ],
+        "existing_explainer_status": "Contrast model/tool-level approvals with data-boundary enforcement."
+      },
+      "related_content": {
+        "previous_story_ids": [
+          "2026-10-24-openai-frontier-training-containment"
+        ]
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "meta|privacylib-agentlib|agent-data-access-boundary-controls",
+        "canonical_event": "Meta discloses PrivacyLib integration for observing and enforcing supported internal-agent data accesses.",
+        "previous_coverage": "No matching URL, PrivacyLib name or agent data-boundary event was found in repository code search or story filenames through pinned main.",
+        "material_delta": "A concrete production architecture for agent context propagation and data-boundary enforcement is disclosed.",
+        "publication_status": "new-confirmed"
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope"
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-28-openai-oracle-workspace",
+      "decision": "watch",
+      "title": "OpenAI and Oracle plan application integrations in ChatGPT",
+      "desk": "business",
+      "event_date": "2026-10-27",
+      "summary": "OpenAI and Oracle announced planned application/data integrations and new Oracle offerings.",
+      "what_changed": "Oracle AI Workspace, Security Mesh, App Composer and a small-business bundle were announced.",
+      "sources": [
+        {
+          "url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-27"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 3,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 69
+      },
+      "deduplication": {
+        "candidate_key": "openai-oracle|workspace-security-mesh-app-composer|announcement"
+      },
+      "reason": "Most product language is future-facing and operational details are not yet available.",
+      "promotion_condition": "Promote when availability, developer documentation, permissions model or independently testable product behavior is published."
+    },
+    {
+      "id": "2026-10-28-microsoft-frontier-customer-metrics",
+      "decision": "watch",
+      "title": "Microsoft compiles enterprise Copilot and agent adoption metrics",
+      "desk": "practice",
+      "event_date": "2026-10-27",
+      "summary": "Microsoft reports deployment and adoption figures from Fujitsu, KOHLER and other customers.",
+      "what_changed": "The post adds vendor-reported scale and outcome claims across several deployments.",
+      "sources": [
+        {
+          "url": "https://blogs.microsoft.com/blog/2026/10/27/the-platform-approach-to-becoming-frontier/",
+          "publisher": "Microsoft",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-27"
+        }
+      ],
+      "evidence": {
+        "level": "anecdotal"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 2,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 62
+      },
+      "deduplication": {
+        "candidate_key": "microsoft|frontier-platform|customer-adoption-metrics"
+      },
+      "reason": "The compilation lacks comparable baselines and independent measurement details.",
+      "promotion_condition": "Promote a specific case when its owner publishes methodology, baseline, denominator and review/quality outcomes."
+    },
+    {
+      "id": "2026-10-28-anthropic-drug-development",
+      "decision": "watch",
+      "title": "Anthropic reports early Claude drug-development partnerships",
+      "desk": "curious",
+      "event_date": "2026-10-27",
+      "summary": "Anthropic describes work with six drug-development organizations and its own early programs.",
+      "what_changed": "The company published initial case studies and a plan to expand Claude's role across drug-development tasks.",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/research/early-progress-drug-development",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-27"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 2,
+        "novelty": 4,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 70
+      },
+      "deduplication": {
+        "candidate_key": "anthropic|claude-drug-development|six-partnerships-early-progress"
+      },
+      "reason": "The human impact is potentially large, but the post is explicitly early progress and does not establish clinical outcomes.",
+      "promotion_condition": "Promote when a partner supplies a dated, auditable case result or a study reports validated scientific or operational outcomes."
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-28-aws-agentic-retrieval-guide",
+      "decision": "rejected",
+      "title": "AWS agentic retrieval CDK guide",
+      "reason": "A technical tutorial rather than a new product, research result or production outcome.",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/"
+    },
+    {
+      "id": "2026-10-28-microsoft-agent-framework-1-23",
+      "decision": "rejected",
+      "title": "Microsoft Agent Framework 1.23.0",
+      "reason": "Released October 22, outside the frozen 48-hour window; catch-up review found no missed batch-specific justification over fresher candidates.",
+      "source_url": "https://github.com/microsoft/agent-framework/releases"
+    },
+    {
+      "id": "2026-10-28-dublin-ai-declaration",
+      "decision": "rejected",
+      "title": "Dublin Declaration on trustworthy, safe and sovereign AI",
+      "reason": "The declaration states high-level commitments without a new operative engineering requirement or implementation detail.",
+      "source_url": "https://enterprise.gov.ie/en/publications/dublin-declaration-on-trustworthy-safe-sovereign-ai.html"
+    },
+    {
+      "id": "2026-10-28-google-sleep-framework",
+      "decision": "rejected",
+      "title": "Google researchers train LLMs to consolidate new knowledge during a sleep phase",
+      "reason": "The October 27 Google Research post summarizes work whose arXiv v2 is dated July 10, 2026 and whose paper says a version was public on OpenReview from September 2025; no new technical result or release in the frozen window was established.",
+      "source_url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+      "previous_story_id": null
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-28-gpt-6-1-terra",
+      "2026-10-28-meta-privacylib-agent-controls"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-28-gpt-6-1-terra"
+  },
+  "editorial_opportunities": []
+}
