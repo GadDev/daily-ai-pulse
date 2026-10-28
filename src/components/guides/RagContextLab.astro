@@ -1,0 +1,71 @@
+<section class="rag-lab" data-rag-lab aria-label="Try retrieval context">
+  <p class="rag-lab__eyebrow">INTERACTIVE · Fictional policy example</p>
+  <p class="rag-lab__question"><strong>Question:</strong> Who can approve a production release?</p>
+  <fieldset>
+    <legend>Choose what information the model receives</legend>
+    <label><input type="radio" name="rag-context" value="none" checked /> No retrieved text</label>
+    <label><input type="radio" name="rag-context" value="relevant" /> Current, relevant policy</label>
+    <label><input type="radio" name="rag-context" value="irrelevant" /> Irrelevant document</label>
+  </fieldset>
+  <div class="rag-lab__panel" data-rag-panel="none">
+    <p class="rag-lab__label">Retrieved context</p>
+    <p>No source passages were provided.</p>
+    <p class="rag-lab__label">Illustrative cautious answer</p>
+    <blockquote>I can't confirm who approves production releases without an applicable policy.</blockquote>
+    <p class="rag-lab__lesson">No evidence? A responsible system can abstain rather than guess.</p>
+  </div>
+  <div class="rag-lab__panel" data-rag-panel="relevant" hidden>
+    <p class="rag-lab__label">Retrieved context · fictional current policy</p>
+    <p>“Production deployment requires sign-off from the release manager and the security reviewer after staging checks pass.” <strong>[release-policy.md, current]</strong></p>
+    <p class="rag-lab__label">Illustrative grounded answer</p>
+    <blockquote>The release manager and security reviewer must both sign off after staging checks pass. [release-policy.md]</blockquote>
+    <p class="rag-lab__lesson">Now there is inspectable evidence, but a real application must check freshness, authorization and whether the answer follows the source.</p>
+  </div>
+  <div class="rag-lab__panel" data-rag-panel="irrelevant" hidden>
+    <p class="rag-lab__label">Retrieved context · fictional incident note</p>
+    <p>“When an outage cannot be restored, on-call staff contact the incident commander.” <strong>[incidents.md]</strong></p>
+    <p class="rag-lab__label">Illustrative cautious answer</p>
+    <blockquote>This document describes incident escalation, not deployment approvals. I can't answer from it.</blockquote>
+    <p class="rag-lab__lesson">Retrieval happened, but it found the wrong material. An irrelevant citation cannot rescue an answer.</p>
+  </div>
+  <p class="rag-lab__disclaimer">This is a deterministic explanation, not live inference. Nothing is transmitted to an AI service.</p>
+  <noscript><p>Enable JavaScript to switch examples. The initial no-context example remains visible.</p></noscript>
+</section>
+<script>
+  for (const lab of document.querySelectorAll<HTMLElement>('[data-rag-lab]')) {
+    const radios = lab.querySelectorAll<HTMLInputElement>('input[name="rag-context"]');
+    const panels = lab.querySelectorAll<HTMLElement>('[data-rag-panel]');
+    function update() {
+      const selected = [...radios].find((radio) => radio.checked)?.value ?? 'none';
+      for (const panel of panels) panel.hidden = panel.dataset.ragPanel !== selected;
+    }
+    for (const radio of radios) radio.addEventListener('change', update);
+    update();
+  }
+</script>
+<style>
+  .rag-lab {
+    padding: clamp(1rem, 3vw, 1.7rem);
+    border: 1px solid #c9bba8;
+    border-radius: .55rem;
+    background: #faf6ee;
+    color: #171b1a;
+    margin: 1.75rem 0;
+  }
+  .rag-lab__eyebrow { color: #8a4b35; font-size: .76rem; font-weight: 700; letter-spacing: .08em; }
+  .rag-lab__question { font-size: 1.04rem; }
+  fieldset { display: flex; flex-wrap: wrap; gap: .65rem; border: 0; padding: .5rem 0 1rem; margin: 0; }
+  legend { font-weight: 700; padding: 0 0 .5rem; }
+  label { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; border: 1px solid #b2a390; border-radius: .3rem; padding: .45rem .65rem; }
+  label:has(input:checked) { background: #ede1d2; border-color: #8a4b35; }
+  label:focus-within { outline: 2px solid #8a4b35; outline-offset: 3px; }
+  input { accent-color: #8a4b35; }
+  .rag-lab__panel { padding: 1rem; background: #f3ebdd; border-left: .22rem solid #8a4b35; }
+  .rag-lab__panel[hidden] { display: none; }
+  .rag-lab__panel p { margin: .5rem 0; }
+  .rag-lab__panel .rag-lab__label { color: #575d5b; font-weight: 700; font-size: .8rem; margin: .7rem 0 .3rem; }
+  .rag-lab__panel blockquote { font-family: Georgia, serif; margin: .2rem 0 .75rem; padding: .35rem .8rem; border-left: 2px solid #b5a18c; }
+  .rag-lab__lesson { font-weight: 600; }
+  .rag-lab__disclaimer { font-size: .78rem; color: #575d5b; margin: 1rem 0 0; }
+  @media (max-width: 640px) { fieldset { display: grid; } label { width: 100%; } }
+</style>
