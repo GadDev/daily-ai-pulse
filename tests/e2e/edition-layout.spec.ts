@@ -52,9 +52,9 @@ test.describe('daily edition editorial layout', () => {
     expect(copy).not.toBeNull();
     expect(art!.y).toBeLessThan(copy!.y);
 
-    const mainFits = await page.locator('main').evaluate(
-      (main) => main.scrollWidth <= main.clientWidth + 1,
-    );
+    const mainFits = await page
+      .locator('main')
+      .evaluate((main) => main.scrollWidth <= main.clientWidth + 1);
     expect(mainFits).toBe(true);
   });
 });
