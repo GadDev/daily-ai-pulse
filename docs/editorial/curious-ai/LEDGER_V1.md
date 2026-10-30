@@ -53,7 +53,7 @@ successful coordination ref SHA. Originating/original-reporting sources supply p
 to the compatibility adapter; that field name does not turn reporting into an independently tested result.
 
 publication.story_ids names prepared canonical files, not deployed availability; these files can
-be draft:true. Every ID is selected, has one owner and counts against seven/day across active/merged
+be draft:true. Every ID is selected, has one owner and counts against ten/day across active/merged
 batches. withheld_selected records selected IDs and reasons, never both prepared and withheld.
 Retain decisions on later conflicts. Watch/rejected/update-only candidates do not create story files.
 
@@ -73,3 +73,4 @@ Awaiting-review requires completed research and a real canonical PR URL. Pre-PR 
 in-progress. No-publication requires completed observed discovery and no prepared stories.
 Preserve merged ledgers; corrections use an explicit correction PR. Do not restamp old policy,
 source-check, review, publication or verification dates to suggest work that did not happen.
+
