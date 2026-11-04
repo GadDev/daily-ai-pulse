@@ -393,10 +393,16 @@
     }
   ],
   "publication": {
-    "story_ids": [],
+    "story_ids": [
+      "2026-10-29-anthropic-real-world-exploit-chains",
+      "2026-10-29-github-connected-copilot-cloud",
+      "2026-10-29-github-agentic-workflows-ga",
+      "2026-10-29-android-studio-rabbit-2-byoa",
+      "2026-10-29-github-enterprise-copilot-access"
+    ],
     "standalone_story_ids": [],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-10-29-anthropic-real-world-exploit-chains"
   },
   "editorial_opportunities": []
 }
