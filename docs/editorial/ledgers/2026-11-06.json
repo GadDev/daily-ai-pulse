@@ -157,10 +157,130 @@
         "previous_coverage": "No exact URL, 948-LPE result, Linux-kernel vulnerability pipeline or matching event/change was found in the indexed repository archive on pinned main.",
         "material_delta": "A concrete pipeline architecture, run result and cost disclosure separate from the next-day model availability announcement."
       }
+    },
+    {
+      "id": "2026-11-04-openai-images-2-6",
+      "decision": "selected",
+      "title": "OpenAI Images 2.6 adds GIF generation and finer API editing controls",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "model-releases",
+        "multimodal",
+        "api",
+        "performance"
+      ],
+      "entities": [
+        "OpenAI",
+        "Images 2.6",
+        "GPT-Image-2.6 Flare",
+        "GPT-Image-2.6 Sunburst"
+      ],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "OpenAI released Images 2.6 globally in ChatGPT and Codex and exposed Flare and Sunburst variants in the API with GIF generation, image markup, SVG export, quality controls and a new complexity parameter.",
+      "what_changed": "The release adds animated GIF output, more targeted edits through markup, SVG export, a complexity control separate from quality, and two API variants with different speed/quality trade-offs.",
+      "why_it_matters": "Developers can choose explicit speed, quality and planning trade-offs and add animation or vector export without building the whole media pipeline themselves, but performance and consistency claims remain vendor-reported.",
+      "engineer_takeaway": "Benchmark generation latency, edit consistency, SVG quality and total workflow cost on your own assets; treat the reported 50% speed improvement and six-second low-quality latency as first-party measurements.",
+      "prerequisites": [
+        "image-generation APIs",
+        "multimodal evaluation"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-images-2-6/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-images-2-6/",
+          "canonical_url": "https://openai.com/index/introducing-images-2-6/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "OpenAI documents availability, API controls, product variants and pricing links.",
+        "independent_validation": "No independent latency or consistency reproduction was identified in this pass.",
+        "claim_scope": "Availability and documented controls are established; speed, consistency and usage figures remain OpenAI-reported."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "New animation, edit targeting and speed/quality controls materially expand production image workflows."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The API control trade-offs can be explained inside the release briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|images-2-6|2026-11-04-gif-markup-svg-complexity-and-api-variants",
+        "canonical_event": "OpenAI releases Images 2.6 with GIFs and new API editing, export and complexity controls.",
+        "previous_coverage": "No exact source URL, Images 2.6 event or matching product-change record was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new image-model release and developer API surface became available."
+      }
     }
   ],
-  "watchlist": [],
-  "exclusions": [],
+  "watchlist": [
+    {
+      "id": "2026-11-02-eefa-agent-ethics-evaluation",
+      "decision": "watch",
+      "title": "EEFA proposes five dimensions for ethical agent evaluation",
+      "desk": "research",
+      "event_date": "2026-11-02",
+      "summary": "A preprint proposes an ethical evaluation framework for AI agents covering autonomy, harm avoidance, transparency, privacy and accountability.",
+      "what_changed": "The authors published a structured framework and validation protocol after reviewing twelve agent benchmarks.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.02561",
+          "publisher": "arXiv",
+          "source_type": "paper",
+          "role": "primary",
+          "publication_date": "2026-11-02"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 66
+      },
+      "deduplication": {
+        "candidate_key": "eefa|ethical-agent-evaluation|five-dimension-framework-and-validation-plan"
+      },
+      "reason": "The paper explicitly leaves empirical application across agent systems as future work, so the framework is not yet validated in practice.",
+      "promotion_condition": "Promote when the framework is empirically applied with reproducible results or independently evaluated against deployed agent systems."
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-11-05-claude-agent-acp-0-101",
+      "decision": "rejected",
+      "title": "Claude Agent ACP 0.101.0",
+      "reason": "A real but incremental minor release: idle-session compaction, packaging, Auto-mode default and background-command streaming did not clear the material-change and significance gates for a daily story.",
+      "source_url": "https://github.com/agentclientprotocol/claude-agent-acp/releases/tag/v0.101.0"
+    }
+  ],
   "publication": {
     "story_ids": [],
     "standalone_story_ids": [],
