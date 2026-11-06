@@ -1,0 +1,37 @@
+{
+  "system_version":"1.3","constitution_version":"1.1","story_id":"2026-11-04-openai-linux-cyber-pipeline","candidate_count":3,"selected_candidate":"A",
+  "visual_brief": {
+    "story_id":"2026-11-04-openai-linux-cyber-pipeline","placement":"article-hero","layout_reference":"docs/reference-layouts/story.html","subject":"OpenAI turned Linux vulnerability research into a pipeline",
+    "verified_context":["OpenAI describes a staged prototype moving from candidate findings through dynamic reproduction and exploitability assessment to candidate patches and human review.","The reported counts and costs come from one controlled first-party campaign.","The story treats maintainer acceptance as a separate gate from patch generation."],
+    "editorial_idea":"Security value emerges as uncertain findings pass through progressively stronger evidence gates.","visual_metaphor":"A sequence of tactile stone inspection chambers narrows rough fragments into a few precise pieces and one fitted repair insert.","archetype":"architectural-cutaway","output_crop":"wide",
+    "must_show":["progressive inspection chambers","rough fragments becoming fewer","final fitted repair insert"],
+    "must_not_show":["words","letters","numbers","labels","logos","interface-elements","page-header","page-footer","buttons","badges","invented-charts","watermark","neon-effects","robots","glowing-ai-brains","screenshot-imitation","bare-schematic-or-diagram","border","frame"],
+    "golden_references":["public/images/stories/2026-09-28-openai-dns-sandbox.webp","public/images/stories/2026-09-28-deepmind-agent-swarm.webp"],"cover_crop_safe":true
+  },
+  "generation_identity":{"identity_version":"1","story_id":"2026-11-04-openai-linux-cyber-pipeline","story_source_sha256":"49c97c00fb79569122600967f3872467f23ce037b4c9c07509e67404ceed9dc8","visual_brief_sha256":"dc19745b8336249a23e64e4c7e4b6019a472001bdbabf74372d69355d78d119c","reference_inputs_sha256":"f51477c51abfd5a26c32476c5184ee2a64ba77bde7e8260190dc81b1f17ca797","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"dc45e1f84213c771d10bd23bdc734f26d3673676831d4ea37c53cd32779c20a7"},
+  "candidate_notes": {
+    "A":"Selected: four illuminated stone chambers visibly reduce a pile of rough findings to a few candidates and finally a fitted terracotta repair. The sequence is legible in wide and thumbnail crops.",
+    "B":"Nested sieves suggest filtering, but the outdoor workshop setting and scattered debris weaken the controlled evidence-gate metaphor and compact legibility.",
+    "C":"Petal-shaped sorting basins communicate classification, but not a staged pipeline; the final repair is too ambiguous."
+  },
+  "candidate_scores": {
+    "A":{"story_specific":97,"brand_fit":93,"composition":94,"crop_quality":89,"technical_meaning":92,"cleanliness":97,"golden_reference_fit":92,"weighted_total":93.25},
+    "B":{"story_specific":87,"brand_fit":82,"composition":84,"crop_quality":80,"technical_meaning":85,"cleanliness":90,"golden_reference_fit":81,"weighted_total":83.5},
+    "C":{"story_specific":90,"brand_fit":88,"composition":88,"crop_quality":87,"technical_meaning":90,"cleanliness":94,"golden_reference_fit":86,"weighted_total":88.35}
+  },
+  "constitution_check":{"passed":true,"violations":[]},
+  "prohibited_elements":{"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores":{"story_specific":97,"brand_fit":93,"composition":94,"crop_quality":89,"technical_meaning":92,"cleanliness":97,"golden_reference_fit":92,"weighted_total":93.25},
+  "hard_failures":[],"cover_crop_approved":true,"thumbnail_approved":true,
+  "crop_review":{"article_desktop":"The 21:9 center crop preserves the full four-stage reduction and fitted repair.","article_mobile":"All chambers remain readable in 16:9, including the rough input and repaired endpoint.","square":"The square crop emphasizes the middle evidence gates while retaining partial input and final repair context.","thumbnail":"At 320px wide, the decreasing fragment count and terracotta repair remain visible."},
+  "golden_reference_comparison":"Compared all candidates above the declared references for architectural depth, pale-stone materiality, restrained warm accents and orderly multi-stage composition. A is closest to that language and uniquely communicates progressive evidence gates.",
+  "contact_sheet":"docs/editorial/illustrations/contact-sheets/2026-11-04-openai-linux-cyber-pipeline.webp","final_asset":"/images/stories/2026-11-04-openai-linux-cyber-pipeline.webp","final_dimensions":{"width":1600,"height":900},
+  "asset_integrity":{"byte_length":172482,"sha256":"a53cb440494d87b17abbc71de05fd8a4653ff825c59fb6ed74716680695463f4","git_blob_sha":"e0be0e0c6e13e02e5e07043997ff56e655fb1c4f","riff_container_complete":true},
+  "generation_metadata":{"reviewed_at":"2026-11-06T11:01:05Z","generator_surface":"chatgpt-image-tool","model_snapshot":null,"visual_review":"Codex model self-review of three full-size candidates, two declared golden references, a reference-first comparison sheet, and desktop/mobile/square/thumbnail crops. The canonical Playwright renderer could not launch because Chromium was unavailable, so ImageMagick produced the equivalent inspected sheet; repository validation remains authoritative.",
+    "candidate_provenance":{
+      "A":{"source_sha256":"a53cb440494d87b17abbc71de05fd8a4653ff825c59fb6ed74716680695463f4","prompt":"Wide sequence of four tactile pale-stone inspection chambers reducing rough fragments into a few precise pieces and one fitted terracotta repair insert; no text or interface elements."},
+      "B":{"source_sha256":"ecd2b43fbff63ad93d7c74e58a00062b21ad2e665ed468ec04eabbff5c46d3ed","prompt":"Wide tactile workshop of nested stone-and-metal sieves progressively sorting rough vulnerability fragments into a fitted repair piece; restrained editorial palette and no prohibited elements."},
+      "C":{"source_sha256":"0d6e90249f1825242ee7711ecc93100da92f473dc52fa22619090af0f5bc7250","prompt":"Wide sculptural set of connected pale-stone sorting basins reducing rough findings toward a central fitted terracotta repair; restrained tactile editorial materiality and no prohibited elements."}
+    }
+  }
+}
