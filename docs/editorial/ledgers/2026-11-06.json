@@ -231,6 +231,81 @@
         "previous_coverage": "No exact source URL, Images 2.6 event or matching product-change record was found in the indexed repository archive on pinned main.",
         "material_delta": "A new image-model release and developer API surface became available."
       }
+    },
+    {
+      "id": "2026-11-04-github-copilot-xcode-coding-assistant",
+      "decision": "selected",
+      "title": "GitHub Copilot enters Xcode’s built-in coding assistant",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "developer-tools",
+        "coding-assistants",
+        "ide",
+        "public-preview"
+      ],
+      "entities": [
+        "GitHub",
+        "GitHub Copilot",
+        "Apple",
+        "Xcode"
+      ],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "GitHub made Copilot available inside Xcode’s built-in coding assistant as a public preview beginning with Xcode 27.3 beta, while retaining its separate Xcode extension.",
+      "what_changed": "Developers can connect any Copilot plan through Xcode’s native Intelligence settings instead of installing the separate extension, subject to beta Xcode and macOS prerequisites.",
+      "why_it_matters": "Teams standardized on Copilot gain a native Xcode workflow and another deployment path, but the integration is still a preview tied to beta tooling.",
+      "engineer_takeaway": "Evaluate authentication, policy behavior, context boundaries and feature parity before replacing the established extension, and avoid production standardization until the beta dependency and preview status change.",
+      "prerequisites": [
+        "Xcode 27.3 beta",
+        "macOS Tahoe 26.6 or later",
+        "GitHub Copilot plan"
+      ],
+      "primary_source_url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "canonical_url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "publisher": "GitHub",
+          "source_type": "official-changelog",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub documents present public-preview availability, setup, supported plans and platform prerequisites.",
+        "independent_validation": "Apple’s Xcode release documentation was located as supporting platform context; no independent workflow evaluation was identified.",
+        "claim_scope": "Availability is established for the public preview in Xcode 27.3 beta; production readiness, parity and reliability are not inferred."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "The release adds a native IDE integration path but remains a preview on beta software."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 76
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "Preview constraints and the native-versus-extension choice fit inside a release briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "github|copilot-xcode-built-in-assistant|2026-11-04-public-preview",
+        "canonical_event": "GitHub Copilot becomes available in Xcode’s built-in coding assistant in public preview.",
+        "previous_coverage": "No exact URL or matching Xcode built-in Copilot event was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new native Xcode integration path is available alongside the existing extension."
+      }
     }
   ],
   "watchlist": [
@@ -270,6 +345,82 @@
       },
       "reason": "The paper explicitly leaves empirical application across agent systems as future work, so the framework is not yet validated in practice.",
       "promotion_condition": "Promote when the framework is empirically applied with reproducible results or independently evaluated against deployed agent systems."
+    },
+    {
+      "id": "2026-11-04-openai-pierre-acquisition",
+      "decision": "watch",
+      "title": "OpenAI agrees to acquire Pierre Computer Company",
+      "desk": "business",
+      "event_date": "2026-11-04",
+      "summary": "OpenAI announced an agreement to acquire Pierre, the company behind the Trees and Diffs developer tools used in Codex.",
+      "what_changed": "The parties signed an acquisition agreement, while Pierre’s Code Storage service is set to continue and its open-source projects are expected to remain open.",
+      "sources": [
+        {
+          "url": "https://openai.com/index/openai-to-acquire-pierre/",
+          "canonical_url": "https://openai.com/index/openai-to-acquire-pierre/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 76
+      },
+      "deduplication": {
+        "candidate_key": "openai|pierre-computer-company|2026-11-04-acquisition-agreement"
+      },
+      "reason": "The signed agreement is material business news, but closing remains subject to customary and regulatory conditions and the source describes future Codex/source-control integration rather than a shipped product change.",
+      "promotion_condition": "Promote when the acquisition closes or OpenAI ships a concrete Codex/source-control capability attributable to the transaction."
+    },
+    {
+      "id": "2026-11-05-microsoft-claude-eu-data-boundary",
+      "decision": "watch",
+      "title": "Microsoft plans EU Data Boundary processing for Claude in Copilot",
+      "desk": "business",
+      "event_date": "2026-11-05",
+      "summary": "Microsoft announced that Claude processing in Microsoft Copilot is planned to move inside the EU Data Boundary for EU and EFTA customers by the end of 2026.",
+      "what_changed": "The company published a migration commitment and said existing users should not need to take action once the capability becomes available.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/05/bringing-claude-models-in-microsoft-copilot-into-the-eu-data-boundary/",
+          "canonical_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/05/bringing-claude-models-in-microsoft-copilot-into-the-eu-data-boundary/",
+          "publisher": "Microsoft",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-05"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 74
+      },
+      "deduplication": {
+        "candidate_key": "microsoft|claude-copilot-eu-data-boundary|2026-11-05-migration-commitment"
+      },
+      "reason": "The announcement is a future availability commitment rather than an already deployed processing boundary.",
+      "promotion_condition": "Promote when Microsoft documents that EU Data Boundary processing for Claude is live, with applicable product, tenant and administrative details."
     }
   ],
   "exclusions": [
