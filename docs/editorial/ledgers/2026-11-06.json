@@ -240,10 +240,9 @@
       "format": "briefing",
       "depth": "practitioner",
       "topics": [
-        "developer-tools",
-        "coding-assistants",
+        "coding-agents",
         "ide",
-        "public-preview"
+        "developer-experience"
       ],
       "entities": [
         "GitHub",
