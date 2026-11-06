@@ -433,10 +433,17 @@
     }
   ],
   "publication": {
-    "story_ids": [],
-    "standalone_story_ids": [],
+    "story_ids": [
+      "2026-11-05-openai-gpt-6-cyber",
+      "2026-11-04-openai-linux-cyber-pipeline",
+      "2026-11-04-openai-images-2-6",
+      "2026-11-04-github-copilot-xcode-coding-assistant"
+    ],
+    "standalone_story_ids": [
+      "2026-11-04-openai-linux-cyber-pipeline"
+    ],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-11-05-openai-gpt-6-cyber"
   },
   "editorial_opportunities": []
 }
