@@ -1,0 +1,93 @@
+{
+  "editorial_date": "2026-11-06",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-11-05-openai-gpt-6-cyber",
+      "decision": "selected",
+      "title": "OpenAI releases GPT-6 Cyber for approved security teams",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "model-releases",
+        "security",
+        "evals",
+        "agent-security"
+      ],
+      "entities": [
+        "OpenAI",
+        "GPT-6 Cyber",
+        "Daybreak Red"
+      ],
+      "event_date": "2026-11-05",
+      "source_publication_date": "2026-11-05",
+      "summary": "OpenAI introduced GPT-6 Cyber to a limited set of approved Daybreak Red customers, reporting stronger exploit-development capability and improved adherence to authorized scope.",
+      "what_changed": "The new cyber-specialized model became available through the API and Codex to selected approved customers. OpenAI reports 48.5% on ExploitGym, 99.93% out-of-scope avoidance without the deployment prompt, and 100% with it.",
+      "why_it_matters": "Security teams can evaluate a materially stronger model for authorized vulnerability research, but access is restricted and the benchmark, safety and deployment claims remain primarily vendor-reported.",
+      "engineer_takeaway": "Treat the release as a controlled security capability: validate scope enforcement, sandboxing, credential controls, auditability and patch-review workflows before using it on real systems.",
+      "prerequisites": [
+        "authorized security testing",
+        "agent containment",
+        "security evaluation"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-gpt-6-cyber/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "canonical_url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-05"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Availability, benchmark results, alignment evaluations and deployment examples are published by OpenAI.",
+        "independent_validation": "The source names external users and Mozilla fixes, but no independent full-model reproduction was identified in this pass.",
+        "claim_scope": "Treat availability as established for selected approved customers; performance, alignment and impact metrics remain OpenAI-reported unless separately corroborated."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A cyber model classified by its vendor at the highest preparedness capability tier changes security-evaluation and access-control decisions."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "authorized scope enforcement",
+          "cybersecurity capability evaluations"
+        ],
+        "existing_explainer_status": "A short explanation of model capability versus deployment authorization would help readers interpret the release."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|gpt-6-cyber|2026-11-05-limited-release-and-alignment-evaluations",
+        "canonical_event": "OpenAI releases GPT-6 Cyber to selected approved Daybreak Red customers with published cyber and scope-alignment evaluations.",
+        "previous_coverage": "No exact source URL, Daybreak Red, ExploitGym, GPT-5.6 Cyber or matching Linux-pipeline event was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new model and controlled availability tier became available with new evaluation results."
+      }
+    }
+  ],
+  "watchlist": [],
+  "exclusions": [],
+  "publication": {
+    "story_ids": [],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  },
+  "editorial_opportunities": []
+}
