@@ -1,0 +1,340 @@
+{
+  "editorial_date": "2026-11-07",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-11-06-uber-secure-ai-agents",
+      "decision": "selected",
+      "title": "Uber publishes its production security architecture for AI agents",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": ["agent-security", "permissions", "prompt-injection", "observability"],
+      "entities": ["Uber", "Uber Secure AI", "Argus", "AI Guard"],
+      "event_date": "2026-11-06",
+      "source_publication_date": "2026-11-06",
+      "summary": "Uber described a three-layer production security architecture for first- and third-party agents, covering provisioning validation, runtime behavioral enforcement, and continuous assurance.",
+      "what_changed": "The company published the operating architecture and implementation lessons behind its agent registry, automated code and tool analysis, semantic intent enforcement, prompt provenance, replay, red teaming, and per-agent calibration.",
+      "why_it_matters": "The disclosure turns agent security from a list of guardrails into an inspectable lifecycle architecture, including the latency, false-block, developer-friction, and autonomy trade-offs encountered in production.",
+      "engineer_takeaway": "Treat agent behavior as a policy surface in addition to identity and authorization; define explicit intents and constraints, evaluate tool supply chains, and calibrate enforcement with shadow traffic and replay.",
+      "prerequisites": ["agent authorization", "prompt injection", "policy enforcement points"],
+      "primary_source_url": "https://www.uber.com/gb/en/blog/securing-ai-agents/",
+      "sources": [
+        {
+          "url": "https://www.uber.com/gb/en/blog/securing-ai-agents/",
+          "canonical_url": "https://www.uber.com/gb/en/blog/securing-ai-agents/",
+          "publisher": "Uber",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-11-06"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Uber's engineering team provides a first-party architecture and implementation account.",
+        "independent_validation": "No independent measurement of control effectiveness was identified in this pass.",
+        "claim_scope": "Architecture and reported operating lessons are first-party; the article does not publish universal effectiveness rates."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The architecture materially affects how teams design agent identity, tool access, runtime enforcement, telemetry, and security review."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 91
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["behavioral authorization", "prompt provenance"]
+      },
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "uber|secure-ai|2026-11-06-production-agent-security-architecture",
+        "canonical_event": "Uber publishes its production lifecycle architecture for securing AI agents.",
+        "previous_coverage": null,
+        "material_delta": "A new detailed first-party architecture and production lessons were published."
+      }
+    },
+    {
+      "id": "2026-11-06-kakao-kanana-2-v-decide",
+      "decision": "selected",
+      "title": "Kakao releases a small multimodal decision model for agent routing",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["model-releases", "multimodal", "model-routing", "open-models"],
+      "entities": ["Kakao", "Kanana-2-v-decide", "Hugging Face"],
+      "event_date": "2026-11-06",
+      "source_publication_date": "2026-11-06",
+      "summary": "Kakao released Kanana-2-v-decide, a roughly 3B-parameter multimodal model that returns probability distributions for choices, yes/no questions, and ordered scores instead of generating prose.",
+      "what_changed": "Weights, model documentation, and example usage became public for a decision-specific model accepting text, JSON, chat history, and up to ten images, with a 20,480-token input limit.",
+      "why_it_matters": "A small non-generative model creates a distinct option for repeated routing and classification steps inside agents, where calibrated choices and latency can matter more than fluent text.",
+      "engineer_takeaway": "Evaluate the released weights on your own choice distributions, calibration, Korean and multimodal data, and license constraints before substituting it for a generative model or rules engine.",
+      "prerequisites": ["classification", "embedding models", "probability calibration"],
+      "primary_source_url": "https://huggingface.co/kakaocorp/kanana-2-v-decide-3b-2611",
+      "sources": [
+        {
+          "url": "https://huggingface.co/kakaocorp/kanana-2-v-decide-3b-2611",
+          "canonical_url": "https://huggingface.co/kakaocorp/kanana-2-v-decide-3b-2611",
+          "publisher": "Kakao",
+          "source_type": "repository",
+          "role": "primary",
+          "publication_date": "2026-11-06"
+        },
+        {
+          "url": "https://tech.kakao.com/posts/846",
+          "canonical_url": "https://tech.kakao.com/posts/846",
+          "publisher": "Kakao",
+          "source_type": "engineering-blog",
+          "role": "supporting",
+          "publication_date": "2026-11-06"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The weights and model card are public and the architecture and evaluation claims are documented by Kakao.",
+        "independent_validation": "No independent reproduction of Kakao's latency or benchmark comparisons was identified.",
+        "claim_scope": "Availability and interface are inspectable; speed and benchmark leadership remain vendor-reported."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A decision-specific open model may change latency and control trade-offs for high-frequency agent routing."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 5,
+        "weighted_total": 82
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["decision models", "calibration"]
+      },
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "kakao|kanana-2-v-decide|2026-11-06-open-multimodal-decision-model",
+        "canonical_event": "Kakao releases Kanana-2-v-decide weights and documentation.",
+        "previous_coverage": null,
+        "material_delta": "A new public decision-specific multimodal model became available."
+      }
+    },
+    {
+      "id": "2026-11-04-multi-agent-reliability-envelope",
+      "decision": "selected",
+      "title": "A reliability framework shows why more agents do not guarantee a safer system",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": ["multi-agent", "evals", "verification", "safety"],
+      "entities": ["University of Hull", "arXiv"],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "A preprint combines imprecise-probability estimates for individual LLMs with a Bayesian network of multi-agent failure logic to produce system-level reliability envelopes.",
+      "what_changed": "The authors applied the framework to a regulated chemical-hazard extraction pipeline and showed that majority voting protected against the weakest model but did not clearly outperform the best, while a 5% voter failure rate erased much of the advantage.",
+      "why_it_matters": "Teams cannot infer system reliability from average model accuracy or agent count alone; the combining rule and deployment input mix become explicit failure contributors.",
+      "engineer_takeaway": "Model the voter, router, and operational profile as components with their own uncertainty instead of treating ensemble agreement as an automatic reliability gain.",
+      "prerequisites": ["Bayesian networks", "multi-agent systems", "uncertainty intervals"],
+      "primary_source_url": "https://arxiv.org/abs/2611.07140",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.07140",
+          "canonical_url": "https://arxiv.org/abs/2611.07140",
+          "publisher": "arXiv",
+          "source_type": "paper",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary",
+        "rationale": "The source is a current preprint with a concrete framework and case study, not peer-reviewed independent validation.",
+        "independent_validation": "No independent reproduction was identified.",
+        "claim_scope": "The reported envelope and case-study results support the narrower reliability lesson, not a universal ranking of ensemble designs."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The work challenges a common architecture assumption and gives engineers a method for representing voter and workload uncertainty."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 78
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["operational profiles", "reliability envelopes"]
+      },
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "tuncturk-et-al|multi-agent-reliability|2611.07140",
+        "canonical_event": "The authors publish a system-level reliability-envelope method for multi-agent LLM systems.",
+        "previous_coverage": null,
+        "material_delta": "A new reliability method and worked multi-agent case study were published."
+      }
+    },
+    {
+      "id": "2026-11-06-github-copilot-code-review-api-controls",
+      "decision": "selected",
+      "title": "GitHub adds API controls and attribution metadata for Copilot code review",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "api", "governance", "verification"],
+      "entities": ["GitHub", "GitHub Copilot Code Review"],
+      "event_date": "2026-11-06",
+      "source_publication_date": "2026-11-06",
+      "summary": "GitHub added REST and GraphQL controls for Copilot code-review settings plus attribution fields for reviews, effort metadata, and reported instruction, skill, and MCP sources.",
+      "what_changed": "Enterprise, organization, and repository administrators gained API-managed review policy controls, while review output can now expose explicit provenance fields and reported configuration sources.",
+      "why_it_matters": "Teams can automate review governance and audit which configuration surfaces influenced an AI review instead of relying only on web settings and opaque comments.",
+      "engineer_takeaway": "Inspect token and permission differences across enterprise, organization, and repository endpoints, then persist attribution and effort metadata with review evidence.",
+      "prerequisites": ["GitHub administration", "code review policy", "REST and GraphQL APIs"],
+      "primary_source_url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/",
+          "canonical_url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-06"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's dated changelog documents the shipped API and metadata changes.",
+        "independent_validation": "The endpoints were not independently exercised in this pass.",
+        "claim_scope": "Availability and documented fields are first-party; operational reliability improvements are not independently measured."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Automatable policy and provenance materially improve how organizations govern AI-assisted code review."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 3,
+        "weighted_total": 81
+      },
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "github|copilot-code-review|2026-11-06-api-policy-and-attribution",
+        "canonical_event": "GitHub ships API-managed Copilot code-review settings and review attribution metadata.",
+        "previous_coverage": null,
+        "material_delta": "New administrative APIs and review provenance fields became available."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-11-06-ai-companions-pragmatic-perspective",
+      "decision": "watch",
+      "title": "AI companions, human concerns: a pragmatic perspective",
+      "desk": "curious",
+      "event_date": "2026-11-06",
+      "summary": "A newly published perspective article examines social and governance concerns around AI companions.",
+      "what_changed": "The article was published, but the inspected abstract did not establish a new empirical result or bounded current event.",
+      "reason": "The topic fits the pilot Curious lane, but a perspective alone does not clear the existing news evidence and novelty gates.",
+      "promote_when": ["A full-access empirical result, dataset, or concrete policy change establishes a distinct current event."],
+      "primary_source_url": "https://link.springer.com/article/10.1007/s43681-026-01506-4",
+      "sources": [{"url": "https://link.springer.com/article/10.1007/s43681-026-01506-4", "role": "primary", "publication_date": "2026-11-06"}],
+      "evidence": {"level": "preliminary"},
+      "signal": {"level": "watch"},
+      "editorial_score": {"significance": 3, "evidence": 3, "novelty": 2, "relevance": 3, "durability": 4, "weighted_total": 58},
+      "deduplication": {"status": "new", "candidate_key": "ekbia-et-al|ai-companions-pragmatic-perspective|2026-11-06"}
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-11-06-github-copilot-weekly-roundup",
+      "decision": "rejected",
+      "title": "GitHub Copilot weekly releases — November 2",
+      "desk": "tools",
+      "event_date": "2026-11-06",
+      "summary": "A weekly roundup restates several separately dated GitHub changes.",
+      "what_changed": "No single additional technical event beyond the constituent releases was established.",
+      "reason": "Duplicate roundup; constituent developments are evaluated independently.",
+      "source_url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2/",
+      "sources": [{"url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2/", "role": "primary"}],
+      "deduplication": {"status": "repeat", "candidate_key": "github|copilot-weekly-roundup|2026-11-02"}
+    },
+    {
+      "id": "2026-11-06-github-copilot-impact-dashboard",
+      "decision": "rejected",
+      "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+      "desk": "practice",
+      "event_date": "2026-11-06",
+      "summary": "GitHub added two feature-engagement categories to its enterprise usage dashboard.",
+      "what_changed": "Chat and VS Code Agents engagement are now reported, while adoption-phase calculations remain unchanged.",
+      "reason": "Useful telemetry coverage but incremental, with no measured adoption outcome or change to the adoption model.",
+      "source_url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/",
+      "sources": [{"url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/", "role": "primary"}],
+      "deduplication": {"status": "new", "candidate_key": "github|copilot-impact-dashboard|2026-11-06-chat-vscode-agent-metrics"}
+    },
+    {
+      "id": "2026-11-06-github-slack-teams-ga",
+      "decision": "rejected",
+      "title": "@GitHub in Slack and Teams reaches general availability",
+      "desk": "workflows",
+      "event_date": "2026-11-06",
+      "summary": "GitHub announced GA for conversation-to-code workflows in Slack and Teams, with Teams Canvas and attribution improvements.",
+      "what_changed": "The integration moved to GA, but the connected cloud experience and Slack/Teams coding path had already been announced on October 28.",
+      "reason": "The current item is a repeat availability announcement with incremental UX and attribution changes, not a distinct engineering event.",
+      "source_url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/",
+      "sources": [{"url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/", "role": "primary"}],
+      "deduplication": {
+        "status": "repeat",
+        "candidate_key": "github|copilot-slack-teams|2026-11-06-ga",
+        "previous_coverage": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/"
+      }
+    },
+    {
+      "id": "2026-11-06-github-agentic-engineering-guide",
+      "decision": "rejected",
+      "title": "Beyond code generation: a developer's guide to agentic engineering",
+      "desk": "workflows",
+      "event_date": "2026-11-06",
+      "summary": "GitHub published a product-oriented Plan, Build, Verify, and Observe workflow guide.",
+      "what_changed": "No distinct product release, independent measurement, or new engineering architecture was established.",
+      "reason": "Evergreen product guidance is not a new Daily News event; Tools & Guides ownership remains independent.",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
+      "sources": [{"url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/", "role": "primary"}],
+      "deduplication": {"status": "new", "candidate_key": "github|agentic-engineering-guide|2026-11-06"}
+    },
+    {
+      "id": "2026-11-06-openai-funding-report",
+      "decision": "rejected",
+      "title": "OpenAI funding report",
+      "desk": "business",
+      "event_date": "2026-11-06",
+      "summary": "Reporting described a financing tranche and valuation based on unnamed-source information.",
+      "what_changed": "No primary company filing or concrete engineering consequence was identified.",
+      "reason": "Generic funding news with unattributed central claims and no demonstrated engineering delta does not qualify.",
+      "source_url": "https://www.reuters.com/business/openai-secures-11-billion-funding-125-trillion-valuation-bloomberg-news-reports-2026-11-06/",
+      "sources": [{"url": "https://www.reuters.com/business/openai-secures-11-billion-funding-125-trillion-valuation-bloomberg-news-reports-2026-11-06/", "role": "primary"}],
+      "deduplication": {"status": "new", "candidate_key": "openai|funding|2026-11-06-reported-tranche"}
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  }
+}
