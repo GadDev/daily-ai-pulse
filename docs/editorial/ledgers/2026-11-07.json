@@ -55,10 +55,15 @@
       "related_content": {"previous_story_ids": []},
       "deduplication": {
         "status": "new",
+        "publication_status": "new-confirmed",
         "candidate_key": "uber|secure-ai|2026-11-06-production-agent-security-architecture",
         "canonical_event": "Uber publishes its production lifecycle architecture for securing AI agents.",
         "previous_coverage": null,
         "material_delta": "A new detailed first-party architecture and production lessons were published."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "reason": "The dated Uber engineering report supports the architecture and operating lessons; universal effectiveness is not claimed."
       }
     },
     {
@@ -121,10 +126,15 @@
       "related_content": {"previous_story_ids": []},
       "deduplication": {
         "status": "new",
+        "publication_status": "new-confirmed",
         "candidate_key": "kakao|kanana-2-v-decide|2026-11-06-open-multimodal-decision-model",
         "canonical_event": "Kakao releases Kanana-2-v-decide weights and documentation.",
         "previous_coverage": null,
         "material_delta": "A new public decision-specific multimodal model became available."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "reason": "The public model card and weights establish availability and interface; performance comparisons remain Kakao-reported."
       }
     },
     {
@@ -179,10 +189,15 @@
       "related_content": {"previous_story_ids": []},
       "deduplication": {
         "status": "new",
+        "publication_status": "new-confirmed",
         "candidate_key": "tuncturk-et-al|multi-agent-reliability|2611.07140",
         "canonical_event": "The authors publish a system-level reliability-envelope method for multi-agent LLM systems.",
         "previous_coverage": null,
         "material_delta": "A new reliability method and worked multi-agent case study were published."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "reason": "The arXiv record supports the method and case-study result; the work remains a preprint without independent reproduction."
       }
     },
     {
@@ -234,10 +249,15 @@
       "related_content": {"previous_story_ids": []},
       "deduplication": {
         "status": "new",
+        "publication_status": "new-confirmed",
         "candidate_key": "github|copilot-code-review|2026-11-06-api-policy-and-attribution",
         "canonical_event": "GitHub ships API-managed Copilot code-review settings and review attribution metadata.",
         "previous_coverage": null,
         "material_delta": "New administrative APIs and review provenance fields became available."
+      },
+      "publication_verification": {
+        "status": "verified-with-claim-scope",
+        "reason": "GitHub's dated changelog supports the API and metadata availability; the endpoints were not independently exercised."
       }
     }
   ],
