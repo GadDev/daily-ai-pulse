@@ -1,0 +1,44 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-06-github-copilot-code-review-api-controls",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-06-github-copilot-code-review-api-controls",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Programmable code-review policy is joined to an inspectable but non-authoritative provenance trail",
+    "verified_context": [
+      "GitHub added REST and GraphQL controls for Copilot code-review settings from enterprise policy down to repositories.",
+      "Attribution metadata can report review effort and the skills, MCP servers and custom instructions associated with a comment.",
+      "The metadata is first-party evidence and does not independently prove the model's reasoning or completeness."
+    ],
+    "editorial_idea": "AI review becomes governable when its policy can be automated and its configuration trail can be inspected without being mistaken for certification.",
+    "visual_metaphor": "A dark-metal review press is governed by three terracotta levers while an attached chain of distinct material links records the evidence trail.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": ["review-press", "policy-levers", "attached-provenance-chain"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-28-claude-plugin-ecosystem.webp", "public/images/stories/2026-09-22-copilot-review-controls.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version":"1","story_id":"2026-11-06-github-copilot-code-review-api-controls","story_source_sha256":"ffcbe11d726613105d4cf611d65afeb316f3659cffdbfc484c1deb03d18f7c6f","visual_brief_sha256":"999078f0ae2afc4b3b73b2e7e8fd93ee42882d1ad31a46f28876f32bb19388c3","reference_inputs_sha256":"7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"477b90ecc52eafbb75a450fbf157eba2c42daeb3bf2f7e0fad3b06218b61798c"},
+  "candidate_notes": {
+    "A": "Selected. A substantial review press, three policy levers and an attached chain make governance and provenance visible without resembling software UI or claiming that the trail is proof.",
+    "B": "Constitution-compliant. The inspection gate and incoming control rods are clear, but the lined paper surface comes closer to imitating a code or document interface.",
+    "C": "Constitution-compliant. The opened seal is visually strong, though the provenance links are less legible at thumbnail scale than in A."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores": {"story_specific":94,"brand_fit":88,"composition":92,"crop_quality":92,"technical_meaning":92,"cleanliness":96,"golden_reference_fit":85,"weighted_total":90.6},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop":"The press, all three levers and the complete provenance chain remain visible across the wide hero.","article_mobile":"A centered crop keeps the press and levers dominant while retaining the terracotta and gray provenance links.","thumbnail":"The press silhouette and terracotta controls remain legible at 320px; chain detail is supplementary."},
+  "golden_reference_comparison": "The selected candidate shares the tooling references' pale paper ground, charcoal constructed artifact, sparse terracotta controls and tactile print texture. It is more industrial and object-centered than the references, so Golden Reference Fit is scored at 85.",
+  "final_asset": "/images/stories/2026-11-06-github-copilot-code-review-api-controls.webp",
+  "final_dimensions": {"width":1600,"height":900},
+  "asset_integrity": {"byte_length":172640,"sha256":"10a61fada34aabc4d196e5da855da924c63864de7fd6ffbaa6927af8b337874f","git_blob_sha":"42fd0d02efbfb3070bec73f6f0c36f08d34549ad","riff_container_complete":true},
+  "generation_metadata": {"generated_at":"2026-11-07T08:16:48Z"}
+}
