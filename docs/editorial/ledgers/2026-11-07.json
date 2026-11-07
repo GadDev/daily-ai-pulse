@@ -352,9 +352,14 @@
     }
   ],
   "publication": {
-    "story_ids": [],
+    "story_ids": [
+      "2026-11-06-uber-secure-ai-agents",
+      "2026-11-06-kakao-kanana-2-v-decide",
+      "2026-11-04-multi-agent-reliability-envelope",
+      "2026-11-06-github-copilot-code-review-api-controls"
+    ],
     "standalone_story_ids": [],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-11-06-uber-secure-ai-agents"
   }
 }
