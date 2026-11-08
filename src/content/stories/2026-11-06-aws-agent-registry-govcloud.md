@@ -8,7 +8,7 @@ tags:
   - agents
   - governance
   - mcp
-  - cloud-platforms
+  - permissions
 type: briefing
 difficulty: intermediate
 signal: medium
