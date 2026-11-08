@@ -90,7 +90,7 @@
         "evals",
         "multimodal",
         "agents",
-        "scientific-ai"
+        "benchmarks"
       ],
       "entities": [
         "OpenAI",
@@ -167,7 +167,7 @@
         "model-releases",
         "multimodal",
         "api",
-        "cloud-platforms"
+        "video"
       ],
       "entities": [
         "Microsoft",
@@ -241,7 +241,7 @@
       "topics": [
         "agents",
         "governance",
-        "cloud-platforms",
+        "permissions",
         "mcp"
       ],
       "entities": [
