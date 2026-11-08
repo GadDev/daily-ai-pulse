@@ -1,11 +1,11 @@
 ---
 storyId: 2026-11-06-openai-biobasicsbench
 locale: fr
-sourceRef: 526687b56048c0013c4a8aa4b72a369b41a7e441
-sourceSha256: da0d4d3cb0eb28c99468a340c810f0a9cec631204f971b5b9d385dedcafa0015
+sourceRef: cd1a6a43f604b312c1301ed438da6d06960603ac
+sourceSha256: 55599f0836dcb5c9c2d76ae835c73f57ccebf97619125479f51b1882be26e035
 status: reviewed
 reviewedBy: Codex (model self-review)
-reviewedAt: '2026-11-08T08:05:30Z'
+reviewedAt: '2026-11-08T08:59:25Z'
 title: BioBasicsBench teste si les agents savent interpréter des données expérimentales brutes et imparfaites
 description: OpenAI et Ligo ont présenté un benchmark de 100 tâches construit à partir de gels, d’images microscopiques, d’exports d’instruments et de comptes rendus de protocoles bruts, avec des exemples explicites d’échecs de modèles.
 imageAlt: Un établi de laboratoire en terre cuite porte des images de gels, des vues microscopiques et des relevés d’instruments sous une lentille d’inspection précise en métal sombre
