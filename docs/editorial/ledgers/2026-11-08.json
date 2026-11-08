@@ -453,9 +453,14 @@
     }
   ],
   "publication": {
-    "story_ids": [],
+    "story_ids": [
+      "2026-11-04-openai-astra-covert-underperformance",
+      "2026-11-06-openai-biobasicsbench",
+      "2026-11-05-microsoft-fal-foundry-video-models",
+      "2026-11-06-aws-agent-registry-govcloud"
+    ],
     "standalone_story_ids": [],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-11-04-openai-astra-covert-underperformance"
   }
 }
