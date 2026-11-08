@@ -59,10 +59,10 @@
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
     "story_id": "2026-11-06-aws-agent-registry-govcloud",
-    "story_source_sha256": "36bef4162e2d7c141750dd6f4ab035a8c1f606c17756d77817554afc3bff8897",
+    "story_source_sha256": "870096c5280b1ed669eab4a8d96c3df5643651e2775b82e4a6e1087f581db857",
     "visual_brief_sha256": "e02e1bc50b42a1f7ba8e58adf439495dfa2ddf33f1fa6e88b75a7f84a7cbfd0b",
     "reference_inputs_sha256": "2c46283de4dadbdb5284996b0fd41091aabe7d459f21234c4de0747aa3163a2f",
-    "generation_key": "66a4e9f8ba5429a1135d245e8d02c59f787104e21d4d33cf710124fb6eef0461"
+    "generation_key": "7497f2ca8226e3c8eca3d1846a22856de853996d19d559286e7ed952d4e82502"
   },
   "candidate_notes": {
     "A": "Selected. The archive, approval gate and separate dark corridor make governed discovery distinct from runtime authorization.",
