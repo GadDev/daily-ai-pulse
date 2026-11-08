@@ -8,7 +8,7 @@ tags:
   - evals
   - multimodal
   - agents
-  - scientific-ai
+  - benchmarks
 type: deep-dive
 difficulty: advanced
 signal: high
