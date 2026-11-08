@@ -59,10 +59,10 @@
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
     "story_id": "2026-11-05-microsoft-fal-foundry-video-models",
-    "story_source_sha256": "57fd2c51d60624e665d3da0ae90fde779515b9daf3a3077c11953a0eabbd4614",
+    "story_source_sha256": "70d56259220d2531074f29b57458e434975a0cd1959f87d160bfe680c8906ff8",
     "visual_brief_sha256": "fc18951cb7e4191e1c268426aeb3b352df088768a2c12ae1977ff50f9c7d1818",
     "reference_inputs_sha256": "4b9fba86438f67e1039c2842bf77ff589e43a010f8db123fad98d1d0e6d60480",
-    "generation_key": "3151f2776f11c5361d16cf5e5a415c53c412dfaa98eb6f93c8cd0d88de287409"
+    "generation_key": "fbd179b832c559748e285049e0b8b2c6a917286ae6976e26d8bc3500ba038205"
   },
   "candidate_notes": {
     "A": "Constitution-compliant, but one terracotta strip reads as a preferred winner rather than an equal portfolio option.",
