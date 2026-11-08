@@ -1,11 +1,11 @@
 ---
 storyId: 2026-11-06-aws-agent-registry-govcloud
 locale: fr
-sourceRef: 526687b56048c0013c4a8aa4b72a369b41a7e441
-sourceSha256: 36bef4162e2d7c141750dd6f4ab035a8c1f606c17756d77817554afc3bff8897
+sourceRef: cd1a6a43f604b312c1301ed438da6d06960603ac
+sourceSha256: 870096c5280b1ed669eab4a8d96c3df5643651e2775b82e4a6e1087f581db857
 status: reviewed
 reviewedBy: Codex (model self-review)
-reviewedAt: '2026-11-08T08:05:30Z'
+reviewedAt: '2026-11-08T08:59:25Z'
 title: AWS apporte son catalogue d’agents gouverné à GovCloud US-West
 description: Agent Registry est désormais disponible de manière générale dans AWS GovCloud US-West, offrant aux équipes du secteur public un catalogue interrogeable et un processus d’approbation pour les agents, outils, compétences et serveurs MCP.
 imageAlt: Un tiroir de catalogue sécurisé en terre cuite organise des agents, des outils et des serveurs MCP derrière une porte d’approbation sombre et une piste d’audit
