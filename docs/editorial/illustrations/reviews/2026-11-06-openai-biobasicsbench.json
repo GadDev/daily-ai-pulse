@@ -59,10 +59,10 @@
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
     "story_id": "2026-11-06-openai-biobasicsbench",
-    "story_source_sha256": "da0d4d3cb0eb28c99468a340c810f0a9cec631204f971b5b9d385dedcafa0015",
+    "story_source_sha256": "55599f0836dcb5c9c2d76ae835c73f57ccebf97619125479f51b1882be26e035",
     "visual_brief_sha256": "59a990dde7ea4fb4664d7130998799577ac391e4256264be7a20fab3b90cd1a3",
     "reference_inputs_sha256": "8ac400ff760a860f44b312413b2bd1c5dc91314c8d954fe2b10d036e93e9337d",
-    "generation_key": "53052c9bca6b4c96a00393e1fc7ff22f3bb45865c08b498a077475e5a2bdda51"
+    "generation_key": "5532cba6a400eda8568f2f29f4dcd37a8404b27730db3db175029900245f4870"
   },
   "candidate_notes": {
     "A": "Selected. One inspection lens, three distinct evidence forms and separated terracotta rails remain readable without pretending to be a scientific diagram.",
