@@ -8,7 +8,7 @@ tags:
   - model-releases
   - multimodal
   - video
-  - cloud-platforms
+  - api
 type: briefing
 difficulty: intermediate
 signal: high
