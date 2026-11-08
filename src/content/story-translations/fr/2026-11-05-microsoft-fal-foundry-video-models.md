@@ -1,11 +1,11 @@
 ---
 storyId: 2026-11-05-microsoft-fal-foundry-video-models
 locale: fr
-sourceRef: 526687b56048c0013c4a8aa4b72a369b41a7e441
-sourceSha256: 57fd2c51d60624e665d3da0ae90fde779515b9daf3a3077c11953a0eabbd4614
+sourceRef: cd1a6a43f604b312c1301ed438da6d06960603ac
+sourceSha256: 70d56259220d2531074f29b57458e434975a0cd1959f87d160bfe680c8906ff8
 status: reviewed
 reviewedBy: Codex (model self-review)
-reviewedAt: '2026-11-08T08:05:30Z'
+reviewedAt: '2026-11-08T08:59:25Z'
 title: Microsoft Foundry ajoute en préversion publique cinq modèles vidéo servis par fal
 description: Les modèles vidéo Kling, LTX et MiniMax arrivent dans Microsoft Foundry avec des options de génération de texte vers vidéo et d’image vers vidéo, des tarifs publiés et des contraintes d’hébergement propres à chaque modèle.
 imageAlt: Cinq images de film éclairées traversent un routeur de modèles en terre cuite pour rejoindre une même console sombre de production vidéo d’entreprise
