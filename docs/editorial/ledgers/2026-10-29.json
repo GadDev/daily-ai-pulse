@@ -1,0 +1,408 @@
+{
+  "editorial_date": "2026-10-29",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-10-29-anthropic-real-world-exploit-chains",
+      "decision": "selected",
+      "title": "Anthropic says an internal model built five real-world exploit chains",
+      "desk": "research",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": ["agent-security", "security", "safety", "evals"],
+      "entities": ["Anthropic", "Claude"],
+      "event_date": "2026-10-27",
+      "source_publication_date": "2026-10-27",
+      "summary": "Anthropic reports that an unreleased internal research model helped find and combine vulnerabilities into five exploit chains affecting Chrome, Safari, Android, Windows and Linux.",
+      "what_changed": "The company disclosed five coordinated-vulnerability case studies in which its internal model produced multi-step exploit chains against widely deployed software; the vendors had patched the reported issues before publication.",
+      "why_it_matters": "The disclosure moves frontier-model cyber capability from toy benchmarks toward patched real-world systems, while leaving the model, prompts, human intervention and reproducibility only partly observable.",
+      "engineer_takeaway": "Treat agent-assisted vulnerability research as a dual-use capability that needs isolated environments, disclosure discipline, human review and independent validation before operational claims are generalized.",
+      "prerequisites": ["vulnerability disclosure", "sandboxing", "exploit chains"],
+      "primary_source_url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+          "canonical_url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-27"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Anthropic provides the dated disclosure, affected platforms, chain descriptions and links to vendor fixes.",
+        "independent_validation": "Vendor fixes corroborate that reported vulnerabilities existed, but no independent reproduction of the model's end-to-end role was identified.",
+        "claim_scope": "The model capability, prompting, human assistance and chain-construction claims are Anthropic-reported and concern an unreleased internal model."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Real-world exploit-chain construction materially changes the security assumptions around high-capability research agents."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": ["coordinated vulnerability disclosure", "exploit chaining"],
+        "existing_explainer_status": "Explain why finding a bug and building a complete exploit chain are different evidence claims."
+      },
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "anthropic|internal-research-model|five-real-world-exploit-chains",
+        "canonical_event": "Anthropic discloses five patched exploit chains produced with an unreleased internal research model.",
+        "previous_coverage": "No matching source URL, five-chain event or equivalent Anthropic model disclosure was found in the full pinned repository tree.",
+        "material_delta": "A dated real-world capability disclosure with patched vendor vulnerabilities was published."
+      },
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    },
+    {
+      "id": "2026-10-29-github-connected-copilot-cloud",
+      "decision": "selected",
+      "title": "GitHub makes Copilot cloud sessions portable across its tools",
+      "desk": "engineering",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "agent-runtime", "sandboxing", "infrastructure"],
+      "entities": ["GitHub", "GitHub Copilot"],
+      "event_date": "2026-10-28",
+      "source_publication_date": "2026-10-28",
+      "summary": "GitHub made a connected Copilot cloud experience and resumable managed sandboxes generally available across web, mobile, CLI, the Copilot app, VS Code, Slack and Teams on paid plans.",
+      "what_changed": "A single agent session can move across GitHub surfaces, run in an isolated cloud sandbox and consume a shared dollar-based Actions compute entitlement.",
+      "why_it_matters": "Agent state, permissions, compute accounting and execution environment now span more developer surfaces, turning session portability into an architecture and governance concern.",
+      "engineer_takeaway": "Review repository access, organization scoping, sandbox policies, MCP allowlists, compute budgets and session-resume behavior before enabling the connected experience broadly.",
+      "prerequisites": ["coding agents", "cloud sandboxes", "GitHub organization policy"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+          "canonical_url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's changelog establishes general availability, supported surfaces, sandbox behavior and compute-entitlement changes.",
+        "independent_validation": "No independent security or billing validation was identified in the frozen window.",
+        "claim_scope": "Isolation, startup, resumability and security properties are GitHub descriptions rather than independent audits."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The change affects how teams govern persistent coding-agent state, permissions and compute across multiple work surfaces."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 3,
+        "weighted_total": 89
+      },
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "github|copilot-connected-cloud|portable-resumable-sandbox-sessions",
+        "canonical_event": "GitHub makes connected Copilot cloud sessions and managed sandboxes generally available across supported surfaces.",
+        "previous_coverage": "Full-tree search found cloud-agent stories for other vendors and GitHub sandbox documentation, but no prior story about this cross-surface GA event.",
+        "material_delta": "Cross-surface session portability, managed sandboxes and shared Actions compute entitlement became generally available together."
+      },
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    },
+    {
+      "id": "2026-10-29-github-agentic-workflows-ga",
+      "decision": "selected",
+      "title": "GitHub Agentic Workflows reaches general availability with tighter isolation",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "orchestration", "ci", "agent-security"],
+      "entities": ["GitHub", "GitHub Agentic Workflows"],
+      "event_date": "2026-10-28",
+      "source_publication_date": "2026-10-28",
+      "summary": "GitHub moved Agentic Workflows to general availability and added runner, forecasting, routing and micro-VM isolation capabilities beyond the preview.",
+      "what_changed": "Natural-language workflow definitions can now be compiled into GitHub Actions under a GA release with read-only defaults, firewall and threat-detection controls, ARC and Docker-in-Docker support, budget forecasting, model routing and optional stronger isolation.",
+      "why_it_matters": "Reasoning-based repository automation is moving from experiment to supported CI infrastructure, making permission, cost and output-validation policy part of normal workflow design.",
+      "engineer_takeaway": "Start with read-only tasks, inspect generated Actions YAML, enforce safe-output and threat-detection gates, and budget model plus runner costs before allowing write paths.",
+      "prerequisites": ["GitHub Actions", "coding agents", "CI permissions"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "canonical_url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's GA announcement lists the supported workflow model, safeguards and capabilities added since preview.",
+        "independent_validation": "No independent audit of safeguard effectiveness or customer productivity claims was identified.",
+        "claim_scope": "Availability and documented controls are established; quoted customer outcome metrics remain first-party testimonials and are not treated as general results."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A supported agentic CI tool with explicit safety and cost controls changes practical automation choices for GitHub teams."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 87
+      },
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": ["2026-09-15-github-agentic-logs"]},
+      "deduplication": {
+        "status": "material-update",
+        "publication_status": "material-update-confirmed",
+        "candidate_key": "github|agentic-workflows|general-availability-and-isolation-controls",
+        "canonical_event": "GitHub Agentic Workflows reaches GA with new runner, forecasting, routing and isolation capabilities.",
+        "previous_coverage": "2026-09-15-github-agentic-logs covered MCP tool identity in workflow logs, not the GA transition or the newly documented controls.",
+        "material_delta": "The project reached general availability and added operational and isolation capabilities beyond the previously covered logging update."
+      },
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    },
+    {
+      "id": "2026-10-29-android-studio-rabbit-2-byoa",
+      "decision": "selected",
+      "title": "Android Studio makes external coding agents production-stable",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["coding-agents", "ide", "skills", "developer-experience"],
+      "entities": ["Google", "Android Studio", "Agent Client Protocol"],
+      "event_date": "2026-10-28",
+      "source_publication_date": "2026-10-28",
+      "summary": "Google released Android Studio Rabbit 2 as stable with Bring Your Own Agent support for more than 40 ACP-compatible coding agents plus Android-specific tools and skills.",
+      "what_changed": "The BYOA capability previously covered in preview became stable for production use and arrived with agent selection, Android tool access, a skills manager and AI code-review support.",
+      "why_it_matters": "Teams can standardize Android development around IDE-native tools while choosing different agent providers, but must still govern agent credentials, cost and repository permissions.",
+      "engineer_takeaway": "Test one ACP agent against emulator, build, Logcat and review workflows; document authentication and permission boundaries before enabling additional providers.",
+      "prerequisites": ["Android Studio", "coding agents", "Agent Client Protocol"],
+      "primary_source_url": "https://developer.android.com/blog/posts/ai-agents-android-studio-integration",
+      "sources": [
+        {
+          "url": "https://developer.android.com/blog/posts/ai-agents-android-studio-integration",
+          "canonical_url": "https://developer.android.com/blog/posts/ai-agents-android-studio-integration",
+          "publisher": "Android Developers",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Google's Android developer announcement establishes the stable Rabbit 2 release and names the supported agent features.",
+        "independent_validation": "No cross-agent interoperability or security comparison was identified in the frozen window.",
+        "claim_scope": "Stable availability and named integrations are first-party; quality, cost efficiency and broad ACP compatibility were not independently tested."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Stable multi-agent IDE integration changes provider choice and workflow architecture for Android teams."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 76
+      },
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": ["2026-09-25-android-byo-agent"]},
+      "deduplication": {
+        "status": "material-update",
+        "publication_status": "material-update-confirmed",
+        "candidate_key": "google|android-studio-rabbit-2|stable-byoa-acp-release",
+        "canonical_event": "Android Studio Rabbit 2 makes BYOA stable for production use with expanded agent tooling.",
+        "previous_coverage": "2026-09-25-android-byo-agent covered the BYOA preview and platform direction.",
+        "material_delta": "The preview capability became stable and added a production release surface with more than 40 ACP agents, skills management and AI review."
+      },
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    },
+    {
+      "id": "2026-10-29-github-enterprise-copilot-access",
+      "decision": "selected",
+      "title": "GitHub folds Copilot access into Enterprise and meters usage from request one",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": ["pricing", "enterprise-adoption", "cost", "governance"],
+      "entities": ["GitHub", "GitHub Enterprise", "GitHub Copilot"],
+      "event_date": "2026-10-28",
+      "source_publication_date": "2026-10-28",
+      "summary": "GitHub introduced an Enterprise Cloud option that includes Copilot access for licensed users while metering AI usage against the enterprise budget from the first request.",
+      "what_changed": "Eligible sales-assisted Enterprise Cloud accounts can replace separate Copilot-seat management with platform access plus usage budgeting; self-serve availability is not yet open.",
+      "why_it_matters": "Procurement shifts from seat allocation toward usage policy, attribution and budget controls, while some completion features remain available after a budget is exhausted and cloud features do not.",
+      "engineer_takeaway": "Model expected chat, review and cloud-agent usage before migration, then configure budgets and attribution rather than assuming the Enterprise license includes AI credits.",
+      "prerequisites": ["GitHub Enterprise Cloud", "usage-based pricing"],
+      "primary_source_url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot/",
+          "canonical_url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot/",
+          "publisher": "GitHub",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub's changelog establishes eligibility, access, metering behavior, budget effects and staged availability.",
+        "independent_validation": "No independent cost comparison was identified in the frozen window.",
+        "claim_scope": "The story describes GitHub's posted commercial terms and availability, not total-cost savings."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The packaging and metering change affects enterprise AI procurement, governance and developer access."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 80
+      },
+      "learning_gap": {"exists": false, "concepts": []},
+      "related_content": {"previous_story_ids": []},
+      "deduplication": {
+        "status": "new",
+        "publication_status": "new-confirmed",
+        "candidate_key": "github|enterprise-copilot-access|included-access-usage-metering",
+        "canonical_event": "GitHub adds a sales-assisted Enterprise Cloud option with Copilot access and usage metering from the first request.",
+        "previous_coverage": "No prior story or ledger record matched this commercial packaging and metering change.",
+        "material_delta": "Enterprise licensing and Copilot access can now be combined under a usage-budget model."
+      },
+      "publication_verification": {"status": "verified-with-claim-scope"}
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-10-29-gemini-4-carbon",
+      "decision": "watch",
+      "title": "Google begins a limited Gemini 4 Carbon cyber-defender rollout",
+      "desk": "models",
+      "event_date": "2026-10-28",
+      "source_publication_date": "2026-10-28",
+      "summary": "Google announced Gemini 4 Carbon with cybersecurity and long-horizon benchmark claims and said a subset of cyber defenders would receive access first.",
+      "what_changed": "A new frontier model entered a limited Fairwind Program rollout, while developer, business and consumer availability remained future-facing.",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "publisher": "Google",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {"level": "primary"},
+      "signal": {"level": "watch"},
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 78
+      },
+      "deduplication": {"candidate_key": "google|gemini-4-carbon|limited-cyber-defender-rollout"},
+      "reason": "Access is limited to a subset of cyber defenders, broader product availability is promised for later, and the central performance claims are first-party benchmarks.",
+      "promotion_condition": "Promote when developer access, technical documentation or independently reproducible evaluation evidence becomes available."
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-10-29-gemini-immersive-explorations",
+      "decision": "rejected",
+      "title": "Gemini adds immersive explorations for students",
+      "desk": "curious",
+      "event_date": "2026-10-28",
+      "summary": "Google added a multilingual library of interactive, layered visual explorations to the Gemini student hub.",
+      "what_changed": "A new education-oriented Gemini app feature became available in six languages.",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
+          "canonical_url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
+          "publisher": "Google",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {"level": "primary"},
+      "signal": {"level": "watch"},
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 1,
+        "durability": 1,
+        "weighted_total": 55
+      },
+      "deduplication": {"candidate_key": "google|gemini-student-hub|immersive-explorations-library"},
+      "reason": "The feature is real but the source supplies no measured learning outcome, surprising human consequence or durable engineering lesson; it does not clear the news hard-relevance gate."
+    },
+    {
+      "id": "2026-10-29-aws-agentcore-platform-guide",
+      "decision": "rejected",
+      "title": "AWS publishes an AgentCore enterprise platform blueprint",
+      "desk": "practice",
+      "event_date": "2026-10-28",
+      "summary": "AWS published a detailed multi-account reference architecture and implementation guide for governed agent platforms on Bedrock AgentCore.",
+      "what_changed": "A technical how-to and companion blueprint were published, but no distinct product release, research result or measured deployment event was established.",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-platform-on-amazon-bedrock-agentcore/",
+          "canonical_url": "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-platform-on-amazon-bedrock-agentcore/",
+          "publisher": "AWS",
+          "source_type": "documentation",
+          "role": "primary",
+          "publication_date": "2026-10-28"
+        }
+      ],
+      "evidence": {"level": "primary"},
+      "signal": {"level": "medium"},
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 4,
+        "novelty": 2,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 66
+      },
+      "deduplication": {"candidate_key": "aws|bedrock-agentcore|enterprise-platform-blueprint-guide"},
+      "reason": "The material is a useful evergreen technical guide, not a new news event; Tools & Guides ownership remains independent."
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-10-29-anthropic-real-world-exploit-chains",
+      "2026-10-29-github-connected-copilot-cloud",
+      "2026-10-29-github-agentic-workflows-ga",
+      "2026-10-29-android-studio-rabbit-2-byoa",
+      "2026-10-29-github-enterprise-copilot-access"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-10-29-anthropic-real-world-exploit-chains"
+  },
+  "editorial_opportunities": []
+}
