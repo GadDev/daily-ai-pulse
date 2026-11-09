@@ -1,0 +1,448 @@
+{
+  "editorial_date": "2026-11-06",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-11-05-openai-gpt-6-cyber",
+      "decision": "selected",
+      "title": "OpenAI releases GPT-6 Cyber for approved security teams",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "advanced",
+      "topics": [
+        "model-releases",
+        "security",
+        "evals",
+        "agent-security"
+      ],
+      "entities": [
+        "OpenAI",
+        "GPT-6 Cyber",
+        "Daybreak Red"
+      ],
+      "event_date": "2026-11-05",
+      "source_publication_date": "2026-11-05",
+      "summary": "OpenAI introduced GPT-6 Cyber to a limited set of approved Daybreak Red customers, reporting stronger exploit-development capability and improved adherence to authorized scope.",
+      "what_changed": "The new cyber-specialized model became available through the API and Codex to selected approved customers. OpenAI reports 48.5% on ExploitGym, 99.93% out-of-scope avoidance without the deployment prompt, and 100% with it.",
+      "why_it_matters": "Security teams can evaluate a materially stronger model for authorized vulnerability research, but access is restricted and the benchmark, safety and deployment claims remain primarily vendor-reported.",
+      "engineer_takeaway": "Treat the release as a controlled security capability: validate scope enforcement, sandboxing, credential controls, auditability and patch-review workflows before using it on real systems.",
+      "prerequisites": [
+        "authorized security testing",
+        "agent containment",
+        "security evaluation"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-gpt-6-cyber/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "canonical_url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-05"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Availability, benchmark results, alignment evaluations and deployment examples are published by OpenAI.",
+        "independent_validation": "The source names external users and Mozilla fixes, but no independent full-model reproduction was identified in this pass.",
+        "claim_scope": "Treat availability as established for selected approved customers; performance, alignment and impact metrics remain OpenAI-reported unless separately corroborated."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A cyber model classified by its vendor at the highest preparedness capability tier changes security-evaluation and access-control decisions."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "authorized scope enforcement",
+          "cybersecurity capability evaluations"
+        ],
+        "existing_explainer_status": "A short explanation of model capability versus deployment authorization would help readers interpret the release."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|gpt-6-cyber|2026-11-05-limited-release-and-alignment-evaluations",
+        "canonical_event": "OpenAI releases GPT-6 Cyber to selected approved Daybreak Red customers with published cyber and scope-alignment evaluations.",
+        "previous_coverage": "No exact source URL, Daybreak Red, ExploitGym, GPT-5.6 Cyber or matching Linux-pipeline event was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new model and controlled availability tier became available with new evaluation results."
+      }
+    },
+    {
+      "id": "2026-11-04-openai-linux-cyber-pipeline",
+      "decision": "selected",
+      "title": "OpenAI scales autonomous Linux vulnerability validation and patching",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "security",
+        "agents",
+        "verification",
+        "orchestration"
+      ],
+      "entities": [
+        "OpenAI",
+        "Linux",
+        "GPT-6 Cyber"
+      ],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "OpenAI described a prototype pipeline that scanned Linux kernel targets, reproduced 1,724 vulnerabilities, produced 948 local-privilege-escalation exploits and generated candidate patches for human review.",
+      "what_changed": "The company published the architecture, cost and results of a mid-October pipeline run spanning discovery, dynamic validation, exploitability assessment, patch generation and expert review.",
+      "why_it_matters": "The report provides concrete evidence that vulnerability research can be orchestrated as a high-cost but repeatable agent pipeline, shifting bottlenecks toward validation, prioritization, disclosure and patch review.",
+      "engineer_takeaway": "Separate discovery from dynamic reproduction, exploit validation and patch review; keep the whole workflow isolated and treat vendor-reported scale and hypothetical bounty comparisons cautiously.",
+      "prerequisites": [
+        "Linux vulnerability research",
+        "sandboxed exploit validation",
+        "coordinated disclosure"
+      ],
+      "primary_source_url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+          "canonical_url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+          "publisher": "OpenAI",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "OpenAI publishes methodology, run counts, costs, limitations and the role of human review.",
+        "independent_validation": "No independent reproduction of the full pipeline was identified; maintainer patch status requires separate publication verification.",
+        "claim_scope": "Counts, costs and effectiveness are company-reported for one controlled run; hypothetical bounty values are not treated as realized value."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The disclosed workflow and scale materially change assumptions about automated vulnerability research and patch triage."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 93
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "dynamic vulnerability reproduction",
+          "exploitability validation",
+          "coordinated disclosure"
+        ],
+        "existing_explainer_status": "A deep dive can explain why discovery counts are weaker evidence than reproduced exploits and reviewed patches."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|linux-kernel-cyber-pipeline|2026-11-04-1724-reproductions-948-lpe-exploits",
+        "canonical_event": "OpenAI publishes a mid-October Linux pipeline run with discovery, reproduction, exploit and patch-generation results.",
+        "previous_coverage": "No exact URL, 948-LPE result, Linux-kernel vulnerability pipeline or matching event/change was found in the indexed repository archive on pinned main.",
+        "material_delta": "A concrete pipeline architecture, run result and cost disclosure separate from the next-day model availability announcement."
+      }
+    },
+    {
+      "id": "2026-11-04-openai-images-2-6",
+      "decision": "selected",
+      "title": "OpenAI Images 2.6 adds GIF generation and finer API editing controls",
+      "desk": "models",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "model-releases",
+        "multimodal",
+        "api",
+        "performance"
+      ],
+      "entities": [
+        "OpenAI",
+        "Images 2.6",
+        "GPT-Image-2.6 Flare",
+        "GPT-Image-2.6 Sunburst"
+      ],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "OpenAI released Images 2.6 globally in ChatGPT and Codex and exposed Flare and Sunburst variants in the API with GIF generation, image markup, SVG export, quality controls and a new complexity parameter.",
+      "what_changed": "The release adds animated GIF output, more targeted edits through markup, SVG export, a complexity control separate from quality, and two API variants with different speed/quality trade-offs.",
+      "why_it_matters": "Developers can choose explicit speed, quality and planning trade-offs and add animation or vector export without building the whole media pipeline themselves, but performance and consistency claims remain vendor-reported.",
+      "engineer_takeaway": "Benchmark generation latency, edit consistency, SVG quality and total workflow cost on your own assets; treat the reported 50% speed improvement and six-second low-quality latency as first-party measurements.",
+      "prerequisites": [
+        "image-generation APIs",
+        "multimodal evaluation"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-images-2-6/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-images-2-6/",
+          "canonical_url": "https://openai.com/index/introducing-images-2-6/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "OpenAI documents availability, API controls, product variants and pricing links.",
+        "independent_validation": "No independent latency or consistency reproduction was identified in this pass.",
+        "claim_scope": "Availability and documented controls are established; speed, consistency and usage figures remain OpenAI-reported."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "New animation, edit targeting and speed/quality controls materially expand production image workflows."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "The API control trade-offs can be explained inside the release briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|images-2-6|2026-11-04-gif-markup-svg-complexity-and-api-variants",
+        "canonical_event": "OpenAI releases Images 2.6 with GIFs and new API editing, export and complexity controls.",
+        "previous_coverage": "No exact source URL, Images 2.6 event or matching product-change record was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new image-model release and developer API surface became available."
+      }
+    },
+    {
+      "id": "2026-11-04-github-copilot-xcode-coding-assistant",
+      "decision": "selected",
+      "title": "GitHub Copilot enters Xcode’s built-in coding assistant",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "coding-agents",
+        "ide",
+        "developer-experience"
+      ],
+      "entities": [
+        "GitHub",
+        "GitHub Copilot",
+        "Apple",
+        "Xcode"
+      ],
+      "event_date": "2026-11-04",
+      "source_publication_date": "2026-11-04",
+      "summary": "GitHub made Copilot available inside Xcode’s built-in coding assistant as a public preview beginning with Xcode 27.3 beta, while retaining its separate Xcode extension.",
+      "what_changed": "Developers can connect any Copilot plan through Xcode’s native Intelligence settings instead of installing the separate extension, subject to beta Xcode and macOS prerequisites.",
+      "why_it_matters": "Teams standardized on Copilot gain a native Xcode workflow and another deployment path, but the integration is still a preview tied to beta tooling.",
+      "engineer_takeaway": "Evaluate authentication, policy behavior, context boundaries and feature parity before replacing the established extension, and avoid production standardization until the beta dependency and preview status change.",
+      "prerequisites": [
+        "Xcode 27.3 beta",
+        "macOS Tahoe 26.6 or later",
+        "GitHub Copilot plan"
+      ],
+      "primary_source_url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "canonical_url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "publisher": "GitHub",
+          "source_type": "official-changelog",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "GitHub documents present public-preview availability, setup, supported plans and platform prerequisites.",
+        "independent_validation": "Apple’s Xcode release documentation was located as supporting platform context; no independent workflow evaluation was identified.",
+        "claim_scope": "Availability is established for the public preview in Xcode 27.3 beta; production readiness, parity and reliability are not inferred."
+      },
+      "signal": {
+        "level": "medium",
+        "rationale": "The release adds a native IDE integration path but remains a preview on beta software."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 76
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": [],
+        "existing_explainer_status": "Preview constraints and the native-versus-extension choice fit inside a release briefing."
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "github|copilot-xcode-built-in-assistant|2026-11-04-public-preview",
+        "canonical_event": "GitHub Copilot becomes available in Xcode’s built-in coding assistant in public preview.",
+        "previous_coverage": "No exact URL or matching Xcode built-in Copilot event was found in the indexed repository archive on pinned main.",
+        "material_delta": "A new native Xcode integration path is available alongside the existing extension."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-11-02-eefa-agent-ethics-evaluation",
+      "decision": "watch",
+      "title": "EEFA proposes five dimensions for ethical agent evaluation",
+      "desk": "research",
+      "event_date": "2026-11-02",
+      "summary": "A preprint proposes an ethical evaluation framework for AI agents covering autonomy, harm avoidance, transparency, privacy and accountability.",
+      "what_changed": "The authors published a structured framework and validation protocol after reviewing twelve agent benchmarks.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.02561",
+          "publisher": "arXiv",
+          "source_type": "paper",
+          "role": "primary",
+          "publication_date": "2026-11-02"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 3,
+        "durability": 4,
+        "weighted_total": 66
+      },
+      "deduplication": {
+        "candidate_key": "eefa|ethical-agent-evaluation|five-dimension-framework-and-validation-plan"
+      },
+      "reason": "The paper explicitly leaves empirical application across agent systems as future work, so the framework is not yet validated in practice.",
+      "promotion_condition": "Promote when the framework is empirically applied with reproducible results or independently evaluated against deployed agent systems."
+    },
+    {
+      "id": "2026-11-04-openai-pierre-acquisition",
+      "decision": "watch",
+      "title": "OpenAI agrees to acquire Pierre Computer Company",
+      "desk": "business",
+      "event_date": "2026-11-04",
+      "summary": "OpenAI announced an agreement to acquire Pierre, the company behind the Trees and Diffs developer tools used in Codex.",
+      "what_changed": "The parties signed an acquisition agreement, while Pierre’s Code Storage service is set to continue and its open-source projects are expected to remain open.",
+      "sources": [
+        {
+          "url": "https://openai.com/index/openai-to-acquire-pierre/",
+          "canonical_url": "https://openai.com/index/openai-to-acquire-pierre/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-04"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 76
+      },
+      "deduplication": {
+        "candidate_key": "openai|pierre-computer-company|2026-11-04-acquisition-agreement"
+      },
+      "reason": "The signed agreement is material business news, but closing remains subject to customary and regulatory conditions and the source describes future Codex/source-control integration rather than a shipped product change.",
+      "promotion_condition": "Promote when the acquisition closes or OpenAI ships a concrete Codex/source-control capability attributable to the transaction."
+    },
+    {
+      "id": "2026-11-05-microsoft-claude-eu-data-boundary",
+      "decision": "watch",
+      "title": "Microsoft plans EU Data Boundary processing for Claude in Copilot",
+      "desk": "business",
+      "event_date": "2026-11-05",
+      "summary": "Microsoft announced that Claude processing in Microsoft Copilot is planned to move inside the EU Data Boundary for EU and EFTA customers by the end of 2026.",
+      "what_changed": "The company published a migration commitment and said existing users should not need to take action once the capability becomes available.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/05/bringing-claude-models-in-microsoft-copilot-into-the-eu-data-boundary/",
+          "canonical_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/05/bringing-claude-models-in-microsoft-copilot-into-the-eu-data-boundary/",
+          "publisher": "Microsoft",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-05"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 74
+      },
+      "deduplication": {
+        "candidate_key": "microsoft|claude-copilot-eu-data-boundary|2026-11-05-migration-commitment"
+      },
+      "reason": "The announcement is a future availability commitment rather than an already deployed processing boundary.",
+      "promotion_condition": "Promote when Microsoft documents that EU Data Boundary processing for Claude is live, with applicable product, tenant and administrative details."
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-11-05-claude-agent-acp-0-101",
+      "decision": "rejected",
+      "title": "Claude Agent ACP 0.101.0",
+      "reason": "A real but incremental minor release: idle-session compaction, packaging, Auto-mode default and background-command streaming did not clear the material-change and significance gates for a daily story.",
+      "source_url": "https://github.com/agentclientprotocol/claude-agent-acp/releases/tag/v0.101.0"
+    }
+  ],
+  "publication": {
+    "story_ids": [
+      "2026-11-05-openai-gpt-6-cyber",
+      "2026-11-04-openai-linux-cyber-pipeline",
+      "2026-11-04-openai-images-2-6",
+      "2026-11-04-github-copilot-xcode-coding-assistant"
+    ],
+    "standalone_story_ids": [
+      "2026-11-04-openai-linux-cyber-pipeline"
+    ],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-11-05-openai-gpt-6-cyber"
+  },
+  "editorial_opportunities": []
+}

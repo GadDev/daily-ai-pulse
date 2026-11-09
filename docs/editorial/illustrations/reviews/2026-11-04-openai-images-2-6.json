@@ -1,0 +1,37 @@
+{
+  "system_version":"1.3","constitution_version":"1.1","story_id":"2026-11-04-openai-images-2-6","candidate_count":3,"selected_candidate":"A",
+  "visual_brief": {
+    "story_id":"2026-11-04-openai-images-2-6","placement":"article-hero","layout_reference":"docs/reference-layouts/story.html","subject":"Images 2.6 separates visual quality from planning effort",
+    "verified_context":["OpenAI released Images 2.6 with GIF generation, image markup, SVG export and separate image-quality and complexity controls.","The controls expose distinct speed, fidelity and planning choices.","Performance and edit-consistency claims are vendor-reported."],
+    "editorial_idea":"A production workflow can route one visual task through different effort and fidelity paths.","visual_metaphor":"A blank stone image tile enters a sculptural fork with a short terracotta edit route and a longer articulated dark-metal planning route.","archetype":"mechanical-metaphor","output_crop":"wide",
+    "must_show":["blank image tile","short terracotta route","articulated dark-metal route","shared blank output"],
+    "must_not_show":["words","letters","numbers","labels","logos","interface-elements","page-header","page-footer","buttons","badges","invented-charts","watermark","neon-effects","robots","glowing-ai-brains","screenshot-imitation","bare-schematic-or-diagram","border","frame"],
+    "golden_references":["public/images/stories/2026-09-24-gpt-6-sol-luna.webp","public/images/stories/2026-09-24-greedy-decoding-precision.webp"],"cover_crop_safe":true
+  },
+  "generation_identity":{"identity_version":"1","story_id":"2026-11-04-openai-images-2-6","story_source_sha256":"d688eb6c3d4a80755a800f670baa7324cff00cb1a5f4076bb70b510619a94e7c","visual_brief_sha256":"4476724da6b4d133d2252cdbae267b4409e8956aa154fb75b8829f4ef8338f6b","reference_inputs_sha256":"8b523020839c04dbb47fca343a7b494ab31762f87d2f1548340e0cbd70a23e3c","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"7c0edcd1b78cc8b5f168340af5ccdb1937f2a35c9f7a688756bbfc9b470fb326"},
+  "candidate_notes": {
+    "A":"Selected: one blank input splits cleanly into a short terracotta path and a longer articulated dark-metal path before converging on one blank output. The dual-effort choice remains legible in every crop.",
+    "B":"The two routes and pivots are visible, but the diagonal input blocks and uneven endpoints make the workflow harder to parse at a glance.",
+    "C":"The loop is balanced and crop-safe, but the segmented terracotta path blurs the intended contrast between a short direct route and a longer articulated planning route."
+  },
+  "candidate_scores": {
+    "A":{"story_specific":95,"brand_fit":92,"composition":94,"crop_quality":93,"technical_meaning":94,"cleanliness":98,"golden_reference_fit":91,"weighted_total":93.35},
+    "B":{"story_specific":89,"brand_fit":90,"composition":87,"crop_quality":86,"technical_meaning":88,"cleanliness":96,"golden_reference_fit":89,"weighted_total":88.65},
+    "C":{"story_specific":92,"brand_fit":91,"composition":92,"crop_quality":91,"technical_meaning":92,"cleanliness":97,"golden_reference_fit":90,"weighted_total":91.55}
+  },
+  "constitution_check":{"passed":true,"violations":[]},
+  "prohibited_elements":{"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores":{"story_specific":95,"brand_fit":92,"composition":94,"crop_quality":93,"technical_meaning":94,"cleanliness":98,"golden_reference_fit":91,"weighted_total":93.35},
+  "hard_failures":[],"cover_crop_approved":true,"thumbnail_approved":true,
+  "crop_review":{"article_desktop":"The 21:9 center crop retains the blank input, both contrasting routes and shared output.","article_mobile":"The full fork-and-converge relationship remains visible in 16:9.","square":"The center square prioritizes the direct terracotta arc and articulated dark route while retaining both endpoints.","thumbnail":"At 320px wide, the smooth warm route and jointed dark route remain distinct."},
+  "golden_reference_comparison":"Compared all candidates above the declared references for sculptural route logic, matte pale-stone forms, restrained terracotta/charcoal contrast and minimal silhouettes. A is the cleanest translation of separate effort paths and most closely matches the references' visual economy.",
+  "contact_sheet":"docs/editorial/illustrations/contact-sheets/2026-11-04-openai-images-2-6.webp","final_asset":"/images/stories/2026-11-04-openai-images-2-6.webp","final_dimensions":{"width":1600,"height":900},
+  "asset_integrity":{"byte_length":123210,"sha256":"c638365de07e08d404a03e0ec1330fbb11e9da0d1016b0d76572e6d4f6b9ad90","git_blob_sha":"52141d6446489e699837eb6d2dcced0afaf3e494","riff_container_complete":true},
+  "generation_metadata":{"reviewed_at":"2026-11-06T11:01:05Z","generator_surface":"chatgpt-image-tool","model_snapshot":null,"visual_review":"Codex model self-review of three full-size candidates, two declared golden references, a reference-first comparison sheet, and desktop/mobile/square/thumbnail crops. The canonical Playwright renderer could not launch because Chromium was unavailable, so ImageMagick produced the equivalent inspected sheet; repository validation remains authoritative.",
+    "candidate_provenance":{
+      "A":{"source_sha256":"c638365de07e08d404a03e0ec1330fbb11e9da0d1016b0d76572e6d4f6b9ad90","prompt":"Wide sculptural fork: one blank stone image tile enters a short smooth terracotta route and a longer articulated dark-metal route that converge on one blank output; no text or interface elements."},
+      "B":{"source_sha256":"247852e589f0ac6ff9c71626ca78d733a3ccb9048a2b978857a1a0490deb3802","prompt":"Wide tactile visual workflow with one blank tile, a direct terracotta path and a longer jointed dark-metal planning path reaching a shared blank output; no prohibited elements."},
+      "C":{"source_sha256":"866f9179ddb3ad2e7dc1b0fe19966646ea509df5fce5d88da517a8666ef136b5","prompt":"Wide minimal loop connecting one blank input to one blank output through a smooth terracotta upper route and articulated dark-metal lower route; restrained editorial materiality and no prohibited elements."}
+    }
+  }
+}

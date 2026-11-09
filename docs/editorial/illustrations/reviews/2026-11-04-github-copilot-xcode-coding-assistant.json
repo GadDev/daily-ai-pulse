@@ -1,0 +1,37 @@
+{
+  "system_version":"1.3","constitution_version":"1.1","story_id":"2026-11-04-github-copilot-xcode-coding-assistant","candidate_count":3,"selected_candidate":"A",
+  "visual_brief": {
+    "story_id":"2026-11-04-github-copilot-xcode-coding-assistant","placement":"article-hero","layout_reference":"docs/reference-layouts/story.html","subject":"GitHub Copilot moves into Xcode's native assistant",
+    "verified_context":["GitHub Copilot is available in public preview inside Xcode 27.3 beta's built-in coding assistant.","GitHub's separate Xcode extension remains available.","The announcement does not establish feature parity, policy equivalence or production readiness."],
+    "editorial_idea":"Two client paths can reach the same development work without being operationally equivalent.","visual_metaphor":"Two parallel physical tool paths approach one stone workpiece, with a terracotta route through a native cradle and a separate charcoal extension rail.","archetype":"tool-artifact-study","output_crop":"wide",
+    "must_show":["two distinct routes","native dark-metal cradle","shared pale-stone workpiece"],
+    "must_not_show":["words","letters","numbers","labels","logos","interface-elements","page-header","page-footer","buttons","badges","invented-charts","watermark","neon-effects","robots","glowing-ai-brains","screenshot-imitation","bare-schematic-or-diagram","border","frame"],
+    "golden_references":["public/images/stories/2026-09-28-claude-plugin-ecosystem.webp","public/images/stories/2026-09-22-copilot-review-controls.webp"],"cover_crop_safe":true
+  },
+  "generation_identity":{"identity_version":"1","story_id":"2026-11-04-github-copilot-xcode-coding-assistant","story_source_sha256":"a13d15d39a04c8f3173339e0f8f889869280ca1c786b73913234a4641485323d","visual_brief_sha256":"3590f80a7f5d20c561871fda4fc45729e632911f712bfda502455d885b5df6a8","reference_inputs_sha256":"7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"472693b82f84eaa5354bcbd7ad46ae962ef87998d663699bda3dd6d38b722f50"},
+  "candidate_notes": {
+    "A":"Selected: a broad terracotta route passes through a compact dark native cradle while a separate charcoal rail approaches the same stone workpiece. The two paths stay distinct in all crops.",
+    "B":"The dual tool rails and active work surface are story-specific, but the drill, rubble and curved tracks create unnecessary operational detail at small sizes.",
+    "C":"Two tool heads approach one workpiece, but the native-versus-extension distinction is less explicit and the separated machines dilute the shared-path idea."
+  },
+  "candidate_scores": {
+    "A":{"story_specific":94,"brand_fit":92,"composition":93,"crop_quality":95,"technical_meaning":92,"cleanliness":98,"golden_reference_fit":91,"weighted_total":93.1},
+    "B":{"story_specific":92,"brand_fit":90,"composition":88,"crop_quality":84,"technical_meaning":94,"cleanliness":91,"golden_reference_fit":88,"weighted_total":89.25},
+    "C":{"story_specific":90,"brand_fit":89,"composition":87,"crop_quality":88,"technical_meaning":90,"cleanliness":95,"golden_reference_fit":87,"weighted_total":88.75}
+  },
+  "constitution_check":{"passed":true,"violations":[]},
+  "prohibited_elements":{"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores":{"story_specific":94,"brand_fit":92,"composition":93,"crop_quality":95,"technical_meaning":92,"cleanliness":98,"golden_reference_fit":91,"weighted_total":93.1},
+  "hard_failures":[],"cover_crop_approved":true,"thumbnail_approved":true,
+  "crop_review":{"article_desktop":"The 21:9 center crop retains both routes, the native cradle and the shared workpiece.","article_mobile":"The terracotta and charcoal approaches remain distinct in 16:9.","square":"The center square keeps the cradle and workpiece central while showing enough of each route to establish two paths.","thumbnail":"At 320px wide, the warm native path and separate dark rail remain easy to distinguish."},
+  "golden_reference_comparison":"Compared all candidates above the declared references for tactile tool-study composition, restrained pale-stone/terracotta/charcoal materials and concise integration metaphors. A best matches the references and communicates two operationally distinct client paths without interface imitation.",
+  "contact_sheet":"docs/editorial/illustrations/contact-sheets/2026-11-04-github-copilot-xcode-coding-assistant.webp","final_asset":"/images/stories/2026-11-04-github-copilot-xcode-coding-assistant.webp","final_dimensions":{"width":1600,"height":900},
+  "asset_integrity":{"byte_length":151834,"sha256":"60c224d42cea88ed1fb0c164c14116f90898dc68a4fa0b7de94cda4d31cfc19b","git_blob_sha":"b59bc308f97b5c42063c32ec5cfb300217b3d257","riff_container_complete":true},
+  "generation_metadata":{"reviewed_at":"2026-11-06T11:01:05Z","generator_surface":"chatgpt-image-tool","model_snapshot":null,"visual_review":"Codex model self-review of three full-size candidates, two declared golden references, a reference-first comparison sheet, and desktop/mobile/square/thumbnail crops. The canonical Playwright renderer could not launch because Chromium was unavailable, so ImageMagick produced the equivalent inspected sheet; repository validation remains authoritative.",
+    "candidate_provenance":{
+      "A":{"source_sha256":"60c224d42cea88ed1fb0c164c14116f90898dc68a4fa0b7de94cda4d31cfc19b","prompt":"Wide tactile tool study: a terracotta route through a compact dark native cradle and a separate charcoal extension rail approach one shared pale-stone workpiece; no logos, text or interface elements."},
+      "B":{"source_sha256":"8769d7fa0ae2790370ddde29066b271de82fbd4e751cf6388d94d9fb5f1c2558","prompt":"Wide mechanical workshop with two distinct curved tool rails, one terracotta and one charcoal, converging on the same pale-stone workpiece; restrained editorial materiality and no prohibited elements."},
+      "C":{"source_sha256":"063d31c9678dfcbd9b48c4127ccc9733a384cbd97debf3ba6eb0b5743b2b6da2","prompt":"Wide minimal tool-artifact study with a terracotta native tool emerging from a stone cradle and a separate charcoal extension tool approaching one shared stone workpiece; no prohibited elements."}
+    }
+  }
+}
