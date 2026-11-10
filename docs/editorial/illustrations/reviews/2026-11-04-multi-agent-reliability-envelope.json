@@ -1,0 +1,44 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-04-multi-agent-reliability-envelope",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-11-04-multi-agent-reliability-envelope",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A multi-agent reliability claim widens when the fallible voter becomes part of the system",
+    "verified_context": [
+      "The preprint models individual agents, workload uncertainty and the combining mechanism as one failure network that produces a reliability envelope.",
+      "In one chemical-hazard extraction case, majority voting protected against the weakest model but did not clearly outperform the best model.",
+      "The result is preliminary, narrow and not independently reproduced."
+    ],
+    "editorial_idea": "Redundancy cannot create a defensible reliability claim when the component that combines the agents is left outside the evaluation.",
+    "visual_metaphor": "Three dark stone arches focus through a suspended glass voter whose fissures widen the terracotta uncertainty field beneath it.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": ["three-input-arches", "suspended-fallible-voter", "widened-uncertainty-field"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-27-agent-trace-tampering.webp", "public/images/stories/2026-09-14-looped-flows.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version":"1","story_id":"2026-11-04-multi-agent-reliability-envelope","story_source_sha256":"91408a0d4ca081794afe71436738f5cd4bf75247d4365bd17295d0c3069536cf","visual_brief_sha256":"dcc57849dcfa662ecf3bbb77f804a5efda4af8774c35a89d747a2ee65676ef67","reference_inputs_sha256":"ca3cdcc106391eb8c3098a747813a4014d9570c7bc453580180321f4fcebc983","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"c8d30aeaa9741474df661d01ff0153bc86a142c7062a28e35d8cb89f208c413b"},
+  "candidate_notes": {
+    "A": "Constitution-compliant. The monumental gate and layered paths fit the archive, but the three agent inputs are less immediately legible.",
+    "B": "Constitution-compliant. The three weighted signals and loosened voter joint communicate the mechanism strongly, though the horizontal convergence reads slightly diagram-first.",
+    "C": "Selected. Three arches and a visibly fissured suspended lens make the voter part of the physical system while the broad terracotta field communicates uncertainty without invented data."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores": {"story_specific":92,"brand_fit":89,"composition":92,"crop_quality":93,"technical_meaning":91,"cleanliness":96,"golden_reference_fit":87,"weighted_total":90.8},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop":"The three arches, cracked lens and terracotta uncertainty field remain visible across the wide crop.","article_mobile":"A centered cover crop retains the suspended voter and the central portions of all three input arches.","thumbnail":"The cracked translucent lens over the terracotta field remains the dominant silhouette at 320px."},
+  "golden_reference_comparison": "The selected candidate shares the research references' pale monumental geometry, sparse terracotta signal, suspended scientific-object quality and confident negative space. Its translucent material is more photographic than the references' line-led treatment, so fit is scored at 87.",
+  "final_asset": "/images/stories/2026-11-04-multi-agent-reliability-envelope.webp",
+  "final_dimensions": {"width":1600,"height":900},
+  "asset_integrity": {"byte_length":139398,"sha256":"af067cc31cf84119c9972aaa70f39a1d7d8058ef0af5bab26c69a5eef3217854","git_blob_sha":"58461146954f1e329735ec06b3876608f0255b9c","riff_container_complete":true},
+  "generation_metadata": {"generated_at":"2026-11-07T08:16:48Z"}
+}
