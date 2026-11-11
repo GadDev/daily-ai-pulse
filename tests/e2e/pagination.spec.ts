@@ -35,7 +35,7 @@ test('category navigation supports direct links, refresh, history, sorting and l
     .click();
   await expect(page).toHaveURL(/\/research\/oldest\/$/);
   await page.goto('/research/2/');
-  await page.getByRole('link', { name: 'Français', exact: true }).click();
+  await page.getByRole('link', { name: 'Français FR', exact: true }).click();
   await expect(page).toHaveURL(/\/fr\/research\/$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
   for (const path of [

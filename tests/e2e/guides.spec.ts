@@ -23,7 +23,7 @@ test('Tools & Guides landing exposes three formats without fictional reviews', a
   await expect(
     page
       .getByRole('navigation', { name: 'Reading language' })
-      .getByRole('link', { name: 'Français', exact: true }),
+      .getByRole('link', { name: 'Français FR', exact: true }),
   ).toHaveCount(0);
   await expect(page.locator('.language-unavailable')).toHaveAttribute('aria-disabled', 'true');
   await expect(page.locator('main')).not.toContainText('DRAFT_GUIDE_ROUTE_SENTINEL_NEVER_PUBLISH');

@@ -40,11 +40,11 @@ test('settings and header share one preference across navigation and both langua
   await expect(page.getByRole('radio', { name: 'Dark', exact: true })).toBeChecked();
   await page.locator('[data-theme-toggle]').click();
   await expect(page.getByRole('radio', { name: 'Light', exact: true })).toBeChecked();
-  await page.getByRole('link', { name: 'Français', exact: true }).click();
+  await page.getByRole('link', { name: 'Français FR', exact: true }).click();
   await expect(page).toHaveURL(/\/fr\/settings\/$/);
   await expect(page.getByRole('radio', { name: 'Clair', exact: true })).toBeChecked();
   await page.getByRole('radio', { name: 'Sombre', exact: true }).check();
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('link', { name: 'English EN', exact: true }).click();
   await expect(page).toHaveURL(/(?<!fr)\/settings\/$/);
   await expect(page.getByRole('radio', { name: 'Dark', exact: true })).toBeChecked();
   await expect(page.locator('main')).toHaveCount(1);
