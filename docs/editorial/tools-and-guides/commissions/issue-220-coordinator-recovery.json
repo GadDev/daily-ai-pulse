@@ -1,0 +1,331 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-11-11",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/220",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-coordinator-recovery",
+  "guide_id": "claude-foundations-coordinator-recovery",
+  "state": "draft",
+  "pr_number": null,
+  "authorization": "Maintainer requested work on issue #220. Prepare a reviewable draft PR; no publication or merge authorization inferred.",
+  "base_commit": "80aaee0fc2ec8cba9b3328fbdfb5f1ecbef1a48c",
+  "deduplication": {
+    "published_guides": "Read series Parts 1-5, guide inventory and related-reading contract. No existing Part 6. Inherited MCP/action-policy material remains linked prerequisites.",
+    "scheduled_ledgers": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25",
+      "2026-10-27",
+      "2026-10-28"
+    ],
+    "open_prs_checked": [
+      257,
+      241,
+      185,
+      159
+    ],
+    "result": "No overlapping commissioned specialist/recovery guide. Existing Curious pilot is unrelated reporting; #241 is an unmerged policy proposal, not live authority. No news or immutable scheduled ledger changes."
+  },
+  "duplication_matrix": [
+    {
+      "owner": "Parts 1-2",
+      "scope": "API basics and extraction validation; link prerequisites, do not repeat."
+    },
+    {
+      "owner": "Parts 3-4",
+      "scope": "MCP transport and action authorization remain inherited; Part 6 exposes no backend/action tool."
+    },
+    {
+      "owner": "Part 5",
+      "scope": "CLI instructions and verified patch; Part 6 owns evidence packets and saved investigation state."
+    },
+    {
+      "owner": "Part 6",
+      "scope": "Two scoped workers, bounded recovery/refinement, source/date/claim mapping, manifest resume/restart/fork."
+    },
+    {
+      "owner": "Part 7 / issue #221",
+      "scope": "CI review and complete capstone remain deferred."
+    }
+  ],
+  "related_reading": {
+    "selection": [],
+    "reason": "Deliberate zero supplementary links: focused sequential practice uses explicit series navigation; no extra recommendation is necessary. Do not duplicate series links in relatedGuides."
+  },
+  "requirement_map": {
+    "delegation": "Sections 1/4: same-case sequential baseline, fixed/adaptive fixture plans, order-only routing and one named coverage refinement. No model-performance claim.",
+    "role_boundaries": "Sections 2/3: explicit typed packets, roleTool closures and traces; no inherited conversation dependency. Trusted application capability boundary, not process sandbox.",
+    "failure_recovery": "Sections 3/4/6: true no-match vs two-attempt injected timeout; evidence preserved after malformed answer; order reused on resume.",
+    "provenance_conflict": "Exact excerpts + source ID/hash/location/effective date; differing dated policies retained for human review.",
+    "session_lifecycle": "Section 5: application manifest resume, stale-summary restart and unchanged-parent fork; native SDK mapping explicitly unexecuted.",
+    "practice": "Seeded unbacked assumption, 16 in-article assertions, independent changed-policy exercise, 3 original scenarios and self-assessment.",
+    "costs": "Section 7: direct API SDK 1.8.0, legacy snapshot, 3-request budget, 20s timeout, zero retries, token-based estimate and unknown-outcome handling."
+  },
+  "verification": {
+    "date": "2026-11-11",
+    "environment": "Linux, Node 22.23.4, TypeScript 6.0.3, @types/node 22.20.5, @anthropic-ai/sdk 1.8.0. Dependencies installed in separate disposable scratch folder.",
+    "fixture_results": [
+      "Strict TypeScript core/full-folder check passed.",
+      "16 article assertions passed on Node 22.23.4.",
+      "Same default fixture: sequential/fixed/adaptive all retained 3 claims and policy conflict.",
+      "Persistent timeout: partial with 2 claims; resume: 3 claims, order attempted once, policy attempts retained (3 initial + 2 recovery).",
+      "One transient timeout retried once; no third attempt.",
+      "Fork left exact parent manifest bytes unchanged and recorded lineage.",
+      "Order-only case: fixed 2 workers, adaptive 1.",
+      "One-version case: one named refinement; repeat resume reused all completed packets.",
+      "Changed policy: resume refused; restart recollected 21-day source with new hash.",
+      "Unknown order: one successful empty read, explicit orders:NS-2999 no-match and human review."
+    ],
+    "mocked_api": "Real installed SDK driven by global fetch stub: access gate, three scripted requests, exact pinned model/no tool/single-message payloads, provenance validation, max_tokens rejection and fourth-request refusal passed. No network request or live key used.",
+    "not_executed": [
+      "Live Claude inference/authentication/billing.",
+      "Native Agent SDK spawning, native session resume/fork, Claude Code CLI or model-chosen tool operations.",
+      "Real network outage, production backend/customer actions or refunds."
+    ],
+    "repository_checks": {
+      "verify": "npm run verify passed under Node 22.23.4; lint, formatting, content, evergreen/translation/editorial/batch/run/illustration checks, tooling/Astro build and Pagefind. Existing gitignore-highlighting and proxy/Zod warnings only.",
+      "browser": "Local browser blocked: Playwright bundled browser download was truncated; system Chromium aborted with socket() failed: Operation not permitted; alternate browser could not connect to localhost preview (ERR_CONNECTION_REFUSED). No viewport or Axe result claimed. Local temporary-publication static build passed and exact draft source bytes restored. SVG rendering checked separately.",
+      "ci": "pending",
+      "guide_assets": "All 6 existing guide-asset tests passed; guide ledger validation passed."
+    },
+    "article_code_hashes": {
+      "tsconfig.json": "0a553354321f3a77afdf9e141e7357bb4dff9b5512cecbbd1b6befff9079cf87",
+      "domain.ts": "5a968f68fc07067d6de0c6536f5209c8c31340c5be64cb61072ab019e692d6e0",
+      "fixtures.json": "a46d9736c2ba445ae4a4f80bb3d21deaf736e7f674f336cca27955bc833e7feb",
+      "engine.ts": "6c0f370803a1be6f31af9f39b0570083b0e1b81febe182e25649fa39723d1601",
+      "run.ts": "551f6c4158d222202c19e82762359a73ed9fb1c163c032e52463343ae2f23956",
+      "inspect.ts": "a4eaea2cd7ebb8720034c60eef8f7fdd896aade849156295c7ab211c078398c1",
+      "live.ts": "5ee3bc4bb377a2a01353b68bd4dd30cb0f2b3e2849f1c42057547f36a95936d1"
+    },
+    "article_sha256": "9f361bb4e68821e29721337dc1bcc20338a7fa0d62c3c96d6d74bf80fbda2ef7",
+    "diagram": {
+      "renderer": "@resvg/resvg-js; actual 340x1000 PNG inspected",
+      "result": "Labels fit, source/recovery relationships readable; corrected merged path arrow direction after visual inspection.",
+      "sha256": "d9b508ec1e1d00d1b4e36a4af8c6ab00ae6b524983ac3503ee758d6c1174692c",
+      "limit": "Article viewport scaling/Axe could not be tested locally."
+    }
+  },
+  "source_evidence": [
+    {
+      "claim": "Ordinary native subagents need explicit parent task context; Agent/Task compatibility is version-sensitive.",
+      "url": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official documentation; unpinned live document",
+      "limit": "No native SDK runtime invocation."
+    },
+    {
+      "claim": "Specific resume and forkSession options retain conversation history, not filesystem snapshots.",
+      "url": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official documentation; unpinned live document",
+      "limit": "Local manifest commands are separate application mechanisms."
+    },
+    {
+      "claim": "Native tool permissions are enforced by runtime policies, not a role name.",
+      "url": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official documentation",
+      "limit": "No native permission probe claimed."
+    },
+    {
+      "claim": "API client tools and application execution are separate; this adapter exposes no callable tools.",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official documentation + inspected request payload",
+      "limit": "No live tool-choice evaluation."
+    },
+    {
+      "claim": "Haiku 4.5 legacy snapshot and standard $1/$5 per million input/output tokens.",
+      "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official model/pricing page",
+      "limit": "Account-specific access and actual spend not tested."
+    },
+    {
+      "claim": "Pricing conditions vary; estimate is not a currency ceiling.",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official pricing page",
+      "limit": "Only standard uncached price assumption used."
+    },
+    {
+      "claim": "CCAR-F task references and typical practical experience; original practice is not official exam preparation.",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official exam guide v1.0 July 2026",
+      "limit": "No exam-bank material reproduced."
+    },
+    {
+      "claim": "Free Academy badges differ from the paid partner-program proctored credential.",
+      "url": "https://academy.claude.com/help/faq",
+      "checked_at": "2026-11-11",
+      "evidence_type": "official FAQ",
+      "limit": "No individual eligibility established."
+    },
+    {
+      "claim": "SDK 1.8.0 API shapes typechecked and mock requests exercised.",
+      "url": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "checked_at": "2026-11-11",
+      "evidence_type": "Official repository read through GitHub connector and actual installed package",
+      "limit": "No live network/authentication behavior tested."
+    }
+  ],
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Three built-in image generations completed; exact prompts and local output identifiers below."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Full-size candidates, production-reference-first comparison sheet and 21:9/16:9/3:2/160px crop sheet inspected."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow WebP roundtrip and final 1600x900 decode passed."
+      },
+      "binary_upload": {
+        "status": "unverified",
+        "evidence": "Direct git push failed: could not read Username for https://github.com. Using connected GitHub Git-data API for byte-safe blobs/tree commit and independent readback."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "candidate_count": 3,
+    "selected_candidate": "C",
+    "visual_brief": {
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Part 6: Coordinate Two Claude Specialists Without Losing Their Evidence",
+      "verified_context": [
+        "The coordinator collects evidence; it never issues a refund.",
+        "After each worker finishes, the coordinator writes a temporary manifest and renames it into place.",
+        "Earlier attempts remain visible when a partial packet is retried."
+      ],
+      "output_crop": "wide",
+      "archetype": "mechanical-physical-metaphor",
+      "editorial_idea": "Recover delegated evidence without dropping attribution.",
+      "visual_metaphor": "Two pale stone channels meet at a terracotta junction; a matching detached segment is preserved beside its recess.",
+      "golden_references": [
+        "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
+        "public/images/stories/2026-09-20-agentcore-runtime-v2.webp"
+      ]
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-coordinator-recovery",
+      "story_source_sha256": "9f361bb4e68821e29721337dc1bcc20338a7fa0d62c3c96d6d74bf80fbda2ef7",
+      "visual_brief_sha256": "8212e26a5113de9a0620c326385bd3dedd1f0be3f052683a30d69862cc96ad91",
+      "reference_inputs_sha256": "2af8ae0f2c99b01b2194e2d114f63b5df3cc905b69bcd08d477d248eae1fe220",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "86cf40331fb67fddda143de2d2865c5eba9528600d60970090bda02e3d3e6858"
+    },
+    "generation_decision": "GENERATE: no existing Part 6 guide cover or corresponding generation review. Source bytes frozen before the first call.",
+    "candidate_provenance": [
+      {
+        "candidate": "A",
+        "source": "generated_images/exec-cfbf6234-fa88-469e-9e4b-b5101626a5c8.png",
+        "source_sha256": "8da4cb7236108d36b9496631e723bd291d59d3ae1f4002613a9276e570111b1d",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 6: Coordinate Two Claude Specialists Without Losing Their Evidence.\nVerified context: The coordinator collects evidence; it never issues a refund. After each worker finishes, the coordinator writes a temporary manifest and renames it into place. Earlier attempts remain visible when a partial packet is retried.\nVisual idea: a physical joining block bringing together two pale carved stone channels, with one separated segment preserved next to its matching recess; a metaphor for recovering work without losing its provenance. Candidate A: low oblique architectural perspective, two gently curved ivory channels converge on one compact terracotta dovetail junction, a missing small ivory segment rests immediately beside the precise recess where it fits. Restrained drawing, tactile stone and paper, subtle engraved hatching and soft spatial shadows. The junction and loose matching segment form one central focal group; spacious asymmetrical negative space; no water, no arrows, no icons. Keep all focal geometry within the central 65% so it survives both 21:9 desktop hero and 16:9 mobile crops. Wide 16:9 composition, high resolution.\nOutput crop: wide for article hero.\nUse docs/reference-layouts/story.html as the source of truth for the image's role, crop, scale and surrounding whitespace. IMAGE_GALLERY.md is mood only. This is an artwork asset inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Keep spacious composition and strong contrast; survive object-fit:cover on desktop/mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the central metaphor physical and spatial presence, subtle depth, material detail and editorial hierarchy; fine technical lines only support the illustrated forms. Depict only what verified context supports, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Deliver a clean high-resolution image without border or frame.",
+        "constitution_pass": true,
+        "scores": {
+          "story_specific": 90,
+          "brand_fit": 90,
+          "composition": 90,
+          "crop_quality": 92,
+          "technical_meaning": 88,
+          "cleanliness": 97,
+          "golden_reference_fit": 89,
+          "weighted_total": 90.25
+        }
+      },
+      {
+        "candidate": "B",
+        "source": "generated_images/exec-e9f13b62-277c-46d5-a849-85f7959d0ff3.png",
+        "source_sha256": "3302f66cc8fc14cffce1904c158bbc7f03ced59ae7d6ce6a312b4adcd67c5470",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 6: Coordinate Two Claude Specialists Without Losing Their Evidence.\nVerified context: The coordinator collects evidence; it never issues a refund. After each worker finishes, the coordinator writes a temporary manifest and renames it into place. Earlier attempts remain visible when a partial packet is retried.\nVisual idea: a physical joining block bringing together two pale carved stone channels, with one separated segment preserved next to its matching recess; a metaphor for recovering work without losing its provenance. Candidate B: high oblique view of a single Y-shaped pale stone aqueduct junction with a narrow terracotta joining sleeve. Two ivory channels enter from the upper corners. A small missing interlocking stone segment is carefully preserved beside its matching cutout at the center. Render the physical sculpture as fine graphite hatching and restrained gouache on warm paper, controlled depth, no diagram, no water, no arrows. A compact central silhouette with generous space; all significant forms in the central 65% so they survive 21:9 and 16:9 cover crops. Wide 16:9, high resolution.\nOutput crop: wide for article hero.\nUse docs/reference-layouts/story.html as the source of truth for the image's role, crop, scale and surrounding whitespace. IMAGE_GALLERY.md is mood only. This is an artwork asset inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Keep spacious composition and strong contrast; survive object-fit:cover on desktop/mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the central metaphor physical and spatial presence, subtle depth, material detail and editorial hierarchy; fine technical lines only support the illustrated forms. Depict only what verified context supports, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Deliver a clean high-resolution image without border or frame.",
+        "constitution_pass": true,
+        "scores": {
+          "story_specific": 92,
+          "brand_fit": 89,
+          "composition": 90,
+          "crop_quality": 92,
+          "technical_meaning": 88,
+          "cleanliness": 97,
+          "golden_reference_fit": 88,
+          "weighted_total": 90.3
+        }
+      },
+      {
+        "candidate": "C",
+        "source": "generated_images/exec-e3943f74-74e8-4bdf-9baa-6ce494e529dd.png",
+        "source_sha256": "6161c2889dd4d5c37f776c1eff56778c1fff9cf7e8bac7a154cc2284e0035da6",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 6: Coordinate Two Claude Specialists Without Losing Their Evidence.\nVerified context: The coordinator collects evidence; it never issues a refund. After each worker finishes, the coordinator writes a temporary manifest and renames it into place. Earlier attempts remain visible when a partial packet is retried.\nVisual idea: a physical joining block bringing together two pale carved stone channels, with one separated segment preserved next to its matching recess; a metaphor for recovering work without losing its provenance. Candidate C: eye-level architectural artifact study on a warm paper plane, two gently rising ivory stone conduits converge on a squat terracotta junction, seen from an off-center frontal angle. A small interlocking ivory stone has been lifted from the side of the junction and rests immediately adjacent to the matching recess, deliberately retained rather than discarded. Compact asymmetrical composition with a single memorable sculptural silhouette, light graphite linework, fine print-like hatching and soft gouache depth. No diagram, no water, no arrows; place junction and recovered segment inside central 65% for 21:9 hero and 16:9 mobile crops. Wide 16:9, high resolution.\nOutput crop: wide for article hero.\nUse docs/reference-layouts/story.html as the source of truth for the image's role, crop, scale and surrounding whitespace. IMAGE_GALLERY.md is mood only. This is an artwork asset inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Keep spacious composition and strong contrast; survive object-fit:cover on desktop/mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the central metaphor physical and spatial presence, subtle depth, material detail and editorial hierarchy; fine technical lines only support the illustrated forms. Depict only what verified context supports, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Deliver a clean high-resolution image without border or frame.",
+        "constitution_pass": true,
+        "scores": {
+          "story_specific": 94,
+          "brand_fit": 91,
+          "composition": 92,
+          "crop_quality": 94,
+          "technical_meaning": 90,
+          "cleanliness": 98,
+          "golden_reference_fit": 90,
+          "weighted_total": 92.25
+        }
+      }
+    ],
+    "review": {
+      "review_type": "Codex visual self-review; not independent human approval",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "comparison": "All candidates were inspected beside the two actual production references. C best preserves a single compact joining/recovery metaphor with physical depth and tactile hatching; B is more symmetric, A makes the recovered recess less prominent.",
+      "crop_results": {
+        "desktop-hero": "21:9: junction, recess and retained segment fully visible.",
+        "mobile-hero": "16:9: complete focal group visible.",
+        "card": "3:2 and 160px thumbnail: two channels and retained segment legible."
+      },
+      "identity_limit": "Shared generation-identity helper used for exact source/brief/reference hashes. News-only illustration validator does not certify guide artwork."
+    },
+    "integrity": {
+      "path": "/images/guides/claude-foundations-coordinator-recovery.webp",
+      "sha256": "be63848b9d63843103f4faf89d817e4aaa6c8cccc0de661b365c7d2f850c45da",
+      "git_blob_sha": "d27f222e908a037f69218106b37043bff4dbaae2",
+      "byte_length": 328682,
+      "width": 1600,
+      "height": 900,
+      "format": "decoded WebP"
+    }
+  },
+  "editorial_self_review": {
+    "claim_title_opening": "Opening failure is a labelled teaching scenario; title promises evidence preservation, not autonomous-agent superiority or official certification coverage. No productivity/security benchmark claimed.",
+    "revisions": [
+      "Make no-inference route and app-managed vs native delegation explicit.",
+      "Keep pending work partial, including named coverage refinement.",
+      "Preserve no-match source IDs even when another read succeeded.",
+      "Bind freshness to source code, strategy, mode and source bytes; exclude only the deliberate outage toggle.",
+      "Document trusted-local manifest and non-sandbox closure limits."
+    ],
+    "unresolved": "No live inference or native SDK session testing; clearly stated in body and PR.",
+    "french": "English-only guide routes per current implementation. No unreviewed French content generated."
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Local article viewport/Axe review could not run in this environment.",
+      "Binary push/readback pending.",
+      "Exact-head GitHub CI pending."
+    ]
+  }
+}

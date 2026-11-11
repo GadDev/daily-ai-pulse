@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="1000" viewBox="0 0 340 1000" role="img" aria-labelledby="title desc">
+<title id="title">Northstar: scoped specialists and evidence recovery</title>
+<desc id="desc">The coordinator sends explicit packets to order and policy workers with separate readers. Dated claims, attempts and gaps are saved atomically. Unchanged completed work can be reused; stale evidence requires recollection. Conflicting policies go to human review.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#575D5B"/></marker>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#171B1A;font-size:16px}.h{font-size:18px;font-weight:bold}.s{font-size:14px;fill:#424946}.box{fill:#FAF6EE;stroke:#575D5B;stroke-width:1.4}.arrow{fill:none;stroke:#575D5B;stroke-width:1.5;marker-end:url(#a)}</style></defs>
+<rect width="340" height="1000" rx="12" fill="#F3EBDD"/>
+<text x="20" y="32" class="h">Two roles, traceable evidence</text><text x="20" y="56" class="s">Northstar Helpdesk · Part 6</text>
+<rect x="20" y="78" width="300" height="105" rx="8" class="box"/><text x="35" y="105" class="h">Coordinator</text><text x="35" y="134">Case + source fingerprint</text><text x="35" y="160" class="s">Task, exact IDs, declared gap</text>
+<path d="M100 183V211" class="arrow"/><path d="M240 183V211" class="arrow"/>
+<rect x="14" y="220" width="150" height="130" rx="8" class="box"/><text x="27" y="249" class="h">Order worker</text><text x="27" y="279">lookup_order</text><text x="27" y="308" class="s">Order evidence</text><text x="27" y="332" class="s">No policy reader</text>
+<rect x="176" y="220" width="150" height="130" rx="8" class="box"/><text x="189" y="249" class="h">Policy worker</text><text x="189" y="279">read_policy</text><text x="189" y="308" class="s">Policy versions</text><text x="189" y="332" class="s">No order reader</text>
+<path d="M89 350V382H251V350" fill="none" stroke="#575D5B" stroke-width="1.5"/><path d="M170 382V405" class="arrow"/>
+<rect x="20" y="415" width="300" height="120" rx="8" class="box"/><text x="35" y="443" class="h">Structured handoff</text><text x="35" y="471">Claims + source ID, date, hash</text><text x="35" y="497">Attempts + remaining gaps</text><text x="35" y="520" class="s">No-match differs from timeout.</text>
+<path d="M170 535V561" class="arrow"/>
+<rect x="20" y="571" width="300" height="116" rx="8" class="box"/><text x="35" y="599" class="h">Atomic local manifest</text><text x="35" y="628">Save each completed packet</text><text x="35" y="655">Partial stays labelled partial</text><text x="35" y="676" class="s">Single writer; retain useful evidence</text>
+<path d="M170 687V713" class="arrow"/>
+<rect x="20" y="723" width="300" height="115" rx="8" class="box"/><text x="35" y="751" class="h">Recovery decision</text><text x="35" y="780">Unchanged → resume unfinished</text><text x="35" y="807">Stale → summary + recollection</text><text x="35" y="829" class="s">Fork preserves the parent manifest.</text>
+<path d="M170 838V864" class="arrow"/>
+<rect x="20" y="874" width="300" height="103" rx="8" class="box"/><text x="35" y="902" class="h">Source-backed case report</text><text x="35" y="931">Keep both dated policy claims</text><text x="35" y="958" class="s">Conflicts / gaps → human review</text>
+</svg>
