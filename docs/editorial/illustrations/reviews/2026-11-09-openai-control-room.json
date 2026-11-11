@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-09-openai-control-room",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-11-09-openai-control-room",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A separate authorization service stops research model output at the inference boundary",
+    "verified_context": [
+      "OpenAI says Control Room is deployed across its research infrastructure and tracks agentic inference workloads tied to approved safety cases.",
+      "Inference engines check a central job state before fulfilling model-output requests, and stopped jobs are denied further output.",
+      "OpenAI reports output can halt within 35 seconds of an intervention decision; the internal system has not been independently audited."
+    ],
+    "editorial_idea": "Several workload channels meet one independent gatehouse whose shutter can stop every outgoing stream.",
+    "visual_metaphor": "A dark teal gatehouse with a terracotta shutter closes across converging charcoal inference channels.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-09-openai-control-room",
+    "story_source_sha256": "cbf035098e83e4139ff0d4802321d7e76075776b8066a81e575fe295ac79b3f9",
+    "visual_brief_sha256": "7e67771848a94e8cb5a26bc7a3326526d1fcdc45c5b884a3d43aed3446a2e38e",
+    "reference_inputs_sha256": "2c46283de4dadbdb5284996b0fd41091aabe7d459f21234c4de0747aa3163a2f",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "3c8d4b27b269398217fdeaeac15369f208eb18633d70e44948a5cec666650e45"
+  },
+  "candidate_notes": {
+    "A": "Rejected at the constitutional gate because it introduced people and a meeting-room scene not needed by the story.",
+    "B": "Constitution-compliant and strong, but the oversized drawbridge makes the control feel remote from the inference boundary.",
+    "C": "Selected. The compact gatehouse, converging channels and closed terracotta shutter express centralized, fail-closed authorization without interface imitation."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 93,
+    "composition": 94,
+    "crop_quality": 95,
+    "technical_meaning": 94,
+    "cleanliness": 97,
+    "golden_reference_fit": 90,
+    "weighted_total": 93.55
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The complete metaphor and separation boundaries remain visible in the wide 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the dominant chamber, gate or transformation and its terracotta signal.",
+    "thumbnail": "The physical silhouette remains distinct at 320px without relying on fine texture."
+  },
+  "golden_reference_comparison": "The selected candidate matches the golden references in warm paper field, restrained charcoal/teal mass, sparse terracotta signal, tactile materiality and confident negative space while keeping a story-specific silhouette.",
+  "final_asset": "/images/stories/2026-11-09-openai-control-room.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 279816,
+    "sha256": "2c22dfc86415699c0f555e11940b38f75503e8f577dde9972ae454101a235da0",
+    "git_blob_sha": "9715397cfbeeb3b8f318167c27bb3523a572f79c",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-11T08:21:00Z"
+  }
+}

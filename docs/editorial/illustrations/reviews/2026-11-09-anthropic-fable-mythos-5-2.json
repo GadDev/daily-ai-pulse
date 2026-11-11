@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-09-anthropic-fable-mythos-5-2",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-11-09-anthropic-fable-mythos-5-2",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "One underlying model is routed through two different access and safeguard tiers",
+    "verified_context": [
+      "Anthropic says Claude Fable 5.2 and Claude Mythos 5.2 use the same underlying model.",
+      "Fable is broadly available with cyber and biology safeguards, while Mythos is available through verified programs for higher-risk work.",
+      "The release also adds standard and fast modes with different price and latency trade-offs; performance claims remain first-party."
+    ],
+    "editorial_idea": "One central engine routes into two equal but differently gated chambers.",
+    "visual_metaphor": "A single dark circular engine feeds a broad sage chamber and a narrower terracotta-edged verified chamber.",
+    "archetype": "optical-routing",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
+      "public/images/stories/2026-10-28-gpt-6-1-terra.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-09-anthropic-fable-mythos-5-2",
+    "story_source_sha256": "600e988438ff636d5197a2070a143fe4d63ca7ea9e8070d0747a60384b3bd99a",
+    "visual_brief_sha256": "cf719ff8c4ce1dc9065d67c3c70264e9b81b077492ec1aeb808912ae7baa2ba6",
+    "reference_inputs_sha256": "4b9fba86438f67e1039c2842bf77ff589e43a010f8db123fad98d1d0e6d60480",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "1080eefb7432cccf9f6f1c1f4f2206f1163ee2e07bd08f0bcb00b81842594100"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant and legible, but the literal padlock weakens the editorial abstraction.",
+    "B": "Constitution-compliant, yet the instruments and lock make the access split overly literal and visually busy.",
+    "C": "Selected. One central engine and two physically distinct chambers communicate shared capability with different access tiers at thumbnail scale."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 94,
+    "technical_meaning": 92,
+    "cleanliness": 98,
+    "golden_reference_fit": 91,
+    "weighted_total": 93.55
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The complete metaphor and separation boundaries remain visible in the wide 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the dominant chamber, gate or transformation and its terracotta signal.",
+    "thumbnail": "The physical silhouette remains distinct at 320px without relying on fine texture."
+  },
+  "golden_reference_comparison": "The selected candidate matches the golden references in warm paper field, restrained charcoal/teal mass, sparse terracotta signal, tactile materiality and confident negative space while keeping a story-specific silhouette.",
+  "final_asset": "/images/stories/2026-11-09-anthropic-fable-mythos-5-2.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 252410,
+    "sha256": "1d0bf3c74547498d255f3e3074dc9fd96fca0e8d2ef00118e209581b96b6fade",
+    "git_blob_sha": "6151e5c1bab4f28434187e6a55f75f8c0b82906a",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-11T08:21:00Z"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-06-kakao-kanana-2-v-decide",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-06-kakao-kanana-2-v-decide",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A compact multimodal model narrows varied inputs into bounded choices and probabilities",
+    "verified_context": [
+      "Kakao released public weights and a model card for a small multimodal model that accepts text and optional images.",
+      "The model returns probabilities for bounded choices, yes or no questions and ordered scores rather than generating prose.",
+      "Kakao's speed and benchmark comparisons remain vendor-reported in this edition."
+    ],
+    "editorial_idea": "A narrow decision interface turns varied context into inspectable bounded outputs instead of open-ended prose.",
+    "visual_metaphor": "Mixed paper and translucent image fragments enter a compact stone decision instrument and emerge as a few differently weighted terracotta channels.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": ["mixed-input-fragments", "compact-decision-instrument", "weighted-output-channels"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-24-gpt-6-sol-luna.webp", "public/images/stories/2026-09-24-greedy-decoding-precision.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version":"1","story_id":"2026-11-06-kakao-kanana-2-v-decide","story_source_sha256":"42cd7f87f838e95ee7a3689a7e1ad07e454b5a834de10151c8d34967bfa3f894","visual_brief_sha256":"53a9dd8f8a6295c49f3e6a9503a5c3105a6f43880a0a7f9f8aa987a847760ac2","reference_inputs_sha256":"8b523020839c04dbb47fca343a7b494ab31762f87d2f1548340e0cbd70a23e3c","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"54ce1f3b5b4c093278495b465d9af508c1a4f5a060e2a20091890e7bc46e44d2"},
+  "candidate_notes": {
+    "A": "Selected. The compact central instrument visibly narrows mixed paper and translucent inputs into a small set of weighted terracotta outputs without resembling an interface.",
+    "B": "Constitution-compliant. The physical balance is expressive, but it emphasizes load balancing more than bounded model decisions.",
+    "C": "Constitution-compliant. The optical aperture communicates multimodal compression, though it reads as feature extraction more than choice probabilities."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores": {"story_specific":93,"brand_fit":88,"composition":91,"crop_quality":91,"technical_meaning":91,"cleanliness":96,"golden_reference_fit":85,"weighted_total":90},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {"article_desktop":"The mixed inputs, central instrument and three output bands remain readable across the wide hero.","article_mobile":"A centered crop retains the complete instrument and the widest input and output paths.","thumbnail":"The pale central block and terracotta output fan remain distinct at 320px."},
+  "golden_reference_comparison": "The selected candidate matches the model references' pale sculptural mass, restrained terracotta paths, fine construction lines and large negative-space fields. Its central artifact is more machine-like than the references, so fit is scored at 85.",
+  "final_asset": "/images/stories/2026-11-06-kakao-kanana-2-v-decide.webp",
+  "final_dimensions": {"width":1600,"height":900},
+  "asset_integrity": {"byte_length":125122,"sha256":"96ff6588e7155aa3b6688e03422c50e9cdb36b0776c11ef697cc472761b4b5fd","git_blob_sha":"2dbcb418e1794e0daa8c30cde9c8abbfba11d8b2","riff_container_complete":true},
+  "generation_metadata": {"generated_at":"2026-11-07T08:16:48Z"}
+}

@@ -1,0 +1,61 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-05-openai-gpt-6-cyber",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-05-openai-gpt-6-cyber",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "GPT-6 Cyber raises the bar—and the containment burden",
+    "verified_context": ["OpenAI released GPT-6 Cyber to selected approved Daybreak Red customers.", "OpenAI reports stronger exploit-development results and better adherence to authorized task scope.", "The results are first-party evaluations and external authorization, isolation and audit controls remain necessary."],
+    "editorial_idea": "Stronger offensive capability increases the importance of independent containment boundaries.",
+    "visual_metaphor": "A compact dark-metal security instrument sits inside layered stone containment with one narrow terracotta authorized channel.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": ["layered containment", "central dark-metal instrument", "single authorized terracotta channel"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-28-openai-dns-sandbox.webp", "public/images/stories/2026-09-26-mcp-secrets.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {"identity_version":"1","story_id":"2026-11-05-openai-gpt-6-cyber","story_source_sha256":"ba945234b06eb563c180731253dd5f1ac7f4f68adf520b723fba6745bac4e81b","visual_brief_sha256":"49a8f4a1f8227e107f2dc5779c9d745d99c022c5d6eff15ebb933808fad0420c","reference_inputs_sha256":"2c46283de4dadbdb5284996b0fd41091aabe7d459f21234c4de0747aa3163a2f","illustration_system_version":"1.3","visual_constitution_version":"1.1","prompt_contract_version":"1","candidate_count":3,"generator_surface":"chatgpt-image-tool","model_snapshot":null,"generation_key":"e8be9d65e13b4153d908de24cc68783137bf9c8b737bfb04b4d2dd2a4019b14c"},
+  "candidate_notes": {
+    "A": "Selected: four pale-stone containment layers isolate one compact dark instrument while a single terracotta channel remains visible through every boundary. The silhouette remains explicit at thumbnail and square crops.",
+    "B": "The oblique maze conveys defensive depth, but overlapping walls make the authorized channel harder to trace and the composition becomes busy in compact crops.",
+    "C": "Concentric rings provide a clean containment metaphor, but their repeated circular form is less closely aligned with the rectilinear architectural language of the declared references."
+  },
+  "candidate_scores": {
+    "A": {"story_specific":95,"brand_fit":92,"composition":94,"crop_quality":96,"technical_meaning":94,"cleanliness":98,"golden_reference_fit":92,"weighted_total":94.0},
+    "B": {"story_specific":91,"brand_fit":91,"composition":89,"crop_quality":84,"technical_meaning":92,"cleanliness":96,"golden_reference_fit":90,"weighted_total":89.8},
+    "C": {"story_specific":93,"brand_fit":92,"composition":92,"crop_quality":91,"technical_meaning":94,"cleanliness":97,"golden_reference_fit":91,"weighted_total":92.3}
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {"words":false,"letters":false,"numbers":false,"labels":false,"logos":false,"interface_elements":false,"page_header":false,"page_footer":false,"buttons":false,"badges":false,"invented_charts":false,"watermark":false,"neon_effects":false,"robots":false,"glowing_ai_brains":false,"screenshot_imitation":false,"bare_schematic_or_diagram":false,"border":false,"frame":false,"unsupported_visual_claim":false},
+  "scores": {"story_specific":95,"brand_fit":92,"composition":94,"crop_quality":96,"technical_meaning":94,"cleanliness":98,"golden_reference_fit":92,"weighted_total":94.0},
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The 21:9 center crop retains all four containment layers, the instrument and the authorized channel.",
+    "article_mobile": "The full layered enclosure and channel remain visible in 16:9.",
+    "square": "The square center crop tightens around the instrument while preserving each boundary crossing.",
+    "thumbnail": "At 320px wide, the dark instrument and terracotta channel remain a clear focal pair."
+  },
+  "golden_reference_comparison": "Compared all candidates above the two declared references for pale-stone architecture, restrained terracotta/charcoal contrast, tactile materiality and compact legibility. A best matches the reference language while communicating containment and authorized access without decorative complexity.",
+  "contact_sheet": "docs/editorial/illustrations/contact-sheets/2026-11-05-openai-gpt-6-cyber.webp",
+  "final_asset": "/images/stories/2026-11-05-openai-gpt-6-cyber.webp",
+  "final_dimensions": {"width":1600,"height":900},
+  "asset_integrity": {"byte_length":136448,"sha256":"6c7677c98fc01e6c7fb47b226d67d52184a897405163bb047970308928f85af9","git_blob_sha":"c4eba09a107992ec9d37b8c75cdf1d72248001e3","riff_container_complete":true},
+  "generation_metadata": {
+    "reviewed_at": "2026-11-06T11:01:05Z",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "visual_review": "Codex model self-review of three full-size candidates, the two declared golden references, a reference-first comparison sheet, and desktop/mobile/square/thumbnail crops. The canonical Playwright renderer could not launch because Chromium was unavailable, so ImageMagick produced the equivalent inspected sheet; repository validation remains authoritative.",
+    "candidate_provenance": {
+      "A": {"source_sha256":"6c7677c98fc01e6c7fb47b226d67d52184a897405163bb047970308928f85af9","prompt":"Wide architectural cutaway of a compact dark security instrument inside four pale-stone containment layers, crossed only by one narrow terracotta authorized channel; tactile editorial materials, no text or interface elements."},
+      "B": {"source_sha256":"a73176b246dcb64d70b381964ac979f05112cf386e1598808ac0fc3666ac5daf","prompt":"Wide oblique stone defensive maze around a compact dark security instrument with one terracotta authorized path; restrained tactile editorial materiality and no prohibited elements."},
+      "C": {"source_sha256":"c97a3df533f1ddf9121e905bfe77faaa8f66e482906ca23074208fcd94fafea7","prompt":"Wide concentric stone containment rings around a compact dark security instrument with one terracotta authorized channel; restrained editorial materiality and no prohibited elements."}
+    }
+  }
+}
