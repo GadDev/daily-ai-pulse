@@ -83,7 +83,7 @@ The publication is hosted at [daily-ai-pulse-db253.web.app](https://daily-ai-pul
 
 ## Run the site locally
 
-Requirements: Node.js **22.22.3** (see `.nvmrc` and `package.json`), npm, and Git.
+Requirements: Node.js **22.23.4** (see `.nvmrc` and `package.json`), npm, and Git.
 
 ```bash
 git clone https://github.com/GadDev/daily-ai-pulse.git

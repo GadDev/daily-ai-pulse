@@ -98,7 +98,7 @@ Firebase CLI deploy --only hosting
 HTTP endpoint smoke checks
 ```
 
-The workflow pins Node.js 22.22.3 and authenticates with short-lived GitHub OIDC credentials; no service-account JSON key is stored. The build should remain reproducible from `package-lock.json`.
+The workflow pins Node.js 22.23.4 and authenticates with short-lived GitHub OIDC credentials; no service-account JSON key is stored. The build should remain reproducible from `package-lock.json`.
 
 ## Architectural principles
 
