@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-10-openai-businesses-chatgpt",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-11-10-openai-businesses-chatgpt",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Independent answers, verified business information and sponsored agent conversations require visible separation",
+    "verified_context": [
+      "OpenAI launched Business Hub in beta for claimed profiles, product feeds and aggregated discovery analytics.",
+      "Eligible U.S. businesses can launch clearly separate Business Agent conversations and sponsor those agents as ad destinations.",
+      "The announcement does not independently establish ranking neutrality, privacy-threshold effectiveness or business outcomes."
+    ],
+    "editorial_idea": "Three commercial information relationships occupy adjacent rooms with clear thresholds rather than blending together.",
+    "visual_metaphor": "Neutral charcoal, verified sage and sponsored terracotta rooms sit side by side behind distinct architectural openings.",
+    "archetype": "three-room-editorial-interior",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-10-05-chatgpt-ads-measurement-integrations.webp",
+      "public/images/stories/2026-10-09-agentcore-payments.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-10-openai-businesses-chatgpt",
+    "story_source_sha256": "908f3f6b82f1e2ab27e6ace2da38137a6d5514f9353e8a99d73701b3381fd3ff",
+    "visual_brief_sha256": "b51c68798e958b186713bce37cf64302303357ba6e1c9f3843b218353fa86e39",
+    "reference_inputs_sha256": "bc12e0991d3a9ee25399d0b033556e7020df373d249183ecbf2950cc20eb793b",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "f16012bebde327b82243bfa69f0b5480fb6522ab7b5f86e58f12523c01be237f"
+  },
+  "candidate_notes": {
+    "A": "Constitution-compliant, but shopping-bag and speech-bubble forms verge on iconography and merge the neutral and commercial paths.",
+    "B": "Selected. Three unmistakably separate rooms communicate independent, verified and sponsored contexts without labels or interface elements.",
+    "C": "Rejected at the constitutional gate because the profile medallion, key and speech bubbles form an icon composition."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 95,
+    "technical_meaning": 90,
+    "cleanliness": 98,
+    "golden_reference_fit": 90,
+    "weighted_total": 93.1
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The complete metaphor and separation boundaries remain visible in the wide 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the dominant chamber, gate or transformation and its terracotta signal.",
+    "thumbnail": "The physical silhouette remains distinct at 320px without relying on fine texture."
+  },
+  "golden_reference_comparison": "The selected candidate matches the golden references in warm paper field, restrained charcoal/teal mass, sparse terracotta signal, tactile materiality and confident negative space while keeping a story-specific silhouette.",
+  "final_asset": "/images/stories/2026-11-10-openai-businesses-chatgpt.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 306766,
+    "sha256": "f7fcd70e0f09029eb5920faf839293dd3b4b6e3abf7ae87369c6933fd61ee005",
+    "git_blob_sha": "ebb143c3274d9af2f2d0cb564e5bd1ee7a3762fa",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-11T08:21:00Z"
+  }
+}
