@@ -69,10 +69,10 @@ Invented calibration: a bounded odd experiment scoring 5/2/4/4/4/5 totals 77 and
 brief. An untraceable explosive screenshot scoring 5/4/5/3/5/4 totals 87 but remains watch.
 These are examples, not discoveries. No source, celebrity, controversy or engagement bonus.
 
-The daily ceiling is **seven**, with **30 substantively inspected candidates per batch**, zero
+The daily ceiling is **ten**, with **30 substantively inspected candidates per batch**, zero
 publication minimum and no per-lens quota. Count merged and active prepared stories together.
 The default is one morning batch and an optional afternoon batch, never concurrent batches.
-No more than seven prepared stories across both. Source diversity is a review consideration;
+No more than ten prepared stories across both. Source diversity is a review consideration;
 do not force balance by selecting weak material.
 
 ## Formats and writing review
@@ -123,3 +123,4 @@ Keep the existing illustration constitution, production rules and artwork unchan
 The pilot is text-only. Later prepare-pr mode invokes the existing illustration and translation
 contracts without weakening them. An artwork failure withholds that candidate; a French
 blocker is recorded separately and does not suppress otherwise valid English.
+

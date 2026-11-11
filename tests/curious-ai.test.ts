@@ -95,9 +95,10 @@ function ledger() {
     },
   };
 }
-test('approved capacity is 30 candidates and seven daily stories; weights total 100', () => {
+test('approved capacity is 30 candidates and ten daily stories; weights total 100', () => {
   assert.equal(config.candidate_limit, 30);
-  assert.equal(config.daily_story_ceiling, 7);
+  assert.equal(config.daily_story_ceiling, 10);
+  assert.equal(config.pilot_draft_target, 10);
   assert.equal(weightedScore(candidate().score, config), 77);
   assert.deepEqual(validateCuriousLedger(ledger(), config), []);
 });
@@ -134,14 +135,17 @@ test('incorrect totals, duplicate event identities and 31 candidates fail', () =
   v.candidates = Array.from({ length: 31 }, (_, i) => candidate(i));
   assert.match(validateCuriousLedger(v, config).join('\n'), /exceeds 30/);
 });
-test('pilot and dry run cannot leak site stories; eighth prepared story fails', () => {
+test('pilot and dry run cannot leak site stories; ten prepared stories pass and eleven fail', () => {
   const v = ledger();
   v.publication.story_ids = [v.candidates[0].id];
   assert.match(validateCuriousLedger(v, config).join('\n'), /must not create site stories/);
   v.mode = 'prepare-pr';
-  v.candidates = Array.from({ length: 8 }, (_, i) => candidate(i));
+  v.candidates = Array.from({ length: 10 }, (_, i) => candidate(i));
   v.publication.story_ids = v.candidates.map((c) => c.id);
-  assert.match(validateCuriousLedger(v, config).join('\n'), /ceiling 7/);
+  assert.deepEqual(validateCuriousLedger(v, config), []);
+  v.candidates.push(candidate(10));
+  v.publication.story_ids = v.candidates.map((c) => c.id);
+  assert.match(validateCuriousLedger(v, config).join('\n'), /ceiling 10/);
 });
 test('watch needs a promotion condition and incomplete research cannot be a quiet day', () => {
   const v = ledger();
@@ -207,7 +211,7 @@ test('production cadence is idle between discovery slots and counts all daily ba
     story_count: 5,
   };
   assert.equal(planCuriousPass('2026-10-26T11:30:00Z', [run], production).action, 'idle');
-  assert.equal(planCuriousPass('2026-10-26T15:30:00Z', [run], production, 2).action, 'daily-limit');
+  assert.equal(planCuriousPass('2026-10-26T15:30:00Z', [run], production, 5).action, 'daily-limit');
   assert.deepEqual(planCuriousPass('2026-10-26T15:30:00Z', [run], production), {
     action: 'start',
     batch_id: 'curious-ai:2026-10-26:b02',
