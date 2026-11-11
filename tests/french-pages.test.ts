@@ -220,11 +220,11 @@ test('homepage falls back to a visible story from its edition and counts only vi
 
 test('daily editions omit draft-only sections and Pulse archive counts only published stories', () => {
   const latest = read(`pulse/${visibilityEditions.latest}/index.html`);
-  assert.match(latest, /1 desks/);
+  assert.match(latest, /1 desk<\/span>/);
   assert.match(latest, /3 stories/);
   assert.doesNotMatch(latest, /Draft only desk/);
   const recent = read(`pulse/${visibilityEditions.recent}/index.html`);
-  assert.match(recent, /1 stories/);
+  assert.match(recent, /1 story<\/span>/);
   const empty = read(`pulse/${visibilityEditions.empty}/index.html`);
   assert.match(empty, /0 desks/);
   assert.match(empty, /0 stories/);
