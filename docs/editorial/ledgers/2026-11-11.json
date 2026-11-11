@@ -1,0 +1,538 @@
+{
+  "editorial_date": "2026-11-11",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-11-09-anthropic-fable-mythos-5-2",
+      "decision": "selected",
+      "title": "Anthropic releases Claude Fable 5.2 and Mythos 5.2",
+      "desk": "models",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "model-releases",
+        "coding-agents",
+        "benchmarks",
+        "safety"
+      ],
+      "entities": [
+        "Anthropic",
+        "Claude Fable 5.2",
+        "Claude Mythos 5.2"
+      ],
+      "event_date": "2026-11-09",
+      "source_publication_date": "2026-11-09",
+      "summary": "Anthropic released two access tiers of the same frontier model, lowered standard pricing to $8 per million input and $40 per million output tokens, and published first-party coding, science, robotics and safety evaluations.",
+      "what_changed": "Fable 5.2 is broadly available with cyber and biology safeguards; Mythos 5.2 exposes higher-risk capabilities through verification programs, while an optional fast mode trades a doubled token price for up to 2.5x faster generation.",
+      "why_it_matters": "The release couples a material capability and pricing change with explicit access segmentation, giving engineers concrete model-routing and governance decisions.",
+      "engineer_takeaway": "Benchmark Fable at comparable effort and total task cost, and treat vendor evaluations and access controls as evidence to inspect rather than independent proof.",
+      "prerequisites": [
+        "model evaluation",
+        "agentic coding",
+        "capability access controls"
+      ],
+      "primary_source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "canonical_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "publisher": "Anthropic",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-09"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Anthropic documents availability, pricing, benchmarks, access tiers and system-card links.",
+        "independent_validation": "No independent full-suite reproduction was identified in the bounded pass.",
+        "claim_scope": "Availability and pricing are first-party facts; performance, safety and deployment examples remain vendor-reported."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A major model release changes capability, access, latency and price trade-offs."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "effort-normalized evaluation",
+          "capability-tier access"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "anthropic|claude-fable-mythos-5-2|2026-11-09-release",
+        "canonical_event": "Anthropic releases Claude Fable 5.2 and Mythos 5.2 with new pricing and access tiers.",
+        "previous_coverage": "No exact URL, model name or matching release event was found on pinned main or the finalized 6–8 November ledgers.",
+        "material_delta": "A new model generation, pricing surface and verified-access tier became available."
+      }
+    },
+    {
+      "id": "2026-11-09-openai-control-room",
+      "decision": "selected",
+      "title": "OpenAI discloses a fail-closed kill switch for research inference",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "infrastructure",
+        "safety",
+        "permissions",
+        "observability"
+      ],
+      "entities": [
+        "OpenAI",
+        "Control Room"
+      ],
+      "event_date": "2026-11-09",
+      "source_publication_date": "2026-11-09",
+      "summary": "OpenAI described Control Room, a deployed authorization layer that makes research inference engines check a central job state before every model-output request and can halt output within 35 seconds of an intervention decision.",
+      "what_changed": "OpenAI published the architecture, fail-closed behavior, safety-case binding and reliability design of its internal research-workload stop system.",
+      "why_it_matters": "It turns emergency shutdown from an application convention into a separate inference authorization control that can survive workload failure.",
+      "engineer_takeaway": "Bind high-risk jobs to explicit approvals, enforce stop decisions at the inference boundary, and design the controller to fail closed without becoming an untested single point of failure.",
+      "prerequisites": [
+        "distributed inference",
+        "authorization",
+        "safety cases"
+      ],
+      "primary_source_url": "https://openai.com/index/control-room/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/control-room/",
+          "canonical_url": "https://openai.com/index/control-room/",
+          "publisher": "OpenAI",
+          "source_type": "engineering-blog",
+          "role": "primary",
+          "publication_date": "2026-11-09"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "OpenAI documents the deployed architecture, request path, fail-closed mode and measured intervention latency.",
+        "independent_validation": "The internal system was not independently audited.",
+        "claim_scope": "The design and first-party latency report apply to OpenAI research infrastructure, not arbitrary serving stacks."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The architecture addresses containment of long-running, high-risk model workloads at the inference boundary."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "inference authorization",
+          "fail-closed workload control"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|control-room|2026-11-09-research-inference-stop-control",
+        "canonical_event": "OpenAI publishes the deployed Control Room architecture.",
+        "previous_coverage": "No exact URL or matching centralized research-inference stop-control event was found on pinned main.",
+        "material_delta": "A previously internal safety control and its architecture were disclosed."
+      }
+    },
+    {
+      "id": "2026-11-10-openai-upwork-freelance-work",
+      "decision": "selected",
+      "title": "OpenAI and Upwork measure how freelance demand is shifting around AI",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "practitioner",
+      "topics": [
+        "ai-labor",
+        "enterprise-adoption",
+        "productivity",
+        "data"
+      ],
+      "entities": [
+        "OpenAI",
+        "Upwork"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "OpenAI and Upwork compared ChatGPT task activity with marketplace postings, reporting that 43 of 63 analyzed work categories moved in the expected opposite direction while AI-related projects combined more skills and carried larger budgets.",
+      "what_changed": "The partners published a new marketplace study with a full report and explicit observation windows rather than relying on anecdotes about job substitution.",
+      "why_it_matters": "It supplies early empirical evidence that AI may change task composition and project scope before those shifts appear in economy-wide employment statistics.",
+      "engineer_takeaway": "Separate displacement, complementarity and project-scope effects; do not infer causality from platform-share correlations or generalize one marketplace to the labor market.",
+      "prerequisites": [
+        "labor-market measurement",
+        "platform data",
+        "observational studies"
+      ],
+      "primary_source_url": "https://openai.com/index/ai-effect-on-freelance-work/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/ai-effect-on-freelance-work/",
+          "canonical_url": "https://openai.com/index/ai-effect-on-freelance-work/",
+          "publisher": "OpenAI and Upwork",
+          "source_type": "research-report",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The publication links a full report and documents categories, periods and platform comparisons.",
+        "independent_validation": "No independent replication was identified.",
+        "claim_scope": "The observational platform data show association and composition shifts, not causal economy-wide employment effects."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The study provides concrete labor-demand evidence with large practical stakes and clear limitations."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 5,
+        "weighted_total": 88
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "task-share substitution",
+          "platform-selection effects"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-upwork|freelance-demand|2026-11-10-report",
+        "canonical_event": "OpenAI and Upwork publish a study of AI-related freelance demand and project scope.",
+        "previous_coverage": "The exact URL search was rate-limited once; entity/event/change review of pinned-main ledgers found no matching OpenAI-Upwork report.",
+        "material_delta": "A new report and dataset-backed analysis were published."
+      }
+    },
+    {
+      "id": "2026-11-10-google-edge-gallery-speech",
+      "decision": "selected",
+      "title": "Google AI Edge Gallery adds offline speech input and output",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "voice",
+        "multimodal",
+        "open-models",
+        "inference"
+      ],
+      "entities": [
+        "Google",
+        "Google AI Edge Gallery",
+        "ML Kit",
+        "MediaPipe",
+        "LiteRT"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "Google added on-device ASR and TTS to AI Edge Gallery, combining Android system models with cross-platform open-weight speech bundles for offline voice applications.",
+      "what_changed": "Developers gained streaming multilingual transcription and low-latency synthesis that can run alongside Gemini Nano or Gemma 4 without a network connection.",
+      "why_it_matters": "Voice interfaces can keep raw audio local and remain available offline, but performance and device support vary across the Android and cross-platform paths.",
+      "engineer_takeaway": "Test latency, memory, language quality and thermal behavior on target hardware, and preserve a modular fallback between system and open-weight speech models.",
+      "prerequisites": [
+        "on-device inference",
+        "speech recognition",
+        "speech synthesis"
+      ],
+      "primary_source_url": "https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery/",
+      "sources": [
+        {
+          "url": "https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery/",
+          "canonical_url": "https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery/",
+          "publisher": "Google",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Google documents APIs, model bundles, reference code and first-party latency/speed figures.",
+        "independent_validation": "The device claims were not independently benchmarked in this pass.",
+        "claim_scope": "Availability and architecture are established; accuracy, speed and contention figures remain device- and vendor-scoped."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The release makes a complete offline speech loop available to mobile and cross-platform AI developers."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": []
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "google|ai-edge-gallery|2026-11-10-offline-asr-tts",
+        "canonical_event": "Google adds on-device ASR and TTS to AI Edge Gallery.",
+        "previous_coverage": "No exact URL or matching offline speech-pipeline event was found on pinned main.",
+        "material_delta": "A new developer-facing speech input/output capability became available."
+      }
+    },
+    {
+      "id": "2026-11-10-openai-businesses-chatgpt",
+      "decision": "selected",
+      "title": "OpenAI turns ChatGPT business discovery into a claimed and agentic channel",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "enterprise-adoption",
+        "agents",
+        "governance",
+        "ai-media-authenticity"
+      ],
+      "entities": [
+        "OpenAI",
+        "ChatGPT",
+        "Shopify"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "OpenAI launched Business Hub in beta and Business Agents for eligible U.S. ecommerce and online-service businesses, separating verified company data and labeled agent conversations from ordinary ChatGPT answers.",
+      "what_changed": "Businesses can claim profiles, update details and feeds, inspect aggregated discovery metrics, and deploy labeled agents that may also be sponsored ad destinations.",
+      "why_it_matters": "The change creates a new commercial information and agent surface inside ChatGPT, with consequential boundaries between independent answers, first-party data and paid interaction.",
+      "engineer_takeaway": "Treat verification, feed freshness, agent disclosure, privacy thresholds and sponsored routing as separate controls; a claimed profile is not proof that every statement is complete or unbiased.",
+      "prerequisites": [
+        "business identity",
+        "agent disclosure",
+        "product feeds"
+      ],
+      "primary_source_url": "https://openai.com/index/introducing-businesses-chatgpt/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-businesses-chatgpt/",
+          "canonical_url": "https://openai.com/index/introducing-businesses-chatgpt/",
+          "publisher": "OpenAI",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "OpenAI documents beta availability, profile verification, feeds, aggregate analytics, agent labeling and sponsored placements.",
+        "independent_validation": "No independent audit of discovery ranking or privacy thresholds was identified.",
+        "claim_scope": "Product availability and stated separation controls are first-party; ranking effects and business outcomes are unmeasured."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The release creates a consequential new identity, agent and advertising surface inside a major AI discovery product."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 88
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "claimed business identity",
+          "agent-versus-answer disclosure"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|businesses-in-chatgpt|2026-11-10-beta",
+        "canonical_event": "OpenAI launches Business Hub beta and Business Agents.",
+        "previous_coverage": "No exact URL or matching business-claim and agent-surface event was found on pinned main.",
+        "material_delta": "A new business identity, analytics and conversational commerce surface launched."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-11-10-openai-caregiver-skills-jam",
+      "decision": "watch",
+      "title": "OpenAI brings caregiver AI workshops to five U.S. cities",
+      "desk": "curious",
+      "event_date": "2026-11-10",
+      "summary": "OpenAI and three caregiver and health organizations launched free practical ChatGPT workshops in five cities.",
+      "what_changed": "A concrete community program began, but no participant outcome or independent evaluation was published.",
+      "reason": "The pilot Curious lane fit is strong, yet the announcement is promotional and outcome-free.",
+      "promote_when": [
+        "Publishable participant evidence, measured navigation/time outcomes, or an independent safety evaluation appears."
+      ],
+      "primary_source_url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life/",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 3,
+        "weighted_total": 68
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-partners|caregiver-ai-skills-jam|2026-11-10"
+      }
+    },
+    {
+      "id": "2026-11-09-openai-chatgpt-enterprise-aws-marketplace",
+      "decision": "watch",
+      "title": "ChatGPT Enterprise enters AWS Marketplace",
+      "desk": "business",
+      "event_date": "2026-11-09",
+      "summary": "Eligible organizations can procure ChatGPT Enterprise and selected vertical products through AWS Marketplace.",
+      "what_changed": "The procurement channel is new, but no technical product capability or measured adoption result was published.",
+      "reason": "Useful enterprise packaging change, below the selected set's engineering and public-interest signal.",
+      "promote_when": [
+        "A material governance integration, usage control or measured deployment outcome is published."
+      ],
+      "primary_source_url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/",
+      "sources": [
+        {
+          "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/",
+          "role": "primary",
+          "publication_date": "2026-11-09"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 3,
+        "evidence": 4,
+        "novelty": 3,
+        "relevance": 3,
+        "durability": 3,
+        "weighted_total": 64
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai-aws|chatgpt-enterprise-marketplace|2026-11-09"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-11-10-github-fable-gemini-copilot-availability",
+      "decision": "rejected",
+      "title": "GitHub adds Fable 5.2 and Gemini 4 Carbon to Copilot",
+      "desk": "workflows",
+      "event_date": "2026-11-10",
+      "summary": "GitHub added two newly released models to Copilot's picker.",
+      "what_changed": "This is a distribution update for model releases already represented by the stronger primary model event.",
+      "reason": "Selecting the distribution notice would duplicate the Anthropic model release without a distinct workflow or evidence delta.",
+      "source_url": "https://github.blog/changelog/month/11-2026/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/month/11-2026/",
+          "role": "primary"
+        }
+      ],
+      "deduplication": {
+        "status": "duplicate",
+        "candidate_key": "github-copilot|fable-5-2-gemini-4-carbon|2026-11-10",
+        "previous_coverage": "Selected Anthropic Fable/Mythos 5.2 release in this ledger."
+      }
+    },
+    {
+      "id": "2026-11-10-aws-agent-howtos",
+      "decision": "rejected",
+      "title": "AWS publishes agent evaluation, observability and implementation tutorials",
+      "desk": "practice",
+      "event_date": "2026-11-10",
+      "summary": "AWS published tutorials and customer architecture posts for AgentCore evaluation, treasury agents, test orchestration and token observability.",
+      "what_changed": "No single new service release or independently validated deployment event was established in the bounded pass.",
+      "reason": "Evergreen guidance belongs to Tools & Guides; vendor customer metrics were not independently substantiated.",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/",
+          "role": "primary"
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "aws|agentcore-tutorial-roundup|2026-11-10"
+      }
+    },
+    {
+      "id": "2026-11-10-anthropic-ipo-roadshow",
+      "decision": "rejected",
+      "title": "Anthropic launches IPO roadshow",
+      "desk": "business",
+      "event_date": "2026-11-10",
+      "summary": "Anthropic announced an offering range and proposed Nasdaq listing.",
+      "what_changed": "The financing process advanced, but the event provides no distinct engineering consequence for the Daily News rubric.",
+      "reason": "Material company news but generic capital-markets coverage without a concrete product, platform or engineering change.",
+      "source_url": "https://www.anthropic.com/news/roadshow-launch",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/news/roadshow-launch",
+          "role": "primary"
+        }
+      ],
+      "deduplication": {
+        "status": "material-update",
+        "candidate_key": "anthropic|ipo-roadshow|2026-11-10",
+        "previous_coverage": "Anthropic's October 26 S-1 filing.",
+        "material_delta": "The roadshow and price range are new, but still outside the engineering-focused selection gate."
+      }
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-11-09-openai-control-room"
+  }
+}
