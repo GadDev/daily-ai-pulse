@@ -16,7 +16,7 @@ the production French selection remains empty until editorial approval.
 | Native select | Familiar accessible control; scales to several options | Navigation needs scripting or an extra submit action; less editorial styling | Viable alternative, deferred |
 
 No flags, automatic browser-language redirect, or false same-story link. Use
-English and Français as accessible link names; EN/FR are compact visible labels.
+English EN and Français FR as accessible link names; EN/FR are compact visible labels.
 Keep the current state visible. On an English article lacking current French
 copy, FR is a non-interactive unavailable state; explain availability beside the
 article and provide a distinct link to the French selection. Other page types

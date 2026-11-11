@@ -29,8 +29,8 @@ a 404 and is not the preferred withdrawal procedure.
 
 ## Language and presentation
 
-The shared layout accepts a typed locale and story availability. English and
-Français accessible link names (visually EN / FR in the masthead) require no JavaScript and preserve the same story only when its
+The shared layout accepts a typed locale and story availability. English EN
+and Français FR accessible link names require no JavaScript and preserve the same story only when its
 French translation is current. Otherwise English articles display “No current
 French translation” in article content and offer a separate French selection link.
 The unavailable FR state stays non-interactive in the header. Other English

@@ -158,7 +158,7 @@ test('French reading, keyboard language switching and mobile layout', async ({ p
   const id = fixtureId('current');
   await page.goto(`${origin}/stories/${id}/`);
   const switcher = page.getByRole('navigation', { name: 'Reading language' });
-  const french = switcher.getByRole('link', { name: 'Français', exact: true });
+  const french = switcher.getByRole('link', { name: 'Français FR', exact: true });
   await french.focus();
   await expect(french).toBeFocused();
   await page.keyboard.press('Enter');
@@ -183,7 +183,7 @@ test('French reading, keyboard language switching and mobile layout', async ({ p
   ).toEqual([]);
   await page
     .getByRole('navigation', { name: 'Langue de lecture' })
-    .getByRole('link', { name: 'English', exact: true })
+    .getByRole('link', { name: 'English EN', exact: true })
     .click();
   await expect(page).toHaveURL(`${origin}/stories/${id}/`);
 
@@ -208,7 +208,7 @@ test('missing translations are explicit and unavailable bodies stay out of searc
   await expect(page.getByRole('complementary', { name: 'Translation availability' })).toContainText(
     'No current French translation.',
   );
-  await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveCount(0);
+  await expect(switcher.getByRole('link', { name: 'Français FR', exact: true })).toHaveCount(0);
   expect((await request.get(`${origin}/fr/stories/${pilotId}/`)).status()).toBe(404);
   for (const state of ['stale', 'withdrawn']) {
     await page.goto(`${origin}/fr/stories/${fixtureId(state)}/`);
@@ -295,7 +295,7 @@ test('the active language stays on the current page across story and non-story r
       name: locale === 'en' ? 'Reading language' : 'Langue de lecture',
     });
     const active = switcher.getByRole('link', {
-      name: locale === 'en' ? 'English' : 'Français',
+      name: locale === 'en' ? 'English EN' : 'Français FR',
       exact: true,
     });
     await expect(switcher.locator('[aria-current="page"]')).toHaveCount(1);
@@ -306,22 +306,20 @@ test('the active language stays on the current page across story and non-story r
     await expect(page).toHaveURL(`${origin}${path}`);
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
     if (path === `/stories/${currentStory}/`) {
-      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveAttribute(
-        'href',
-        `/fr/stories/${currentStory}/`,
-      );
+      await expect(
+        switcher.getByRole('link', { name: 'Français FR', exact: true }),
+      ).toHaveAttribute('href', `/fr/stories/${currentStory}/`);
     } else if (locale === 'fr' && path !== '/fr/') {
-      await expect(switcher.getByRole('link', { name: 'English', exact: true })).toHaveAttribute(
+      await expect(switcher.getByRole('link', { name: 'English EN', exact: true })).toHaveAttribute(
         'href',
         path.replace('/fr/', '/'),
       );
     } else if (path === `/stories/${pilotId}/`) {
-      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveCount(0);
+      await expect(switcher.getByRole('link', { name: 'Français FR', exact: true })).toHaveCount(0);
     } else if (locale === 'en') {
-      await expect(switcher.getByRole('link', { name: 'Français', exact: true })).toHaveAttribute(
-        'href',
-        '/fr/',
-      );
+      await expect(
+        switcher.getByRole('link', { name: 'Français FR', exact: true }),
+      ).toHaveAttribute('href', '/fr/');
     }
   }
 });
@@ -554,13 +552,13 @@ test('production reviewed translations appear in the selection and preserve thei
     await expect(page.locator('.article-hero img')).toHaveAttribute('alt', data.imageAlt);
     await page
       .locator('.language-switcher')
-      .getByRole('link', { name: 'English', exact: true })
+      .getByRole('link', { name: 'English EN', exact: true })
       .click();
     await expect(page).toHaveURL(new RegExp(`/stories/${data.storyId}/$`));
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await page
       .locator('.language-switcher')
-      .getByRole('link', { name: 'Français', exact: true })
+      .getByRole('link', { name: 'Français FR', exact: true })
       .click();
     await expect(page).toHaveURL(new RegExp(`/fr/stories/${data.storyId}/$`));
     await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
@@ -670,7 +668,7 @@ test('source editing and completed translation review remove and restore the sam
       await page.goto(`${hosted.origin}/stories/${id}/`);
       const french = page
         .locator('.language-switcher')
-        .getByRole('link', { name: 'Français', exact: true });
+        .getByRole('link', { name: 'Français FR', exact: true });
       await expect(french).toHaveCount(Number(available));
       if (stage !== 'initial') await expect(page.locator('.prose')).toContainText('three retries');
       if (stage === 'updated-draft') {
@@ -695,7 +693,7 @@ test('source editing and completed translation review remove and restore the sam
         }
         await page
           .locator('.language-switcher')
-          .getByRole('link', { name: 'English', exact: true })
+          .getByRole('link', { name: 'English EN', exact: true })
           .click();
         await expect(page).toHaveURL(`${hosted.origin}/stories/${id}/`);
       }
