@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-10-openai-upwork-freelance-work",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-10-openai-upwork-freelance-work",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Small freelance tasks reorganize into broader, bundled AI-related projects",
+    "verified_context": [
+      "OpenAI and Upwork report that 43 of 63 analyzed work categories shifted in the expected opposite direction from common ChatGPT activity.",
+      "AI-related freelance projects combined more skills and carried larger budgets and more work in the observed sample.",
+      "The platform study is observational and does not prove causal or economy-wide employment effects."
+    ],
+    "editorial_idea": "Fragmented work pieces combine into fewer substantial project blocks without implying a numerical trend line.",
+    "visual_metaphor": "Loose charcoal, sage and terracotta paper fragments flow into three large layered project stacks.",
+    "archetype": "editorial-collage",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-10-07-agent-experience-evals.webp",
+      "public/images/stories/2026-10-23-copilot-customization-metrics.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-10-openai-upwork-freelance-work",
+    "story_source_sha256": "b02b87b87cb491bc2b404068f2084d44d36e0434654f68a83aa5f2bb95386302",
+    "visual_brief_sha256": "5de4f5c4e969321c5e34dc3a1078d453d03a582487dde974685e3c75dfd91f4a",
+    "reference_inputs_sha256": "fdc9a9814eeb529ae02aaaba07c1bba17351cd67c52c8fe0c5f6aa91e912b565",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "df7c8608ec92463478ca4a9578963df80e2cf91127129addfae93127da2168f4"
+  },
+  "candidate_notes": {
+    "A": "Selected. The fragments and three substantial stacks communicate project bundling without people, labels or an invented chart.",
+    "B": "Rejected at the constitutional gate because gear, play and code-like symbols read as a presentation icon system.",
+    "C": "Constitution-compliant, but the storage-box metaphor suggests filing rather than changes in project scope."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 93,
+    "composition": 92,
+    "crop_quality": 95,
+    "technical_meaning": 91,
+    "cleanliness": 97,
+    "golden_reference_fit": 89,
+    "weighted_total": 92.55
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The complete metaphor and separation boundaries remain visible in the wide 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the dominant chamber, gate or transformation and its terracotta signal.",
+    "thumbnail": "The physical silhouette remains distinct at 320px without relying on fine texture."
+  },
+  "golden_reference_comparison": "The selected candidate matches the golden references in warm paper field, restrained charcoal/teal mass, sparse terracotta signal, tactile materiality and confident negative space while keeping a story-specific silhouette.",
+  "final_asset": "/images/stories/2026-11-10-openai-upwork-freelance-work.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 260374,
+    "sha256": "7a66b3e9d2fb3f7dd79f1da532eeae68bbc278f3a4ed1a9c109047b44e4b00a3",
+    "git_blob_sha": "17858a4eb2819964f5f027b2e6e2493e929b2c0c",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-11T08:21:00Z"
+  }
+}
