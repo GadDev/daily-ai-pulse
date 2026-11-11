@@ -148,25 +148,25 @@ test('two publishing owners and profile spoofing in a legacy path fail closed', 
   }
 });
 
-test('seven-story capacity counts separate batches and legacy Curious MDX together', () => {
+test('ten-story capacity counts separate batches and legacy Curious MDX together', () => {
   const { root } = setup();
   try {
     const base = editorialBatches(root).find((b) => b.profile === 'curious-ai')!;
     const morning = {
       ...base,
-      storyIds: Array.from({ length: 4 }, (_, i) => date + '-morning-' + i),
+      storyIds: Array.from({ length: 5 }, (_, i) => date + '-morning-' + i),
     };
     const afternoon = {
       ...base,
       path: base.path.replace('b01', 'b02'),
-      storyIds: Array.from({ length: 3 }, (_, i) => date + '-afternoon-' + i),
+      storyIds: Array.from({ length: 5 }, (_, i) => date + '-afternoon-' + i),
     };
-    assert.deepEqual(inspectDailyCuriousCapacity(root, [morning, afternoon], 7), []);
+    assert.deepEqual(inspectDailyCuriousCapacity(root, [morning, afternoon], 10), []);
     const legacy = { ...base, profile: 'news' as const, storyIds: [date + '-legacy'] };
     write(root, `src/content/stories/${date}-legacy.mdx`, '---\ncategory: curious\n---\n');
     assert.match(
-      inspectDailyCuriousCapacity(root, [morning, afternoon, legacy], 7).join('\n'),
-      /combined Curious batches exceed daily ceiling 7/,
+      inspectDailyCuriousCapacity(root, [morning, afternoon, legacy], 10).join('\n'),
+      /combined Curious batches exceed daily ceiling 10/,
     );
   } finally {
     rmSync(root, { recursive: true, force: true });
