@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-06-aws-agent-registry-govcloud",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-06-aws-agent-registry-govcloud",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A governed agent catalog separates approved discovery from runtime authorization",
+    "verified_context": [
+      "AWS made Agent Registry generally available in GovCloud US-West for agents, tools, skills, MCP servers and custom resources.",
+      "AWS documents hybrid search, approval workflows, a native MCP endpoint and CloudTrail audit logs.",
+      "The regional launch was not independently exercised, and a registry does not by itself constrain runtime credentials, networks or tool permissions."
+    ],
+    "editorial_idea": "Approved discovery is a catalog gate, while execution remains a separate control corridor.",
+    "visual_metaphor": "A terracotta archive of agent resources passes through one dark approval gate while a separate shadowed corridor continues beyond the catalog boundary.",
+    "archetype": "secure-archive",
+    "output_crop": "wide",
+    "must_show": [
+      "resource-archive",
+      "approval-gate",
+      "separate-runtime-corridor"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-openai-dns-sandbox.webp",
+      "public/images/stories/2026-09-26-mcp-secrets.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "story_id": "2026-11-06-aws-agent-registry-govcloud",
+    "story_source_sha256": "870096c5280b1ed669eab4a8d96c3df5643651e2775b82e4a6e1087f581db857",
+    "visual_brief_sha256": "e02e1bc50b42a1f7ba8e58adf439495dfa2ddf33f1fa6e88b75a7f84a7cbfd0b",
+    "reference_inputs_sha256": "2c46283de4dadbdb5284996b0fd41091aabe7d459f21234c4de0747aa3163a2f",
+    "generation_key": "7497f2ca8226e3c8eca3d1846a22856de853996d19d559286e7ed952d4e82502"
+  },
+  "candidate_notes": {
+    "A": "Selected. The archive, approval gate and separate dark corridor make governed discovery distinct from runtime authorization.",
+    "B": "Constitution-compliant, but the cabinet mass dominates the independent runtime corridor.",
+    "C": "Rejected before scoring because a wax-seal-like ornament introduces an unsupported ceremonial motif and weakens the operational governance idea."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 91,
+    "composition": 92,
+    "crop_quality": 91,
+    "technical_meaning": 92,
+    "cleanliness": 97,
+    "golden_reference_fit": 88,
+    "weighted_total": 91.35
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The archive, gate and separate corridor remain visible across the wide hero.",
+    "article_mobile": "A centered crop preserves the catalog-to-gate relationship and enough of the independent corridor to keep the control-plane distinction.",
+    "thumbnail": "The archive-and-gate silhouette remains distinct at 320px."
+  },
+  "golden_reference_comparison": "The selected image closely follows the security references' warm paper, dark containment forms and sparse terracotta wayfinding. The archive adds more repeated geometry than DNS while remaining quieter than a literal catalog diagram; Golden Reference Fit is 88.",
+  "final_asset": "/images/stories/2026-11-06-aws-agent-registry-govcloud.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 161778,
+    "sha256": "411e61c8e4da7df1b1c11c68461b48291d0625dd57802d4b5a7d6c88333977e5",
+    "git_blob_sha": "76c49e9194d3608608536d4271018b0d8d588043",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-08T08:03:43Z"
+  }
+}
