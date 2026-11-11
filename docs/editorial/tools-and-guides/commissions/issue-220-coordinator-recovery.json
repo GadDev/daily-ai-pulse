@@ -7,9 +7,9 @@
   "topic_key": "claude-foundations-coordinator-recovery",
   "guide_id": "claude-foundations-coordinator-recovery",
   "state": "draft",
-  "pr_number": null,
+  "pr_number": 279,
   "authorization": "Maintainer requested work on issue #220. Prepare a reviewable draft PR; no publication or merge authorization inferred.",
-  "base_commit": "80aaee0fc2ec8cba9b3328fbdfb5f1ecbef1a48c",
+  "base_commit": "ef997ec1a008e17bd46a273aa17c2ad5d4683370",
   "deduplication": {
     "published_guides": "Read series Parts 1-5, guide inventory and related-reading contract. No existing Part 6. Inherited MCP/action-policy material remains linked prerequisites.",
     "scheduled_ledgers": [
@@ -172,7 +172,7 @@
     }
   ],
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -187,8 +187,8 @@
         "evidence": "Pillow WebP roundtrip and final 1600x900 decode passed."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Direct git push failed: could not read Username for https://github.com. Using connected GitHub Git-data API for byte-safe blobs/tree commit and independent readback."
+        "status": "available",
+        "evidence": "Git CLI push lacked credentials; connected GitHub Base64 Git-data route committed the real reviewed cover. fetch_file encoding base64 on branch commit 203b72670c99b1c7d8874001050d7d053f582e6c returned bytes independently decoded, SHA-256/length/blob and 1600x900 WebP decoding matched."
       }
     },
     "blocker": null,
@@ -296,7 +296,31 @@
         "mobile-hero": "16:9: complete focal group visible.",
         "card": "3:2 and 160px thumbnail: two channels and retained segment legible."
       },
-      "identity_limit": "Shared generation-identity helper used for exact source/brief/reference hashes. News-only illustration validator does not certify guide artwork."
+      "identity_limit": "Shared generation-identity helper used for exact source/brief/reference hashes. News-only illustration validator does not certify guide artwork.",
+      "reference_observations": [
+        {
+          "path": "public/images/stories/2026-09-28-deepmind-agent-swarm.webp",
+          "decoded_dimensions": [
+            1672,
+            941
+          ],
+          "sha256": "42b2cdc338602618dba1674024d67154f272dd15ad2f5b1b675f81f8cfb43859",
+          "git_blob_sha": "5df966ec389d1f1d3a7d36f4e4ec47f9b6500bb7",
+          "displayed": "Actual decoded production assets displayed together before candidate generation, then in reference-first comparison sheet.",
+          "observations": "Warm paper, tactile dark/terracotta forms, restrained fine lines and a single spatial metaphor; no UI."
+        },
+        {
+          "path": "public/images/stories/2026-09-20-agentcore-runtime-v2.webp",
+          "decoded_dimensions": [
+            1672,
+            941
+          ],
+          "sha256": "1754461a7ea0c4507457e8c89bb734386e6b4a940f0998538e2a5f5fe454740a",
+          "git_blob_sha": "764071c492c863a11ba2ba30e521e7f0d7ecdf7e",
+          "displayed": "Actual decoded production assets displayed together before candidate generation, then in reference-first comparison sheet.",
+          "observations": "Pale architectural masses, terracotta accents, cutaway depth and disciplined paper texture; physical forms remain legible in landscape."
+        }
+      ]
     },
     "integrity": {
       "path": "/images/guides/claude-foundations-coordinator-recovery.webp",
@@ -306,6 +330,17 @@
       "width": 1600,
       "height": 900,
       "format": "decoded WebP"
+    },
+    "integrity_readback": {
+      "ref": "203b72670c99b1c7d8874001050d7d053f582e6c",
+      "sha256": "be63848b9d63843103f4faf89d817e4aaa6c8cccc0de661b365c7d2f850c45da",
+      "byte_length": 328682,
+      "git_blob_sha": "d27f222e908a037f69218106b37043bff4dbaae2",
+      "decoded_dimensions": [
+        1600,
+        900
+      ],
+      "exact_byte_match": true
     }
   },
   "editorial_self_review": {
@@ -323,9 +358,10 @@
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Local article viewport/Axe review could not run in this environment.",
-      "Binary push/readback pending.",
-      "Exact-head GitHub CI pending."
+      "Local article viewport/Axe review could not run in this environment; SVG separately rendered and inspected.",
+      "Exact-head GitHub CI pending; see PR checks for terminal observations."
     ]
-  }
+  },
+  "original_base_commit": "80aaee0fc2ec8cba9b3328fbdfb5f1ecbef1a48c",
+  "main_refresh": "Read #278 binary transport policy additions merged during preparation. Actual reviewed asset uploaded via Base64 Git blob/tree/commit, then committed file fetched with encoding base64, decoded and compared. No text-decoder substitution or throwaway Git probe."
 }
