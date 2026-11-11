@@ -22,13 +22,13 @@ from memory. Scheduled writes require dependencies on main, never a feature bran
 Accept dry-run, pilot-pr or prepare-pr, local editorial date and existing run/batch ID.
 Use Europe/Luxembourg and actual time. Scheduled mode follows rollout_stage: pilot means
 pilot-pr; production means prepare-pr. Never promote rollout stage yourself.
-Read candidate_limit 30 and daily_story_ceiling 7 from configuration; zero output quota.
+Read candidate_limit, daily_story_ceiling and pilot_draft_target from configuration; zero output quota.
 
 Inspect actual archive, ledgers/commissions, canonical branches and PR heads. Resume oldest
 unfinished work with original date/cutoff. Distinguish open, merged and human-closed PRs.
 Do not repeat completed research or open another pilot after one awaits assessment.
 Follow scripts/lib/curious-driver.ts planning semantics. Count active/merged prepared Curious
-stories and same-day legacy Curious articles against seven. Use one unfinished Curious batch.
+stories and same-day legacy Curious articles against the configured ceiling. Use one unfinished Curious batch.
 
 Use curious-ai:YYYY-MM-DD:bNN, content/curious-ai-YYYY-MM-DD-bNN,
 docs/editorial/curious-ai/ledgers/YYYY-MM-DD-bNN.json and runs/...md checkpoint.
@@ -62,7 +62,11 @@ Self-review is not independent/human review. Use shared copy review when availab
 For dry-run, initialize/resume with npm run curious:init -- YYYY-MM-DD pilot-01.
 Keep output local under gitignored dry-runs, outside Astro collections; no GitHub writes.
 
-For pilot-pr, draft roughly 3–5 varied supported stories if enough qualify under
+For the next maintainer-authorized pilot-pr, present ten qualifying pitches using the
+orchestrator's pitch fields and wait for human selection before drafting. Report a shortfall
+when fewer qualify. Preserve pending pitch review in the checkpoint and wait on the same
+bundle on retries; do not reopen the existing pilot automatically. Draft only chosen pitches,
+up to pilot_draft_target, under
 docs/editorial/curious-ai/pilots/YYYY-MM-DD-bNN/drafts/. Include claim/source map, rejected
 and borderline decisions, comparison with the current news rubric and reader-review questions.
 Do not invent scores for failed news gates. Write no site story, image, translation or daily
@@ -100,3 +104,4 @@ Keep CI observations in the PR body to avoid invalidating the assessed head.
 
 Notify only for a new PR, changed terminal CI, observed batch blocker or first stall.
 Routine progress, idle checks and unchanged awaiting-review states remain silent.
+
