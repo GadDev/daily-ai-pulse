@@ -3,13 +3,14 @@ title: 'Your AI Wrote the Code. Who Checks Its Work? Build an Autonomous Review 
 description: 'Use Claude Code, six independent reviewers, evidence-backed findings, bounded repairs, and a human release gate to test AI-written code without pretending the model can certify itself.'
 status: published
 publishedAt: 2026-10-28
+updatedAt: 2026-10-28
 format: tutorial
 verification: researched
 difficulty: intermediate
 featured: false
 author: The Daily AI Pulse
 image: /images/guides/autonomous-ai-code-review-loop.webp
-imageAlt: 'A sequence of six dark stone inspection blades crosses a pale folded manuscript, ending at a substantial terracotta manual approval lever.'
+imageAlt: 'Six distinct textured stone inspection stamps hover over blank cream pages, beside a separate terracotta lever representing final human approval.'
 verifiedAt: 2026-10-28
 affiliateLinks: false
 sources:
