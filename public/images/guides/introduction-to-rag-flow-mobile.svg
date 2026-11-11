@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 1040" role="img" aria-labelledby="title desc">
+<title id="title">Two-stage RAG architecture, mobile view</title>
+<desc id="desc">First documents are extracted, chunked and indexed. At question time, an authorized retrieval fetches passages and the language model generates an answer.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#8a4b35"/></marker></defs>
+<rect width="680" height="1040" rx="16" fill="#f3ebdd"/>
+<text x="30" y="53" font-family="Georgia,serif" font-size="31" fill="#171b1a">1. Index documents</text>
+<rect x="25" y="77" width="630" height="370" rx="16" fill="#e4d8c7"/>
+<g font-family="Arial,sans-serif" font-size="25" fill="#171b1a" text-anchor="middle">
+<rect x="132" y="102" width="415" height="80" rx="12" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="151">Source documents</text>
+<rect x="132" y="219" width="415" height="80" rx="12" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="266">Extract and chunk</text>
+<rect x="132" y="336" width="415" height="80" rx="12" fill="#faf6ee" stroke="#8a4b35" stroke-width="3"/><text x="340" y="383">Searchable index</text>
+</g>
+<g fill="none" stroke="#8a4b35" stroke-width="3" marker-end="url(#a)"><path d="M340 185V210"/><path d="M340 302V327"/></g>
+<text x="30" y="494" font-family="Georgia,serif" font-size="31" fill="#171b1a">2. Answer questions</text>
+<rect x="25" y="514" width="630" height="463" rx="16" fill="#eee4d6"/>
+<g font-family="Arial,sans-serif" font-size="24" fill="#171b1a" text-anchor="middle">
+<rect x="132" y="538" width="415" height="65" rx="10" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="579">User question</text>
+<rect x="132" y="631" width="415" height="65" rx="10" fill="#faf6ee" stroke="#8a4b35" stroke-width="2"/><text x="340" y="673">Retrieve permitted passages</text>
+<rect x="132" y="724" width="415" height="65" rx="10" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="765">Question + selected context</text>
+<rect x="132" y="817" width="415" height="65" rx="10" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="858">Generate with LLM</text>
+<rect x="132" y="910" width="415" height="55" rx="10" fill="#faf6ee" stroke="#857d72" stroke-width="2"/><text x="340" y="946">Answer with references</text>
+</g>
+<g fill="none" stroke="#8a4b35" stroke-width="3" marker-end="url(#a)"><path d="M340 606V622"/><path d="M340 699V715"/><path d="M340 792V808"/><path d="M340 885V902"/></g>
+<path d="M550 374H615V665H555" fill="none" stroke="#4f706a" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#a)"/>
+<text x="26" y="1012" font-family="Arial,sans-serif" font-size="19" fill="#575d5b">Embeddings and reranking are optional.</text>
+</svg>

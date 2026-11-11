@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-10-28",
+  "run_status": "draft-pr",
+  "run_note": "Explicit manual commission in chat to generate an illustration and open a new PR with published tutorial metadata. Draft PR #263 is open and unmerged; no deployment performed. Article is status published with the real publication date 2026-10-28 and existing publisher The Daily AI Pulse, as requested. Three actual imagegen candidates were compared; A selected after constitution/reference/crop review, encoded to 1600x900 WebP, uploaded and confirmed by exact-byte remote base64 readback. npm run verify and 16 guide regressions passed locally. New article passed browser/axe/layout checks at 1440, 375 and 320px with observed Chromium 153.0.8010.0. Full local e2e: 75 passed and one French keyboard-tab-order assertion failed identically on unchanged main 8398a31d00d6a2bd9c76889bf2a507ddcdde771e. That local baseline issue is retained in PR evidence, not counted as passed. GitHub CI run 40696113029 for exact head 2ccdc21c314b0bb15667aa956bfc1278e3b54256 completed successfully, including full browser/accessibility and verification jobs. This final completion/evidence-only update preserves article and artwork bytes; its exact-head CI is separately observed in PR #263 before final handoff.",
+  "candidates": [
+    {
+      "topic_key": "lean-prompts",
+      "title": "Lean Prompts: Cut Clutter, Keep the Instructions That Matter",
+      "format": "tutorial",
+      "decision": "selected",
+      "reader_outcome": "Edit a prompt while preserving its requirements, and compare original and edited instructions on synthetic cases before claiming an improvement.",
+      "reason": "Distinct from the published prompt-regression CI tutorial (test infrastructure), first Claude API lesson (typed integration), and RAG deployment/retrieval tutorials. All four merged evergreen ledgers and current guide inventory checked. Open PRs 257, 241, 185, 182 and 159 contain no competing guide commission. Keep the existing Tutorials format; no new taxonomy.",
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+        "https://developers.openai.com/api/docs/guides/latency-optimization",
+        "https://developers.openai.com/api/docs/guides/prompt-caching",
+        "https://aclanthology.org/2025.acl-industry.64/"
+      ]
+    }
+  ],
+  "handoff": {
+    "guide_id": "lean-prompts",
+    "pr_number": 263,
+    "completion": "complete",
+    "blockers": []
+  },
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "image_gen.imagegen generated three independent PNG candidates; actual paths and full prompts recorded in guide artwork review."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Viewed two production references, all three candidates, reference-first comparison sheet and selected desktop 21:9, mobile 16:9 and card 3:2 crops."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow encoded and fully decoded a 1600x900 WebP; RIFF container length checked. SHA-256 f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Created GitHub base64 blob 2ca1f6ff48ea225846eff6838303aa89ab788faa, committed to the original preparation branch, and compared fetch_file base64 readback at 28e797d939f61f06ea89076cfed189d6e7e4c548 against all local bytes; exact match."
+      }
+    },
+    "generation": {
+      "tool": "image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero, also used in editorial guide cards.\nOutput crop: wide landscape, high resolution 2048 by 1152 or larger, no border.\nSubject: Lean Prompts: Cut Clutter, Keep the Instructions That Matter.\nVerified context: A lean prompt removes unnecessary material while preserving the task, relevant context, essential constraints and required output. Extra detail is useful when it removes ambiguity or supplies evidence. A shorter prompt must be compared with its original before claiming equivalent quality.\nVisual idea: One freestanding paperboard arch is pared back around its outside edges while the central supporting curve stays intact. A few matching offcuts rest beside it. This is an abstract metaphor of editing excess while retaining what carries the load, not a factual diagram of AI.\nCanonical composition: one compact substantial ivory paperboard arch stands on a warm neutral surface in three-quarter perspective. Its curved silhouette and layered trimmed outer edges dominate the central half. Three irregular ivory and terracotta offcuts sit to one side. Architectural calm and spacious warm paper background.\nArt direction: A restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and one clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition, strong contrast, controlled perspective, layered paper edges and subtle physical shadows. Quiet editorial abstraction with material and spatial presence; no photorealistic workshop clutter.\nUse the role, wide crop and whitespace of the publication's story layout. The focal arch and offcuts must survive center-cover crops to 21:9 desktop, 16:9 mobile and 3:2 card, and read at 320 pixels wide. Keep the essential motif safely centered with generous room around it.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Fine technical lines may support the composition but must not carry the composition itself. The arch must feel materially illustrated, with depth and hierarchy.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline or imitate a screenshot. No border or frame. Website text is rendered separately. No scissors, tools, people, hands, gears or conveyor belts.\n",
+      "source": "/workspace/scratch/b6cd12c268dd/generated_images/exec-8040c385-5dbf-46c5-9a1e-2633cb5e34f8.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/lean-prompts-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+        "public/images/stories/2026-09-22-copilot-review-controls.webp"
+      ],
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ]
+    },
+    "blocker": null,
+    "upload": {
+      "path": "/images/guides/lean-prompts.webp",
+      "sha256": "f5c2701c294abd0afa2b50c3aac17227cd69eecf7c92e4b7d4e7c784d0a031eb",
+      "git_blob_sha": "2ca1f6ff48ea225846eff6838303aa89ab788faa",
+      "width": 1600,
+      "height": 900
+    }
+  }
+}
