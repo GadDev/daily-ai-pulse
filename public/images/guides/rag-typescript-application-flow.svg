@@ -13,11 +13,11 @@
 <rect x="390" y="100" width="320" height="100" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
 <text x="406" y="130" font-size="24" font-weight="bold">store.ts</text>
 <text x="406" y="158" font-size="24" font-weight="normal">Extract sections</text>
-<text x="406" y="182" font-size="24" font-weight="normal">Attach IDs, lines and SHA-256</text>
+<text x="406" y="182" font-size="24" font-weight="normal">IDs, lines, SHA-256</text>
 <rect x="780" y="100" width="290" height="100" rx="8" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
 <text x="796" y="130" font-size="24" font-weight="bold">Saved snapshot</text>
 <text x="796" y="158" font-size="24" font-weight="normal">.rag/passages.json</text>
-<text x="796" y="182" font-size="24" font-weight="normal">Explicit rebuild after edits</text>
+<text x="796" y="182" font-size="24" font-weight="normal">Rebuild after edits</text>
 <path d="M320 150H386" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <path d="M710 150H776" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <text x="30" y="258" font-size="24" font-weight="bold">QUESTION TIME · node cli.ts retrieve/query &quot;question&quot;</text>
