@@ -53,16 +53,16 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-11-11-aws-emulator-coding-agents",
-    "story_source_sha256": "cc7e53f81d43c2f54efc8254a0b6753c93f405366b461fcfe079abf585d144e6",
-    "visual_brief_sha256": "cdf88de85f4347bdd9961e012375bb1149669fcb34e00324e47f7ed8abbbf165",
-    "reference_inputs_sha256": "300852fad2ad9387c1485f25eb481b7072b22024523c967302a4f9018ca62db5",
+    "story_source_sha256": "97bc22bed373e7d5fd90057e11aca520cb1a2546bbdb0a2df5974f47c1f835f0",
+    "visual_brief_sha256": "16ee6a9fe0ec4e6bb8d922797ab8baa56bdcf304e7287021541b48b8492bcfce",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
     "illustration_system_version": "1.3",
     "visual_constitution_version": "1.1",
     "prompt_contract_version": "1",
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "ef8e8fe2d8a67943ec6b353c2116ea2b048ec34da7e1ca51ea109edf29ebd303"
+    "generation_key": "82a137aaf83620810c60adc1776bd91ea1de1e96ee85bb8279715165190f14dc"
   },
   "candidate_notes": {
     "A": "Rejected after comparison. The local case and distant cloud are clear, but repeated arrowheads push the composition toward a bare technical diagram.",
@@ -103,7 +103,7 @@
     "technical_meaning": 96,
     "cleanliness": 98,
     "golden_reference_fit": 93,
-    "weighted_total": 95.4
+    "weighted_total": 95.1
   },
   "hard_failures": [],
   "cover_crop_approved": true,
