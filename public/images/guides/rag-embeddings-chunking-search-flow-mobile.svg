@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="1540" viewBox="0 0 380 1540" role="img" aria-labelledby="title desc">
+<title id="title">One corpus, three chunk policies, three retrieval modes</title>
+<desc id="desc">For each chunk policy, lexical and exact vector ranking use the same passages. MiniLM encodes query and passage text in a compatible space. Reciprocal rank fusion combines positions. All three lists are inspected against required source spans at rank one. No answer generation.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#575D5B"/></marker></defs>
+<rect width="380" height="1540" fill="#FAF6EE"/>
+<g font-family="Arial, sans-serif" fill="#171B1A">
+<text x="20" y="30" font-size="22" font-weight="bold">Keep the evidence unit intact</text>
+<rect x="20" y="55" width="340" height="110" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="84" font-size="20" font-weight="bold">One frozen corpus</text>
+<text x="34" y="112" font-size="17" font-weight="normal">Three fictional documents</text>
+<text x="34" y="137" font-size="17" font-weight="normal">Five fixed questions + source spans</text>
+<path d="M190 165V188" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="192" width="340" height="135" rx="7" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
+<text x="34" y="221" font-size="20" font-weight="bold">Three separate snapshots</text>
+<text x="34" y="249" font-size="17" font-weight="normal">Sections: 4 passages</text>
+<text x="34" y="274" font-size="17" font-weight="normal">Two-line windows: 8 passages</text>
+<text x="34" y="299" font-size="17" font-weight="normal">One-line overlap: 13 passages</text>
+<path d="M190 327V350" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="354" width="340" height="110" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="383" font-size="20" font-weight="bold">Repeat for each policy</text>
+<text x="34" y="411" font-size="17" font-weight="normal">Same eligible passages for all modes</text>
+<text x="34" y="436" font-size="17" font-weight="normal">Keep source IDs, lines and hashes</text>
+<path d="M190 464V488" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="492" width="340" height="110" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="521" font-size="20" font-weight="bold">Lexical ranking</text>
+<text x="34" y="549" font-size="17" font-weight="normal">Part 2 word-overlap baseline</text>
+<text x="34" y="574" font-size="17" font-weight="normal">Positive matches; at most 5</text>
+<rect x="20" y="644" width="340" height="135" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="673" font-size="20" font-weight="bold">Vector ranking</text>
+<text x="34" y="701" font-size="17" font-weight="normal">Pinned MiniLM → query + passages</text>
+<text x="34" y="726" font-size="17" font-weight="normal">384 coordinates; mean + normalize</text>
+<text x="34" y="751" font-size="17" font-weight="normal">Exact cosine scan → at most 5</text>
+<path d="M360 410H373V712H362" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M190 602V622H12V816H130V838" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M190 779V838" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="842" width="340" height="110" rx="7" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
+<text x="34" y="871" font-size="20" font-weight="bold">Hybrid ranking</text>
+<text x="34" y="899" font-size="17" font-weight="normal">Reciprocal Rank Fusion</text>
+<text x="34" y="924" font-size="17" font-weight="normal">Add 1 / (60 + rank), not raw scores</text>
+<path d="M190 952V1020" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M20 548H8V1050H18" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M360 712H373V1075H362" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="1024" width="340" height="135" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="1053" font-size="20" font-weight="bold">Inspect all three top results</text>
+<text x="34" y="1081" font-size="17" font-weight="normal">Lexical, vector and hybrid separately</text>
+<text x="34" y="1106" font-size="17" font-weight="normal">Does the first passage contain</text>
+<text x="34" y="1131" font-size="17" font-weight="normal">the required source span?</text>
+<text x="20" y="1212" font-size="19" font-weight="bold">Nearest ≠ relevant or supported.</text>
+<text x="20" y="1242" font-size="18" font-weight="normal">No answer model is called.</text>
+<rect x="20" y="1280" width="340" height="172" rx="7" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="34" y="1309" font-size="20" font-weight="bold">The boundary test</text>
+<text x="34" y="1337" font-size="17" font-weight="normal">Release line 4: condition</text>
+<text x="34" y="1362" font-size="17" font-weight="normal">Release line 5: authorization</text>
+<text x="34" y="1387" font-size="17" font-weight="normal">Split windows separate them.</text>
+<text x="34" y="1412" font-size="17" font-weight="normal">An overlapping window keeps both.</text>
+<text x="20" y="1496" font-size="16" font-weight="normal">Teaching observations, no quality guarantee.</text>
+</g></svg>

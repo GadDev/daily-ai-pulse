@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="1320" viewBox="0 0 380 1320" role="img" aria-labelledby="title desc">
+<title id="title">The TypeScript RAG CLI: snapshot, retrieve, validate</title>
+<desc id="desc">Ingestion saves versioned passages. At question time retrieval selects bounded references; retrieve mode prints them and query mode calls Ollama. No match skips the model. Answer validation separates answered, abstained and generation-error outcomes.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#575D5B"/></marker></defs>
+<rect width="380" height="1320" fill="#FAF6EE"/>
+<g font-family="Arial, sans-serif" fill="#171B1A">
+<text x="20" y="32" font-size="20" font-weight="bold">Separate preparation from questions</text>
+<text x="20" y="66" font-size="16" font-weight="bold">INGESTION · node cli.ts ingest</text>
+<rect x="20" y="84" width="340" height="92" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="114" font-size="20" font-weight="bold">Local Markdown</text>
+<text x="36" y="142" font-size="17" font-weight="normal">Flat ## sections; fictional policies</text>
+<path d="M190 176V199" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="202" width="340" height="116" rx="8" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
+<text x="36" y="232" font-size="20" font-weight="bold">store.ts → saved snapshot</text>
+<text x="36" y="260" font-size="17" font-weight="normal">ID + source line + document hash</text>
+<text x="36" y="284" font-size="17" font-weight="normal">.rag/passages.json</text>
+<text x="20" y="356" font-size="16" font-weight="bold">QUESTION TIME · retrieve or query</text>
+<path d="M190 318V330H8V434H18" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="376" width="340" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="406" font-size="20" font-weight="bold">Load snapshot + question</text>
+<text x="36" y="434" font-size="17" font-weight="normal">Validate input and passage shape</text>
+<text x="36" y="458" font-size="17" font-weight="normal">Lexical rank → bounded context</text>
+<path d="M190 492V516" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="519" width="340" height="92" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="549" font-size="20" font-weight="bold">No selected passage?</text>
+<text x="36" y="577" font-size="17" font-weight="normal">Return no-evidence; skip model</text>
+<path d="M360 434H373V830H362" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M373 688H362" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="642" width="340" height="92" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="672" font-size="20" font-weight="bold">Match → retrieve command</text>
+<text x="36" y="700" font-size="17" font-weight="normal">Print selected source passages</text>
+<rect x="20" y="772" width="340" height="116" rx="8" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
+<text x="36" y="802" font-size="20" font-weight="bold">Match → query → Ollama</text>
+<text x="36" y="830" font-size="17" font-weight="normal">Fixed local endpoint; JSON mode</text>
+<text x="36" y="854" font-size="17" font-weight="normal">Timeout and response-byte limit</text>
+<path d="M190 888V913" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="916" width="340" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="946" font-size="20" font-weight="bold">Validate generated response</text>
+<text x="36" y="974" font-size="17" font-weight="normal">Complete envelope + answer shape</text>
+<text x="36" y="998" font-size="17" font-weight="normal">IDs belong to selected passages</text>
+<path d="M190 1032V1056" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="20" y="1060" width="340" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
+<text x="36" y="1090" font-size="20" font-weight="bold">Explicit outcomes</text>
+<text x="36" y="1118" font-size="17" font-weight="normal">answered / abstained</text>
+<text x="36" y="1142" font-size="17" font-weight="normal">or generation-error; no answer</text>
+<text x="20" y="1220" font-size="18" font-weight="bold">Reference validity ≠ claim support.</text>
+<text x="20" y="1250" font-size="17" font-weight="normal">Model responses were mocked in tests.</text>
+<text x="20" y="1277" font-size="17" font-weight="normal">No live Ollama execution is claimed.</text>
+</g></svg>
