@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-11-agent-skills-aaif-governance",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "2026-11-11-agent-skills-aaif-governance",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Agent Skills joins MCP under the Linux Foundation's neutral Agentic AI Foundation",
+    "verified_context": [
+      "Google says Anthropic donated the Agent Skills specification to the Agentic AI Foundation, the same neutral foundation that hosts MCP.",
+      "MCP describes tool and data connectivity, while Agent Skills packages procedural instructions, scripts and supporting resources.",
+      "The governance change does not make every skill portable or secure; conformance, versioning and independent implementations remain future evidence."
+    ],
+    "editorial_idea": "Two distinct modular channels keep their roles separate while locking into one shared foundation whose joints remain visibly unfinished.",
+    "visual_metaphor": "A dark connectivity channel and a layered procedural channel converge on a shared stone plinth through separate terracotta joints, with one open socket signaling unfinished conformance.",
+    "archetype": "modular-assembly",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-11-agent-skills-aaif-governance",
+    "story_source_sha256": "93d944000c90544f3c2fa2431aa15a2a11e1f7bdab8ad23bdf7aabaf8e511bb2",
+    "visual_brief_sha256": "a994f1d26df6f952e70f0d9772f0335cac7032e97d6d7e04064c043ee51b5581",
+    "reference_inputs_sha256": "300852fad2ad9387c1485f25eb481b7072b22024523c967302a4f9018ca62db5",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "71190494ef92903e9fcda349f68d9719f7abfdeab588836c6ef8e2215e37a50b"
+  },
+  "candidate_notes": {
+    "A": "Rejected after comparison. The two channels and open socket are clear, but generic gear symbols introduce an unnecessary product-tool shorthand.",
+    "B": "Selected. The connectivity module and layered procedural package remain distinct while attaching to one neutral chassis, and an empty socket preserves the unfinished conformance story.",
+    "C": "Constitution-compliant, but the scenic bridge-and-island treatment weakens the specification-level distinction and the shared-governance focus at thumbnail scale."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 96,
+    "brand_fit": 95,
+    "composition": 95,
+    "crop_quality": 96,
+    "technical_meaning": 96,
+    "cleanliness": 98,
+    "golden_reference_fit": 94,
+    "weighted_total": 95.7
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The connectivity module, procedural package, shared chassis and empty conformance socket remain visible in the 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains both modules and their separate terracotta couplings; the open socket remains visible.",
+    "thumbnail": "The two distinct module silhouettes and shared base remain immediately legible at 320px."
+  },
+  "golden_reference_comparison": "The selected candidate follows the tooling references through modular tactile objects, a restrained warm field, charcoal and paper contrast, sparse terracotta couplings and a strong center-safe still-life composition.",
+  "final_asset": "/images/stories/2026-11-11-agent-skills-aaif-governance.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 203532,
+    "sha256": "c7049cbd913adb28b7ed29cc1f93d660348f2695e2cac5f07f3ce7e305ffe650",
+    "git_blob_sha": "7e1241fe2eaacf12686fed4cee559ec03e26921f",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-12T09:11:30.393Z"
+  }
+}
