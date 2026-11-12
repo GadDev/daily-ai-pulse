@@ -56,16 +56,16 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-11-11-elevenlabs-nvidia-poland-ehealth",
-    "story_source_sha256": "c0eea5b48e2ad40076365580d7eac76361829238fc52456d5417ec19da58a50c",
-    "visual_brief_sha256": "7346592872d77787404d53bb51b2ed436903734243fcfd20a18298971a6260ab",
-    "reference_inputs_sha256": "053acf86dd845e4ff1db758394e1138735f8c2f16cae56716f22aa74324501bc",
+    "story_source_sha256": "b3f1e8c179e703d9c9fca93f727580bef5c4672d8b5c23b4063d54841984994a",
+    "visual_brief_sha256": "8c32b20ee3c4e90d048836bcbe30056430b9da2c58193827ca31ae987761f05d",
+    "reference_inputs_sha256": "2af8ae0f2c99b01b2194e2d114f63b5df3cc905b69bcd08d477d248eae1fe220",
     "illustration_system_version": "1.3",
     "visual_constitution_version": "1.1",
     "prompt_contract_version": "1",
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "b2ee8308d3b8bade4846f64960ff750c045b9918acf9e952dd655e502b2da0fc"
+    "generation_key": "61600aa8ffc4795584e119021706af9e1429678b7d0ee7f076fd35b2a2c680d7"
   },
   "candidate_notes": {
     "A": "Rejected after comparison. The contained stages and civic portal are clear, but the display-case composition makes the deployment look more settled and observable than the source supports.",
@@ -106,7 +106,7 @@
     "technical_meaning": 96,
     "cleanliness": 96,
     "golden_reference_fit": 92,
-    "weighted_total": 94.9
+    "weighted_total": 94.65
   },
   "hard_failures": [],
   "cover_crop_approved": true,
