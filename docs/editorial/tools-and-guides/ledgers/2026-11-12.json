@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-11-12",
+  "run_status": "ledger-only",
+  "run_note": "Explicit maintainer-requested binary-safe WebP workflow validation on the already published agent-tool-approval-boundary guide. Reused and visually inspected its original cover, archived responsive crop sheet and two distinct production references. Reuploaded identical real artwork bytes as a Git blob; audit branch commit/readback initially pending. No new topic selected, no new guide publication and no historical merged ledger rewritten.",
+  "candidates": [],
+  "handoff": {
+    "guide_id": null,
+    "pr_number": null,
+    "completion": "not-applicable",
+    "blockers": []
+  },
+  "artifact_validation": {
+    "guide_id": "agent-tool-approval-boundary",
+    "original_ledger": "docs/editorial/tools-and-guides/ledgers/2026-10-23.json",
+    "original_pr_numbers": [
+      223,
+      225
+    ],
+    "report": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-binary-validation-2026-11-12.md",
+    "artwork_path": "/images/guides/agent-tool-approval-boundary.webp",
+    "format": "WEBP",
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "bytes": 116048,
+    "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+    "git_blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+    "visual_inspection": {
+      "status": "passed",
+      "references": [
+        "public/images/guides/agentic-development-environments-compared.webp",
+        "public/images/guides/rag-retrieval-evaluation.webp"
+      ],
+      "crop_sheet": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-crops.webp",
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ],
+      "limitation": "Checked archived simulated crop previews; did not render the live Astro site."
+    },
+    "webp_codec": {
+      "status": "passed",
+      "evidence": "Local Pillow 12.3.0 encoded and decoded a synthetic 1600x900 WebP; actual production image was decoded by the current image viewer and its RIFF/VP8 dimensions parsed from bytes."
+    },
+    "binary_blob": {
+      "status": "passed",
+      "evidence": "GitHub create_blob with base64 of original production WebP returned same Git blob SHA as main."
+    },
+    "committed_readback": {
+      "status": "pending",
+      "evidence": "Awaiting branch commit and exact-ref byte/hash comparison."
+    }
+  }
+}
