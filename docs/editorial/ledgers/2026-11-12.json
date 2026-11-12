@@ -598,9 +598,16 @@
     }
   ],
   "publication": {
-    "story_ids": [],
+    "story_ids": [
+      "2026-11-10-microsoft-lazarus-agent-backdoor",
+      "2026-11-10-gemini-4-carbon-availability",
+      "2026-11-10-deepmind-alphaproof-code-signal",
+      "2026-11-11-aws-emulator-coding-agents",
+      "2026-11-11-agent-skills-aaif-governance",
+      "2026-11-11-elevenlabs-nvidia-poland-ehealth"
+    ],
     "standalone_story_ids": [],
     "withheld_selected": [],
-    "must_know_story_id": null
+    "must_know_story_id": "2026-11-10-microsoft-lazarus-agent-backdoor"
   }
 }
