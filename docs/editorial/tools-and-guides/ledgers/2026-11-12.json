@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-11-12",
+  "run_status": "ledger-only",
+  "run_note": "Maintainer-requested validation-only recovery of the already-published agent-tool-approval-boundary WebP. Existing cover and two real production references plus previously prepared three-crop review sheet were inspected. The original WebP bytes were reuploaded using GitHub's base64 blob endpoint, included unchanged in a new Git tree/commit, and successfully read back from exact commit cd061d27e3150b7ce9653ab98f0af4b52900cbc2 with identical Base64 payload, byte length and Git blob SHA. New date ledger and review record committed; original 2026-10-23 ledger and published article unchanged. This is a technical transport proof, NOT a new editorial handoff or publication.",
+  "candidates": [],
+  "handoff": {
+    "guide_id": null,
+    "pr_number": null,
+    "completion": "not-applicable",
+    "blockers": []
+  },
+  "artifact_validation": {
+    "guide_id": "agent-tool-approval-boundary",
+    "original_ledger": "docs/editorial/tools-and-guides/ledgers/2026-10-23.json",
+    "original_pr_numbers": [
+      223,
+      225
+    ],
+    "report": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-binary-validation-2026-11-12.md",
+    "artwork_path": "/images/guides/agent-tool-approval-boundary.webp",
+    "format": "WEBP",
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "bytes": 116048,
+    "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+    "git_blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+    "visual_inspection": {
+      "status": "passed",
+      "references": [
+        "public/images/guides/agentic-development-environments-compared.webp",
+        "public/images/guides/rag-retrieval-evaluation.webp"
+      ],
+      "crop_sheet": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-crops.webp",
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ],
+      "limitation": "Checked archived simulated crop previews; did not render the live Astro site."
+    },
+    "webp_codec": {
+      "status": "passed",
+      "evidence": "Local Pillow 12.3.0 encoded and decoded a synthetic 1600x900 WebP; actual production image was decoded by the current image viewer and its RIFF/VP8 dimensions parsed from bytes."
+    },
+    "binary_blob": {
+      "status": "passed",
+      "evidence": "GitHub create_blob with base64 of original production WebP returned same Git blob SHA as main."
+    },
+    "committed_readback": {
+      "status": "passed",
+      "verified_commit_sha": "cd061d27e3150b7ce9653ab98f0af4b52900cbc2",
+      "tree_sha": "7cb5d5aee5968daa1433757495536726fdaf2014",
+      "encoding": "base64",
+      "evidence": "GitHub fetch_file on exact commit returned original production WebP with identical 154732-character Base64 payload, decoded length 116048, and Git blob SHA 775d08922d6bd88e83d96f2a4a7bda439138c014. Original decoded SHA-256 calculated in current run b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d; identical byte content proves same SHA-256 on committed copy.",
+      "byte_length": 116048,
+      "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+      "blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+      "exact_bytes_equal": true
+    }
+  }
+}
