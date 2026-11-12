@@ -53,16 +53,16 @@
   "generation_identity": {
     "identity_version": "1",
     "story_id": "2026-11-10-deepmind-alphaproof-code-signal",
-    "story_source_sha256": "287fcbc02cb51501b5abe9f6211893a371a771999b88d7282653443444a4b626",
-    "visual_brief_sha256": "2f5375b661d69d887c3ffbfe781b41678d910b89b1f2dc5009e8c59e833b154e",
-    "reference_inputs_sha256": "c70740077e1f8ea9caf7b10185c2736c3cc58499ec9dbcae7db99c0ec391e7c8",
+    "story_source_sha256": "602fc1b709094239471eebd7fa64e90de569bef97f720dad98e411f8e9559561",
+    "visual_brief_sha256": "fca6fb4fd6076f8581d69989190d1b7a81ea41b1bcf93c192ea0a3f621e958f2",
+    "reference_inputs_sha256": "ca3cdcc106391eb8c3098a747813a4014d9570c7bc453580180321f4fcebc983",
     "illustration_system_version": "1.3",
     "visual_constitution_version": "1.1",
     "prompt_contract_version": "1",
     "candidate_count": 3,
     "generator_surface": "chatgpt-image-tool",
     "model_snapshot": null,
-    "generation_key": "a2f040c5f71c6ae8a6aa7fad25df98b103849e27a90a633c7cadeb89bbd6aeab"
+    "generation_key": "2d90f0459493a777eaf83df32bd22f91966fa950563bb6c9d74928a70e054003"
   },
   "candidate_notes": {
     "A": "Selected. Three physical proof gates constrain the layered implementation channels, one branch stops before acceptance, and the visible human guidance is directly supported by the reported workflow.",
@@ -103,7 +103,7 @@
     "technical_meaning": 97,
     "cleanliness": 94,
     "golden_reference_fit": 91,
-    "weighted_total": 93.9
+    "weighted_total": 93.65
   },
   "hard_failures": [],
   "cover_crop_approved": true,
