@@ -1,0 +1,46 @@
+{
+  "record_type": "curious-ai-pitch-review",
+  "editorial_date": "2026-11-11",
+  "timezone": "Europe/Luxembourg",
+  "state": "pending-human-pitch-selection",
+  "canonical_batch": false,
+  "authorization": "Iskender requested a new PR after receiving the ten-pitch packet. Authorization covers this separate documentation review; no pitch selection or publication approval is inferred.",
+  "pr_base_commit": "307fe52a743d0bbf1d00a3abf95257877bd7dc03",
+  "original_research_contract_ref": "80aaee0fc2ec8cba9b3328fbdfb5f1ecbef1a48c",
+  "original_source_readback_started_at": "2026-11-11T13:46:08.387Z",
+  "source_packet": "Curious_AI_Pitches_2026-11-11.md",
+  "packet_path": "PITCHES.md",
+  "original_ledger": {
+    "available_in_this_workspace": false,
+    "included_in_this_pr": false,
+    "reconstructed": false
+  },
+  "packet_counts": {
+    "assessed": 30,
+    "recommended_pitches": 10,
+    "watch": 13,
+    "rejected": 7
+  },
+  "human_selection": {
+    "status": "pending",
+    "selected_pitch_numbers": [],
+    "reviewer": null
+  },
+  "drafts": [],
+  "publication": {
+    "story_ids": [],
+    "state": "not-prepared"
+  },
+  "existing_canonical_pilot": {
+    "pr_url": "https://github.com/GadDev/daily-ai-pulse/pull/257",
+    "head_sha": "4df3fc64ccc3c5387005e958a280ee62b3b4347e",
+    "observed_state": "open-draft",
+    "hold": "preserved; no changes to its branch, files, ledger or PR"
+  },
+  "next_action": "Iskender selects pitch numbers in this PR. Preserve the packet without drafting or rediscovering while selection is pending. Resolve the existing pilot hold before a new canonical pilot handoff; refresh source and duplicate checks before any later publication preparation.",
+  "review_limits": [
+    "Historical source checks and tests remain attributed to the original packet and commit.",
+    "No independent or human editorial review is claimed.",
+    "No normalized candidate ledger, score dimensions or research queries are reconstructed from incomplete evidence."
+  ]
+}
