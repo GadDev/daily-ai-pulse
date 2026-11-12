@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-11-12",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual issue #281 commission. Part 2 TypeScript tutorial prepared with copyable code and rendered SVG variants. Exact article snippets replayed: nine deterministic test groups passed on Node 22.23.4; no live Ollama/model or quality benchmark. npm run verify passed locally. Three generated image candidates compared to two displayed production references; B selected and encoded to WebP. Real commit/upload/read-back and exact-head CI pending. Preserve PR #285 artifact_validation record as imported evidence from that separate open validation-only PR; do not represent it as current guide work.",
+  "run_note": "Manual issue #281 commission persisted on draft PR #288. Nine exact-article test groups and 35 existing regressions pass; npm run verify passes. No live Ollama/model/quality benchmark. Two SVG variants rendered and inspected; selected original WebP compared to two production references and actual crops, committed and retrieved with exact-byte/hash proof. Guide remains draft; exact-head CI pending. Separate PR #285 artwork-validation record preserved as imported evidence, not this run\u2019s work.",
   "candidates": [
     {
       "topic_key": "rag-typescript-application",
@@ -19,10 +19,10 @@
   ],
   "handoff": {
     "guide_id": "rag-typescript-application",
-    "pr_number": null,
+    "pr_number": 288,
     "completion": "blocked",
     "blockers": [
-      "Real guide artwork commit/read-back and exact-head CI pending."
+      "Exact-head GitHub CI pending on draft PR #288."
     ]
   },
   "artifact_validation": {
@@ -77,7 +77,7 @@
     }
   },
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -92,8 +92,8 @@
         "evidence": "Pillow 13.0.0 encoded and fully decoded selected 1600x900 quality-88 WebP: 161666 bytes, sha256 02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14"
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Public Git CLI checkout succeeded; connector create_blob base64 + tree/commit/ref route discovered. Real guide asset upload and exact-ref read-back still pending."
+        "status": "available",
+        "evidence": "Real guide WebP uploaded through base64 blob/tree/commit/ref at 71ef18ff5f016c537b8093ae127bba8dcf9ed460. Exact-commit fetch_file Base64 decoded to 161666-byte WebP, displayed, byte-for-byte equal; SHA-256 and Git blob match local. Details in guide review."
       }
     },
     "blocker": null,
@@ -114,6 +114,19 @@
         "mobile-hero",
         "card"
       ]
+    },
+    "upload": {
+      "path": "/images/guides/rag-typescript-application.webp",
+      "sha256": "02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14",
+      "git_blob_sha": "d1414aee691ffcdd77131e32c1a770e8817dbfba",
+      "width": 1600,
+      "height": 900
     }
+  },
+  "artifact_validation_source": {
+    "pr_number": 285,
+    "branch": "content/tools-guides-2026-11-12",
+    "report_url": "https://github.com/GadDev/daily-ai-pulse/blob/content/tools-guides-2026-11-12/docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-binary-validation-2026-11-12.md",
+    "note": "artifact_validation was read from open PR #285 and retained to preserve both same-date records. Its relative report path refers to that branch until integration."
   }
 }

@@ -163,8 +163,14 @@
     "riff_container_complete": true
   },
   "binary_readback": {
-    "status": "pending",
-    "evidence": "Final WebP encoded and fully decoded with Pillow 13.0.0; remote commit/read-back pending."
+    "status": "passed",
+    "commit_sha": "71ef18ff5f016c537b8093ae127bba8dcf9ed460",
+    "method": "GitHub create_blob base64 \u2192 tree \u2192 commit \u2192 ref; fetch_file encoding base64 at exact commit \u2192 decode to WebP \u2192 SHA-256, byte length and Git blob comparison",
+    "byte_length": 161666,
+    "sha256": "02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14",
+    "git_blob_sha": "d1414aee691ffcdd77131e32c1a770e8817dbfba",
+    "exact_bytes_equal": true,
+    "displayed_readback": true
   },
   "generation_metadata": {
     "tool": "image_gen.imagegen",
@@ -221,6 +227,8 @@
       "Labeled fake answers and live-model steps; no fabricated execution or benchmarks.",
       "Documented line-based ID stability limits, post-read input caps and single-writer snapshot assumptions.",
       "Retained English-only guide contract; no invented French review status."
-    ]
+    ],
+    "timeout_audit": "Additional isolated audit confirmed the local HTTP stub actually received the request and the incomplete response body raised TimeoutError; no model involved.",
+    "repository_regressions": "35 existing guide/related-reading/cover-asset/evergreen-ledger regression tests passed."
   }
 }
