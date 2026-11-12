@@ -1,7 +1,8 @@
 ---
 title: "Part 3 — Embeddings, Chunking and Vector Search: Keep the Exception With the Rule"
 description: "Compare lexical, vector and hybrid retrieval on one fictional TypeScript corpus. Inspect a real embedding run, a broken chunk boundary and the source passages behind each result."
-status: draft
+status: published
+publishedAt: 2026-11-12
 format: tutorial
 series:
   id: rag-foundations
@@ -37,7 +38,7 @@ sources:
     url: https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf
   - label: pgvector — Exact and approximate indexing
     url: https://github.com/pgvector/pgvector
-  - label: Part 2 — Exact prerequisite source in PR 288
+  - label: Part 2 — Exact prerequisite source at pinned revision
     url: https://github.com/GadDev/daily-ai-pulse/blob/832e9a72f9a411b2124aebadacdacb7592b89df2/src/content/guides/rag-typescript-application.md
 ---
 
@@ -47,7 +48,7 @@ That is a retrieval problem a more eloquent answer cannot repair. [Part 1](/guid
 
 We will use one tiny, fictional corpus, five fixed questions and three chunking policies. You will run **lexical search**, **exact vector search** and a simple **hybrid** that combines their rankings. The goal is to explain each retrieved passage and each failure, rather than crown a search engine after five questions.
 
-**Prerequisite:** complete [the Part 2 source walkthrough](https://github.com/GadDev/daily-ai-pulse/blob/832e9a72f9a411b2124aebadacdacb7592b89df2/src/content/guides/rag-typescript-application.md). At preparation time it is a draft in PR #288, so this link points to its actual committed source, not an unpublished public route. Keep its `store.ts`, `rag.ts` and `ollama.ts` files in your learner folder. We add files beside them; no source-reference fields change.
+**Prerequisite:** complete [Part 2 — Build Your First RAG Application in TypeScript](/guides/rag-typescript-application/). Keep its `store.ts`, `rag.ts` and `ollama.ts` files in your learner folder. We add files beside them; no source-reference fields change.
 
 **Executed 12 November 2026:** real CPU embeddings with Node.js **22.23.4**, **Transformers.js 3.8.1** and **onnxruntime-node 1.21.0**. The comparison produced 45 query/policy/mode observations; eight deterministic test groups passed. An additional run loaded the cached model with remote model access disabled. The adapter was exercised with real retrieval and a mocked answer in its contract test. **No live answer generation, production workload, injection-resistance test or performance benchmark was run.** This remains a researched tutorial with bounded execution evidence, not a general quality evaluation.
 
