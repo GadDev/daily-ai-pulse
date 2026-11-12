@@ -7,7 +7,7 @@
   "topic_key": "claude-foundations-ci-capstone",
   "guide_id": "claude-foundations-ci-capstone",
   "state": "draft",
-  "pr_number": null,
+  "pr_number": 287,
   "base_commit": "307fe52a743d0bbf1d00a3abf95257877bd7dc03",
   "authorization": "Maintainer asked to focus on issue #221. Prepare one new reviewable draft PR. No publication, model spend, reader-owned CI activation or merge inferred.",
   "deduplication": {
@@ -215,7 +215,7 @@
     }
   },
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -230,8 +230,8 @@
         "evidence": "WebP codec roundtrip and final1600x900decode passed."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Real final image upload and independent committed-file readback still pending."
+        "status": "available",
+        "evidence": "Actual reviewed cover uploaded with create_blob Base64, tree and commit. Committed file fetched with encoding base64 at exact first head 2d59879915bba0d2fe2f2ebb412708504877907d; decoded readback exactly matches local bytes, SHA-256/length/Git blob and WebP dimensions."
       }
     },
     "blocker": null,
@@ -360,6 +360,17 @@
       "byte_length": 202716,
       "width": 1600,
       "height": 900
+    },
+    "integrity_readback": {
+      "ref": "2d59879915bba0d2fe2f2ebb412708504877907d",
+      "sha256": "143795ab5ca3399be63cd6b1fc576342b4d36bf80a6afffc80dbd9921b2cb428",
+      "byte_length": 202716,
+      "git_blob_sha": "0c6242f533123d80723cd8ba24ea6240bad34cfb",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "exact_byte_match": true
     }
   },
   "editorial_self_review": {
@@ -377,8 +388,8 @@
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Article-specific viewport/Axe review unavailable in local browser environment.",
-      "Binary upload/readback and exact-head CI pending."
+      "Article-specific viewport/Axe review unavailable in the local browser environment.",
+      "Exact-head CI pending at this preparation checkpoint; terminal observations belong to PR checks/body."
     ],
     "publication_dependencies": [
       "Part6 is merged as draft; authorize and verify its publication separately.",
