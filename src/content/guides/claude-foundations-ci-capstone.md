@@ -1,7 +1,8 @@
 ---
 title: 'Part 7: Put Claude Code Review in CI, Then Make It Prove Its Claims'
 description: Build an artifact-only Northstar review workflow, catch a cross-file policy bug, reject stale findings, and defend the completed helpdesk architecture with six failure cases.
-status: draft
+status: published
+publishedAt: 2026-11-12
 format: tutorial
 series:
   id: claude-architecture
@@ -42,7 +43,7 @@ The policy helper passes its unit test. The handler compiles. Together they appr
 
 In **Part 7 of seven**, we will give **Northstar Helpdesk** a review process that can expose that interaction, retain inspectable findings and stop confusing a tidy JSON response with a correct judgment. Then we will test six failure cases across the inherited application and explain the architecture's limits.
 
-Allow **5–7 study hours**. Complete Parts 1–6 first, retaining their source and lockfiles. [Part 6's merged source](https://github.com/GadDev/daily-ai-pulse/blob/main/src/content/guides/claude-foundations-coordinator-recovery.md) is available in the repository while its public-guide publication is pending. Continue the same disposable TypeScript project with `mcp/`, `agent/` and `coordination/`; do not substitute production customer systems. Every order, policy, proof, receipt and amount here is synthetic.
+Allow **5–7 study hours**. Complete Parts 1–6 first, retaining their source and lockfiles. [Part 6's published walkthrough](/guides/claude-foundations-coordinator-recovery/) explains the evidence and recovery workflow. Continue the same disposable TypeScript project with `mcp/`, `agent/` and `coordination/`; do not substitute production customer systems. Every order, policy, proof, receipt and amount here is synthetic.
 
 The default path uses **zero paid inference**. It validates a known broken change, report contracts, duplicate/stale handling and the inherited control functions. The optional path invokes Claude Code in a separate review context. No live Claude review or reader-owned hosted CI execution was performed for this article; tested observations are labelled below. This lesson owns code review and series synthesis. [The Promptfoo tutorial](/guides/prompt-regression-ci/) owns prompt-regression evaluation; [the security toolkit](/guides/agent-security-control-toolkit/) compares additional controls.
 
@@ -1144,4 +1145,4 @@ This lesson teaches task references **3.6 and 4.6**, reinforcing **4.1, 4.2, 4.4
 
 The [Academy FAQ](https://academy.claude.com/help/faq) distinguishes free completion badges from the paid proctored certification through the partner program. Confirm current eligibility there. Your next useful step is to repeat one weak checkpoint on an unfamiliar project, with its own evidence and rejected alternatives.
 
-Previous: [Part 6 — source and recovery walkthrough](https://github.com/GadDev/daily-ai-pulse/blob/main/src/content/guides/claude-foundations-coordinator-recovery.md). [All seven tutorials and objective coverage](https://github.com/GadDev/daily-ai-pulse/issues/222). This is the final commissioned lesson; the evidence pack should make it possible for another developer to challenge your decisions without borrowing your chat history.
+Previous: [Part 6 — source and recovery walkthrough](/guides/claude-foundations-coordinator-recovery/). [All seven tutorials and objective coverage](https://github.com/GadDev/daily-ai-pulse/issues/222). This is the final commissioned lesson; the evidence pack should make it possible for another developer to challenge your decisions without borrowing your chat history.
