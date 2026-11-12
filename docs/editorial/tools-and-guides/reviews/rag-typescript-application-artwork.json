@@ -1,0 +1,245 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "rag-typescript-application",
+  "review_date": "2026-11-12",
+  "candidate_count": 3,
+  "visual_brief": {
+    "story_id": "rag-typescript-application",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Part 2 \u2014 Build Your First RAG Application in TypeScript",
+    "verified_context": [
+      "The snapshot is the handoff between ingestion and questions.",
+      "The document hash identifies the bytes we indexed; it does not certify who wrote them or whether the policy is current.",
+      "After generation, the application checks that every returned source ID belongs to the selected context."
+    ],
+    "editorial_idea": "Selected information keeps an inspectable connection to its source.",
+    "visual_metaphor": "A blank paper slip drawn from a stone archive along a terracotta channel, tethered by a fine thread back to its source.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one blank paper slip",
+      "stone archive",
+      "terracotta guide channel",
+      "fine source tether"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/introduction-to-rag.webp",
+      "public/images/guides/agent-tool-approval-boundary.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "rag-typescript-application",
+    "story_source_sha256": "49e11f15115d253ab22243701ecfe96ed4741b0f280a3d977d303f5b4877cb63",
+    "visual_brief_sha256": "da9a9fb316cce532f468c745eeade85b48a2a54a6882a27a8581ddbd7a4bb0b6",
+    "reference_inputs_sha256": "8de8c2fb23f808b3bedbf615eabdfcffc8b1db61289f1829a2b72ff902632cb4",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "0142f4bf15454cadd420249739711bc18c015c6f645e9132ad7994653afc51c3"
+  },
+  "reuse_decision": "GENERATE: no existing guide-specific review or final asset exists.",
+  "scope": "Evergreen guide artwork; not submitted as a news illustration identity or news batch.",
+  "selected_candidate": "B",
+  "reviewer": "Assistant visual inspection; not human publication approval",
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "candidates": [
+    {
+      "candidate": "A",
+      "constitution_pass": true,
+      "violations": [],
+      "scores": {
+        "story_specific": 90,
+        "brand_fit": 91,
+        "composition": 84,
+        "crop_quality": 82,
+        "technical_meaning": 89,
+        "cleanliness": 94,
+        "golden_reference_fit": 90
+      },
+      "weighted_total": 88.15,
+      "observation": "Passes constitution; source tether is clear, but low diagonal channel runs out of crop and composition has less hierarchy.",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero, also used as a guide card. Output crop: wide landscape 16:9, high-resolution 2048 by 1152 or larger.\nSubject: Part 2 \u2014 Build Your First RAG Application in TypeScript.\nVerified context: The snapshot is the handoff between ingestion and questions. The document hash identifies the bytes we indexed; it does not certify who wrote them or whether the policy is current. After generation, the application checks that every returned source ID belongs to the selected context.\nVisual idea: One blank paper slip drawn from a small stone archive along a terracotta guide channel, with a fine thread keeping its physical connection to the source. This is an abstract editorial metaphor for preserved provenance, not a literal technical architecture or proof of correctness.\nCanonical composition: a low oblique three-quarter study of a compact dark stone archive holding upright blank cream folios. One cream slip extends into a low terracotta groove in front, and a single visible dark thread runs back to its source in the archive. Keep the whole assembly compact and centered. Avoid any desktop accessories.\nUse the inspected story layout role: full-width image after article introduction, centered object-fit cover at 21:9 desktop and 16:9 mobile; guide cards use 3:2 and narrow rows square. Keep archive, selected slip and their connection clustered in the central half with generous warm negative space around them.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Match the inspected production family: tactile chalky stone, blank matte paper, restrained terracotta, soft directional shadows and quiet material depth, editorial rather than glossy product advertising.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The metaphor needs physical/spatial presence, substantial materiality, subtle depth and compositional hierarchy; fine lines support the solid forms.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline, imitate a screenshot or depict a measured result. No border or frame. Do not add magnifying glasses, keys, gears, hands or people.\nDeliver one clean coherent image, not a contact sheet or labeled panels.",
+      "source": "/workspace/scratch/1c031ef08f46/generated_images/exec-70ab2834-3815-4bc9-9eec-a3ab55f9b8ca.png"
+    },
+    {
+      "candidate": "B",
+      "constitution_pass": true,
+      "violations": [],
+      "scores": {
+        "story_specific": 92,
+        "brand_fit": 94,
+        "composition": 94,
+        "crop_quality": 91,
+        "technical_meaning": 91,
+        "cleanliness": 96,
+        "golden_reference_fit": 94
+      },
+      "weighted_total": 92.95,
+      "observation": "Passes constitution; paper curve and visible tether read beside both references; centered hero/card/square crops preserve connection. Selected.",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero, also used as a guide card. Output crop: wide landscape 16:9, high-resolution 2048 by 1152 or larger.\nSubject: Part 2 \u2014 Build Your First RAG Application in TypeScript.\nVerified context: The snapshot is the handoff between ingestion and questions. The document hash identifies the bytes we indexed; it does not certify who wrote them or whether the policy is current. After generation, the application checks that every returned source ID belongs to the selected context.\nVisual idea: One blank paper slip drawn from a small stone archive along a terracotta guide channel, with a fine thread keeping its physical connection to the source. This is an abstract editorial metaphor for preserved provenance, not a literal technical architecture or proof of correctness.\nEditorial composition: a shallow stone archive and a terracotta channel are cut into one tactile limestone volume. The selected paper slip curves out through its central slot; a fine dark thread loops visibly back into the source archive. Slightly elevated side view, strong singular paper curve, restrained material shadows. Keep all essential forms clustered and centered.\nUse the inspected story layout role: full-width image after article introduction, centered object-fit cover at 21:9 desktop and 16:9 mobile; guide cards use 3:2 and narrow rows square. Keep archive, selected slip and their connection clustered in the central half with generous warm negative space around them.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Match the inspected production family: tactile chalky stone, blank matte paper, restrained terracotta, soft directional shadows and quiet material depth, editorial rather than glossy product advertising.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The metaphor needs physical/spatial presence, substantial materiality, subtle depth and compositional hierarchy; fine lines support the solid forms.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline, imitate a screenshot or depict a measured result. No border or frame. Do not add magnifying glasses, keys, gears, hands or people.\nDeliver one clean coherent image, not a contact sheet or labeled panels.",
+      "source": "/workspace/scratch/1c031ef08f46/generated_images/exec-1c8d1ded-64d2-418b-958e-21cec8029392.png"
+    },
+    {
+      "candidate": "C",
+      "constitution_pass": true,
+      "violations": [],
+      "scores": {
+        "story_specific": 88,
+        "brand_fit": 90,
+        "composition": 85,
+        "crop_quality": 82,
+        "technical_meaning": 87,
+        "cleanliness": 83,
+        "golden_reference_fit": 88
+      },
+      "weighted_total": 86.6,
+      "observation": "Passes constitution; curled foreground has weaker crop and distracting translucent patches at source exit, lowering cleanliness and confidence.",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero, also used as a guide card. Output crop: wide landscape 16:9, high-resolution 2048 by 1152 or larger.\nSubject: Part 2 \u2014 Build Your First RAG Application in TypeScript.\nVerified context: The snapshot is the handoff between ingestion and questions. The document hash identifies the bytes we indexed; it does not certify who wrote them or whether the policy is current. After generation, the application checks that every returned source ID belongs to the selected context.\nVisual idea: One blank paper slip drawn from a small stone archive along a terracotta guide channel, with a fine thread keeping its physical connection to the source. This is an abstract editorial metaphor for preserved provenance, not a literal technical architecture or proof of correctness.\nAlternate composition: almost overhead view of an ivory stone archive cradle with blank layered paper. One slip curls toward the viewer over a short terracotta channel; a slender charcoal tether remains visibly attached to the source folio. Let the small curved slip carry the foreground silhouette; more negative space, an asymmetrical compact central assembly.\nUse the inspected story layout role: full-width image after article introduction, centered object-fit cover at 21:9 desktop and 16:9 mobile; guide cards use 3:2 and narrow rows square. Keep archive, selected slip and their connection clustered in the central half with generous warm negative space around them.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Match the inspected production family: tactile chalky stone, blank matte paper, restrained terracotta, soft directional shadows and quiet material depth, editorial rather than glossy product advertising.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The metaphor needs physical/spatial presence, substantial materiality, subtle depth and compositional hierarchy; fine lines support the solid forms.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline, imitate a screenshot or depict a measured result. No border or frame. Do not add magnifying glasses, keys, gears, hands or people.\nDeliver one clean coherent image, not a contact sheet or labeled panels.",
+      "source": "/workspace/scratch/1c031ef08f46/generated_images/exec-12ebcf07-20a1-48a2-aa1f-aed5d954a206.png"
+    }
+  ],
+  "reference_observations": [
+    {
+      "path": "public/images/guides/introduction-to-rag.webp",
+      "git_blob_sha": "1176aa3d46939089aa4220d864f8d1e7fae649dd",
+      "observation": "Warm paper archive and terracotta lens; quiet tactile depth and strong single metaphor."
+    },
+    {
+      "path": "public/images/guides/agent-tool-approval-boundary.webp",
+      "git_blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+      "observation": "Paper, stone and terracotta with an explicit spatial relationship and restrained shadows."
+    }
+  ],
+  "crop_observations": {
+    "desktop-hero": "21:9 crops some arch perimeter; source folios, tether and selected paper remain visible.",
+    "mobile-hero": "16:9 retains the whole central assembly.",
+    "card": "3:2 retains the source and extended slip.",
+    "narrow-row": "Square cuts the end of the channel but preserves source, tether and paper exit.",
+    "thumbnail": "Compact silhouette and paper curve read at 320px; checked 240px preview as an additional stricter test."
+  },
+  "comparison_sheet": "docs/editorial/tools-and-guides/reviews/rag-typescript-application-comparison.webp",
+  "crop_sheet": "docs/editorial/tools-and-guides/reviews/rag-typescript-application-crops.webp",
+  "final_asset": "/images/guides/rag-typescript-application.webp",
+  "asset_integrity": {
+    "path": "/images/guides/rag-typescript-application.webp",
+    "width": 1600,
+    "height": 900,
+    "byte_length": 161666,
+    "sha256": "02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14",
+    "git_blob_sha": "d1414aee691ffcdd77131e32c1a770e8817dbfba",
+    "riff_container_complete": true
+  },
+  "binary_readback": {
+    "status": "passed",
+    "commit_sha": "71ef18ff5f016c537b8093ae127bba8dcf9ed460",
+    "method": "GitHub create_blob base64 \u2192 tree \u2192 commit \u2192 ref; fetch_file encoding base64 at exact commit \u2192 decode to WebP \u2192 SHA-256, byte length and Git blob comparison",
+    "byte_length": 161666,
+    "sha256": "02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14",
+    "git_blob_sha": "d1414aee691ffcdd77131e32c1a770e8817dbfba",
+    "exact_bytes_equal": true,
+    "displayed_readback": true
+  },
+  "generation_metadata": {
+    "tool": "image_gen.imagegen",
+    "model_snapshot": null
+  },
+  "technical_review": {
+    "date": "2026-11-12",
+    "scope": "Assistant technical and editorial checks; human publication review pending",
+    "article_execution": "Extracted the exact Markdown TS fences and workspace shell commands into a fresh disposable folder. Node 22.23.4: nine groups pass; ingestion, retrieval and no-evidence CLI paths pass. TypeScript 6.0.3 strict noEmit check passed using repository development types, not required by reader runtime.",
+    "diagram": "Both SVG variants rendered with CairoSVG and displayed. Checked labels/arrows against actual code. Mobile match branches bypass terminal no-evidence; retrieve mode does not enter model path. Desktop body labels increased to 24 SVG units and checked at 646px article-column width; snapshot arrows rerouted around section labels. Both final SVGs rendered and displayed.",
+    "site_validation": "npm run verify passed locally; draft route absent from dist and public guide list. Existing Zod deprecation hints remain unchanged. Browser attempt failed before page inspection: system Chromium socket() Operation not permitted; Playwright Chromium download was not a ZIP; cloud browser localhost returned ERR_CONNECTION_REFUSED. No local browser/axe pass claimed.",
+    "live_model": "Not executed; no installed Ollama release or model digest tested. API integration researched from current primary documentation.",
+    "claims": [
+      {
+        "claim": "Node runs erasable TypeScript but does not typecheck",
+        "source": "https://nodejs.org/docs/latest-v22.x/api/typescript.html",
+        "evidence": "Primary documentation + local Node 22.23.4 execution",
+        "checked": "2026-11-12",
+        "limit": "Live docs identify 22.23.5; tested binary is 22.23.4."
+      },
+      {
+        "claim": "Generate API supports nonstreaming JSON format and response envelope fields",
+        "source": "https://docs.ollama.com/api/generate",
+        "evidence": "Primary live docs; mock request/response checks",
+        "checked": "2026-11-12",
+        "limit": "No real Ollama execution; no server compatibility guarantee."
+      },
+      {
+        "claim": "Timeout and output/context options constrain the example",
+        "source": "https://docs.ollama.com/modelfile",
+        "evidence": "Primary option documentation; local HTTP stub timeout",
+        "checked": "2026-11-12",
+        "limit": "No live model timing, billing or resource-release measurement."
+      },
+      {
+        "claim": "Local model listing approximately 1.3 GB",
+        "source": "https://ollama.com/library/llama3.2:1b",
+        "evidence": "Model listing observed",
+        "checked": "2026-11-12",
+        "limit": "Download size, not RAM requirement; no hardware benchmark."
+      },
+      {
+        "claim": "RAG needs controls beyond prompt instructions",
+        "source": "https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html",
+        "evidence": "Primary guidance; explicit educational trust assumptions",
+        "checked": "2026-11-12",
+        "limit": "No security audit, tenant enforcement or injection-resistance test."
+      }
+    ],
+    "editorial_findings_resolved": [
+      "Kept TypeScript CLI scope distinct from existing FastAPI deployment tutorial.",
+      "Explained lexical no-match versus actual absence of evidence.",
+      "Separated ID-membership validation from factual support.",
+      "Labeled fake answers and live-model steps; no fabricated execution or benchmarks.",
+      "Documented line-based ID stability limits, post-read input caps and single-writer snapshot assumptions.",
+      "Retained English-only guide contract; no invented French review status."
+    ],
+    "timeout_audit": "Additional isolated audit confirmed the local HTTP stub actually received the request and the incomplete response body raised TimeoutError; no model involved.",
+    "repository_regressions": "35 existing guide/related-reading/cover-asset/evergreen-ledger regression tests passed.",
+    "render_fixture": "An isolated copy with only fixture publication metadata changed built successfully. Generated article HTML contains the responsive picture/mobile SVG and all 10 Expressive Code blocks (11 buttons total). Original committed source remains draft and its public detail/listing route is absent. No live browser inspection of the new article or axe pass is claimed."
+  },
+  "ci_evidence": {
+    "head_sha": "41921dfd27f16589d62bd2c239e6de83d2fa9558",
+    "run_id": 43195921222,
+    "url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/43195921222",
+    "observed_jobs": {
+      "Verify project": "success",
+      "Browser smoke and accessibility": "success"
+    },
+    "scope": "Observed previous head. Final evidence/diagram commit must receive its own green exact-head run before delivery."
+  }
+}
