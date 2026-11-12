@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-10-gemini-4-carbon-availability",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-10-gemini-4-carbon-availability",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Gemini 4 Carbon moves from a guarded rollout into paid API and enterprise access",
+    "verified_context": [
+      "Google opened paid Gemini API and enterprise access for Gemini 4 Carbon after a limited defender rollout.",
+      "The introductory rate matches Gemini 4 Argon, but Google says Carbon is designed for longer specialist work and the price doubles after November 30.",
+      "Google also previews a multi-agent /swarm workflow; the release does not prove that more agents improve results."
+    ],
+    "editorial_idea": "A dense specialist core leaves a guarded assay chamber and enters several measured channels, while one calibrated diverter keeps it from flowing everywhere.",
+    "visual_metaphor": "A dark carbon-like core passes from a narrow stone chamber into three measured architectural channels controlled by one sparse terracotta routing gate.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-24-gpt-6-sol-luna.webp",
+      "public/images/stories/2026-09-24-greedy-decoding-precision.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-10-gemini-4-carbon-availability",
+    "story_source_sha256": "e7d893c0f5e78f6d38ddb6f32ef2f09f8e0590d550e2e2fd473eb3b018fa8407",
+    "visual_brief_sha256": "9d9cbad8d1246c59e6d060ac85bc393f9c65a56ba1bd8a2f66f071b1b16e20f6",
+    "reference_inputs_sha256": "8b523020839c04dbb47fca343a7b494ab31762f87d2f1548340e0cbd70a23e3c",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "83b8c9dceb0e1eac51bc96e597c9ca93af073358795305488ccf77af9e20e0d6"
+  },
+  "candidate_notes": {
+    "A": "Selected. The guarded specialist core physically crosses one terracotta routing gate into three distinct access channels, preserving the material access change and routing caution at hero and thumbnail scales.",
+    "B": "Rejected after comparison. The central specialist block is strong, but the ornamental branch and instrument-like selector add visual claims not needed by the story.",
+    "C": "Constitution-compliant and clean, but the dark core remains visually separated from the valve, weakening the transition from guarded rollout to routed availability."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 94,
+    "composition": 93,
+    "crop_quality": 92,
+    "technical_meaning": 95,
+    "cleanliness": 96,
+    "golden_reference_fit": 92,
+    "weighted_total": 93.55
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The guarded chamber, specialist core, terracotta router and three destination channels remain readable across the 1600×900 hero.",
+    "article_mobile": "A centered cover crop preserves the dark core crossing the terracotta routing gate; the branching channels remain visible as context.",
+    "thumbnail": "The black core, terracotta gate and three pale channels remain distinct at 320px without depending on fine detail."
+  },
+  "golden_reference_comparison": "The selected candidate follows the model and inference references through a warm paper field, a singular dark model mass, restrained stone architecture, sparse terracotta emphasis and generous negative space.",
+  "final_asset": "/images/stories/2026-11-10-gemini-4-carbon-availability.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 173246,
+    "sha256": "da4f50cd6e609c4364539cbb2d6c898bf80d88bc2ba7f1944c7250980c5ac136",
+    "git_blob_sha": "95c4eedef5a530c1b6ecf98db7d7ec31f47a4533",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-12T08:59:43.487Z"
+  }
+}

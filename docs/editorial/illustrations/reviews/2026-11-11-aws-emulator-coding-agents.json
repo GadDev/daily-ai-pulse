@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-11-aws-emulator-coding-agents",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "2026-11-11-aws-emulator-coding-agents",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "AWS Emulator gives tests and coding agents a local AWS-shaped API target",
+    "verified_context": [
+      "AWS says the free open-source emulator runs a local HTTPS endpoint compatible with AWS-shaped APIs, letting existing CLI, SDK and test calls target a laptop instead of a live Region.",
+      "A coding agent can create and inspect cloud-shaped resources locally, but the safety benefit depends on real credential, endpoint and network boundaries.",
+      "Local behavior cannot guarantee production fidelity for identity, timing, quotas, distributed failure or service interactions."
+    ],
+    "editorial_idea": "A compact cloud rehearsal chamber sits inside a bounded workbench, where a terracotta test signal loops locally while the route to the distant real cloud stays physically closed.",
+    "visual_metaphor": "A small dark cloud-shaped stone chamber inside a portable case contains a closed terracotta loop; a separate outer gate blocks the path toward a distant larger cloud.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-28-claude-plugin-ecosystem.webp",
+      "public/images/stories/2026-09-22-copilot-review-controls.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-11-aws-emulator-coding-agents",
+    "story_source_sha256": "97bc22bed373e7d5fd90057e11aca520cb1a2546bbdb0a2df5974f47c1f835f0",
+    "visual_brief_sha256": "16ee6a9fe0ec4e6bb8d922797ab8baa56bdcf304e7287021541b48b8492bcfce",
+    "reference_inputs_sha256": "7d261c23d72b39ecd05b71292496674eda4555ab020d30cb2633c78f3266bdd2",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "82a137aaf83620810c60adc1776bd91ea1de1e96ee85bb8279715165190f14dc"
+  },
+  "candidate_notes": {
+    "A": "Rejected after comparison. The local case and distant cloud are clear, but repeated arrowheads push the composition toward a bare technical diagram.",
+    "B": "Rejected at the constitutional gate because it introduced a literal laptop and workstation scene despite the brief's abstract-boundary requirement.",
+    "C": "Selected. The local resource loop sits inside a nested cloud-shaped boundary, and a closed physical valve separates it from the remote cloud without implying production fidelity."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 97,
+    "brand_fit": 95,
+    "composition": 95,
+    "crop_quality": 94,
+    "technical_meaning": 96,
+    "cleanliness": 98,
+    "golden_reference_fit": 93,
+    "weighted_total": 95.1
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The nested local cloud, resource loop, closed valve and separate remote cloud remain visible across the 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the local boundary, complete loop and valve; the remote cloud remains sufficient context at the edge.",
+    "thumbnail": "The dark nested chamber, terracotta loop and closed valve remain distinct at 320px."
+  },
+  "golden_reference_comparison": "The selected candidate matches the developer-tooling references through compact physical containment, warm paper, restrained charcoal and stone forms, sparse terracotta signaling and a strong center-safe silhouette.",
+  "final_asset": "/images/stories/2026-11-11-aws-emulator-coding-agents.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 158256,
+    "sha256": "95779dc8056dec83d2ad42e626e81e645d70218b8f7b6837dd8dd22b3f92d116",
+    "git_blob_sha": "4663287a0d5887560478b2ce9f3d2d1d199e652c",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-12T09:07:42.323Z"
+  }
+}
