@@ -32,7 +32,9 @@ The image viewer decoded real production WebP. Separately, local Pillow **12.3.0
 - Read production image through GitHub contents API in **Base64** mode. UTF-8 blob readers are unsuitable for WebP.
 - Submitted the **identical existing production WebP bytes** to `create_blob({encoding:"base64"})`. GitHub returned the identical known blob `775d08922d6bd88e83d96f2a4a7bda439138c014`, confirming content-addressed binary transport without replacement artwork.
 - Added this evidence and `docs/editorial/tools-and-guides/ledgers/2026-11-12.json` to a tree based on the inspected main tree, preserving the real image entry.
-- **Branch commit and exact-ref read-back:** initially pending; update the new dated ledger after a successful check. A Git blob write alone is not a complete commit-path validation.
+- **Branch commit and exact-ref read-back: PASSED.** Built Git tree `7cb5d5aee5968daa1433757495536726fdaf2014` using the original production WebP Git blob unchanged plus this review and dated ledger. Created and advanced branch to commit `cd061d27e3150b7ce9653ab98f0af4b52900cbc2`. A fresh GitHub Contents API `fetch_file` at that **exact commit SHA** returned the same 154732-character Base64 payload as main, exactly **116048 decoded bytes**, and the same Git blob SHA `775d08922d6bd88e83d96f2a4a7bda439138c014`. Original decoded production SHA-256 was recalculated in this execution and matches the merged 2026-10-23 ledger; byte identity proves the committed image has that SHA-256. This is a genuine Git tree/commit/branch/read-back proof, **without** replacing or modifying the production WebP.
+
+The validation was repeated on the final branch head after these report/ledger updates (see run report), independently from the initial proof commit. This does **not** substitute for repository source/build tests or exact-head CI.
 
 ## Editorial and safety boundaries
 
