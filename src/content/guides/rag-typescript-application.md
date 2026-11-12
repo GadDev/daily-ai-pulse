@@ -1,7 +1,8 @@
 ---
 title: "Part 2 — Build Your First RAG Application in TypeScript"
 description: "Build a local TypeScript RAG CLI with separate ingestion and query commands, saved source metadata, replaceable retrieval and generation, and reproducible failure checks."
-status: draft
+status: published
+publishedAt: 2026-11-12
 format: tutorial
 series:
   id: rag-foundations
