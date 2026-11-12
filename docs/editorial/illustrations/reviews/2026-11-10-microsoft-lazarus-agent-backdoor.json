@@ -1,0 +1,132 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-10-microsoft-lazarus-agent-backdoor",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-10-microsoft-lazarus-agent-backdoor",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "A few dormant neural units conceal a trigger that turns model output into a tool-executed payload",
+    "verified_context": [
+      "Microsoft reports that fewer than ten dormant neurons can be reprogrammed without retraining to trigger arbitrary token sequences.",
+      "The model behaves normally and can pass standard evaluations until the chosen condition appears.",
+      "The risk becomes consequential when an agent has terminal or tool permissions; no independent reproduction was identified."
+    ],
+    "editorial_idea": "A quiet field of dormant cells conceals one short terracotta fuse leading toward a constrained tool gate.",
+    "visual_metaphor": "A dark folded neural specimen contains seven tiny dormant inclusions, one forming a hidden terracotta fuse that reaches a sealed metal gate.",
+    "archetype": "scientific-specimen",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-27-agent-trace-tampering.webp",
+      "public/images/stories/2026-09-14-looped-flows.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-10-microsoft-lazarus-agent-backdoor",
+    "story_source_sha256": "35a072f29472505892338201def303a67e222740cdd7fc2d37ef62138d8d338c",
+    "visual_brief_sha256": "7ed4583cb4ffb66ab21835fbf5c8befc48c867430d299cf4413b97800843fabb",
+    "reference_inputs_sha256": "c70740077e1f8ea9caf7b10185c2736c3cc58499ec9dbcae7db99c0ec391e7c8",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "a39e79f593dab2a098a1685965ae57cf73b65109bb6e4a8f61570251430aa406"
+  },
+  "candidate_notes": {
+    "A": "Selected. The dormant inclusions, concealed terracotta fuse and closed gate communicate hidden activation and tool-bound consequence in one centered specimen; the silhouette remains clear at 320px.",
+    "B": "Rejected after comparison. The stone labyrinth is legible, but reads too much like a bare schematic and places the gate too close to the edge for a centered mobile crop.",
+    "C": "Constitution-compliant, but the receiving vessel becomes secondary in a centered mobile crop and the layered stack is less immediately story-specific than candidate A."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 96,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 94,
+    "technical_meaning": 96,
+    "cleanliness": 97,
+    "golden_reference_fit": 92,
+    "weighted_total": 94.9
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The full dormant-unit specimen, terracotta trigger path and closed gate remain visible in the 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the terracotta trigger, surrounding dormant units and the closed gate.",
+    "thumbnail": "The dark folded silhouette, sparse muted inclusions and terracotta fuse remain distinct at 320px without relying on fine texture."
+  },
+  "golden_reference_comparison": "The selected candidate follows the golden references through warm paper, a restrained charcoal mass, sparse terracotta signal, tactile materiality and confident negative space, while using a story-specific dormant-unit silhouette.",
+  "final_asset": "/images/stories/2026-11-10-microsoft-lazarus-agent-backdoor.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 251374,
+    "sha256": "763ab92dbe745ae84837094f971ff2cbf3db3f32947b1e99907ad48ebd5bd071",
+    "git_blob_sha": "cc58e98c3acb172aa6cfac7635c77e3855650525",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-12T08:13:01.761Z",
+    "candidate_c_initial_attempt": "Rejected by the image safety system; regenerated with neutral, nonviolent physical language without changing verified context."
+  }
+}
