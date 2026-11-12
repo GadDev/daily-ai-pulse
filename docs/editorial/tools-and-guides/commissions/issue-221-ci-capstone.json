@@ -1,0 +1,388 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-11-12",
+  "issue_url": "https://github.com/GadDev/daily-ai-pulse/issues/221",
+  "roadmap_url": "https://github.com/GadDev/daily-ai-pulse/issues/222",
+  "scheduled_run": false,
+  "topic_key": "claude-foundations-ci-capstone",
+  "guide_id": "claude-foundations-ci-capstone",
+  "state": "draft",
+  "pr_number": null,
+  "base_commit": "307fe52a743d0bbf1d00a3abf95257877bd7dc03",
+  "authorization": "Maintainer asked to focus on issue #221. Prepare one new reviewable draft PR. No publication, model spend, reader-owned CI activation or merge inferred.",
+  "deduplication": {
+    "open_prs_checked": [
+      280,
+      257,
+      241,
+      185,
+      159
+    ],
+    "merged_part6_pr": 279,
+    "part6_status_on_main": "Merged source exists as status draft; do not invent its public route or promote it without authorization. New article links the actual GitHub source.",
+    "guide_inventory": "Inspected all guide paths/statuses, Parts 3-6 source, existing autonomous review tutorial, Promptfoo gate and security toolkit.",
+    "scheduled_ledgers_checked": [
+      "2026-10-21",
+      "2026-10-23",
+      "2026-10-25",
+      "2026-10-27",
+      "2026-10-28"
+    ],
+    "outcome": "No overlapping Part 7 article or open PR. Manual commission is separate from scheduled news/guide batches; no immutable ledgers edited."
+  },
+  "duplication_matrix": [
+    {
+      "owner": "Parts 1-2",
+      "question": "Prompt/extraction quality",
+      "part7_boundary": "Revisit criteria and uncertain cases; no replacement prompt-regression platform."
+    },
+    {
+      "owner": "Parts 3-4",
+      "question": "Read-only MCP, guards, hooks and escalation",
+      "part7_boundary": "Rebuild inherited code and use its actual functions/fixtures in the capstone; no new backend."
+    },
+    {
+      "owner": "Part 5",
+      "question": "CLI instructions and verified patches",
+      "part7_boundary": "Reuse policy/case paths; independent bare review differs from generator context."
+    },
+    {
+      "owner": "Part 6",
+      "question": "Worker handoffs and recovery",
+      "part7_boundary": "Reuse dated-policy, partial-outage and stale-resume mechanics."
+    },
+    {
+      "owner": "prompt-regression-ci / #210",
+      "question": "Promptfoo regression gate",
+      "part7_boundary": "Cross-link it; this article owns exact-commit source review and series defense."
+    },
+    {
+      "owner": "agent-security-control-toolkit / #212",
+      "question": "Choosing complementary security tools",
+      "part7_boundary": "Cross-link it; no toolkit comparison duplicated."
+    },
+    {
+      "owner": "autonomous-ai-code-review-loop",
+      "question": "Python six-reviewer implementation/repair loop",
+      "part7_boundary": "No implementation or automatic repair loop here: TypeScript artifact-only CI, per-file/integration comparison, current-head finding lifecycle and inherited six-case capstone."
+    }
+  ],
+  "related_reading": {
+    "selected": [],
+    "reason": "Deliberate zero extra related cards; explicit in-body links already identify Promptfoo and security scope, while series navigation/source prerequisite supplies progression."
+  },
+  "requirement_map": {
+    "structured_ci_review": "Sections 2/4/5/6: exact before/after commit packet, changed-line evidence, 3 fresh print/bare CLI contexts, artifact-only workflows.",
+    "independent_context": "Fresh isolated work directory and no persisted/continued session; no model tools. Per-file passes precede a cross-file integration pass.",
+    "finding_lifecycle": "Same-snapshot complete reports can suppress duplicate IDs; other snapshots remain historical. Missing findings are not auto-resolved; incomplete passes retain gaps.",
+    "deterministic_gate": "Known handler cap omission fails integration gate exit 1; repair passes 3/3; 12 protocol assertions pass.",
+    "capstone": "Actual inherited Part 4 guard and Part 6 workers exercise six named critical scenarios; all five domains have an original architecture-defense row and a rejected alternative.",
+    "practice": "Independent cross-file normalizer/minimum defect plus harmless style change; seeded interactive/duplicate-comment repair is an artifact-only debugging design, not an actual posted comment. 3 original scenarios and explain-without-looking.",
+    "costs": "CLI 2.1.322, legacy Haiku snapshot, 3 invocations/2 turns each, requested API timeout20s and parent90s, estimated token cost and no guaranteed currency ceiling.",
+    "publication": "Draft English guide, original genuine WebP plus separately rendered accessible SVG, no shared workflow or frontend modifications."
+  },
+  "verification": {
+    "date": "2026-11-12",
+    "environment": "Linux, Node 22.23.4, TypeScript 6.0.3, @types/node 22.20.5. Native Claude Code 2.1.322 version/help; earlier MCP/Agent SDK pins retained in separate reconstruction.",
+    "source_artifact_sha256": "43093b272a6d2e798bc44cd3957b8dd23b15914cc4c274124c3aa80f81a0bcdd",
+    "copyable_file_sha256": {
+      "tsconfig.json": "b7cdfb09f4f797481f1060525afd3eefac5dc50c7f9c702c89c5500b64ad8ceb",
+      "audit.ts": "9a0031dc868d25c8bc1de59ed9c7495c7379fd51edf619eec530a7721a1f704a",
+      "exercise.ts": "e4569f961b9e3797019ed47dea5e629adc36137c285704dfafb52fca05d16a37",
+      "gate.ts": "e2e417691be81edf1a60113f133840a807df03015ddb6f8fb8f668ff223516d8",
+      "verify.ts": "76646b7d2309c1eaa97486821df20dec9589f0c88677fd2751c30dcd6259a9ed",
+      "checks.yml": "bbec53a80d626e03a338d349f4391bd49ffcbccda80dd79a2f8d501206122546",
+      "collect.ts": "23507d643fd6f6a579bb387087892ca3a9ddead6c666b77e180a83b6dbf045dc",
+      "live.ts": "e65bceb03e377da82ecb4528beea6a4af95a19ae8e8d96dda391abc72f018c82",
+      "paid.yml": "fb25180f4acf6d85e6062fd13c1f679954ed1e3ef316ec89843552aaba5c9a81",
+      "capstone.ts": "e588799c50b71ff504a38eab8889c78f76dfeab942508163e7420a29b0a5460f"
+    },
+    "fixture_results": [
+      "All 10 code/config fences match actual scratch source bytes. Strict TypeScript passes.",
+      "Known broken subject: integration gate exits 1. Corrected source: all 3 checks pass.",
+      "12 report-contract assertions passed: duplicate, stale source, evidence, unknown paths, incomplete coverage and absent-finding semantics.",
+      "Fixture lifecycle: first report1new/0repeated; second0new/1repeated; repaired current report0findings with old finding retained as historical.",
+      "Collector exercised against real disposable Git commits; exact source and changed line; invalid ref refused. Working-directory issue found and fixed before source freeze.",
+      "Inherited Part 3 sources rebuilt and original Part 4 fixture command passed25checks, including in-memory MCP handlers/manually invoked hooks. No model query.",
+      "Capstone passed all6named cases: missing facts, forbidden action, explicit human request, conflicting dated policies, partial policy timeout, changed-source resume refusal.",
+      "Executable stand-in exercised launcher access gate, noninteractive/bare/empty-tool flags, three processes, private reservation, run-name overwrite refusal, truncated result and incomplete-report propagation. No live calls.",
+      "Both reader-owned workflow YAML examples parsed; contents:read checked; paid workflow manual-dispatch guarded on main. Official actionv7 refs resolved to full commits."
+    ],
+    "not_executed": [
+      "Live Claude model review, actual authentication/billing, native internal retry behavior or measured model accuracy.",
+      "Either reader-owned Northstar GitHub Actions workflow; examples are inside article Markdown only.",
+      "Full real customer/MCP production deployment, payments, PR comments or external actions."
+    ],
+    "repository_checks": {
+      "verify": "npm run verify passed locally on Node22.23.4. Existing warnings only; draft excluded from generated site.",
+      "article_viewport": "System Chromium could not launch in this environment. No article-specific viewport/Axe pass claimed.",
+      "ci": "Pending exact-head remote CI; terminal status belongs to PR body/checks.",
+      "guide_assets": "All 6 existing guide-asset regression tests passed; guide ledger validation passed.",
+      "static_article_render": "Temporary local publication metadata build passed; actual article HTML contains both asset paths and no French alternate. Exact draft source bytes and prior draft build restored afterward. No viewport/Axe result claimed."
+    },
+    "diagram": {
+      "path": "/images/guides/northstar-ci-capstone.svg",
+      "sha256": "1e2d94b430f7be8d905ff98af90d666e3bedb12eb132ba08bcd8129204195118",
+      "renderer": "@resvg/resvg-js; actual340x1120PNG displayed",
+      "result": "Two separate job paths, accurate source-only/manual review flow, no broken labels or cropped text in native-size render.",
+      "limit": "Article desktop/mobile scaling/Axe unavailable."
+    }
+  },
+  "source_evidence": [
+    {
+      "claim": "Noninteractive print, bare mode, output envelope and context/permission behavior",
+      "url": "https://code.claude.com/docs/en/headless",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Current official live documentation + actual pinned CLI help; live review not executed."
+    },
+    {
+      "claim": "CLI flags and native2.1.322 entry point",
+      "url": "https://code.claude.com/docs/en/cli-reference",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official docs + actual installed package version/help; internal inference semantics untested."
+    },
+    {
+      "claim": "Broader GitHub App/comment integration differs from this artifact-only manual workflow",
+      "url": "https://code.claude.com/docs/en/github-actions",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official documentation; no App or reader CI activated."
+    },
+    {
+      "claim": "Evaluation criteria and per-segment failure matter beyond schema validity",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official methodology; our criteria and scenarios are original."
+    },
+    {
+      "claim": "Untrusted code/secrets, pinned actions and minimal permissions",
+      "url": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official guidance; no general production-security claim."
+    },
+    {
+      "claim": "GITHUB_TOKEN permissions remain minimal even without explicitly passing token",
+      "url": "https://docs.github.com/en/actions/tutorials/authenticate-with-github_token",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official documentation; contents read only in examples."
+    },
+    {
+      "claim": "Legacy snapshot and1USD input/5USD output per million tokens",
+      "url": "https://platform.claude.com/docs/en/models/haiku-4-5/overview",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official model/pricing page checked12November; access/spend not tested."
+    },
+    {
+      "claim": "Conditional pricing and token-based estimate",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official standard uncached rates; estimated spend not a hard ceiling."
+    },
+    {
+      "claim": "CCAR-F v1.0July2026 task references and experience context",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude%20Certified%20Architect%20%E2%80%93%20Foundations%20Exam%20Guide.pdf",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official guide; original rubric/scenarios, no exam questions reproduced."
+    },
+    {
+      "claim": "Free completion badges differ from paid partner certification",
+      "url": "https://academy.claude.com/help/faq",
+      "checked_at": "2026-11-12",
+      "type": "primary source",
+      "limitations": "Official FAQ; no account-specific eligibility claim."
+    }
+  ],
+  "action_pins": {
+    "actions/checkout": {
+      "ref": "v7",
+      "commit": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    },
+    "actions/setup-node": {
+      "ref": "v7",
+      "commit": "949feb2413d6458794dcd2491c4babbbce0c15c1"
+    },
+    "actions/upload-artifact": {
+      "ref": "v7",
+      "commit": "cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+    }
+  },
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Three actual built-in image generations completed after source/brief freeze."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Two decoded production covers displayed before generation; reference-first candidate comparison and selected21:9/16:9/3:2/160px crops inspected."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "WebP codec roundtrip and final1600x900decode passed."
+      },
+      "binary_upload": {
+        "status": "unverified",
+        "evidence": "Real final image upload and independent committed-file readback still pending."
+      }
+    },
+    "blocker": null,
+    "system_version": "1.3",
+    "constitution_version": "1.1",
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "candidate_count": 3,
+    "selected_candidate": "C",
+    "visual_brief": {
+      "placement": "article-hero",
+      "layout_reference": "docs/reference-layouts/story.html",
+      "subject": "Part 7: Put Claude Code Review in CI, Then Make It Prove Its Claims",
+      "verified_context": [
+        "The optional path invokes Claude Code in a separate review context.",
+        "The validator checks source locations and exact quoted head lines, including a changed-line anchor.",
+        "A timeout or parse failure must never close an earlier finding."
+      ],
+      "output_crop": "wide",
+      "archetype": "architectural-cutaway",
+      "editorial_idea": "An independent check examines the joint between pieces, not just each piece alone.",
+      "visual_metaphor": "A dark plumb weight hangs independently before a slightly misaligned terracotta joint between pale stone half-arches.",
+      "golden_references": [
+        "public/images/guides/claude-foundations-code-workflows.webp",
+        "public/images/guides/claude-foundations-coordinator-recovery.webp"
+      ]
+    },
+    "generation_identity": {
+      "identity_version": "1",
+      "story_id": "claude-foundations-ci-capstone",
+      "story_source_sha256": "43093b272a6d2e798bc44cd3957b8dd23b15914cc4c274124c3aa80f81a0bcdd",
+      "visual_brief_sha256": "6ff0538c52c7be8fb21424933761e9e6aead5b4a7acacf86d476cf17586f6810",
+      "reference_inputs_sha256": "1c61daf52c1d1c6b591e6f3a28456a76b2533c6096e1ff4a784e9143aa71b156",
+      "illustration_system_version": "1.3",
+      "visual_constitution_version": "1.1",
+      "prompt_contract_version": "1",
+      "candidate_count": 3,
+      "generator_surface": "chatgpt-image-tool",
+      "model_snapshot": null,
+      "generation_key": "80a906066d392eb59fbc1b746c62a213bdee399e58d93047074f54398b86bfb6"
+    },
+    "reuse_decision": "GENERATE: no existing Part7 guide artwork/review. Exact article bytes frozen before calls.",
+    "candidates": [
+      {
+        "candidate": "A",
+        "source": "generated_images/exec-9153a560-8960-4e59-9b85-83c60fa49564.png",
+        "source_sha256": "d632c008defbff57bb84087e63412341289f114d0dc1d994e53519f534402005",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 7: Put Claude Code Review in CI, Then Make It Prove Its Claims.\nVerified context: The optional path invokes Claude Code in a separate review context. The validator checks source locations and exact quoted head lines, including a changed-line anchor. A timeout or parse failure must never close an earlier finding.\nVisual idea: an independent plumb weight checks the joint between two pale architectural stone half-arches, a metaphor for reviewing relationships between code files instead of each file alone. A small terracotta central joining block is subtly offset at its seam, and a dark graphite plumb weight hangs in front on a slender vertical thread. Candidate A: oblique architectural artifact study, two substantial ivory arch halves meet at the compact terracotta keystone. The dark metal weight is close to the join, forming one central focal group; fine graphite hatching, matte stone, warm textured paper and restrained soft depth. This is an abstract physical metaphor, no actual engineering diagram. No ruler marks, no arrowheads, no ticks. Keep central joint and weight entirely within the central 60% of the image for 21:9 hero and 16:9 mobile cropping. High resolution wide 16:9.\nOutput crop: wide for article hero.\nUse the corresponding page docs/reference-layouts/story.html as source of truth for role, crop, scale and surrounding whitespace; IMAGE_GALLERY.md is mood only. This is an artwork asset inside existing HTML, not a generated webpage.\nArt direction: restrained contemporary editorial illustration, quiet scientific or architectural sensibility, deliberate geometry, fine lines, subtle paper texture, one clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast, survives object-fit:cover on desktop and mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the metaphor physical/spatial presence, subtle depth, hierarchy and material detail; technical lines support the illustrated masses rather than carrying the composition. Depict only supported context, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Clean high-resolution artwork with no border or frame.",
+        "constitution_pass": true,
+        "rejection": null,
+        "scores": {
+          "story_specific": 91,
+          "brand_fit": 91,
+          "composition": 90,
+          "crop_quality": 87,
+          "technical_meaning": 90,
+          "cleanliness": 98,
+          "golden_reference_fit": 90,
+          "weighted_total": 90.3
+        }
+      },
+      {
+        "candidate": "B",
+        "source": "generated_images/exec-fff1bf55-b6f5-4393-b25a-6339ef1fc3f0.png",
+        "source_sha256": "dedb21df42b61fec70090ea7e6e396b311a28ae71d86419967704f89cbcd383d",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 7: Put Claude Code Review in CI, Then Make It Prove Its Claims.\nVerified context: The optional path invokes Claude Code in a separate review context. The validator checks source locations and exact quoted head lines, including a changed-line anchor. A timeout or parse failure must never close an earlier finding.\nVisual idea: an independent plumb weight checks the joint between two pale architectural stone half-arches, a metaphor for reviewing relationships between code files instead of each file alone. A small terracotta central joining block is subtly offset at its seam, and a dark graphite plumb weight hangs in front on a slender vertical thread. Candidate B: a low oblique close architectural specimen of the crown joint between two ivory half-arches, seen from slightly to the right. A single matte terracotta keystone connects the halves with a slight visible offset. An independent graphite plumb weight hangs near the seam in the foreground, forming one compact diagonal spatial group with the joint. Render stone masses with fine etched hatching and a restrained gouache wash on warm paper. Plenty of negative space above and to the left. Avoid ruler marks, arrows, ticks and a diagram-first appearance. Keep weight and joint inside the central 60% and close enough vertically to survive a 21:9 crop. High-resolution wide 16:9.\nOutput crop: wide for article hero.\nUse the corresponding page docs/reference-layouts/story.html as source of truth for role, crop, scale and surrounding whitespace; IMAGE_GALLERY.md is mood only. This is an artwork asset inside existing HTML, not a generated webpage.\nArt direction: restrained contemporary editorial illustration, quiet scientific or architectural sensibility, deliberate geometry, fine lines, subtle paper texture, one clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast, survives object-fit:cover on desktop and mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the metaphor physical/spatial presence, subtle depth, hierarchy and material detail; technical lines support the illustrated masses rather than carrying the composition. Depict only supported context, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Clean high-resolution artwork with no border or frame.",
+        "constitution_pass": false,
+        "rejection": "Central21:9crop cuts the focal plumb point; do not score."
+      },
+      {
+        "candidate": "C",
+        "source": "generated_images/exec-d1c23043-bcb8-402f-89ae-0cef17b357c0.png",
+        "source_sha256": "8a067f7278f40ea7ed1ebbff4174905e0c7bafb3380906221195456dcc63e0e4",
+        "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero.\nSubject: Part 7: Put Claude Code Review in CI, Then Make It Prove Its Claims.\nVerified context: The optional path invokes Claude Code in a separate review context. The validator checks source locations and exact quoted head lines, including a changed-line anchor. A timeout or parse failure must never close an earlier finding.\nVisual idea: an independent plumb weight checks the joint between two pale architectural stone half-arches, a metaphor for reviewing relationships between code files instead of each file alone. A small terracotta central joining block is subtly offset at its seam, and a dark graphite plumb weight hangs in front on a slender vertical thread. Candidate C: a spacious three-quarter view of a small freestanding architectural arch model on warm paper, with two ivory half-arches connected by one compact terracotta joint. An independent graphite plumb weight hangs immediately in front of that seam, its point near the opening's center. Keep the entire joint-plus-weight group compact and wholly between 25% and 75% of the image height, with the full weight visible including its point. The overall arch silhouette is asymmetrical and slightly off center; avoid dominating columns, symmetry or a close crop. Restrained engraved hatching and subtle gouache volume, tactile matte materials. No ruler ticks, arrowheads or engineering diagram. Negative space carries the composition. High-resolution wide 16:9.\nOutput crop: wide for article hero.\nUse the corresponding page docs/reference-layouts/story.html as source of truth for role, crop, scale and surrounding whitespace; IMAGE_GALLERY.md is mood only. This is an artwork asset inside existing HTML, not a generated webpage.\nArt direction: restrained contemporary editorial illustration, quiet scientific or architectural sensibility, deliberate geometry, fine lines, subtle paper texture, one clear focal idea legible at thumbnail size. Harmonize warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Spacious composition, strong contrast, survives object-fit:cover on desktop and mobile. Do not produce a bare schematic, flowchart, wireframe, icon composition or minimalist architecture diagram. Give the metaphor physical/spatial presence, subtle depth, hierarchy and material detail; technical lines support the illustrated masses rather than carrying the composition. Depict only supported context, using abstract metaphor for uncertain mechanisms. No words, letters, numbers, labels, logos, interface elements, header, footer, buttons, badges, invented charts, watermark, neon, robots or glowing AI brains. No headline or screenshot imitation. Clean high-resolution artwork with no border or frame.",
+        "constitution_pass": true,
+        "rejection": null,
+        "scores": {
+          "story_specific": 94,
+          "brand_fit": 92,
+          "composition": 94,
+          "crop_quality": 96,
+          "technical_meaning": 90,
+          "cleanliness": 98,
+          "golden_reference_fit": 91,
+          "weighted_total": 93.2
+        }
+      }
+    ],
+    "review": {
+      "review_type": "Codex visual self-review; not human approval",
+      "selected_constitution_pass": true,
+      "selection": "C keeps the joint and complete plumb weight in a compact central silhouette, with negative space and material depth matching actual series covers. A is more tightly framed. B loses the plumb point in the central21:9crop and was rejected before aesthetic scoring.",
+      "crop_results": {
+        "desktop-hero": "21:9: entire joint and plumb point survive.",
+        "mobile-hero": "16:9: complete focal group visible.",
+        "card": "3:2 and160px: arch/joint/plumb silhouette readable."
+      },
+      "identity_limit": "Shared repository helper computes exact guide source, brief and reference hashes. News-only illustration validator does not certify guides.",
+      "reference_observations": [
+        {
+          "path": "public/images/guides/claude-foundations-code-workflows.webp",
+          "git_blob_sha": "ca183c5de264dddbcd8d84ba9bc575a5bd0caa03",
+          "sha256": "03a2243654ca38002afa5681f75e6d2ccf2a3d807b324740fc61787747e30083",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "observation": "Actual decoded series cover displayed; warm paper, tactile pale masses, sparse terracotta and controlled spatial hierarchy."
+        },
+        {
+          "path": "public/images/guides/claude-foundations-coordinator-recovery.webp",
+          "git_blob_sha": "d27f222e908a037f69218106b37043bff4dbaae2",
+          "sha256": "be63848b9d63843103f4faf89d817e4aaa6c8cccc0de661b365c7d2f850c45da",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "observation": "Actual decoded series cover displayed; warm paper, tactile pale masses, sparse terracotta and controlled spatial hierarchy."
+        }
+      ]
+    },
+    "integrity": {
+      "path": "/images/guides/claude-foundations-ci-capstone.webp",
+      "sha256": "143795ab5ca3399be63cd6b1fc576342b4d36bf80a6afffc80dbd9921b2cb428",
+      "git_blob_sha": "0c6242f533123d80723cd8ba24ea6240bad34cfb",
+      "byte_length": 202716,
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "editorial_self_review": {
+    "claim_title_opening": "Opening is a concrete synthetic cap-propagation failure, reproduced locally. Title promises auditable review, not perfect model judgment.",
+    "software_review": "Fixed collector root-relative Git issue found during actual commit test. Kept incomplete results explicit and preserved old IDs without automatically resolving findings.",
+    "security_boundary": "Reader PR job carries no model secret; paid manual job executes trusted main tooling only and sends bounded source text. No PR-writing token or bypass-permission flag. Not a production security attestation.",
+    "narrative_overlap": "Distinct Northstar capstone from existing Python six-reviewer loop and Promptfoo gate. No new framework, sample-app directory or article-specific publication CI suite.",
+    "french": "Current guide routes are English-only; no unreviewed translation added.",
+    "remaining_questions": [
+      "Live model ability to find this defect is not evaluated.",
+      "Article viewport/Axe review needs a functioning browser.",
+      "Part6 remains draft on main and needs separate publication before sequential reader release."
+    ]
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Article-specific viewport/Axe review unavailable in local browser environment.",
+      "Binary upload/readback and exact-head CI pending."
+    ],
+    "publication_dependencies": [
+      "Part6 is merged as draft; authorize and verify its publication separately.",
+      "Human editorial approval and merge for this Part7 draft."
+    ]
+  }
+}
