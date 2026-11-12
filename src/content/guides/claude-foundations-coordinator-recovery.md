@@ -1,7 +1,8 @@
 ---
 title: 'Part 6: Coordinate Two Claude Specialists Without Losing Their Evidence'
 description: Build a source-aware Northstar coordinator, distinguish outages from empty results, preserve conflicting policies, and restore interrupted work from a dated manifest.
-status: draft
+status: published
+publishedAt: 2026-11-12
 format: tutorial
 series:
   id: claude-architecture
