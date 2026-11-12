@@ -1,0 +1,606 @@
+{
+  "editorial_date": "2026-11-12",
+  "schema_version": "1.0",
+  "decision_engine_version": "1.0",
+  "candidates": [
+    {
+      "id": "2026-11-10-gemini-4-carbon-availability",
+      "decision": "selected",
+      "title": "Google makes Gemini 4 Carbon broadly available",
+      "desk": "models",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "model-releases",
+        "coding-agents",
+        "agent-security",
+        "pricing",
+        "multi-agent"
+      ],
+      "entities": [
+        "Google",
+        "Google DeepMind",
+        "Gemini 4 Carbon",
+        "Google Antigravity"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "Google moved Gemini 4 Carbon from a limited cyber-defender rollout into paid API, enterprise and consumer availability, kept introductory pricing at $2 per million input and $10 per million output tokens through November 30, and previewed a multi-agent /swarm workflow.",
+      "what_changed": "The watchlisted limited rollout now has developer documentation and paid API access in AI Studio, enterprise access in Gemini for business, and product access for Google AI Ultra subscribers.",
+      "why_it_matters": "Engineers can now evaluate the model in production-facing workflows and compare its higher-cost long-horizon profile against Gemini 4 Argon, while treating vendor safety and benchmark claims as scoped evidence.",
+      "engineer_takeaway": "Benchmark Carbon on representative long-running tasks at full task cost, and validate safeguard, scope and review behavior independently before assigning broad permissions.",
+      "prerequisites": [
+        "model evaluation",
+        "agentic coding",
+        "capability controls"
+      ],
+      "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "canonical_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "publisher": "Google",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        },
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+          "canonical_url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+          "publisher": "Google DeepMind",
+          "source_type": "official",
+          "role": "supporting",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Google documents the product surfaces, API access, introductory and future prices, model role and safeguard evaluations.",
+        "independent_validation": "The availability and prices are directly verifiable; performance and safety results remain a mix of vendor and named external evaluations not reproduced in this pass.",
+        "claim_scope": "Availability, pricing and product surfaces are established; capability and safeguard claims remain evaluation-scoped."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A previously limited frontier model now has a concrete developer and enterprise access contract."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 92
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "effort-normalized evaluation",
+          "multi-agent orchestration cost"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "material-update",
+        "candidate_key": "google|gemini-4-carbon|broad-api-enterprise-availability",
+        "canonical_event": "Google makes Gemini 4 Carbon available through paid developer, enterprise and consumer surfaces.",
+        "previous_coverage": "The 2026-10-29 ledger watchlisted the limited Fairwind cyber-defender rollout and named broader developer access as the promotion condition.",
+        "material_delta": "Paid API and enterprise access, documentation, explicit pricing and a preview /swarm workflow are now available."
+      }
+    },
+    {
+      "id": "2026-11-10-microsoft-lazarus-agent-backdoor",
+      "decision": "selected",
+      "title": "Microsoft shows ten dormant neurons can backdoor an AI agent",
+      "desk": "research",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "agent-security",
+        "security",
+        "interpretability",
+        "open-models",
+        "permissions"
+      ],
+      "entities": [
+        "Microsoft Research",
+        "Lazarus"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "Microsoft researchers report that fewer than ten dormant neurons can be reprogrammed without retraining to trigger arbitrary token payloads in an agent while ordinary evaluations remain clean.",
+      "what_changed": "The work demonstrates an inference-compute weight-editing attack, shows example terminal payloads, and argues for model-weight provenance, differential inspection and defense-in-depth permission controls.",
+      "why_it_matters": "Agent teams cannot treat clean behavioral evaluations as proof that a checkpoint has intact weights, especially when the model can invoke tools or a terminal.",
+      "engineer_takeaway": "Pin and verify model artifacts, compare weights against declared bases, restrict agent permissions and monitor consequential actions; treat scanning as one imperfect layer.",
+      "prerequisites": [
+        "model provenance",
+        "agent permissions",
+        "weight inspection"
+      ],
+      "primary_source_url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+          "canonical_url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+          "publisher": "Microsoft Research",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "The researcher describes the attack, threat model, examples, mitigations and product-response context.",
+        "independent_validation": "No independent reproduction was identified in the bounded pass.",
+        "claim_scope": "The demonstrated weight-editing attack requires write access to model weights; the post does not establish prevalence in deployed systems."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The result exposes a concrete supply-chain and runtime threat for tool-using agents."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "weight integrity",
+          "behavioral-evaluation blind spots"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "microsoft-research|lazarus|dormant-neuron-agent-backdoor",
+        "canonical_event": "Microsoft Research discloses the Lazarus weight-space agent backdoor technique.",
+        "previous_coverage": "No exact URL, Lazarus event or dormant-neuron backdoor coverage was found on pinned main.",
+        "material_delta": "A new attack and mitigation study was published."
+      }
+    },
+    {
+      "id": "2026-11-10-deepmind-alphaproof-code-signal",
+      "decision": "selected",
+      "title": "DeepMind uses AI agents to formally verify Signal's protocol code",
+      "desk": "engineering",
+      "format": "deep-dive",
+      "depth": "advanced",
+      "topics": [
+        "verification",
+        "security",
+        "coding-agents",
+        "reasoning"
+      ],
+      "entities": [
+        "Google DeepMind",
+        "AlphaProof Code",
+        "Signal"
+      ],
+      "event_date": "2026-11-10",
+      "source_publication_date": "2026-11-10",
+      "summary": "Google DeepMind says AlphaProof Code, guided by human experts, produced mathematical proofs for key security properties of the implementation underlying Signal's cryptographic protocol and released verification artifacts.",
+      "what_changed": "The project applied an agentic formal-verification framework to widely deployed cryptographic code at a depth Google describes as unprecedented.",
+      "why_it_matters": "This is a stronger engineering claim than code review or test generation: it targets machine-checked proof obligations for production cryptographic implementation.",
+      "engineer_takeaway": "Inspect the released artifacts, assumptions and trusted proof stack before generalizing the result; formal proof covers stated properties, not every implementation or operational risk.",
+      "prerequisites": [
+        "formal methods",
+        "cryptographic protocols",
+        "proof artifacts"
+      ],
+      "primary_source_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "sources": [
+        {
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "canonical_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "publisher": "Google DeepMind",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "DeepMind describes the system, target, claimed firsts and open verification artifacts.",
+        "independent_validation": "The bounded pass did not locate an independent audit of the complete proof effort.",
+        "claim_scope": "The result applies to stated properties and proof assumptions; it is not a blanket guarantee for Signal or all cryptographic software."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Formal verification of widely deployed cryptographic implementation is a durable engineering event."
+      },
+      "editorial_score": {
+        "significance": 5,
+        "evidence": 4,
+        "novelty": 5,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 95
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "proof scope",
+          "trusted computing base"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "deepmind|alphaproof-code|signal-formal-verification",
+        "canonical_event": "DeepMind publishes AlphaProof Code verification work on Signal protocol implementation.",
+        "previous_coverage": "No exact URL or matching AlphaProof Code/Signal verification event was found on pinned main.",
+        "material_delta": "A new formal-verification result and artifact release was published."
+      }
+    },
+    {
+      "id": "2026-11-11-aws-emulator-coding-agents",
+      "decision": "selected",
+      "title": "AWS gives coding agents a local cloud API target",
+      "desk": "tools",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "developer-experience",
+        "coding-agents",
+        "api",
+        "open-source",
+        "infrastructure"
+      ],
+      "entities": [
+        "Amazon Web Services",
+        "AWS Emulator"
+      ],
+      "event_date": "2026-11-11",
+      "source_publication_date": "2026-11-11",
+      "summary": "AWS released a free open-source local emulator in Rust that exposes AWS-shaped HTTPS APIs to existing CLI, SDK, test and coding-agent workflows without deploying resources to a Region.",
+      "what_changed": "Developers can redirect unchanged AWS SDK calls to a local endpoint; AWS says the emulator supports services represented in its API-model repository and preserves request and error shapes.",
+      "why_it_matters": "Coding agents can create and inspect cloud-shaped resources in a bounded local loop, reducing deployment latency and accidental cloud changes during iteration.",
+      "engineer_takeaway": "Test service fidelity and unsupported behavior before relying on it for integration coverage, and keep emulator credentials and certificates isolated from real AWS profiles.",
+      "prerequisites": [
+        "AWS SDK",
+        "local integration testing",
+        "coding-agent sandboxing"
+      ],
+      "primary_source_url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+          "canonical_url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+          "publisher": "AWS",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-11"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "AWS documents installation, local endpoint behavior, API-model coverage and coding-agent use.",
+        "independent_validation": "The emulator was not independently exercised in this run.",
+        "claim_scope": "Launch and interface are established; behavioral fidelity across services remains first-party."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "The tool changes the safe iteration loop for cloud-integrated coding agents."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 4,
+        "weighted_total": 83
+      },
+      "learning_gap": {
+        "exists": false,
+        "concepts": []
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "aws|aws-emulator|local-cloud-api-coding-agents",
+        "canonical_event": "AWS releases its local API emulator with explicit coding-agent support.",
+        "previous_coverage": "No exact URL or matching AWS Emulator launch event was found; an October ledger mention of Android emulators is unrelated.",
+        "material_delta": "A new open-source AWS-compatible local execution target became available."
+      }
+    },
+    {
+      "id": "2026-11-11-agent-skills-aaif-governance",
+      "decision": "selected",
+      "title": "Agent Skills joins MCP under Linux Foundation governance",
+      "desk": "workflows",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "skills",
+        "mcp",
+        "open-source",
+        "governance",
+        "orchestration"
+      ],
+      "entities": [
+        "Agentic AI Foundation",
+        "Linux Foundation",
+        "Anthropic",
+        "Google",
+        "OpenAI"
+      ],
+      "event_date": "2026-11-11",
+      "source_publication_date": "2026-11-11",
+      "summary": "Google says Anthropic donated the Agent Skills specification to the Linux Foundation's Agentic AI Foundation alongside MCP, with Google, Anthropic, OpenAI and the wider ecosystem co-maintaining the standards.",
+      "what_changed": "A reusable agent-instruction format moved from vendor stewardship into the same vendor-neutral governance venue as MCP.",
+      "why_it_matters": "Teams adopting skills and MCP gain a clearer interoperability and governance path, though conformance, security and implementation compatibility still need evidence.",
+      "engineer_takeaway": "Keep skills portable and auditable, separate procedural packages from credentials, and verify implementation compatibility rather than assuming a shared foundation guarantees it.",
+      "prerequisites": [
+        "MCP",
+        "agent skills",
+        "open-source governance"
+      ],
+      "primary_source_url": "https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html",
+      "sources": [
+        {
+          "url": "https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html",
+          "canonical_url": "https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html",
+          "publisher": "Google Open Source Blog",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-11"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "Google identifies the donation, governance home and participating maintainers.",
+        "independent_validation": "No conformance or cross-implementation study was found in the bounded pass.",
+        "claim_scope": "The governance change is established; interoperability and security benefits remain prospective."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "Standards ownership can durably shape agent tooling and portability."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 5,
+        "durability": 5,
+        "weighted_total": 86
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "specification governance",
+          "conformance testing"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "aaif|agent-skills|linux-foundation-governance",
+        "canonical_event": "Agent Skills moves into AAIF governance alongside MCP.",
+        "previous_coverage": "No exact URL, Agent Skills donation or matching AAIF governance event was found on pinned main.",
+        "material_delta": "Specification ownership and co-maintenance moved to a vendor-neutral foundation."
+      }
+    },
+    {
+      "id": "2026-11-11-elevenlabs-nvidia-poland-ehealth",
+      "decision": "selected",
+      "title": "ElevenLabs and NVIDIA put a sovereign voice agent into Poland's e-health platform",
+      "desk": "business",
+      "format": "briefing",
+      "depth": "practitioner",
+      "topics": [
+        "voice",
+        "enterprise-adoption",
+        "infrastructure",
+        "serving",
+        "governance"
+      ],
+      "entities": [
+        "ElevenLabs",
+        "NVIDIA",
+        "Poland national e-Health platform",
+        "ElevenAgents"
+      ],
+      "event_date": "2026-11-11",
+      "source_publication_date": "2026-11-11",
+      "summary": "ElevenLabs and NVIDIA expanded their partnership across models and infrastructure, added Nemotron 3.5 Super VL to ElevenAgents, announced 15MW of NVIDIA compute expansion, and named a sovereign voice-agent deployment for Poland's national e-health platform.",
+      "what_changed": "The partnership now combines model availability, a large infrastructure commitment and a named government-health deployment rather than a generic collaboration promise.",
+      "why_it_matters": "The deployment makes data location, model hosting, accessibility and human escalation concrete architecture questions for a public-service voice agent.",
+      "engineer_takeaway": "Separate confirmed platform availability from deployment outcomes, and demand details on data boundaries, evaluation, fallback and accessibility before inferring public-service effectiveness.",
+      "prerequisites": [
+        "voice agents",
+        "sovereign infrastructure",
+        "public-service governance"
+      ],
+      "primary_source_url": "https://elevenlabs.io/blog/nvidia",
+      "sources": [
+        {
+          "url": "https://elevenlabs.io/blog/nvidia",
+          "canonical_url": "https://elevenlabs.io/blog/nvidia",
+          "publisher": "ElevenLabs",
+          "source_type": "official",
+          "role": "primary",
+          "publication_date": "2026-11-11"
+        }
+      ],
+      "evidence": {
+        "level": "primary",
+        "rationale": "ElevenLabs documents the expanded partnership, model integration, compute commitment and named deployment.",
+        "independent_validation": "No independent deployment result or user-outcome evidence was identified.",
+        "claim_scope": "The partnership and stated deployment are first-party facts; performance, adoption and public-service outcomes are unmeasured."
+      },
+      "signal": {
+        "level": "high",
+        "rationale": "A named sovereign public-sector deployment plus concrete infrastructure and model changes clears generic partnership coverage."
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 4,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 80
+      },
+      "learning_gap": {
+        "exists": true,
+        "concepts": [
+          "sovereign voice architecture",
+          "public-service escalation"
+        ]
+      },
+      "related_content": {
+        "previous_story_ids": []
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "elevenlabs-nvidia|poland-ehealth|sovereign-voice-agent",
+        "canonical_event": "ElevenLabs and NVIDIA expand their partnership with a named Poland e-health voice-agent deployment.",
+        "previous_coverage": "No exact URL, named Poland e-health deployment or matching partnership event was found on pinned main.",
+        "material_delta": "A concrete model, infrastructure and sovereign deployment package was announced."
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "2026-11-10-google-mka-benchmark",
+      "decision": "watch",
+      "title": "Google launches a benchmark for visually complex knowledge work",
+      "desk": "research",
+      "event_date": "2026-11-10",
+      "summary": "Google and Artificial Analysis introduced a 200-task multimodal knowledge-agent benchmark across ten verticals and released ten public examples plus an open-source harness.",
+      "what_changed": "A new evaluation targets visually structured professional files and reports 96% agreement between its autorater and domain experts.",
+      "reason": "The full 200-task set is private and the launch is tied to Gemini 4 Carbon performance; retain until broader model coverage or independent methodological review clarifies its value beyond the model launch.",
+      "promote_when": [
+        "Independent replication, expanded public tasks, or a material cross-model methodological result appears."
+      ],
+      "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+          "role": "primary",
+          "publication_date": "2026-11-10"
+        }
+      ],
+      "evidence": {
+        "level": "primary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 3,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 74
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "google-artificial-analysis|mka|visual-knowledge-work-benchmark"
+      }
+    },
+    {
+      "id": "2026-11-09-workflowarena",
+      "decision": "watch",
+      "title": "WorkflowArena measures how agents design their own delegations",
+      "desk": "research",
+      "event_date": "2026-11-09",
+      "summary": "A preprint introduces 145 long-horizon tasks across eight domains to evaluate both final deliverables and the workflows agents author.",
+      "what_changed": "The work treats orchestration structure as a capability and reports that no single model configuration leads every domain.",
+      "reason": "The benchmark is a fresh preprint with hidden verification and no independent reproduction identified in the bounded pass.",
+      "promote_when": [
+        "Code, tasks or independent replications establish the benchmark's robustness."
+      ],
+      "primary_source_url": "https://arxiv.org/abs/2611.12856",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.12856",
+          "role": "primary",
+          "publication_date": "2026-11-09"
+        }
+      ],
+      "evidence": {
+        "level": "preliminary"
+      },
+      "signal": {
+        "level": "watch"
+      },
+      "editorial_score": {
+        "significance": 4,
+        "evidence": 2,
+        "novelty": 4,
+        "relevance": 4,
+        "durability": 4,
+        "weighted_total": 68
+      },
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "workflowarena|multi-agent|workflow-orchestration-benchmark"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "2026-11-11-openai-veterans-plus",
+      "decision": "rejected",
+      "title": "OpenAI offers ChatGPT Plus to veterans and servicemembers",
+      "desk": "curious",
+      "event_date": "2026-11-11",
+      "summary": "OpenAI announced an access program for U.S. veterans and servicemembers.",
+      "what_changed": "A new audience-specific benefit became available, but the source supplies no measured outcome, novel use or engineering change.",
+      "reason": "The announcement does not clear the Daily News relevance and evidence threshold; retain existing pilot Curious responsibility without manufacturing a culture story.",
+      "source_url": "https://openai.com/news/company-announcements/",
+      "sources": [
+        {
+          "url": "https://openai.com/news/company-announcements/",
+          "role": "primary"
+        }
+      ],
+      "deduplication": {
+        "status": "new",
+        "candidate_key": "openai|chatgpt-plus|veterans-servicemembers-program"
+      }
+    },
+    {
+      "id": "2026-11-10-github-gemini-carbon-copilot",
+      "decision": "rejected",
+      "title": "GitHub adds Gemini 4 Carbon to Copilot",
+      "desk": "workflows",
+      "event_date": "2026-11-10",
+      "summary": "GitHub made Gemini 4 Carbon generally available in Copilot.",
+      "what_changed": "This distributes the same model whose broad API and enterprise availability is selected from the stronger primary source.",
+      "reason": "The GitHub notice adds no distinct workflow or evidence delta beyond model distribution.",
+      "source_url": "https://github.blog/changelog/month/11-2026/",
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/month/11-2026/",
+          "role": "primary"
+        }
+      ],
+      "deduplication": {
+        "status": "duplicate",
+        "candidate_key": "github-copilot|gemini-4-carbon|2026-11-10",
+        "previous_coverage": "Selected Gemini 4 Carbon broad availability candidate in this ledger."
+      }
+    }
+  ],
+  "publication": {
+    "story_ids": [],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": null
+  }
+}
