@@ -1,0 +1,131 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-10-deepmind-alphaproof-code-signal",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-10-deepmind-alphaproof-code-signal",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "AlphaProof Code uses AI agents and human guidance to produce machine-checked proof artifacts for Signal protocol code",
+    "verified_context": [
+      "Google DeepMind says its agentic framework, with substantial human guidance, proved key security properties of code underlying Signal's cryptographic protocol.",
+      "The team released formal-verification artifacts, while the bounded reporting pass did not identify an independent audit of the complete effort.",
+      "The proof applies to stated properties, defined code and explicit assumptions; it is not a guarantee that the whole production system is secure."
+    ],
+    "editorial_idea": "Layered implementation channels must pass through a sequence of independent physical proof gates before one verified segment can continue.",
+    "visual_metaphor": "Several dark stone code channels cross precise terracotta verification apertures, while one unverified branch stops before the final gate.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "single-dominant-editorial-metaphor",
+      "center-safe-focal-idea",
+      "quiet-laboratory-materiality"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/stories/2026-09-27-agent-trace-tampering.webp",
+      "public/images/stories/2026-09-14-looped-flows.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-10-deepmind-alphaproof-code-signal",
+    "story_source_sha256": "602fc1b709094239471eebd7fa64e90de569bef97f720dad98e411f8e9559561",
+    "visual_brief_sha256": "fca6fb4fd6076f8581d69989190d1b7a81ea41b1bcf93c192ea0a3f621e958f2",
+    "reference_inputs_sha256": "ca3cdcc106391eb8c3098a747813a4014d9570c7bc453580180321f4fcebc983",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "2d90f0459493a777eaf83df32bd22f91966fa950563bb6c9d74928a70e054003"
+  },
+  "candidate_notes": {
+    "A": "Selected. Three physical proof gates constrain the layered implementation channels, one branch stops before acceptance, and the visible human guidance is directly supported by the reported workflow.",
+    "B": "Rejected at the constitutional gate because the central specimen contains code-like pseudo-text and reads as an instrument diagram.",
+    "C": "Rejected after comparison. The proof bridge is visually strong, but the large landscape and group of people turn a bounded verification result into an unsupported heroic scene."
+  },
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 96,
+    "brand_fit": 92,
+    "composition": 94,
+    "crop_quality": 93,
+    "technical_meaning": 97,
+    "cleanliness": 94,
+    "golden_reference_fit": 91,
+    "weighted_total": 93.65
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The layered channels, three terracotta proof apertures, stopped branch and human-guidance cue remain visible in the 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains all three gates, the accepted channels and the stopped branch; the hand remains a secondary cue.",
+    "thumbnail": "The dark channels passing through three terracotta gates remain distinct at 320px."
+  },
+  "golden_reference_comparison": "The selected candidate matches the research references through a warm paper field, restrained charcoal forms, sparse terracotta intervention, tactile laboratory materiality and a bounded story-specific silhouette.",
+  "final_asset": "/images/stories/2026-11-10-deepmind-alphaproof-code-signal.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 226450,
+    "sha256": "f8678ec0dc0b34cceeb0a2b66a91f9aa626741ff2212c4d51b1ae8a7e1252b5c",
+    "git_blob_sha": "d01f51c270244612c8708ab2c21838cec9340804",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {
+    "generated_at": "2026-11-12T09:03:48.061Z"
+  }
+}
