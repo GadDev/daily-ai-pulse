@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-11-12",
+  "run_status": "draft-pr",
+  "run_note": "Explicit manual issue #281 commission. Part 2 TypeScript tutorial prepared with copyable code and rendered SVG variants. Exact article snippets replayed: nine deterministic test groups passed on Node 22.23.4; no live Ollama/model or quality benchmark. npm run verify passed locally. Three generated image candidates compared to two displayed production references; B selected and encoded to WebP. Real commit/upload/read-back and exact-head CI pending. Preserve PR #285 artifact_validation record as imported evidence from that separate open validation-only PR; do not represent it as current guide work.",
+  "candidates": [
+    {
+      "topic_key": "rag-typescript-application",
+      "title": "Part 2 \u2014 Build Your First RAG Application in TypeScript",
+      "format": "tutorial",
+      "decision": "selected",
+      "reader_outcome": "Build a local TypeScript CLI with separate ingestion/query paths, versioned persisted passages, replaceable retrieval and generation, and deterministic failure checks.",
+      "reason": "Explicit issue #281 commission. Part 1 owns the mental model; existing first-rag-application owns Python/FastAPI; ingestion toolkit owns extraction/OCR; evaluation guide owns ranking metrics; storage comparison owns database operations. Parts 3\u20135 reserve retrieval mechanics, tuning/grounding and production controls. Open PR #285 is validation-only, #241 is shared policy, #280/#257 Curious AI, #185 monetization, #159 newsletter; no competing Part 2 guide.",
+      "sources": [
+        "https://nodejs.org/docs/latest-v22.x/api/typescript.html",
+        "https://docs.ollama.com/api/generate"
+      ]
+    }
+  ],
+  "handoff": {
+    "guide_id": "rag-typescript-application",
+    "pr_number": null,
+    "completion": "blocked",
+    "blockers": [
+      "Real guide artwork commit/read-back and exact-head CI pending."
+    ]
+  },
+  "artifact_validation": {
+    "guide_id": "agent-tool-approval-boundary",
+    "original_ledger": "docs/editorial/tools-and-guides/ledgers/2026-10-23.json",
+    "original_pr_numbers": [
+      223,
+      225
+    ],
+    "report": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-binary-validation-2026-11-12.md",
+    "artwork_path": "/images/guides/agent-tool-approval-boundary.webp",
+    "format": "WEBP",
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "bytes": 116048,
+    "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+    "git_blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+    "visual_inspection": {
+      "status": "passed",
+      "references": [
+        "public/images/guides/agentic-development-environments-compared.webp",
+        "public/images/guides/rag-retrieval-evaluation.webp"
+      ],
+      "crop_sheet": "docs/editorial/tools-and-guides/reviews/agent-tool-approval-boundary-crops.webp",
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ],
+      "limitation": "Checked archived simulated crop previews; did not render the live Astro site."
+    },
+    "webp_codec": {
+      "status": "passed",
+      "evidence": "Local Pillow 12.3.0 encoded and decoded a synthetic 1600x900 WebP; actual production image was decoded by the current image viewer and its RIFF/VP8 dimensions parsed from bytes."
+    },
+    "binary_blob": {
+      "status": "passed",
+      "evidence": "GitHub create_blob with base64 of original production WebP returned same Git blob SHA as main."
+    },
+    "committed_readback": {
+      "status": "passed",
+      "verified_commit_sha": "cd061d27e3150b7ce9653ab98f0af4b52900cbc2",
+      "tree_sha": "7cb5d5aee5968daa1433757495536726fdaf2014",
+      "encoding": "base64",
+      "evidence": "GitHub fetch_file on exact commit returned original production WebP with identical 154732-character Base64 payload, decoded length 116048, and Git blob SHA 775d08922d6bd88e83d96f2a4a7bda439138c014. Original decoded SHA-256 calculated in current run b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d; identical byte content proves same SHA-256 on committed copy.",
+      "byte_length": 116048,
+      "sha256": "b1aac7df6f3206bf9f93317569a14929bd3bded2b47cc75f093528a46e8a519d",
+      "blob_sha": "775d08922d6bd88e83d96f2a4a7bda439138c014",
+      "exact_bytes_equal": true
+    }
+  },
+  "artwork": {
+    "state": "reviewed",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "Built-in image_gen.imagegen generated three PNG candidates, with source paths/full prompts in guide artwork review."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Displayed actual main checkout public/images/guides/introduction-to-rag.webp and agent-tool-approval-boundary.webp with view_image. Archive/lens and paper/partition references inspected; warm textured forms and centered metaphor. All three candidates, reference-first comparison and selected 21:9 desktop, 16:9 mobile, 3:2 card, square and thumbnail crops actually displayed."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow 13.0.0 encoded and fully decoded selected 1600x900 quality-88 WebP: 161666 bytes, sha256 02f3e789e25c9136682294790c395a92d50a19774f1d47451feaf94ca5c8bc14"
+      },
+      "binary_upload": {
+        "status": "unverified",
+        "evidence": "Public Git CLI checkout succeeded; connector create_blob base64 + tree/commit/ref route discovered. Real guide asset upload and exact-ref read-back still pending."
+      }
+    },
+    "blocker": null,
+    "generation": {
+      "tool": "image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\n\nPlacement: article hero, also used as a guide card. Output crop: wide landscape 16:9, high-resolution 2048 by 1152 or larger.\nSubject: Part 2 \u2014 Build Your First RAG Application in TypeScript.\nVerified context: The snapshot is the handoff between ingestion and questions. The document hash identifies the bytes we indexed; it does not certify who wrote them or whether the policy is current. After generation, the application checks that every returned source ID belongs to the selected context.\nVisual idea: One blank paper slip drawn from a small stone archive along a terracotta guide channel, with a fine thread keeping its physical connection to the source. This is an abstract editorial metaphor for preserved provenance, not a literal technical architecture or proof of correctness.\nEditorial composition: a shallow stone archive and a terracotta channel are cut into one tactile limestone volume. The selected paper slip curves out through its central slot; a fine dark thread loops visibly back into the source archive. Slightly elevated side view, strong singular paper curve, restrained material shadows. Keep all essential forms clustered and centered.\nUse the inspected story layout role: full-width image after article introduction, centered object-fit cover at 21:9 desktop and 16:9 mobile; guide cards use 3:2 and narrow rows square. Keep archive, selected slip and their connection clustered in the central half with generous warm negative space around them.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Spacious composition and strong contrast. Match the inspected production family: tactile chalky stone, blank matte paper, restrained terracotta, soft directional shadows and quiet material depth, editorial rather than glossy product advertising.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. The metaphor needs physical/spatial presence, substantial materiality, subtle depth and compositional hierarchy; fine lines support the solid forms.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, or generic glowing AI brains. Do not generate a headline, imitate a screenshot or depict a measured result. No border or frame. Do not add magnifying glasses, keys, gears, hands or people.\nDeliver one clean coherent image, not a contact sheet or labeled panels.",
+      "source": "/workspace/scratch/1c031ef08f46/generated_images/exec-1c8d1ded-64d2-418b-958e-21cec8029392.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/rag-typescript-application-artwork.json",
+      "outcome": "pass",
+      "references": [
+        "public/images/guides/introduction-to-rag.webp",
+        "public/images/guides/agent-tool-approval-boundary.webp"
+      ],
+      "crops": [
+        "desktop-hero",
+        "mobile-hero",
+        "card"
+      ]
+    }
+  }
+}
