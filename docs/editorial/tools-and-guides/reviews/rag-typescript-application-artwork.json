@@ -180,7 +180,7 @@
     "date": "2026-11-12",
     "scope": "Assistant technical and editorial checks; human publication review pending",
     "article_execution": "Extracted the exact Markdown TS fences and workspace shell commands into a fresh disposable folder. Node 22.23.4: nine groups pass; ingestion, retrieval and no-evidence CLI paths pass. TypeScript 6.0.3 strict noEmit check passed using repository development types, not required by reader runtime.",
-    "diagram": "Both SVG variants rendered with CairoSVG and displayed. Checked labels/arrows against actual code. Mobile match branches bypass terminal no-evidence; retrieve mode does not enter model path.",
+    "diagram": "Both SVG variants rendered with CairoSVG and displayed. Checked labels/arrows against actual code. Mobile match branches bypass terminal no-evidence; retrieve mode does not enter model path. Desktop body labels increased to 24 SVG units and checked at 646px article-column width; snapshot arrows rerouted around section labels. Both final SVGs rendered and displayed.",
     "site_validation": "npm run verify passed locally; draft route absent from dist and public guide list. Existing Zod deprecation hints remain unchanged. Browser attempt failed before page inspection: system Chromium socket() Operation not permitted; Playwright Chromium download was not a ZIP; cloud browser localhost returned ERR_CONNECTION_REFUSED. No local browser/axe pass claimed.",
     "live_model": "Not executed; no installed Ollama release or model digest tested. API integration researched from current primary documentation.",
     "claims": [
@@ -229,6 +229,17 @@
       "Retained English-only guide contract; no invented French review status."
     ],
     "timeout_audit": "Additional isolated audit confirmed the local HTTP stub actually received the request and the incomplete response body raised TimeoutError; no model involved.",
-    "repository_regressions": "35 existing guide/related-reading/cover-asset/evergreen-ledger regression tests passed."
+    "repository_regressions": "35 existing guide/related-reading/cover-asset/evergreen-ledger regression tests passed.",
+    "render_fixture": "An isolated copy with only fixture publication metadata changed built successfully. Generated article HTML contains the responsive picture/mobile SVG and all 10 Expressive Code blocks (11 buttons total). Original committed source remains draft and its public detail/listing route is absent. No live browser inspection of the new article or axe pass is claimed."
+  },
+  "ci_evidence": {
+    "head_sha": "41921dfd27f16589d62bd2c239e6de83d2fa9558",
+    "run_id": 43195921222,
+    "url": "https://github.com/GadDev/daily-ai-pulse/actions/runs/43195921222",
+    "observed_jobs": {
+      "Verify project": "success",
+      "Browser smoke and accessibility": "success"
+    },
+    "scope": "Observed previous head. Final evidence/diagram commit must receive its own green exact-head run before delivery."
   }
 }

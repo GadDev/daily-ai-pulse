@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-11-12",
   "run_status": "draft-pr",
-  "run_note": "Manual issue #281 commission persisted on draft PR #288. Nine exact-article test groups and 35 existing regressions pass; npm run verify passes. No live Ollama/model/quality benchmark. Two SVG variants rendered and inspected; selected original WebP compared to two production references and actual crops, committed and retrieved with exact-byte/hash proof. Guide remains draft; exact-head CI pending. Separate PR #285 artwork-validation record preserved as imported evidence, not this run\u2019s work.",
+  "run_note": "Explicit manual issue #281 commission on draft PR #288. Nine exact-article groups and 35 existing regressions pass on Node 22.23.4; npm run verify passes. No live Ollama/model/quality benchmark. Both SVGs rendered and inspected, including desktop labels at article-column scale; isolated article fixture builds with all 10 code blocks and responsive diagram, while real source stays draft. Original WebP compared with two production references and actual crops, committed and retrieved byte-for-byte. GitHub run 43195921222 passed verification and browser/accessibility for head 41921dfd27f16589d62bd2c239e6de83d2fa9558; final evidence/diagram update requires its own exact-head green CI before user delivery. Complete is preparation only: human publication authorization remains required. PR #285 artifact_validation evidence retained with explicit source attribution.",
   "candidates": [
     {
       "topic_key": "rag-typescript-application",
@@ -20,10 +20,8 @@
   "handoff": {
     "guide_id": "rag-typescript-application",
     "pr_number": 288,
-    "completion": "blocked",
-    "blockers": [
-      "Exact-head GitHub CI pending on draft PR #288."
-    ]
+    "completion": "complete",
+    "blockers": []
   },
   "artifact_validation": {
     "guide_id": "agent-tool-approval-boundary",

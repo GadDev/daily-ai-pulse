@@ -5,52 +5,52 @@
 <rect width="1100" height="720" fill="#FAF6EE"/>
 <g font-family="Arial, sans-serif" fill="#171B1A">
 <text x="30" y="40" font-size="26" font-weight="bold">A saved source snapshot connects two separate commands</text>
-<text x="30" y="80" font-size="17" font-weight="bold">INGESTION · node cli.ts ingest</text>
+<text x="30" y="80" font-size="24" font-weight="bold">INGESTION · node cli.ts ingest</text>
 <rect x="30" y="100" width="290" height="100" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="46" y="130" font-size="20" font-weight="bold">Local Markdown</text>
-<text x="46" y="158" font-size="17" font-weight="normal">Flat ## sections</text>
-<text x="46" y="182" font-size="17" font-weight="normal">Fictional release / incident policies</text>
+<text x="46" y="130" font-size="24" font-weight="bold">Local Markdown</text>
+<text x="46" y="158" font-size="24" font-weight="normal">Flat ## sections</text>
+<text x="46" y="182" font-size="24" font-weight="normal">Fictional policies</text>
 <rect x="390" y="100" width="320" height="100" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="406" y="130" font-size="20" font-weight="bold">store.ts</text>
-<text x="406" y="158" font-size="17" font-weight="normal">Extract sections</text>
-<text x="406" y="182" font-size="17" font-weight="normal">Attach IDs, lines and SHA-256</text>
+<text x="406" y="130" font-size="24" font-weight="bold">store.ts</text>
+<text x="406" y="158" font-size="24" font-weight="normal">Extract sections</text>
+<text x="406" y="182" font-size="24" font-weight="normal">Attach IDs, lines and SHA-256</text>
 <rect x="780" y="100" width="290" height="100" rx="8" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
-<text x="796" y="130" font-size="20" font-weight="bold">Saved snapshot</text>
-<text x="796" y="158" font-size="17" font-weight="normal">.rag/passages.json</text>
-<text x="796" y="182" font-size="17" font-weight="normal">Rebuilt explicitly after edits</text>
+<text x="796" y="130" font-size="24" font-weight="bold">Saved snapshot</text>
+<text x="796" y="158" font-size="24" font-weight="normal">.rag/passages.json</text>
+<text x="796" y="182" font-size="24" font-weight="normal">Explicit rebuild after edits</text>
 <path d="M320 150H386" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <path d="M710 150H776" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="258" font-size="17" font-weight="bold">QUESTION TIME · node cli.ts retrieve/query &quot;question&quot;</text>
+<text x="30" y="258" font-size="24" font-weight="bold">QUESTION TIME · node cli.ts retrieve/query &quot;question&quot;</text>
 <rect x="30" y="280" width="290" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="46" y="310" font-size="20" font-weight="bold">Load + retrieve</text>
-<text x="46" y="338" font-size="17" font-weight="normal">Validate question and index</text>
-<text x="46" y="362" font-size="17" font-weight="normal">Lexical rank + whole-passage limit</text>
-<path d="M925 200V236H175V276" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="46" y="310" font-size="24" font-weight="bold">Load + retrieve</text>
+<text x="46" y="338" font-size="24" font-weight="normal">Validate input + index</text>
+<text x="46" y="362" font-size="24" font-weight="normal">Rank + context limit</text>
+<path d="M925 200V219H15V338H26" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="390" y="280" width="320" height="116" rx="8" fill="#F3EBDD" stroke="#8A4B35" stroke-width="1.5"/>
-<text x="406" y="310" font-size="20" font-weight="bold">Selected context</text>
-<text x="406" y="338" font-size="17" font-weight="normal">retrieve → print passages</text>
-<text x="406" y="362" font-size="17" font-weight="normal">query → local model adapter</text>
+<text x="406" y="310" font-size="24" font-weight="bold">Selected context</text>
+<text x="406" y="338" font-size="24" font-weight="normal">retrieve → passages</text>
+<text x="406" y="362" font-size="24" font-weight="normal">query → model adapter</text>
 <path d="M320 338H386" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="780" y="280" width="290" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="796" y="310" font-size="20" font-weight="bold">Ollama request</text>
-<text x="796" y="338" font-size="17" font-weight="normal">JSON mode; fixed local endpoint</text>
-<text x="796" y="362" font-size="17" font-weight="normal">Timeout + response-byte limit</text>
+<text x="796" y="310" font-size="24" font-weight="bold">Ollama request</text>
+<text x="796" y="338" font-size="24" font-weight="normal">Local JSON request</text>
+<text x="796" y="362" font-size="24" font-weight="normal">Timeout + byte limit</text>
 <path d="M710 350H776" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="30" y="464" width="290" height="100" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="46" y="494" font-size="20" font-weight="bold">No selected passage</text>
-<text x="46" y="522" font-size="17" font-weight="normal">Return no-evidence</text>
-<text x="46" y="546" font-size="17" font-weight="normal">Do not call the model</text>
+<text x="46" y="494" font-size="24" font-weight="bold">No selected passage</text>
+<text x="46" y="522" font-size="24" font-weight="normal">Return no-evidence</text>
+<text x="46" y="546" font-size="24" font-weight="normal">Do not call the model</text>
 <path d="M175 396V460" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="390" y="464" width="320" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="406" y="494" font-size="20" font-weight="bold">Validate model response</text>
-<text x="406" y="522" font-size="17" font-weight="normal">Complete envelope + answer shape</text>
-<text x="406" y="546" font-size="17" font-weight="normal">Unique IDs from selected context</text>
+<text x="406" y="494" font-size="24" font-weight="bold">Validate response</text>
+<text x="406" y="522" font-size="24" font-weight="normal">Shape + complete output</text>
+<text x="406" y="546" font-size="24" font-weight="normal">IDs from selected context</text>
 <path d="M925 396V430H550V460" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="780" y="464" width="290" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
-<text x="796" y="494" font-size="20" font-weight="bold">Return an outcome</text>
-<text x="796" y="522" font-size="17" font-weight="normal">answered / abstained</text>
-<text x="796" y="546" font-size="17" font-weight="normal">or generation-error; no answer</text>
+<text x="796" y="494" font-size="24" font-weight="bold">Return an outcome</text>
+<text x="796" y="522" font-size="24" font-weight="normal">answered / abstained</text>
+<text x="796" y="546" font-size="24" font-weight="normal">or generation-error</text>
 <path d="M710 522H776" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="638" font-size="20" font-weight="bold">Reference membership is checked; factual claim support needs separate evaluation.</text>
-<text x="30" y="674" font-size="18" font-weight="normal">Teaching implementation. Tests use model fakes; no live Ollama generation is claimed.</text>
+<text x="30" y="638" font-size="24" font-weight="bold">Reference validity ≠ claim support.</text>
+<text x="30" y="674" font-size="18" font-weight="normal">Teaching implementation. Tests use model fakes; live Ollama was not exercised.</text>
 </g></svg>

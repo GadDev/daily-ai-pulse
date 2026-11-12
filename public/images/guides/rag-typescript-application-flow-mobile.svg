@@ -15,7 +15,7 @@
 <text x="36" y="260" font-size="17" font-weight="normal">ID + source line + document hash</text>
 <text x="36" y="284" font-size="17" font-weight="normal">.rag/passages.json</text>
 <text x="20" y="356" font-size="16" font-weight="bold">QUESTION TIME · retrieve or query</text>
-<path d="M190 318V373" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M190 318V330H8V434H18" fill="none" stroke="#575D5B" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="20" y="376" width="340" height="116" rx="8" fill="#FFFFFF" stroke="#575D5B" stroke-width="1.5"/>
 <text x="36" y="406" font-size="20" font-weight="bold">Load snapshot + question</text>
 <text x="36" y="434" font-size="17" font-weight="normal">Validate input and passage shape</text>
