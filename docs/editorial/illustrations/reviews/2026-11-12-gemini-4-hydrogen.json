@@ -1,0 +1,77 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "story_id": "2026-11-12-gemini-4-hydrogen",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "2026-11-12-gemini-4-hydrogen",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Gemini 4 Hydrogen routes work between a fast execution mode and a larger reasoning mode",
+    "verified_context": [
+      "Google introduced Gemini 4 Hydrogen as a model that can switch between a fast response path and a deeper reasoning path.",
+      "The announcement describes the routing behavior and availability, but does not establish independent benchmark performance.",
+      "The editorial focus is the controlled choice between quick execution and a larger reasoning chamber."
+    ],
+    "editorial_idea": "One compact engine selects between a short direct lane and a larger nested chamber without implying unsupported benchmark results.",
+    "visual_metaphor": "A tactile central routing mechanism with one short open channel and one deeper layered chamber, joined by a single terracotta switch.",
+    "archetype": "mechanical-physical-metaphor",
+    "output_crop": "wide",
+    "must_show": ["single-central-engine", "two-distinct-spatial-paths", "center-safe-switch"],
+    "must_not_show": ["words", "letters", "numbers", "labels", "logos", "interface-elements", "page-header", "page-footer", "buttons", "badges", "invented-charts", "watermark", "neon-effects", "robots", "glowing-ai-brains", "screenshot-imitation", "bare-schematic-or-diagram", "border", "frame"],
+    "golden_references": ["public/images/stories/2026-09-24-gpt-6-sol-luna.webp", "public/images/stories/2026-09-24-greedy-decoding-precision.webp"],
+    "cover_crop_safe": true
+  },
+  "generation_identity": {
+    "identity_version": "1",
+    "story_id": "2026-11-12-gemini-4-hydrogen",
+    "story_source_sha256": "1676dff20b1e84bf36c8e7337dfc889d21bd031d5da325c73ca7eaf326c2fab4",
+    "visual_brief_sha256": "b3a0aa7482178cd35c0354fc57f5087e1ddf1cef963556bf1d92a11f752808e2",
+    "reference_inputs_sha256": "8b523020839c04dbb47fca343a7b494ab31762f87d2f1548340e0cbd70a23e3c",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "396ece0643372c30cc14e5b995c60e0d4c44382a8292a72936a0b34f2ef4c397"
+  },
+  "candidate_notes": {
+    "A": "Selected. The terracotta selector, short open channel and deep nested chamber communicate the routing choice as one tactile object with a strong thumbnail silhouette.",
+    "B": "Constitution-compliant and spatially rich, but the moving spheres make the fast-versus-deep contrast slightly more literal and less compact.",
+    "C": "Constitution-compliant, but the long upper rail and spiral chamber weaken the single selector relationship in a mobile cover crop."
+  },
+  "constitution_check": {"passed": true, "violations": []},
+  "prohibited_elements": {
+    "words": false, "letters": false, "numbers": false, "labels": false, "logos": false,
+    "interface_elements": false, "page_header": false, "page_footer": false, "buttons": false,
+    "badges": false, "invented_charts": false, "watermark": false, "neon_effects": false,
+    "robots": false, "glowing_ai_brains": false, "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false, "border": false, "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94, "brand_fit": 92, "composition": 94, "crop_quality": 95,
+    "technical_meaning": 93, "cleanliness": 96, "golden_reference_fit": 91,
+    "weighted_total": 93.25
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_review": {
+    "article_desktop": "The complete routing object, selector and two paths remain visible in the 1600×900 hero.",
+    "article_mobile": "A centered cover crop retains the terracotta selector and the contrast between the short channel and nested chamber.",
+    "thumbnail": "The dark engine silhouette, bright channel and terracotta selector remain legible at 320px."
+  },
+  "golden_reference_comparison": "The selected candidate shares the references' warm paper field, tactile architectural object, charcoal mass, sparse terracotta emphasis and fine supporting geometry while using a story-specific selector form.",
+  "final_asset": "/images/stories/2026-11-12-gemini-4-hydrogen.webp",
+  "final_dimensions": {"width": 1600, "height": 900},
+  "asset_integrity": {
+    "byte_length": 209376,
+    "sha256": "0c4df8e3b2cdbdfdc7bcc5cc8b8b46786a14ecb99244fdd8837c608863c8e6dc",
+    "git_blob_sha": "538967b7bc2596df2c34197490aa3e9cd7854a72",
+    "riff_container_complete": true
+  },
+  "generation_metadata": {"generated_at": "2026-11-13T08:15:09Z"}
+}

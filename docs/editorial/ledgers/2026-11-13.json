@@ -263,5 +263,18 @@
       "deduplication": {"status":"repeat","candidate_key":"openai-aws|chatgpt-enterprise|marketplace-procurement","previous_story_id":"2026-11-09-chatgpt-enterprise-aws-marketplace"}
     }
   ],
-  "publication": {"story_ids":[],"standalone_story_ids":[],"withheld_selected":[],"must_know_story_id":null}
+  "publication": {
+    "story_ids": [
+      "2026-11-12-gemini-4-hydrogen",
+      "2026-11-11-deepmind-alphagenome-2",
+      "2026-11-12-google-agent-anomaly-detection-benchmarks",
+      "2026-11-11-google-a2ui-1-0",
+      "2026-11-11-aws-agentcore-web-search-api",
+      "2026-11-12-microsoft-frontier-deployment-results",
+      "2026-11-06-artificial-agents-social-contagion"
+    ],
+    "standalone_story_ids": [],
+    "withheld_selected": [],
+    "must_know_story_id": "2026-11-12-gemini-4-hydrogen"
+  }
 }
