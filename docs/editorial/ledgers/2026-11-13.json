@@ -26,7 +26,8 @@
       "editorial_score": {"significance":5,"evidence":4,"novelty":5,"relevance":5,"durability":5,"weighted_total":95},
       "learning_gap": {"exists":true,"concepts":["multi-model routing","effort-normalized evaluation"]},
       "related_content": {"previous_story_ids":["2026-11-10-gemini-4-carbon-availability"]},
-      "deduplication": {"status":"new","candidate_key":"google|gemini-4-hydrogen|broad-release-and-antigravity-orchestrator","canonical_event":"Google releases Gemini 4 Hydrogen and Antigravity Orchestrator on 12 November.","previous_coverage":"The 12 November edition covered Carbon availability, not Hydrogen or the new automatic routing event.","material_delta":"A distinct model tier, pricing contract and routing mechanism are newly available."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"google|gemini-4-hydrogen|broad-release-and-antigravity-orchestrator","canonical_event":"Google releases Gemini 4 Hydrogen and Antigravity Orchestrator on 12 November.","previous_coverage":"The 12 November edition covered Carbon availability, not Hydrogen or the new automatic routing event.","material_delta":"A distinct model tier, pricing contract and routing mechanism are newly available."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-11-deepmind-alphagenome-2",
@@ -51,7 +52,8 @@
       "editorial_score": {"significance":5,"evidence":4,"novelty":5,"relevance":4,"durability":5,"weighted_total":92},
       "learning_gap": {"exists":true,"concepts":["cell-state generalization","variant-effect calibration"]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"new","candidate_key":"deepmind|alphagenome-2|cell-type-variant-prediction","canonical_event":"DeepMind announces AlphaGenome 2 and opens research API access.","previous_coverage":null,"material_delta":"A redesigned model adds cell-type and unseen-state predictions beyond the earlier AlphaGenome system."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"deepmind|alphagenome-2|cell-type-variant-prediction","canonical_event":"DeepMind announces AlphaGenome 2 and opens research API access.","previous_coverage":null,"material_delta":"A redesigned model adds cell-type and unseen-state predictions beyond the earlier AlphaGenome system."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-12-google-agent-anomaly-detection-benchmarks",
@@ -76,7 +78,8 @@
       "editorial_score": {"significance":5,"evidence":4,"novelty":4,"relevance":5,"durability":5,"weighted_total":92},
       "learning_gap": {"exists":true,"concepts":["out-of-band agent monitoring","poisoned memory detection"]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"material-update","candidate_key":"google|agent-anomaly-detection|public-benchmark-evaluation","canonical_event":"Google publishes public-benchmark results for Agent Anomaly Detection.","previous_coverage":"The feature entered private preview in September; no Pulse story or recent ledger covered the benchmark evidence.","material_delta":"The new report supplies 1,774-session results, false-alarm ranges and documented failure modes."}
+      "deduplication": {"status":"material-update","publication_status":"material-update-confirmed","candidate_key":"google|agent-anomaly-detection|public-benchmark-evaluation","canonical_event":"Google publishes public-benchmark results for Agent Anomaly Detection.","previous_coverage":"The feature entered private preview in September; no Pulse story or recent ledger covered the benchmark evidence.","material_delta":"The new report supplies 1,774-session results, false-alarm ranges and documented failure modes."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-11-google-a2ui-1-0",
@@ -101,7 +104,8 @@
       "editorial_score": {"significance":5,"evidence":4,"novelty":5,"relevance":5,"durability":5,"weighted_total":95},
       "learning_gap": {"exists":true,"concepts":["component allowlists","agent-to-UI protocols"]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"new","candidate_key":"google|a2ui|stable-1-0-protocol","canonical_event":"Google releases the first stable A2UI protocol and SDK set.","previous_coverage":null,"material_delta":"Version 1.0 adds a stable contract, bidirectional calls, accessibility and production renderer coverage."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"google|a2ui|stable-1-0-protocol","canonical_event":"Google releases the first stable A2UI protocol and SDK set.","previous_coverage":null,"material_delta":"Version 1.0 adds a stable contract, bidirectional calls, accessibility and production renderer coverage."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-11-aws-agentcore-web-search-api",
@@ -126,7 +130,8 @@
       "editorial_score": {"significance":4,"evidence":4,"novelty":4,"relevance":5,"durability":4,"weighted_total":83},
       "learning_gap": {"exists":false,"concepts":[]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"new","candidate_key":"aws|agentcore|direct-web-search-api","canonical_event":"AWS launches the direct AgentCore Web Search API.","previous_coverage":null,"material_delta":"Search no longer requires a gateway target and MCP client for application-owned use cases."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"aws|agentcore|direct-web-search-api","canonical_event":"AWS launches the direct AgentCore Web Search API.","previous_coverage":null,"material_delta":"Search no longer requires a gateway target and MCP client for application-owned use cases."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-12-microsoft-frontier-deployment-results",
@@ -151,7 +156,8 @@
       "editorial_score": {"significance":4,"evidence":4,"novelty":4,"relevance":5,"durability":5,"weighted_total":85},
       "learning_gap": {"exists":true,"concepts":["first-pass quality","forward-deployed engineering"]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"new","candidate_key":"microsoft-frontier|named-customer-projects|measured-operating-results","canonical_event":"Microsoft publishes measured outcomes from named Frontier Company deployments.","previous_coverage":null,"material_delta":"New named results include time, quality and detection-latency baselines."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"microsoft-frontier|named-customer-projects|measured-operating-results","canonical_event":"Microsoft publishes measured outcomes from named Frontier Company deployments.","previous_coverage":null,"material_delta":"New named results include time, quality and detection-latency baselines."},
+      "publication_verification": {"status":"verified-with-claim-scope"}
     },
     {
       "id": "2026-11-06-artificial-agents-social-contagion",
@@ -176,7 +182,8 @@
       "editorial_score": {"significance":4,"evidence":5,"novelty":5,"relevance":4,"durability":5,"weighted_total":91},
       "learning_gap": {"exists":true,"concepts":["threshold models of diffusion","correlated agent behavior"]},
       "related_content": {"previous_story_ids":[]},
-      "deduplication": {"status":"new","candidate_key":"feng-et-al|artificial-agents|lower-social-contagion-thresholds","canonical_event":"Peer-reviewed study reports lower adoption thresholds across five LLM agents.","previous_coverage":null,"material_delta":"This is an eligible seven-day catch-up item not present in the 6–12 November archive or ledgers."}
+      "deduplication": {"status":"new","publication_status":"new-confirmed","candidate_key":"feng-et-al|artificial-agents|lower-social-contagion-thresholds","canonical_event":"Peer-reviewed study reports lower adoption thresholds across five LLM agents.","previous_coverage":null,"material_delta":"This is an eligible seven-day catch-up item not present in the 6–12 November archive or ledgers."},
+      "publication_verification": {"status":"verified"}
     }
   ],
   "watchlist": [
