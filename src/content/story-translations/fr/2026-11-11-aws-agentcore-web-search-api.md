@@ -2,7 +2,9 @@
 storyId: 2026-11-11-aws-agentcore-web-search-api
 locale: fr
 sourceSha256: c614085e30606350b73d6ece15e4994e88b355569b7488b11e63a35425c20c8a
-status: draft
+status: reviewed
+reviewedBy: 'ChatGPT (model self-review)'
+reviewedAt: '2026-11-16T11:30:00Z'
 title: "AWS supprime la passerelle pour les recherches Web simples dans AgentCore"
 description: "Une API signée fournit des résultats Web récents et sourcés sans créer de passerelle AgentCore, en laissant les politiques de recherche et les défenses contre les injections à l’application."
 imageAlt: "Une requête de recherche terracotta signée traverse une frontière compacte et ramène quelques documents clairs avec leurs sources"
