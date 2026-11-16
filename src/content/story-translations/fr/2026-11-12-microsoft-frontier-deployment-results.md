@@ -4,7 +4,7 @@ locale: fr
 sourceSha256: f32d7a761f4adea54c89fc2da2add3b8ac3b347a71d62cafa25d65c425670c8e
 status: reviewed
 reviewedBy: 'ChatGPT (model self-review)'
-reviewedAt: '2026-11-16T11:30:00Z'
+reviewedAt: '2026-11-16T11:23:26.703Z'
 title: "Les meilleurs cas d’usage IA de Microsoft commencent par le chronomètre d’avant"
 description: "Des projets nommés chez Northern Trust et KT publient des mesures avant/après, ainsi que les contrôles humains et les changements de workflow qui les accompagnent."
 imageAlt: "Deux parcours de travail mesurés traversent une station d’agents sobre, tandis que des personnes conservent la décision au dernier contrôle"
