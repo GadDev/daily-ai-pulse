@@ -2,7 +2,9 @@
 storyId: 2026-11-12-gemini-4-hydrogen
 locale: fr
 sourceSha256: 1676dff20b1e84bf36c8e7337dfc889d21bd031d5da325c73ca7eaf326c2fab4
-status: draft
+status: reviewed
+reviewedBy: 'ChatGPT (model self-review)'
+reviewedAt: '2026-11-16T11:30:00Z'
 title: "Gemini 4 Hydrogen fait du routage de modèles une décision produit"
 description: "Le modèle rapide de la famille Gemini 4 arrive avec une tarification fixe, quatre niveaux de réflexion et un orchestrateur Antigravity capable de changer de modèle au cours d’une session."
 imageAlt: "Un moteur d’exécution compact en terre cuite répartit les tâches entre une voie rapide claire et une grande chambre de raisonnement sombre"
