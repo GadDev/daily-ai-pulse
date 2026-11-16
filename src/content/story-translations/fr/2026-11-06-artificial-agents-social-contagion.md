@@ -2,7 +2,9 @@
 storyId: 2026-11-06-artificial-agents-social-contagion
 locale: fr
 sourceSha256: c261bfd9d1b31ef72336444b26b379037b37285701108fdab15758527ce3bf2e
-status: draft
+status: reviewed
+reviewedBy: 'ChatGPT (model self-review)'
+reviewedAt: '2026-11-16T11:30:00Z'
 title: "Les agents IA pourraient faciliter le démarrage des tendances sociales"
 description: "Une étude évaluée par les pairs observe des seuils d’adoption plus bas chez cinq modèles de langage et simule une amplification de la diffusion même avec une proportion modeste d’agents."
 imageAlt: "Quelques nœuds artificiels terracotta abaissent le seuil d’un réseau social clair et y propagent une vague d’adoption plus large"
