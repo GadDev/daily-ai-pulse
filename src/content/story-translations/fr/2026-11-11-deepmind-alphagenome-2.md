@@ -4,7 +4,7 @@ locale: fr
 sourceSha256: 55dc3625ba3eea6082ccf79d5880158520a3b85de143a43e899a17ad8f2b78a6
 status: reviewed
 reviewedBy: 'ChatGPT (model self-review)'
-reviewedAt: '2026-11-16T11:30:00Z'
+reviewedAt: '2026-11-16T11:23:02.461Z'
 title: "AlphaGenome 2 passe des tissus aux différents types de cellules"
 description: "Le successeur de DeepMind prédit les effets de variations de l’ADN selon les types et états cellulaires, avec une API de recherche et des résultats encore à confirmer indépendamment."
 imageAlt: "Un ensemble stratifié de cellules claires révèle une variation d’ADN terracotta à une résolution progressivement plus fine"
