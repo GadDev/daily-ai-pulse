@@ -4,7 +4,7 @@ locale: fr
 sourceSha256: 4804107f8707f2d5d341e22aeddb0d36652cb1dcb2e9737c8c26c995f8c9b841
 status: reviewed
 reviewedBy: 'ChatGPT (model self-review)'
-reviewedAt: '2026-11-16T11:30:00Z'
+reviewedAt: '2026-11-16T11:23:05.010Z'
 title: "Le moniteur d’agents de Google détecte la plupart des attaques exécutées, mais manque les mémoires empoisonnées"
 description: "Une évaluation de 1 774 sessions fournit des résultats sur benchmarks publics, des taux de fausses alertes et un avertissement sur la sécurité après exécution."
 imageAlt: "Un anneau de surveillance sombre intercepte des traces terracotta quittant le parcours d’un agent, tandis qu’une voie mémorielle discrète passe dessous"
