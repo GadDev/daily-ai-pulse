@@ -1,7 +1,7 @@
-# Daily news orchestration — execution contract v1.2
+# Daily news orchestration — execution contract v1.3
 
-- **Version:** 1.2
-- **Updated:** 23 October 2026
+- **Version:** 1.3
+- **Updated:** 20 November 2026
 - **Scope:** Daily news; Tools & Guides is unchanged.
 
 ## Failure and execution boundary
@@ -59,12 +59,16 @@ curious-ai, reason) without a news selection/article. All writers honor the shar
 reservation protocol in CURIOUS_AI_ORCHESTRATOR_V1.md before new production drafting.
 Other desks keep existing scoring; guide ownership and scheduling remain independent.
 
-1. Resolve current main and read core execution/schema/decision/topic contracts.
-   Read remaining dependencies before their stages. Record real refs; do not
+1. Resolve current main and read this execution contract. Choose idle, CI,
+   recovery or new discovery from remote state before loading full stage context.
+   Read required schema/decision/topic contracts before discovery/classification,
+   and remaining dependencies before their stages. Record real refs; do not
    substitute invented policy when required editorial contracts are unavailable.
 2. Inspect today's and the preceding seven dates' canonical branches/checkpoints
-   and PRs. Resume the oldest valid structured `in-progress` checkpoint before
-   starting a new date. Keep its original date/cutoff. A draft PR with finished
+   and PRs, plus all older unfinished canonical branches and known unresolved
+   batches. Seven days limits discovery catch-up, not recovery. Reconcile actual
+   PR state before resuming the oldest valid structured `in-progress` or
+   recoverable `blocked` checkpoint. Keep its original date/cutoff. A draft PR with finished
    research is awaiting review/CI, not a reason to redo research. Preserve merged
    and intentionally human-closed batches. Disclose any older known unresolved
    interval instead of silently claiming catch-up coverage.
@@ -101,9 +105,42 @@ Other desks keep existing scoring; guide ownership and scheduling remain indepen
    research never can. Publication and merge remain human actions.
 
 When no batch needs work, or today's finalized batch already exists, do not
-produce another batch or routine notification. Check pending current-head CI
+load unrelated stage contracts, repeat discovery, generate artwork, produce
+another batch or routine notification. Check pending current-head CI
 without committing heartbeat-only edits. Put CI observations in the PR body so
 recording a success does not invalidate that same revision's CI.
+
+## Runtime preflight and artwork persistence
+
+In a connected checkout run `npm ci` under the Node version in `.nvmrc` that
+satisfies `package.json` engines, then `npm run orchestrator:audit`. This read-only
+JSON report checks the runtime version, Node pin, npm command entry points and
+checkpoints on **all locally known** canonical news branches, including old ones.
+It makes no network requests or Git writes. Fetch/reconcile remote refs and
+actual PR states separately; stale branch metadata is not authority to resume
+merged or human-closed work. A missing/unreadable checkpoint is an explicit issue,
+never evidence that the date has no work. Local setup passing does not certify
+the scheduled environment or editorial readiness.
+
+Before generating artwork, inspect generation, visual inspection, WebP conversion
+and binary-safe Git upload/read-back in the actual invocation. Mark availability
+from observations, never from another session's tools. Prefer read-only probes
+and existing assets, then verify the full route with the first necessary real
+asset: inspect/review, normalize, hash, upload and read matching bytes back at the
+recorded revision. No throwaway remote write probes, paid test generation or
+alternate paid APIs. A text commit is not proof of binary transfer.
+
+When no credible persistence route exists, save the missing operation and exact
+recovery action, advance independent work and avoid repeated regeneration on
+hourly retries. Recover saved candidates and use `illustration:decision` before
+new generation; preserve valid reviewed assets. Uploaded means reviewed WebP
+bytes and hashes were actually read back, not merely a tool call succeeded.
+
+Record meaningful stage completion, reused/new artifacts, failed operations,
+validation results and the next action in existing checkpoint prose. Record model
+IDs, token counts and costs only when exposed by the runtime; otherwise use
+`unknown`. Reviewer labels are not billing metadata. Do not claim measured savings
+without usage evidence or add heartbeat-only commits to collect telemetry.
 
 ## Checkpoint and validation semantics
 
@@ -173,23 +210,24 @@ a full edition's ledger/PR/CI must still be observed before claiming completion.
 ## Saved task prompt
 
 Synchronize this text with the live task explicitly and verify readback. Its
-inline continuation rules work before v1.2 is merged; earlier repository stop
-wording is superseded only for partial-pass continuation, never evidence gates.
+setup and recovery safeguards apply immediately; use `orchestrator:audit` only
+after the helper is merged. This changes neither evidence gates nor the saved
+enabled state, recurrence, timezone or timing mode.
 
 ```prompt
-Advance the Daily AI Pulse DAILY NEWS workflow in GadDev/daily-ai-pulse. This task is the recurring driver: the existing 08:00 Europe/Luxembourg kickoff now has hourly continuation checks through 23:00. Continue saved work without waiting for another user rerun. Never edit task configuration from an editorial invocation.
+Advance the Daily AI Pulse DAILY NEWS workflow in GadDev/daily-ai-pulse. Use the existing recurring driver and Europe/Luxembourg editorial dates. Never change task configuration or create follow-up tasks from an editorial invocation.
 
-Resolve main to a commit and read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md plus the required current schema/decision/topic contracts. Load publication, illustration and French translation dependencies before their stages. If main still has v1.1, the automatic-continuation rules in this prompt supersede its single-invocation stop rule; the editorial/evidence gates remain unchanged.
+First choose idle, inspect-CI, resume or start using remote state before loading full editorial context. Resolve main to a commit, read docs/editorial/DAILY_NEWS_ORCHESTRATION_V1.md, and enumerate canonical content/daily-ai-pulse-YYYY-MM-DD branches and PR states. Inspect checkpoints for today, the preceding seven dates AND all older unfinished canonical branches or explicitly known unresolved batches. The seven-day discovery catch-up window is not a recovery expiry. Resume the oldest valid in-progress or recoverable blocked checkpoint only after reconciling the actual PR state. Never reopen merged or human-closed work, restart a completed draft PR's research, or start another batch while an older recoverable batch remains. Preserve original editorial date, cutoff, decisions, evidence and human edits. If today's batch is finalized and no recovery or CI action remains, return silently without loading stage contracts, searching news, generating artwork or making heartbeat writes. Do not infer completeness from missing indexed search results.
 
-Reconcile canonical branches/checkpoints/PRs for today and the preceding seven local dates. Resume the oldest structurally valid in-progress checkpoint first, retaining its original editorial date, cutoff, observations and human edits. Do not reopen a human-closed or merged batch. Do not resume a completed draft PR's research. If none is in progress, start today's batch only if its canonical batch has not already been finalized. Otherwise inspect any pending current-head CI; when nothing needs action, do not notify.
+Load required current schema/decision/topic contracts from the pinned main only when entering discovery/classification. Load publication, related-reading, artwork and French dependencies before their respective stages; never skip a required gate. Read Curious configuration/orchestrator before selection: during pilot retain existing Curious news treatment; in production inspect that lane but refer leads via external_referrals to the dedicated Curious owner without news selection/drafting. Honor shared production coverage reservations. Keep Tools & Guides independent. If routing dependencies are absent retain the existing news policy.
 
-Perform as many safe queued actions as the invocation permits: verify primary sources/event dates, compare archive URLs AND event/entity/change, classify and save each candidate, finish bounded discovery across all eight desks, persist the normalized ledger, then publication verification/deduplication, surviving English stories, optional curated relatedGuides before translation-source freeze, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and current-head CI. Use the repository's evidence/scoring and watch/withholding rules. Never invent dates, claims, novelty, tests, artwork, reviewers or a quiet day. Use the current checkpoint and ledger phase, never a dated recovery hint from an earlier prompt. When research is complete, advance drafting, artwork, translations and handoff without repeating completed discovery.
+Use the checkpoint/ledger to execute the first unfinished stage, completing as much safe work as possible. Consume saved leads before bounded eight-desk discovery; preserve supported candidate-by-candidate verification, archive URL AND event/entity/change deduplication, scoring and selected/watch/rejected decisions. Never invent sources, dates, novelty, tests, artwork, reviewer identities or a quiet day. After research is complete do not repeat discovery: continue publication verification, surviving English stories, optional curated relatedGuides before translation-source freeze, reviewed illustrations, reviewed French, issue, checks, one canonical DRAFT PR and exact-current-head CI. Preserve selection and record publication withholding separately; candidate-level failures do not stop independent work. A genuinely complete zero-survivor ledger may yield a ledger-only PR; unfinished research cannot.
 
-Use the existing docs/editorial/runs/YYYY-MM-DD.md and run_schema 1.1 metadata. Preserve real decisions and failures, exact next_action, pending_candidates and original cutoff. Verify remote checkpoint writes. Continue immediately after a write whenever possible. If the invocation returns with safe work remaining, leave status: in-progress and blocker: null, with the saved next action. The next configured hourly check resumes it automatically. This is a continuing batch, never Blocked before PR, complete, or a ledger-only result. Do not ask the user to rerun. Do not claim you scheduled a wake yourself or guarantee a completion time.
+Before spending on artwork, inspect capabilities in THIS invocation: supported generation, actual visual inspection, WebP conversion, and binary-safe transfer to the target Git branch with exact-ref byte read-back. With a checkout and merged helper run npm run orchestrator:audit; it is local evidence only, not proof of image capabilities, current PR state or scheduler health. Follow the repository's Node pin/engines and npm scripts; do not guess old validator paths. Mark each image capability available/unavailable/unverified with observed evidence. An advertised tool alone does not prove end-to-end persistence; use existing assets/read-only probes where possible and the first necessary production asset to verify the full route. No throwaway remote write probes, alternate paid APIs or paid test generation. If persistence is unavailable or unverified and no credible route exists, save the precise missing operation and recovery action, continue independent stages, and do not repeatedly regenerate candidates on hourly retries. Reuse verified existing assets and recoverable candidates through illustration:decision; mark uploaded only after reviewed WebP bytes and matching hashes are read back at the recorded ref.
 
-During an unfinished pass use npm run editorial:run:check -- YYYY-MM-DD when available; reserve --handoff for a genuinely terminal batch report. Without shell, manually audit the same evidence fields and disclose checks as not executed. Missing local execution alone does not stop safe GitHub work. A global blocker requires an observed failed operation/missing capability, safe fallback result, evidence reference and why no independent action can advance. Candidate-level source/artwork failures use watch/withholding and do not stop independent work.
+Use docs/editorial/runs/YYYY-MM-DD.md and run_schema 1.1. Preserve exact next_action, pending_candidates, real failures and original cutoff. Verify remote writes and continue immediately when possible. During unfinished work use npm run editorial:run:check -- YYYY-MM-DD; reserve --handoff for a terminal report. If execution is unavailable audit equivalent fields manually and label commands not executed. Missing shell alone does not stop safe connector work. Safe unfinished work stays status: in-progress, blocker: null. A whole-batch blocker requires an observed failed/missing operation, evidence, safe fallback attempt and why no independent work can advance; do not invent runtime limits. Do not ask the user to rerun or promise a completion time or a wake you did not schedule.
 
-Track substantive progress in checkpoint.continuation: task_id 6aa3b7923820819191652334254f11f2, consecutive_no_progress and stall_reported. Advance means a supported candidate decision, new inspected source/archive evidence, a completed preparation/validation stage, or observed CI transition; timestamp/heartbeat-only edits do not count. After two consecutive non-progress invocations notify once with the observed refs/failures and exact unresolved action; call it stalled execution, not an invented external failure. Keep future safe retries enabled. On real progress reset the counter and stall_reported.
+Track substantive progress in continuation with task_id 6aa3b7923820819191652334254f11f2, consecutive_no_progress and stall_reported. Timestamp-only edits do not count. After two actual no-progress passes report one stall with refs/errors and the unresolved action; reset on progress. Do not invent historical attempt counts. In checkpoint prose record meaningful completed stage, reused/new artifacts, failed tool operation, validation result and next action. Record model ID, token counts and cost only if the runtime exposes them; otherwise say unknown. Do not infer a billable model from a role/reviewer label or claim measured savings without usage evidence.
 
-Notify only for a new draft PR, a changed terminal CI result, an evidenced whole-batch blocker, or the first stalled-execution alert. Routine partial progress and idle checks produce no user notification. Never merge, enable auto-merge, mark ready or write editorial work to main. Keep one branch/PR per edition and preserve Tools & Guides independence. Never modify the checkpoint merely to restamp a successful CI observation: update the PR body so current-head CI stays valid.
+Notify only for a new draft PR, changed terminal CI, observed whole-batch blocker or first stall alert. Routine progress, idle and unchanged blocked checks are silent. Never merge, enable auto-merge, mark ready, publish automatically or write editorial work to main. Use current expected-head/blob preconditions; reread after conflicts and preserve human edits. Keep one branch/PR per edition. Record CI observations in the PR body, never heartbeat commits that invalidate the tested revision.
 ```

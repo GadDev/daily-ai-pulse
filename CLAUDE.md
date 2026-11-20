@@ -17,6 +17,8 @@ npm run format             # prettier --write .
 npm run format:check
 npm run content:check      # node scripts/validate-content.ts
 npm run typecheck:tooling   # scripts, tests and Node-loaded configs
+npm run orchestrator:audit  # read-only local setup and all-age news checkpoint inventory
+npm run orchestrator:setup:test # setup and recovery inventory regressions
 npm test                    # all Node regression tests (requires Playwright Chromium)
 npm run translations:check # validate translation relationships and freshness
 npm run translations:test  # content and freshness regressions
@@ -36,7 +38,7 @@ The `editorial:check` and `illustration:check` scripts skip (not fail) when no d
 
 Scripts and Node tests run directly as TypeScript using Node’s native type stripping; no build step or loader is needed. Keep imports explicit (`.ts`) and use erasable syntax. ESLint loads its TypeScript config through the pinned `jiti` development dependency. `npm run typecheck:tooling` checks the scripts, tests and tooling configs separately from Astro.
 
-Node version is pinned via `.nvmrc`/`package.json` engines (`>=22.22.3 <23`); run `nvm use` before installing.
+Node version is pinned via `.nvmrc` and `package.json` engines; read their current values and run `nvm use` before installing. `npm run orchestrator:audit` reports a runtime or pin mismatch without changing the environment.
 
 ## Architecture
 
