@@ -37,7 +37,9 @@
     "curious:init": "node scripts/curious-init.ts",
     "curious:check": "node scripts/validate-curious-ai.ts",
     "curious:test": "node --test tests/curious-ai.test.ts tests/editorial-reservations.test.ts tests/editorial-batches.test.ts",
-    "editorial:batches:check": "node scripts/validate-editorial-batches.ts"
+    "editorial:batches:check": "node scripts/validate-editorial-batches.ts",
+    "orchestrator:audit": "node scripts/audit-orchestrator-setup.ts",
+    "orchestrator:setup:test": "node --test tests/orchestrator-setup.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",

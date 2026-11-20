@@ -39,6 +39,9 @@ jobs:
       - name: Daily news continuation and handoff regressions
         run: npm run editorial:run:test
 
+      - name: Orchestrator setup and recovery inventory regressions
+        run: npm run orchestrator:setup:test
+
       - name: Curious AI selection, ownership and recovery regressions
         run: npm run curious:test
 
