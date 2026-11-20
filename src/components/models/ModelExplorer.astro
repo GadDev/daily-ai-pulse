@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ModelEvidence from './ModelEvidence.astro';
+import ModelChart from './ModelChart.astro';
+import { modelCatalog } from '../../lib/model-catalog';
+import { modelMessages } from '../../lib/model-messages';
+import {
+  chartModels,
+  contextLabel,
+  defaultExplorerState,
+  filterModels,
+  priceLabel,
+  sortKeys,
+} from '../../lib/model-explorer';
+import type { Locale } from '../../lib/i18n';
+import '../../styles/model-explorer.css';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'en' } = Astro.props;
+const t = modelMessages[locale];
+const base = import.meta.env.BASE_URL;
+const otherHref = `${base}${locale === 'en' ? 'fr/' : ''}compare/`;
+const models = filterModels(modelCatalog, defaultExplorerState());
+const developers = [...new Set(models.map((model) => model.developer))].sort();
+const verificationDates = models.map((model) => model.specs.verifiedAt).sort();
+const verifiedAt = verificationDates[0];
+const answer = (value: boolean | null) => (value === null ? t.unknown : value ? t.yes : t.no);
+// Escape script delimiters even if future reviewed data contains markup.
+const payload = JSON.stringify({ models, locale }).replaceAll('<', '\\u003c');
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.title} | The Daily AI Pulse`}
+  description={t.description}
+  archiveLanguageHref={otherHref}
+>
+  <div class="model-explorer" data-model-explorer data-locale={locale}>
+    <header class="explorer-head">
+      <div>
+        <p class="explorer-kicker">{t.eyebrow}</p>
+        <h1>{t.title}</h1>
+        <p class="explorer-deck">{t.intro}</p>
+        <p class="explorer-intro">{t.description}</p>
+      </div>
+      <aside class="explorer-snapshot" aria-label={t.snapshot}>
+        <p class="explorer-kicker">{t.snapshot}</p>
+        <time datetime={verifiedAt}>{verifiedAt}</time>
+        <p>{t.snapshotNote}</p>
+        <a href="#explorer-methodology">
+          {locale === 'fr' ? 'Comment lire ce comparatif' : 'How to read this comparison'}
+        </a>
+      </aside>
+    </header>
+
+    <div
+      class="explorer-statline"
+      aria-label={locale === 'fr' ? 'Couverture du comparatif' : 'Comparison coverage'}
+    >
+      <span>
+        <strong>{models.length}</strong> {t.models}
+      </span>
+      <span>
+        <strong>{developers.length}</strong> {t.developers}
+      </span>
+      <span>
+        <strong>{chartModels(models, 'output').length}</strong> {t.chartEligible}
+      </span>
+      <a href={`${base}${locale === 'fr' ? 'fr/' : ''}models/`}>{t.related}</a>
+    </div>
+
+    <noscript>
+      <p class="explorer-notice">{t.noScript}</p>
+    </noscript>
+    <form
+      class="explorer-controls enhancement"
+      data-explorer-controls
+      hidden
+      role="search"
+      aria-label={t.search}
+    >
+      <div class="explorer-search-row">
+        <label class="explorer-search">
+          {t.search}
+          <input
+            type="search"
+            name="q"
+            placeholder={t.searchPlaceholder}
+            maxlength="200"
+            autocomplete="off"
+          />
+        </label>
+        <label>
+          {t.developer}
+          <select name="developer">
+            <option value="">{t.allDevelopers}</option>
+            {developers.map((developer) => (
+              <option value={developer}>{developer}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          {t.sort}
+          <select name="sort">
+            {sortKeys.map((key) => (
+              <option value={key}>{t[key]}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div class="explorer-filter-row">
+        <label>
+          <input type="checkbox" name="weights" />
+          {t.weights}
+        </label>
+        <label>
+          <input type="checkbox" name="reasoning" />
+          {t.reasoning}
+        </label>
+        <label>
+          <input type="checkbox" name="vision" />
+          {t.vision}
+        </label>
+        <label>
+          <input type="checkbox" name="descending" />
+          {t.descending}
+        </label>
+        <button type="reset" class="explorer-text-button">
+          {t.reset}
+        </button>
+      </div>
+    </form>
+
+    <section aria-labelledby="models-heading" class="explorer-catalog">
+      <div class="explorer-section-head">
+        <h2 id="models-heading">{t.tableTitle}</h2>
+        <p class="explorer-secondary" data-results role="status" aria-live="polite">
+          {models.length} / {models.length} {t.results}
+        </p>
+      </div>
+      <p class="explorer-secondary">
+        {t.priceUnit} · {t.standard}
+      </p>
+      <p class="explorer-scroll-hint" id="model-scroll-hint">
+        {t.scroll}
+      </p>
+      <div
+        class="explorer-table-scroll"
+        role="region"
+        aria-label={t.tableTitle}
+        aria-describedby="model-scroll-hint"
+        tabindex="0"
+      >
+        <table class="model-table">
+          <caption class="sr-only">
+            {t.title}·{t.priceUnit}
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" class="selection-column enhancement" hidden>
+                {t.select}
+              </th>
+              <th scope="col" data-sort-column="name" aria-sort="ascending">
+                {t.name}
+              </th>
+              <th scope="col" data-sort-column="input">
+                {t.input}
+              </th>
+              <th scope="col" data-sort-column="output">
+                {t.output}
+              </th>
+              <th scope="col" data-sort-column="context">
+                {t.context}
+              </th>
+              <th scope="col">{locale === 'fr' ? 'Capacités' : 'Capabilities'}</th>
+              <th scope="col" data-sort-column="benchmark">
+                GPQA Diamond
+              </th>
+            </tr>
+          </thead>
+          <tbody data-model-rows>
+            {models.map((model) => (
+              <tr data-model-id={model.id}>
+                <td class="selection-column enhancement" hidden>
+                  <label class="model-select">
+                    <input
+                      type="checkbox"
+                      data-select-model={model.id}
+                      aria-label={`${t.selectLabel} ${model.name}`}
+                    />
+                    <span class="sr-only">{model.name}</span>
+                  </label>
+                </td>
+                <th scope="row" class="model-identity">
+                  <strong>{model.name}</strong>
+                  <span>{model.developer}</span>
+                  <ModelEvidence model={model} locale={locale} />
+                </th>
+                <td class="numeric">
+                  {priceLabel(model.pricing?.input, locale)}
+                  <small>{model.pricing?.provider ?? t.unknown}</small>
+                </td>
+                <td class="numeric">
+                  {priceLabel(model.pricing?.output, locale)}
+                  <small>{t.priceUnit}</small>
+                </td>
+                <td class="numeric">
+                  <abbr
+                    title={
+                      model.contextWindow === null
+                        ? t.unknown
+                        : `${model.contextWindow.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')} tokens`
+                    }
+                  >
+                    {contextLabel(model.contextWindow, locale)}
+                  </abbr>
+                  <small>tokens</small>
+                </td>
+                <td class="model-capabilities">
+                  <span>
+                    {t.weights}: {answer(model.openWeights)}
+                  </span>
+                  <span>
+                    {t.reasoning}: {answer(model.reasoning)}
+                  </span>
+                  <span>
+                    {t.vision}: {answer(model.imageInput)}
+                  </span>
+                </td>
+                <td class="numeric">
+                  {model.benchmark
+                    ? `${model.benchmark.score.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')}%`
+                    : t.unknown}
+                  {model.benchmark && (
+                    <small>
+                      {model.benchmark.reportedBy === 'vendor' ? t.reported : t.independent}
+                    </small>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p data-no-results hidden class="explorer-empty">
+        {t.noResults}
+      </p>
+    </section>
+
+    <section class="explorer-comparison enhancement" hidden aria-labelledby="comparison-heading">
+      <div class="explorer-section-head">
+        <h2 id="comparison-heading">{t.compareTitle}</h2>
+        <div class="explorer-comparison-actions">
+          <button type="button" data-clear-selection>
+            {t.clear}
+          </button>
+          <button type="button" data-copy-link>
+            {t.copy}
+          </button>
+        </div>
+      </div>
+      <p data-selection-status role="status" aria-live="polite">
+        {t.compareHint}
+      </p>
+      <div
+        class="explorer-table-scroll"
+        data-comparison-region
+        role="region"
+        aria-label={t.selected}
+        tabindex="0"
+        hidden
+      >
+        <table data-comparison-table>
+          <caption class="sr-only">{t.selected}</caption>
+        </table>
+      </div>
+      <p data-share-status role="status" aria-live="polite"></p>
+    </section>
+
+    <ModelChart models={models} locale={locale} />
+
+    <section
+      id="explorer-methodology"
+      class="explorer-methodology"
+      aria-labelledby="methodology-heading"
+    >
+      <p class="explorer-kicker">{locale === 'fr' ? 'MÉTHODOLOGIE' : 'METHODOLOGY'}</p>
+      <h2 id="methodology-heading">{t.methodsTitle}</h2>
+      <p>{t.methods}</p>
+      <p>{t.methodsUpdate}</p>
+    </section>
+    <script type="application/json" id="model-explorer-data" set:html={payload} />
+  </div>
+</BaseLayout>
+
+<script>
+  import '../../scripts/model-explorer-client';
+</script>
