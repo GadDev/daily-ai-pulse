@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "check": "npm run typecheck:tooling && astro check",
+    "check": "npm run typecheck:tooling && npm run models:check && astro check",
     "content:check": "node scripts/validate-content.ts",
     "guides:assets:test": "node --test tests/guide-assets.test.ts",
     "guides:ledger:check": "node scripts/validate-tools-guides-ledgers.ts",
@@ -37,7 +37,9 @@
     "curious:init": "node scripts/curious-init.ts",
     "curious:check": "node scripts/validate-curious-ai.ts",
     "curious:test": "node --test tests/curious-ai.test.ts tests/editorial-reservations.test.ts tests/editorial-batches.test.ts",
-    "editorial:batches:check": "node scripts/validate-editorial-batches.ts"
+    "editorial:batches:check": "node scripts/validate-editorial-batches.ts",
+    "models:check": "node scripts/validate-models.ts",
+    "models:test": "node --test tests/model-explorer.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",

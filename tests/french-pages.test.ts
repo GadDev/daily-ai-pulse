@@ -102,7 +102,7 @@ test('a real source edit with a new correction withholds French routes, listing,
       const index = JSON.parse(readCandidate('pagefind/pagefind-entry.json'));
       assert.equal(
         index.languages.fr.page_count,
-        17 + frenchSelectionSamples.length + Number(current),
+        18 + frenchSelectionSamples.length + Number(current),
       );
       if (stage === 'updated-draft') {
         assert.equal(existsSync(route), false);
@@ -180,7 +180,9 @@ test('sitemap and actual Pagefind index exclude notice pages', () => {
     assert.ok(!sitemap.includes(`/fr/stories/${fixtureId(state)}/`));
   }
   const index = JSON.parse(read('pagefind/pagefind-entry.json'));
-  assert.equal(index.languages.fr.page_count, 18 + frenchSelectionSamples.length);
+  assert.equal(index.languages.fr.page_count, 19 + frenchSelectionSamples.length);
+  assert.ok(sitemap.includes('/fr/compare/'));
+  assert.match(read('fr/compare/index.html'), /Explorateur de modèles/);
   assert.ok(index.languages.en.page_count >= 139);
 });
 

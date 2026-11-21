@@ -98,6 +98,14 @@ stories in `src/content/stories/` and dated manifests in `src/content/pulse/`
 become HTML, CSS, and assets served from Firebase Hosting. The separate `guides` collection in `src/content/guides/` provides the English-only `/guides/` landing page and publishes only entries marked `status: published`. There is no production
 database or required application server.
 
+### Model Explorer
+
+Compare language models at `/compare/` or `/fr/compare/`: searchable, sortable
+specifications and prices, a three-model shortlist, and a sourced GPQA Diamond
+chart. Both languages share reviewed repository snapshots; there are no live API
+calls. See [data interpretation and update instructions](docs/MODEL_EXPLORER.md).
+Use `npm run models:check` and `npm run models:test` for targeted validation.
+
 ### Tools & Guides authoring
 
 The new section has **no published guides yet**. Drafts are withheld from public routes, RSS, search and the sitemap. Use [evergreen editorial standards](docs/editorial/TOOLS_AND_GUIDES_V1.md) and [copy-ready templates](docs/editorial/TOOLS_AND_GUIDES_TEMPLATES_V1.md). Every published entry needs a verified author/reviewer, publication and verification dates, source references, format, and provenance. Hands-on entries additionally require test environment and artifact URLs. Compensated links require explicit disclosure; production affiliate-link operations and reviewed French translations are deferred to follow-up PRs.

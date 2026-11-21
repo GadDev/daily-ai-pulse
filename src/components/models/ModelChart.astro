@@ -1,0 +1,166 @@
+---
+import type { Model } from '../../lib/model-schema';
+import type { Locale } from '../../lib/i18n';
+import { modelMessages } from '../../lib/model-messages';
+import { chartModels, priceLabel } from '../../lib/model-explorer';
+
+interface Props {
+  models: Model[];
+  locale: Locale;
+}
+const { models, locale } = Astro.props;
+const t = modelMessages[locale];
+const points = chartModels(models, 'output');
+const potentialPoints = models.filter(
+  (model) => chartModels([model], 'input').length || chartModels([model], 'output').length,
+);
+const maxPrice = Math.max(1, ...points.map((model) => model.pricing!.output!)) * 1.15;
+const x = (value: number) => 75 + (value / maxPrice) * 660;
+const y = (value: number) => 300 - value * 2.5;
+---
+
+<section class="explorer-chart" aria-labelledby="chart-heading">
+  <div class="explorer-section-head">
+    <div>
+      <p class="explorer-kicker">GPQA DIAMOND</p>
+      <h2 id="chart-heading">{t.chartTitle}</h2>
+    </div>
+    <label class="enhancement" hidden>
+      {t.chartAxis}
+      <select data-chart-axis>
+        <option value="output">{t.output}</option>
+        <option value="input">{t.input}</option>
+      </select>
+    </label>
+  </div>
+  <p class="explorer-intro">{t.chartIntro}</p>
+  <p data-chart-count class="explorer-secondary">
+    {points.length} {t.chartCount}
+  </p>
+  <div
+    class="chart-scroll"
+    data-chart-visual
+    hidden={points.length < 2}
+    role="region"
+    aria-label={t.chartLabel}
+    tabindex="0"
+  >
+    <svg
+      viewBox="0 0 800 365"
+      role="group"
+      aria-labelledby="chart-svg-title chart-svg-description"
+      class="model-scatter"
+    >
+      <title id="chart-svg-title">{t.chartLabel}</title>
+      <desc id="chart-svg-description">
+        {t.chartHint} {t.chartCaveat}
+      </desc>
+      {[0, 25, 50, 75, 100].map((tick) => (
+        <g class="chart-grid">
+          <line x1="75" x2="735" y1={y(tick)} y2={y(tick)} />
+          <text x="61" y={y(tick) + 5} text-anchor="end">
+            {tick}
+          </text>
+        </g>
+      ))}
+      <g data-price-ticks>
+        {[0, 1, 2, 3, 4].map((tick) => (
+          <text x={x((maxPrice * tick) / 4)} y="323" text-anchor="middle">
+            {priceLabel((maxPrice * tick) / 4, locale)}
+          </text>
+        ))}
+      </g>
+      <text x="400" y="355" text-anchor="middle" data-price-axis-label>
+        {t.output} · {t.chartPrice}
+      </text>
+      <text x="75" y="25">
+        {t.chartAccuracy}
+      </text>
+      <g data-chart-points>
+        {points.map((model, index) => (
+          <a
+            href={`#evidence-${model.id}`}
+            data-chart-model={model.id}
+            aria-label={`${model.name}: ${model.benchmark!.score}%, ${priceLabel(model.pricing!.output, locale)}. ${t.details}`}
+          >
+            <title>{model.name} · {model.benchmark!.score}% · {priceLabel(model.pricing!.output, locale)}</title>
+            <circle cx={x(model.pricing!.output!)} cy={y(model.benchmark!.score)} r="8" />
+            {points.length <= 6 && (
+              <>
+                <line
+                  x1={x(model.pricing!.output!)}
+                  y1={y(model.benchmark!.score) + 10}
+                  x2={Math.max(130, Math.min(670, x(model.pricing!.output!)))}
+                  y2={Math.min(280, y(model.benchmark!.score) + 42 + index * 24) - 14}
+                  class="chart-leader"
+                />
+                <text
+                  x={Math.max(130, Math.min(670, x(model.pricing!.output!)))}
+                  y={Math.min(280, y(model.benchmark!.score) + 42 + index * 24)}
+                  text-anchor="middle"
+                  class="chart-model-label"
+                >
+                  {model.name}
+                </text>
+              </>
+            )}
+          </a>
+        ))}
+      </g>
+    </svg>
+  </div>
+  <p data-chart-detail class="explorer-secondary" aria-live="polite">
+    {t.chartHint}
+  </p>
+  <p data-chart-empty hidden={points.length >= 2} class="explorer-empty">
+    {t.chartEmpty}
+  </p>
+  <p class="explorer-secondary">{t.chartCaveat}</p>
+  <details class="chart-data">
+    <summary>{t.chartTable}</summary>
+    <p>{t.chartCoverage}</p>
+    <div class="explorer-table-scroll" role="region" aria-label={t.chartTable} tabindex="0">
+      <table>
+        <caption class="sr-only">{t.chartTable}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{t.name}</th>
+            <th scope="col">GPQA Diamond (%)</th>
+            <th scope="col" data-chart-table-axis>
+              {t.output}
+            </th>
+            <th scope="col">{t.configuration}</th>
+          </tr>
+        </thead>
+        <tbody data-chart-table>
+          {potentialPoints.map((model) => (
+            <tr
+              data-chart-data-model={model.id}
+              hidden={!points.some((point) => point.id === model.id)}
+            >
+              <th scope="row">
+                <a href={`#evidence-${model.id}`} data-evidence-link>
+                  {model.name}
+                </a>
+              </th>
+              <td>
+                {model.benchmark!.score.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')}%
+                <small>
+                  {model.benchmark!.reportedBy === 'vendor' ? t.reported : t.independent}
+                </small>
+              </td>
+              <td data-chart-price>{priceLabel(model.pricing!.output, locale)}</td>
+              <td>
+                {model.benchmark!.configuration[locale]}{' '}
+                <a href={model.benchmark!.source.url}>{t.benchmarkSource}</a> · {t.verified}{' '}
+                <time datetime={model.benchmark!.source.verifiedAt}>
+                  {model.benchmark!.source.verifiedAt}
+                </time>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>

@@ -41,10 +41,13 @@ test('Tools & Guides landing exposes three formats without fictional reviews', a
       };
     });
     expect(geometry.overflow, `${width}px page overflows`).toBe(false);
-    expect(geometry.links).toBe(4);
+    expect(geometry.links).toBe(5);
     expect(geometry.rowCount, `${width}px nav wraps`).toBe(1);
     expect(geometry.minTargets).toBe(true);
   }
+  await expect(
+    page.locator('.site-nav').getByRole('link', { name: 'Compare', exact: true }),
+  ).toHaveAttribute('href', '/compare/');
 
   const accessibility = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
