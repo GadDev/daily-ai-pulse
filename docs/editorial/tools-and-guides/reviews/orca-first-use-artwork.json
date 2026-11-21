@@ -1,0 +1,221 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "orca-first-use",
+  "review_date": "2026-11-21",
+  "reviewer": "Codex visual self-review; not independent human approval",
+  "state": "reviewed",
+  "candidate_count": 3,
+  "selected_candidate": "B",
+  "visual_brief": {
+    "story_id": "orca-first-use",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Getting Started with Orca: Installation and Your First Agent",
+    "verified_context": [
+      "Orca launches a coding agent in a task worktree.",
+      "The reader inspects the proposed change and tests it before keeping its commit."
+    ],
+    "editorial_idea": "Orca launches a coding agent in a task worktree.",
+    "visual_metaphor": "A single folded blank cream paper strip fits through an open low terracotta arch, a quiet threshold into a contained workspace.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one materially present central sculptural metaphor",
+      "subtle depth and tactile materials",
+      "spacious warm background"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "cli_decision_at_generation": {
+    "decision": "GENERATE",
+    "reason": "review-missing",
+    "story_id": "orca-first-use",
+    "system_version": null,
+    "expected_generation_key": "d22612a0269e88418bf0e350f3bc417cc4f82bdb254a2c3a27c194d7dd00ba89",
+    "stored_generation_key": null,
+    "requires_batch_validation": false
+  },
+  "generation_identity_at_generation": {
+    "identity_version": "1",
+    "story_id": "orca-first-use",
+    "story_source_sha256": "43a517b07bb91e8315475ee44ee5dd61ff7f65b17cc89ccc9fbfb844eb0a99be",
+    "visual_brief_sha256": "570dfc9ad2dc4eb8fa7c1a7f7bacbfced557b0e70eee228a048200aa73eb1ac0",
+    "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "d22612a0269e88418bf0e350f3bc417cc4f82bdb254a2c3a27c194d7dd00ba89"
+  },
+  "source_binding_note": "Canonical decision CLI was invoked with the actual guide source path before generation. The news CLI hardcodes news review/asset paths, so this guide review does not claim news-validator approval or automatic guide reuse. Identity records the exact source bytes at generation; later diagram/cover metadata additions are separately recorded, not represented as the original generation input.",
+  "candidate_reviews": [
+    {
+      "candidate": "A",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-cd61d69f-9043-4c7e-a640-68722d0f687d.png",
+      "output_identifier": "exec-cd61d69f-9043-4c7e-a640-68722d0f687d",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards. Subject: Getting Started with Orca: Installation and Your First Agent. Verified context: Orca launches a coding agent in a task worktree. The reader inspects the proposed change and tests it before keeping its commit. Visual metaphor: A single folded blank cream paper strip fits through an open low terracotta arch, a quiet threshold into a contained workspace. Archetype: tool-artifact-study. Candidate A canonical: one broad folded ivory paper strip rests halfway through a substantial low terracotta arch carved from porous stone; strip and arch form one unified central sculptural still life on warm textured paper. Tactile depth, visible paper edges, softly illustrated oblique perspective. Article-hero role follows docs/reference-layouts/story.html: wide composition with generous whitespace, essential objects within central 65% width and 55% height to survive 21:9 desktop, 16:9 mobile and 3:2 card crops. Render high resolution wide landscape, ideally 2048x1152 or larger. Restrained contemporary commissioned editorial illustration, quiet architectural sensibility, deliberate geometry, paper grain, substantial material presence and subtle directional shadows. Palette warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B, sparing terracotta #8A4B35. Strong silhouette at thumbnail scale, spacious scene. Match the warm paper and stone editorial material grammar of the existing publication, not glossy stock photography. This is an abstract metaphor, not literal software architecture. No words, letters, numbers, labels, logos, interface elements, page header/footer, buttons, badges, charts, watermark, neon, robots, glowing brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, borders or frame.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 91,
+        "brand_fit": 93,
+        "composition": 88,
+        "crop_quality": 86,
+        "technical_meaning": 90,
+        "cleanliness": 98,
+        "golden_reference_fit": 93,
+        "weighted_total": 90.75
+      },
+      "review_note": "Eligible: clear threshold and continuous paper; taller arch gives less crop margin."
+    },
+    {
+      "candidate": "B",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-0f803f72-b449-44cf-b3bc-197ac7fc434b.png",
+      "output_identifier": "exec-0f803f72-b449-44cf-b3bc-197ac7fc434b",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never a literal technical architecture. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Getting Started with Orca: Installation and Your First Agent. Verified context: Orca launches a coding agent in a task worktree. The reader inspects the proposed change and tests it before keeping its commit. Visual metaphor: A single folded blank cream paper strip fits through an open low terracotta arch, a quiet threshold into a contained workspace. Strong editorial composition: the low thick terracotta arch is part of a broad flat sculptural threshold block; a long folded paper strip threads the passage and curls into a shallow upturned fold beyond it. Unified artifact, visible fold edges and porous stone. Modest scale, central calm sculptural arrangement. No additional objects.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 94,
+        "brand_fit": 94,
+        "composition": 94,
+        "crop_quality": 94,
+        "technical_meaning": 92,
+        "cleanliness": 98,
+        "golden_reference_fit": 94,
+        "weighted_total": 94.0
+      },
+      "review_note": "Selected: threshold base and folded strip make a compact unified entry metaphor; opening survives every required crop."
+    },
+    {
+      "candidate": "C",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-6441373d-e823-4e98-9d15-4886ea0eb432.png",
+      "output_identifier": "exec-6441373d-e823-4e98-9d15-4886ea0eb432",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never a literal technical architecture. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Getting Started with Orca: Installation and Your First Agent. Verified context: Orca launches a coding agent in a task worktree. The reader inspects the proposed change and tests it before keeping its commit. Visual metaphor: A single folded blank cream paper strip fits through an open low terracotta arch, a quiet threshold into a contained workspace. Alternate composition: a very broad shallow terracotta arch lies as a low passage nearly parallel to the ground, with a folded ivory paper ribbon emerging across a recessed stone sill. Layered long horizontal silhouette, central passage lit softly, paper visibly continuous through it. One integrated sculptural artifact, compact crop-safe composition.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 88,
+        "brand_fit": 93,
+        "composition": 90,
+        "crop_quality": 93,
+        "technical_meaning": 88,
+        "cleanliness": 98,
+        "golden_reference_fit": 92,
+        "weighted_total": 91.1
+      },
+      "review_note": "Eligible: broad shallow passage has good crop tolerance but its paper fold is less distinct at thumbnail scale."
+    }
+  ],
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 94,
+    "composition": 94,
+    "crop_quality": 94,
+    "technical_meaning": 92,
+    "cleanliness": 98,
+    "golden_reference_fit": 94,
+    "weighted_total": 94.0
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_observations": {
+    "desktop-hero": "21:9 center crop retains the central object and its relationship.",
+    "mobile-hero": "16:9 preserves the complete central metaphor.",
+    "card": "3:2 crop retains the focal arrangement and material detail.",
+    "thumbnail": "320px-wide preview retains a readable silhouette.",
+    "square-row": "Additional square preview clips peripheral ends on some assets; the central relationship remains visible. Required hero/card crops are the approval basis."
+  },
+  "reference_comparison": {
+    "references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "observations": "Both production references and all three candidates were displayed together. Warm ivory/terracotta, tactile paper/stone, oblique spatial depth, soft shadows and quiet negative space match the reference grammar. No text, UI, logos, neon, robots, charts or schematic composition observed."
+  },
+  "contact_sheet": "docs/editorial/tools-and-guides/reviews/orca-first-use-contact.webp",
+  "crop_sheet": "docs/editorial/tools-and-guides/reviews/orca-first-use-crops.webp",
+  "final_asset": "/images/guides/orca-first-use.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 161740,
+    "sha256": "61c1426c87e4198fd701bd0c4cd0f5c992c1f7091f6b30be82e0f1772d41a117",
+    "git_blob_sha": "d9b909132421bcf8e18aa300422e35744318b254",
+    "riff_container_complete": true
+  },
+  "normalization": {
+    "codec": "Pillow WebP",
+    "quality": 90,
+    "method": 6,
+    "operation": "center fit to 1600x900; no stretching",
+    "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
+  },
+  "upload": {
+    "state": "pending",
+    "exact_ref": null
+  }
+}

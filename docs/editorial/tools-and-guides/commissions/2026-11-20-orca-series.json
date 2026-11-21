@@ -1,0 +1,122 @@
+{
+  "record_type": "manual-commission",
+  "editorial_date": "2026-11-20",
+  "authorization": "User requested four Orca guides, selected macOS-first setup, reliable daily workflow, a TypeScript task-list example and Claude orchestration/planning/review with two Codex developers, then explicitly asked to implement the plan.",
+  "scheduled_run": false,
+  "state": "draft-prepared",
+  "publication_authorized": false,
+  "branch": "codex/orca-guide-series",
+  "pr_number": null,
+  "base_commit": "103c60a",
+  "review_record": "docs/editorial/tools-and-guides/reviews/orca-series-2026-11-20.md",
+  "preflight": {
+    "generation": {
+      "status": "available",
+      "evidence": "Built-in image_gen.imagegen produced 12 real PNGs: three composition candidates for each of four guides. Full prompts, actual source identifiers and selected candidates are in four artwork review records."
+    },
+    "inspection": {
+      "status": "available",
+      "evidence": "Current runtime view_image displayed two actual production WebPs: agent-tool-approval-boundary (Git blob 775d08922d6bd88e83d96f2a4a7bda439138c014) and introduction-to-rag (1176aa3d46939089aa4220d864f8d1e7fae649dd). Both have tactile warm paper/stone, terracotta accents, quiet oblique depth and no labels. All 12 candidates were displayed in four comparison sheets with both production references; four selected final WebPs were displayed in actual 21:9/16:9/3:2/thumbnail crop sheets."
+    },
+    "webp_conversion": {
+      "status": "available",
+      "evidence": "python3/Pillow encoded and fully decoded a 32x32 RGB WebP in memory; features.check('webp') returned true and decoded format/dimensions matched. Four selected assets encoded to 1600x900 WebP quality 90/method 6, fully decoded, checked for complete RIFF length and hashed."
+    },
+    "binary_upload": {
+      "status": "unverified",
+      "evidence": "Authenticated Git fetch succeeded; binary-safe Git CLI is available. Actual new cover commit/upload/readback has not occurred; no throwaway upload probe was created."
+    }
+  },
+  "handoff": {
+    "completion": "blocked",
+    "blockers": [
+      "Live Orca install/authentication/UI and mixed-provider orchestration remain not executed: command -v orca found no executable in this runtime. Record installed versions/receipts and effective Manual permissions before publication.",
+      "Binary upload/readback and exact-head CI are pending."
+    ]
+  },
+  "guides": [
+    {
+      "topic_key": "orca-first-use",
+      "decision": "draft-prepared",
+      "genre": "engineering-tutorial",
+      "reader_outcome": "Install one agent and keep one inspected, tested patch.",
+      "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
+      "guide_path": "src/content/guides/orca-first-use.md",
+      "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-first-use-artwork.json",
+      "artwork_state": "reviewed",
+      "diagram_state": "rendered-desktop-and-mobile-reviewed"
+    },
+    {
+      "topic_key": "orca-daily-workflow",
+      "decision": "draft-prepared",
+      "genre": "engineering-tutorial",
+      "reader_outcome": "Integrate two scoped worktree changes and recover their Git/session state.",
+      "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
+      "guide_path": "src/content/guides/orca-daily-workflow.md",
+      "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-daily-workflow-artwork.json",
+      "artwork_state": "reviewed",
+      "diagram_state": "rendered-desktop-and-mobile-reviewed"
+    },
+    {
+      "topic_key": "orca-workflow-benefits",
+      "decision": "draft-prepared",
+      "genre": "practical-technical-review",
+      "reader_outcome": "Decide whether Orca removes enough coordination work to justify its costs.",
+      "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
+      "guide_path": "src/content/guides/orca-workflow-benefits.md",
+      "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-workflow-benefits-artwork.json",
+      "artwork_state": "reviewed",
+      "diagram_state": "not-applicable"
+    },
+    {
+      "topic_key": "orca-agent-swarm",
+      "decision": "draft-prepared",
+      "genre": "engineering-tutorial",
+      "reader_outcome": "Coordinate five coding roles through explicit tasks, commits, review and bounded correction.",
+      "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
+      "guide_path": "src/content/guides/orca-agent-swarm.md",
+      "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-agent-swarm-artwork.json",
+      "artwork_state": "reviewed",
+      "diagram_state": "rendered-desktop-and-mobile-reviewed"
+    }
+  ],
+  "deduplication": [
+    {
+      "guide_id": "first-rag-application",
+      "decision": "different-outcome",
+      "reason": "Local retrieval API deployment, not coding-agent setup or coordination."
+    },
+    {
+      "guide_id": "rag-retrieval-evaluation",
+      "decision": "different-outcome",
+      "reason": "Retrieval measurement, not development workflow."
+    },
+    {
+      "guide_id": "agentic-development-environments-compared",
+      "decision": "different-outcome",
+      "reason": "Broad environment comparison; new guides own concrete Orca configuration and operation."
+    },
+    {
+      "guide_id": "claude-foundations-coordinator-recovery",
+      "decision": "different-outcome",
+      "reason": "Application-owned support-case coordinator; new advanced guide coordinates coding CLIs and Git branches through Orca."
+    },
+    {
+      "guide_id": "autonomous-ai-code-review-loop",
+      "decision": "related-not-repeated",
+      "reason": "Owns detailed review methodology; link to it rather than reproduce a six-reviewer system."
+    },
+    {
+      "related_pr_number": 285,
+      "decision": "unrelated-preserved",
+      "reason": "Open binary-validation-only PR; inspected its changed files and unmerged 2026-11-12 ledger. No Orca content, no new topic, no competing series."
+    }
+  ],
+  "last_worked_at": "2026-11-21",
+  "verification": {
+    "examples": "51 expected-outcome operations; final reference fixture 11 tests passed; eight CLI failures checked for nonzero exit/empty stdout",
+    "repository": "npm run verify passed on Node 22.23.4; 16 existing guide/asset/related-reading tests passed",
+    "browser": "20 existing guide browser checks passed across correct-server run and focused timeout rerun; 12 isolated article viewport cases passed with no overflow/broken loaded images or serious/critical axe findings",
+    "product": "Orca installation/authentication/UI and live Claude/Codex orchestration not executed"
+  }
+}
