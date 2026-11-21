@@ -58,7 +58,7 @@ if (root && payload) {
 
   function syncUrl(mode: 'push' | 'replace' | 'none') {
     const params = explorerParams(state).toString();
-    const href = `${location.pathname}${params ? `?${params}` : ''}${location.hash}`;
+    const href = `${location.pathname}${params ? `?${params}` : ''}${mode === 'none' ? location.hash : ''}`;
     if (mode !== 'none' && `${location.pathname}${location.search}${location.hash}` !== href) {
       if (mode === 'push') history.pushState(null, '', href);
       else history.replaceState(null, '', href);
@@ -81,6 +81,8 @@ if (root && payload) {
     const table = find<HTMLTableElement>('[data-comparison-table]');
     const region = find('[data-comparison-region]');
     const selected = state.selected.map((id) => modelById.get(id)!);
+    find('[data-shortlist-bar]').hidden = selected.length === 0;
+    find('[data-shortlist-jump]').textContent = `${t.compareTitle} · ${selected.length} / 3`;
     region.hidden = selected.length === 0;
     find('[data-selection-status]').textContent = selected.length === 3 ? t.limit : t.compareHint;
     find<HTMLButtonElement>('[data-clear-selection]').disabled = selected.length === 0;
@@ -166,6 +168,7 @@ if (root && payload) {
   }
 
   function renderChart(filtered: Model[]) {
+    find('[data-chart-detail]').textContent = t.chartHint;
     const points = chartModels(filtered, state.axis);
     find('[data-chart-count]').textContent = `${points.length} ${t.chartCount}`;
     find('[data-chart-visual]').hidden = points.length < 2;
@@ -192,12 +195,24 @@ if (root && payload) {
       circle.setAttribute('cx', String(x));
       circle.setAttribute('cy', String(y));
       circle.setAttribute('r', '8');
-      const label = document.createElementNS(ns, 'text');
-      label.textContent = model.name;
-      label.setAttribute('x', String(x + 13));
-      label.setAttribute('y', String(y + 5 + index * 18));
-      label.setAttribute('class', 'chart-model-label');
-      link.append(title, circle, label);
+      link.append(title, circle);
+      if (points.length <= 6) {
+        const labelX = Math.max(130, Math.min(670, x));
+        const labelY = Math.min(280, y + 42 + index * 24);
+        const leader = document.createElementNS(ns, 'line');
+        leader.setAttribute('x1', String(x));
+        leader.setAttribute('y1', String(y + 10));
+        leader.setAttribute('x2', String(labelX));
+        leader.setAttribute('y2', String(labelY - 14));
+        leader.setAttribute('class', 'chart-leader');
+        const label = document.createElementNS(ns, 'text');
+        label.textContent = model.name;
+        label.setAttribute('x', String(labelX));
+        label.setAttribute('y', String(labelY));
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('class', 'chart-model-label');
+        link.append(leader, label);
+      }
       pointGroup.append(link);
     });
     const ticks = find<SVGGElement>('[data-price-ticks]');
@@ -225,6 +240,7 @@ if (root && payload) {
 
   function render(mode: 'push' | 'replace' | 'none' = 'push', updateComparison = true) {
     const active = document.activeElement as HTMLElement | null;
+    find('[data-share-status]').textContent = '';
     const filtered = filterModels(models, state);
     const visible = new Set(filtered.map((model) => model.id));
     const tbody = find('[data-model-rows]');
@@ -306,7 +322,7 @@ if (root && payload) {
     if (remove) {
       state.selected = state.selected.filter((id) => id !== remove.dataset.removeModel);
       render();
-      find<HTMLButtonElement>('[data-clear-selection]').focus({ preventScroll: true });
+      find<HTMLButtonElement>('[data-copy-link]').focus({ preventScroll: true });
     }
     const evidence = target.closest<HTMLAnchorElement | SVGAElement>(
       '[data-evidence-link], [data-chart-model]',
@@ -321,7 +337,17 @@ if (root && payload) {
   find('[data-clear-selection]').addEventListener('click', () => {
     state.selected = [];
     render();
+    find<HTMLButtonElement>('[data-copy-link]').focus({ preventScroll: true });
   });
+  function showPointDetail(event: Event) {
+    const point = (event.target as Element).closest<SVGAElement>('[data-chart-model]');
+    if (!point) return;
+    const model = modelById.get(point.dataset.chartModel!)!;
+    find('[data-chart-detail]').textContent =
+      `${model.name} · ${score(model)} · ${priceLabel(model.pricing![state.axis], locale)} · ${model.benchmark!.reportedBy === 'vendor' ? t.reported : t.independent}. ${model.benchmark!.configuration[locale]}`;
+  }
+  find('[data-chart-points]').addEventListener('focusin', showPointDetail);
+  find('[data-chart-points]').addEventListener('pointerover', showPointDetail);
   find('[data-copy-link]').addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(location.href);

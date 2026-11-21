@@ -133,6 +133,12 @@ const payload = JSON.stringify({ models, locale }).replaceAll('<', '\\u003c');
       </div>
     </form>
 
+    <div class="explorer-shortlist-bar" data-shortlist-bar hidden>
+      <a href="#comparison-heading" data-shortlist-jump>
+        {t.compareTitle}
+      </a>
+      <span>{t.compareHint}</span>
+    </div>
     <section aria-labelledby="models-heading" class="explorer-catalog">
       <div class="explorer-section-head">
         <h2 id="models-heading">{t.tableTitle}</h2>

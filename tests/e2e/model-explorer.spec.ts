@@ -51,7 +51,7 @@ test('search, combined filters, numeric sorting, selection and sharing work toge
     .getByRole('link', { name: 'Sources & conditions' })
     .first()
     .click();
-  await expect(page.locator('#evidence-gpt-6.2-astra')).toHaveAttribute('open', '');
+  await expect(page.locator('[id="evidence-gpt-6.2-astra"]')).toHaveAttribute('open', '');
   await expect(controls.getByLabel('Search models', { exact: true })).toHaveValue('');
   await page.getByRole('button', { name: 'Clear selection' }).click();
   await expect(page.locator('[data-comparison-region]')).toBeHidden();
@@ -64,7 +64,7 @@ test('comparison URL and every filter survive language switching and browser his
     'compare/?q=gpt&developer=OpenAI&reasoning=1&vision=1&sort=output&direction=desc&axis=input&models=gpt-6.2-sol,gpt-6-luna',
   );
   await expect(page.locator('[data-select-model="gpt-6.2-sol"]')).toBeChecked();
-  await page.getByRole('link', { name: 'Français', exact: true }).click();
+  await page.getByRole('link', { name: 'Français FR', exact: true }).click();
   await expect(page).toHaveURL(/\/fr\/compare\/\?/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Explorateur de modèles');
   await expect(page.locator('[data-explorer-controls] input[name="q"]')).toHaveValue('gpt');
@@ -94,7 +94,7 @@ test('chart axes, evidence links and empty states respect eligibility', async ({
   await expect(point).toBeFocused();
   await expect(point).toHaveAttribute('aria-label', /\$2\.00/);
   await point.press('Enter');
-  await expect(page.locator('#evidence-gpt-6.2-sol')).toHaveAttribute('open', '');
+  await expect(page.locator('[id="evidence-gpt-6.2-sol"]')).toHaveAttribute('open', '');
   await page.locator('[data-explorer-controls] select[name="developer"]').selectOption('Mistral');
   await expect(page.locator('[data-chart-empty]')).toBeVisible();
   await expect(page.locator('[data-chart-visual]')).toBeHidden();

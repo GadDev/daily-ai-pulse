@@ -11,6 +11,9 @@ interface Props {
 const { models, locale } = Astro.props;
 const t = modelMessages[locale];
 const points = chartModels(models, 'output');
+const potentialPoints = models.filter(
+  (model) => chartModels([model], 'input').length || chartModels([model], 'output').length,
+);
 const maxPrice = Math.max(1, ...points.map((model) => model.pricing!.output!)) * 1.15;
 const x = (value: number) => 75 + (value / maxPrice) * 660;
 const y = (value: number) => 300 - value * 2.5;
@@ -34,7 +37,14 @@ const y = (value: number) => 300 - value * 2.5;
   <p data-chart-count class="explorer-secondary">
     {points.length} {t.chartCount}
   </p>
-  <div class="chart-scroll" data-chart-visual hidden={points.length < 2}>
+  <div
+    class="chart-scroll"
+    data-chart-visual
+    hidden={points.length < 2}
+    role="region"
+    aria-label={t.chartLabel}
+    tabindex="0"
+  >
     <svg
       viewBox="0 0 800 365"
       role="group"
@@ -75,18 +85,33 @@ const y = (value: number) => 300 - value * 2.5;
           >
             <title>{model.name} · {model.benchmark!.score}% · {priceLabel(model.pricing!.output, locale)}</title>
             <circle cx={x(model.pricing!.output!)} cy={y(model.benchmark!.score)} r="8" />
-            <text
-              x={x(model.pricing!.output!) + 13}
-              y={y(model.benchmark!.score) + 5 + index * 18}
-              class="chart-model-label"
-            >
-              {model.name}
-            </text>
+            {points.length <= 6 && (
+              <>
+                <line
+                  x1={x(model.pricing!.output!)}
+                  y1={y(model.benchmark!.score) + 10}
+                  x2={Math.max(130, Math.min(670, x(model.pricing!.output!)))}
+                  y2={Math.min(280, y(model.benchmark!.score) + 42 + index * 24) - 14}
+                  class="chart-leader"
+                />
+                <text
+                  x={Math.max(130, Math.min(670, x(model.pricing!.output!)))}
+                  y={Math.min(280, y(model.benchmark!.score) + 42 + index * 24)}
+                  text-anchor="middle"
+                  class="chart-model-label"
+                >
+                  {model.name}
+                </text>
+              </>
+            )}
           </a>
         ))}
       </g>
     </svg>
   </div>
+  <p data-chart-detail class="explorer-secondary" aria-live="polite">
+    {t.chartHint}
+  </p>
   <p data-chart-empty hidden={points.length >= 2} class="explorer-empty">
     {t.chartEmpty}
   </p>
@@ -108,15 +133,18 @@ const y = (value: number) => 300 - value * 2.5;
           </tr>
         </thead>
         <tbody data-chart-table>
-          {points.map((model) => (
-            <tr data-chart-data-model={model.id}>
+          {potentialPoints.map((model) => (
+            <tr
+              data-chart-data-model={model.id}
+              hidden={!points.some((point) => point.id === model.id)}
+            >
               <th scope="row">
                 <a href={`#evidence-${model.id}`} data-evidence-link>
                   {model.name}
                 </a>
               </th>
               <td>
-                {model.benchmark!.score}%
+                {model.benchmark!.score.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')}%
                 <small>
                   {model.benchmark!.reportedBy === 'vendor' ? t.reported : t.independent}
                 </small>
