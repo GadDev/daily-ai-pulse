@@ -79,7 +79,17 @@
         "golden_reference_fit": 90,
         "weighted_total": 90.85
       },
-      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected.",
+      "committed_readback": {
+        "path": "public/images/guides/generative-ui-architecture-map.webp",
+        "bytes": 222738,
+        "sha256": "345aafa3452b03e676f5587d2b21239767a97332a5a3c973403469d874976c04",
+        "git_blob_sha": "59a0d3aabcaa734175db0471c1e38dba01d04ac1",
+        "readback_commit": "616f226f7eecfdac79cebb8a30c6f0058d40b2c8",
+        "match": true
+      },
+      "final_guide_source_sha256": "54cfbeab205c164269efa77f5cd9601a90a6b129670ab82a080c891fb32df1c6",
+      "post_generation_source_edits": "Markdown formatting; overview also gained responsive picture markup. Verified context and metaphor unchanged. Original pre-generation identity retained; no reuse eligibility claimed."
     },
     {
       "id": "generative-ui-component-catalogs",
@@ -146,7 +156,7 @@
       "crop_revision": {
         "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-6f5685a1-1b5e-41ab-96e0-10730ab4c094.png",
         "reason": "Original keystone cropped at 21:9; image-generation edit widened composition.",
-        "prompt": "Edit only by widening composition and pulling viewpoint back; preserve limestone arch and floating terracotta keystone; entire object inside central 60% image height and central 75% width for centered 21:9 crop; warm paper, no text, UI, logos or frame.",
+        "prompt": "Edit this editorial illustration only by widening the composition and pulling the viewpoint back. Preserve the exact limestone arch, floating terracotta keystone, materials, warm paper palette, light and shadow. The ENTIRE arch AND the COMPLETE floating keystone must fit inside the central 60% of the image height, leaving generous natural warm paper above and below, and both arch feet inside the central 75% of width. This image will be displayed with a centered 21:9 crop from a 16:9 asset: make certain no part of the keystone or feet is clipped by that crop. Keep one sculptural object, physical texture, no border, frame, text, labels, interface elements, robots, logos or watermark. High resolution wide asset at least 1600x900.",
         "tool": "image_gen.imagegen"
       },
       "constitution_check": {
@@ -164,7 +174,17 @@
         "golden_reference_fit": 91,
         "weighted_total": 90.75
       },
-      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected.",
+      "committed_readback": {
+        "path": "public/images/guides/generative-ui-component-catalogs.webp",
+        "bytes": 128278,
+        "sha256": "90a62d7e7e5c263167cea5c076b77f2ac531c0463ebc59edb55596fe488fe460",
+        "git_blob_sha": "4ade09f860c966299314bf9763db1ee2455b8971",
+        "readback_commit": "616f226f7eecfdac79cebb8a30c6f0058d40b2c8",
+        "match": true
+      },
+      "final_guide_source_sha256": "94ad49e0a3e4462029d89d5331196d092d7ab719c925a53c482a254729bf5371",
+      "post_generation_source_edits": "Markdown formatting; overview also gained responsive picture markup. Verified context and metaphor unchanged. Original pre-generation identity retained; no reuse eligibility claimed."
     },
     {
       "id": "generative-ui-mcp-apps",
@@ -244,7 +264,17 @@
         "golden_reference_fit": 90,
         "weighted_total": 90.35
       },
-      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected.",
+      "committed_readback": {
+        "path": "public/images/guides/generative-ui-mcp-apps.webp",
+        "bytes": 235258,
+        "sha256": "f4796d3cb0a8f68e73aee7117d30beee4fafc3d64516235ed78b3978342ff587",
+        "git_blob_sha": "bbb7cb59676c58984d32b6890213af9e25ad5f97",
+        "readback_commit": "616f226f7eecfdac79cebb8a30c6f0058d40b2c8",
+        "match": true
+      },
+      "final_guide_source_sha256": "815fcb10b05ebd3950ec5f37d96ff1fbcda84cf5475253ffc46081ea3e8a8a5b",
+      "post_generation_source_edits": "Markdown formatting; overview also gained responsive picture markup. Verified context and metaphor unchanged. Original pre-generation identity retained; no reuse eligibility claimed."
     },
     {
       "id": "generative-ui-streaming-languages",
@@ -324,7 +354,17 @@
         "golden_reference_fit": 91,
         "weighted_total": 90.8
       },
-      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected.",
+      "committed_readback": {
+        "path": "public/images/guides/generative-ui-streaming-languages.webp",
+        "bytes": 123682,
+        "sha256": "b87ea64ee6fef192753b1f18f583f763718b953f5f4b333a2fb65eefcbcfdc73",
+        "git_blob_sha": "9b2c6dd9dd5a1291e20b9166de94a4c3253ce39f",
+        "readback_commit": "616f226f7eecfdac79cebb8a30c6f0058d40b2c8",
+        "match": true
+      },
+      "final_guide_source_sha256": "b2061cce8bb85aab9e914ca80fe187a7482f9d754543bd637411b6ce50542189",
+      "post_generation_source_edits": "Markdown formatting; overview also gained responsive picture markup. Verified context and metaphor unchanged. Original pre-generation identity retained; no reuse eligibility claimed."
     }
   ]
 }

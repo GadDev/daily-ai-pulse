@@ -50,7 +50,7 @@ Selected: architecture A for a unified three-opening silhouette; catalog A with 
 
 No text, logos, fake UI, robots, charts or technical-diagram covers were observed. The illustrated enclosures, arch and press are metaphors, not claimed technical mechanisms. Model visual review assessed the four final selections against the constitution and production references. The separate labeled SVGs teach the decision structure and are not cover artwork.
 
-The overview's responsive picture wrapper was added after its generation snapshot; its verified context and visual metaphor did not change. The original identity is retained honestly with its original source hash. This run does not claim reuse eligibility for modified source bytes. Recompute the expected identity before any future reuse decision.
+Markdown formatting and the overview's responsive picture wrapper were added after the generation snapshots; its verified context and visual metaphor did not change. The original identity is retained honestly with its original source hash. This run does not claim reuse eligibility for modified source bytes. Recompute the expected identity before any future reuse decision.
 
 ## Verification and remaining limits
 
@@ -61,3 +61,7 @@ Detailed build, browser, binary read-back and CI observations are recorded in th
 Local validation: `npm run verify` passed with Node 22.23.4, including all content/ledger/editorial/illustration checks, type checking, production build and Pagefind indexing (358 indexed pages). Four draft routes are absent from the production output. An isolated fixture using the actual Astro configuration rendered all four guide routes, all four covers, four JSON blocks and two DSL blocks; its 370-page build passed. Both narrow and wide decision-tree SVGs were rendered with CairoSVG and visually inspected.
 
 Local Playwright could not launch system Chromium: `socket() failed: Operation not permitted (1)` during process singleton initialization. Downloading Playwright Chromium was separately blocked by an HTTP 403. No browser layout or accessibility pass is claimed from those failed attempts. Actual cover crops were reviewed as rendered raster previews at the source CSS ratios; the isolated HTML build was inspected structurally. Existing GitHub browser/accessibility CI remains required.
+
+All four covers were retrieved with public Git fetch and `git show` at commit `616f226f7eecfdac79cebb8a30c6f0058d40b2c8`; raw bytes, SHA-256 and Git blob SHA matched local files exactly. The entire remote tree matched the staged local tree. Per-asset proof is persisted in `artwork.json`. The branch is attached to draft PR #302.
+
+GitHub CI run [45239866246](https://github.com/GadDev/daily-ai-pulse/actions/runs/45239866246) passed both **Verify project** and **Browser smoke and accessibility** for the editorial commit `616f226f7eecfdac79cebb8a30c6f0058d40b2c8`. The follow-up commits only provenance/handoff records; the final exact-head result is observed in the PR body after GitHub completes it. This CI checks the normal public site; it does not exercise the draft articles as live applications.

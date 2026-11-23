@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "editorial_date": "2026-11-23",
   "run_status": "draft-pr",
-  "run_note": "Explicit manual four-article series commission. One selected parent topic with three companion explainers; scheduler selection rules unchanged. See series review for per-article scope, sources and artwork. GitHub CI and committed binary readback pending.",
+  "run_note": "Explicit manual four-article series commission on draft PR #302. All covers reviewed, committed and byte-for-byte verified at 616f226f7eecfdac79cebb8a30c6f0058d40b2c8. Local verify passed on Node 22.23.4; isolated four-article build and SVG rendering passed. CI run 45239866246 passed Verify project and Browser smoke and accessibility for the editorial tree. This follow-up commits only handoff and provenance records; final-head CI observation is tracked in the PR body. All four guides remain unpublished drafts.",
   "candidates": [
     {
       "topic_key": "generative-ui-architecture-map",
@@ -20,12 +20,12 @@
   ],
   "handoff": {
     "guide_id": "generative-ui-architecture-map",
-    "pr_number": null,
-    "completion": "blocked",
-    "blockers": ["Exact-commit binary readback and GitHub CI pending."]
+    "pr_number": 302,
+    "completion": "complete",
+    "blockers": []
   },
   "artwork": {
-    "state": "reviewed",
+    "state": "uploaded",
     "capabilities": {
       "generation": {
         "status": "available",
@@ -40,8 +40,8 @@
         "evidence": "Pillow WebP encode/decode round trip succeeded; all four final assets decode to 1600x900."
       },
       "binary_upload": {
-        "status": "unverified",
-        "evidence": "Git CLI push lacks credentials; connected GitHub Git-object API available. Actual commit and exact-ref readback pending."
+        "status": "available",
+        "evidence": "Connected GitHub Base64 blob/tree/commit/ref upload succeeded. Public Git fetch and git show at exact commit 616f226f7eecfdac79cebb8a30c6f0058d40b2c8 returned identical bytes, SHA-256 and Git blob SHA for all four covers."
       }
     },
     "generation": {
@@ -58,6 +58,13 @@
       ],
       "crops": ["desktop-hero", "mobile-hero", "card"]
     },
-    "blocker": null
+    "blocker": null,
+    "upload": {
+      "path": "/images/guides/generative-ui-architecture-map.webp",
+      "sha256": "345aafa3452b03e676f5587d2b21239767a97332a5a3c973403469d874976c04",
+      "git_blob_sha": "59a0d3aabcaa734175db0471c1e38dba01d04ac1",
+      "width": 1600,
+      "height": 900
+    }
   }
 }
