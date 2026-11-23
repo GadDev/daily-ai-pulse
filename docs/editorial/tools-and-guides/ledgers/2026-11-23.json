@@ -50,7 +50,7 @@
       "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-85fd91ac-648b-4cc1-b6aa-beabe7a0353b.png"
     },
     "review": {
-      "record": "docs/editorial/tools-and-guides/reviews/generative-ui-2026-11-23/REVIEW.md",
+      "record": "docs/editorial/tools-and-guides/reviews/generative-ui-architecture-map-2026-11-23.md",
       "outcome": "pass",
       "references": [
         "public/images/guides/agent-tool-approval-boundary.webp",
