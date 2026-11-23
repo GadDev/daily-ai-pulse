@@ -1,0 +1,330 @@
+{
+  "scope": "Guide artwork; generation identity computed with canonical module on guide bytes. No news-story validator claim.",
+  "records": [
+    {
+      "id": "generative-ui-architecture-map",
+      "visual_brief": {
+        "placement": "article-hero",
+        "layout_reference": "docs/reference-layouts/story.html",
+        "subject": "Three architectures for generative UI",
+        "verified_context": [
+          "Catalog renderers map descriptions to application-owned components.",
+          "MCP Apps deliver HTML resources, while UI languages describe composition for a controlled runtime."
+        ],
+        "output_crop": "wide",
+        "archetype": "architectural-artifact",
+        "editorial_idea": "Three architectures for generative UI",
+        "visual_metaphor": "A single sculptural stone junction with three differently constructed openings: interlocking blocks, an inset small pavilion, and folded paper relief. Keep one coherent physical artifact rather than three diagrams.",
+        "golden_references": [
+          "public/images/guides/agent-tool-approval-boundary.webp",
+          "public/images/guides/introduction-to-rag.webp"
+        ]
+      },
+      "generation_identity": {
+        "identity_version": "1",
+        "story_id": "generative-ui-architecture-map",
+        "story_source_sha256": "a4d02ea07be95411ace269626af74fc98d98c25c8fc7cb10817fc32a435f7f0c",
+        "visual_brief_sha256": "93b6f9a14389815d2061107dbcfd88d22d50e51d66189b14312d8f01cccccbd8",
+        "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+        "illustration_system_version": "1.3",
+        "visual_constitution_version": "1.1",
+        "prompt_contract_version": "1",
+        "candidate_count": 3,
+        "generator_surface": "chatgpt-image-tool",
+        "model_snapshot": null,
+        "generation_key": "28904b2b734b292387a54b3590909f2c3a9bd0755c1d6d4eea6e9f4ac279dd9a"
+      },
+      "candidates": [
+        {
+          "candidate": "A",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Three architectures for generative UI\nVerified context: Catalog renderers map descriptions to application-owned components. MCP Apps deliver HTML resources, while UI languages describe composition for a controlled runtime.\nVisual idea: A single sculptural stone junction with three differently constructed openings: interlocking blocks, an inset small pavilion, and folded paper relief. Keep one coherent physical artifact rather than three diagrams.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Low oblique perspective, assembled artifact resting on textured paper, controlled afternoon shadows, horizontal asymmetric balance.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-85fd91ac-648b-4cc1-b6aa-beabe7a0353b.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "B",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Three architectures for generative UI\nVerified context: Catalog renderers map descriptions to application-owned components. MCP Apps deliver HTML resources, while UI languages describe composition for a controlled runtime.\nVisual idea: A single sculptural stone junction with three differently constructed openings: interlocking blocks, an inset small pavilion, and folded paper relief. Keep one coherent physical artifact rather than three diagrams.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Elevated three-quarter view, tighter sculptural focal silhouette with more negative space and layered material depth.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-c185abaa-e330-44b7-a386-30a07a737de8.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "C",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Three architectures for generative UI\nVerified context: Catalog renderers map descriptions to application-owned components. MCP Apps deliver HTML resources, while UI languages describe composition for a controlled runtime.\nVisual idea: A single sculptural stone junction with three differently constructed openings: interlocking blocks, an inset small pavilion, and folded paper relief. Keep one coherent physical artifact rather than three diagrams.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Lower frontal cutaway perspective, stronger ink and terracotta contrast with a distinct arrangement of overlapping planes.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-267166ba-4636-4d35-9736-f3c08aa183db.png",
+          "tool": "image_gen.imagegen"
+        }
+      ],
+      "selected_candidate": "A",
+      "asset": {
+        "path": "/images/guides/generative-ui-architecture-map.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 222738,
+        "sha256": "345aafa3452b03e676f5587d2b21239767a97332a5a3c973403469d874976c04",
+        "git_blob_sha": "59a0d3aabcaa734175db0471c1e38dba01d04ac1"
+      },
+      "crop_revision": null,
+      "constitution_check": {
+        "passed": true,
+        "violations": [],
+        "reviewer": "Codex model visual review; not human sign-off"
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 90,
+        "composition": 91,
+        "crop_quality": 92,
+        "technical_meaning": 85,
+        "cleanliness": 96,
+        "golden_reference_fit": 90,
+        "weighted_total": 90.85
+      },
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+    },
+    {
+      "id": "generative-ui-component-catalogs",
+      "visual_brief": {
+        "placement": "article-hero",
+        "layout_reference": "docs/reference-layouts/story.html",
+        "subject": "Agents compose application-owned components",
+        "verified_context": [
+          "A component catalog defines the vocabulary an agent can use.",
+          "The host renderer supplies component implementations; server authorization still controls reservations."
+        ],
+        "output_crop": "wide",
+        "archetype": "architectural-artifact",
+        "editorial_idea": "Agents compose application-owned components",
+        "visual_metaphor": "A compact architectural assembly of a few fitted limestone blocks, with a single terracotta keystone lifted slightly above its matching socket. A memorable physical building-block metaphor.",
+        "golden_references": [
+          "public/images/guides/agent-tool-approval-boundary.webp",
+          "public/images/guides/introduction-to-rag.webp"
+        ]
+      },
+      "generation_identity": {
+        "identity_version": "1",
+        "story_id": "generative-ui-component-catalogs",
+        "story_source_sha256": "5636511a99f1a8e8f0a559c365b8093efd47253eedc5f327b3094fa9bc271d6e",
+        "visual_brief_sha256": "701b1c50a827e949daf3f0bce24fbcad48dc7c1e4c6dfa21c148401c265dece2",
+        "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+        "illustration_system_version": "1.3",
+        "visual_constitution_version": "1.1",
+        "prompt_contract_version": "1",
+        "candidate_count": 3,
+        "generator_surface": "chatgpt-image-tool",
+        "model_snapshot": null,
+        "generation_key": "9a424eba444ed31fb0926d59246fc6814821f9cdb674d47e9f865e48efc4946e"
+      },
+      "candidates": [
+        {
+          "candidate": "A",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Agents compose application-owned components\nVerified context: A component catalog defines the vocabulary an agent can use. The host renderer supplies component implementations; server authorization still controls reservations.\nVisual idea: A compact architectural assembly of a few fitted limestone blocks, with a single terracotta keystone lifted slightly above its matching socket. A memorable physical building-block metaphor.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Low oblique perspective, assembled artifact resting on textured paper, controlled afternoon shadows, horizontal asymmetric balance.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-ed7a54c7-8c6b-4be4-8779-a4ad9fcbc4be.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "B",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Agents compose application-owned components\nVerified context: A component catalog defines the vocabulary an agent can use. The host renderer supplies component implementations; server authorization still controls reservations.\nVisual idea: A compact architectural assembly of a few fitted limestone blocks, with a single terracotta keystone lifted slightly above its matching socket. A memorable physical building-block metaphor.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Elevated three-quarter view, tighter sculptural focal silhouette with more negative space and layered material depth.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-b1a45450-6570-4366-b2e2-292015018b75.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "C",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Agents compose application-owned components\nVerified context: A component catalog defines the vocabulary an agent can use. The host renderer supplies component implementations; server authorization still controls reservations.\nVisual idea: A compact architectural assembly of a few fitted limestone blocks, with a single terracotta keystone lifted slightly above its matching socket. A memorable physical building-block metaphor.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Lower frontal cutaway perspective, stronger ink and terracotta contrast with a distinct arrangement of overlapping planes.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-e9e51c3c-cfd8-4637-a6b7-b9f6f1890435.png",
+          "tool": "image_gen.imagegen"
+        }
+      ],
+      "selected_candidate": "A",
+      "asset": {
+        "path": "/images/guides/generative-ui-component-catalogs.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 128278,
+        "sha256": "90a62d7e7e5c263167cea5c076b77f2ac531c0463ebc59edb55596fe488fe460",
+        "git_blob_sha": "4ade09f860c966299314bf9763db1ee2455b8971"
+      },
+      "crop_revision": {
+        "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-6f5685a1-1b5e-41ab-96e0-10730ab4c094.png",
+        "reason": "Original keystone cropped at 21:9; image-generation edit widened composition.",
+        "prompt": "Edit only by widening composition and pulling viewpoint back; preserve limestone arch and floating terracotta keystone; entire object inside central 60% image height and central 75% width for centered 21:9 crop; warm paper, no text, UI, logos or frame.",
+        "tool": "image_gen.imagegen"
+      },
+      "constitution_check": {
+        "passed": true,
+        "violations": [],
+        "reviewer": "Codex model visual review; not human sign-off"
+      },
+      "scores": {
+        "story_specific": 88,
+        "brand_fit": 92,
+        "composition": 89,
+        "crop_quality": 94,
+        "technical_meaning": 88,
+        "cleanliness": 98,
+        "golden_reference_fit": 91,
+        "weighted_total": 90.75
+      },
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+    },
+    {
+      "id": "generative-ui-mcp-apps",
+      "visual_brief": {
+        "placement": "article-hero",
+        "layout_reference": "docs/reference-layouts/story.html",
+        "subject": "A tool delivers an embedded application",
+        "verified_context": [
+          "MCP Apps link tools to interactive HTML resources.",
+          "A compatible host mediates communication with the embedded application."
+        ],
+        "output_crop": "wide",
+        "archetype": "architectural-artifact",
+        "editorial_idea": "A tool delivers an embedded application",
+        "visual_metaphor": "A miniature terracotta pavilion contained inside a substantial pale stone enclosure, with one small carefully machined passage between inner and outer space. Cutaway spatial view, solid illustrated material presence.",
+        "golden_references": [
+          "public/images/guides/agent-tool-approval-boundary.webp",
+          "public/images/guides/introduction-to-rag.webp"
+        ]
+      },
+      "generation_identity": {
+        "identity_version": "1",
+        "story_id": "generative-ui-mcp-apps",
+        "story_source_sha256": "0955b4bdca2f8b626c5ba5ca622e68761b3f1dcf5ac2affc66db55bcfbe6ec5e",
+        "visual_brief_sha256": "dc51a07305179bf97e6c50ff3cbe19fc4d902796b2ded26a5f8d7d0e1cf48243",
+        "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+        "illustration_system_version": "1.3",
+        "visual_constitution_version": "1.1",
+        "prompt_contract_version": "1",
+        "candidate_count": 3,
+        "generator_surface": "chatgpt-image-tool",
+        "model_snapshot": null,
+        "generation_key": "4f5c01be25a6fdbd7365df8cb6cb2b71c602c22f09000771410097ac68097bb8"
+      },
+      "candidates": [
+        {
+          "candidate": "A",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A tool delivers an embedded application\nVerified context: MCP Apps link tools to interactive HTML resources. A compatible host mediates communication with the embedded application.\nVisual idea: A miniature terracotta pavilion contained inside a substantial pale stone enclosure, with one small carefully machined passage between inner and outer space. Cutaway spatial view, solid illustrated material presence.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Low oblique perspective, assembled artifact resting on textured paper, controlled afternoon shadows, horizontal asymmetric balance.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-d3298570-144e-4b2f-9da5-44996936c208.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "B",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A tool delivers an embedded application\nVerified context: MCP Apps link tools to interactive HTML resources. A compatible host mediates communication with the embedded application.\nVisual idea: A miniature terracotta pavilion contained inside a substantial pale stone enclosure, with one small carefully machined passage between inner and outer space. Cutaway spatial view, solid illustrated material presence.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Elevated three-quarter view, tighter sculptural focal silhouette with more negative space and layered material depth.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-a0fc78bb-141c-4c0b-a08f-0de605b98e7d.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "C",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A tool delivers an embedded application\nVerified context: MCP Apps link tools to interactive HTML resources. A compatible host mediates communication with the embedded application.\nVisual idea: A miniature terracotta pavilion contained inside a substantial pale stone enclosure, with one small carefully machined passage between inner and outer space. Cutaway spatial view, solid illustrated material presence.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Lower frontal cutaway perspective, stronger ink and terracotta contrast with a distinct arrangement of overlapping planes.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-8fd2ab73-873d-4e41-92a8-6832efbc66f6.png",
+          "tool": "image_gen.imagegen"
+        }
+      ],
+      "selected_candidate": "A",
+      "asset": {
+        "path": "/images/guides/generative-ui-mcp-apps.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 235258,
+        "sha256": "f4796d3cb0a8f68e73aee7117d30beee4fafc3d64516235ed78b3978342ff587",
+        "git_blob_sha": "bbb7cb59676c58984d32b6890213af9e25ad5f97"
+      },
+      "crop_revision": null,
+      "constitution_check": {
+        "passed": true,
+        "violations": [],
+        "reviewer": "Codex model visual review; not human sign-off"
+      },
+      "scores": {
+        "story_specific": 90,
+        "brand_fit": 91,
+        "composition": 92,
+        "crop_quality": 90,
+        "technical_meaning": 86,
+        "cleanliness": 96,
+        "golden_reference_fit": 90,
+        "weighted_total": 90.35
+      },
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+    },
+    {
+      "id": "generative-ui-streaming-languages",
+      "visual_brief": {
+        "placement": "article-hero",
+        "layout_reference": "docs/reference-layouts/story.html",
+        "subject": "A compact language becomes an interactive composition",
+        "verified_context": [
+          "OpenUI Lang describes interfaces through a compact component language.",
+          "Its runtime can update reactive state without another model call."
+        ],
+        "output_crop": "wide",
+        "archetype": "architectural-artifact",
+        "editorial_idea": "A compact language becomes an interactive composition",
+        "visual_metaphor": "A narrow folded paper strip passing through a heavy dark ink-colored printing mechanism and opening into a beautifully structured paper relief. The transformation is a physical abstract metaphor, not a technical diagram.",
+        "golden_references": [
+          "public/images/guides/agent-tool-approval-boundary.webp",
+          "public/images/guides/introduction-to-rag.webp"
+        ]
+      },
+      "generation_identity": {
+        "identity_version": "1",
+        "story_id": "generative-ui-streaming-languages",
+        "story_source_sha256": "09140937f5af6d349dde4500f9d660a6a0d3c6ec0c41e5087622f9814521887f",
+        "visual_brief_sha256": "863f8d62d25c768ec85862a53a469cb5dbf58130322a4840df1f8ece69b9e8a8",
+        "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+        "illustration_system_version": "1.3",
+        "visual_constitution_version": "1.1",
+        "prompt_contract_version": "1",
+        "candidate_count": 3,
+        "generator_surface": "chatgpt-image-tool",
+        "model_snapshot": null,
+        "generation_key": "ed638c355e91295828b816016d17ee4393754e588a4a845773d4905f28efdf20"
+      },
+      "candidates": [
+        {
+          "candidate": "A",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A compact language becomes an interactive composition\nVerified context: OpenUI Lang describes interfaces through a compact component language. Its runtime can update reactive state without another model call.\nVisual idea: A narrow folded paper strip passing through a heavy dark ink-colored printing mechanism and opening into a beautifully structured paper relief. The transformation is a physical abstract metaphor, not a technical diagram.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Low oblique perspective, assembled artifact resting on textured paper, controlled afternoon shadows, horizontal asymmetric balance.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-f40e31ed-1319-4714-bf66-cb8d8e9b1326.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "B",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A compact language becomes an interactive composition\nVerified context: OpenUI Lang describes interfaces through a compact component language. Its runtime can update reactive state without another model call.\nVisual idea: A narrow folded paper strip passing through a heavy dark ink-colored printing mechanism and opening into a beautifully structured paper relief. The transformation is a physical abstract metaphor, not a technical diagram.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Elevated three-quarter view, tighter sculptural focal silhouette with more negative space and layered material depth.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-f12ef70d-b92f-475d-a8a1-503a3dcba596.png",
+          "tool": "image_gen.imagegen"
+        },
+        {
+          "candidate": "C",
+          "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: A compact language becomes an interactive composition\nVerified context: OpenUI Lang describes interfaces through a compact component language. Its runtime can update reactive state without another model call.\nVisual idea: A narrow folded paper strip passing through a heavy dark ink-colored printing mechanism and opening into a beautifully structured paper relief. The transformation is a physical abstract metaphor, not a technical diagram.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Lower frontal cutaway perspective, stronger ink and terracotta contrast with a distinct arrangement of overlapping planes.",
+          "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-5e6de86f-44aa-41fd-af7f-15bfc26aa6e2.png",
+          "tool": "image_gen.imagegen"
+        }
+      ],
+      "selected_candidate": "B",
+      "asset": {
+        "path": "/images/guides/generative-ui-streaming-languages.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 123682,
+        "sha256": "b87ea64ee6fef192753b1f18f583f763718b953f5f4b333a2fb65eefcbcfdc73",
+        "git_blob_sha": "9b2c6dd9dd5a1291e20b9166de94a4c3253ce39f"
+      },
+      "crop_revision": null,
+      "constitution_check": {
+        "passed": true,
+        "violations": [],
+        "reviewer": "Codex model visual review; not human sign-off"
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 90,
+        "composition": 92,
+        "crop_quality": 87,
+        "technical_meaning": 88,
+        "cleanliness": 97,
+        "golden_reference_fit": 91,
+        "weighted_total": 90.8
+      },
+      "review_notes": "Compared on contact sheet with both production references. Physical spatial metaphor, restrained materials, no prohibited text or UI. Final desktop/mobile/card crops inspected."
+    }
+  ]
+}
