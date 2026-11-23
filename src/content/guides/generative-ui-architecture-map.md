@@ -1,7 +1,8 @@
 ---
 title: 'Generative UI, Part 1: Three Architectures Behind the Same Chat Window'
 description: 'Compare component catalogs, sandboxed MCP Apps and streaming UI languages by what crosses the network, who renders it and who authorizes actions.'
-status: draft
+status: published
+publishedAt: 2026-11-23
 format: review
 verification: researched
 difficulty: intermediate

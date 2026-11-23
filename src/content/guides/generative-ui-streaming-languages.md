@@ -1,7 +1,8 @@
 ---
 title: 'Generative UI, Part 4: A Small Language Between the Model and the Screen'
 description: 'Explore OpenUI Lang, reactive state and streaming compilation, while separating documented OpenAI Intelligent UI behavior from reverse-engineered DIL details.'
-status: draft
+status: published
+publishedAt: 2026-11-23
 format: review
 verification: researched
 difficulty: intermediate

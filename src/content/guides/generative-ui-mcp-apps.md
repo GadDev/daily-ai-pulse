@@ -1,7 +1,8 @@
 ---
 title: 'Generative UI, Part 3: The Tool Brings Its Own Interface'
 description: 'Trace MCP Apps from tool metadata and ui:// resources to sandboxed rendering, JSON-RPC messages and server-side authorization.'
-status: draft
+status: published
+publishedAt: 2026-11-23
 format: review
 verification: researched
 difficulty: intermediate

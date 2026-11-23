@@ -1,7 +1,8 @@
 ---
 title: 'Generative UI, Part 2: Let the Agent Compose Your Components'
 description: 'Understand A2UI, a2ui_flutter, json-render, Tambo and Hashbrown through a room picker, a concrete JSON payload and the limits of schema validation.'
-status: draft
+status: published
+publishedAt: 2026-11-23
 format: review
 verification: researched
 difficulty: intermediate
