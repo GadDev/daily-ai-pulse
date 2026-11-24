@@ -4,7 +4,7 @@
   "guide_id": "orca-first-use",
   "review_date": "2026-11-21",
   "reviewer": "Codex visual self-review; not independent human approval",
-  "state": "reviewed",
+  "state": "uploaded",
   "candidate_count": 3,
   "selected_candidate": "B",
   "visual_brief": {
@@ -215,7 +215,16 @@
     "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
   },
   "upload": {
-    "state": "pending",
-    "exact_ref": null
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-first-use",
+      "bytes": 161740,
+      "sha256": "61c1426c87e4198fd701bd0c4cd0f5c992c1f7091f6b30be82e0f1772d41a117",
+      "git_blob_sha": "d9b909132421bcf8e18aa300422e35744318b254",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
   }
 }

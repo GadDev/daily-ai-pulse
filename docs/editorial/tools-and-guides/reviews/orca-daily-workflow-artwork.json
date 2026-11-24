@@ -4,7 +4,7 @@
   "guide_id": "orca-daily-workflow",
   "review_date": "2026-11-21",
   "reviewer": "Codex visual self-review; not independent human approval",
-  "state": "reviewed",
+  "state": "uploaded",
   "candidate_count": 3,
   "selected_candidate": "C",
   "visual_brief": {
@@ -215,7 +215,16 @@
     "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
   },
   "upload": {
-    "state": "pending",
-    "exact_ref": null
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-daily-workflow",
+      "bytes": 122578,
+      "sha256": "060f820069f6c145317c395226c0e0021ec00fcef1cb17932af38a7e8a03df23",
+      "git_blob_sha": "88debbcc7aeec266bf73a0ffb79c0aa0c18f7778",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
   }
 }

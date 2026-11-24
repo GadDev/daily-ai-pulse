@@ -6,7 +6,7 @@
   "state": "draft-prepared",
   "publication_authorized": false,
   "branch": "codex/orca-guide-series",
-  "pr_number": null,
+  "pr_number": 299,
   "base_commit": "103c60a",
   "review_record": "docs/editorial/tools-and-guides/reviews/orca-series-2026-11-20.md",
   "preflight": {
@@ -23,15 +23,14 @@
       "evidence": "python3/Pillow encoded and fully decoded a 32x32 RGB WebP in memory; features.check('webp') returned true and decoded format/dimensions matched. Four selected assets encoded to 1600x900 WebP quality 90/method 6, fully decoded, checked for complete RIFF length and hashed."
     },
     "binary_upload": {
-      "status": "unverified",
-      "evidence": "Authenticated Git fetch succeeded; binary-safe Git CLI is available. Actual new cover commit/upload/readback has not occurred; no throwaway upload probe was created."
+      "status": "available",
+      "evidence": "All four reviewed WebPs committed/pushed using Git CLI. GitHub Base64 fetch_file at exact commit dcd841df1ed46a458d8e60f02de1e27bf5b217c7 decoded byte-for-byte equal to local assets, with matching byte lengths, SHA-256 and Git blob SHA. Detailed results in per-guide artwork records."
     }
   },
   "handoff": {
     "completion": "blocked",
     "blockers": [
-      "Live Orca install/authentication/UI and mixed-provider orchestration remain not executed: command -v orca found no executable in this runtime. Record installed versions/receipts and effective Manual permissions before publication.",
-      "Binary upload/readback and exact-head CI are pending."
+      "Live Orca install/authentication/UI and mixed-provider orchestration remain not executed: command -v orca found no executable in this runtime. Record installed versions/receipts and effective Manual permissions before publication."
     ]
   },
   "guides": [
@@ -43,7 +42,7 @@
       "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
       "guide_path": "src/content/guides/orca-first-use.md",
       "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-first-use-artwork.json",
-      "artwork_state": "reviewed",
+      "artwork_state": "uploaded",
       "diagram_state": "rendered-desktop-and-mobile-reviewed"
     },
     {
@@ -54,7 +53,7 @@
       "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
       "guide_path": "src/content/guides/orca-daily-workflow.md",
       "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-daily-workflow-artwork.json",
-      "artwork_state": "reviewed",
+      "artwork_state": "uploaded",
       "diagram_state": "rendered-desktop-and-mobile-reviewed"
     },
     {
@@ -65,7 +64,7 @@
       "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
       "guide_path": "src/content/guides/orca-workflow-benefits.md",
       "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-workflow-benefits-artwork.json",
-      "artwork_state": "reviewed",
+      "artwork_state": "uploaded",
       "diagram_state": "not-applicable"
     },
     {
@@ -76,7 +75,7 @@
       "reason": "Explicitly commissioned four-part series with distinct owned explanation; see review duplication matrix.",
       "guide_path": "src/content/guides/orca-agent-swarm.md",
       "artwork_record": "docs/editorial/tools-and-guides/reviews/orca-agent-swarm-artwork.json",
-      "artwork_state": "reviewed",
+      "artwork_state": "uploaded",
       "diagram_state": "rendered-desktop-and-mobile-reviewed"
     }
   ],
@@ -112,11 +111,13 @@
       "reason": "Open binary-validation-only PR; inspected its changed files and unmerged 2026-11-12 ledger. No Orca content, no new topic, no competing series."
     }
   ],
-  "last_worked_at": "2026-11-21",
+  "last_worked_at": "2026-11-22",
   "verification": {
     "examples": "51 expected-outcome operations; final reference fixture 11 tests passed; eight CLI failures checked for nonzero exit/empty stdout",
     "repository": "npm run verify passed on Node 22.23.4; 16 existing guide/asset/related-reading tests passed",
     "browser": "20 existing guide browser checks passed across correct-server run and focused timeout rerun; 12 isolated article viewport cases passed with no overflow/broken loaded images or serious/critical axe findings",
-    "product": "Orca installation/authentication/UI and live Claude/Codex orchestration not executed"
-  }
+    "product": "Orca installation/authentication/UI and live Claude/Codex orchestration not executed",
+    "remote_ci": "Exact final-head CI is observed in PR #299 body; an older green result is not current-head evidence."
+  },
+  "persistence": "open-draft-pr"
 }

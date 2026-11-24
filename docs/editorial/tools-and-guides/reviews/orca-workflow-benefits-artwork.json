@@ -4,7 +4,7 @@
   "guide_id": "orca-workflow-benefits",
   "review_date": "2026-11-21",
   "reviewer": "Codex visual self-review; not independent human approval",
-  "state": "reviewed",
+  "state": "uploaded",
   "candidate_count": 3,
   "selected_candidate": "A",
   "visual_brief": {
@@ -215,7 +215,16 @@
     "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
   },
   "upload": {
-    "state": "pending",
-    "exact_ref": null
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-workflow-benefits",
+      "bytes": 131658,
+      "sha256": "b6e8ca5a5cb70441e61281976ed9527d59431e44c9f12f8ec0d15bf587a7eb46",
+      "git_blob_sha": "91be7b3a1f4e415710aad8563f2d7f545da29dea",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
   }
 }

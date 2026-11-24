@@ -2,6 +2,8 @@
 title: 'Build a Five-Agent Team in Orca with Claude Code and Codex'
 description: Give Claude Code orchestration, planning and review roles, assign two Codex developers separate worktrees, and verify their integrated TypeScript change before acceptance.
 status: draft
+image: /images/guides/orca-agent-swarm.webp
+imageAlt: Five fitted stone segments form a low arch with a terracotta central keystone.
 format: tutorial
 series:
   id: orca-workflows

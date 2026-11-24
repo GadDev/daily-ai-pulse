@@ -2,6 +2,8 @@
 title: 'When Orca Can Improve Your Development Workflow'
 description: Assess Orca through task isolation, mixed-provider coordination and review effort, then run a small pilot without assuming that more agents mean more productivity.
 status: draft
+image: /images/guides/orca-workflow-benefits.webp
+imageAlt: Folded blank paper and a pale stone balance on a dark beam over a terracotta pivot.
 format: review
 series:
   id: orca-workflows

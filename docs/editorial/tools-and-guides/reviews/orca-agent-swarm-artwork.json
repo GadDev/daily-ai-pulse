@@ -4,7 +4,7 @@
   "guide_id": "orca-agent-swarm",
   "review_date": "2026-11-21",
   "reviewer": "Codex visual self-review; not independent human approval",
-  "state": "reviewed",
+  "state": "uploaded",
   "candidate_count": 3,
   "selected_candidate": "C",
   "visual_brief": {
@@ -215,7 +215,16 @@
     "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
   },
   "upload": {
-    "state": "pending",
-    "exact_ref": null
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-agent-swarm",
+      "bytes": 180164,
+      "sha256": "0a55cd485db2487dca19b9034a30774b89cdfb73213b17f64adefb79540b1d97",
+      "git_blob_sha": "95cb4e5882274dc48727f9ffee50c57378d3bd19",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
   }
 }

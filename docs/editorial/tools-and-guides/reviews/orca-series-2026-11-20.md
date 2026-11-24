@@ -87,3 +87,20 @@ The isolated real-template fixture built successfully with the four articles, re
 Visual inspection found collector arrows attached to the wrong final subpath and a correction legend crossing the main flow; both desktop/mobile SVG variants were corrected. Parallel stages retain accurate labels, reviewers inspect the integrated commit, and human acceptance is explicit. These are teaching diagrams, not evidence of a live executed Orca team. The diagrams use their own restricted width on desktop and larger relative labels in narrow variants.
 
 The final repository `npm run verify` passed again after article and visual additions. No unrelated tracked files are included; the existing test runner's `.last-run.json` change was restored to its original bytes. The first port-4321 custom diagram screenshots were 404 pages from the unrelated server and were rejected; only the isolated fixture's actual loaded images support the presentation result above.
+
+## Binary upload and PR persistence — finalized 22 November
+
+Draft PR: https://github.com/GadDev/daily-ai-pulse/pull/299, branch `codex/orca-guide-series`. All four covers were read back through GitHub `fetch_file` with `encoding: base64` at exact commit `dcd841df1ed46a458d8e60f02de1e27bf5b217c7`. The decoded remote bytes exactly matched local files, including byte lengths, SHA-256 and Git blob IDs:
+
+| Guide | Bytes | SHA-256 | Git blob |
+| --- | ---: | --- | --- |
+| orca-agent-swarm | 180164 | `0a55cd485db2487dca19b9034a30774b89cdfb73213b17f64adefb79540b1d97` | `95cb4e5882274dc48727f9ffee50c57378d3bd19` |
+| orca-daily-workflow | 122578 | `060f820069f6c145317c395226c0e0021ec00fcef1cb17932af38a7e8a03df23` | `88debbcc7aeec266bf73a0ffb79c0aa0c18f7778` |
+| orca-first-use | 161740 | `61c1426c87e4198fd701bd0c4cd0f5c992c1f7091f6b30be82e0f1772d41a117` | `d9b909132421bcf8e18aa300422e35744318b254` |
+| orca-workflow-benefits | 131658 | `b6e8ca5a5cb70441e61281976ed9527d59431e44c9f12f8ec0d15bf587a7eb46` | `91be7b3a1f4e415710aad8563f2d7f545da29dea` |
+
+Only after actual upload/readback were matching `image` and accessible `imageAlt` added to guide frontmatter. The final metadata-only integration retains the same cover bytes. `npm run verify` is rerun for the final tree; exact-head remote CI is reported in the PR body instead of creating CI-only restamp commits. All articles remain draft, with no publication date and no live guide/series routes. The source claim matrix records the original checking dates; a later commit date does not imply a new Orca test or new source verification.
+
+Final isolated article pass after the connector/legend correction: all 12 desktop/mobile viewport cases passed again. Displayed desktop and narrow teaching diagrams show correct convergence arrows, readable labels and a correction legend clear of the main flow. No article or cover change was needed to satisfy browser checks.
+
+**Remaining preparation/publication blocker:** live Orca and authenticated Claude/Codex execution, including installed CLI compatibility, actual effective worker permissions and recovery receipts. Resume this PR and commission; do not regenerate unchanged valid covers or select the same guide topics as new scheduled work. Human editorial review and explicit publication authorization remain required.
