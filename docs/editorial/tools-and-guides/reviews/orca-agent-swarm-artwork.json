@@ -1,0 +1,230 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "orca-agent-swarm",
+  "review_date": "2026-11-21",
+  "reviewer": "Codex visual self-review; not independent human approval",
+  "state": "uploaded",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "orca-agent-swarm",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Build a Five-Agent Team in Orca with Claude Code and Codex",
+    "verified_context": [
+      "The example assigns planning, coordination, two development roles and review to a five-role team.",
+      "The human accepts the integrated result after checks and bounded correction."
+    ],
+    "editorial_idea": "The example assigns planning, coordination, two development roles and review to a five-role team.",
+    "visual_metaphor": "Five substantial pale stone segments fit into a single low self-supporting architectural arch with a restrained terracotta central keystone; one unified sculptural assembly.",
+    "archetype": "architectural-cutaway",
+    "output_crop": "wide",
+    "must_show": [
+      "one materially present central sculptural metaphor",
+      "subtle depth and tactile materials",
+      "spacious warm background"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "cli_decision_at_generation": {
+    "decision": "GENERATE",
+    "reason": "review-missing",
+    "story_id": "orca-agent-swarm",
+    "system_version": null,
+    "expected_generation_key": "c28073c3b8beb8921dd1996b2cb82c0c6e9a253cf3bf12ffcb5d0a02a05ec58a",
+    "stored_generation_key": null,
+    "requires_batch_validation": false
+  },
+  "generation_identity_at_generation": {
+    "identity_version": "1",
+    "story_id": "orca-agent-swarm",
+    "story_source_sha256": "e90f8aef5cce403827f5c9db777aae122895cd6583ceac2a635646b5fc276e1e",
+    "visual_brief_sha256": "04a5b9b3d781b29ad169696690406622fa2707cfe42d77f584132e6793c5c1e4",
+    "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "c28073c3b8beb8921dd1996b2cb82c0c6e9a253cf3bf12ffcb5d0a02a05ec58a"
+  },
+  "source_binding_note": "Canonical decision CLI was invoked with the actual guide source path before generation. The news CLI hardcodes news review/asset paths, so this guide review does not claim news-validator approval or automatic guide reuse. Identity records the exact source bytes at generation; later diagram/cover metadata additions are separately recorded, not represented as the original generation input.",
+  "candidate_reviews": [
+    {
+      "candidate": "A",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-71e049ff-7306-4e10-a8cc-5ce6db88c890.png",
+      "output_identifier": "exec-71e049ff-7306-4e10-a8cc-5ce6db88c890",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Build a Five-Agent Team in Orca with Claude Code and Codex. Verified context: The example assigns planning, coordination, two development roles and review to a five-role team. The human accepts the integrated result after checks and bounded correction. Visual metaphor: Five substantial pale stone segments fit into a single low self-supporting architectural arch with a restrained terracotta central keystone; one unified sculptural assembly. Canonical composition: wide shallow five-piece stone arch, four chalky ivory blocks and one terracotta central wedge, visible precision-fit seams and porous tactile edges, grounded on warm paper, low oblique perspective. No repeated separate icons, connecting lines, figurines or diagram.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 94,
+        "composition": 91,
+        "crop_quality": 91,
+        "technical_meaning": 93,
+        "cleanliness": 98,
+        "golden_reference_fit": 94,
+        "weighted_total": 93.0
+      },
+      "review_note": "Eligible: five readable fitted segments, warm porous stone and central terracotta key."
+    },
+    {
+      "candidate": "B",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-fdca4e33-6ef5-49be-8433-d3c19796b76e.png",
+      "output_identifier": "exec-fdca4e33-6ef5-49be-8433-d3c19796b76e",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Build a Five-Agent Team in Orca with Claude Code and Codex. Verified context: The example assigns planning, coordination, two development roles and review to a five-role team. The human accepts the integrated result after checks and bounded correction. Visual metaphor: Five substantial pale stone segments fit into a single low self-supporting architectural arch with a restrained terracotta central keystone; one unified sculptural assembly. Editorial composition: a thick low arch like an ancient dry-stone vault section, precisely five large interlocking wedges with four pale chalk-stone sides and one muted terracotta keystone; strong interior negative space and layered material thickness, no extra stones or plinth pieces, one dominant joined sculpture.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 94,
+        "composition": 91,
+        "crop_quality": 89,
+        "technical_meaning": 93,
+        "cleanliness": 98,
+        "golden_reference_fit": 93,
+        "weighted_total": 92.5
+      },
+      "review_note": "Eligible: taller vault has strong depth but less margin for the wide hero crop."
+    },
+    {
+      "candidate": "C",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-b1cc1b68-9147-4d91-98c6-1697b717e09a.png",
+      "output_identifier": "exec-b1cc1b68-9147-4d91-98c6-1697b717e09a",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Build a Five-Agent Team in Orca with Claude Code and Codex. Verified context: The example assigns planning, coordination, two development roles and review to a five-role team. The human accepts the integrated result after checks and bounded correction. Visual metaphor: Five substantial pale stone segments fit into a single low self-supporting architectural arch with a restrained terracotta central keystone; one unified sculptural assembly. Alternate composition: broad shallow elliptical stone arch seen slightly from above, five clearly jointed tactile stone pieces form the continuous curve, the center wedge is terracotta and the other four ivory. Broad low silhouette and a quiet shadow underneath, all essential joints and central opening crop-safe. Architectural editorial object study, no diagram.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 95,
+        "brand_fit": 94,
+        "composition": 95,
+        "crop_quality": 96,
+        "technical_meaning": 94,
+        "cleanliness": 98,
+        "golden_reference_fit": 94,
+        "weighted_total": 94.85
+      },
+      "review_note": "Selected: low five-piece arch keeps all joints and the opening in the required hero/card crops; one coherent object rather than an agent chart."
+    }
+  ],
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 95,
+    "brand_fit": 94,
+    "composition": 95,
+    "crop_quality": 96,
+    "technical_meaning": 94,
+    "cleanliness": 98,
+    "golden_reference_fit": 94,
+    "weighted_total": 94.85
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_observations": {
+    "desktop-hero": "21:9 center crop retains the central object and its relationship.",
+    "mobile-hero": "16:9 preserves the complete central metaphor.",
+    "card": "3:2 crop retains the focal arrangement and material detail.",
+    "thumbnail": "320px-wide preview retains a readable silhouette.",
+    "square-row": "Additional square preview clips peripheral ends on some assets; the central relationship remains visible. Required hero/card crops are the approval basis."
+  },
+  "reference_comparison": {
+    "references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "observations": "Both production references and all three candidates were displayed together. Warm ivory/terracotta, tactile paper/stone, oblique spatial depth, soft shadows and quiet negative space match the reference grammar. No text, UI, logos, neon, robots, charts or schematic composition observed."
+  },
+  "contact_sheet": "docs/editorial/tools-and-guides/reviews/orca-agent-swarm-contact.webp",
+  "crop_sheet": "docs/editorial/tools-and-guides/reviews/orca-agent-swarm-crops.webp",
+  "final_asset": "/images/guides/orca-agent-swarm.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 180164,
+    "sha256": "0a55cd485db2487dca19b9034a30774b89cdfb73213b17f64adefb79540b1d97",
+    "git_blob_sha": "95cb4e5882274dc48727f9ffee50c57378d3bd19",
+    "riff_container_complete": true
+  },
+  "normalization": {
+    "codec": "Pillow WebP",
+    "quality": 90,
+    "method": 6,
+    "operation": "center fit to 1600x900; no stretching",
+    "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
+  },
+  "upload": {
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-agent-swarm",
+      "bytes": 180164,
+      "sha256": "0a55cd485db2487dca19b9034a30774b89cdfb73213b17f64adefb79540b1d97",
+      "git_blob_sha": "95cb4e5882274dc48727f9ffee50c57378d3bd19",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
+  }
+}

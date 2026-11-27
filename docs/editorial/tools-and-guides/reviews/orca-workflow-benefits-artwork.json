@@ -1,0 +1,230 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "orca-workflow-benefits",
+  "review_date": "2026-11-21",
+  "reviewer": "Codex visual self-review; not independent human approval",
+  "state": "uploaded",
+  "candidate_count": 3,
+  "selected_candidate": "A",
+  "visual_brief": {
+    "story_id": "orca-workflow-benefits",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "When Orca Can Improve Your Development Workflow",
+    "verified_context": [
+      "The review weighs coordination benefits against supervision and operating costs.",
+      "It proposes a task pilot without measured productivity claims."
+    ],
+    "editorial_idea": "The review weighs coordination benefits against supervision and operating costs.",
+    "visual_metaphor": "A quiet sculptural balance beam in dark metal rests on a terracotta fulcrum, carrying folded blank paper on one side and a single pale stone counterweight on the other, level and undecided.",
+    "archetype": "mechanical-metaphor",
+    "output_crop": "wide",
+    "must_show": [
+      "one materially present central sculptural metaphor",
+      "subtle depth and tactile materials",
+      "spacious warm background"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "cli_decision_at_generation": {
+    "decision": "GENERATE",
+    "reason": "review-missing",
+    "story_id": "orca-workflow-benefits",
+    "system_version": null,
+    "expected_generation_key": "98ae2bf8f7f103bd3377c5c4b7364f743d597b606d2c2a91c6f406a6f3b24c4d",
+    "stored_generation_key": null,
+    "requires_batch_validation": false
+  },
+  "generation_identity_at_generation": {
+    "identity_version": "1",
+    "story_id": "orca-workflow-benefits",
+    "story_source_sha256": "ac5e04a02802406df79d0af712384b93d48adbd98f2a01f58ac3fa1bb31a7c7c",
+    "visual_brief_sha256": "8b2c5282ed48f856ad5657cb11cf4d8fc095d0158d97aacf8a2a80bd1d0bdf1c",
+    "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "98ae2bf8f7f103bd3377c5c4b7364f743d597b606d2c2a91c6f406a6f3b24c4d"
+  },
+  "source_binding_note": "Canonical decision CLI was invoked with the actual guide source path before generation. The news CLI hardcodes news review/asset paths, so this guide review does not claim news-validator approval or automatic guide reuse. Identity records the exact source bytes at generation; later diagram/cover metadata additions are separately recorded, not represented as the original generation input.",
+  "candidate_reviews": [
+    {
+      "candidate": "A",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-fb265da1-10d5-45e0-9952-8725e7abd4d7.png",
+      "output_identifier": "exec-fb265da1-10d5-45e0-9952-8725e7abd4d7",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: When Orca Can Improve Your Development Workflow. Verified context: The review weighs coordination benefits against supervision and operating costs. It proposes a task pilot without measured productivity claims. Visual metaphor: A quiet sculptural balance beam in dark metal rests on a terracotta fulcrum, carrying folded blank paper on one side and a single pale stone counterweight on the other, level and undecided. Canonical composition: broad shallow beam, tactile folded ivory paper stack and cream stone each sit on shallow integral supports at opposite ends, simple unmarked terracotta wedge in center, level balance. Low compact sculptural still life; no scale markings, gears or ornamental chains.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 93,
+        "brand_fit": 94,
+        "composition": 94,
+        "crop_quality": 94,
+        "technical_meaning": 92,
+        "cleanliness": 98,
+        "golden_reference_fit": 94,
+        "weighted_total": 93.8
+      },
+      "review_note": "Selected: folded paper and pale stone remain visibly different on a level, unmarked beam; no measured result implied."
+    },
+    {
+      "candidate": "B",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-7b833e29-35c3-4990-b07e-77fde8fcaa6b.png",
+      "output_identifier": "exec-7b833e29-35c3-4990-b07e-77fde8fcaa6b",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: When Orca Can Improve Your Development Workflow. Verified context: The review weighs coordination benefits against supervision and operating costs. It proposes a task pilot without measured productivity claims. Visual metaphor: A quiet sculptural balance beam in dark metal rests on a terracotta fulcrum, carrying folded blank paper on one side and a single pale stone counterweight on the other, level and undecided. Editorial composition: a broad gently curved dark metal beam on a low rounded terracotta pivot supports a thick folded paper packet and smooth pale stone on its two ends. Side-on silhouette, level and undecided, paper and stone tangibly different materials, physical counterbalance rather than a drawn scale. No chains, numerals or symbols.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 91,
+        "brand_fit": 94,
+        "composition": 92,
+        "crop_quality": 94,
+        "technical_meaning": 91,
+        "cleanliness": 98,
+        "golden_reference_fit": 93,
+        "weighted_total": 92.8
+      },
+      "review_note": "Eligible: soft rounded pivot and thicker packet fit the palette; paper silhouette is slightly less open."
+    },
+    {
+      "candidate": "C",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-18f73d1b-bf66-40f3-83e6-d0def4cfccdd.png",
+      "output_identifier": "exec-18f73d1b-bf66-40f3-83e6-d0def4cfccdd",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never literal technical architecture, measured data, or a diagram. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: When Orca Can Improve Your Development Workflow. Verified context: The review weighs coordination benefits against supervision and operating costs. It proposes a task pilot without measured productivity claims. Visual metaphor: A quiet sculptural balance beam in dark metal rests on a terracotta fulcrum, carrying folded blank paper on one side and a single pale stone counterweight on the other, level and undecided. Alternate composition: oblique top view of a wide flat charcoal metal beam balanced over a terracotta triangular pivot, a single compact accordion-folded paper mass sits at its near end and a pale stone counterweight at its far end. Strong diagonal material still life, level balance, soft cast shadows, no measured markings.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 90,
+        "brand_fit": 93,
+        "composition": 91,
+        "crop_quality": 92,
+        "technical_meaning": 90,
+        "cleanliness": 98,
+        "golden_reference_fit": 92,
+        "weighted_total": 91.7
+      },
+      "review_note": "Eligible: upright accordion gives stronger texture but makes the paper end visually busier."
+    }
+  ],
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 93,
+    "brand_fit": 94,
+    "composition": 94,
+    "crop_quality": 94,
+    "technical_meaning": 92,
+    "cleanliness": 98,
+    "golden_reference_fit": 94,
+    "weighted_total": 93.8
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_observations": {
+    "desktop-hero": "21:9 center crop retains the central object and its relationship.",
+    "mobile-hero": "16:9 preserves the complete central metaphor.",
+    "card": "3:2 crop retains the focal arrangement and material detail.",
+    "thumbnail": "320px-wide preview retains a readable silhouette.",
+    "square-row": "Additional square preview clips peripheral ends on some assets; the central relationship remains visible. Required hero/card crops are the approval basis."
+  },
+  "reference_comparison": {
+    "references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "observations": "Both production references and all three candidates were displayed together. Warm ivory/terracotta, tactile paper/stone, oblique spatial depth, soft shadows and quiet negative space match the reference grammar. No text, UI, logos, neon, robots, charts or schematic composition observed."
+  },
+  "contact_sheet": "docs/editorial/tools-and-guides/reviews/orca-workflow-benefits-contact.webp",
+  "crop_sheet": "docs/editorial/tools-and-guides/reviews/orca-workflow-benefits-crops.webp",
+  "final_asset": "/images/guides/orca-workflow-benefits.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 131658,
+    "sha256": "b6e8ca5a5cb70441e61281976ed9527d59431e44c9f12f8ec0d15bf587a7eb46",
+    "git_blob_sha": "91be7b3a1f4e415710aad8563f2d7f545da29dea",
+    "riff_container_complete": true
+  },
+  "normalization": {
+    "codec": "Pillow WebP",
+    "quality": 90,
+    "method": 6,
+    "operation": "center fit to 1600x900; no stretching",
+    "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
+  },
+  "upload": {
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-workflow-benefits",
+      "bytes": 131658,
+      "sha256": "b6e8ca5a5cb70441e61281976ed9527d59431e44c9f12f8ec0d15bf587a7eb46",
+      "git_blob_sha": "91be7b3a1f4e415710aad8563f2d7f545da29dea",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
+  }
+}

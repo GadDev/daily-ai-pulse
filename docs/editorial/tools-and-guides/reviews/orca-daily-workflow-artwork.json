@@ -1,0 +1,230 @@
+{
+  "system_version": "1.3",
+  "constitution_version": "1.1",
+  "guide_id": "orca-daily-workflow",
+  "review_date": "2026-11-21",
+  "reviewer": "Codex visual self-review; not independent human approval",
+  "state": "uploaded",
+  "candidate_count": 3,
+  "selected_candidate": "C",
+  "visual_brief": {
+    "story_id": "orca-daily-workflow",
+    "placement": "article-hero",
+    "layout_reference": "docs/reference-layouts/story.html",
+    "subject": "Working Reliably in Orca: Worktrees, Reviews, and Recovery",
+    "verified_context": [
+      "Two coding tasks use separate worktrees from one accepted base.",
+      "Reviewed commits are integrated and their combined behavior is tested."
+    ],
+    "editorial_idea": "Two coding tasks use separate worktrees from one accepted base.",
+    "visual_metaphor": "Two substantial ivory paperboard trays rest separately beside one terracotta fitted case whose interior can hold them both.",
+    "archetype": "tool-artifact-study",
+    "output_crop": "wide",
+    "must_show": [
+      "one materially present central sculptural metaphor",
+      "subtle depth and tactile materials",
+      "spacious warm background"
+    ],
+    "must_not_show": [
+      "words",
+      "letters",
+      "numbers",
+      "labels",
+      "logos",
+      "interface-elements",
+      "page-header",
+      "page-footer",
+      "buttons",
+      "badges",
+      "invented-charts",
+      "watermark",
+      "neon-effects",
+      "robots",
+      "glowing-ai-brains",
+      "screenshot-imitation",
+      "bare-schematic-or-diagram",
+      "border",
+      "frame"
+    ],
+    "golden_references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "cover_crop_safe": true
+  },
+  "cli_decision_at_generation": {
+    "decision": "GENERATE",
+    "reason": "review-missing",
+    "story_id": "orca-daily-workflow",
+    "system_version": null,
+    "expected_generation_key": "3ee7cc91392536b81fbefad3c065e85ace47833f3fe6d376746dbf7de8903567",
+    "stored_generation_key": null,
+    "requires_batch_validation": false
+  },
+  "generation_identity_at_generation": {
+    "identity_version": "1",
+    "story_id": "orca-daily-workflow",
+    "story_source_sha256": "ef28c9341e49263c441c107a443a2b78ac3111632851360cd67f2e9341dda208",
+    "visual_brief_sha256": "b1af688c7553e1df00c55828daef4912172ebbc191a8ca8fa3913e8233eb4cb6",
+    "reference_inputs_sha256": "bad4cdcf6a36111918dea4d15402c67697058260f47e8639958585ee6a8a76fc",
+    "illustration_system_version": "1.3",
+    "visual_constitution_version": "1.1",
+    "prompt_contract_version": "1",
+    "candidate_count": 3,
+    "generator_surface": "chatgpt-image-tool",
+    "model_snapshot": null,
+    "generation_key": "3ee7cc91392536b81fbefad3c065e85ace47833f3fe6d376746dbf7de8903567"
+  },
+  "source_binding_note": "Canonical decision CLI was invoked with the actual guide source path before generation. The news CLI hardcodes news review/asset paths, so this guide review does not claim news-validator approval or automatic guide reuse. Identity records the exact source bytes at generation; later diagram/cover metadata additions are separately recorded, not represented as the original generation input.",
+  "candidate_reviews": [
+    {
+      "candidate": "A",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-b344b710-99ee-4c2c-9368-5b10377b81b1.png",
+      "output_identifier": "exec-b344b710-99ee-4c2c-9368-5b10377b81b1",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never a literal technical architecture. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Working Reliably in Orca: Worktrees, Reviews, and Recovery. Verified context: Two coding tasks use separate worktrees from one accepted base. Reviewed commits are integrated and their combined behavior is tested. Visual metaphor: Two substantial ivory paperboard trays rest separately beside one terracotta fitted case whose interior can hold them both. Canonical composition: a central low terracotta fitted open case with two adjacent recessed compartments, two cream tactile paperboard inserts resting slightly lifted and staggered beside its rim, clearly separate but fitting the common case. One cohesive artifact study, calm and compact, no repeated icons.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 92,
+        "brand_fit": 92,
+        "composition": 89,
+        "crop_quality": 85,
+        "technical_meaning": 92,
+        "cleanliness": 98,
+        "golden_reference_fit": 91,
+        "weighted_total": 90.6
+      },
+      "review_note": "Eligible: explicit two-compartment case; upright lid makes the overall artifact taller."
+    },
+    {
+      "candidate": "B",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-c4534e19-b47e-4d54-85db-d0d9345ca1fa.png",
+      "output_identifier": "exec-c4534e19-b47e-4d54-85db-d0d9345ca1fa",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never a literal technical architecture. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Working Reliably in Orca: Worktrees, Reviews, and Recovery. Verified context: Two coding tasks use separate worktrees from one accepted base. Reviewed commits are integrated and their combined behavior is tested. Visual metaphor: Two substantial ivory paperboard trays rest separately beside one terracotta fitted case whose interior can hold them both. Editorial composition: two deep ivory folded paperboard trays overlap diagonally at the lip of a thick terracotta low case, as a tactile interlocking joinery study. One tray is already seated, the other rests independently above the adjacent shallow recess, emphasizing fit and separation in one materially present object. No hands or tools.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 94,
+        "brand_fit": 93,
+        "composition": 90,
+        "crop_quality": 89,
+        "technical_meaning": 93,
+        "cleanliness": 98,
+        "golden_reference_fit": 92,
+        "weighted_total": 92.2
+      },
+      "review_note": "Eligible: seated/raised inserts suggest fit; the more dynamic arrangement is less settled than C."
+    },
+    {
+      "candidate": "C",
+      "source_file": "/Users/alexandre_gadaix/.codex/generated_images/01a1fae1-9336-7fe3-9d8f-d7f015f9402b/exec-15cd987e-232b-4f2f-9377-98dc18977ddd.png",
+      "output_identifier": "exec-15cd987e-232b-4f2f-9377-98dc18977ddd",
+      "full_prompt": "Create one editorial illustration for The Daily AI Pulse. Use case: stylized-concept. Asset: article hero and guide cards, layout reference docs/reference-layouts/story.html. Wide high resolution, ideally 2048x1152 or larger, no border. Editorial illustration with tactile material presence, subtle depth, soft shadows, oblique architectural perspective and warm paper grain, not glossy stock photography or flat vectors. Restrained warm canvas #F3EBDD, paper #FAF6EE, ink #171B1A, muted gray #575D5B and terracotta #8A4B35. One substantial focal sculptural metaphor with generous negative space. Keep ALL essential objects inside central 65% width and central 55% height so centered 21:9 desktop, 16:9 mobile and 3:2 card crops retain the meaning, and silhouette is readable at thumbnail scale. This is an abstract editorial metaphor, never a literal technical architecture. No words, letters, numbers, labels, logos, interface elements, page headers/footers, buttons, badges, charts, watermark, neon, robots, brains, screenshot imitation, arrows, flowcharts, bare schematics, icon arrays, border or frame. Subject: Working Reliably in Orca: Worktrees, Reviews, and Recovery. Verified context: Two coding tasks use separate worktrees from one accepted base. Reviewed commits are integrated and their combined behavior is tested. Visual metaphor: Two substantial ivory paperboard trays rest separately beside one terracotta fitted case whose interior can hold them both. Alternate composition: view a broad low open terracotta fitted case from a low oblique side, with two ivory paperboard trays set symmetrically in front of its two recesses, one turned to reveal folded corners and thickness. Low unified silhouette, rich paper edges and understated material illustration, ample space.",
+      "constitution_check": {
+        "passed": true,
+        "violations": []
+      },
+      "scores": {
+        "story_specific": 94,
+        "brand_fit": 94,
+        "composition": 94,
+        "crop_quality": 96,
+        "technical_meaning": 94,
+        "cleanliness": 98,
+        "golden_reference_fit": 94,
+        "weighted_total": 94.5
+      },
+      "review_note": "Selected: two independent folded trays and two recesses remain clear in a low crop-safe material still life."
+    }
+  ],
+  "constitution_check": {
+    "passed": true,
+    "violations": []
+  },
+  "prohibited_elements": {
+    "words": false,
+    "letters": false,
+    "numbers": false,
+    "labels": false,
+    "logos": false,
+    "interface_elements": false,
+    "page_header": false,
+    "page_footer": false,
+    "buttons": false,
+    "badges": false,
+    "invented_charts": false,
+    "watermark": false,
+    "neon_effects": false,
+    "robots": false,
+    "glowing_ai_brains": false,
+    "screenshot_imitation": false,
+    "bare_schematic_or_diagram": false,
+    "border": false,
+    "frame": false,
+    "unsupported_visual_claim": false
+  },
+  "scores": {
+    "story_specific": 94,
+    "brand_fit": 94,
+    "composition": 94,
+    "crop_quality": 96,
+    "technical_meaning": 94,
+    "cleanliness": 98,
+    "golden_reference_fit": 94,
+    "weighted_total": 94.5
+  },
+  "hard_failures": [],
+  "cover_crop_approved": true,
+  "thumbnail_approved": true,
+  "crop_observations": {
+    "desktop-hero": "21:9 center crop retains the central object and its relationship.",
+    "mobile-hero": "16:9 preserves the complete central metaphor.",
+    "card": "3:2 crop retains the focal arrangement and material detail.",
+    "thumbnail": "320px-wide preview retains a readable silhouette.",
+    "square-row": "Additional square preview clips peripheral ends on some assets; the central relationship remains visible. Required hero/card crops are the approval basis."
+  },
+  "reference_comparison": {
+    "references": [
+      "public/images/guides/agent-tool-approval-boundary.webp",
+      "public/images/guides/introduction-to-rag.webp"
+    ],
+    "observations": "Both production references and all three candidates were displayed together. Warm ivory/terracotta, tactile paper/stone, oblique spatial depth, soft shadows and quiet negative space match the reference grammar. No text, UI, logos, neon, robots, charts or schematic composition observed."
+  },
+  "contact_sheet": "docs/editorial/tools-and-guides/reviews/orca-daily-workflow-contact.webp",
+  "crop_sheet": "docs/editorial/tools-and-guides/reviews/orca-daily-workflow-crops.webp",
+  "final_asset": "/images/guides/orca-daily-workflow.webp",
+  "final_dimensions": {
+    "width": 1600,
+    "height": 900
+  },
+  "asset_integrity": {
+    "byte_length": 122578,
+    "sha256": "060f820069f6c145317c395226c0e0021ec00fcef1cb17932af38a7e8a03df23",
+    "git_blob_sha": "88debbcc7aeec266bf73a0ffb79c0aa0c18f7778",
+    "riff_container_complete": true
+  },
+  "normalization": {
+    "codec": "Pillow WebP",
+    "quality": 90,
+    "method": 6,
+    "operation": "center fit to 1600x900; no stretching",
+    "decode_roundtrip": "final WebP fully decoded; dimensions confirmed"
+  },
+  "upload": {
+    "state": "verified",
+    "method": "Git CLI commit/push; GitHub fetch_file Base64 at exact commit; local decode and byte comparison",
+    "readback": {
+      "guide_id": "orca-daily-workflow",
+      "bytes": 122578,
+      "sha256": "060f820069f6c145317c395226c0e0021ec00fcef1cb17932af38a7e8a03df23",
+      "git_blob_sha": "88debbcc7aeec266bf73a0ffb79c0aa0c18f7778",
+      "exact_bytes_equal": true,
+      "exact_ref": "dcd841df1ed46a458d8e60f02de1e27bf5b217c7"
+    },
+    "pr_number": 299
+  }
+}
