@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.1",
+  "editorial_date": "2026-11-23",
+  "run_status": "draft-pr",
+  "run_note": "Explicit manual four-article series commission on draft PR #302. All covers reviewed, committed and byte-for-byte verified at 616f226f7eecfdac79cebb8a30c6f0058d40b2c8. Local verify passed on Node 22.23.4; isolated four-article build and SVG rendering passed. CI run 45239866246 passed Verify project and Browser smoke and accessibility for the editorial tree. This follow-up commits only handoff and provenance records; final-head CI observation is tracked in the PR body. All four guides remain unpublished drafts.",
+  "candidates": [
+    {
+      "topic_key": "generative-ui-architecture-map",
+      "title": "Generative UI: ownership boundaries, payloads and execution",
+      "format": "review",
+      "decision": "selected",
+      "reader_outcome": "Choose a generative UI boundary and understand component catalogs, tool-served apps and streaming languages.",
+      "reason": "No matching topic in all six merged evergreen ledgers, main guide inventory or open GenUI PR search. Four-part series expressly requested; companion explanations own distinct boundaries.",
+      "sources": [
+        "https://github.com/a2ui-project/a2ui/blob/main/specification/v1_0/docs/a2ui_protocol.md",
+        "https://modelcontextprotocol.io/extensions/apps/overview",
+        "https://www.openui.com/docs/openui-lang"
+      ]
+    }
+  ],
+  "handoff": {
+    "guide_id": "generative-ui-architecture-map",
+    "pr_number": 302,
+    "completion": "complete",
+    "blockers": []
+  },
+  "artwork": {
+    "state": "uploaded",
+    "capabilities": {
+      "generation": {
+        "status": "available",
+        "evidence": "image_gen.imagegen generated twelve real candidates plus one crop correction; output paths and prompts persisted in series artwork record."
+      },
+      "inspection": {
+        "status": "available",
+        "evidence": "Opened both production WebP references, contact sheet, selected catalog full-size asset and final desktop/mobile/card crop sheet with image viewer."
+      },
+      "webp_conversion": {
+        "status": "available",
+        "evidence": "Pillow WebP encode/decode round trip succeeded; all four final assets decode to 1600x900."
+      },
+      "binary_upload": {
+        "status": "available",
+        "evidence": "Connected GitHub Base64 blob/tree/commit/ref upload succeeded. Public Git fetch and git show at exact commit 616f226f7eecfdac79cebb8a30c6f0058d40b2c8 returned identical bytes, SHA-256 and Git blob SHA for all four covers."
+      }
+    },
+    "generation": {
+      "tool": "image_gen.imagegen",
+      "prompt": "Create one editorial illustration for The Daily AI Pulse.\nPlacement: article hero\nSubject: Three architectures for generative UI\nVerified context: Catalog renderers map descriptions to application-owned components. MCP Apps deliver HTML resources, while UI languages describe composition for a controlled runtime.\nVisual idea: A single sculptural stone junction with three differently constructed openings: interlocking blocks, an inset small pavilion, and folded paper relief. Keep one coherent physical artifact rather than three diagrams.\nOutput crop: wide for article hero\nUse the corresponding page in docs/reference-layouts/ as the source of truth for the image\u2019s role, crop, scale, and surrounding whitespace. Use IMAGE_GALLERY.md only for visual mood. This is an artwork asset to place inside the existing HTML layout, not a generated webpage.\nArt direction: a restrained contemporary editorial illustration with a quiet scientific or architectural sensibility. Use deliberate geometry, fine lines, subtle paper texture, and a single clear focal idea that remains legible at thumbnail size. Harmonize with warm canvas #F3EBDD, paper #FAF6EE, near-black ink #171B1A, muted gray #575D5B, and sparing terracotta #8A4B35. Keep the composition spacious and the contrast strong. Allow the subject to survive an object-fit: cover crop on desktop and mobile.\nDo not produce a bare schematic, flowchart, wireframe, icon composition, or minimalist architecture diagram. Give the central metaphor physical or spatial presence, subtle depth, hierarchy and material detail.\nDepict only what the verified context supports. This is an abstract metaphor, not a purported technical diagram.\nNo words, letters, numbers, labels, logos, interface elements, page header, footer, buttons, badges, charts with invented data, watermark, neon effects, robots, generic glowing AI brains, glossy 3D SaaS art or screenshot imitation. No headline. Deliver a clean high-resolution wide image, at least 1600 by 900 pixels, with no border or frame. Keep the complete focal motif within the central 65 percent for responsive crops.\nComposition candidate: Low oblique perspective, assembled artifact resting on textured paper, controlled afternoon shadows, horizontal asymmetric balance.",
+      "source": "/workspace/scratch/a9f87e8ef60f/generated_images/exec-85fd91ac-648b-4cc1-b6aa-beabe7a0353b.png"
+    },
+    "review": {
+      "record": "docs/editorial/tools-and-guides/reviews/generative-ui-architecture-map-2026-11-23.md",
+      "outcome": "pass",
+      "references": [
+        "public/images/guides/agent-tool-approval-boundary.webp",
+        "public/images/guides/introduction-to-rag.webp"
+      ],
+      "crops": ["desktop-hero", "mobile-hero", "card"]
+    },
+    "blocker": null,
+    "upload": {
+      "path": "/images/guides/generative-ui-architecture-map.webp",
+      "sha256": "345aafa3452b03e676f5587d2b21239767a97332a5a3c973403469d874976c04",
+      "git_blob_sha": "59a0d3aabcaa734175db0471c1e38dba01d04ac1",
+      "width": 1600,
+      "height": 900
+    }
+  }
+}

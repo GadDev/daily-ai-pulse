@@ -48,7 +48,18 @@ const languageAlternates =
         { locale: 'en', href: new URL(`${base}stories/${storyId}/`, site).toString() },
         { locale: 'fr', href: new URL(`${base}fr/stories/${storyId}/`, site).toString() },
       ]
-    : [];
+    : archiveLanguageHref && currentCompareRoute(Astro.url.pathname)
+      ? [
+          { locale, href: new URL(Astro.url.pathname, site).toString() },
+          {
+            locale: locale === 'en' ? 'fr' : 'en',
+            href: new URL(archiveLanguageHref, site).toString(),
+          },
+        ]
+      : [];
+function currentCompareRoute(path: string) {
+  return path === `${base}compare/` || path === `${base}fr/compare/`;
+}
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) => currentPath === path || currentPath.startsWith(`${path}/`);
 
@@ -157,6 +168,13 @@ const structuredData =
             <a href={`${base}guides/`}>
               <EnglishDestination label="Guides" />
             </a>
+            <a
+              href={`${base}fr/compare/`}
+              class:list={{ active: isActive(`${base}fr/compare`) }}
+              aria-current={isActive(`${base}fr/compare`) ? 'page' : undefined}
+            >
+              <span class="nav-label">Comparer</span>
+            </a>
           </nav>
         ) : (
           <nav class="site-nav" aria-label="Primary navigation">
@@ -178,6 +196,13 @@ const structuredData =
               aria-current={isActive(`${base}guides`) ? 'page' : undefined}
             >
               <span class="nav-label">Guides</span>
+            </a>
+            <a
+              href={`${base}compare/`}
+              class:list={{ active: isActive(`${base}compare`) }}
+              aria-current={isActive(`${base}compare`) ? 'page' : undefined}
+            >
+              <span class="nav-label">Compare</span>
             </a>
           </nav>
         )}
@@ -220,6 +245,7 @@ const structuredData =
           <section>
             <h2>Explorer</h2>
             <a href={home}>Sélection en français</a>
+            <a href={`${base}fr/compare/`}>Comparer les modèles</a>
             <a href={`${base}fr/settings/`}>{text.settings}</a>
             <a href={base}>
               <EnglishDestination label="Édition" />
@@ -291,6 +317,7 @@ const structuredData =
             <a href={`${base}pulse/`}>Latest Pulse</a>
             <a href={`${base}categories/`}>Categories</a>
             <a href={`${base}guides/`}>Tools &amp; Guides</a>
+            <a href={`${base}compare/`}>Model Explorer</a>
             <a href={`${base}about/`}>About</a>
             <a href={`${base}settings/`}>{text.settings}</a>
             <a href={`${base}methodology/`}>Methodology</a>
@@ -455,8 +482,8 @@ const structuredData =
       font-size: 1.4rem;
     }
     .site-header .site-nav {
-      gap: 1rem;
-      font-size: 0.9rem;
+      gap: 0.7rem;
+      font-size: 0.85rem;
     }
     .site-header .site-actions {
       gap: 0.3rem;

@@ -1,0 +1,55 @@
+---
+import type { Model } from '../../lib/model-schema';
+import { modelMessages } from '../../lib/model-messages';
+import type { Locale } from '../../lib/i18n';
+
+interface Props {
+  model: Model;
+  locale: Locale;
+}
+const { model, locale } = Astro.props;
+const t = modelMessages[locale];
+const sources = [
+  { label: t.specs, ...model.specs },
+  ...(model.pricing ? [{ label: t.pricingSource, ...model.pricing.source }] : []),
+  ...(model.benchmark ? [{ label: t.benchmarkSource, ...model.benchmark.source }] : []),
+  ...model.references.map((source) => ({ label: t.additionalSource, ...source })),
+];
+---
+
+<details class="model-evidence" id={`evidence-${model.id}`}>
+  <summary>
+    {t.details}
+    <span class="sr-only"> — {model.name}</span>
+  </summary>
+  <div class="evidence-body">
+    <p>{model.notes[locale]}</p>
+    <p>
+      <strong>{t.version}:</strong> <code>{model.version}</code>
+    </p>
+    <p>
+      <strong>{t.availability}:</strong> {t[model.availability]}
+    </p>
+    {model.pricing && (
+      <p>
+        <strong>{model.pricing.provider} · Standard:</strong> {model.pricing.conditions[locale]}
+      </p>
+    )}
+    {model.benchmark && (
+      <p>
+        <strong>{model.benchmark.reportedBy === 'vendor' ? t.reported : t.independent}:</strong>{' '}
+        {model.benchmark.configuration[locale]}
+      </p>
+    )}
+    <ul>
+      {sources.map((source) => (
+        <li>
+          <a href={source.url}>{source.label}</a>{' '}
+          <span>
+            · {t.verified} <time datetime={source.verifiedAt}>{source.verifiedAt}</time>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</details>

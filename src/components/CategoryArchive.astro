@@ -95,6 +95,13 @@ const topTags = [...tagCounts.entries()]
         {fr ? 'Une sélection d’articles traduits et relus en français.' : config.dek}
       </p>
       <p class="count">{storyCount}</p>
+      {config.key === 'models' && (
+        <a class="compare-models-link" href={`${base}${fr ? 'fr/' : ''}compare/`}>
+          {fr
+            ? 'Comparer les modèles : tarifs, contexte et capacités'
+            : 'Compare models: pricing, context and capabilities'}
+        </a>
+      )}
     </div>
     <CategoryIllustration
       title={
@@ -155,6 +162,14 @@ const topTags = [...tagCounts.entries()]
 </BaseLayout>
 
 <style>
+  .compare-models-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 0.6rem;
+    color: var(--terracotta);
+    text-underline-offset: 0.2em;
+  }
   .archive-sort {
     display: flex;
     flex-wrap: wrap;

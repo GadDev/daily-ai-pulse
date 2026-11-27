@@ -3,8 +3,8 @@
   "editorial_date": "2026-11-20",
   "authorization": "User requested four Orca guides, selected macOS-first setup, reliable daily workflow, a TypeScript task-list example and Claude orchestration/planning/review with two Codex developers, then explicitly asked to implement the plan.",
   "scheduled_run": false,
-  "state": "draft-prepared",
-  "publication_authorized": false,
+  "state": "publication-authorized-researched",
+  "publication_authorized": true,
   "branch": "codex/orca-guide-series",
   "pr_number": 299,
   "base_commit": "103c60a",
@@ -31,7 +31,8 @@
     "completion": "blocked",
     "blockers": [
       "Live Orca install/authentication/UI and mixed-provider orchestration remain not executed: command -v orca found no executable in this runtime. Record installed versions/receipts and effective Manual permissions before publication."
-    ]
+    ],
+    "publication_boundary": "Explicit maintainer authorization received; live product integration remains outstanding and disclosed in the guides. Do not interpret this as a completed live product test."
   },
   "guides": [
     {
@@ -117,7 +118,10 @@
     "repository": "npm run verify passed on Node 22.23.4; 16 existing guide/asset/related-reading tests passed",
     "browser": "20 existing guide browser checks passed across correct-server run and focused timeout rerun; 12 isolated article viewport cases passed with no overflow/broken loaded images or serious/critical axe findings",
     "product": "Orca installation/authentication/UI and live Claude/Codex orchestration not executed",
-    "remote_ci": "Exact final-head CI is observed in PR #299 body; an older green result is not current-head evidence."
+    "remote_ci": "Exact final-head CI is observed in PR #299 body; an older green result is not current-head evidence.",
+    "source_recheck": "2026-11-27: current Orca official orchestration, CLI reference and permissions documents checked; these are live unpinned sources, not an installed version or executed test."
   },
-  "persistence": "open-draft-pr"
+  "persistence": "publication-change-in-pr",
+  "publication_date": "2026-11-27",
+  "publication_note": "On 2026-11-27 the user explicitly requested publication of PR #299. The four guides are released strictly as researched tutorials/review with original code/Git verification; live installed Orca, provider authentication, runtime permission propagation and orchestration remain untested. This is not a hands-on certification or a claim that the outstanding live-validation gate passed."
 }

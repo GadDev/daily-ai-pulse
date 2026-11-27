@@ -1,7 +1,8 @@
 ---
 title: 'Getting Started with Orca: Installation and Your First Agent'
 description: Install Orca on macOS, connect Claude Code or Codex, and make one small, tested change in a disposable TypeScript project.
-status: draft
+status: published
+publishedAt: 2026-11-27
 image: /images/guides/orca-first-use.webp
 imageAlt: A blank folded paper strip passes through an open terracotta arch on a low stone threshold.
 format: tutorial

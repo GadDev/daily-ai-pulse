@@ -1,3 +1,9 @@
+## Publication decision — 27 November 2026
+
+The maintainer explicitly requested publication of PR #299. All four articles retain `verification: researched` and the original 20–21 November verification dates; `publishedAt: 2026-11-27` records the actual editorial authorization. The tested reference-code/Git results must **not** be represented as tested Orca behavior. Orca installation, live Claude/Codex authentication, actual Manual permission propagation, worker dispatch and recovery have **not** been executed in this environment; readers are instructed to check their installed version and stop when the documented CLI/runtime is unavailable. This publication decision accepts that disclosed limitation; it does not close the underlying hands-on verification gap.
+
+On 27 November, the current official Orca orchestration, supported-agents and CLI-reference documentation were rechecked. The experimental-settings caveat remains; the advanced tutorial additionally documents CLI registration. No tested Orca release number, productivity claim, user account or release sign-off is fabricated. Production confirmation requires separate GitHub CI and Firebase verification after merge.
+
 # Orca series — preparation and verification record
 
 Commission opened 20 November 2026 (Europe/Luxembourg); implementation/verification continued on 21 November. This is a manual four-guide commission, not a scheduled selection or publication approval. Reviewer: Codex model self-review; no independent/human editorial approval is claimed.

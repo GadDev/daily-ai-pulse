@@ -1,7 +1,8 @@
 ---
 title: 'Working Reliably in Orca: Worktrees, Reviews, and Recovery'
 description: Run two scoped TypeScript changes in separate Orca worktrees, integrate their commits, and recover conflicts or interrupted sessions without losing evidence.
-status: draft
+status: published
+publishedAt: 2026-11-27
 image: /images/guides/orca-daily-workflow.webp
 imageAlt: Two ivory folded trays rest beside a terracotta case with two fitted recesses.
 format: tutorial

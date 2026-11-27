@@ -1,7 +1,8 @@
 ---
 title: 'Build a Five-Agent Team in Orca with Claude Code and Codex'
 description: Give Claude Code orchestration, planning and review roles, assign two Codex developers separate worktrees, and verify their integrated TypeScript change before acceptance.
-status: draft
+status: published
+publishedAt: 2026-11-27
 image: /images/guides/orca-agent-swarm.webp
 imageAlt: Five fitted stone segments form a low arch with a terracotta central keystone.
 format: tutorial
@@ -40,7 +41,7 @@ This guide builds a **five-role team** around one change: previewing a due date 
 
 **Part 4 of four.** Complete [Part 1](/guides/orca-first-use/) and [Part 2](/guides/orca-daily-workflow/), retaining their `orca-parallel` checkpoint. You need both authenticated coding CLIs, Node.js 24, Git, and familiarity with worktrees and cherry-picks. This is local development, with synthetic data and no deployment, remote push or production credentials.
 
-**Verification:** Official commands and source references were checked on 20 November 2026. This runtime has no Orca executable, so the mixed-provider workflow, installed command receipts, authentication and permission propagation were **not executed**. The review record separates local reference-code/Git checks from that outstanding integration test. Treat this as a researched draft requiring a live Orca pass, not a certified working swarm recipe for every release.
+**Verification:** Official commands and source references were checked on 20 November 2026. This runtime has no Orca executable, so the mixed-provider workflow, installed command receipts, authentication and permission propagation were **not executed**. The review record separates local reference-code/Git checks from that outstanding integration test. Treat this as a researched walkthrough, not a certified working swarm recipe for every release. Confirm commands and permissions in your installed Orca version before executing the workflow.
 
 The local verification on **21 November 2026** extracted the article's code into a disposable repository: baseline and marker behavior, filter/sort integration, conflict abort, date/parser assertions and CLI failure behavior passed. The final reference project had **11 passing tests**. Those checks exercised code and Git, not Orca's UI or live agents.
 
@@ -69,6 +70,8 @@ Use one disposable repository on one local host. Disable unnecessary MCP servers
 The orchestrator alone changes `src/cli.ts`, `src/format.ts` and integration assertions after the two component commits are accepted. Neither developer edits package configuration, fixtures or the other developer's files.
 
 ## 1. Check the installed Orca before dispatching
+
+Register the bundled Orca CLI in **Settings → Experimental → CLI** if it is not yet registered, following the [current Orca CLI reference](https://orca.dev/docs/cli/reference). Confirm it can connect to a running Orca instance before dispatching workers. This setup is documented, not an executed Orca check here.
 
 Open the exercise in Orca, create a coordinator worktree **from `orca-parallel`**, and start Claude Code there. Record the worktree path, branch and base commit. Run the following through the coordinator's shell tools, or ask it to show you the output. These examples use the macOS executable `orca`:
 
